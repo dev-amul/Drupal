@@ -1,0 +1,13 @@
+name = Entityform Structure Web Service
+description = Exposes entityforms field structure to the Services API.
+package = Services
+core = 7.x
+dependencies[] = services
+dependencies[] = services_entity
+
+; Information added by Drupal.org packaging script on 2016-04-24
+version = "7.x-1.0"
+core = "7.x"
+project = "entityform_structure_web_service"
+datestamp = "1461518043"
+

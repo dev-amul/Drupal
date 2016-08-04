@@ -1,0 +1,60 @@
+--- includes/destinations.inc	2013-11-01 13:52:53.000000000 -0300
++++ includes/destinations.inc	2014-05-19 11:46:09.000000000 -0300
+@@ -21,6 +21,18 @@
+ }
+ 
+ /**
++ * Helper funciton to determine the type of the database we're dealing with
++*/
++function backup_migrate_get_db_type() {
++  global $databases;
++  foreach ((array)$databases as $db_key => $target) {
++    foreach ((array)$target as $tgt_key => $info) {
++      return $info['driver'];
++    }
++  }
++}
++
++/**
+  * Implementation of hook_backup_migrate_destination_types().
+  *
+  * Get the built in Backup and Migrate destination types.
+@@ -68,13 +80,31 @@
+       'file' => drupal_get_path('module', 'backup_migrate') .'/includes/destinations.browser.inc',
+       'class' => 'backup_migrate_destination_browser_upload',
+     ),
+-    'db' => array(
+-      'type_name' => t('Database'),
+-      'description' => t('Import the backup directly into another database. Database destinations can also be used as a source to backup from.'),
+-      'file' => drupal_get_path('module', 'backup_migrate') .'/includes/destinations.db.inc',
+-      'class' => 'backup_migrate_destination_db',
+-      'can_create' => FALSE,
+-    ),
++  );
++  
++  if(backup_migrate_get_db_type() == 'mysql') {
++    $out += array(
++      'db' => array(
++        'type_name' => t('Database'),
++        'description' => t('Import the backup directly into another database. Database destinations can also be used as a source to backup from.'),
++        'file' => drupal_get_path('module', 'backup_migrate') .'/includes/destinations.db.mysql.inc',
++        'class' => 'backup_migrate_destination_db_mysql',
++        'can_create' => FALSE,
++      ),
++    );
++  } else {
++    $out += array(
++      'pgsql' => array(
++        'type_name' => t('PostgreSQL Database'),
++        'description' => t('Import the backup directly into another PostgreSQL database. Database destinations can also be used as a source to backup from. (EXPERIMENTAL)'),
++        'file' => drupal_get_path('module', 'backup_migrate') .'/includes/destinations.db.pgsql.inc',
++        'class' => 'backup_migrate_destination_db_pgsql',
++        'can_create' => TRUE,
++      ),
++    );
++  }
++  
++  $out += array(
+     'mysql' => array(
+       'type_name' => t('MySQL Database'),
+       'description' => t('Import the backup directly into another MySQL database. Database destinations can also be used as a source to backup from.'),

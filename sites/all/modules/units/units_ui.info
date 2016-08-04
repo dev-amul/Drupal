@@ -1,0 +1,20 @@
+name = Units UI
+description = Provide user interface for managing available units and conversions between them.
+package = Units
+core = 7.x
+
+dependencies[] = units
+
+files[] = includes/UnitsAbstractUIController.class.inc
+files[] = includes/UnitsMeasureUIController.class.inc
+files[] = includes/UnitsUnitUIController.class.inc
+files[] = includes/UnitsEntityTranslationHandler.class.inc
+
+files[] = units_ui.test
+
+; Information added by Drupal.org packaging script on 2016-03-11
+version = "7.x-1.0-rc1"
+core = "7.x"
+project = "units"
+datestamp = "1457670545"
+

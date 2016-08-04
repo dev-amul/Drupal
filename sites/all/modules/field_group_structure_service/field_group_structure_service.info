@@ -1,0 +1,8 @@
+name = Field Group Structure Service
+description = Set up a new restful service which will, given an entity and a bundle, return the nested context created with the Field Group module. For use in front-end UI management where display and form rendering are not handled by Drupal.
+package = Services
+core = 7.x
+version = 7.x-1.0
+dependencies[] = services
+dependencies[] = field_group
+

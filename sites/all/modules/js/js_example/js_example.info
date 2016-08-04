@@ -1,0 +1,12 @@
+name = JavaScript callback handler (example)
+description = Provides examples on how to use the JS module API.
+package = Performance
+core = 7.x
+dependencies[] = js
+
+; Information added by Drupal.org packaging script on 2015-02-14
+version = "7.x-2.0-beta1+8-dev"
+core = "7.x"
+project = "js"
+datestamp = "1423887186"
+

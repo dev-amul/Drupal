@@ -1,0 +1,5 @@
+name = Entityform custom prepopulate
+description = Prepopulate the entityforms with current user as encuestador
+version = 0.1
+core = 7.x
+package = Custom Modules

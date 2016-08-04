@@ -1,0 +1,83 @@
+<?php
+
+/**
+* Implements of hook_services_resources().
+*/
+function conditional_fields_structure_service_services_resources() {
+ $api = array(
+    'field_dependency_structure' => array(
+      'operations' => array(
+        'index' => array(
+          'help' => 'List all field dependencies information.',
+          'callback' => '_conditional_fields_structure_service_index',
+          'access callback' => 'user_access',
+          'access arguments' => array('access content'),
+          'access arguments append' => FALSE,
+          'args' => array(
+            array(
+              'name' => 'fn',
+              'type' => 'string',
+              'description' => 'Function to perform',
+              'source' => array('path' => '0'),
+              'optional' => TRUE,
+              'default' => '0',
+            ),
+            array(
+              'name' => 'entity_name',
+              'type' => 'string',
+              'description' => 'The name of the entity',
+              'source' => array('path' => 1),
+              'optional' => TRUE,
+              'default' => '0',
+            ),
+            array(
+              'name' => 'bundle_name',
+              'type' => 'string',
+              'description' => 'The name of the bundle within the named entity to return the field-dependency context',
+              'source' => array('path' => 2),
+              'optional' => TRUE,
+              'default' => '0',
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+  return $api;
+}
+
+function _conditional_fields_structure_service_index($fn, $entity_name, $bundle_name) {
+  dsm($entity_name);
+  $dependencies = conditional_fields_load_dependencies($entity_name, $bundle_name);  
+	return  array_map('_dummy_properties_filter', $dependencies);
+}
+
+function _dummy_properties_filter($bundle) {
+  $disallowed = [
+          "element_view",
+          "element_view_per_role",
+          "element_view_roles",
+          "element_edit",
+          "element_edit_per_role",
+          "element_edit_roles"
+          ];
+              
+  foreach ($bundle as $key => $value) {
+    # remove indexing number
+    $fields = $value['dependents'];
+    foreach ($fields as $key2 => $value2) {
+      $value2 = reset($value2);
+      $value2['options'] = array_filter(
+          $value2['options'],
+          function ($key) use ($disallowed) {
+              return !in_array($key, $disallowed);
+          },
+          ARRAY_FILTER_USE_KEY
+      );
+      $fields[$key2] = $value2;
+    }
+    $bundle[$key] = $fields;
+  }
+  return $bundle;
+}
+

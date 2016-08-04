@@ -1,0 +1,11 @@
+--- backup_migrate.module	2013-11-01 13:52:53.000000000 -0300
++++ backup_migrate.module	2014-05-19 11:37:24.000000000 -0300
+@@ -671,7 +671,7 @@
+  * The restore submit. Do the restore.
+  */
+ function backup_migrate_ui_manual_restore_form_submit($form, &$form_state) {
+-  $validators = array('file_validate_extensions' => array('gz zip sql mysql bz bz2 aes'));
++  $validators = array('file_validate_extensions' => array('gz zip sql mysql bz bz2 aes pgsql'));
+   if ($file = file_save_upload('backup_migrate_restore_upload', $validators)) {
+     backup_migrate_include('destinations');
+     backup_migrate_perform_restore('upload', $file->uri, $form_state['values']);

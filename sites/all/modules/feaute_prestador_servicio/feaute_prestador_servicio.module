@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the feaute-prestador-servicio feature.
+ */
+
+include_once 'feaute_prestador_servicio.features.inc';

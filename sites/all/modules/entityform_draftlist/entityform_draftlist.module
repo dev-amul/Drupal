@@ -1,0 +1,89 @@
+<?php
+
+/**
+ * implements hook_menu
+ * @return array items
+ */
+function entityform_draftlist_menu() {
+  /**
+   * items menu to load a specific draft instead of previous user submission draft
+   */
+  $items['eform/submit/%entityform_empty/%entityform'] = array(
+    'title callback' => 'entityform_page_title',
+    'title arguments' => array(2, 1),
+    'page callback' => 'entityform_form_wrapper',
+    'page arguments' => array(2, 'submit', 'page'),
+    'access callback' => 'entityform_access',
+    'access arguments' => array('submit', 2),
+    'file' => 'entityform.admin.inc',
+    'file path' => drupal_get_path('module', 'entityform'),
+    'type' => MENU_CALLBACK,
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter 
+ * of the entityform_type_form to add our multiple draft functionality
+ * @param array $form items
+ * @param array $form_state items
+ * @return array $form  with our setting added.
+ */
+function entityform_draftlist_form_entityform_type_form_alter(&$form, &$form_state) {
+  $entityform_type = $form['#entityform_type'];
+  
+  $form['data']['draft_set']['draft_multiple'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Allow multiple draft for this entityform type.'),
+    '#default_value' => !empty($entityform_type->data['draft_multiple']),
+    '#description'   => t('Allow user to have multiple draft. If yes, you should provide a view where your users can view/edit their drafts.<br />
+                        The format of the link should be submit link/submission_id. eg.eform/submit/test-multiple-drafts/43.<br />
+                        If this check and no submission id is provided in the link a blank form will be presented.'),
+    '#weight'        => 0,
+  );
+  $form['data']['draft_set']['draftable']['#weight'] = -1;
+}
+
+/**
+ * Implements hook_entityform_previous_submission_alter
+ * Alter the Entityform Submission that is consider to be the previous submission for a user when submitting a form.
+ *
+ * @param object $entityform_submission
+ *  The current previous submission if any.
+ * @param string $entityform_type
+ * @param array $context
+ *  An associative array containing the following keys:
+ *  - draft: whether draft submissions should be included
+ *  - uid: uid of the user to find previous submissions
+ */
+function entityform_draftlist_entityform_previous_submission_alter(&$entityform_submission, $entityform_type, $context) {
+  //Load the entityform type settings
+  $type = entityform_type_load($entityform_type);
+
+  //Getting the current url in order to extract the entiform_id of the draft.
+  //May be there are better ways of doing it...
+  $current_path = trim($_SERVER["REDIRECT_URL"], '/');
+  $arr = explode("/", $current_path);
+  
+  //Check to see if the user wanted to load a specific draft and if the entityform type support it.
+  if (isset($arr[5]) && is_numeric($arr[5]) && !empty($type->data['draft_multiple'])) {
+    $entityform_id = $arr[5];
+    $submission = array();
+    $submission = entityform_load($entityform_id);
+    
+    //Check to see if the type of the loaded submission is the same as the type we are trying to edit
+    //then verify if the entityform type support multiple draft to override the previous one with this one
+    if ($submission && $submission->type == $entityform_type && $submission->draft) {
+      $entityform_submission = $submission;
+    }
+    else {
+      $entityform_submission = FALSE;
+    }
+  }
+  elseif (!empty($type->data['draft_multiple'])) {
+    //empty the default loaded draft and present a new form
+    $entityform_submission = FALSE;
+  }
+}
+?>

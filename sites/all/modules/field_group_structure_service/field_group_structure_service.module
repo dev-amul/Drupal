@@ -1,0 +1,52 @@
+<?php
+
+/**
+* Implements of hook_services_resources().
+*/
+function field_group_structure_service_services_resources() {
+  $api = array(
+    'field_group_structure' => array(
+      'operations' => array(
+        'index' => array(
+          'help' => 'List all field grouping information.',
+          'callback' => '_field_group_structure_service_index',
+          'access callback' => 'user_access',
+          'access arguments' => array('access content'),
+          'access arguments append' => FALSE,
+          'args' => array(
+            array(
+              'name' => 'fn',
+              'type' => 'string',
+              'description' => 'Function to perform',
+              'source' => array('path' => '0'),
+              'optional' => TRUE,
+              'default' => '0',
+            ),
+            array(
+              'name' => 'entity_name',
+              'type' => 'string',
+              'description' => 'The name of the entity',
+              'source' => array('path' => 1),
+              'optional' => TRUE,
+              'default' => '0',
+            ),
+            array(
+              'name' => 'bundle_name',
+              'type' => 'string',
+              'description' => 'The name of the bundle within the named entity to return the field-group context',
+              'source' => array('path' => 2),
+              'optional' => TRUE,
+              'default' => '0',
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+  return $api;
+}
+
+function _field_group_structure_service_index($fn, $entity_name, $bundle_name) {
+  dsm($entity_name);
+	return (object)field_group_info_groups($entity_name, $bundle_name);
+}

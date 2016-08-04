@@ -1,0 +1,12 @@
+name = Entityform Draft list
+description = Exposes entityforms in drafts status.
+package = Entityforms
+core = 7.x
+dependencies[] = entityform
+
+; Information added by Drupal.org packaging script on 2016-07-05
+version = "7.x-1.0"
+core = "7.x"
+project = "entityform_draftlist"
+datestamp = "1461518043"
+

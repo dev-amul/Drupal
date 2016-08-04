@@ -1,0 +1,8 @@
+name = Conditional Fields Structure Service
+description = Exposes conditional_field structure to the Services API.
+package = Services
+core = 7.x
+version = 7.x-1.0
+dependencies[] = services
+dependencies[] = conditional_fields
+

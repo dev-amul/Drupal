@@ -1,0 +1,81 @@
+<?php
+
+/**
+* Implements of hook_services_resources().
+*/
+function field_collection_structure_service_services_resources() {
+  $api = array(
+    'field_collection_structure' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'help' => 'Retrieves fields for a single field collection type',
+          'file' => array(
+            'file' => 'inc',
+            'module' => 'field_collection_structure_service',
+          ),
+          'callback' => '_field_collection_structure_service_retrieve',
+          'access callback' => 'user_access',
+          'access arguments' => array('access content'),
+          'access arguments append' => FALSE,
+          'args' => array(
+            array(
+              'name' => 'type',
+              'type' => 'string',
+              'description' => 'The type of the entityform to get',
+              'source' => array('path' => ''),
+              'optional' => FALSE,
+            ),
+          ),
+        ),
+        'index' => array(
+          'help' => 'List all field collection information.',
+          'callback' => '_field_collection_structure_service_index',
+          'access callback' => 'user_access',
+          'access arguments' => array('access content'),
+          'access arguments append' => FALSE,
+          'args' => array(
+            array(
+              'name' => 'page',
+              'type' => 'string',
+              'description' => '',
+              'source' => array(
+                'param' => 'page',
+              ),
+              'optional' => TRUE,
+              'default value' => 0,
+            ),
+            array(
+              'name' => 'parameters',
+              'type' => 'array',
+              'description' => '',
+              'source' => 'param',
+              'optional' => TRUE,
+              'default value' => array(),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+  return $api;
+}
+
+/**
+ * Callback for retrieving the fields resources.
+ */
+function _field_collection_structure_service_retrieve($bundle) {
+  $entity_type = "field_collection_item"; 
+  return entityform_structure_web_service_get_fields($entity_type, $bundle);
+}
+
+function _field_collection_structure_service_index($page, $parameters) {
+  $form_fields = new stdClass();
+  $info = entity_get_property_info('field_collection_item');
+
+  foreach ($info['bundles'] as $name => $bundle) {
+    // Display just the entityform bundle name.
+    $form_fields->$name = reset(_field_collection_structure_service_retrieve($name));
+  }
+
+  return $form_fields;
+}

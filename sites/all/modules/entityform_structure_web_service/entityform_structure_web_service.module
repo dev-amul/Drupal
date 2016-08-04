@@ -1,0 +1,337 @@
+<?php
+
+
+/**
+* @file
+ * Exposes entityforms field structure to the Services API.
+ */
+
+
+/**
+* Implements hook_help().
+ */
+function entityform_structure_web_service_help($path, $arg) {
+	switch ($path) {
+		case 'admin/help#entityform_structure_web_service':
+		      $path = dirname(__FILE__) . '/README.txt';
+		if (file_exists($path)) {
+			$readme = file_get_contents($path);
+		}
+		if (!isset($readme)) {
+			return NULL;
+		}
+		if (module_exists('markdown')) {
+			$filters = module_invoke('markdown', 'filter_info');
+			$info = $filters['filter_markdown'];
+			if (function_exists($info['process callback'])) {
+				$function = $info['process callback'];
+				$output = ($function($readme, NULL));
+			}
+			else {
+				$output = '<pre>' . ($readme) . '</pre>';
+			}
+		}
+		else {
+			$output = '<pre>' . ($readme) . '</pre>';
+		}
+		
+		return $output;
+	}
+}
+
+
+/**
+* Gets entityform fields object by string.
+ */
+function entityform_structure_web_service_get_fields($entity_type, $type) {
+	global $user;
+	$user_full = user_load($user->uid);
+	$country_code = $user_full->field_pais['und'][0]['iso2'];
+	$currlang = $user_full->language;
+	
+
+	$info = entity_get_property_info($entity_type);
+	$allowed_items = array('label', 'required', 'widget', 'options');
+
+	//g	et all fields previously for cardinality export
+	$fields_info = field_read_fields(array('entity_type' => $entity_type));
+
+	/// host name
+	// list($id,, $bundle) = entity_extract_ids($entity_type, $type);
+	// if($entity = entity_load($entity_type, $id)){
+	// 	$host_entity = $entity->hostEntity();
+	// 	$form_fields['host_entity'] = $host_entity;
+	// }
+	/// en host name
+
+	foreach ($info['bundles'] as $name => $bundle) {
+		if ($name == $type) {
+			foreach ($bundle as $fields) {
+				foreach ($fields as $field_key => $items) {
+					$instance = field_info_instance($entity_type, $field_key, $type);
+					
+					// print translated field labels using i18n_field.module
+					// For performance reasons, we translate the whole instance once, which is cached.
+  				//$instance = i18n_string_object_translate('field_instance', $instance, array('langcode' => $currlang));
+
+					//i18n_field_instance_update_strings($instance);
+					$instance['label'] = module_exists('i18n_field') ? i18n_field_translate_property($instance, 'label', $currlang) : $instance['label'];
+
+					$widget = field_info_field($field_key);
+					$settings = array_merge($instance['settings'], $widget['settings']);
+					$instance['settings'] = $settings;
+
+					settings_mapping_vocab($instance['settings'], $currlang, $country_code);
+					settings_mapping_view($instance['settings'], $currlang);
+					settings_mapping_mvf($instance['settings'], $currlang);
+
+					if (!empty($instance['settings']['allowed_values'])) {
+						// i18n_string_translate(array('field', $field['field_name'], '#allowed_values'), $field['settings']['allowed_values'], array('langcode' => $langcode, 'sanitize' => FALSE));
+						$func = function($val) { return t($val); };
+						$instance['settings']['allowed_values'] = module_exists('i18n_field') ? i18n_field_translate_allowed_values($instance, $currlang) 
+								: array_map($func, $instance['settings']['allowed_values']);
+					}
+
+					//filter settings elements
+					$allowed = ['resource','allowed_values','hierarchy','value','min','max', 'prefix', 'suffix'];
+					$instance['settings'] = array_filter(
+							$instance['settings'],
+							function ($key) use ($allowed) {
+									return in_array($key, $allowed);
+							},
+							ARRAY_FILTER_USE_KEY
+					);
+
+					$instance['widget']['cardinality'] = $fields_info[$field_key]['cardinality'];
+					$form_fields[$name][$field_key] = $instance;
+				}
+			}
+		}
+	}
+	
+	return $form_fields;
+}
+
+function settings_mapping_vocab(&$settings, $currlang, $country_code){
+	if (isset($settings['allowed_values']) && !empty($settings['allowed_values']) 
+      && isset($settings['allowed_values'][0]['vocabulary'])) {
+		$options = array();
+		// Term reference fields may reference terms from more than one vocabulary.
+		foreach ($settings['allowed_values'] as $key => $allowed_value) {
+			if($vocabulary = taxonomy_vocabulary_machine_name_load($allowed_value['vocabulary'])){
+				if($terms = taxonomy_get_tree($vocabulary->vid, $allowed_value['parent'], 1)){
+					foreach ($terms as $term) {
+						if(!is_valid_term($term, $country_code)) {
+							continue;
+						}
+						if (module_exists('i18n_taxonomy')) {
+							module_load_include('inc', 'i18n', 'i18_taxonomy.pages');
+							$term = i18n_taxonomy_localize_terms($term); //TODO: Check the handler
+						}
+						$options[$term->tid] = module_exists('i18n_taxonomy') ? i18n_taxonomy_term_name($term, $currlang) : $term; //str_repeat('-', $term->depth) . $term->name;
+					}
+				}
+
+				$hierarchy = array();				;
+				if(read_children($vocabulary, $options, $hierarchy)){					
+					$settings['hierarchy'] = $hierarchy;
+				}
+			}			
+		}
+		$settings['resource'] = 'taxonomy_term';
+		$settings['allowed_values'] = $options;
+    return true;
+	}
+  return false;
+}
+
+function read_children($vocabulary, &$options, &$hierarchy, $offset = 0){
+	if($offset == 0){
+		foreach(array_keys($options) as $tid){
+			$hierarchy[$tid] = 0;
+		}
+	}
+	$num = count($options);
+	foreach (array_slice($options, $offset, $num-$offset, true) as $tid => $name) {
+		if($terms = taxonomy_get_tree($vocabulary->vid, $tid, 1)){
+				foreach ($terms as $term) {
+					$options[$term->tid] = $term->name;									//multi-level taxonomies, are naturally localized						//l($term->name, taxonomy_term_path($term));
+					$hierarchy[$term->tid] = $tid; 											//assume is not a multi-parent hier						
+				}
+			}
+	}
+	$has_children = count($options) > $num;
+	if($has_children){
+		read_children($vocabulary, $options, $hierarchy, $num);
+	}
+	return $has_children;
+}
+
+function settings_mapping_view(&$settings, $currlang = NULL, $label_func = NULL){
+	if (isset($settings['handler']) && !empty($settings['handler']) 
+      && isset($settings['handler_settings']['view'])) {
+
+	
+		$display_name = $settings['handler_settings']['view']['display_name'];
+    $args = $settings['handler_settings']['view']['args'];
+		$target_type = $settings['target_type'];
+		if(!$label_func){
+			$label_func = function($entity) use ($target_type) { 
+				return entity_label($target_type, $entity); //
+			};
+		}
+		$result = array();
+    if ($view = init_view($settings)) {
+      $result = $view->execute_display($display_name, $args);
+    }
+
+		$options = array();
+	
+    if ($result) {
+      $entities = entity_load($target_type, array_keys($result));
+      foreach($entities as $entity) {				
+        list($id,, $bundle) = entity_extract_ids($target_type, $entity);
+        $options[$id] =  $label_func($entity);//entity_label($target_type, $entity); //isset($entity->name) ? $entity->name : $entity->label;	//TODO: use here the $currlang parameter to translate
+      }
+    }
+		$settings['resource'] = $target_type;
+		$settings['allowed_values'] = $options;
+		return true;
+	}
+  return false;
+}
+
+function settings_mapping_mvf(&$settings, $currlang = NULL){
+	if (isset($settings['unit']) && !empty($settings['unit']['handler']) ) {
+		//assert(isset(settings['unit']['target_type']));
+
+		unset($settings['mvf']['unit_suggesters_settings']); // hack
+		
+		$settings = array_merge($settings, $settings['mvf']);
+
+		$target_type = $settings['unit']['target_type'];
+
+		$label_func = function($unit){ 
+				return $unit->symbol; 
+			};
+
+		if(settings_mapping_view($settings['unit'], $currlang, $label_func)){
+			$options = $settings['unit']['allowed_values'];
+		}
+		else{			
+			//$measure = mvf_measure_extract($settings['unit']['target_type']);
+			$measure = units_measure_machine_name_load(reset($settings['unit']['handler_settings']['target_bundles']));
+			$options = array();
+			foreach (units_unit_by_measure_load_multiple($measure) as $unit) {
+				$umid = entity_extract_ids($target_type, $unit);
+				$umid = reset($umid);
+				$options[$umid] = $label_func($unit); 
+			}
+		}
+		$settings['resource'] = $target_type; 
+		$settings['allowed_values'] = $options;
+		return true;
+	}
+  return false;
+}
+
+function init_view($settings) 
+{
+	// default handler parameters
+	$match = NULL; $match_operator = 'CONTAINS'; $limit = 0; $ids = NULL;
+
+	$view_name = $settings['handler_settings']['view']['view_name'];
+	$display_name = $settings['handler_settings']['view']['display_name'];
+	$args = $settings['handler_settings']['view']['args'];
+	
+	// Check that the view is valid and the display still exists.
+	$view = views_get_view($view_name);
+	if (!$view || !isset($view->display[$display_name]) || !$view->access($display_name)) {
+		watchdog('entityreference', 'The view %view_name is no longer eligible for the %field_name field.', array('%view_name' => $view_name, '%field_name' => $this->instance['label']), WATCHDOG_WARNING);
+		return NULL;
+	}
+	$view->set_display($display_name);
+
+	// Make sure the query is not cached.
+	$view->is_cacheable = FALSE;
+
+	// Pass options to the display handler to make them available later.
+	$entityreference_options = array(
+		'match' => $match,
+		'match_operator' => $match_operator,
+		'limit' => $limit,
+		'ids' => $ids,
+	);
+	$view->display_handler->set_option('entityreference_options', $entityreference_options);
+	return $view; 
+}
+	
+function is_valid_term($term, $country_code){
+		if ($term) {
+			$term_full = taxonomy_term_load($term->tid);
+      return !isset($term_full->field_pais) 
+        || $term_full->field_pais['und'][0]['iso2'] == $country_code;			
+		}
+	}
+	
+	/**
+	* Implements hook_services_resources().
+	 */
+	function entityform_structure_web_service_services_resources() {
+		return array(
+		    'forms' => array(
+		      'retrieve' => array(
+		        'help' => 'Retrieves fields for a single entityform type',
+		        'file' => array(
+		          'file' => 'inc',
+		          'module' => 'entityform_structure_web_service',
+		        ),
+		        'callback' => '_entityform_structure_web_service_retrieve',
+		        'access callback' => 'user_access',
+		        'access arguments' => array('access content'),
+		        'access arguments append' => FALSE,
+		        'args' => array(
+		          array(
+		            'name' => 'type',
+		            'type' => 'string',
+		            'description' => 'The type of the entityform to get',
+		            'source' => array('path' => ''),
+		            'optional' => FALSE,
+		          ),
+		        ),
+		      ),
+		      'index' => array(
+		        'help' => 'Retrieves a listing of entityforms and their fields',
+		        'file' => array(
+		          'file' => 'inc',
+		          'module' => 'entityform_structure_web_service',
+		        ),
+		        'callback' => '_entityform_structure_web_service_index',
+		        'access callback' => 'user_access',
+		        'access arguments' => array('access content'),
+		        'access arguments append' => FALSE,
+		        'args' => array(
+		          array(
+		            'name' => 'page',
+		            'type' => 'string',
+		            'description' => '',
+		            'source' => array(
+		              'param' => 'page',
+		            ),
+		            'optional' => TRUE,
+		            'default value' => 0,
+		          ),
+		          array(
+		            'name' => 'parameters',
+		            'type' => 'array',
+		            'description' => '',
+		            'source' => 'param',
+		            'optional' => TRUE,
+		            'default value' => array(),
+		          ),
+		        ),
+		      ),
+		    ),
+		  );
+	}
+	

@@ -1,0 +1,10 @@
+name = Field Collection Structure Service
+description = Exposes field_collection structure to the Services API.
+package = Services
+core = 7.x
+version = 7.x-1.0
+dependencies[] = services
+dependencies[] = entityform_structure_web_service
+dependencies[] = services_entity
+dependencies[] = field_collection
+
