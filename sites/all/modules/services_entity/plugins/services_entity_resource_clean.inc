@@ -248,7 +248,15 @@ class ServicesEntityResourceControllerClean extends ServicesEntityResourceContro
     foreach($values as $key => $value) {
       // Handle Resource references so we can pass pack the object.
       if (is_array($value) && isset($value['id'])) {
-        $values[$key] = $value['id'];
+        if (isset($value['resource'])) {
+          // If the resource type is available, use a wrapper. This allows
+          // us to set properties of the generic 'entity' type - for example
+          // the field_collection_item's host_entity property.
+          $values[$key] = entity_metadata_wrapper($value['resource'], $value['id']);
+        }
+        else {
+          $values[$key] = $value['id'];
+        }
       }
       // Check if this is actually a field_ value
       if (isset($property_info['field_' . $key])) {
