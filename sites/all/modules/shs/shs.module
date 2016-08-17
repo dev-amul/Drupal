@@ -228,6 +228,8 @@ function shs_conditional_fields_states_handler_shs($field, $field_info, &$option
       }
       $old_state = $state[$options['state']][$options['selector']];
       if (isset($old_state['value'][0]['tid'])) {
+        // Completly remove old state.
+        unset($state[$options['state']][$options['selector']]);
         $options['selector'] .= '-0-tid';
         $state[$options['state']][$options['selector']] = $old_state;
         $state[$options['state']][$options['selector']]['value'] = $old_state['value'][0]['tid'];
@@ -853,7 +855,7 @@ function shs_term_get_children($identifier, $parent = 0, $settings = array(), $r
           global $user;
           $user_full = user_load($user->uid);
           $country = $user_full->field_pais['und'][0]['iso2'];	
-        //
+        // fin
 
       //
       foreach ($vocabularies as $name => $vid) {

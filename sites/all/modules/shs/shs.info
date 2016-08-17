@@ -6,9 +6,9 @@ files[] = includes/handlers/shs_handler_filter_entityreference.inc
 files[] = includes/handlers/shs_handler_filter_term_node_tid.inc
 files[] = includes/handlers/shs_handler_filter_term_node_tid_depth.inc
 
-; Information added by Drupal.org packaging script on 2016-06-14
-version = "7.x-1.6+72-dev"
+; Information added by Drupal.org packaging script on 2016-07-26
+version = "7.x-1.6+73-dev"
 core = "7.x"
 project = "shs"
-datestamp = "1465887840"
+datestamp = "1469518440"
 
