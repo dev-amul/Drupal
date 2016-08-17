@@ -356,13 +356,13 @@ class PoStreamReader implements PoStreamInterface, PoReaderInterface {
         $quoted = $this->parseQuoted($line);
         if ($quoted === FALSE) {
           // The message id must be wrapped in quotes.
-          $this->_errors[] = format_string('The translation stream %uri contains an error: invalid format for "msgid" on line %line.', $log_vars, $log_vars);
+          $this->_errors[] = format_string('The translation stream %uri contains an error: invalid format for "msgid" on line %line.', $log_vars);
           return FALSE;
         }
 
         $this->_current_item['msgid'] = $quoted;
         $this->_context = 'MSGID';
-        return;
+        return NULL;
       }
       elseif (!strncmp('msgctxt', $line, 7)) {
         // Starting a new context.

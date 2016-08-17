@@ -160,7 +160,7 @@ function l10n_update_build_sources($projects = array(), $langcodes = array()) {
  * @param object $source
  *   Translation source object.
  *
- * @return object
+ * @return object|boolean
  *   Source file object of the po file, updated with:
  *   - "uri": File name and path.
  *   - "timestamp": Last updated time of the po file.

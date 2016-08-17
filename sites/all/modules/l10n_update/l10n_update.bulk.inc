@@ -373,7 +373,7 @@ function l10n_update_get_interface_translation_files($projects = array(), $langc
  *   - 'finish_feedback': Whether or not to give feedback to the user when the
  *     batch is finished. Optional, defaults to TRUE.
  *
- * @return array
+ * @return array|boolean
  *   A batch structure or FALSE if $files was empty.
  */
 function l10n_update_batch_build(array $files, array $options) {
@@ -510,7 +510,7 @@ function l10n_update_batch_import($file, array $options, &$context) {
  * @param array $context
  *   Contains a list of imported files.
  */
-function l10n_update_batch_import_save(array $context) {
+function l10n_update_batch_import_save($context) {
   if (isset($context['results']['files'])) {
     foreach ($context['results']['files'] as $file) {
       // Update the file history if both project and version are known. This

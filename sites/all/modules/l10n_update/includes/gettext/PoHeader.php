@@ -186,7 +186,7 @@ class PoHeader {
    * @param string $pluralforms
    *   The Plural-Forms entry value.
    *
-   * @return array
+   * @return array|boolean
    *   An array containing the number of plural forms and the converted version
    *   of the formula that can be evaluated with PHP later.
    *

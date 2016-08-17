@@ -227,7 +227,7 @@ function l10n_update_batch_fetch_finished($success, array $results) {
  *   Directory where the downloaded file will be saved. Defaults to the
  *   temporary file path.
  *
- * @return object
+ * @return object|boolean
  *   File object if download was successful. FALSE on failure.
  */
 function l10n_update_download_source($source_file, $directory = 'temporary://') {
