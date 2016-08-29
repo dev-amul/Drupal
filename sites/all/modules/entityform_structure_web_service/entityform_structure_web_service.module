@@ -115,6 +115,14 @@ function entityform_structure_web_service_get_fields($entity_type, $type) {
 function settings_mapping_vocab(&$settings, $currlang, $country_code){
 	if (isset($settings['allowed_values']) && !empty($settings['allowed_values']) 
       && isset($settings['allowed_values'][0]['vocabulary'])) {
+
+				// HACK to deal with big locality taxonomy far appart
+				if($settings['allowed_values'][0]['vocabulary'] === 'division_administrativa'){
+					$settings = array();
+					$settings['resource'] = 'taxonomy_shs';
+					return false;
+				}
+
 		$options = array();
 		// Term reference fields may reference terms from more than one vocabulary.
 		foreach ($settings['allowed_values'] as $key => $allowed_value) {
@@ -264,6 +272,13 @@ function init_view($settings)
 	);
 	$view->display_handler->set_option('entityreference_options', $entityreference_options);
 	return $view; 
+}
+
+
+function get_country_code(){
+  global $user;
+	$user_full = user_load($user->uid);	
+  return $user_full->field_pais['und'][0]['iso2'];
 }
 	
 function is_valid_term($term, $country_code){

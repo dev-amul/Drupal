@@ -1,0 +1,90 @@
+<?php
+
+/**
+* Implements of hook_services_resources().
+*/
+function taxonomy_web_service_services_resources() {
+ $api = array(
+    'vocab' => array(
+      'operations' => array(
+        'index' => array(
+          'help' => 'List hierarchical taxonomy information.',
+          'callback' => '_taxonomy_vocab_service_index',
+          'access callback' => 'user_access',
+          'access arguments' => array('access content'),
+          'access arguments append' => FALSE,
+          'args' => array(
+            array(
+              'name' => 'fn',
+              'type' => 'string',
+              'description' => 'Function to perform',
+              'source' => array('path' => '0'),
+              'optional' => TRUE,
+              'default' => '0',
+            ),
+            array(
+              'name' => 'entity_name',
+              'type' => 'string',
+              'description' => 'The name of the entity',
+              'source' => array('path' => 1),
+              'optional' => TRUE,
+              'default' => '0',
+            ),
+            array(
+              'name' => 'bundle_name',
+              'type' => 'string',
+              'description' => 'The name of the bundle within the named entity to return the field-dependency context',
+              'source' => array('path' => 2),
+              'optional' => TRUE,
+              'default' => '0',
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+  return $api;
+}
+
+function _taxonomy_vocab_service_index($fn, $entity_name, $bundle_name) {
+	$country_code = get_country_code();
+  $settings = array();
+  if($vocabulary = taxonomy_vocabulary_machine_name_load('division_administrativa')){
+     $options = array();
+     if($terms = taxonomy_get_tree($vocabulary->vid, 0, 1)){     
+      foreach ($terms as $term) {
+        if(is_valid_term($term, $country_code)) {
+          $options[$term->tid] = $term->name;
+        }
+      }
+    }
+    $hierarchy = array();
+    if(read_children($vocabulary, $options, $hierarchy)){					
+      $settings['hierarchy'] = $hierarchy;
+    }
+    $settings['allowed_values'] = $options;
+  }  
+	return $settings;
+}
+
+// function read_children($vocabulary, &$options, &$hierarchy, $offset = 0){
+// 	if($offset == 0){
+// 		foreach(array_keys($options) as $tid){
+// 			$hierarchy[$tid] = 0;
+// 		}
+// 	}
+// 	$num = count($options);
+// 	foreach (array_slice($options, $offset, $num-$offset, true) as $tid => $name) {
+// 		if($terms = taxonomy_get_tree($vocabulary->vid, $tid, 1)){
+// 				foreach ($terms as $term) {
+// 					$options[$term->tid] = $term->name;									//multi-level taxonomies, are naturally localized						//l($term->name, taxonomy_term_path($term));
+// 					$hierarchy[$term->tid] = $tid; 											//assume is not a multi-parent hier						
+// 				}
+// 			}
+// 	}
+// 	$has_children = count($options) > $num;
+// 	if($has_children){
+// 		read_children($vocabulary, $options, $hierarchy, $num);
+// 	}
+// 	return $has_children;
+// }

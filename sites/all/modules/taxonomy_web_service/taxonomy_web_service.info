@@ -1,0 +1,10 @@
+name = Hierarchical Taxonomy Service
+description = Exposes hierarchical taxonomies to the Services API.
+package = Services
+core = 7.x
+version = 7.x-1.0
+dependencies[] = services
+dependencies[] = services_entity
+dependencies[] = taxonomy
+dependencies[] = entityform_structure_web_service
+
