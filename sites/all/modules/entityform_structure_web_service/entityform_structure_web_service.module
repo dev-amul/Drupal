@@ -85,7 +85,7 @@ function entityform_structure_web_service_get_fields($entity_type, $type) {
 					settings_mapping_view($instance['settings'], $currlang);
 					settings_mapping_mvf($instance['settings'], $currlang);
 
-					if (!empty($instance['settings']['allowed_values'])) {
+					if (!empty($instance['settings']['allowed_values']) && !isset($settings['allowed_values'][0]['vocabulary'])) {
 						// i18n_string_translate(array('field', $field['field_name'], '#allowed_values'), $field['settings']['allowed_values'], array('langcode' => $langcode, 'sanitize' => FALSE));
 						$func = function($val) { return t($val); };
 						$instance['settings']['allowed_values'] = module_exists('i18n_field') ? i18n_field_translate_allowed_values($instance, $currlang) 
@@ -116,39 +116,39 @@ function settings_mapping_vocab(&$settings, $currlang, $country_code){
 	if (isset($settings['allowed_values']) && !empty($settings['allowed_values']) 
       && isset($settings['allowed_values'][0]['vocabulary'])) {
 
-				// HACK to deal with big locality taxonomy far appart
-				if($settings['allowed_values'][0]['vocabulary'] === 'division_administrativa'){
-					$settings = array();
-					$settings['resource'] = 'taxonomy_shs';
-					return false;
-				}
+		// // HACK to deal with big locality taxonomy far appart
+		// if($settings['allowed_values'][0]['vocabulary'] === 'division_administrativa'){
+		// 	$settings = array();
+		// 	$settings['resource'] = 'taxonomy_shs';
+		// 	return false;
+		// }
 
-		$options = array();
-		// Term reference fields may reference terms from more than one vocabulary.
-		foreach ($settings['allowed_values'] as $key => $allowed_value) {
-			if($vocabulary = taxonomy_vocabulary_machine_name_load($allowed_value['vocabulary'])){
-				if($terms = taxonomy_get_tree($vocabulary->vid, $allowed_value['parent'], 1)){
-					foreach ($terms as $term) {
-						if(!is_valid_term($term, $country_code)) {
-							continue;
-						}
-						if (module_exists('i18n_taxonomy')) {
-							module_load_include('inc', 'i18n', 'i18_taxonomy.pages');
-							$term = i18n_taxonomy_localize_terms($term); //TODO: Check the handler
-						}
-						$options[$term->tid] = module_exists('i18n_taxonomy') ? i18n_taxonomy_term_name($term, $currlang) : $term; //str_repeat('-', $term->depth) . $term->name;
-					}
-				}
+		// $options = array();
+		// // Term reference fields may reference terms from more than one vocabulary.
+		// foreach ($settings['allowed_values'] as $key => $allowed_value) {
+		// 	if($vocabulary = taxonomy_vocabulary_machine_name_load($allowed_value['vocabulary'])){
+		// 		if($terms = taxonomy_get_tree($vocabulary->vid, $allowed_value['parent'], 1)){
+		// 			foreach ($terms as $term) {
+		// 				if(!is_valid_term($term, $country_code)) {
+		// 					continue;
+		// 				}
+		// 				if (module_exists('i18n_taxonomy')) {
+		// 					module_load_include('inc', 'i18n', 'i18_taxonomy.pages');
+		// 					$term = i18n_taxonomy_localize_terms($term); //TODO: Check the handler
+		// 				}
+		// 				$options[$term->tid] = module_exists('i18n_taxonomy') ? i18n_taxonomy_term_name($term, $currlang) : $term; //str_repeat('-', $term->depth) . $term->name;
+		// 			}
+		// 		}
 
-				$hierarchy = array();				;
-				if(read_children($vocabulary, $options, $hierarchy)){					
-					$settings['hierarchy'] = $hierarchy;
-				}
-			}			
-		}
-		$settings['resource'] = 'taxonomy_term';
-		$settings['allowed_values'] = $options;
-    return true;
+		// 		$hierarchy = array();				;
+		// 		if(read_children($vocabulary, $options, $hierarchy)){					
+		// 			$settings['hierarchy'] = $hierarchy;
+		// 		}
+		// 	}			
+		// }
+		// $settings['allowed_values'] = $options;
+    $settings['resource'] = 'taxonomy_term';
+		return true;
 	}
   return false;
 }
