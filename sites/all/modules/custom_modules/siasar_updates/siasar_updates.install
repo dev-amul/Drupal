@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Initial update hook to enable adminrole
+ * https://gitlab.com/isegura/SIASAR-2.0/issues/9
+ */
+function siasar_updates_update_7100(&$sandbox) {
+  $modules = array(
+    'adminrole',
+  );
+
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  module_disable(array('overlay'), TRUE);
+}
