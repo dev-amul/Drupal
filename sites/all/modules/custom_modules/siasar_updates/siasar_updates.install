@@ -14,5 +14,8 @@ function siasar_updates_update_7100(&$sandbox) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
 
-  module_disable(array('overlay'), TRUE);
+  // TODO: add 'administrator' role to all 'Administrator' users (notice case)
+  // Remove 'Administrator' role (with uppercase)
+  // Change role order, put administrator last
+
 }
