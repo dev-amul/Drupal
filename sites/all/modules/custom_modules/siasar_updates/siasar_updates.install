@@ -12,10 +12,27 @@ function siasar_updates_update_7100(&$sandbox) {
   $modules_enabled = module_enable($modules, TRUE);
   if (!$modules_enabled) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  } else {
+    $old_role = user_role_load_by_name('Administrator');
+    $new_role = user_role_load_by_name('administrator');
+
+    $query = new EntityFieldQuery;
+    $query->entityCondition('entity_type', 'user');
+    $query->addTag('rolequery');
+    $query->addMetaData('rolename', $old_role->name);
+
+    $result = $query->execute();
+
+    $users = array_keys($result['user']);
+
+    if ($old_role && $new_role) {
+      user_multiple_role_edit($users, 'remove_role', $old_role->rid);
+      user_multiple_role_edit($users, 'add_role', $new_role->rid);
+      user_role_delete($old_role->name);
+      $new_role->weight = 8;
+      user_role_save($new_role);
+    }
   }
-
-  // TODO: add 'administrator' role to all 'Administrator' users (notice case)
-  // Remove 'Administrator' role (with uppercase)
-  // Change role order, put administrator last
-
 }
+
+
