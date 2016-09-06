@@ -4,19 +4,3 @@
  * Main module file.
  */
 
- /**
-* Implement hook_query_TAG_alter
-* Getting user roles from query to update them
-* 
-* @param QueryAlterableInterface $query
-*/
-function siasar_updates_query_rolequery_alter(QueryAlterableInterface $query) {
-  $rolename = $query->getMetaData('rolename');
-
-  $role_subquery = db_select("role", "role");
-  $role_subquery->condition('role.name', $rolename, '=');
-  $role_subquery->join('users_roles', "users_to_include", "role.rid = users_to_include.rid");
-  $role_subquery->fields('users_to_include', array('uid' => 'uid'));
-  $role_subquery->where('users_to_include.uid = users.uid');
-  $query->exists($role_subquery);
-}

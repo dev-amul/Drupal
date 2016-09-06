@@ -2,9 +2,14 @@
 
 /**
  * Initial update hook to enable adminrole
+ * It renames old "Administrator" to "administrator" role, for the module to work.
  * https://gitlab.com/isegura/SIASAR-2.0/issues/9
  */
 function siasar_updates_update_7100(&$sandbox) {
+  $role = user_role_load_by_name('Administrator');
+  $role->name = 'administrator';
+  user_role_save($role);
+
   $modules = array(
     'adminrole',
   );
@@ -12,26 +17,6 @@ function siasar_updates_update_7100(&$sandbox) {
   $modules_enabled = module_enable($modules, TRUE);
   if (!$modules_enabled) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
-  } else {
-    $old_role = user_role_load_by_name('Administrator');
-    $new_role = user_role_load_by_name('administrator');
-
-    $query = new EntityFieldQuery;
-    $query->entityCondition('entity_type', 'user');
-    $query->addTag('rolequery');
-    $query->addMetaData('rolename', $old_role->name);
-
-    $result = $query->execute();
-
-    $users = array_keys($result['user']);
-
-    if ($old_role && $new_role) {
-      user_multiple_role_edit($users, 'remove_role', $old_role->rid);
-      user_multiple_role_edit($users, 'add_role', $new_role->rid);
-      user_role_delete($old_role->name);
-      $new_role->weight = 8;
-      user_role_save($new_role);
-    }
   }
 }
 
