@@ -1,0 +1,6 @@
+name = SIASAR Services field collection
+description = Provides API for Field collection entity. Based on experimental work by Greg Boggs (https://www.drupal.org/sandbox/graber/2141747), adapted and bugfixed for SIASAR project.
+package = SIASAR
+core = 7.x
+files[] = services_field_collection.inc
+dependencies[] = "services"
