@@ -35,4 +35,22 @@ function siasar_updates_update_7101(&$sandbox) {
   }
 }
 
-
+/**
+ * Issue 169: Refactor Features. Uninstall old ones, install new ones.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/169
+ */
+function siasar_updates_update_7102(&$sandbox) {
+  $modules = array(
+    'feature_sistema',
+    'feaute_prestador_servicio',
+    'features_pat',
+  );
+  $result = module_disable($modules, TRUE);
+  if (!$result) {
+    throw new DrupalUpdateException('Something went wrong during disabling process.');
+  }
+  $result = drupal_uninstall_modules($modules, TRUE);
+  if (!$result) {
+    throw new DrupalUpdateException('Something went wrong during uninstall process.');
+  }
+}
