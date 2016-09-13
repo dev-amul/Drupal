@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feature SIASAR field bases feature.
+ */
+
+include_once 'feature_siasar_field_bases.features.inc';
