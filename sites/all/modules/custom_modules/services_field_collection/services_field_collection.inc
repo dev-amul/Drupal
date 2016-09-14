@@ -19,9 +19,9 @@ function _services_fc_create($field_collection) {
   module_load_include('inc', 'services_field_collection', 'services_field_collection_helpers');
   $entity_type = 'field_collection_item';
   $field_collection['field_name'] = isset($field_collection['field_name']) ? $field_collection['field_name'] : $field_collection['name'];
-  $entity = entity_create($entity_type, array('field_name' => $field_collection[field_name]));
+  $entity = entity_create($entity_type, array('field_name' => $field_collection['field_name']));
   $host_entity = entity_load_single($field_collection['host_entity']['resource'], $field_collection['host_entity']['id']);
-  $entity->setHostEntity($entity->host_entity['resource'], $host_entity);
+  $entity->setHostEntity($field_collection['host_entity']['resource'], $host_entity);
 
   $wrapper = entity_metadata_wrapper($entity_type, $entity);
   $entity_properties = $wrapper->getPropertyInfo();
