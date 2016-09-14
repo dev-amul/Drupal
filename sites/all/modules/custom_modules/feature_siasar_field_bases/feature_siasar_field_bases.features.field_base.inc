@@ -370,7 +370,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -694,7 +694,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -714,7 +714,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -734,7 +734,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -754,7 +754,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -774,7 +774,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -823,7 +823,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -1055,7 +1055,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -1145,7 +1145,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
       'precision' => 10,
       'scale' => 2,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_decimal',
   );
 
@@ -1163,12 +1163,12 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'locked' => 0,
     'module' => 'number',
     'settings' => array(
-      'decimal_separator' => '.',
+      'decimal_separator' => ',',
       'entity_translation_sync' => FALSE,
       'precision' => 10,
       'scale' => 2,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_decimal',
   );
 
@@ -1191,7 +1191,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
       'precision' => 10,
       'scale' => 2,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_decimal',
   );
 
@@ -1211,7 +1211,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -1298,7 +1298,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -4089,13 +4089,13 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'NO',
-        1 => 'SI',
+        0 => 'No',
+        1 => 'Si',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'list_boolean',
   );
 
@@ -4417,13 +4417,13 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'NO',
-        1 => 'SI',
+        0 => 'No',
+        1 => 'Si',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'list_boolean',
   );
 
@@ -4446,13 +4446,13 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'NO',
-        1 => 'SI',
+        0 => 'No',
+        1 => 'Si',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'list_boolean',
   );
 
@@ -4475,13 +4475,13 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'NO',
-        1 => 'SI',
+        0 => 'No',
+        1 => 'Si',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'list_boolean',
   );
 
@@ -4504,13 +4504,13 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'NO',
-        1 => 'SI',
+        0 => 'No',
+        1 => 'Si',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'list_boolean',
   );
 
@@ -4767,28 +4767,6 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_encuestador'.
-  $field_bases['field_encuestador'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_encuestador',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max_length' => 255,
-    ),
-    'translatable' => 1,
-    'type' => 'text',
-  );
-
   // Exported field_base: 'field_entidad_local'.
   $field_bases['field_entidad_local'] = array(
     'active' => 1,
@@ -4908,42 +4886,6 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_estado_equipos_inform'.
-  $field_bases['field_estado_equipos_inform'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_estado_equipos_inform',
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'estado' => 'estado',
-        ),
-      ),
-      'target_type' => 'taxonomy_term',
-    ),
-    'translatable' => 1,
-    'type' => 'entityreference',
   );
 
   // Exported field_base: 'field_estado_equipos_informatico'.
@@ -5692,7 +5634,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'todate' => '',
       'tz_handling' => 'none',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'datetime',
   );
 
@@ -9904,7 +9846,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
   // Exported field_base: 'field_testing_collection'.
   $field_bases['field_testing_collection'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_testing_collection',

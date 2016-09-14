@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SIASAR entityform Sistema feature.
+ */
+
+include_once 'feature_siasar_entityform_sistema.features.inc';
