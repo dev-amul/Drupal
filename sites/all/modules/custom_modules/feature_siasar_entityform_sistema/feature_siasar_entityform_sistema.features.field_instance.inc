@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * feature_sistema.features.field_instance.inc
+ * feature_siasar_entityform_sistema.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function feature_sistema_field_default_field_instances() {
+function feature_siasar_entityform_sistema_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'entityform-sistema-field_a4_2'.
@@ -22,7 +22,7 @@ function feature_sistema_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 40,
+        'weight' => 28,
       ),
     ),
     'entity_type' => 'entityform',
@@ -41,12 +41,12 @@ function feature_sistema_field_default_field_instances() {
         'size' => 30,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 79,
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_a6_1'.
-  $field_instances['entityform-sistema-field_a6_1'] = array(
+  // Exported field_instance: 'entityform-sistema-field_a6_croquis'.
+  $field_instances['entityform-sistema-field_a6_croquis'] = array(
     'bundle' => 'sistema',
     'deleted' => 0,
     'description' => '',
@@ -59,13 +59,13 @@ function feature_sistema_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 41,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_a6_1',
+    'field_name' => 'field_a6_croquis',
     'label' => 'Croquis',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
@@ -86,7 +86,7 @@ function feature_sistema_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 49,
+      'weight' => 44,
     ),
   );
 
@@ -112,24 +112,22 @@ function feature_sistema_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_table_view',
-        'weight' => 18,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_a_fuentes_de_financiamient',
-    'label' => ' F_F_C_I',
+    'label' => 'Fuentes de financiamiento',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'field_collection_table',
-      'settings' => array(
-        'nodragging' => 0,
-      ),
-      'type' => 'field_collection_table',
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
       'weight' => 3,
     ),
   );
@@ -150,13 +148,13 @@ function feature_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_key',
-        'weight' => 24,
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_agua_en_invierno',
     'label' => '¿Hay suficiente agua en las fuentes en función de la demanda en el invierno / época de lluvias?',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -164,11 +162,9 @@ function feature_sistema_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 29,
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 54,
     ),
   );
 
@@ -188,13 +184,13 @@ function feature_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_key',
-        'weight' => 23,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_agua_en_verano',
     'label' => '¿Hay suficiente agua en las fuentes en función de la demanda en el verano / época seca?',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -202,11 +198,50 @@ function feature_sistema_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 53,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_alto'.
+  $field_instances['entityform-sistema-field_alto'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 7,
       ),
-      'type' => 'options_onoff',
-      'weight' => 28,
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_alto',
+    'label' => 'Altitud',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => 'mts.',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 29,
     ),
   );
 
@@ -229,15 +264,15 @@ function feature_sistema_field_default_field_instances() {
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 1,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_anno_construccion',
     'label' => 'Año de construcción',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
-      'default_value' => 'blank',
+      'default_value' => 'now',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -249,20 +284,114 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'date',
       'settings' => array(
         'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'no_fieldset' => 1,
+        'input_format' => 'site-wide',
+        'input_format_custom' => 'Y',
+        'label_position' => 'none',
+        'no_fieldset' => 0,
         'text_parts' => array(),
-        'year_range' => '1980:+3',
+        'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
-      'weight' => 12,
+      'weight' => 26,
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_c_digo_sistema'.
-  $field_instances['entityform-sistema-field_c_digo_sistema'] = array(
+  // Exported field_instance:
+  // 'entityform-sistema-field_cantidad_de_cloro_residual'.
+  $field_instances['entityform-sistema-field_cantidad_de_cloro_residual'] = array(
+    'bundle' => 'sistema',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+        'target_id' => 599,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 24,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_cantidad_de_cloro_residual',
+    'label' => 'Cantidad de cloro residual',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => 0,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 599,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 1,
+            'es' => 599,
+            'pt-br' => -1,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => 1,
+          ),
+          'value' => array(
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-sistema-field_caudal_actual_del_sistema'.
+  $field_instances['entityform-sistema-field_caudal_actual_del_sistema'] = array(
     'bundle' => 'sistema',
     'default_value' => NULL,
     'deleted' => 0,
@@ -270,73 +399,154 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
+        'module' => 'mvf',
         'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
         ),
-        'type' => 'number_integer',
+        'type' => 'mvf_formatter_default',
+        'weight' => 20,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_caudal_actual_del_sistema',
+    'label' => 'Caudal actual del sistema',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => 0,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 598,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 1,
+            'es' => 594,
+            'pt-br' => 625,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => 1,
+          ),
+          'value' => array(
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 102,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_codigo_de_sistema'.
+  $field_instances['entityform-sistema-field_codigo_de_sistema'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
         'weight' => 8,
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_c_digo_sistema',
+    'field_name' => 'field_codigo_de_sistema',
     'label' => 'Código de Sistema',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 19,
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 30,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 30,
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_d'.
-  $field_instances['entityform-sistema-field_d'] = array(
+  // Exported field_instance: 'entityform-sistema-field_cuestionario_validado'.
+  $field_instances['entityform-sistema-field_cuestionario_validado'] = array(
     'bundle' => 'sistema',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
-        'weight' => 27,
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 29,
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_d',
-    'label' => 'Infraestructura de tramiento',
+    'field_name' => 'field_cuestionario_validado',
+    'label' => 'Validado',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
-      'weight' => 7,
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 8,
     ),
   );
 
@@ -358,12 +568,12 @@ function feature_sistema_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 28,
+        'weight' => 17,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_d_infraestructura',
-    'label' => 'Infraestructura de tramiento',
+    'label' => 'Infraestructura de tratamiento',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -374,7 +584,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 34,
+      'weight' => 72,
     ),
   );
 
@@ -397,7 +607,7 @@ function feature_sistema_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 29,
+        'weight' => 18,
       ),
     ),
     'entity_type' => 'entityform',
@@ -413,28 +623,108 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 10,
+      'weight' => 13,
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_encuestador'.
-  $field_instances['entityform-sistema-field_encuestador'] = array(
+  // Exported field_instance: 'entityform-sistema-field_entidad_local'.
+  $field_instances['entityform-sistema-field_entidad_local'] = array(
     'bundle' => 'sistema',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Nombre de la persona que rellena la encuesta',
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_entidad_local',
+    'label' => 'Localidad',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'shs',
+      'settings' => array(
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+        ),
+      ),
+      'type' => 'taxonomy_shs',
+      'weight' => 27,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_entity_clasification'.
+  $field_instances['entityform-sistema-field_entity_clasification'] = array(
+    'bundle' => 'sistema',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'computed_field',
+        'settings' => array(),
+        'type' => 'computed_field_plain',
+        'weight' => 30,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_entity_clasification',
+    'label' => 'Clasificación',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'computed_field',
+      'settings' => array(),
+      'type' => 'computed',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_entity_name'.
+  $field_instances['entityform-sistema-field_entity_name'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 12,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_encuestador',
-    'label' => 'Encuestador',
+    'field_name' => 'field_entity_name',
+    'label' => 'Nombre',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -445,106 +735,10 @@ function feature_sistema_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 50,
+        'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 23,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_entidad_local_mayor'.
-  $field_instances['entityform-sistema-field_entidad_local_mayor'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 14,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entidad_local_mayor',
-    'label' => 'Entidad local mayor',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 15,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_entidad_local_menor'.
-  $field_instances['entityform-sistema-field_entidad_local_menor'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 13,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entidad_local_menor',
-    'label' => 'Entidad local menor',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 14,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_entidad_regional_'.
-  $field_instances['entityform-sistema-field_entidad_regional_'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 15,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entidad_regional_',
-    'label' => 'Entidad regional ',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 16,
+      'weight' => 25,
     ),
   );
 
@@ -566,7 +760,7 @@ function feature_sistema_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 30,
+        'weight' => 19,
       ),
     ),
     'entity_type' => 'entityform',
@@ -582,7 +776,58 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 37,
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-sistema-field_fecha_analisiscalidad_agua'.
+  $field_instances['entityform-sistema-field_fecha_analisiscalidad_agua'] = array(
+    'bundle' => 'sistema',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 23,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_fecha_analisiscalidad_agua',
+    'label' => 'Fecha de análisis de la calidad del agua',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'site-wide',
+        'input_format_custom' => '',
+        'label_position' => 'none',
+        'no_fieldset' => 1,
+        'text_parts' => array(),
+        'year_range' => '1900:+0',
+      ),
+      'type' => 'date_select',
+      'weight' => 11,
     ),
   );
 
@@ -604,7 +849,7 @@ function feature_sistema_field_default_field_instances() {
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 11,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'entityform',
@@ -623,13 +868,13 @@ function feature_sistema_field_default_field_instances() {
       'active' => 1,
       'module' => 'date',
       'settings' => array(
-        'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
+        'increment' => 30,
+        'input_format' => 'd/m/Y - g:i:sa',
         'input_format_custom' => '',
-        'label_position' => 'above',
-        'no_fieldset' => 0,
+        'label_position' => 'none',
+        'no_fieldset' => 1,
         'text_parts' => array(),
-        'year_range' => '-3:+3',
+        'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
       'weight' => 22,
@@ -654,7 +899,7 @@ function feature_sistema_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 25,
+        'weight' => 15,
       ),
     ),
     'entity_type' => 'entityform',
@@ -670,48 +915,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 48,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_g1_1'.
-  $field_instances['entityform-sistema-field_g1_1'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 31,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_g1_1',
-    'label' => 'Caudal actual del sistema',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 36,
+      'weight' => 46,
     ),
   );
 
@@ -727,7 +931,7 @@ function feature_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 32,
+        'weight' => 21,
       ),
     ),
     'entity_type' => 'entityform',
@@ -743,7 +947,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 37,
+      'weight' => 11,
     ),
   );
 
@@ -759,7 +963,7 @@ function feature_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 33,
+        'weight' => 22,
       ),
     ),
     'entity_type' => 'entityform',
@@ -775,62 +979,12 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 38,
+      'weight' => 101,
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_g4_1'.
-  $field_instances['entityform-sistema-field_g4_1'] = array(
-    'bundle' => 'sistema',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'show_remaining_days' => FALSE,
-        ),
-        'type' => 'date_default',
-        'weight' => 34,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_g4_1',
-    'label' => 'Fecha de análisis de la calidad del agua',
-    'required' => 0,
-    'settings' => array(
-      'default_value' => 'now',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'no_fieldset' => 0,
-        'text_parts' => array(),
-        'year_range' => '-3:+3',
-      ),
-      'type' => 'date_select',
-      'weight' => 40,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_g4_2'.
-  $field_instances['entityform-sistema-field_g4_2'] = array(
+  // Exported field_instance: 'entityform-sistema-field_g4_3'.
+  $field_instances['entityform-sistema-field_g4_3'] = array(
     'bundle' => 'sistema',
     'default_value' => NULL,
     'deleted' => 0,
@@ -838,61 +992,16 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 35,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_g4_2',
-    'label' => 'Cantidad de coliformes',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 41,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_g4_3'.
-  $field_instances['entityform-sistema-field_g4_3'] = array(
-    'bundle' => 'sistema',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 36,
+        'weight' => 25,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_g4_3',
     'label' => 'Pasa el test de coliformes?',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -900,22 +1009,16 @@ function feature_sistema_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 42,
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 14,
     ),
   );
 
   // Exported field_instance: 'entityform-sistema-field_g4_4'.
   $field_instances['entityform-sistema-field_g4_4'] = array(
     'bundle' => 'sistema',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -924,7 +1027,7 @@ function feature_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 37,
+        'weight' => 26,
       ),
     ),
     'entity_type' => 'entityform',
@@ -938,11 +1041,9 @@ function feature_sistema_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 43,
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 15,
     ),
   );
 
@@ -958,13 +1059,13 @@ function feature_sistema_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 38,
+        'weight' => 27,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_h1_1',
     'label' => 'Observaciones y comentarios',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
@@ -981,10 +1082,63 @@ function feature_sistema_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-sistema-field_imagen'.
+  $field_instances['entityform-sistema-field_imagen'] = array(
+    'bundle' => 'sistema',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'large',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_imagen',
+    'label' => 'Imagen',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 24,
+    ),
+  );
+
   // Exported field_instance: 'entityform-sistema-field_latitud'.
   $field_instances['entityform-sistema-field_latitud'] = array(
     'bundle' => 'sistema',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'input_format' => 'lat/lon',
+        'geom' => array(
+          'lat' => '0.00',
+          'lon' => '0.00',
+        ),
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -995,13 +1149,13 @@ function feature_sistema_field_default_field_instances() {
           'data' => 'full',
         ),
         'type' => 'geofield_wkt',
-        'weight' => 7,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_latitud',
     'label' => 'Georeferenciación',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1013,7 +1167,7 @@ function feature_sistema_field_default_field_instances() {
         'html5_geolocation' => 0,
       ),
       'type' => 'geofield_latlon',
-      'weight' => 18,
+      'weight' => 28,
     ),
   );
 
@@ -1035,7 +1189,7 @@ function feature_sistema_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 26,
+        'weight' => 16,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1051,159 +1205,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 32,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'entityform-sistema-field_monto_total_financiamiento'.
-  $field_instances['entityform-sistema-field_monto_total_financiamiento'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 39,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_monto_total_financiamiento',
-    'label' => 'Monto total de financiamiento',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_nombre_del_sistema'.
-  $field_instances['entityform-sistema-field_nombre_del_sistema'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_nombre_del_sistema',
-    'label' => 'Nombre del sistema',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 50,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 11,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_otras_divisiones_'.
-  $field_instances['entityform-sistema-field_otras_divisiones_'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 16,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_otras_divisiones_',
-    'label' => 'Otras divisiones ',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 17,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_prest_serv'.
-  $field_instances['entityform-sistema-field_prest_serv'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'field_collection_table',
-        'settings' => array(
-          'add' => 'Add',
-          'cssfield' => FALSE,
-          'cssrowcol' => FALSE,
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'empty' => TRUE,
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_table_view',
-        'weight' => 17,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_prest_serv',
-    'label' => 'P_S',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'field_collection_table',
-      'settings' => array(
-        'nodragging' => 0,
-      ),
-      'type' => 'field_collection_table',
-      'weight' => 13,
+      'weight' => 74,
     ),
   );
 
@@ -1211,7 +1213,7 @@ function feature_sistema_field_default_field_instances() {
   // 'entityform-sistema-field_rehabilitaciones_y_o_ampli'.
   $field_instances['entityform-sistema-field_rehabilitaciones_y_o_ampli'] = array(
     'bundle' => 'sistema',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1226,31 +1228,29 @@ function feature_sistema_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 20,
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_rehabilitaciones_y_o_ampli',
     'label' => 'Rehabilitaciones y/o ampliaciones',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
+      'active' => 0,
       'module' => 'field_collection',
-      'settings' => array(
-        'nodragging' => 0,
-      ),
+      'settings' => array(),
       'type' => 'field_collection_embed',
       'weight' => 24,
     ),
   );
 
   // Exported field_instance:
-  // 'entityform-sistema-field_tipo_de_sistema_de_abastec'.
-  $field_instances['entityform-sistema-field_tipo_de_sistema_de_abastec'] = array(
+  // 'entityform-sistema-field_tipo_de_sistema_de_absto'.
+  $field_instances['entityform-sistema-field_tipo_de_sistema_de_absto'] = array(
     'bundle' => 'sistema',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1258,15 +1258,66 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 22,
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_tipo_de_sistema_de_abastec',
+    'field_name' => 'field_tipo_de_sistema_de_absto',
     'label' => 'Tipo de sistema de abastecimiento de agua',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 78,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_user_reference'.
+  $field_instances['entityform-sistema-field_user_reference'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 0,
+    'entityconnect_unload_edit' => 0,
+    'field_name' => 'field_user_reference',
+    'label' => 'Encuestador',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1277,54 +1328,13 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_total_financiamiento'.
-  $field_instances['entityform-sistema-field_total_financiamiento'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 21,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_total_financiamiento',
-    'label' => 'Monto total utilizado',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 25,
+      'weight' => 23,
     ),
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_a_fuentes_de_financiamient-field_moneda'.
-  $field_instances['field_collection_item-field_a_fuentes_de_financiamient-field_moneda'] = array(
+  // 'field_collection_item-field_a_fuentes_de_financiamient-field_monto_financiamiento'.
+  $field_instances['field_collection_item-field_a_fuentes_de_financiamient-field_monto_financiamiento'] = array(
     'bundle' => 'field_a_fuentes_de_financiamient',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1332,67 +1342,80 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
         'weight' => 3,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_moneda',
-    'label' => 'Moneda',
-    'required' => 1,
+    'field_name' => 'field_monto_financiamiento',
+    'label' => 'Monto',
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => 0,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 331,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'pt-br' => -1,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
       'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_a_fuentes_de_financiamient-field_monto'.
-  $field_instances['field_collection_item-field_a_fuentes_de_financiamient-field_monto'] = array(
-    'bundle' => 'field_a_fuentes_de_financiamient',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => -10,
+          ),
+          'value' => array(
+            'weight' => -9,
+          ),
         ),
-        'type' => 'number_decimal',
-        'weight' => 2,
       ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_monto',
-    'label' => 'Monto',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
+      'type' => 'mvf_widget_default',
       'weight' => 3,
     ),
   );
@@ -1407,9 +1430,11 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 0,
       ),
     ),
@@ -1426,13 +1451,13 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 0,
     ),
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_a_fuentes_de_financiamient-field_programa_especifico_fondo'.
-  $field_instances['field_collection_item-field_a_fuentes_de_financiamient-field_programa_especifico_fondo'] = array(
+  // 'field_collection_item-field_a_fuentes_de_financiamient-field_programa_especifico_fondos'.
+  $field_instances['field_collection_item-field_a_fuentes_de_financiamient-field_programa_especifico_fondos'] = array(
     'bundle' => 'field_a_fuentes_de_financiamient',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1440,16 +1465,18 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 1,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_programa_especifico_fondo',
-    'label' => 'Programa específico de donde provienen los fondos ',
-    'required' => 1,
+    'field_name' => 'field_programa_especifico_fondos',
+    'label' => 'Programa específico de donde provienen los fondos',
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1459,7 +1486,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -1482,52 +1509,20 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_d1_1',
     'label' => 'Código de la infraestructura',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 60,
+        'size' => 4,
       ),
       'type' => 'text_textfield',
       'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_d_infraestructura-field_d1_2'.
-  $field_instances['field_collection_item-field_d_infraestructura-field_d1_2'] = array(
-    'bundle' => 'field_d_infraestructura',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_d1_2',
-    'label' => 'Tipo de tratamiento',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 2,
     ),
   );
 
@@ -1562,17 +1557,15 @@ function feature_sistema_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
+      'settings' => array(),
+      'type' => 'options_buttons',
       'weight' => 3,
     ),
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_d_infraestructura-field_d2_1'.
-  $field_instances['field_collection_item-field_d_infraestructura-field_d2_1'] = array(
+  // 'field_collection_item-field_d_infraestructura-field_d1_4'.
+  $field_instances['field_collection_item-field_d_infraestructura-field_d1_4'] = array(
     'bundle' => 'field_d_infraestructura',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1580,15 +1573,17 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 3,
+        'module' => 'geofield',
+        'settings' => array(
+          'data' => 'full',
+        ),
+        'type' => 'geofield_wkt',
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_d2_1',
-    'label' => 'Estado físico de la línea de tratamiento de agua',
+    'field_name' => 'field_d1_4',
+    'label' => 'Georreferenciación',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1596,10 +1591,54 @@ function feature_sistema_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
+      'module' => 'geofield',
+      'settings' => array(
+        'html5_geolocation' => 0,
+      ),
+      'type' => 'geofield_latlon',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_d_infraestructura-field_d1_5'.
+  $field_instances['field_collection_item-field_d_infraestructura-field_d1_5'] = array(
+    'bundle' => 'field_d_infraestructura',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_d1_5',
+    'label' => 'Altitud',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 5,
     ),
   );
 
@@ -1635,7 +1674,181 @@ function feature_sistema_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_d_infraestructura-field_edo_fisico_linea_tto'.
+  $field_instances['field_collection_item-field_d_infraestructura-field_edo_fisico_linea_tto'] = array(
+    'bundle' => 'field_d_infraestructura',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_edo_fisico_linea_tto',
+    'label' => 'Estado físico de la línea de tratamiento de agua',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_d_infraestructura-field_tipo_de_tratamiento'.
+  $field_instances['field_collection_item-field_d_infraestructura-field_tipo_de_tratamiento'] = array(
+    'bundle' => 'field_d_infraestructura',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_tipo_de_tratamiento',
+    'label' => 'Tipo de tratamiento',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_e_infraestructura_almac-field_capacidad_almacenamiento'.
+  $field_instances['field_collection_item-field_e_infraestructura_almac-field_capacidad_almacenamiento'] = array(
+    'bundle' => 'field_e_infraestructura_almac',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_capacidad_almacenamiento',
+    'label' => 'Capacidad de almacenamiento (volumen)',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => 1,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 609,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 1,
+            'es' => 609,
+            'pt-br' => 624,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => 1,
+          ),
+          'value' => array(
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 2,
     ),
   );
 
@@ -1658,7 +1871,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_e1_1',
     'label' => 'Código de la infraestructura',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
@@ -1668,7 +1881,7 @@ function feature_sistema_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 20,
+        'size' => 4,
       ),
       'type' => 'text_textfield',
       'weight' => 1,
@@ -1676,8 +1889,8 @@ function feature_sistema_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_e_infraestructura_almac-field_e1_2'.
-  $field_instances['field_collection_item-field_e_infraestructura_almac-field_e1_2'] = array(
+  // 'field_collection_item-field_e_infraestructura_almac-field_e1_5_altitud'.
+  $field_instances['field_collection_item-field_e_infraestructura_almac-field_e1_5_altitud'] = array(
     'bundle' => 'field_e_infraestructura_almac',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1693,19 +1906,19 @@ function feature_sistema_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
-        'weight' => 1,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_e1_2',
-    'label' => 'Capacidad de almacenamient o (volumen)',
+    'field_name' => 'field_e1_5_altitud',
+    'label' => 'Altitud',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => 'mts.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1713,76 +1926,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_e_infraestructura_almac-field_e1_3'.
-  $field_instances['field_collection_item-field_e_infraestructura_almac-field_e1_3'] = array(
-    'bundle' => 'field_e_infraestructura_almac',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_e1_3',
-    'label' => '¿Con qué frecuencia se realiza la limpieza?',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_e_infraestructura_almac-field_e2_1'.
-  $field_instances['field_collection_item-field_e_infraestructura_almac-field_e2_1'] = array(
-    'bundle' => 'field_e_infraestructura_almac',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_e2_1',
-    'label' => '¿Cuál es el Estado físico de la infraestructura de almacenamiento de agua?',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 6,
     ),
   );
 
@@ -1818,7 +1962,218 @@ function feature_sistema_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_e_infraestructura_almac-field_edo_fisico_infr_almac'.
+  $field_instances['field_collection_item-field_e_infraestructura_almac-field_edo_fisico_infr_almac'] = array(
+    'bundle' => 'field_e_infraestructura_almac',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_edo_fisico_infr_almac',
+    'label' => '¿Cuál es el Estado físico de la infraestructura de almacenamiento de agua?',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_e_infraestructura_almac-field_frecuencia_limpieza_infr'.
+  $field_instances['field_collection_item-field_e_infraestructura_almac-field_frecuencia_limpieza_infr'] = array(
+    'bundle' => 'field_e_infraestructura_almac',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_frecuencia_limpieza_infr',
+    'label' => '¿Con qué frecuencia se realiza la limpieza?',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => 612,
+          'value' => 1,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 612,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 0,
+            'es' => 612,
+            'pt-br' => -1,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'label',
+            'weight' => 1,
+          ),
+          'value' => array(
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_e_infraestructura_almac-field_latitud_longitud'.
+  $field_instances['field_collection_item-field_e_infraestructura_almac-field_latitud_longitud'] = array(
+    'bundle' => 'field_e_infraestructura_almac',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'geofield',
+        'settings' => array(
+          'data' => 'full',
+        ),
+        'type' => 'geofield_wkt',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_latitud_longitud',
+    'label' => 'Georeferenciación',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'geofield',
+      'settings' => array(
+        'html5_geolocation' => 0,
+      ),
+      'type' => 'geofield_latlon',
       'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_f_red_de_distribucion-field_edo_fisico_red_dist'.
+  $field_instances['field_collection_item-field_f_red_de_distribucion-field_edo_fisico_red_dist'] = array(
+    'bundle' => 'field_f_red_de_distribucion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_edo_fisico_red_dist',
+    'label' => '¿Cuál es el estado físico de la red de distribución de agua?',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
     ),
   );
 
@@ -1841,7 +2196,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_1',
     'label' => 'Código de la red',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
@@ -1851,7 +2206,7 @@ function feature_sistema_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 20,
+        'size' => 4,
       ),
       'type' => 'text_textfield',
       'weight' => 1,
@@ -1882,11 +2237,11 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_2',
     'label' => 'Número de conexiones de la red de distribución',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
-      'min' => '',
+      'min' => 1,
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -1924,7 +2279,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_3',
     'label' => 'Número de micro medidores instalados',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -1966,7 +2321,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_4',
     'label' => 'Número de micro medidores con consumo registrado',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -2008,7 +2363,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_5',
     'label' => 'Horas de servicio al día',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -2045,7 +2400,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f2_1',
     'label' => '¿Cuál es la Distancia promedio de las casas a puntos de toma de agua públicos?',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -2056,39 +2411,6 @@ function feature_sistema_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_f_red_de_distribucion-field_f3_1'.
-  $field_instances['field_collection_item-field_f_red_de_distribucion-field_f3_1'] = array(
-    'bundle' => 'field_f_red_de_distribucion',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 6,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_f3_1',
-    'label' => '¿Cuál es estado físico de la red de distribución de agua?',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 4,
     ),
   );
 
@@ -2111,7 +2433,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f3_2',
     'label' => 'Observaciones sobre la infraestructura',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
@@ -2124,13 +2446,13 @@ function feature_sistema_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 8,
     ),
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_fuente_y_o_captacion-field_caudal_de_la_fuente'.
-  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_caudal_de_la_fuente'] = array(
+  // 'field_collection_item-field_fuente_y_o_captacion-field_b1_7'.
+  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_b1_7'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
     'default_value' => NULL,
     'deleted' => 0,
@@ -2138,40 +2460,36 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
+        'module' => 'geofield',
         'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
+          'data' => 'full',
         ),
-        'type' => 'number_decimal',
-        'weight' => 4,
+        'type' => 'geofield_wkt',
+        'weight' => 19,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_caudal_de_la_fuente',
-    'label' => 'Caudal de la fuente',
-    'required' => FALSE,
+    'field_name' => 'field_b1_7',
+    'label' => 'Georreferenciación',
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 5,
+      'active' => 1,
+      'module' => 'geofield',
+      'settings' => array(
+        'html5_geolocation' => 0,
+      ),
+      'type' => 'geofield_latlon',
+      'weight' => 9,
     ),
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_fuente_y_o_captacion-field_caudal_fuente_epoca_seca'.
-  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_caudal_fuente_epoca_seca'] = array(
+  // 'field_collection_item-field_fuente_y_o_captacion-field_b1_altitud'.
+  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_b1_altitud'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
     'default_value' => NULL,
     'deleted' => 0,
@@ -2187,12 +2505,12 @@ function feature_sistema_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
-        'weight' => 6,
+        'weight' => 20,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_caudal_fuente_epoca_seca',
-    'label' => 'Caudal de la fuente en época seca',
+    'field_name' => 'field_b1_altitud',
+    'label' => 'Altitud',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2207,6 +2525,182 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_fuente_y_o_captacion-field_caudal_de_la_fuente'.
+  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_caudal_de_la_fuente'] = array(
+    'bundle' => 'field_fuente_y_o_captacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 27,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_caudal_de_la_fuente',
+    'label' => 'Caudal de la fuente',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => 0,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 598,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 1,
+            'es' => 594,
+            'pt-br' => 625,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => -9,
+          ),
+          'value' => array(
+            'weight' => -10,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_fuente_y_o_captacion-field_caudal_fuente_epoca_seca'.
+  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_caudal_fuente_epoca_seca'] = array(
+    'bundle' => 'field_fuente_y_o_captacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 28,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_caudal_fuente_epoca_seca',
+    'label' => 'Caudal de la fuente en epoca seca',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => 0,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 598,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 1,
+            'es' => 594,
+            'pt-br' => 625,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => -9,
+          ),
+          'value' => array(
+            'weight' => -10,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
       'weight' => 7,
     ),
   );
@@ -2215,7 +2709,11 @@ function feature_sistema_field_default_field_instances() {
   // 'field_collection_item-field_fuente_y_o_captacion-field_codigo_de_la_fuente'.
   $field_instances['field_collection_item-field_fuente_y_o_captacion-field_codigo_de_la_fuente'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'FTE0',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2230,7 +2728,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_codigo_de_la_fuente',
     'label' => 'Código de la fuente',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
@@ -2240,10 +2738,53 @@ function feature_sistema_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 30,
+        'size' => 4,
       ),
       'type' => 'text_textfield',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_fuente_y_o_captacion-field_edo_fisico_infra_cptcion'.
+  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_edo_fisico_infra_cptcion'] = array(
+    'bundle' => 'field_fuente_y_o_captacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 22,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_edo_fisico_infra_cptcion',
+    'label' => '¿Cuál es el estado físico de la infraestructura de captación de agua?',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 17,
     ),
   );
 
@@ -2270,7 +2811,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_es_la_fuente_principal',
     'label' => '¿Es la fuente principal del sistema? (sólo debe ser una entre todas las asociadas)',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -2285,8 +2826,8 @@ function feature_sistema_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_fuente_y_o_captacion-field_estado_fisico_infraestruct'.
-  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_estado_fisico_infraestruct'] = array(
+  // 'field_collection_item-field_fuente_y_o_captacion-field_existe_macro_medicion'.
+  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_existe_macro_medicion'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
     'default_value' => NULL,
     'deleted' => 0,
@@ -2297,12 +2838,12 @@ function feature_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 17,
+        'weight' => 29,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_estado_fisico_infraestruct',
-    'label' => '¿Cuál es el estado físico de la infraestructura de captación de agua?',
+    'field_name' => 'field_existe_macro_medicion',
+    'label' => 'Existe macro medición del caudal captado instalada',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2313,7 +2854,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 15,
+      'weight' => 4,
     ),
   );
 
@@ -2321,7 +2862,11 @@ function feature_sistema_field_default_field_instances() {
   // 'field_collection_item-field_fuente_y_o_captacion-field_existencia_de_indicio'.
   $field_instances['field_collection_item-field_fuente_y_o_captacion-field_existencia_de_indicio'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2335,7 +2880,7 @@ function feature_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_existencia_de_indicio',
-    'label' => ' Existencia de indicios o riesgo de contaminación causada por productos químicos o residuos alrededor de la toma de agua ',
+    'label' => 'Existencia de indicios o riesgo de contaminación causada por productos químicos o residuos alrededor de la toma de agua con origen en actividades industriales, agrícolas, artesanales, etc.',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2346,7 +2891,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 14,
+      'weight' => 26,
     ),
   );
 
@@ -2354,7 +2899,11 @@ function feature_sistema_field_default_field_instances() {
   // 'field_collection_item-field_fuente_y_o_captacion-field_existencia_deareas_verdes'.
   $field_instances['field_collection_item-field_fuente_y_o_captacion-field_existencia_deareas_verdes'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2379,7 +2928,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 10,
+      'weight' => 22,
     ),
   );
 
@@ -2387,7 +2936,11 @@ function feature_sistema_field_default_field_instances() {
   // 'field_collection_item-field_fuente_y_o_captacion-field_existencia_z_erosionadas'.
   $field_instances['field_collection_item-field_fuente_y_o_captacion-field_existencia_z_erosionadas'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2401,7 +2954,7 @@ function feature_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_existencia_z_erosionadas',
-    'label' => ' Existencia de zonas erosionadas en los alrededores de fuente / toma de agua',
+    'label' => 'Existencia de zonas erosionadas en los alrededores de fuente / toma de agua',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2412,7 +2965,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 11,
+      'weight' => 23,
     ),
   );
 
@@ -2420,7 +2973,11 @@ function feature_sistema_field_default_field_instances() {
   // 'field_collection_item-field_fuente_y_o_captacion-field_existenciade_contaminacion'.
   $field_instances['field_collection_item-field_fuente_y_o_captacion-field_existenciade_contaminacion'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2434,7 +2991,7 @@ function feature_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_existenciade_contaminacion',
-    'label' => ' Existencia de contaminación causada por basuras de hogares o por aguas servidas alrededor de la toma de agua ',
+    'label' => 'Existencia de contaminación causada por basuras de hogares o por aguas servidas alrededor de la toma de agua (presencia de letrinas, animales, viviendas, basura doméstica, etc.)',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2445,7 +3002,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 13,
+      'weight' => 25,
     ),
   );
 
@@ -2488,12 +3045,12 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'date',
       'settings' => array(
         'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
+        'input_format' => 'site-wide',
         'input_format_custom' => '',
-        'label_position' => 'above',
-        'no_fieldset' => 0,
+        'label_position' => 'none',
+        'no_fieldset' => 1,
         'text_parts' => array(),
-        'year_range' => '-3:+3',
+        'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
       'weight' => 6,
@@ -2539,54 +3096,15 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'date',
       'settings' => array(
         'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
+        'input_format' => 'site-wide',
         'input_format_custom' => '',
-        'label_position' => 'above',
-        'no_fieldset' => 0,
+        'label_position' => 'none',
+        'no_fieldset' => 1,
         'text_parts' => array(),
-        'year_range' => '-3:+3',
+        'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
       'weight' => 8,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_fuente_y_o_captacion-field_funciona_el_macro'.
-  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_funciona_el_macro'] = array(
-    'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 16,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_funciona_el_macro',
-    'label' => '¿Funciona el macro de medición?',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 5,
     ),
   );
 
@@ -2612,8 +3130,8 @@ function feature_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_infraestructura_captacion',
-    'label' => 'Existe infraestructura de Captación de Agua de del sistema',
-    'required' => 0,
+    'label' => 'Existe infraestructura de Captación de Agua  del sistema',
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -2621,50 +3139,9 @@ function feature_sistema_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
+      'settings' => array(),
+      'type' => 'options_buttons',
       'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_fuente_y_o_captacion-field_macro_medicion'.
-  $field_instances['field_collection_item-field_fuente_y_o_captacion-field_macro_medicion'] = array(
-    'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 15,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_macro_medicion',
-    'label' => 'Existe macro medición del caudal captado instalada',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 4,
     ),
   );
 
@@ -2672,7 +3149,11 @@ function feature_sistema_field_default_field_instances() {
   // 'field_collection_item-field_fuente_y_o_captacion-field_nombre_de_la_fuente'.
   $field_instances['field_collection_item-field_fuente_y_o_captacion-field_nombre_de_la_fuente'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Nombre  de la fuente',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2687,7 +3168,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_nombre_de_la_fuente',
     'label' => 'Nombre de la fuente',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
@@ -2736,7 +3217,7 @@ function feature_sistema_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 16,
+      'weight' => 18,
     ),
   );
 
@@ -2744,7 +3225,11 @@ function feature_sistema_field_default_field_instances() {
   // 'field_collection_item-field_fuente_y_o_captacion-field_proteccion_de_la_fuente'.
   $field_instances['field_collection_item-field_fuente_y_o_captacion-field_proteccion_de_la_fuente'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2769,7 +3254,7 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 12,
+      'weight' => 24,
     ),
   );
 
@@ -2777,25 +3262,39 @@ function feature_sistema_field_default_field_instances() {
   // 'field_collection_item-field_fuente_y_o_captacion-field_tipo_de_fuente'.
   $field_instances['field_collection_item-field_fuente_y_o_captacion-field_tipo_de_fuente'] = array(
     'bundle' => 'field_fuente_y_o_captacion',
-    'default_value' => array(),
+    'default_value' => array(
+      0 => array(
+        'tid' => 32144,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 2,
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 21,
       ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_tipo_de_fuente',
     'label' => 'Tipo de fuente',
-    'required' => 0,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
     ),
     'widget' => array(
       'active' => 1,
@@ -2810,7 +3309,11 @@ function feature_sistema_field_default_field_instances() {
   // 'field_collection_item-field_lineas_de_conduccion-field_c1_1'.
   $field_instances['field_collection_item-field_lineas_de_conduccion-field_c1_1'] = array(
     'bundle' => 'field_lineas_de_conduccion',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'CON0',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2825,7 +3328,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_c1_1',
     'label' => 'Código de la línea',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
@@ -2835,94 +3338,10 @@ function feature_sistema_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 50,
+        'size' => 4,
       ),
       'type' => 'text_textfield',
-      'weight' => 0,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_lineas_de_conduccion-field_c1_2'.
-  $field_instances['field_collection_item-field_lineas_de_conduccion-field_c1_2'] = array(
-    'bundle' => 'field_lineas_de_conduccion',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_c1_2',
-    'label' => 'Longitud de la línea',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_lineas_de_conduccion-field_c1_3'.
-  $field_instances['field_collection_item-field_lineas_de_conduccion-field_c1_3'] = array(
-    'bundle' => 'field_lineas_de_conduccion',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 2,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_c1_3',
-    'label' => 'Diámetro medio (interior) de la tubería principal',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 2,
+      'weight' => 9,
     ),
   );
 
@@ -2949,42 +3368,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_c1_4',
     'label' => '¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_lineas_de_conduccion-field_c2_1'.
-  $field_instances['field_collection_item-field_lineas_de_conduccion-field_c2_1'] = array(
-    'bundle' => 'field_lineas_de_conduccion',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 4,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_c2_1',
-    'label' => '¿Cuál es el estado físico de la línea de conducción de agua?',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -2993,8 +3377,8 @@ function feature_sistema_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 4,
+      'type' => 'options_buttons',
+      'weight' => 12,
     ),
   );
 
@@ -3017,42 +3401,7 @@ function feature_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_c2_2',
     'label' => 'Observaciones',
-    'required' => FALSE,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_prest_serv-field_prest_servicio'.
-  $field_instances['field_collection_item-field_prest_serv-field_prest_servicio'] = array(
-    'bundle' => 'field_prest_serv',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_prest_servicio',
-    'label' => 'Prestador de servicio',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
@@ -3062,10 +3411,243 @@ function feature_sistema_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 50,
+        'rows' => 5,
       ),
-      'type' => 'text_textfield',
-      'weight' => 1,
+      'type' => 'text_textarea',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_lineas_de_conduccion-field_diametro_medio_de_tuberia'.
+  $field_instances['field_collection_item-field_lineas_de_conduccion-field_diametro_medio_de_tuberia'] = array(
+    'bundle' => 'field_lineas_de_conduccion',
+    'default_value' => array(
+      0 => array(
+        'value' => '0.00',
+        'target_id' => 637,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_diametro_medio_de_tuberia',
+    'label' => 'Diámetro medio (interior) de la tubería principal',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => 0,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 636,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 1,
+            'es' => -1,
+            'pt-br' => -1,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => 1,
+          ),
+          'value' => array(
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_lineas_de_conduccion-field_edo_fisico_linea_conducion'.
+  $field_instances['field_collection_item-field_lineas_de_conduccion-field_edo_fisico_linea_conducion'] = array(
+    'bundle' => 'field_lineas_de_conduccion',
+    'default_value' => array(
+      0 => array(
+        'tid' => 32056,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_edo_fisico_linea_conducion',
+    'label' => '¿Cuál es el estado físico de la línea de conducción de agua?',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_lineas_de_conduccion-field_longitud_de_la_linea'.
+  $field_instances['field_collection_item-field_lineas_de_conduccion-field_longitud_de_la_linea'] = array(
+    'bundle' => 'field_lineas_de_conduccion',
+    'default_value' => array(
+      0 => array(
+        'value' => '0.00',
+        'target_id' => 2,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_longitud_de_la_linea',
+    'label' => 'Longitud de la línea',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => 0,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 4,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 0,
+            'es' => 2,
+            'pt-br' => -1,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => 1,
+          ),
+          'value' => array(
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 10,
     ),
   );
 
@@ -3088,13 +3670,13 @@ function feature_sistema_field_default_field_instances() {
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 7,
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_ano',
     'label' => 'Año',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'default_value' => 'blank',
       'default_value2' => 'same',
@@ -3108,12 +3690,12 @@ function feature_sistema_field_default_field_instances() {
       'module' => 'date',
       'settings' => array(
         'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
+        'input_format' => 'site-wide',
         'input_format_custom' => '',
         'label_position' => 'above',
-        'no_fieldset' => 0,
+        'no_fieldset' => 1,
         'text_parts' => array(),
-        'year_range' => '1990:+3',
+        'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
       'weight' => 0,
@@ -3130,16 +3712,25 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
     'field_name' => 'field_institucion_ejecutora',
-    'label' => 'Institución ejecutora',
-    'required' => 1,
+    'label' => 'Institución ejecutora	',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -3154,39 +3745,6 @@ function feature_sistema_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_rehabilitaciones_y_o_ampli-field_moneda_rehabilitacion'.
-  $field_instances['field_collection_item-field_rehabilitaciones_y_o_ampli-field_moneda_rehabilitacion'] = array(
-    'bundle' => 'field_rehabilitaciones_y_o_ampli',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 6,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_moneda_rehabilitacion',
-    'label' => 'Moneda',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance:
   // 'field_collection_item-field_rehabilitaciones_y_o_ampli-field_monto_rehabilitacion'.
   $field_instances['field_collection_item-field_rehabilitaciones_y_o_ampli-field_monto_rehabilitacion'] = array(
     'bundle' => 'field_rehabilitaciones_y_o_ampli',
@@ -3196,41 +3754,87 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
+        'module' => 'mvf',
         'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
         ),
-        'type' => 'number_decimal',
-        'weight' => 5,
+        'type' => 'mvf_formatter_default',
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_monto_rehabilitacion',
     'label' => 'Monto',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => 0,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 331,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'pt-br' => -1,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'unit' => array(),
       'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 5,
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => -10,
+          ),
+          'value' => array(
+            'weight' => -9,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 6,
     ),
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_rehabilitaciones_y_o_ampli-field_origen_financiacion'.
-  $field_instances['field_collection_item-field_rehabilitaciones_y_o_ampli-field_origen_financiacion'] = array(
+  // 'field_collection_item-field_rehabilitaciones_y_o_ampli-field_origen_de_financiamiento_i'.
+  $field_instances['field_collection_item-field_rehabilitaciones_y_o_ampli-field_origen_de_financiamiento_i'] = array(
     'bundle' => 'field_rehabilitaciones_y_o_ampli',
     'default_value' => NULL,
     'deleted' => 0,
@@ -3238,16 +3842,18 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 2,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_origen_financiacion',
-    'label' => 'Origen financiación',
-    'required' => 1,
+    'field_name' => 'field_origen_de_financiamiento_i',
+    'label' => 'Origen de financiamiento (institución, organismo, donación, aporte, etc.)',
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -3262,8 +3868,8 @@ function feature_sistema_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_rehabilitaciones_y_o_ampli-field_programa'.
-  $field_instances['field_collection_item-field_rehabilitaciones_y_o_ampli-field_programa'] = array(
+  // 'field_collection_item-field_rehabilitaciones_y_o_ampli-field_programa_especifico_fondos'.
+  $field_instances['field_collection_item-field_rehabilitaciones_y_o_ampli-field_programa_especifico_fondos'] = array(
     'bundle' => 'field_rehabilitaciones_y_o_ampli',
     'default_value' => NULL,
     'deleted' => 0,
@@ -3271,16 +3877,18 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 3,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_programa',
-    'label' => 'Programa',
-    'required' => 1,
+    'field_name' => 'field_programa_especifico_fondos',
+    'label' => 'Programa específico de donde provienen los fondos',
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -3295,8 +3903,8 @@ function feature_sistema_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_rehabilitaciones_y_o_ampli-field_tipo_de_rehabilitaci_n_o_d'.
-  $field_instances['field_collection_item-field_rehabilitaciones_y_o_ampli-field_tipo_de_rehabilitaci_n_o_d'] = array(
+  // 'field_collection_item-field_rehabilitaciones_y_o_ampli-field_tipo_de_rehabilitacion'.
+  $field_instances['field_collection_item-field_rehabilitaciones_y_o_ampli-field_tipo_de_rehabilitacion'] = array(
     'bundle' => 'field_rehabilitaciones_y_o_ampli',
     'default_value' => NULL,
     'deleted' => 0,
@@ -3304,19 +3912,29 @@ function feature_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 1,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_tipo_de_rehabilitaci_n_o_d',
+    'field_name' => 'field_tipo_de_rehabilitacion',
     'label' => 'Tipo de rehabilitación o de ampliación',
-    'required' => 1,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
     ),
     'widget' => array(
       'active' => 1,
@@ -3329,19 +3947,17 @@ function feature_sistema_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t(' Existencia de contaminación causada por basuras de hogares o por aguas servidas alrededor de la toma de agua ');
-  t(' Existencia de indicios o riesgo de contaminación causada por productos químicos o residuos alrededor de la toma de agua ');
-  t(' Existencia de zonas erosionadas en los alrededores de fuente / toma de agua');
-  t(' F_F_C_I');
   t(' Fuente y/o captación');
+  t('Altitud');
   t('Año');
   t('Año de construcción');
   t('Año en que se construyó el sistema ');
-  t('Cantidad de coliformes');
-  t('Capacidad de almacenamient o (volumen)');
+  t('Cantidad de cloro residual');
+  t('Capacidad de almacenamiento (volumen)');
   t('Caudal actual del sistema');
   t('Caudal de la fuente');
-  t('Caudal de la fuente en época seca');
+  t('Caudal de la fuente en epoca seca');
+  t('Clasificación');
   t('Croquis');
   t('Código de Sistema');
   t('Código de la fuente');
@@ -3351,12 +3967,12 @@ function feature_sistema_field_default_field_instances() {
   t('Desinfección con cloro');
   t('Diámetro medio (interior) de la tubería principal');
   t('Encuestador');
-  t('Entidad local mayor');
-  t('Entidad local menor');
-  t('Entidad regional ');
   t('Estado físico de la línea de tratamiento de agua');
-  t('Existe infraestructura de Captación de Agua de del sistema');
+  t('Existe infraestructura de Captación de Agua  del sistema');
   t('Existe macro medición del caudal captado instalada');
+  t('Existencia de contaminación causada por basuras de hogares o por aguas servidas alrededor de la toma de agua (presencia de letrinas, animales, viviendas, basura doméstica, etc.)');
+  t('Existencia de indicios o riesgo de contaminación causada por productos químicos o residuos alrededor de la toma de agua con origen en actividades industriales, agrícolas, artesanales, etc.');
+  t('Existencia de zonas erosionadas en los alrededores de fuente / toma de agua');
   t('Existencia de áreas verdes o zonas forestadas alrededor de la fuente / toma de agua');
   t('Fecha de Aplicación');
   t('Fecha de análisis de la calidad del agua');
@@ -3364,21 +3980,21 @@ function feature_sistema_field_default_field_instances() {
   t('Fecha de la toma del caudal de la fuente en época seca');
   t('Fecha en la que se llena la encuesta');
   t('Filtración domiciliaria');
+  t('Fuentes de financiamiento');
   t('Funcionamiento correcto');
   t('Georeferenciación');
+  t('Georreferenciación');
   t('Horas de servicio al día');
+  t('Imagen');
   t('Infraestructura de almacenamiento');
-  t('Infraestructura de tramiento');
-  t('Institución ejecutora');
+  t('Infraestructura de tratamiento');
+  t('Institución ejecutora	');
+  t('Localidad');
   t('Longitud de la línea');
   t('Líneas de conducción');
-  t('Moneda');
   t('Monto');
-  t('Monto total de financiamiento');
-  t('Monto total utilizado');
+  t('Nombre');
   t('Nombre de la fuente');
-  t('Nombre de la persona que rellena la encuesta');
-  t('Nombre del sistema');
   t('Número de conexiones de la red de distribución');
   t('Número de micro medidores con consumo registrado');
   t('Número de micro medidores instalados');
@@ -3386,14 +4002,9 @@ function feature_sistema_field_default_field_instances() {
   t('Observaciones sobre la infraestructura');
   t('Observaciones y comentarios');
   t('Origen de financiamiento (institución, organismo, donación, aporte, etc.)');
-  t('Origen financiación');
-  t('Otras divisiones ');
-  t('P_S');
   t('Pasa el test de análisis físico-químicos');
   t('Pasa el test de coliformes?');
-  t('Prestador de servicio');
-  t('Programa');
-  t('Programa específico de donde provienen los fondos ');
+  t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
   t('Red de distribución');
   t('Rehabilitaciones y/o ampliaciones');
@@ -3401,15 +4012,15 @@ function feature_sistema_field_default_field_instances() {
   t('Tipo de rehabilitación o de ampliación');
   t('Tipo de sistema de abastecimiento de agua');
   t('Tipo de tratamiento');
+  t('Validado');
   t('¿Con qué frecuencia se realiza la limpieza?');
   t('¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)');
   t('¿Cuál es el Estado físico de la infraestructura de almacenamiento de agua?');
   t('¿Cuál es el estado físico de la infraestructura de captación de agua?');
   t('¿Cuál es el estado físico de la línea de conducción de agua?');
-  t('¿Cuál es estado físico de la red de distribución de agua?');
+  t('¿Cuál es el estado físico de la red de distribución de agua?');
   t('¿Cuál es la Distancia promedio de las casas a puntos de toma de agua públicos?');
   t('¿Es la fuente principal del sistema? (sólo debe ser una entre todas las asociadas)');
-  t('¿Funciona el macro de medición?');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el invierno / época de lluvias?');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el verano / época seca?');
   t('¿Qué otro tipo de sistema es?');

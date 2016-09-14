@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the features-pat feature.
- */
-
-include_once 'features_pat.features.inc';

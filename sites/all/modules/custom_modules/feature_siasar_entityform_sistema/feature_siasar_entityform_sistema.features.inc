@@ -1,45 +1,47 @@
 <?php
 /**
  * @file
- * feature_sistema.features.inc
+ * feature_siasar_entityform_sistema.features.inc
  */
-
-/**
- * Implements hook_ctools_plugin_api().
- */
-function feature_sistema_ctools_plugin_api($module = NULL, $api = NULL) {
-  if ($module == "field_group" && $api == "field_group") {
-    return array("version" => "1");
-  }
-}
 
 /**
  * Implements hook_default_entityform_type().
  */
-function feature_sistema_default_entityform_type() {
+function feature_siasar_entityform_sistema_default_entityform_type() {
   $items = array();
   $items['sistema'] = entity_import('entityform_type', '{
     "type" : "sistema",
     "label" : "Sistema",
     "data" : {
       "draftable" : 1,
-      "draft_button_text" : "Guardar",
-      "draft_save_text" : {
-        "value" : "Guardar una copia para modificar luego.",
-        "format" : "filtered_html"
-      },
-      "submission_rules" : [],
-      "validation_rules" : [],
+      "draft_redirect_path" : "",
+      "draft_button_text" : "Salvar",
+      "draft_save_text" : { "value" : "", "format" : "filtered_html" },
+      "draft_multiple" : 1,
       "submit_button_text" : "Enviar",
+      "submit_confirm_msg" : "",
+      "your_submissions" : "",
+      "disallow_resubmit_msg" : "",
+      "delete_confirm_msg" : "",
+      "page_title_view" : "",
+      "preview_page" : 0,
       "submission_page_title" : "",
       "submission_text" : { "value" : "", "format" : "filtered_html" },
       "submission_show_submitted" : 0,
       "submissions_view" : "entityforms",
       "user_submissions_view" : "user_entityforms",
       "form_status" : "ENTITYFORM_OPEN",
-      "roles" : { "2" : "2", "3" : "3", "1" : 0 },
+      "roles" : {
+        "2" : "2",
+        "3" : "3",
+        "4" : "4",
+        "5" : "5",
+        "1" : 0,
+        "6" : 0,
+        "7" : 0,
+        "8" : 0
+      },
       "resubmit_action" : "new",
-      "access_rules" : [],
       "redirect_path" : "",
       "instruction_pre" : { "value" : "", "format" : "filtered_html" }
     },

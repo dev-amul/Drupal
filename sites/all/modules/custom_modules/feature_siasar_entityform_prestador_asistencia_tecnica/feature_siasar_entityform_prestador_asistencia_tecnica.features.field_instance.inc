@@ -1,20 +1,24 @@
 <?php
 /**
  * @file
- * features_pat.features.field_instance.inc
+ * feature_siasar_entityform_prestador_asistencia_tecnica.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function features_pat_field_default_field_instances() {
+function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_actualizar_prov_servicio'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_actualizar_prov_servicio'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -28,12 +32,12 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 28,
+        'weight' => 30,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_actualizar_prov_servicio',
-    'label' => '10. Llevar actualizado un listado de proveedores de servicio  y proveedores de bienes  para brindar apoyo a los CAPS',
+    'label' => '10. Llevar actualizado un listado de proveedores de servicio (electricistas, fontaneros mayores, laboratorios de calidad de agua) y proveedores de bienes (materiales de construcción y fontanería, productos químicos) para brindar apoyo a los CAPS',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -48,7 +52,7 @@ function features_pat_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 20,
+      'weight' => 19,
     ),
   );
 
@@ -56,7 +60,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_apoyar_actualizar_tarifa'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_apoyar_actualizar_tarifa'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -70,7 +78,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 22,
+        'weight' => 24,
       ),
     ),
     'entity_type' => 'entityform',
@@ -98,7 +106,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_apoyar_caps_conflictos'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_apoyar_caps_conflictos'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -112,7 +124,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 25,
+        'weight' => 27,
       ),
     ),
     'entity_type' => 'entityform',
@@ -140,7 +152,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_apoyar_caps_planificacion'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_apoyar_caps_planificacion'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -154,7 +170,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 24,
+        'weight' => 26,
       ),
     ),
     'entity_type' => 'entityform',
@@ -182,7 +198,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_apoyar_juridica_caps'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_apoyar_juridica_caps'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -196,7 +216,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 20,
+        'weight' => 22,
       ),
     ),
     'entity_type' => 'entityform',
@@ -224,7 +244,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_apoyar_legalizacion_reglam'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_apoyar_legalizacion_reglam'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -238,7 +262,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 23,
+        'weight' => 25,
       ),
     ),
     'entity_type' => 'entityform',
@@ -266,7 +290,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_asesorar_prestador_aom'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_asesorar_prestador_aom'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -280,7 +308,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 29,
+        'weight' => 31,
       ),
     ),
     'entity_type' => 'entityform',
@@ -290,7 +318,7 @@ function features_pat_field_default_field_instances() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
-      'min' => '',
+      'min' => 0,
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -300,7 +328,7 @@ function features_pat_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 21,
+      'weight' => 20,
     ),
   );
 
@@ -308,7 +336,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_cantidad_comunidades_apoya'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cantidad_comunidades_apoya'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -322,7 +354,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 38,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'entityform',
@@ -350,7 +382,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_cantidad_equipos_inform'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cantidad_equipos_inform'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -364,7 +400,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
-        'weight' => 13,
+        'weight' => 15,
       ),
     ),
     'entity_type' => 'entityform',
@@ -374,7 +410,7 @@ function features_pat_field_default_field_instances() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
-      'min' => '',
+      'min' => 0,
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -392,7 +428,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_cantidad_equipos_transport'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cantidad_equipos_transport'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -406,7 +446,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
-        'weight' => 9,
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'entityform',
@@ -434,7 +474,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_cantidad_medicion_agua'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cantidad_medicion_agua'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -448,7 +492,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
-        'weight' => 11,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'entityform',
@@ -476,7 +520,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_cantidad_tecnicos_zona'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cantidad_tecnicos_zona'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -490,7 +538,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 39,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'entityform',
@@ -518,7 +566,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_caps_medicion_pozo_agua'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_caps_medicion_pozo_agua'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -532,7 +584,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 27,
+        'weight' => 29,
       ),
     ),
     'entity_type' => 'entityform',
@@ -552,7 +604,7 @@ function features_pat_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 19,
+      'weight' => 18,
     ),
   );
 
@@ -560,7 +612,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_cuenta_presupuesto_anual'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cuenta_presupuesto_anual'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -569,7 +625,7 @@ function features_pat_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 40,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'entityform',
@@ -590,10 +646,14 @@ function features_pat_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_dispone_fondos_combistible'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_dispone_fondos_combistible'] = array(
+  // 'entityform-prestador_de_asistencia_t_cnica-field_cuestionario_validado'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cuestionario_validado'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -602,7 +662,46 @@ function features_pat_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 16,
+        'weight' => 36,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_cuestionario_validado',
+    'label' => 'Validado',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 33,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_dispone_fondos_combistible'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_dispone_fondos_combistible'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 18,
       ),
     ),
     'entity_type' => 'entityform',
@@ -618,7 +717,7 @@ function features_pat_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 23,
+      'weight' => 22,
     ),
   );
 
@@ -626,7 +725,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_dispone_fondos_viaticos'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_dispone_fondos_viaticos'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -635,7 +738,7 @@ function features_pat_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 15,
+        'weight' => 17,
       ),
     ),
     'entity_type' => 'entityform',
@@ -659,7 +762,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_dispone_material_didactico'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_dispone_material_didactico'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -668,7 +775,7 @@ function features_pat_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 18,
+        'weight' => 20,
       ),
     ),
     'entity_type' => 'entityform',
@@ -684,7 +791,7 @@ function features_pat_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 25,
+      'weight' => 24,
     ),
   );
 
@@ -692,7 +799,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_dispone_servicios_internet'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_dispone_servicios_internet'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -701,7 +812,7 @@ function features_pat_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 17,
+        'weight' => 19,
       ),
     ),
     'entity_type' => 'entityform',
@@ -717,29 +828,111 @@ function features_pat_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 24,
+      'weight' => 23,
     ),
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_encuestador'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_encuestador'] = array(
+  // 'entityform-prestador_de_asistencia_t_cnica-field_entidad_local'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_entidad_local'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Nombre de la persona que rellena la encuesta',
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_entidad_local',
+    'label' => 'Zona de Atención',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'shs',
+      'settings' => array(
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 0,
+          'node_count' => 0,
+        ),
+      ),
+      'type' => 'taxonomy_shs',
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_entity_clasification'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_entity_clasification'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'computed_field',
+        'settings' => array(),
+        'type' => 'computed_field_plain',
+        'weight' => 37,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_entity_clasification',
+    'label' => 'Clasificación',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'computed_field',
+      'settings' => array(),
+      'type' => 'computed',
+      'weight' => 37,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_entity_name'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_entity_name'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 42,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_encuestador',
-    'label' => 'Encuestador',
+    'field_name' => 'field_entity_name',
+    'label' => 'Nombre',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -750,16 +943,16 @@ function features_pat_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 80,
+        'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 14,
+      'weight' => 40,
     ),
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_estado_equipos_inform'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_estado_equipos_inform'] = array(
+  // 'entityform-prestador_de_asistencia_t_cnica-field_estado_equipos_informatico'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_estado_equipos_informatico'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
     'default_value' => NULL,
     'deleted' => 0,
@@ -767,16 +960,14 @@ function features_pat_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 14,
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 16,
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_estado_equipos_inform',
+    'field_name' => 'field_estado_equipos_informatico',
     'label' => 'Estado de los equipos informáticos (computadora/impresora)',
     'required' => 1,
     'settings' => array(
@@ -802,12 +993,10 @@ function features_pat_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 10,
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'entityform',
@@ -837,12 +1026,10 @@ function features_pat_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 12,
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'entityform',
@@ -867,7 +1054,7 @@ function features_pat_field_default_field_instances() {
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_fecha_de_aplicacion'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Fecha en la que se cubre la encuesta',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -881,7 +1068,7 @@ function features_pat_field_default_field_instances() {
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 43,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'entityform',
@@ -904,9 +1091,9 @@ function features_pat_field_default_field_instances() {
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
         'label_position' => 'none',
-        'no_fieldset' => 0,
+        'no_fieldset' => 1,
         'text_parts' => array(),
-        'year_range' => '-0:+2',
+        'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
       'weight' => 13,
@@ -914,24 +1101,76 @@ function features_pat_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_imagenpat'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_imagenpat'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'large',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_imagenpat',
+    'label' => 'Imagen',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 39,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_monto'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_monto'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'target_id' => 397,
+        'value' => '0.00',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
+        'module' => 'mvf',
         'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
+          'mvf' => array(
+            'unit_suggesters_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
         ),
-        'type' => 'number_decimal',
-        'weight' => 41,
+        'type' => 'mvf_formatter_default',
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'entityform',
@@ -940,54 +1179,63 @@ function features_pat_field_default_field_instances() {
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => 0,
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 20,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_nombre_del_pat'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_nombre_del_pat'] = array(
-    'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 34,
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => 397,
+          'value' => 0,
+        ),
+        'unit_suggesters_settings' => array(
+          'hardcoded' => array(
+            'enable' => 0,
+            'unit' => 511,
+            'weight' => 0,
+          ),
+          'locale' => array(
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'pt-br' => -1,
+            'weight' => 0,
+          ),
+          'original' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+          'per_user' => array(
+            'enable' => 0,
+            'weight' => 0,
+          ),
+        ),
       ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_nombre_del_pat',
-    'label' => 'Nombre del PAT',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
+      'unit' => array(),
       'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'mvf',
       'settings' => array(
-        'size' => 80,
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'symbol',
+            'weight' => -10,
+          ),
+          'value' => array(
+            'weight' => -9,
+          ),
+        ),
       ),
-      'type' => 'text_textfield',
-      'weight' => 23,
+      'type' => 'mvf_widget_default',
+      'weight' => 38,
     ),
   );
 
@@ -1004,7 +1252,7 @@ function features_pat_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 33,
+        'weight' => 35,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1023,7 +1271,7 @@ function features_pat_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 19,
+      'weight' => 29,
     ),
   );
 
@@ -1031,7 +1279,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_otras_numero_comunidade'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_otras_numero_comunidade'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1045,17 +1297,17 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 32,
+        'weight' => 34,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_otras_numero_comunidade',
-    'label' => 'Otras el número de comunidades',
-    'required' => 1,
+    'label' => '14. Número de comunidades en los que se ofrece otros servicios',
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
-      'min' => '',
+      'min' => 0,
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -1065,7 +1317,7 @@ function features_pat_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 24,
+      'weight' => 23,
     ),
   );
 
@@ -1082,12 +1334,12 @@ function features_pat_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 31,
+        'weight' => 33,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_otras_tipo_apoyo',
-    'label' => '13. Otras',
+    'label' => '13. Otros servicios ofrecidos',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1101,7 +1353,7 @@ function features_pat_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 23,
+      'weight' => 22,
     ),
   );
 
@@ -1109,7 +1361,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_recolectar_muestras_agua'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_recolectar_muestras_agua'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1123,12 +1379,12 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 26,
+        'weight' => 28,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_recolectar_muestras_agua',
-    'label' => '8. Recolectar muestras para análisis de calidad de agua de los sistemas y asesorar en su toma, medición e interpretación de los ',
+    'label' => '8. Recolectar muestras para análisis de calidad de agua de los sistemas y asesorar en su toma, medición e interp. de los datos',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1143,7 +1399,7 @@ function features_pat_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 18,
+      'weight' => 17,
     ),
   );
 
@@ -1151,7 +1407,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_revisar_actualizar_finanza'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_revisar_actualizar_finanza'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1165,7 +1425,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 21,
+        'weight' => 23,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1193,7 +1453,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_siasar_planification_anual'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_siasar_planification_anual'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1207,7 +1471,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 30,
+        'weight' => 32,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1227,13 +1491,13 @@ function features_pat_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 22,
+      'weight' => 21,
     ),
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_tipo_de_pat'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_tipo_de_pat'] = array(
+  // 'entityform-prestador_de_asistencia_t_cnica-field_tipo_de_pat2'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_tipo_de_pat2'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1241,18 +1505,16 @@ function features_pat_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 35,
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_tipo_de_pat',
+    'field_name' => 'field_tipo_de_pat2',
     'label' => 'Tipo de PAT',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1261,8 +1523,8 @@ function features_pat_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 3,
+      'type' => 'options_select',
+      'weight' => 4,
     ),
   );
 
@@ -1270,7 +1532,11 @@ function features_pat_field_default_field_instances() {
   // 'entityform-prestador_de_asistencia_t_cnica-field_total_comunidades_zona'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_total_comunidades_zona'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1284,7 +1550,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 37,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1294,7 +1560,7 @@ function features_pat_field_default_field_instances() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
-      'min' => '',
+      'min' => 0,
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -1309,10 +1575,56 @@ function features_pat_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_user_reference'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_user_reference'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 0,
+    'entityconnect_unload_edit' => 0,
+    'field_name' => 'field_user_reference',
+    'label' => 'Encuestador',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_verificar_apoyar_caps'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_verificar_apoyar_caps'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1326,7 +1638,7 @@ function features_pat_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 19,
+        'weight' => 21,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1350,62 +1662,28 @@ function features_pat_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_zona_de_atencion'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_zona_de_atencion'] = array(
-    'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 36,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_zona_de_atencion',
-    'label' => 'Zona de Atención',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 80,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 11,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('1. Verificar y apoyar la conformación, funcionamiento y reorganización de los CAPS');
-  t('10. Llevar actualizado un listado de proveedores de servicio  y proveedores de bienes  para brindar apoyo a los CAPS');
+  t('10. Llevar actualizado un listado de proveedores de servicio (electricistas, fontaneros mayores, laboratorios de calidad de agua) y proveedores de bienes (materiales de construcción y fontanería, productos químicos) para brindar apoyo a los CAPS');
   t('11. Asesorar al prestador (incluyendo fontanero) en temas de AOM');
   t('12. Actualizar y utilizar el SIASAR para propósitos de planificación municipal anual en materia de agua y saneamiento rural ');
-  t('13. Otras');
+  t('13. Otros servicios ofrecidos');
+  t('14. Número de comunidades en los que se ofrece otros servicios');
   t('2. Apoyar la obtención de la figura Legal de los CAPS');
   t('3. Revisar y actualizar las finanzas del sistema');
   t('4. Apoyar a establecer y actualizar la tarifa');
   t('5. Apoyar en el establecimiento y legalización de reglamentos operativos');
   t('6. Apoyar a los CAPS en la planificación y desarrollo de asambleas de rendición de cuentas a la comunidad');
   t('7. Apoyar a los CAPS en el análisis y en la solución de conflictos (ej: uso o abuso del agua de los sistemas)');
-  t('8. Recolectar muestras para análisis de calidad de agua de los sistemas y asesorar en su toma, medición e interpretación de los ');
+  t('8. Recolectar muestras para análisis de calidad de agua de los sistemas y asesorar en su toma, medición e interp. de los datos');
   t('9. Asesorar a los CAPS en la medición de niveles estáticos de pozos y caudales de agua superficiales ');
   t('Cantidad de comunidades apoyadas en los últimos 12 meses');
   t('Cantidad de equipos de transporte ');
   t('Cantidad de equipos informáticos (computadora/impresora)');
   t('Cantidad de equipos para la medición de la calidad del agua');
   t('Cantidad de técnicos en la zona');
+  t('Clasificación');
   t('Cuenta con presupuesto operativo anual');
   t('Dispone de fondos para combustible');
   t('Dispone de fondos para viáticos');
@@ -1416,13 +1694,14 @@ function features_pat_field_default_field_instances() {
   t('Estado de los equipos informáticos (computadora/impresora)');
   t('Estado de los equipos para la medición de la calidad del agua');
   t('Fecha de Aplicación');
+  t('Fecha en la que se cubre la encuesta');
+  t('Imagen');
   t('Monto');
-  t('Nombre de la persona que rellena la encuesta');
-  t('Nombre del PAT');
+  t('Nombre');
   t('Observaciones y comentarios');
-  t('Otras el número de comunidades');
   t('Tipo de PAT');
   t('Total de comunidades en la zona de atención');
+  t('Validado');
   t('Zona de Atención');
 
   return $field_instances;
