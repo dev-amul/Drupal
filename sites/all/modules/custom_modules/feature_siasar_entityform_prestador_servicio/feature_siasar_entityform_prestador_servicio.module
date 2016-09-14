@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SIASAR entityform Prestador de Servicio feature.
+ */
+
+include_once 'feature_siasar_entityform_prestador_servicio.features.inc';
