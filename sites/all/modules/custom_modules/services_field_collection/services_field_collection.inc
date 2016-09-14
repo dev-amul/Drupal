@@ -24,7 +24,6 @@ function _services_fc_create($field_collection) {
   $entity->setHostEntity($field_collection['host_entity']['resource'], $host_entity);
 
   $wrapper = entity_metadata_wrapper($entity_type, $entity);
-  $entity_properties = $wrapper->getPropertyInfo();
   _services_fc_set_entity_wrapper_field_values($wrapper, $field_collection);
 
   $wrapper->save();
