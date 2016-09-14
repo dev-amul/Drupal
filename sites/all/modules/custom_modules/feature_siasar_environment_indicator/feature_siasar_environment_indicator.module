@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SIASAR environment indicator feature.
+ */
+
+include_once 'feature_siasar_environment_indicator.features.inc';
