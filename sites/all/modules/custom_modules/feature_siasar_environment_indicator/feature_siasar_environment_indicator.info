@@ -1,0 +1,12 @@
+name = SIASAR environment indicator
+description = SIASAR environment indicator config
+core = 7.x
+package = SIASAR
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = environment_indicator
+features[ctools][] = environment_indicator:default_environment_indicator_environments:1
+features[environment_indicator_environment][] = local
+features[environment_indicator_environment][] = staging_production
+features[features_api][] = api:2
+project path = sites/all/modules/custom_modules
