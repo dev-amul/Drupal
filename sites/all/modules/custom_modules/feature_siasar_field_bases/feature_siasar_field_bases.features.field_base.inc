@@ -9846,7 +9846,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
   // Exported field_base: 'field_testing_collection'.
   $field_bases['field_testing_collection'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_testing_collection',
