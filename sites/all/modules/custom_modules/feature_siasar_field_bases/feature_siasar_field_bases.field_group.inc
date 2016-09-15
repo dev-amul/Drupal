@@ -3623,43 +3623,6 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_testing1|entityform|testingpurposes|form';
-  $field_group->group_name = 'group_testing1';
-  $field_group->entity_type = 'entityform';
-  $field_group->bundle = 'testingpurposes';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Grupo 1',
-    'weight' => '0',
-    'children' => array(
-      0 => 'field_entity_name',
-      1 => 'field_com_srv_telf_existe',
-      2 => 'field_testing_collection',
-      3 => 'field_cantidad_comunidades_apoya',
-      4 => 'field_edo_fisico_linea_conducion',
-      5 => 'field_image',
-      6 => 'field_b1_7',
-    ),
-    'format_type' => 'html-element',
-    'format_settings' => array(
-      'label' => 'Grupo 1',
-      'instance_settings' => array(
-        'required_fields' => 1,
-        'id' => '',
-        'classes' => 'group-testing1 field-group-html-element',
-        'element' => 'h1',
-        'show_label' => '1',
-        'label_element' => 'h1',
-        'attributes' => '',
-      ),
-    ),
-  );
-  $field_groups['group_testing1|entityform|testingpurposes|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
   $field_group->identifier = 'group_tipo_de_apoyo|entityform|prestador_de_asistencia_t_cnica|form';
   $field_group->group_name = 'group_tipo_de_apoyo';
   $field_group->entity_type = 'entityform';
@@ -3856,7 +3819,6 @@ function feature_siasar_field_bases_field_group_info() {
   t('G3. Filtración domiciliaria');
   t('G4.');
   t('G4. Calidad del agua');
-  t('Grupo 1');
   t('H. Observaciones');
   t('H. Operación y mantenimiento');
   t('H1.');
