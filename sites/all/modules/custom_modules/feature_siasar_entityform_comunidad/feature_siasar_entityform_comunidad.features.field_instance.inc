@@ -485,7 +485,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_georef',
-    'label' => 'Georefenriación',
+    'label' => 'Georeferenciación',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -5545,7 +5545,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Ficha de centro de salud');
   t('Ficha de centro educativo');
   t('Fuente / institución');
-  t('Georefenriación');
+  t('Georeferenciación');
   t('Idioma predominante');
   t('Imagen');
   t('Localidad');

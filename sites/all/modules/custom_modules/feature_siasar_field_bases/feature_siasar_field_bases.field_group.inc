@@ -581,10 +581,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A2.',
     'weight' => '3',
     'children' => array(
-      0 => 'field_com_poblacion_total',
-      1 => 'field_field_com_obs_poblacion',
-      2 => 'field_etnia_en_mayoria',
-      3 => 'field_idioma_predominante',
+      0 => 'field_field_com_obs_poblacion',
+      1 => 'field_etnia_en_mayoria',
+      2 => 'field_idioma_predominante',
+      3 => 'field_com_poblacion_total',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -617,13 +617,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A3.',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-com-cantidad-viv field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-com-cantidad-viv field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_com_cantidad_viv|entityform|comunidad|form'] = $field_group;
@@ -641,8 +642,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A5. Centros educativos',
     'weight' => '6',
     'children' => array(
-      0 => 'field_com_ce_nombre',
-      1 => 'field_com_ce_existe',
+      0 => 'field_com_ce_existe',
+      1 => 'field_com_ce_nombre',
       2 => 'field_ce_location',
     ),
     'format_type' => 'fieldset',
@@ -671,9 +672,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A6. Centros de salud',
     'weight' => '7',
     'children' => array(
-      0 => 'field_cs_location',
+      0 => 'field_com_cs_nombre',
       1 => 'field_com_cs_existe',
-      2 => 'field_com_cs_nombre',
+      2 => 'field_cs_location',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -730,9 +731,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B2. Saneamiento. Existencia de infraestructura para las viviendas',
     'weight' => '27',
     'children' => array(
-      0 => 'field_com_num_viv_infta',
-      1 => 'field_field_com_num_viv_infnt',
-      2 => 'field_com_num_viv_inftb',
+      0 => 'field_field_com_num_viv_infnt',
+      1 => 'field_com_num_viv_inftb',
+      2 => 'field_com_num_viv_infta',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1022,8 +1023,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B6. Higiene en viviendas',
     'weight' => '31',
     'children' => array(
-      0 => 'field_com_hig_num_vivbasica',
-      1 => 'field_com_hig_num_vivagua',
+      0 => 'field_com_hig_num_vivagua',
+      1 => 'field_com_hig_num_vivbasica',
       2 => 'field_com_hig_num_vivtodos',
     ),
     'format_type' => 'fieldset',
@@ -1053,8 +1054,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '43',
     'children' => array(
       0 => 'field_com_fc_systypimprove',
-      1 => 'field_com_fc_impsystem',
-      2 => 'field_com_fc_systypunimprove',
+      1 => 'field_com_fc_systypunimprove',
+      2 => 'field_com_fc_impsystem',
       3 => 'field_com_fc_newwatsystem',
     ),
     'format_type' => 'fieldset',
@@ -1114,8 +1115,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B5. Saneamiento NO mejorado. Uso de la infraestructura',
     'weight' => '30',
     'children' => array(
-      0 => 'field_com_no_uso_vivnumtodos',
-      1 => 'field_com_no_uso_vivnumuso',
+      0 => 'field_com_no_uso_vivnumuso',
+      1 => 'field_com_no_uso_vivnumtodos',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1202,9 +1203,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B1. Proceso empleado para rellenar el formulario',
     'weight' => '26',
     'children' => array(
-      0 => 'field_com_lev_utilform',
-      1 => 'field_com_lev_general',
-      2 => 'field_com_lev_muestral',
+      0 => 'field_com_lev_general',
+      1 => 'field_com_lev_muestral',
+      2 => 'field_com_lev_utilform',
       3 => 'field_com_num_viv_muestra',
     ),
     'format_type' => 'fieldset',
@@ -1234,8 +1235,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '32',
     'children' => array(
       0 => 'field_com_recotrata_prac',
-      1 => 'field_com_recontrata_numvivc',
-      2 => 'field_com_recotrata_disp',
+      1 => 'field_com_recotrata_disp',
+      2 => 'field_com_recontrata_numvivc',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1264,12 +1265,12 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '3',
     'children' => array(
       0 => 'group_com_exist_infestr',
-      1 => 'group_com_uso_inf',
-      2 => 'group_com_higiene',
+      1 => 'group_com_higiene',
+      2 => 'group_com_no_uso',
       3 => 'group_com_recotrata',
-      4 => 'group_com_no_uso',
-      5 => 'group_com_proc_empleado',
-      6 => 'group_com_uso_compartido',
+      4 => 'group_com_uso_inf',
+      5 => 'group_com_uso_compartido',
+      6 => 'group_com_proc_empleado',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -1361,8 +1362,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B3. Saneamiento mejorado. Uso de la infraestructura PROPIA de la vivienda',
     'weight' => '28',
     'children' => array(
-      0 => 'field_com_num_viv_usoinfb',
-      1 => 'field_com_num_viv_usoinfa',
+      0 => 'field_com_num_viv_usoinfa',
+      1 => 'field_com_num_viv_usoinfb',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2589,15 +2590,15 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. Información general',
     'weight' => '2',
     'children' => array(
-      0 => 'field_fecha_encuesta',
-      1 => 'field_user_reference',
+      0 => 'field_user_reference',
+      1 => 'field_fecha_encuesta',
       2 => 'group_com_ce',
-      3 => 'group_com_cantidad_viv',
-      4 => 'group_com_srv',
-      5 => 'group_info_general',
-      6 => 'group_com_cs',
-      7 => 'group_com_dist_viviendas',
-      8 => 'group_co_poblacion',
+      3 => 'group_com_srv',
+      4 => 'group_com_cs',
+      5 => 'group_com_dist_viviendas',
+      6 => 'group_co_poblacion',
+      7 => 'group_com_cantidad_viv',
+      8 => 'group_info_general',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -2625,19 +2626,19 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_info_general_comunidad';
   $field_group->data = array(
-    'label' => 'A.1',
+    'label' => 'A1.',
     'weight' => '2',
     'children' => array(
-      0 => 'field_com_codigo_comunidad',
-      1 => 'field_entity_name',
-      2 => 'field_com_georef',
-      3 => 'field_imagenc',
-      4 => 'field_entidad_local',
-      5 => 'field_com_altitud',
+      0 => 'field_entity_name',
+      1 => 'field_com_georef',
+      2 => 'field_imagenc',
+      3 => 'field_entidad_local',
+      4 => 'field_com_altitud',
+      5 => 'field_com_codigo_comunidad',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'A.1',
+      'label' => 'A1.',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -3622,6 +3623,43 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_testing1|entityform|testingpurposes|form';
+  $field_group->group_name = 'group_testing1';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'testingpurposes';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Grupo 1',
+    'weight' => '0',
+    'children' => array(
+      0 => 'field_entity_name',
+      1 => 'field_com_srv_telf_existe',
+      2 => 'field_testing_collection',
+      3 => 'field_cantidad_comunidades_apoya',
+      4 => 'field_edo_fisico_linea_conducion',
+      5 => 'field_image',
+      6 => 'field_b1_7',
+    ),
+    'format_type' => 'html-element',
+    'format_settings' => array(
+      'label' => 'Grupo 1',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-testing1 field-group-html-element',
+        'element' => 'h1',
+        'show_label' => '1',
+        'label_element' => 'h1',
+        'attributes' => '',
+      ),
+    ),
+  );
+  $field_groups['group_testing1|entityform|testingpurposes|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_tipo_de_apoyo|entityform|prestador_de_asistencia_t_cnica|form';
   $field_group->group_name = 'group_tipo_de_apoyo';
   $field_group->entity_type = 'entityform';
@@ -3729,7 +3767,6 @@ function feature_siasar_field_bases_field_group_info() {
   t('A. Información General y esquema del sistema');
   t('A. Información general');
   t('A. Información general y esquema del sistema');
-  t('A.1');
   t('A1');
   t('A1.');
   t('A2');
@@ -3819,6 +3856,7 @@ function feature_siasar_field_bases_field_group_info() {
   t('G3. Filtración domiciliaria');
   t('G4.');
   t('G4. Calidad del agua');
+  t('Grupo 1');
   t('H. Observaciones');
   t('H. Operación y mantenimiento');
   t('H1.');
