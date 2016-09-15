@@ -492,7 +492,6 @@ features[field_group][] = group_rinde_cuentas|entityform|prestador_de_servicio|f
 features[field_group][] = group_tarifa|entityform|prestador_de_servicio|form
 features[field_group][] = group_tasa_extension|entityform|prestador_de_servicio|form
 features[field_group][] = group_tecnicos_repesentantes|entityform|prestador_de_servicio|form
-features[field_group][] = group_testing1|entityform|testingpurposes|form
 features[field_group][] = group_tipo_de_apoyo|entityform|prestador_de_asistencia_t_cnica|form
 features[field_group][] = group_tipo_tarifa|entityform|prestador_de_servicio|form
 features[field_group][] = group_tpo_sist_abastecimeinto|entityform|sistema|form
