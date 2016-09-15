@@ -485,7 +485,7 @@ function feature_siasar_field_bases_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_georef',
-    'label' => 'Georefenriación',
+    'label' => 'Georeferenciación',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -16408,7 +16408,6 @@ function feature_siasar_field_bases_field_default_field_instances() {
   t('Gasto promedio mensual teórico en mantenimiento');
   t('Gasto promedio mensual teórico en operación');
   t('Gasto promedio mensual teórico en servicios ambientales      ');
-  t('Georefenriación');
   t('Georeferenciación');
   t('Georreferenciación');
   t('Género');
