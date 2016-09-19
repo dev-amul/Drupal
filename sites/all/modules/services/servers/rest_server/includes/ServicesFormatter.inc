@@ -18,9 +18,7 @@ class ServicesJSONFormatter implements ServicesFormatterInterface {
     if (is_scalar($data)) {
       $data = array($data);
     }
-    //SIASAR: Added, JSON_PARTIAL_OUTPUT_ON_ERROR flag to prevent geofield geom value issue,
-    // in general this issue, 
-    return str_replace('\\/', '/', json_encode($data, JSON_PARTIAL_OUTPUT_ON_ERROR)); 
+    return str_replace('\\/', '/', json_encode($data)); 
   }
 }
 

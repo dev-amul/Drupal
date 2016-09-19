@@ -1,0 +1,5 @@
+name = SIASAR Services Geofield
+description = Alters Service module output for Geofield.
+version = 7.x-1.0
+core = 7.x
+package = siasar
