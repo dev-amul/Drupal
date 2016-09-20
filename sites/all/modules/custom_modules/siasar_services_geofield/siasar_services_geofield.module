@@ -17,7 +17,7 @@
  */
 function siasar_services_geofield_services_request_postprocess_alter($controller, $args, &$result) {
   foreach ($result as &$value) {
-    if (isset($value['geom'])) {
+    if (is_array($value) && isset($value['geom'])) {
       unset ($value['geom']);
     }
   }
