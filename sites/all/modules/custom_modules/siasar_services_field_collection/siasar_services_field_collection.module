@@ -17,9 +17,21 @@ function siasar_services_field_collection_services_request_postprocess_alter($co
 
   if (arg(1) !== 'field_collection_structure') return;
 
-  $requested_fc = $args[0]; // fc is short for "field collection"
+  _siasar_services_field_collection_get_referenced_entityform_name($args[0], $result);
 
-  foreach ($result[$requested_fc] as $key => &$field) {
+}
+
+/**
+ * Gets entity name where a entityform is being referenced and this entity has a "field_entity_name" value set.
+ * It traverses all fields on the Field Collection.
+ *
+ * @param string $arg
+ *   First argument passed to services callback
+ * @param array $result
+ *   Array of results that can be altered (passed by reference)
+ */
+function _siasar_services_field_collection_get_referenced_entityform_name($arg, &$result) {
+  foreach ($result[$arg] as &$field) {
     if (!isset($field['settings']['resource']) or $field['settings']['resource'] !== 'entityform' or empty($field['settings']['allowed_values'])) {
       continue;
     }
