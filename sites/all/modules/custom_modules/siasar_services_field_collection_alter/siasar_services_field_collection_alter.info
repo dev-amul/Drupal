@@ -1,0 +1,5 @@
+name = SIASAR Services Field Collection Alter
+description = Alters Service module output for requests related to Field collections and Field Collection structures.
+version = 7.x-1.0
+core = 7.x
+package = siasar
