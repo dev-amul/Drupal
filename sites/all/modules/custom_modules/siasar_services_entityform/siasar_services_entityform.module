@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * Alter results of the Field Collection services call.
+ *
+ * @param $controller
+ *   Controller definition
+ * @param array $args
+ *   Arguments passed to services callback
+ * @param array $result
+ *   Array of results that can be altered
+ *
+ * @see services_controller_execute()
+ * @see services.runtime.inc
+ */
+function siasar_services_entityform_services_request_postprocess_alter($controller, $args, &$result) {
+
+  if (arg(1) !== 'field_collection_structure') return;
+
+  $requested_fc = $args[0]; // fc is short for "field collection"
+
+  foreach ($result[$requested_fc] as $key => &$field) {
+    if (!isset($field['settings']['resource']) or $field['settings']['resource'] !== 'entityform' or empty($field['settings']['allowed_values'])) {
+      continue;
+    }
+
+    $entities_list = array_keys($field['settings']['allowed_values']);
+    $entities = entity_load($field['settings']['resource'], $entities_list);
+
+    foreach ($entities as $k => $e) {
+      $wrapper = entity_metadata_wrapper($field['settings']['resource'], $e);
+      $value = isset($e->field_entity_name) ? $wrapper->field_entity_name->value() : null;
+      if (is_string($value)) {
+        $field['settings']['allowed_values'][$k] = $value;
+      }
+    }
+  }
+}
