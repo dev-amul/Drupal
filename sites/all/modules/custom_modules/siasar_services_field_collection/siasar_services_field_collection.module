@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Alter results of the Field Collection services call.
+ * Alter results on the Field Collection services call.
  *
  * @param $controller
  *   Controller definition
@@ -13,7 +13,7 @@
  * @see services_controller_execute()
  * @see services.runtime.inc
  */
-function siasar_services_entityform_services_request_postprocess_alter($controller, $args, &$result) {
+function siasar_services_field_collection_services_request_postprocess_alter($controller, $args, &$result) {
 
   if (arg(1) !== 'field_collection_structure') return;
 
