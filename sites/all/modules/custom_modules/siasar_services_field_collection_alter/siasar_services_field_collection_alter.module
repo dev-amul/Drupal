@@ -15,8 +15,14 @@
  */
 function siasar_services_field_collection_alter_services_request_postprocess_alter($controller, $args, &$result) {
 
-  if (arg(1) == 'field_collection_structure' and arg(2) !== null) { // At this moment, only field collection structure is considered for changes.
-    _siasar_services_field_collection_alter_get_referenced_entityform_name($args[0], $result);
+  if (arg(1) == 'field_collection_structure') { // At this moment, only field collection structure is considered for changes.
+    if (arg(2) == null && is_object($result)) {
+      foreach ($result as &$fc) {
+        $fc = _siasar_services_field_collection_alter_get_referenced_entityform_name($fc);
+      }
+    } elseif (arg(2) !== null && is_array($result[$args[0]])) {
+      $result = _siasar_services_field_collection_alter_get_referenced_entityform_name($result[$args[0]]);
+    }
   }
 
 }
@@ -25,16 +31,14 @@ function siasar_services_field_collection_alter_services_request_postprocess_alt
  * Gets entity name where a entityform is being referenced and this entity has a "field_entity_name" value set.
  * It traverses all fields on the Field Collection.
  *
- * @param string $arg
- *   First argument passed to services callback
- * @param array $result
- *   Array of results that can be altered (passed by reference)
+ * @param array $data
+ *   Array of results that can be altered
  */
-function _siasar_services_field_collection_alter_get_referenced_entityform_name($arg, &$result) {
+function _siasar_services_field_collection_alter_get_referenced_entityform_name($data) {
 
-  if (!is_array($result)) return;
+  if (!is_array($data)) return $data;
 
-  foreach ($result[$arg] as &$field) {
+  foreach ($data as &$field) {
     if (!isset($field['settings']['resource']) or $field['settings']['resource'] !== 'entityform' or empty($field['settings']['allowed_values'])) {
       continue;
     }
@@ -50,4 +54,5 @@ function _siasar_services_field_collection_alter_get_referenced_entityform_name(
       }
     }
   }
+  return $data;
 }
