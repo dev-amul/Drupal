@@ -123,10 +123,11 @@ function siasar_updates_update_7108(&$sandbox) {
 
   $modules = array(
     'feature_siasar_taxonomies',
-    'feature_siasar_entityform_sistema',
   );
   $modules_enabled = module_enable($modules, TRUE);
   if (!$modules_enabled) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
+
+  features_revert_module('feature_siasar_entityform_sistema');
 }
