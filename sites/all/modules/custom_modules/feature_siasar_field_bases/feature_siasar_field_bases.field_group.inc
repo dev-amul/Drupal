@@ -80,14 +80,14 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. Información General y esquema del sistema',
     'weight' => '0',
     'children' => array(
-      0 => 'field_fecha_de_aplicaci_n',
-      1 => 'field_user_reference',
+      0 => 'field_user_reference',
+      1 => 'field_fecha_de_aplicaci_n',
       2 => 'group_rehabilitaciones_sistema',
-      3 => 'group_info_general',
-      4 => 'group_a5',
-      5 => 'group_a6_croquis_del_sistema',
-      6 => 'group_tpo_sist_abastecimeinto',
-      7 => 'group_financiamiento_inicial',
+      3 => 'group_a5',
+      4 => 'group_a6_croquis_del_sistema',
+      5 => 'group_tpo_sist_abastecimeinto',
+      6 => 'group_financiamiento_inicial',
+      7 => 'group_info_general',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -453,8 +453,8 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_c1_1',
       1 => 'field_c1_4',
-      2 => 'field_longitud_de_la_linea',
-      3 => 'field_diametro_medio_de_tuberia',
+      2 => 'field_diametro_medio_de_tuberia',
+      3 => 'field_longitud_de_la_linea',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -479,7 +479,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'C2. Estado físico de la línea de conducción de agua',
+    'label' => 'C2. Estado físico de la infraestructura de conducción de agua',
     'weight' => '6',
     'children' => array(
       0 => 'field_c2_2',
@@ -487,13 +487,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'C2. Estado físico de la infraestructura de conducción de agua',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-c2 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-c2 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_c2|field_collection_item|field_lineas_de_conduccion|form'] = $field_group;
@@ -1835,24 +1836,22 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'F1. Red de distribución',
+    'label' => 'F1. Distribución de agua',
     'weight' => '0',
     'children' => array(
       0 => 'field_f1_1',
-      1 => 'field_f1_2',
-      2 => 'field_f1_3',
-      3 => 'field_f1_5',
-      4 => 'field_f1_4',
+      1 => 'field_f1_5',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'F1. Distribución de agua',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-f1 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-f1 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_f1|field_collection_item|field_f_red_de_distribucion|form'] = $field_group;
@@ -1867,20 +1866,21 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'F2. Distancia promedio de las casas a puntos de toma de agua públicos',
-    'weight' => '1',
+    'label' => 'F3. Distancia promedio de las casas a puntos de toma de agua públicos',
+    'weight' => '2',
     'children' => array(
       0 => 'field_f2_1',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'F3. Distancia promedio de las casas a puntos de toma de agua públicos',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-f2 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-f2 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_f2|field_collection_item|field_f_red_de_distribucion|form'] = $field_group;
@@ -1895,21 +1895,22 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'F3. Estado físico de la red de distribución de agua',
-    'weight' => '2',
+    'label' => 'F4. Estado físico de la infraestructura de distribución de agua',
+    'weight' => '3',
     'children' => array(
       0 => 'field_f3_2',
       1 => 'field_edo_fisico_red_dist',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'F4. Estado físico de la infraestructura de distribución de agua',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-f3 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-f3 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_f3|field_collection_item|field_f_red_de_distribucion|form'] = $field_group;
@@ -2081,14 +2082,14 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'F. DISTRIBUCIÓN',
+    'label' => 'F. DISTRIBUCIÓN DE AGUA',
     'weight' => '5',
     'children' => array(
       0 => 'group_f1',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
-      'label' => 'F. DISTRIBUCIÓN',
+      'label' => 'F. DISTRIBUCIÓN DE AGUA',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -2199,10 +2200,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'G4. Calidad del agua',
     'weight' => '71',
     'children' => array(
-      0 => 'field_g4_3',
-      1 => 'field_cantidad_de_cloro_residual',
-      2 => 'field_g4_4',
-      3 => 'field_fecha_analisiscalidad_agua',
+      0 => 'field_g4_4',
+      1 => 'field_g4_3',
+      2 => 'field_fecha_analisiscalidad_agua',
+      3 => 'field_cantidad_de_cloro_residual',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2267,9 +2268,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'G. Cantidad y calidad de agua potable',
     'weight' => '6',
     'children' => array(
-      0 => 'group_g3',
-      1 => 'group_g1',
-      2 => 'group_g2',
+      0 => 'group_g2',
+      1 => 'group_g3',
+      2 => 'group_g1',
       3 => 'group_g4',
     ),
     'format_type' => 'html-element',
@@ -2794,12 +2795,12 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '25',
     'children' => array(
       0 => 'field_anno_construccion',
-      1 => 'field_entidad_local',
-      2 => 'field_alto',
+      1 => 'field_alto',
+      2 => 'field_entity_name',
       3 => 'field_latitud',
-      4 => 'field_entity_name',
-      5 => 'field_imagen',
-      6 => 'field_codigo_de_sistema',
+      4 => 'field_imagen',
+      5 => 'field_codigo_de_sistema',
+      6 => 'field_entidad_local',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3754,8 +3755,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A4. Tipo de sistema de abastecimiento de agua',
     'weight' => '28',
     'children' => array(
-      0 => 'field_a4_2',
-      1 => 'field_tipo_de_sistema_de_absto',
+      0 => 'field_tipo_de_sistema_de_absto',
+      1 => 'field_a4_2',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3833,7 +3834,7 @@ function feature_siasar_field_bases_field_group_info() {
   t('C1. Línea de conducción');
   t('C2');
   t('C2. Características generales');
-  t('C2. Estado físico de la línea de conducción de agua');
+  t('C2. Estado físico de la infraestructura de conducción de agua');
   t('C2. Tipo y cuantía de la tarifa');
   t('C3');
   t('C3. Sistema de agua');
@@ -3862,15 +3863,15 @@ function feature_siasar_field_bases_field_group_info() {
   t('E1. Infraestructura de almacenamiento');
   t('E1. Intervenciones previstas o en proceso');
   t('E2. Estado físico de la infraestructura de almacenamiento de agua');
-  t('F. DISTRIBUCIÓN');
+  t('F. DISTRIBUCIÓN DE AGUA');
   t('F. Observaciones');
   t('F1');
+  t('F1. Distribución de agua');
   t('F1. Ingresos y egresos al día');
   t('F1. Observaciones y comentarios');
-  t('F1. Red de distribución');
-  t('F2. Distancia promedio de las casas a puntos de toma de agua públicos');
   t('F3. Balance contable');
-  t('F3. Estado físico de la red de distribución de agua');
+  t('F3. Distancia promedio de las casas a puntos de toma de agua públicos');
+  t('F4. Estado físico de la infraestructura de distribución de agua');
   t('G. Cantidad y calidad de agua potable');
   t('G1.');
   t('G1. Caudal actual del sistema');
