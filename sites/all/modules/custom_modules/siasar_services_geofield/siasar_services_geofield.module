@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Alter results of the services call.
+ * Geofield field stores some data as binary. When Services module tries to deliver an output as JSON or other plain text format,
+ * this field breaks the process - json_encode() function fails, returning false.
+ *
+ * @param $controller
+ *   Controller definition
+ * @param array $args
+ *   Arguments passed to services callback
+ * @param array $result
+ *   Array of results that can be altered
+ *
+ * @see services_controller_execute()
+ * @see services.runtime.inc
+ */
+function siasar_services_geofield_services_request_postprocess_alter($controller, $args, &$result) {
+  foreach ($result as &$value) {
+    if (is_array($value) && isset($value['geom'])) {
+      unset ($value['geom']);
+    }
+  }
+}

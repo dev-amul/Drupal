@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * Alter results on the Field Collection services call.
+ *
+ * @param $controller
+ *   Controller definition
+ * @param array $args
+ *   Arguments passed to services callback
+ * @param array $result
+ *   Array of results that can be altered
+ *
+ * @see services_controller_execute()
+ * @see services.runtime.inc
+ */
+function siasar_services_field_collection_alter_services_request_postprocess_alter($controller, $args, &$result) {
+
+  if (arg(1) == 'field_collection_structure') { // At this moment, only field collection structure is considered for changes.
+    if (arg(2) == null && is_object($result)) {
+      foreach ($result as &$fc) {
+        $fc = _siasar_services_field_collection_alter_get_referenced_entityform_name($fc);
+      }
+    } elseif (arg(2) !== null && is_array($result[$args[0]])) {
+      $result = _siasar_services_field_collection_alter_get_referenced_entityform_name($result[$args[0]]);
+    }
+  }
+
+}
+
+/**
+ * Gets entity name where a entityform is being referenced and this entity has a "field_entity_name" value set.
+ * It traverses all fields on the Field Collection.
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_field_collection_alter_get_referenced_entityform_name($data) {
+
+  if (!is_array($data)) return $data;
+
+  foreach ($data as &$field) {
+    if (!isset($field['settings']['resource']) or $field['settings']['resource'] !== 'entityform' or empty($field['settings']['allowed_values'])) {
+      continue;
+    }
+
+    $entities_list = array_keys($field['settings']['allowed_values']);
+    $entities = entity_load($field['settings']['resource'], $entities_list);
+
+    foreach ($entities as $k => $e) {
+      $wrapper = entity_metadata_wrapper($field['settings']['resource'], $e);
+      $value = isset($e->field_entity_name) ? $wrapper->field_entity_name->value() : null;
+      if (is_string($value)) {
+        $field['settings']['allowed_values'][$k] = $value;
+      }
+    }
+  }
+  return $data;
+}
