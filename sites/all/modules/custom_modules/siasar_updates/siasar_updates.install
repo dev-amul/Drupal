@@ -120,5 +120,12 @@ function siasar_updates_update_7107(&$sandbox) {
  */
 function siasar_updates_update_7108(&$sandbox) {
   features_revert_module('feature_siasar_field_bases');
+
+  $modules = array('feature_siasar_taxonomies');
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
   features_revert_module('feature_siasar_entityform_sistema');
 }
