@@ -10,6 +10,47 @@
 function feature_siasar_entityform_comunidad_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'entityform-comunidad-field_area_planificacion'.
+  $field_instances['entityform-comunidad-field_area_planificacion'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 55,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_area_planificacion',
+    'label' => 'Área o zona de planificación',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'entityform-comunidad-field_ce_location'.
   $field_instances['entityform-comunidad-field_ce_location'] = array(
     'bundle' => 'comunidad',
@@ -1726,6 +1767,47 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-comunidad-field_cuenca_hidrografica'.
+  $field_instances['entityform-comunidad-field_cuenca_hidrografica'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 54,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_cuenca_hidrografica',
+    'label' => 'Cuenca hidrográfica',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance:
   // 'entityform-comunidad-field_cuestionario_validado'.
   $field_instances['entityform-comunidad-field_cuestionario_validado'] = array(
@@ -2122,6 +2204,47 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
       'type' => 'image_image',
       'weight' => 61,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-comunidad-field_otras_divisiones'.
+  $field_instances['entityform-comunidad-field_otras_divisiones'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 56,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_otras_divisiones',
+    'label' => 'Otras divisiones',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 6,
     ),
   );
 
@@ -6542,6 +6665,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:');
   t('Cantidad de viviendas totales');
   t('Clasificación');
+  t('Cuenca hidrográfica');
   t('Código Comunidad');
   t('Código del centro de salud');
   t('Código del centro educativo');
@@ -6632,6 +6756,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Observaciones ');
   t('Observaciones sobre el grupo de población');
   t('Otras características de la comunidad');
+  t('Otras divisiones');
   t('Personal de salud y administrativo. Femenino');
   t('Personal de salud y administrativo. Masculino');
   t('Personal docente y administrativo. Femenino');
@@ -6657,6 +6782,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('¿Existe algún centro de salud en la comunidad?');
   t('¿Existe algún centro educativo en la comunidad?');
   t('¿Existe algún tipo de práctica de recolección y/o tratamiento de basuras en la comunidad?');
+  t('Área o zona de planificación');
 
   return $field_instances;
 }
