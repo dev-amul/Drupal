@@ -187,7 +187,6 @@ features[field_base][] = field_com_georef
 features[field_base][] = field_com_hig_num_vivagua
 features[field_base][] = field_com_hig_num_vivbasica
 features[field_base][] = field_com_hig_num_vivtodos
-features[field_base][] = field_com_interv_notipmejfi
 features[field_base][] = field_com_lev_general
 features[field_base][] = field_com_lev_muestral
 features[field_base][] = field_com_lev_utilform
