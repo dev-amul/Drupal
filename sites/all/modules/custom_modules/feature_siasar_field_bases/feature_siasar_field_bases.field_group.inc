@@ -580,7 +580,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_info_general_comunidad';
   $field_group->data = array(
     'label' => 'A3.',
-    'weight' => '3',
+    'weight' => '5',
     'children' => array(
       0 => 'field_field_com_obs_poblacion',
       1 => 'field_etnia_en_mayoria',
@@ -612,7 +612,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_info_general_comunidad';
   $field_group->data = array(
     'label' => 'A4.',
-    'weight' => '4',
+    'weight' => '6',
     'children' => array(
       0 => 'field_com_viv_totales',
     ),
@@ -643,9 +643,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C1. Centros educativos',
     'weight' => '8',
     'children' => array(
-      0 => 'field_com_ce_existe',
-      1 => 'field_com_ce_nombre',
-      2 => 'field_ce_location',
+      0 => 'field_com_ce_nombre',
+      1 => 'field_ce_location',
+      2 => 'field_com_ce_existe',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -703,7 +703,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_info_general_comunidad';
   $field_group->data = array(
     'label' => 'A5. Distribución de viviendas con sistema',
-    'weight' => '5',
+    'weight' => '7',
     'children' => array(
       0 => 'field_com_viv_con_sistema',
     ),
@@ -734,9 +734,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B2. Saneamiento. Existencia de infraestructura para las viviendas',
     'weight' => '29',
     'children' => array(
-      0 => 'field_field_com_num_viv_infnt',
-      1 => 'field_com_num_viv_inftb',
-      2 => 'field_com_num_viv_infta',
+      0 => 'field_com_num_viv_inftb',
+      1 => 'field_com_num_viv_infta',
+      2 => 'field_field_com_num_viv_infnt',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1054,8 +1054,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B5. Higiene en viviendas',
     'weight' => '33',
     'children' => array(
-      0 => 'field_com_hig_num_vivagua',
-      1 => 'field_com_hig_num_vivtodos',
+      0 => 'field_com_hig_num_vivtodos',
+      1 => 'field_com_hig_num_vivagua',
       2 => 'field_com_hig_num_vivbasica',
     ),
     'format_type' => 'fieldset',
@@ -1085,9 +1085,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'E1. Intervenciones previstas o en proceso',
     'weight' => '43',
     'children' => array(
-      0 => 'field_com_fc_systypimprove',
-      1 => 'field_com_fc_systypunimprove',
-      2 => 'field_com_fc_impsystem',
+      0 => 'field_com_fc_systypunimprove',
+      1 => 'field_com_fc_impsystem',
+      2 => 'field_com_fc_systypimprove',
       3 => 'field_com_fc_newwatsystem',
     ),
     'format_type' => 'fieldset',
@@ -1147,8 +1147,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B4. Saneamiento. Uso de la infraestructura NO MEJORADA',
     'weight' => '32',
     'children' => array(
-      0 => 'field_com_no_uso_vivnumuso',
-      1 => 'field_com_no_uso_vivnumtodos',
+      0 => 'field_com_no_uso_vivnumtodos',
+      1 => 'field_com_no_uso_vivnumuso',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1237,9 +1237,9 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '28',
     'children' => array(
       0 => 'field_com_lev_general',
-      1 => 'field_com_lev_muestral',
-      2 => 'field_com_lev_utilform',
-      3 => 'field_com_num_viv_muestra',
+      1 => 'field_com_num_viv_muestra',
+      2 => 'field_com_lev_muestral',
+      3 => 'field_com_lev_utilform',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1267,9 +1267,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B6. Recolección y tratamiento de basuras',
     'weight' => '34',
     'children' => array(
-      0 => 'field_com_recotrata_prac',
-      1 => 'field_com_recontrata_numvivc',
-      2 => 'field_com_recotrata_disp',
+      0 => 'field_com_recotrata_disp',
+      1 => 'field_com_recotrata_prac',
+      2 => 'field_com_recontrata_numvivc',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1300,9 +1300,9 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'group_com_exist_infestr',
       1 => 'group_com_higiene',
-      2 => 'group_com_no_uso',
+      2 => 'group_com_recotrata',
       3 => 'group_com_uso_inf',
-      4 => 'group_com_recotrata',
+      4 => 'group_com_no_uso',
       5 => 'group_com_proc_empleado',
     ),
     'format_type' => 'html-element',
@@ -1334,11 +1334,11 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A7. Energía y Servicios de comunicación',
     'weight' => '9',
     'children' => array(
-      0 => 'field_com_srv_inte_existe',
-      1 => 'field_com_srv_existe',
-      2 => 'field_com_srv_caracteristicas',
-      3 => 'field_com_srv_telm_existe',
-      4 => 'field_com_srv_telf_existe',
+      0 => 'field_com_srv_existe',
+      1 => 'field_com_srv_telm_existe',
+      2 => 'field_com_srv_telf_existe',
+      3 => 'field_com_srv_caracteristicas',
+      4 => 'field_com_srv_inte_existe',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1392,10 +1392,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B3. Saneamiento. Uso de la infraestructura MEJORADA de tipo 1 y tipo 2',
     'weight' => '30',
     'children' => array(
-      0 => 'field_com_num_viv_usohab',
-      1 => 'field_com_num_viv_usoinfa',
-      2 => 'field_com_num_viv_usoinfb',
-      3 => 'field_com_num_viv_usotodos',
+      0 => 'field_com_num_viv_usotodos',
+      1 => 'field_com_num_viv_usohab',
+      2 => 'field_com_num_viv_usoinfa',
+      3 => 'field_com_num_viv_usoinfb',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2654,12 +2654,13 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_user_reference',
       1 => 'field_fecha_encuesta',
-      2 => 'group_com_srv',
-      3 => 'group_com_dist_viviendas',
-      4 => 'group_co_poblacion',
-      5 => 'group_com_viviendas_sin_sistema',
-      6 => 'group_com_cantidad_viv',
-      7 => 'group_info_general',
+      2 => 'group_com_dist_viviendas',
+      3 => 'group_info_general',
+      4 => 'group_com_viviendas_sin_sistema',
+      5 => 'group_com_cantidad_viv',
+      6 => 'group_co_poblacion',
+      7 => 'group_com_srv',
+      8 => 'group_otras_divisiones',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -2692,9 +2693,9 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_entity_name',
       1 => 'field_com_georef',
-      2 => 'field_imagenc',
-      3 => 'field_com_altitud',
-      4 => 'field_com_codigo_comunidad',
+      2 => 'field_com_codigo_comunidad',
+      3 => 'field_imagenc',
+      4 => 'field_com_altitud',
       5 => 'field_entidad_local',
     ),
     'format_type' => 'fieldset',
@@ -3188,6 +3189,37 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_otras_divisiones|entityform|comunidad|form';
+  $field_group->group_name = 'group_otras_divisiones';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_info_general_comunidad';
+  $field_group->data = array(
+    'label' => 'A2. Otras divisiones',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_cuenca_hidrografica',
+      1 => 'field_area_planificacion',
+      2 => 'field_otras_divisiones',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'A2. Otras divisiones',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-otras-divisiones field-group-fieldset',
+        'description' => '',
+      ),
+      'formatter' => 'collapsible',
+    ),
+  );
+  $field_groups['group_otras_divisiones|entityform|comunidad|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_pat_a1|entityform|prestador_de_asistencia_t_cnica|form';
   $field_group->group_name = 'group_pat_a1';
   $field_group->entity_type = 'entityform';
@@ -3513,6 +3545,36 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_red_distribucion|field_collection_item|field_f_red_de_distribucion|form';
+  $field_group->group_name = 'group_red_distribucion';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_f_red_de_distribucion';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'F2. Red de distribución',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_f1_3',
+      1 => 'field_f1_2',
+      2 => 'field_f1_4',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-red-distribucion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_red_distribucion|field_collection_item|field_f_red_de_distribucion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_reglamento|entityform|prestador_de_servicio|form';
   $field_group->group_name = 'group_reglamento';
   $field_group->entity_type = 'entityform';
@@ -3796,6 +3858,7 @@ function feature_siasar_field_bases_field_group_info() {
   t('A2');
   t('A2. Clase prestador');
   t('A2. Fuentes de financiamiento de la construcción inicial ');
+  t('A2. Otras divisiones');
   t('A3');
   t('A3.');
   t('A3. Rehabilitaciones y/o ampliaciones del sistema');
@@ -3869,6 +3932,7 @@ function feature_siasar_field_bases_field_group_info() {
   t('F1. Distribución de agua');
   t('F1. Ingresos y egresos al día');
   t('F1. Observaciones y comentarios');
+  t('F2. Red de distribución');
   t('F3. Balance contable');
   t('F3. Distancia promedio de las casas a puntos de toma de agua públicos');
   t('F4. Estado físico de la infraestructura de distribución de agua');
