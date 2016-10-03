@@ -20,21 +20,22 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A5. ¿Hay suficiente agua en las fuentes en función de la demanda?',
+    'label' => 'A6. ¿Hay suficiente agua en las fuentes en función de la demanda?',
     'weight' => '29',
     'children' => array(
-      0 => 'field_agua_en_invierno',
-      1 => 'field_agua_en_verano',
+      0 => 'field_agua_en_verano',
+      1 => 'field_agua_en_invierno',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A6. ¿Hay suficiente agua en las fuentes en función de la demanda?',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-a5 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-a5 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_a5|entityform|sistema|form'] = $field_group;
@@ -49,20 +50,21 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A6. Croquis del sistema de abastecimiento de agua',
+    'label' => 'A7. Croquis del sistema de abastecimiento de agua',
     'weight' => '30',
     'children' => array(
       0 => 'field_a6_croquis',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A7. Croquis del sistema de abastecimiento de agua',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-a6-croquis-del-sistema field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-a6-croquis-del-sistema field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_a6_croquis_del_sistema|entityform|sistema|form'] = $field_group;
@@ -83,11 +85,12 @@ function feature_siasar_field_bases_field_group_info() {
       0 => 'field_user_reference',
       1 => 'field_fecha_de_aplicaci_n',
       2 => 'group_rehabilitaciones_sistema',
-      3 => 'group_a5',
-      4 => 'group_a6_croquis_del_sistema',
-      5 => 'group_tpo_sist_abastecimeinto',
-      6 => 'group_financiamiento_inicial',
+      3 => 'group_a6_croquis_del_sistema',
+      4 => 'group_a5',
+      5 => 'group_financiamiento_inicial',
+      6 => 'group_tpo_sist_abastecimeinto',
       7 => 'group_info_general',
+      8 => 'group_otras_divisiones',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -1956,14 +1959,14 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A2. Fuentes de financiamiento de la construcción inicial ',
+    'label' => 'A3. Fuentes de financiamiento de la construcción inicial ',
     'weight' => '26',
     'children' => array(
       0 => 'field_a_fuentes_de_financiamient',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'A2. Fuentes de financiamiento de la construcción inicial ',
+      'label' => 'A3. Fuentes de financiamiento de la construcción inicial ',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -2200,9 +2203,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'G4. Calidad del agua',
     'weight' => '71',
     'children' => array(
-      0 => 'field_g4_4',
-      1 => 'field_g4_3',
-      2 => 'field_fecha_analisiscalidad_agua',
+      0 => 'field_g4_3',
+      1 => 'field_fecha_analisiscalidad_agua',
+      2 => 'field_g4_4',
       3 => 'field_cantidad_de_cloro_residual',
     ),
     'format_type' => 'fieldset',
@@ -2268,10 +2271,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'G. Cantidad y calidad de agua potable',
     'weight' => '6',
     'children' => array(
-      0 => 'group_g2',
-      1 => 'group_g3',
-      2 => 'group_g1',
-      3 => 'group_g4',
+      0 => 'group_g3',
+      1 => 'group_g1',
+      2 => 'group_g4',
+      3 => 'group_g2',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -2793,15 +2796,15 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
     'label' => 'A1',
-    'weight' => '25',
+    'weight' => '24',
     'children' => array(
-      0 => 'field_anno_construccion',
-      1 => 'field_alto',
-      2 => 'field_entity_name',
-      3 => 'field_latitud',
-      4 => 'field_imagen',
-      5 => 'field_codigo_de_sistema',
-      6 => 'field_entidad_local',
+      0 => 'field_alto',
+      1 => 'field_entity_name',
+      2 => 'field_codigo_de_sistema',
+      3 => 'field_imagen',
+      4 => 'field_entidad_local',
+      5 => 'field_latitud',
+      6 => 'field_anno_construccion',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3220,6 +3223,36 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_otras_divisiones|entityform|sistema|form';
+  $field_group->group_name = 'group_otras_divisiones';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'sistema';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_a_info_general_sistema';
+  $field_group->data = array(
+    'label' => 'A2. Otras divisiones',
+    'weight' => '25',
+    'children' => array(
+      0 => 'field_cuenca_hidrografica',
+      1 => 'field_area_planificacion',
+      2 => 'field_otras_divisiones',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-otras-divisiones field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_otras_divisiones|entityform|sistema|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_pat_a1|entityform|prestador_de_asistencia_t_cnica|form';
   $field_group->group_name = 'group_pat_a1';
   $field_group->entity_type = 'entityform';
@@ -3610,14 +3643,14 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A3. Rehabilitaciones y/o ampliaciones del sistema',
+    'label' => 'A4. Rehabilitaciones y/o ampliaciones del sistema',
     'weight' => '27',
     'children' => array(
       0 => 'field_rehabilitaciones_y_o_ampli',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'A3. Rehabilitaciones y/o ampliaciones del sistema',
+      'label' => 'A4. Rehabilitaciones y/o ampliaciones del sistema',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -3814,7 +3847,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A4. Tipo de sistema de abastecimiento de agua',
+    'label' => 'A5. Tipo de sistema de abastecimiento de agua',
     'weight' => '28',
     'children' => array(
       0 => 'field_tipo_de_sistema_de_absto',
@@ -3822,13 +3855,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A5. Tipo de sistema de abastecimiento de agua',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-tpo-sist-abastecimeinto field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-tpo-sist-abastecimeinto field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_tpo_sist_abastecimeinto|entityform|sistema|form'] = $field_group;
@@ -3857,17 +3891,17 @@ function feature_siasar_field_bases_field_group_info() {
   t('A1.');
   t('A2');
   t('A2. Clase prestador');
-  t('A2. Fuentes de financiamiento de la construcción inicial ');
   t('A2. Otras divisiones');
   t('A3');
   t('A3.');
-  t('A3. Rehabilitaciones y/o ampliaciones del sistema');
+  t('A3. Fuentes de financiamiento de la construcción inicial ');
   t('A4.');
-  t('A4. Tipo de sistema de abastecimiento de agua');
+  t('A4. Rehabilitaciones y/o ampliaciones del sistema');
   t('A5. Distribución de viviendas con sistema');
-  t('A5. ¿Hay suficiente agua en las fuentes en función de la demanda?');
-  t('A6. Croquis del sistema de abastecimiento de agua');
+  t('A5. Tipo de sistema de abastecimiento de agua');
   t('A6. Viviendas sin sistema');
+  t('A6. ¿Hay suficiente agua en las fuentes en función de la demanda?');
+  t('A7. Croquis del sistema de abastecimiento de agua');
   t('A7. Energía y Servicios de comunicación');
   t('B. Fuente y captación de agua');
   t('B. Información sobre asociaciones u organizaciones comunitarias');
