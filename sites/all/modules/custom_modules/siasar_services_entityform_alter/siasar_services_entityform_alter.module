@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * Alter results on the Entityform services call.
+ *
+ * @param $controller
+ *   Controller definition
+ * @param array $args
+ *   Arguments passed to services callback
+ * @param array $result
+ *   Array of results that can be altered
+ *
+ * @see services_controller_execute()
+ * @see services.runtime.inc
+ */
+function siasar_services_entityform_alter_services_request_postprocess_alter($controller, $args, &$result) {
+
+  if (arg(1) == 'entity_entityform') { // At this moment, only field collection structure is considered for changes.
+
+    if (arg(2) == null && is_array($result)) {
+      foreach ($result as &$response) {
+        $response = _siasar_services_entityform_alter_get_referenced_entityform_name($response);
+      }
+    } elseif (arg(2) !== null && is_array($result[$args[0]])) {
+      //$result = _siasar_services_entityform_alter_get_referenced_entityform_name($result[$args[0]]);
+    }
+  }
+}
+
+/**
+ * Gets entity name where a entityform is being referenced and this entity has a "field_entity_name" value set.
+ * It traverses all fields on the Field Collection.
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_entityform_alter_get_referenced_entityform_name($data) {
+
+  if (!is_array($data)) return $data;
+
+  foreach ($data as &$field) {
+    if (!is_array($field) || !isset($field['resource'])) {
+      continue;
+    }
+
+    switch($field['resource']) {
+      case 'taxonomy_term':
+        $field = _siasar_services_entityform_alter_attach_term_info($field);
+        break;
+    }
+  }
+  return $data;
+}
+
+/**
+ * Gets taxonomy term and adds loaded info to $field array
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_entityform_alter_attach_term_info($field) {
+  if (!isset($field['id'])) return $field;
+
+  $term = taxonomy_term_load($field['id']);
+  $field['name'] = $term->name;
+  $field['tid'] = $term->tid;
+  unset ($field['id']);
+
+  return $field;
+}
