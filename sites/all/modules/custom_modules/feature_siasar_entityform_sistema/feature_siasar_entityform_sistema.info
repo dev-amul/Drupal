@@ -114,5 +114,4 @@ features[field_instance][] = field_collection_item-field_rehabilitaciones_y_o_am
 features[field_instance][] = field_collection_item-field_rehabilitaciones_y_o_ampli-field_origen_de_financiamiento_i
 features[field_instance][] = field_collection_item-field_rehabilitaciones_y_o_ampli-field_programa_especifico_fondos
 features[field_instance][] = field_collection_item-field_rehabilitaciones_y_o_ampli-field_tipo_de_rehabilitacion
-features_exclude[field_group][group_otras_divisiones|entityform|sistema|form] = group_otras_divisiones|entityform|sistema|form
 project path = sites/all/modules/custom_modules
