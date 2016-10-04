@@ -39,14 +39,20 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name($data)
   if (!is_array($data)) return $data;
 
   foreach ($data as &$field) {
-    if (!is_array($field) || !isset($field['resource'])) {
+    if (!is_array($field) || empty($field)) {
       continue;
     }
-
-    switch($field['resource']) {
-      case 'taxonomy_term':
-        $field = _siasar_services_entityform_alter_attach_term_info($field);
-        break;
+    elseif (_siasar_array_is_numeric($field)) {
+      // Evaluate for Sequential array
+      $field = _siasar_services_entityform_alter_get_referenced_entityform_name($field);
+      continue;
+    }
+    elseif (isset($field['resource'])) {
+      switch($field['resource']) {
+        case 'taxonomy_term':
+          $field = _siasar_services_entityform_alter_attach_term_info($field);
+          break;
+      }
     }
   }
   return $data;
@@ -68,3 +74,20 @@ function _siasar_services_entityform_alter_attach_term_info($field) {
 
   return $field;
 }
+
+/**
+ * Checks if all array keys are numeric
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ * @return bool
+ *   True if all array keys are numeric, false otherwise
+ */
+function _siasar_array_is_numeric(array $array) {
+  for (reset($array); is_int(key($array)); next($array));
+  $is_numeric = is_null(key($array));
+
+  return $is_numeric;
+}
+
+
