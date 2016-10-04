@@ -18,8 +18,8 @@ function siasar_services_entityform_alter_services_request_postprocess_alter($co
   if (arg(1) == 'entity_entityform') { // At this moment, only field collection structure is considered for changes.
 
     if (arg(2) == null && is_array($result)) {
-      foreach ($result as &$response) {
-        $response = _siasar_services_entityform_alter_get_referenced_entityform_name($response);
+      foreach ($result as &$item) {
+        $item = _siasar_services_entityform_alter_get_referenced_entityform_name($item);
       }
     } elseif (arg(2) !== null && is_array($result[$args[0]])) {
       //$result = _siasar_services_entityform_alter_get_referenced_entityform_name($result[$args[0]]);
@@ -28,8 +28,8 @@ function siasar_services_entityform_alter_services_request_postprocess_alter($co
 }
 
 /**
- * Gets entity name where a entityform is being referenced and this entity has a "field_entity_name" value set.
- * It traverses all fields on the Field Collection.
+ * Gets entity name and useful data where a entityform is being referenced.
+ * It traverses all fields on the array.
  *
  * @param array $data
  *   Array of results that can be altered
@@ -39,14 +39,22 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name($data)
   if (!is_array($data)) return $data;
 
   foreach ($data as &$field) {
-    if (!is_array($field) || !isset($field['resource'])) {
+    if (!is_array($field) || empty($field)) {
       continue;
     }
-
-    switch($field['resource']) {
-      case 'taxonomy_term':
-        $field = _siasar_services_entityform_alter_attach_term_info($field);
-        break;
+    elseif (_siasar_array_is_numeric($field)) {
+      $field = _siasar_services_entityform_alter_get_referenced_entityform_name($field);
+      continue;
+    }
+    elseif (isset($field['unit'])) {
+      $field = _siasar_services_entityform_alter_attach_unit_info($field);
+    }
+    elseif (isset($field['resource'])) {
+      switch($field['resource']) {
+        case 'taxonomy_term':
+          $field = _siasar_services_entityform_alter_attach_term_info($field);
+          break;
+      }
     }
   }
   return $data;
@@ -54,17 +62,62 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name($data)
 
 /**
  * Gets taxonomy term and adds loaded info to $field array
+ * Adapted from http://stackoverflow.com/a/5969617/381914
  *
  * @param array $data
  *   Array of results that can be altered
  */
 function _siasar_services_entityform_alter_attach_term_info($field) {
-  if (!isset($field['id'])) return $field;
+  static $terms;
 
-  $term = taxonomy_term_load($field['id']);
-  $field['name'] = $term->name;
-  $field['tid'] = $term->tid;
+  $tid = $field['id'];
+  if (!isset($terms[$tid])) {
+    $terms[$tid] = taxonomy_term_load($tid);
+  } 
+
+  $field['name'] = $terms[$tid]->name;
+  $field['tid'] = $terms[$tid]->tid;
   unset ($field['id']);
 
   return $field;
 }
+
+/**
+ * Gets measuring unit and adds loaded info to $field array
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_entityform_alter_attach_unit_info($field) {
+  static $units;
+
+  $uid = $field['unit']['id'];
+  if (!isset($units[$uid])) {
+    $units[$uid] = entity_load_single('units_unit', $uid);
+  }
+
+  $field['unit']['measure'] = $units[$uid]->measure;
+  $field['unit']['label'] = $units[$uid]->label;
+  $field['unit']['symbol'] = $units[$uid]->symbol;
+  unset($field['unit']['uri']);
+  unset($field['unit']['resource']);
+
+  return $field;
+ }
+/**
+ * Checks if all array keys are numeric
+ * Adapted from http://stackoverflow.com/a/5969617/381914
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ * @return bool
+ *   True if all array keys are numeric, false otherwise
+ */
+function _siasar_array_is_numeric(array $array) {
+  for (reset($array); is_int(key($array)); next($array));
+  $is_numeric = is_null(key($array));
+
+  return $is_numeric;
+}
+
+
