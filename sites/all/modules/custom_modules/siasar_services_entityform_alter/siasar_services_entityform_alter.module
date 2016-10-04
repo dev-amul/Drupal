@@ -60,6 +60,7 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name($data)
 
 /**
  * Gets taxonomy term and adds loaded info to $field array
+ * Adapted from http://stackoverflow.com/a/5969617/381914
  *
  * @param array $data
  *   Array of results that can be altered
