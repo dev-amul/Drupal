@@ -127,7 +127,7 @@ function _siasar_services_entityform_alter_attach_field_collection_info($field) 
   $field_list = array_keys($fc_structure[$fc_name]);
 
   foreach ($field_list as $key) {
-    $field['fields'][$key] = _siasar_services_entityform_alter_get_value_from_wrapper($wrapper, $key);
+    $field[$key] = _siasar_services_entityform_alter_get_value_from_wrapper($wrapper, $key);
   }
 
   return $field;
