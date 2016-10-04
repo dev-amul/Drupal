@@ -42,7 +42,7 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name($data)
     if (!is_array($field) || empty($field)) {
       continue;
     }
-    elseif (_siasar_array_is_numeric($field)) {
+    elseif (_siasar_services_entityform_alter_array_is_numeric($field)) {
       $field = _siasar_services_entityform_alter_get_referenced_entityform_name($field);
       continue;
     }
@@ -54,10 +54,36 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name($data)
         case 'taxonomy_term':
           $field = _siasar_services_entityform_alter_attach_term_info($field);
           break;
+        case 'field_collection_item':
+          $field = _siasar_services_entityform_alter_attach_field_collection_info($field);
+          break;
       }
     }
   }
   return $data;
+}
+
+/**
+ * Gets measuring unit and adds loaded info to $field array
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_entityform_alter_attach_unit_info($field) {
+  static $units;
+
+  $uid = $field['unit']['id'];
+  if (!isset($units[$uid])) {
+    $units[$uid] = entity_load_single('units_unit', $uid);
+  }
+
+  $field['unit']['measure'] = $units[$uid]->measure;
+  $field['unit']['label'] = $units[$uid]->label;
+  $field['unit']['symbol'] = $units[$uid]->symbol;
+  unset($field['unit']['uri']);
+  unset($field['unit']['resource']);
+
+  return $field;
 }
 
 /**
@@ -83,27 +109,30 @@ function _siasar_services_entityform_alter_attach_term_info($field) {
 }
 
 /**
- * Gets measuring unit and adds loaded info to $field array
+ * Gets field collection fields and adds loaded info to $field array
  *
  * @param array $data
  *   Array of results that can be altered
  */
-function _siasar_services_entityform_alter_attach_unit_info($field) {
-  static $units;
+function _siasar_services_entityform_alter_attach_field_collection_info($field) {
+  static $fc_structure;
 
-  $uid = $field['unit']['id'];
-  if (!isset($units[$uid])) {
-    $units[$uid] = entity_load_single('units_unit', $uid);
+  $entity = entity_load_single('field_collection_item', $field['id']);
+  $wrapper = entity_metadata_wrapper('field_collection_item', $entity);
+  $fc_name = $entity->field_name;
+
+  if (!isset($fc_structure[$fc_name])) {
+    $fc_structure[$fc_name] = field_info_instances('field_collection_item', $fc_name);
+  }
+  $field_list = array_keys($fc_structure[$fc_name]);
+
+  foreach ($field_list as $key) {
+    $field['fields'][$key] = _siasar_services_entityform_alter_get_value_from_wrapper($wrapper, $key);
   }
 
-  $field['unit']['measure'] = $units[$uid]->measure;
-  $field['unit']['label'] = $units[$uid]->label;
-  $field['unit']['symbol'] = $units[$uid]->symbol;
-  unset($field['unit']['uri']);
-  unset($field['unit']['resource']);
-
   return $field;
- }
+}
+
 /**
  * Checks if all array keys are numeric
  * Adapted from http://stackoverflow.com/a/5969617/381914
@@ -113,11 +142,36 @@ function _siasar_services_entityform_alter_attach_unit_info($field) {
  * @return bool
  *   True if all array keys are numeric, false otherwise
  */
-function _siasar_array_is_numeric(array $array) {
+function _siasar_services_entityform_alter_array_is_numeric(array $array) {
   for (reset($array); is_int(key($array)); next($array));
   $is_numeric = is_null(key($array));
 
   return $is_numeric;
 }
 
+/**
+ * Fetches value from field inside an entity using its wrapper
+ *
+ * @param array $wrapper
+ *   Entity wrapper
+ * @param string $key
+ *   Field machine name we want to fetch value from
+ * @return string or array
+ *   Return fetched value
+ */
+function _siasar_services_entityform_alter_get_value_from_wrapper($wrapper, $key) {
+  $value = null;
+  switch($wrapper->{$key}->type()) {
+    case 'taxonomy_term':
+      $term = $wrapper->{$key}->value();
+      if ($term !== null) {
+        $value['name'] = $term->name;
+        $value['tid'] = $term->tid;
+      }
+      break;
+    default:
+      $value = $wrapper->{$key}->value();
+  }
 
+  return $value;
+}
