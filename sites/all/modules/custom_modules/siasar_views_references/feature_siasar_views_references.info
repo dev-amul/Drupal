@@ -1,4 +1,4 @@
-name = siasar_views_references
+name = SIASAR Views References
 description = Views used as data source for Entity Reference Fields
 core = 7.x
 package = SIASAR
