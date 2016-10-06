@@ -128,7 +128,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 106,
     ),
   );
 
@@ -293,6 +293,47 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       ),
       'type' => 'date_select',
       'weight' => 26,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_area_planificacion'.
+  $field_instances['entityform-sistema-field_area_planificacion'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 32,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_area_planificacion',
+    'label' => 'Área o zona de planificación',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 109,
     ),
   );
 
@@ -509,6 +550,47 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 30,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_cuenca_hidrografica'.
+  $field_instances['entityform-sistema-field_cuenca_hidrografica'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 31,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_cuenca_hidrografica',
+    'label' => 'Cuenca hidrográfica',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 108,
     ),
   );
 
@@ -776,7 +858,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 13,
+      'weight' => 73,
     ),
   );
 
@@ -1206,6 +1288,47 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'settings' => array(),
       'type' => 'field_collection_embed',
       'weight' => 74,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_otras_divisiones'.
+  $field_instances['entityform-sistema-field_otras_divisiones'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 33,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_otras_divisiones',
+    'label' => 'Otras divisiones',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 110,
     ),
   );
 
@@ -2152,7 +2275,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_edo_fisico_red_dist',
-    'label' => '¿Cuál es el estado físico de la red de distribución de agua?',
+    'label' => 'Estado físico de la infraestructura de distribución de agua',
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
@@ -2195,7 +2318,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_1',
-    'label' => 'Código de la red',
+    'label' => 'Código de la distribución',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2251,7 +2374,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -2293,7 +2416,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -2335,7 +2458,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -2377,7 +2500,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 5,
+      'weight' => 2,
     ),
   );
 
@@ -2387,7 +2510,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'bundle' => 'field_f_red_de_distribucion',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => '(Pozos  o sistemas por gravedad / bombeo. No aplica en sistemas con abastecimiento domiciliar. Al contestar este bloque se entiende que la distribución es parcial o totalmente mediante puntos de toma de agua públicos)',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2399,7 +2522,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f2_1',
-    'label' => '¿Cuál es la Distancia promedio de las casas a puntos de toma de agua públicos?',
+    'label' => 'Señalar a qué distancia aproximada se encuentran instalados los puntos de toma de agua públicos a las casas de los usuarios.',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2432,7 +2555,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f3_2',
-    'label' => 'Observaciones sobre la infraestructura',
+    'label' => 'Observaciones sobre la distribución',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2763,7 +2886,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_edo_fisico_infra_cptcion',
-    'label' => '¿Cuál es el estado físico de la infraestructura de captación de agua?',
+    'label' => 'Estado físico de la infraestructura de captación de agua',
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
@@ -3400,7 +3523,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_c2_2',
-    'label' => 'Observaciones',
+    'label' => 'Observaciones sobre la conducción',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -3447,7 +3570,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_diametro_medio_de_tuberia',
-    'label' => 'Diámetro medio (interior) de la tubería principal',
+    'label' => 'Diámetro medio o sección (interior) de la tubería principal',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -3470,6 +3593,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
             'en' => -1,
             'enable' => 1,
             'es' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
             'pt-br' => -1,
             'weight' => 0,
           ),
@@ -3948,6 +4073,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t(' Fuente y/o captación');
+  t('(Pozos  o sistemas por gravedad / bombeo. No aplica en sistemas con abastecimiento domiciliar. Al contestar este bloque se entiende que la distribución es parcial o totalmente mediante puntos de toma de agua públicos)');
   t('Altitud');
   t('Año');
   t('Año de construcción');
@@ -3959,14 +4085,17 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Caudal de la fuente en epoca seca');
   t('Clasificación');
   t('Croquis');
+  t('Cuenca hidrográfica');
   t('Código de Sistema');
+  t('Código de la distribución');
   t('Código de la fuente');
   t('Código de la infraestructura');
   t('Código de la línea');
-  t('Código de la red');
   t('Desinfección con cloro');
-  t('Diámetro medio (interior) de la tubería principal');
+  t('Diámetro medio o sección (interior) de la tubería principal');
   t('Encuestador');
+  t('Estado físico de la infraestructura de captación de agua');
+  t('Estado físico de la infraestructura de distribución de agua');
   t('Estado físico de la línea de tratamiento de agua');
   t('Existe infraestructura de Captación de Agua  del sistema');
   t('Existe macro medición del caudal captado instalada');
@@ -3999,15 +4128,19 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Número de micro medidores con consumo registrado');
   t('Número de micro medidores instalados');
   t('Observaciones');
+  t('Observaciones sobre la conducción');
+  t('Observaciones sobre la distribución');
   t('Observaciones sobre la infraestructura');
   t('Observaciones y comentarios');
   t('Origen de financiamiento (institución, organismo, donación, aporte, etc.)');
+  t('Otras divisiones');
   t('Pasa el test de análisis físico-químicos');
   t('Pasa el test de coliformes?');
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
   t('Red de distribución');
   t('Rehabilitaciones y/o ampliaciones');
+  t('Señalar a qué distancia aproximada se encuentran instalados los puntos de toma de agua públicos a las casas de los usuarios.');
   t('Tipo de fuente');
   t('Tipo de rehabilitación o de ampliación');
   t('Tipo de sistema de abastecimiento de agua');
@@ -4016,14 +4149,12 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('¿Con qué frecuencia se realiza la limpieza?');
   t('¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)');
   t('¿Cuál es el Estado físico de la infraestructura de almacenamiento de agua?');
-  t('¿Cuál es el estado físico de la infraestructura de captación de agua?');
   t('¿Cuál es el estado físico de la línea de conducción de agua?');
-  t('¿Cuál es el estado físico de la red de distribución de agua?');
-  t('¿Cuál es la Distancia promedio de las casas a puntos de toma de agua públicos?');
   t('¿Es la fuente principal del sistema? (sólo debe ser una entre todas las asociadas)');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el invierno / época de lluvias?');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el verano / época seca?');
   t('¿Qué otro tipo de sistema es?');
+  t('Área o zona de planificación');
 
   return $field_instances;
 }

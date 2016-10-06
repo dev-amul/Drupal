@@ -10,6 +10,47 @@
 function feature_siasar_entityform_comunidad_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'entityform-comunidad-field_area_planificacion'.
+  $field_instances['entityform-comunidad-field_area_planificacion'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 55,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_area_planificacion',
+    'label' => 'Área o zona de planificación',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'entityform-comunidad-field_ce_location'.
   $field_instances['entityform-comunidad-field_ce_location'] = array(
     'bundle' => 'comunidad',
@@ -454,7 +495,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 40,
+      'weight' => 8,
     ),
   );
 
@@ -543,7 +584,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 35,
+      'weight' => 36,
     ),
   );
 
@@ -634,7 +675,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 34,
+      'weight' => 35,
     ),
   );
 
@@ -788,7 +829,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 32,
+      'weight' => 36,
     ),
   );
 
@@ -833,7 +874,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 31,
+      'weight' => 35,
     ),
   );
 
@@ -1292,7 +1333,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 38,
+      'weight' => 39,
     ),
   );
 
@@ -1364,7 +1405,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 23,
+      'weight' => 24,
     ),
   );
 
@@ -1436,7 +1477,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 22,
+      'weight' => 23,
     ),
   );
 
@@ -1508,7 +1549,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 21,
+      'weight' => 22,
     ),
   );
 
@@ -1674,7 +1715,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 39,
+      'weight' => 9,
     ),
   );
 
@@ -1723,6 +1764,47 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
       'type' => 'taxonomy_shs',
       'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-comunidad-field_cuenca_hidrografica'.
+  $field_instances['entityform-comunidad-field_cuenca_hidrografica'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 54,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_cuenca_hidrografica',
+    'label' => 'Cuenca hidrográfica',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 4,
     ),
   );
 
@@ -2122,6 +2204,47 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
       'type' => 'image_image',
       'weight' => 61,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-comunidad-field_otras_divisiones'.
+  $field_instances['entityform-comunidad-field_otras_divisiones'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 56,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_otras_divisiones',
+    'label' => 'Otras divisiones',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 6,
     ),
   );
 
@@ -2784,6 +2907,174 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_paa'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_paa'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 33,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_paa',
+    'label' => 'Nº Instalaciones comunes a personal y pacientes femeninos de TIPO 1',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 35,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pab'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pab'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 34,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pab',
+    'label' => 'Nº Instalaciones comunes a personal y pacientes femeninos de TIPO 2',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 36,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pac'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pac'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 35,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pac',
+    'label' => 'Nº Instalaciones comunes a personal y pacientes femeninos NO MEJORADA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 37,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pad'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pad'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 36,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pad',
+    'label' => 'Nº Instalaciones comunes a personal y pacientes femeninos BÁSICA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 38,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pb'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pb'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
@@ -2830,6 +3121,174 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pba'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pba'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 37,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pba',
+    'label' => 'Nº Instalaciones comunes a personal y pacientes masculinos de TIPO 1',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 39,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbb'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbb'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 38,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pbb',
+    'label' => 'Nº Instalaciones comunes a personal y pacientes masculinos de TIPO 2',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 40,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbc'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbc'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 39,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pbc',
+    'label' => 'Nº Instalaciones comunes a personal y pacientes masculinos NO MEJORADA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbd'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbd'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 40,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pbd',
+    'label' => 'Nº Instalaciones comunes a personal y pacientes masculinos BÁSICA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pc'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pc'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
@@ -2872,6 +3331,174 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pca'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pca'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 41,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pca',
+    'label' => 'Nº Instalaciones mixtas para personal y pacientes de TIPO 1',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 43,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcb'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcb'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 42,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pcb',
+    'label' => 'Nº Instalaciones mixtas para personal y pacientes de TIPO 2',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 44,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcc'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcc'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 43,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pcc',
+    'label' => 'Nº Instalaciones mixtas para personal y pacientes NO MEJORADA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 45,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcd'.
+  $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcd'] = array(
+    'bundle' => 'field_com_fic_cs_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 44,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cssh_pcd',
+    'label' => 'Nº Instalaciones mixtas para personal y pacientes BÁSICA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 46,
     ),
   );
 
@@ -3142,7 +3769,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 20,
+      'weight' => 19,
     ),
   );
 
@@ -3188,7 +3815,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 21,
+      'weight' => 20,
     ),
   );
 
@@ -3234,7 +3861,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 22,
+      'weight' => 21,
     ),
   );
 
@@ -3280,7 +3907,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 23,
+      'weight' => 22,
     ),
   );
 
@@ -3326,7 +3953,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 24,
+      'weight' => 23,
     ),
   );
 
@@ -3372,7 +3999,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 25,
+      'weight' => 24,
     ),
   );
 
@@ -3418,7 +4045,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 26,
+      'weight' => 25,
     ),
   );
 
@@ -3464,7 +4091,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 27,
+      'weight' => 26,
     ),
   );
 
@@ -3510,7 +4137,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 28,
+      'weight' => 27,
     ),
   );
 
@@ -3556,7 +4183,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 29,
+      'weight' => 28,
     ),
   );
 
@@ -3602,7 +4229,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 30,
+      'weight' => 29,
     ),
   );
 
@@ -3648,7 +4275,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 31,
+      'weight' => 30,
     ),
   );
 
@@ -3694,7 +4321,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 32,
+      'weight' => 31,
     ),
   );
 
@@ -3740,7 +4367,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 33,
+      'weight' => 32,
     ),
   );
 
@@ -3786,7 +4413,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 34,
+      'weight' => 33,
     ),
   );
 
@@ -3832,7 +4459,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 35,
+      'weight' => 34,
     ),
   );
 
@@ -4385,6 +5012,174 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_paa'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_paa'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 37,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_paa',
+    'label' => 'Nº de instalaciones comunes a personal y alumnado femenino de TIPO 1',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 28,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pab'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pab'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 39,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pab',
+    'label' => 'Nº de instalaciones comunes a personal y alumnado femenino de TIPO 2',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 29,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pac'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pac'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 40,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pac',
+    'label' => 'Nº de instalaciones comunes a personal y alumnado femenino NO MEJORADA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 30,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pad'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pad'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 41,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pad',
+    'label' => 'Nº de instalaciones comunes a personal y alumnado femenino BÁSICA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pb'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pb'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
@@ -4431,6 +5226,174 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pba'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pba'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 42,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pba',
+    'label' => 'Nº de instalaciones comunes a personal y alumnado masculino de TIPO 1',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 32,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbb'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbb'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 43,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pbb',
+    'label' => 'Nº de instalaciones comunes a personal y alumnado masculino de TIPO 2',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 33,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbc'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbc'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 44,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pbc',
+    'label' => 'Nº de instalaciones comunes a personal y alumnado masculino NO MEJORADA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 34,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbd'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbd'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 45,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pbd',
+    'label' => 'Nº de instalaciones comunes a personal y alumnado masculino BÁSICA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 35,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pc'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pc'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
@@ -4473,6 +5436,174 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pca'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pca'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 46,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pca',
+    'label' => 'Nº instalaciones mixtas para personal y alumnado de TIPO 1',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 36,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcb'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcb'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 47,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pcb',
+    'label' => 'Nº instalaciones mixtas para personal y alumnado de TIPO 2',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 37,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcc'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcc'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 48,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pcc',
+    'label' => 'Nº instalaciones mixtas para personal y alumnado NO MEJORADA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 38,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcd'.
+  $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcd'] = array(
+    'bundle' => 'field_con_fic_ce_ficha',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 49,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_com_fic_cesh_pcd',
+    'label' => 'Nº instalaciones mixtas para personal y alumnado BÁSICA',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 39,
     ),
   );
 
@@ -5534,6 +6665,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:');
   t('Cantidad de viviendas totales');
   t('Clasificación');
+  t('Cuenca hidrográfica');
   t('Código Comunidad');
   t('Código del centro de salud');
   t('Código del centro educativo');
@@ -5560,6 +6692,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Nombre del prestador de servicio');
   t('Nombre del sistema');
   t('Nuevo sistema de agua');
+  t('Nº Instalaciones comunes a personal y pacientes femeninos BÁSICA');
+  t('Nº Instalaciones comunes a personal y pacientes femeninos NO MEJORADA');
+  t('Nº Instalaciones comunes a personal y pacientes femeninos de TIPO 1');
+  t('Nº Instalaciones comunes a personal y pacientes femeninos de TIPO 2');
+  t('Nº Instalaciones comunes a personal y pacientes masculinos BÁSICA');
+  t('Nº Instalaciones comunes a personal y pacientes masculinos NO MEJORADA');
+  t('Nº Instalaciones comunes a personal y pacientes masculinos de TIPO 1');
+  t('Nº Instalaciones comunes a personal y pacientes masculinos de TIPO 2');
+  t('Nº Instalaciones mixtas para personal y pacientes BÁSICA');
+  t('Nº Instalaciones mixtas para personal y pacientes NO MEJORADA');
+  t('Nº Instalaciones mixtas para personal y pacientes de TIPO 1');
+  t('Nº Instalaciones mixtas para personal y pacientes de TIPO 2');
   t('Nº Viviendas de la muestra:');
   t('Nº de Instalaciones para alumnado femenino BÁSICA');
   t('Nº de Instalaciones para alumnado femenino NO MEJORADA');
@@ -5597,9 +6741,22 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Nº de Instalaciones para personal mixto NO MEJORADA');
   t('Nº de Instalaciones para personal mixto de TIPO 1');
   t('Nº de Instalaciones para personal mixto de TIPO 2');
+  t('Nº de instalaciones comunes a personal y alumnado femenino BÁSICA');
+  t('Nº de instalaciones comunes a personal y alumnado femenino NO MEJORADA');
+  t('Nº de instalaciones comunes a personal y alumnado femenino de TIPO 1');
+  t('Nº de instalaciones comunes a personal y alumnado femenino de TIPO 2');
+  t('Nº de instalaciones comunes a personal y alumnado masculino BÁSICA');
+  t('Nº de instalaciones comunes a personal y alumnado masculino NO MEJORADA');
+  t('Nº de instalaciones comunes a personal y alumnado masculino de TIPO 1');
+  t('Nº de instalaciones comunes a personal y alumnado masculino de TIPO 2');
+  t('Nº instalaciones mixtas para personal y alumnado BÁSICA');
+  t('Nº instalaciones mixtas para personal y alumnado NO MEJORADA');
+  t('Nº instalaciones mixtas para personal y alumnado de TIPO 1');
+  t('Nº instalaciones mixtas para personal y alumnado de TIPO 2');
   t('Observaciones ');
   t('Observaciones sobre el grupo de población');
   t('Otras características de la comunidad');
+  t('Otras divisiones');
   t('Personal de salud y administrativo. Femenino');
   t('Personal de salud y administrativo. Masculino');
   t('Personal docente y administrativo. Femenino');
@@ -5625,6 +6782,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('¿Existe algún centro de salud en la comunidad?');
   t('¿Existe algún centro educativo en la comunidad?');
   t('¿Existe algún tipo de práctica de recolección y/o tratamiento de basuras en la comunidad?');
+  t('Área o zona de planificación');
 
   return $field_instances;
 }
