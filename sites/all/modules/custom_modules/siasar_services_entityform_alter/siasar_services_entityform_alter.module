@@ -1,0 +1,201 @@
+<?php
+
+/**
+ * Alter results on the Entityform services call.
+ *
+ * @param $controller
+ *   Controller definition
+ * @param array $args
+ *   Arguments passed to services callback
+ * @param array $result
+ *   Array of results that can be altered
+ *
+ * @see services_controller_execute()
+ * @see services.runtime.inc
+ */
+function siasar_services_entityform_alter_services_request_postprocess_alter($controller, $args, &$result) {
+
+  if (arg(1) == 'entity_entityform') { // At this moment, only field collection structure is considered for changes.
+
+    if (arg(2) == null && is_array($result)) {
+      foreach ($result as &$item) {
+        $item = _siasar_services_entityform_alter_get_referenced_entityform_name($item);
+      }
+    } elseif (arg(2) !== null && is_array($result[$args[0]])) {
+      //$result = _siasar_services_entityform_alter_get_referenced_entityform_name($result[$args[0]]);
+    }
+  }
+}
+
+/**
+ * Gets entity name and useful data where a entityform is being referenced.
+ * It traverses all fields on the array.
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_entityform_alter_get_referenced_entityform_name($data) {
+
+  if (!is_array($data)) return $data;
+
+  foreach ($data as &$field) {
+    if (!is_array($field) || empty($field)) {
+      continue;
+    }
+    elseif (_siasar_services_entityform_alter_array_is_numeric($field)) {
+      $field = _siasar_services_entityform_alter_get_referenced_entityform_name($field);
+      continue;
+    }
+    elseif (isset($field['unit'])) {
+      $field = _siasar_services_entityform_alter_attach_unit_info($field);
+    }
+    elseif (isset($field['resource'])) {
+      switch($field['resource']) {
+        case 'taxonomy_term':
+          $field = _siasar_services_entityform_alter_attach_term_info($field);
+          break;
+        case 'field_collection_item':
+          $field = _siasar_services_entityform_alter_attach_field_collection_info($field);
+          break;
+        case 'user':
+          $field = _siasar_services_entityform_alter_attach_user_info($field);
+          break;       
+      }
+    }
+  }
+  return $data;
+}
+
+/**
+ * Gets measuring unit and adds loaded info to $field array
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_entityform_alter_attach_unit_info($field) {
+  static $units;
+
+  $uid = $field['unit']['id'];
+  if (!isset($units[$uid])) {
+    $units[$uid] = entity_load_single('units_unit', $uid);
+  }
+
+  $field['unit']['measure'] = $units[$uid]->measure;
+  $field['unit']['label'] = $units[$uid]->label;
+  $field['unit']['symbol'] = $units[$uid]->symbol;
+  unset($field['unit']['uri']);
+  unset($field['unit']['resource']);
+
+  return $field;
+}
+
+/**
+ * Gets taxonomy term and adds loaded info to $field array
+ * Adapted from http://stackoverflow.com/a/5969617/381914
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_entityform_alter_attach_term_info($field) {
+  static $terms;
+
+  $tid = $field['id'];
+  if (!isset($terms[$tid])) {
+    $terms[$tid] = taxonomy_term_load($tid);
+  } 
+
+  $field['name'] = $terms[$tid]->name;
+  $field['tid'] = $terms[$tid]->tid;
+  unset ($field['id']);
+
+  return $field;
+}
+
+/**
+ * Gets user and adds loaded info to $field array
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_entityform_alter_attach_user_info($field) {
+  static $users;
+
+  $uid = $field['id'];
+  if (!isset($users[$uid])) {
+    $users[$uid] = user_load($uid);
+  } 
+
+  $field['name'] = $users[$uid]->name;
+  $field['uid'] = $users[$uid]->uid;
+  unset ($field['id']);
+
+  return $field;
+}
+
+/**
+ * Gets field collection fields and adds loaded info to $field array
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_entityform_alter_attach_field_collection_info($field) {
+  static $fc_structure;
+
+  $entity = entity_load_single('field_collection_item', $field['id']);
+  $wrapper = entity_metadata_wrapper('field_collection_item', $entity);
+  $fc_name = $entity->field_name;
+
+  if (!isset($fc_structure[$fc_name])) {
+    $fc_structure[$fc_name] = field_info_instances('field_collection_item', $fc_name);
+  }
+  $field_list = array_keys($fc_structure[$fc_name]);
+
+  foreach ($field_list as $key) {
+    $field[$key] = _siasar_services_entityform_alter_get_value_from_wrapper($wrapper, $key);
+  }
+
+  return $field;
+}
+
+/**
+ * Checks if all array keys are numeric
+ * Adapted from http://stackoverflow.com/a/5969617/381914
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ * @return bool
+ *   True if all array keys are numeric, false otherwise
+ */
+function _siasar_services_entityform_alter_array_is_numeric(array $array) {
+  for (reset($array); is_int(key($array)); next($array));
+  $is_numeric = is_null(key($array));
+
+  return $is_numeric;
+}
+
+/**
+ * Fetches value from field inside an entity using its wrapper
+ *
+ * @param array $wrapper
+ *   Entity wrapper
+ * @param string $key
+ *   Field machine name we want to fetch value from
+ * @return string or array
+ *   Return fetched value
+ */
+function _siasar_services_entityform_alter_get_value_from_wrapper($wrapper, $key) {
+  $value = null;
+  switch($wrapper->{$key}->type()) {
+    case 'taxonomy_term':
+      $term = $wrapper->{$key}->value();
+      if ($term !== null) {
+        $value['name'] = $term->name;
+        $value['tid'] = $term->tid;
+      }
+      break;
+    default:
+      $value = $wrapper->{$key}->value();
+  }
+
+  return $value;
+}
