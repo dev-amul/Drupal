@@ -1,14 +1,112 @@
 <?php
 /**
  * @file
- * siasar_views_references.views_default.inc
+ * feature_siasar_views_references.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function siasar_views_references_views_default_views() {
+function feature_siasar_views_references_views_default_views() {
   $export = array();
+
+  $view = new view();
+  $view->name = 'tipos_de_moneda';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'units_unit';
+  $view->human_name = 'Tipos de Moneda';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementos por página';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Todo -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Desplazamiento';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Campo: Unit measurement: Symbol */
+  $handler->display->display_options['fields']['symbol']['id'] = 'symbol';
+  $handler->display->display_options['fields']['symbol']['table'] = 'units_unit';
+  $handler->display->display_options['fields']['symbol']['field'] = 'symbol';
+  $handler->display->display_options['fields']['symbol']['label'] = '';
+  $handler->display->display_options['fields']['symbol']['element_label_colon'] = FALSE;
+  /* Campo: Unit measurement: Etiqueta */
+  $handler->display->display_options['fields']['label']['id'] = 'label';
+  $handler->display->display_options['fields']['label']['table'] = 'units_unit';
+  $handler->display->display_options['fields']['label']['field'] = 'label';
+  $handler->display->display_options['fields']['label']['label'] = '';
+  $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
+  /* Campo: Campo: País */
+  $handler->display->display_options['fields']['field_pais']['id'] = 'field_pais';
+  $handler->display->display_options['fields']['field_pais']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['fields']['field_pais']['field'] = 'field_pais';
+  $handler->display->display_options['fields']['field_pais']['relationship'] = 'reverse_field_country_currency_taxonomy_term';
+  $handler->display->display_options['fields']['field_pais']['label'] = '';
+  $handler->display->display_options['fields']['field_pais']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_pais']['element_label_colon'] = FALSE;
+  /* Criterio de filtrado: Unit measurement: Measure */
+  $handler->display->display_options['filters']['measure']['id'] = 'measure';
+  $handler->display->display_options['filters']['measure']['table'] = 'units_unit';
+  $handler->display->display_options['filters']['measure']['field'] = 'measure';
+  $handler->display->display_options['filters']['measure']['value'] = array(
+    'currency' => 'currency',
+  );
+
+  /* Display: Referencia a entidades */
+  $handler = $view->new_display('entityreference', 'Referencia a entidades', 'entityreference_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'label' => 'label',
+    'symbol' => 0,
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relación: Referencia a entidades: Referenciando entidad */
+  $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['id'] = 'reverse_field_country_currency_taxonomy_term';
+  $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['table'] = 'units_unit';
+  $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['field'] = 'reverse_field_country_currency_taxonomy_term';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Filtro contextual: Campo: País (field_pais) */
+  $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  $handler->display->display_options['arguments']['field_pais_iso2']['relationship'] = 'reverse_field_country_currency_taxonomy_term';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_pais_iso2']['exception']['title'] = 'Todo';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_argument_options']['code'] = 'global $user;
+$user_full = user_load($user->uid);
+/*print_r($user_full->field_pais);
+die();*/
+return $user_full->field_pais[\'und\'][0][\'iso2\'];';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
+  $export['tipos_de_moneda'] = $view;
 
   $view = new view();
   $view->name = 'users_select_view';

@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the siasar_views_references feature.
- */
-
-include_once 'siasar_views_references.features.inc';
