@@ -127,6 +127,7 @@ function _siasar_services_entityform_alter_attach_user_info($field) {
 
   $field['name'] = $users[$uid]->name;
   $field['uid'] = $users[$uid]->uid;
+  $field['country'] = $users[$uid]->field_pais[LANGUAGE_NONE][0]['iso2'];
   unset ($field['id']);
 
   return $field;
