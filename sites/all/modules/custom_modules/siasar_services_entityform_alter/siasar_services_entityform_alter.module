@@ -15,14 +15,16 @@
  */
 function siasar_services_entityform_alter_services_request_postprocess_alter($controller, $args, &$result) {
 
-  if (arg(1) == 'entity_entityform') { // At this moment, only field collection structure is considered for changes.
+  $allowed_ops = array('retrieve', 'index');
 
-    if (arg(2) == null && is_array($result)) {
+  if (arg(1) == 'entity_entityform' && in_array($args[0], $allowed_ops)) {
+
+    if (arg(2) == null) {
       foreach ($result as &$item) {
         $item = _siasar_services_entityform_alter_get_referenced_entityform_name($item);
       }
-    } elseif (arg(2) !== null && is_array($result[$args[0]])) {
-      //$result = _siasar_services_entityform_alter_get_referenced_entityform_name($result[$args[0]]);
+    } elseif (is_numeric(arg(2))) {
+      $result = _siasar_services_entityform_alter_get_referenced_entityform_name($result);
     }
   }
 }
