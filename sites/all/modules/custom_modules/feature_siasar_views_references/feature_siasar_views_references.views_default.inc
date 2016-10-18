@@ -86,6 +86,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relación: Referencia a entidades: Referenciando entidad */
   $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['id'] = 'reverse_field_country_currency_taxonomy_term';
+  $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['label'] = 'Término de taxonomía referenciando Unit measurement desde field_country_currency';
   $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['table'] = 'units_unit';
   $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['field'] = 'reverse_field_country_currency_taxonomy_term';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
