@@ -502,15 +502,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_georef'.
   $field_instances['entityform-comunidad-field_com_georef'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'input_format' => 'lat/lon',
-        'geom' => array(
-          'lat' => '0.0',
-          'lon' => '0.0',
-        ),
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -527,7 +519,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_com_georef',
     'label' => 'Georeferenciación',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
