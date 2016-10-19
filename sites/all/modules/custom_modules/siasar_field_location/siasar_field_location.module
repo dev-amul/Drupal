@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_form_alter()
+**/
+function siasar_field_location_form_alter(&$form, &$form_state, $form_id) {
+  $allowed_form_ids = array(
+    'testingpurposes_entityform_edit_form',
+  );
+  if (!in_array($form_id, $allowed_form_ids)) return;
+
+  $module_path = drupal_get_path('module', 'siasar_field_location');
+  drupal_add_js($module_path . '/siasar_field_location.js', array('scope' => 'footer'));
+
+  $form['field_entidad_local']['und'][0]['tid']['#options'];
+}
+
