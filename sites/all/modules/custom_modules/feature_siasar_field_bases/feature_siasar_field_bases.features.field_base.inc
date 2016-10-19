@@ -3991,6 +3991,26 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_com_num_viv_usohab2'.
+  $field_bases['field_com_num_viv_usohab2'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_com_num_viv_usohab2',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
   // Exported field_base: 'field_com_num_viv_usoinfa'.
   $field_bases['field_com_num_viv_usoinfa'] = array(
     'active' => 1,
@@ -3998,6 +4018,26 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_com_num_viv_usoinfa',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_com_num_viv_usoinfa2'.
+  $field_bases['field_com_num_viv_usoinfa2'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_com_num_viv_usoinfa2',
     'field_permissions' => array(
       'type' => 0,
     ),
@@ -4031,6 +4071,26 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_com_num_viv_usoinfb2'.
+  $field_bases['field_com_num_viv_usoinfb2'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_com_num_viv_usoinfb2',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
   // Exported field_base: 'field_com_num_viv_usotodos'.
   $field_bases['field_com_num_viv_usotodos'] = array(
     'active' => 1,
@@ -4038,6 +4098,26 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_com_num_viv_usotodos',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_com_num_viv_usotodos2'.
+  $field_bases['field_com_num_viv_usotodos2'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_com_num_viv_usotodos2',
     'field_permissions' => array(
       'type' => 0,
     ),

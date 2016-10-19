@@ -1040,6 +1040,51 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-comunidad-field_com_num_viv_usohab2'.
+  $field_instances['entityform-comunidad-field_com_num_viv_usohab2'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 35,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_com_num_viv_usohab2',
+    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'entityform-comunidad-field_com_num_viv_usoinfa'.
   $field_instances['entityform-comunidad-field_com_num_viv_usoinfa'] = array(
     'bundle' => 'comunidad',
@@ -1082,6 +1127,51 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-comunidad-field_com_num_viv_usoinfa2'.
+  $field_instances['entityform-comunidad-field_com_num_viv_usoinfa2'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 33,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_com_num_viv_usoinfa2',
+    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, TIPO 2',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 6,
     ),
   );
 
@@ -1130,6 +1220,51 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-comunidad-field_com_num_viv_usoinfb2'.
+  $field_instances['entityform-comunidad-field_com_num_viv_usoinfb2'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 34,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_com_num_viv_usoinfb2',
+    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, TIPO 2',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'entityform-comunidad-field_com_num_viv_usotodos'.
   $field_instances['entityform-comunidad-field_com_num_viv_usotodos'] = array(
     'bundle' => 'comunidad',
@@ -1172,6 +1307,52 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-comunidad-field_com_num_viv_usotodos2'.
+  $field_instances['entityform-comunidad-field_com_num_viv_usotodos2'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 36,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_com_num_viv_usotodos2',
+    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 12,
     ),
   );
 
@@ -6642,7 +6823,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('2. Levantamiento utilizando el formulario auxiliar');
   t('3. Levantamiento muestral');
   t('Altitud');
+  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, TIPO 2');
   t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2');
+  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2');
   t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2');
   t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento compartida o propia no mejorada:');
   t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) utilizan la instalación de lavado siempre');
@@ -6652,7 +6835,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Cantidad de viviendas que almacenan el agua de bebida de forma segura (en recipientes limpios y bien tapados)');
   t('Cantidad de viviendas que cuentan con una instalación básica (con agua y jabón) para el lavado de manos cerca (a menos de 10 metros) de la instalación de saneamiento');
   t('Cantidad de viviendas que recogen o tratan las basuras domésticas');
+  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2');
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2');
+  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, TIPO 2');
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2');
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:');
   t('Cantidad de viviendas totales');
