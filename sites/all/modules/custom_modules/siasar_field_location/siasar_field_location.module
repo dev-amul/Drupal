@@ -25,6 +25,25 @@ function siasar_field_location_form_alter(&$form, &$form_state, $form_id) {
 
   $module_path = drupal_get_path('module', 'siasar_field_location');
   drupal_add_js($module_path . '/siasar_field_location.js', array('scope' => 'footer'));
+  //drupal_add_css($module_path . '/siasar_field_location.css');
+  $form['field_entidad_local'][LANGUAGE_NONE]['#ajax'] = array(
+    'callback' => 'siasar_field_location_ajax_callback',
+    'wrapper' => 'field-entidad-local-ajax-wrapper',
+    'method' => 'replace',
+    'effect' => 'none',
+  );
+  $form['field_entidad_local'][LANGUAGE_NONE]['#prefix'] = '<div id="field-entidad-local-ajax-wrapper">';
+  $form['field_entidad_local'][LANGUAGE_NONE]['#suffix'] = '</div>';
+  $form['field_entidad_local']['#attributes']['class'][] = 'siasar-hierarchical-select';
+}
+
+function siasar_field_location_ajax_callback($form, $form_state) {
+  $location_item = $form['field_entidad_local'][LANGUAGE_NONE];
+  $value = $form_state['values']['field_entidad_local'][LANGUAGE_NONE][0]['tid'];
+  $term = taxonomy_term_load($value);
+  $location_item['#options'] = array($term->tid => $term->name);
+
+  return $location_item;
 }
 
 /**

@@ -18,12 +18,7 @@
         name: Drupal.t('- Ninguno - '),
       }
 
-      // if selected != '_none', we are editing, not creating
-
-      // Build first level
-      if (selected === '_none') {
-        buildSelectorLevel(0, 0);
-      }
+      buildSelectorLevel(0, 0);
 
       function buildSelectorLevel(tid, level) {
         var html = '<select class="location-tree-selector" data-level="' + level + '"></select>';
@@ -36,24 +31,26 @@
       }
 
       function updateFormStructure(e) {
-        var tid = this.value;
-        var name = this.selectedOptions[0].textContent;
+        var term = {
+          tid: this.value,
+          name: this.selectedOptions[0].textContent,
+        }
         var level = parseInt($(this).data('level'));
 
-        setCanonicalValue(tid, name);
         cleanSelectorChain(this, level);
 
-        if (tidCache[tid]) {
-          buildSelectorLevel(tid, level + 1);
-        } else if (tid !== '_none') {
-          requestChildrenTerms(tid);
+        if (tidCache[term.tid]) {
+          buildSelectorLevel(term.tid, level + 1);
+        } else if (term.tid !== '_none') {
+          requestChildrenTerms(term);
         }
 
       }
 
-      function setCanonicalValue(tid, name) {
-        $locationField.html(createOptionElement(tid, name));
-        $locationField.val(tid);
+      function setCanonicalValue(term) {
+        $locationField.html(createOptionElement(term));
+        $locationField.val(term.tid);
+        $locationField.trigger('change');
       }
 
       function cleanSelectorChain(target, level) {
@@ -66,32 +63,34 @@
             $this.remove();
           }
         });
-
       }
 
       function populateSelector(options, $selector) {
         var html;
         options.forEach(function (element) {
-          html += createOptionElement(element.tid, element.name);
+          html += createOptionElement(element);
         }, this);
 
         $selector.html(html);
       }
 
-      function createOptionElement(tid, name) {
-        return '<option value="' + tid + '">' + name + '</option>';
+      function createOptionElement(term) {
+        return '<option value="' + term.tid + '">' + term.name + '</option>';
       }
 
-      function requestChildrenTerms(tid) {
-        var url = '/ajax/location/' + tid + '/all';
+      function requestChildrenTerms(term) {
+        var url = '/ajax/location/' + term.tid + '/all';
 
         $.get(url, null, function (data, status) {
-          processResult(data, status, tid);
+          processResult(data, status, term);
         }, 'json');
       }
 
-      function processResult(data, status, tid) {
-        if (data.length == 0) return;
+      function processResult(data, status, term) {
+        if (data.length == 0) {
+          setCanonicalValue(term);
+          return;
+        }
 
         var $lastSelectorInChain = $locationWrapper.find('.location-tree-selector').last();
         var level = $lastSelectorInChain.data('level');
@@ -101,9 +100,9 @@
         var finalArr = [];
 
         finalArr = finalArr.concat(noneSelected, resultArr);
-        tidCache[tid] = finalArr;
+        tidCache[term.tid] = finalArr;
 
-        buildSelectorLevel(tid, level + 1);
+        buildSelectorLevel(term.tid, level + 1);
       }
 
       function extractOptionsFromObject($options) {
