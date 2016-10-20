@@ -1,6 +1,20 @@
 <?php
 
 /**
+ * Implements hook_menu()
+ **/
+function siasar_field_location_menu() {
+  $items['ajax/location/%/%'] = array(
+    'page callback' => 'siasar_field_location_term_list',
+    'page arguments' => array(2, 3),
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+
+/**
  * Implements hook_form_alter()
 **/
 function siasar_field_location_form_alter(&$form, &$form_state, $form_id) {
@@ -11,7 +25,35 @@ function siasar_field_location_form_alter(&$form, &$form_state, $form_id) {
 
   $module_path = drupal_get_path('module', 'siasar_field_location');
   drupal_add_js($module_path . '/siasar_field_location.js', array('scope' => 'footer'));
-
-  $form['field_entidad_local']['und'][0]['tid']['#options'];
 }
 
+/**
+ * Returns a list of taxonomy terms for Vocabulary location as JSON
+ * It uses a view: division_politica_administrativa:term_reference_location_by_country
+ * to get results.
+ */
+function siasar_field_location_term_list($parent = 0, $country = 'all') {
+  $result = '';
+  $terms_view = views_get_view('division_politica_administrativa');
+
+  if (is_object($terms_view) ) { 
+    $terms_view->set_display('term_reference_location_by_country');
+    $terms_view->set_arguments(array($parent, $country));
+    $terms_view->execute();
+    $result = $terms_view->result;
+  }
+  $terms_list = _siasar_field_location_map_result_into_term_list($result);
+
+  return drupal_json_output($terms_list);
+}
+
+/**
+ * Returns an array of [tid] => term name from an array of Taxonomy term objects
+ */
+function _siasar_field_location_map_result_into_term_list($result) {
+  $terms = array();
+  foreach ($result as $r) {
+    $terms[$r->tid] = $r->taxonomy_term_data_name;
+  }
+  return $terms;
+}
