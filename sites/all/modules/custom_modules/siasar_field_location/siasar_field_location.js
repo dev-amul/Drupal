@@ -6,19 +6,17 @@
       if (context !== document) return;
 
       var $locationWrapper = $('.field-name-field-entidad-local');
-      var $locationField = $locationWrapper.find('.form-select');
+      var $locationField = $locationWrapper.find('.form-text');
       var $initOptions = $locationField.find('option');
-      var initOptions = extractOptionsFromObject($initOptions);
       var selected = $locationField.val();
-      var tidCache = {
-        '0': initOptions,
-      };
       var noneSelected = {
         tid: '_none',
         name: Drupal.t('- Ninguno - '),
       }
+      var tidCache = {};
 
-      buildSelectorLevel(0, 0);
+      init();
+      
 
       function buildSelectorLevel(tid, level) {
         var html = '<select class="location-tree-selector" data-level="' + level + '"></select>';
@@ -30,7 +28,7 @@
         $newSelector.on('change', updateFormStructure);
       }
 
-      function updateFormStructure(e) {
+      function updateFormStructure() {
         var term = {
           tid: this.value,
           name: this.selectedOptions[0].textContent,
@@ -48,7 +46,6 @@
       }
 
       function setCanonicalValue(term) {
-        $locationField.html(createOptionElement(term));
         $locationField.val(term.tid);
         $locationField.trigger('change');
       }
@@ -66,7 +63,7 @@
       }
 
       function populateSelector(options, $selector) {
-        var html;
+        var html = '';
         options.forEach(function (element) {
           html += createOptionElement(element);
         }, this);
@@ -93,7 +90,7 @@
         }
 
         var $lastSelectorInChain = $locationWrapper.find('.location-tree-selector').last();
-        var level = $lastSelectorInChain.data('level');
+        var level = ($lastSelectorInChain.data('level') !== true) ? $lastSelectorInChain.data('level') : -1;
         var resultArr = Object.keys(data).map(function (k) {
           return { tid: k, name: data[k] };
         });
@@ -105,16 +102,8 @@
         buildSelectorLevel(term.tid, level + 1);
       }
 
-      function extractOptionsFromObject($options) {
-        var options = [];
-        $options.each(function () {
-          var opt = {
-            'tid': this.value,
-            'name': this.textContent,
-          };
-          options.push(opt);
-        });
-        return options;
+      function init() {
+        tidCache[0] = requestChildrenTerms({tid: 0});
       }
 
     }
