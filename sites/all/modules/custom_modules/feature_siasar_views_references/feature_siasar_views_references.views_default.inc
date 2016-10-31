@@ -49,6 +49,10 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Criterio de ordenación: Término de taxonomía: Nombre */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
   /* Criterio de filtrado: Vocabulario de taxonomía: Nombre de sistema */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
@@ -89,7 +93,8 @@ function feature_siasar_views_references_views_default_views() {
   /* Display: Term Reference by Country */
   $handler = $view->new_display('term_reference', 'Term Reference by Country', 'term_reference_location_by_country');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'term_reference_style';
   $handler->display->display_options['style_options']['search_fields'] = array(
@@ -99,6 +104,11 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'term_reference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Criterio de ordenación: Término de taxonomía: Nombre */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Filtro contextual: Término de taxonomía: Término padre */
   $handler->display->display_options['arguments']['parent']['id'] = 'parent';
