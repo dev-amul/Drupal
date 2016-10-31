@@ -89,7 +89,7 @@ function siasar_field_location_validate($element, &$form_state) {
   }
 
   // Is it a Valid Term?
-  $term = taxonomy_term_load($value);
+  $term = taxonomy_term_load($element['#value']);
   if ($term === false) {
     form_set_error($element['#name'], t('Specified TID does not match any term.'));
     return;
