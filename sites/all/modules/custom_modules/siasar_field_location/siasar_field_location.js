@@ -7,16 +7,40 @@
 
       var $locationWrapper = $('.field-name-field-entidad-local');
       var $locationField = $locationWrapper.find('.form-text');
+      var initialValue = parseInt($locationField.val());
       var $initOptions = $locationField.find('option');
       var selected = $locationField.val();
       var noneSelected = {
         tid: '_none',
         name: Drupal.t('- Ninguno - '),
       }
+      var userCountry = settings.user.country
+        ? settings.user.country
+        : 'all';
       var tidCache = {};
 
       init();
 
+      function getAllTermsInChain() {
+        if (initialValue == 0) return;
+
+        var url = '/ajax/location/' + initialValue + '/parents';
+
+        $.get(url, null, function (data, status) {
+          processParentData(data, status);
+        }, 'json');
+      }
+
+      function processParentData(data, status) {
+        for (var item in data) {
+          if (data[item].length !== 0) {
+            tidCache[item] = Object.keys(data[item]).map(function (k) {
+              return { tid: k, name: data[k] };
+            });
+          }
+
+        }
+      }
 
       function buildSelectorLevel(tid, level) {
         var html = '<select class="location-tree-selector" data-level="' + level + '"></select>';
@@ -77,10 +101,7 @@
       }
 
       function requestChildrenTerms(term) {
-        var country = settings.user.country
-          ? settings.user.country
-          : 'all';
-        var url = '/ajax/location/' + term.tid + '/' + country;
+        var url = '/ajax/location/' + term.tid + '/' + userCountry;
 
         $.get(url, null, function (data, status) {
           processResult(data, status, term);
@@ -107,7 +128,13 @@
       }
 
       function init() {
+        initialValue = isNaN(initialValue)
+          ? 0
+          : initialValue;
         tidCache[0] = requestChildrenTerms({ tid: 0 });
+        if (initialValue > 0) {
+          getAllTermsInChain();
+        }
       }
 
     }
