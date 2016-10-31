@@ -24,7 +24,7 @@
       function getAllTermsInChain() {
         if (initialValue == 0) return;
 
-        var url = '/ajax/location/' + initialValue + '/parents';
+        var url = '/ajax/location/' + initialValue + '/' + userCountry + '/parents';
 
         $.get(url, null, function (data, status) {
           processParentData(data, status);
@@ -32,12 +32,16 @@
       }
 
       function processParentData(data, status) {
+        var i = 0;
         for (var item in data) {
           if (data[item].length !== 0) {
             tidCache[item] = mapTermsFromRequestToArray(data[item]);
+            $locationWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(item);
+            buildSelectorLevel(item, i + 1);
+            i++;
           }
-
         }
+        $locationWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(initialValue);
       }
 
       function buildSelectorLevel(tid, level) {
@@ -57,7 +61,7 @@
         }
         var level = parseInt($(this).data('level'));
 
-        cleanSelectorChain(this, level);
+        cleanSelectorChain(level);
         $locationField.val('');
 
         if (tidCache[term.tid]) {
@@ -65,15 +69,9 @@
         } else if (term.tid !== '_none') {
           requestChildrenTerms(term);
         }
-
       }
 
-      function setCanonicalValue(term) {
-        $locationField.val(term.tid);
-        $locationField.trigger('change');
-      }
-
-      function cleanSelectorChain(target, level) {
+      function cleanSelectorChain(level) {
         var $selectorChain = $('.location-tree-selector');
 
         $selectorChain.each(function () {
@@ -94,9 +92,11 @@
         $selector.html(html);
       }
 
+
       function createOptionElement(term) {
         return '<option value="' + term.tid + '">' + term.name + '</option>';
       }
+
 
       function requestChildrenTerms(term) {
         var url = '/ajax/location/' + term.tid + '/' + userCountry;
@@ -106,18 +106,19 @@
         }, 'json');
       }
 
+
       function processResult(data, status, term) {
         if (data.length == 0) {
-          setCanonicalValue(term);
+          $locationField.val(term.tid);
           return;
         }
-
         var $lastSelectorInChain = $locationWrapper.find('.location-tree-selector').last();
         var level = ($lastSelectorInChain.data('level') !== true) ? $lastSelectorInChain.data('level') : -1;
 
         tidCache[term.tid] = mapTermsFromRequestToArray(data);
         buildSelectorLevel(term.tid, level + 1);
       }
+
 
       function mapTermsFromRequestToArray(data) {
         var mapped = Object.keys(data).map(function (k) {
@@ -129,13 +130,15 @@
         return output;
       }
 
+
       function init() {
         initialValue = isNaN(initialValue)
           ? 0
           : initialValue;
-        tidCache[0] = requestChildrenTerms({ tid: 0 });
         if (initialValue > 0) {
           getAllTermsInChain();
+        } else {
+          requestChildrenTerms({ tid: 0 });
         }
       }
 
