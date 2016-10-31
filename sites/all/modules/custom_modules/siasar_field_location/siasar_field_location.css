@@ -1,3 +1,21 @@
 .siasar-hierarchical-select.form-text {
   display: none;
 }
+
+.location-tree-selector.intro-animate {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0, 0, 0.25, 1);
+  animation-name: creating-form-item;
+}
+
+@keyframes creating-form-item {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

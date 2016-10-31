@@ -51,6 +51,7 @@
         $locationWrapper.append(html);
         $newSelector = $locationWrapper.find('.location-tree-selector[data-level="' + level + '"]');
         populateSelector(tidCache[tid], $newSelector);
+        $newSelector.addClass('intro-animate');
         $newSelector.on('change', updateFormStructure);
       }
 
@@ -61,6 +62,7 @@
         }
         var level = parseInt($(this).data('level'));
 
+        this.blur();
         cleanSelectorChain(level);
         $locationField.val('');
 
