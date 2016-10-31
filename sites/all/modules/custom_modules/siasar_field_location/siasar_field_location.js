@@ -77,7 +77,10 @@
       }
 
       function requestChildrenTerms(term) {
-        var url = '/ajax/location/' + term.tid + '/all';
+        var country = settings.user.country
+          ? settings.user.country
+          : 'all';
+        var url = '/ajax/location/' + term.tid + '/' + country;
 
         $.get(url, null, function (data, status) {
           processResult(data, status, term);

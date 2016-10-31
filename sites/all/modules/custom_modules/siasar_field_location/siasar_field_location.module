@@ -35,6 +35,9 @@ function siasar_field_location_field_widget_info() {
  * Implements hook_field_widget_form().
  */
 function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  global $user;
+
+  $user_wrapper = entity_metadata_wrapper('user', user_load($user->uid));
   $module_path = drupal_get_path('module', 'siasar_field_location');
   $element += array(
     '#type' => 'textfield',
@@ -44,7 +47,17 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
     '#element_validate' => array('siasar_field_location_validate'),
     '#attached' => array(
       'css' => array($module_path . '/siasar_field_location.css'),
-      'js' => array($module_path . '/siasar_field_location.js'),
+      'js' => array(
+        $module_path . '/siasar_field_location.js',
+        array(
+          'data' => array(
+            'user' => array(
+              'country' => $user_wrapper->field_pais->value()->iso2
+            ),
+          ),
+          'type' => 'setting',
+        ),
+      ),
     ),
     '#attributes' => array(
       'class' => array('siasar-hierarchical-select'),
