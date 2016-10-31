@@ -1,0 +1,166 @@
+<?php
+
+/**
+ * Implements hook_menu()
+ **/
+function siasar_field_location_menu() {
+  $items['ajax/location/%/%'] = array(
+    'page callback' => 'siasar_field_location_term_list',
+    'page arguments' => array(2, 3),
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+  );
+  $items['ajax/location/%/%/parents'] = array(
+    'page callback' => 'siasar_field_location_term_parents',
+    'page arguments' => array(2, 3),
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+
+/**
+ * Implements hook_field_widget_info().
+ */
+function siasar_field_location_field_widget_info() {
+  return array(
+    'siasar_hierarchical_select' => array(
+      'label' => t('SIASAR Hierarchical Select'),
+      'field types' => array('taxonomy_term_reference'),
+      'settings' => array(
+        'siasar_hierarchical_select' => array(
+          'force_deepest' => FALSE,
+        ),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  global $user;
+
+  $user_wrapper = entity_metadata_wrapper('user', user_load($user->uid));
+  $module_path = drupal_get_path('module', 'siasar_field_location');
+  $element += array(
+    '#type' => 'textfield',
+    '#size' => 8,
+    '#default_value' => isset($items[$delta]['tid']) ? $items[$delta]['tid'] : '',
+    '#maxlength' => 1024,
+    '#element_validate' => array('siasar_field_location_validate'),
+    '#attached' => array(
+      'css' => array($module_path . '/siasar_field_location.css'),
+      'js' => array(
+        $module_path . '/siasar_field_location.js',
+        array(
+          'data' => array(
+            'user' => array(
+              'country' => $user_wrapper->field_pais->value()->iso2
+            ),
+          ),
+          'type' => 'setting',
+        ),
+      ),
+    ),
+    '#attributes' => array(
+      'class' => array('siasar-hierarchical-select'),
+    ),
+  );
+
+  return $element;
+}
+
+/**
+ * Form element validate handler for SIASAR Field Location taxonomy term element.
+ */
+function siasar_field_location_validate($element, &$form_state) {
+
+  if ($element['#value'] === '') {
+    return;
+  }
+
+  // Is it a valid number?
+  if (!is_numeric($element['#value'])) {
+    form_set_error($element['#name'], t('Taxonomy item must be a TID number, not a name'));
+    return;
+  }
+
+  // Is it a Valid Term?
+  $term = taxonomy_term_load($element['#value']);
+  if ($term === false) {
+    form_set_error($element['#name'], t('Specified TID does not match any term.'));
+    return;
+  } 
+
+  // Does it belong to the right vocabulary?
+  $field = field_widget_field($element, $form_state);
+  $vocabularies = array();
+  foreach ($field['settings']['allowed_values'] as $tree) {
+    if ($vocabulary = taxonomy_vocabulary_machine_name_load($tree['vocabulary'])) {
+      $vocabularies[$vocabulary->vid] = $vocabulary;
+    }
+  }
+  if (!in_array($term->vid, array_keys($vocabularies))) {
+    form_set_error($element['#name'], t('Specified term does not belong to an allowed vocabulary. See field [@field] configuration for details.', array('@field' => $element['#field_name'])));
+    return;
+  }
+
+  form_set_value($element, (array) $term, $form_state);
+}
+
+/**
+ * Returns a JSON of taxonomy terms for Vocabulary location.
+ */
+function siasar_field_location_term_list($parent = 0, $country = 'all') {
+  $terms_list = _siasar_field_location_get_term_list_from_view($parent, $country);
+
+  return drupal_json_output($terms_list);
+}
+
+/**
+ * Returns a list of taxonomy terms for Vocabulary location using a view:
+ * division_politica_administrativa:term_reference_location_by_country
+ */
+function _siasar_field_location_get_term_list_from_view($parent, $country) {
+  $result = '';
+  $terms_view = views_get_view('division_politica_administrativa');
+
+  if (is_object($terms_view) ) { 
+    $terms_view->set_display('term_reference_location_by_country');
+    $terms_view->set_arguments(array($parent, $country));
+    $terms_view->execute();
+    $result = $terms_view->result;
+  }
+  $terms_list = _siasar_field_location_map_result_into_term_list($result);
+
+  return $terms_list;
+}
+
+/**
+ * Returns an array of [tid] => term name from an array of Taxonomy term objects
+ */
+function _siasar_field_location_map_result_into_term_list($result) {
+  $terms = array();
+  foreach ($result as $r) {
+    $terms[$r->tid] = $r->taxonomy_term_data_name;
+  }
+  return $terms;
+}
+
+/**
+ * Returns an array of parent terms for a given TID,
+ * sorted from higher ancestor to itself.
+ */
+function siasar_field_location_term_parents($tid, $country = 'all') {
+  $parents = taxonomy_get_parents_all($tid);
+  $parents_clean = array();
+  foreach ($parents as $p) {
+    $parents_clean[$p->tid] = _siasar_field_location_get_term_list_from_view($p->tid);
+  };
+  $parents_clean[0] = _siasar_field_location_get_term_list_from_view(0, $country);
+
+  return drupal_json_output($parents_clean);
+}

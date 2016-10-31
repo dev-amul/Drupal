@@ -851,40 +851,20 @@ function shs_term_get_children($identifier, $parent = 0, $settings = array(), $r
         }
       }
 
-        // hack to filter items by country in SIASAR 2.0, mainly used for the shs with location vocabulary fields 
-          global $user;
-          $user_full = user_load($user->uid);
-          $country = $user_full->field_pais['und'][0]['iso2'];	
-        // fin
-
-      //
       foreach ($vocabularies as $name => $vid) {
         // Get term children (only first level).
         // Only load entities if i18n_taxonomy or entity_translation is
         // installed.
-        ///$load_entities = module_exists('i18n_taxonomy') || module_exists('entity_translation');     
-        ///$tree = taxonomy_get_tree($vid, $parent, 1, $load_entities);
-        $tree = taxonomy_get_tree($vid, $parent, 1); // SIASAR: this affect performance and there is no need to translate terms for the vocabs shown with shs
+        $load_entities = module_exists('i18n_taxonomy') || module_exists('entity_translation');
+        $tree = taxonomy_get_tree($vid, $parent, 1, $load_entities);
         foreach ($tree as $term) {
-
-          // here we do the "hackie" contextual fitler by country
-          if($parent == 0){
-            $term_full = taxonomy_term_load($term->tid);
-            $is_valid = isset($term_full->field_pais) && !empty($term_full->field_pais) 
-                  && $term_full->field_pais['und'][0]['iso2'] == $country;			
-            if(!$is_valid) {
-              continue;
-            }
-          }
-          //
-
           $term_name = $term->name;
-          // // if (module_exists('i18n_taxonomy')) {
-          // //   $term_name = i18n_taxonomy_term_name($term, $langcode);
-          // // }
-          // // else if (module_exists('entity_translation')) {
-          // //   $term_name = entity_label('taxonomy_term', $term);
-          // // }
+          if (module_exists('i18n_taxonomy')) {
+            $term_name = i18n_taxonomy_term_name($term, $langcode);
+          }
+          else if (module_exists('entity_translation')) {
+            $term_name = entity_label('taxonomy_term', $term);
+          }
           $terms[$vocabulary_cache_key][$langcode][$parent][$term->tid] = $term_name;
         }
       }
