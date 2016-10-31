@@ -34,9 +34,7 @@
       function processParentData(data, status) {
         for (var item in data) {
           if (data[item].length !== 0) {
-            tidCache[item] = Object.keys(data[item]).map(function (k) {
-              return { tid: k, name: data[k] };
-            });
+            tidCache[item] = mapTermsFromRequestToArray(data[item]);
           }
 
         }
@@ -116,15 +114,19 @@
 
         var $lastSelectorInChain = $locationWrapper.find('.location-tree-selector').last();
         var level = ($lastSelectorInChain.data('level') !== true) ? $lastSelectorInChain.data('level') : -1;
-        var resultArr = Object.keys(data).map(function (k) {
+
+        tidCache[term.tid] = mapTermsFromRequestToArray(data);
+        buildSelectorLevel(term.tid, level + 1);
+      }
+
+      function mapTermsFromRequestToArray(data) {
+        var mapped = Object.keys(data).map(function (k) {
           return { tid: k, name: data[k] };
         });
-        var finalArr = [];
+        var output = [];
 
-        finalArr = finalArr.concat(noneSelected, resultArr);
-        tidCache[term.tid] = finalArr;
-
-        buildSelectorLevel(term.tid, level + 1);
+        output = output.concat(noneSelected, mapped);
+        return output;
       }
 
       function init() {
