@@ -16,7 +16,7 @@
       var tidCache = {};
 
       init();
-      
+
 
       function buildSelectorLevel(tid, level) {
         var html = '<select class="location-tree-selector" data-level="' + level + '"></select>';
@@ -36,6 +36,7 @@
         var level = parseInt($(this).data('level'));
 
         cleanSelectorChain(this, level);
+        $locationField.val('');
 
         if (tidCache[term.tid]) {
           buildSelectorLevel(term.tid, level + 1);
@@ -103,7 +104,7 @@
       }
 
       function init() {
-        tidCache[0] = requestChildrenTerms({tid: 0});
+        tidCache[0] = requestChildrenTerms({ tid: 0 });
       }
 
     }
