@@ -18,6 +18,7 @@
         ? settings.user.country
         : 'all';
       var tidCache = {};
+      var $locationTreeSelectorWrapper;
 
       init();
 
@@ -36,20 +37,20 @@
         for (var item in data) {
           if (data[item].length !== 0) {
             tidCache[item] = mapTermsFromRequestToArray(data[item]);
-            $locationWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(item);
+            $locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(item);
             buildSelectorLevel(item, i + 1);
             i++;
           }
         }
-        $locationWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(initialValue);
+        $locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(initialValue);
       }
 
       function buildSelectorLevel(tid, level) {
         var html = '<select class="location-tree-selector" data-level="' + level + '"></select>';
         var $newSelector;
 
-        $locationWrapper.append(html);
-        $newSelector = $locationWrapper.find('.location-tree-selector[data-level="' + level + '"]');
+        $locationTreeSelectorWrapper.append(html);
+        $newSelector = $locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + level + '"]');
         populateSelector(tidCache[tid], $newSelector);
         $newSelector.addClass('intro-animate');
         $newSelector.on('change', updateFormStructure);
@@ -103,6 +104,8 @@
       function requestChildrenTerms(term) {
         var url = '/ajax/location/' + term.tid + '/' + userCountry;
 
+        addThrobber();
+
         $.get(url, null, function (data, status) {
           processResult(data, status, term);
         }, 'json');
@@ -110,15 +113,26 @@
 
 
       function processResult(data, status, term) {
+        removeThrobber();
         if (data.length == 0) {
           $locationField.val(term.tid);
           return;
         }
-        var $lastSelectorInChain = $locationWrapper.find('.location-tree-selector').last();
+        var $lastSelectorInChain = $locationTreeSelectorWrapper.find('.location-tree-selector').last();
         var level = ($lastSelectorInChain.data('level') !== true) ? $lastSelectorInChain.data('level') : -1;
 
         tidCache[term.tid] = mapTermsFromRequestToArray(data);
         buildSelectorLevel(term.tid, level + 1);
+      }
+
+      function addThrobber() {
+        $locationTreeSelectorWrapper.addClass('ajax-progress');
+        $locationTreeSelectorWrapper.append('<div class="throbber"></div>');
+      }
+
+      function removeThrobber() {
+        $locationTreeSelectorWrapper.removeClass('ajax-progress');
+        $locationTreeSelectorWrapper.find('.throbber').remove();
       }
 
 
@@ -134,6 +148,11 @@
 
 
       function init() {
+        var hierarchicalSelectorWrapper = '<div class="location-tree-selector-wrapper"></div>';
+
+        $locationWrapper.append(hierarchicalSelectorWrapper);
+        $locationTreeSelectorWrapper = $locationWrapper.find('.location-tree-selector-wrapper');
+
         initialValue = isNaN(initialValue)
           ? 0
           : initialValue;

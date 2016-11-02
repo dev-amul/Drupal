@@ -13,9 +13,18 @@
     transform: translateX(-30px);
     opacity: 0;
   }
-
   to {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+.location-tree-selector-wrapper.ajax-progress {
+  display: block;
+}
+
+.location-tree-selector-wrapper .throbber {
+  float: none;
+  display: inline-block;
+  margin: 0px 5px -4px;
 }
