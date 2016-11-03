@@ -33,29 +33,30 @@ function drush_siasar_remap_unit($field, $old, $new) {
 
   $result = db_query($sql_find);
   $items = $result->fetchAll();
+  $items_count = count($items);
 
-  drupal_set_message('Items: ' . count($items));
+  if ($items_count == 0) {
+    drupal_set_message('No items found, nothing to do.');
+    return;
+  }
 
-  $sql_update = "UPDATE field_data_{$field} SET field_{$field}_target_id = $new WHERE {$field}_target_id = $old";
+  $proceed = drush_confirm('Found ' . $items_count . ' items. Do you want to proceed? There\'s no undo!');
 
-  //db_query($query, array $args = array(), array $options = array())
+  if (!$proceed) return;
 
+  $column_name = $field . '_target_id';
+  $num_updated = db_update('field_data_' . $field)
+    ->fields(array(
+      $column_name => $new,
+    ))
+    ->condition($column_name, $old, '=')
+    ->execute();
+  $num_updated = db_update('field_revision_' . $field)
+    ->fields(array(
+      $column_name => $new,
+    ))
+    ->condition($column_name, $old, '=')
+    ->execute();
 
-/*
-
-$result = db_query('SELECT n.nid, n.title, n.created
-FROM {node} n WHERE n.uid = :uid', array(':uid' => $uid));
-
-$table_name = 'field_data' . $field;
-$column_name = $field . 'target_id';
-
-$num_updated = db_update($table_name) // Table name no longer needs {}
-  ->fields(array(
-    $column_name => $new,
-  ))
-  ->condition($column_name, $old, '=')
-  ->execute();
-  */
-  drupal_set_message($sql_find);
-  drupal_set_message($sql_update);
+    drupal_set_message($num_updated . ' affected rows.');
 }
