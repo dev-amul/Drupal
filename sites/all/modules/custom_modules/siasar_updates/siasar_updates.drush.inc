@@ -16,7 +16,7 @@ function siasar_updates_drush_command() {
     ),
     'required-arguments' => true,
     'examples' => array(
-      'drush siasar-ru field_location 42 56 ' => 'Remaps all occurrences of Unit 42 to unit 56 on field_location, no matter the entity it belongs to.',
+      'drush siasar-ru field_location 42 56' => 'Remaps all occurrences of Unit 42 to unit 56 on field_location, no matter the entity it belongs to.',
     ),
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
   );
@@ -39,7 +39,6 @@ function drush_siasar_remap_unit($field, $old, $new) {
   $sql_update = "UPDATE field_data_{$field} SET field_{$field}_target_id = $new WHERE {$field}_target_id = $old";
 
   //db_query($query, array $args = array(), array $options = array())
-  //db_update($table, array $options = array())
 
 
 /*
@@ -47,12 +46,14 @@ function drush_siasar_remap_unit($field, $old, $new) {
 $result = db_query('SELECT n.nid, n.title, n.created
 FROM {node} n WHERE n.uid = :uid', array(':uid' => $uid));
 
-$num_updated = db_update('node') // Table name no longer needs {}
+$table_name = 'field_data' . $field;
+$column_name = $field . 'target_id';
+
+$num_updated = db_update($table_name) // Table name no longer needs {}
   ->fields(array(
-    'uid' => 5,
-    'status' => 1,
+    $column_name => $new,
   ))
-  ->condition('created', REQUEST_TIME - 3600, '>=')
+  ->condition($column_name, $old, '=')
   ->execute();
   */
   drupal_set_message($sql_find);
