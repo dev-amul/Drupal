@@ -1,0 +1,57 @@
+<?php
+/**
+ * Implementation of hook_services_resources().
+ */
+function siasar_services_counter_services_resources() {
+  return array(
+    'entity_entityform_count' => array(
+      'operations' => array(
+        'index' => array(
+          'help' => 'Retrieves total number of entityforms saved, by type',
+          'callback' => '_siasar_services_counter_entityform_count',
+          'args' => array(
+            array(
+              'name' => 'entityform_type',
+              'type' => 'string',
+              'description' => '',
+              'source' => array('path' => 0),
+              'optional' => TRUE,
+            )
+          ),
+          'access arguments' => array('access content'),
+        ),
+      ),
+    ),
+  );
+}
+
+/**
+ * Callback for 'entity_entityform_count' endpoint.
+ * Delivers te number of saved entityforms by type.
+ *
+ * @param string $entityform_type
+ *   Entityform machine name. If empty, it will find totals for all entityforms.
+ *
+ * @return array
+ *   Keyed array [entityform_machine_name] => int
+ */
+function _siasar_services_counter_entityform_count($entityform_type = null) {
+  module_load_include('module', 'entityform', 'entityform');
+  $total = array();
+
+  if ($entityform_type == null) {
+    $bundles = array_keys(entityform_get_types());
+  } else {
+    $bundles = array($entityform_type);
+  }
+
+  foreach ($bundles as $b) {
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'entityform')
+      ->entityCondition('bundle', $b)
+      ->count();
+    $total[$b] = $query->execute();
+  }
+
+  return $total;
+}
