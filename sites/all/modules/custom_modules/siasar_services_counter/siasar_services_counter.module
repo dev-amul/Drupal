@@ -36,6 +36,8 @@ function siasar_services_counter_services_resources() {
  *   Keyed array [entityform_machine_name] => int
  */
 function _siasar_services_counter_entityform_count($entityform_type = null) {
+  module_load_include('module', 'entityform', 'entityform');
+
   $total = array();
   $bundles = array($entityform_type);
 
