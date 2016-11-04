@@ -37,9 +37,7 @@ function siasar_services_counter_services_resources() {
  */
 function _siasar_services_counter_entityform_count($entityform_type = null) {
   module_load_include('module', 'entityform', 'entityform');
-
   $total = array();
-  $bundles = array($entityform_type);
 
   if ($entityform_type == null) {
     $bundles = array_keys(entityform_get_types());
@@ -52,7 +50,6 @@ function _siasar_services_counter_entityform_count($entityform_type = null) {
     $query->entityCondition('entity_type', 'entityform')
       ->entityCondition('bundle', $b)
       ->count();
-
     $total[$b] = $query->execute();
   }
 
