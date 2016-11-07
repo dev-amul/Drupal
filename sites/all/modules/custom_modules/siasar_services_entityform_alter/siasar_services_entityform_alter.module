@@ -104,7 +104,17 @@ function _siasar_services_entityform_alter_attach_term_info($field) {
   $tid = $field['id'];
   if (!isset($terms[$tid])) {
     $terms[$tid] = taxonomy_term_load($tid);
-  } 
+  }
+  if ($terms[$tid]->vocabulary_machine_name == 'division_administrativa') {
+    $field['ancestors'] = array();
+    $ancestors = taxonomy_get_parents_all($tid);
+    for ($i = 1; $i < count($ancestors); $i++) {
+      $field['ancestors'][] = array(
+        'tid' => $ancestors[$i]->tid,
+        'name' => $ancestors[$i]->name,
+      );     
+    }
+  }
 
   $field['name'] = $terms[$tid]->name;
   $field['tid'] = $terms[$tid]->tid;
