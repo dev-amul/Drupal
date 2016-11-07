@@ -54,6 +54,7 @@
         populateSelector(tidCache[tid], $newSelector);
         $newSelector.addClass('intro-animate');
         $newSelector.on('change', updateFormStructure);
+        $newSelector.on('focus', removeOK);
       }
 
       function updateFormStructure() {
@@ -116,6 +117,7 @@
         removeThrobber();
         if (data.length == 0) {
           $locationField.val(term.tid);
+          addOK();
           return;
         }
         var $lastSelectorInChain = $locationTreeSelectorWrapper.find('.location-tree-selector').last();
@@ -133,6 +135,14 @@
       function removeThrobber() {
         $locationTreeSelectorWrapper.removeClass('ajax-progress');
         $locationTreeSelectorWrapper.find('.throbber').remove();
+      }
+
+      function addOK() {
+        $locationTreeSelectorWrapper.append('<div class="ok">&#x2705;</div>');
+      }
+
+      function removeOK() {
+        $locationTreeSelectorWrapper.find('.ok').remove();
       }
 
 
