@@ -118,8 +118,8 @@ function _siasar_services_entityform_alter_attach_term_info($field) {
 }
 
 /**
- * Gets all ancestors for a Term TID, not including the first one.
- * The first element in taxonomy_get_parents_all() is skipped because its the initial term itself.
+ * Gets all ancestors for a Term TID.
+ * The first element in taxonomy_get_parents_all() is skipped because it's the initial term itself.
  *
  * @param int $tid
  *   Term ID we want to get ancestors for.
