@@ -157,7 +157,6 @@ function _siasar_services_entityform_alter_get_nested_ancestors($tid) {
   return $output;
 }
 
-
 /**
  * Builds adminstrative division taxonomy term object
  *
@@ -173,7 +172,6 @@ function _build_adm_term_data($term) {
     'country' => $term->field_pais[LANGUAGE_NONE][0]['iso2']
   );
 }
-
 
 /**
  * Gets user and adds loaded info to $field array
