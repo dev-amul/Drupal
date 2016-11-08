@@ -15,14 +15,16 @@
  */
 function siasar_services_entityform_alter_services_request_postprocess_alter($controller, $args, &$result) {
 
-  if (arg(1) == 'entity_entityform') { // At this moment, only field collection structure is considered for changes.
+  $allowed_ops = array('retrieve', 'index');
 
-    if (arg(2) == null && is_array($result)) {
+  if (arg(1) == 'entity_entityform' && in_array($args[0], $allowed_ops)) {
+
+    if (arg(2) == null) {
       foreach ($result as &$item) {
         $item = _siasar_services_entityform_alter_get_referenced_entityform_name($item);
       }
-    } elseif (arg(2) !== null && is_array($result[$args[0]])) {
-      //$result = _siasar_services_entityform_alter_get_referenced_entityform_name($result[$args[0]]);
+    } elseif (is_numeric(arg(2))) {
+      $result = _siasar_services_entityform_alter_get_referenced_entityform_name($result);
     }
   }
 }
@@ -102,13 +104,38 @@ function _siasar_services_entityform_alter_attach_term_info($field) {
   $tid = $field['id'];
   if (!isset($terms[$tid])) {
     $terms[$tid] = taxonomy_term_load($tid);
-  } 
+  }
 
   $field['name'] = $terms[$tid]->name;
   $field['tid'] = $terms[$tid]->tid;
+  if ($terms[$tid]->vocabulary_machine_name == 'division_administrativa') {
+    $field['ancestors'] = _siasar_services_entityform_alter_get_ancestors($tid);
+  }
+
   unset ($field['id']);
 
   return $field;
+}
+
+/**
+ * Gets all ancestors for a Term TID.
+ * The first element in taxonomy_get_parents_all() is skipped because it's the initial term itself.
+ *
+ * @param int $tid
+ *   Term ID we want to get ancestors for.
+ * @return array
+ *   Ancestors array[tid, name], sorted from nearest to farthest
+ */
+function _siasar_services_entityform_alter_get_ancestors($tid) {
+  $output = array();
+  $ancestors = taxonomy_get_parents_all($tid);
+  for ($i = 1; $i < count($ancestors); $i++) {
+    $output[] = array(
+      'tid' => $ancestors[$i]->tid,
+      'name' => $ancestors[$i]->name,
+    );     
+  }
+  return $output;
 }
 
 /**
@@ -127,6 +154,7 @@ function _siasar_services_entityform_alter_attach_user_info($field) {
 
   $field['name'] = $users[$uid]->name;
   $field['uid'] = $users[$uid]->uid;
+  $field['country'] = $users[$uid]->field_pais[LANGUAGE_NONE][0]['iso2'];
   unset ($field['id']);
 
   return $field;

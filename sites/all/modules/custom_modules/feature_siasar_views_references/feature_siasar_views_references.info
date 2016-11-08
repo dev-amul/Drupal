@@ -1,0 +1,15 @@
+name = SIASAR Views References
+description = Views used as data source for Entity Reference Fields
+core = 7.x
+package = SIASAR
+version = 7.x-1.3
+dependencies[] = entityreference
+dependencies[] = term_reference_filter_by_views
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = division_politica_administrativa
+features[views_view][] = tipos_de_moneda
+features[views_view][] = users_select_view
+features_exclude[dependencies][ctools] = ctools
+project path = sites/all/modules/custom_modules
