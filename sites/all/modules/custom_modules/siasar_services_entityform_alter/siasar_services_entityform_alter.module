@@ -61,7 +61,7 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name($data)
           break;
         case 'user':
           $field = _siasar_services_entityform_alter_attach_user_info($field);
-          break;       
+          break;
       }
     }
   }
@@ -109,7 +109,8 @@ function _siasar_services_entityform_alter_attach_term_info($field) {
   $field['name'] = $terms[$tid]->name;
   $field['tid'] = $terms[$tid]->tid;
   if ($terms[$tid]->vocabulary_machine_name == 'division_administrativa') {
-    $field['ancestors'] = _siasar_services_entityform_alter_get_ancestors($tid);
+    $field['country'] = $terms[$tid]->field_pais[LANGUAGE_NONE][0]['iso2'];
+    $field['parent'] = _siasar_services_entityform_alter_get_nested_ancestors($tid);
   }
 
   unset ($field['id']);
@@ -130,13 +131,49 @@ function _siasar_services_entityform_alter_get_ancestors($tid) {
   $output = array();
   $ancestors = taxonomy_get_parents_all($tid);
   for ($i = 1; $i < count($ancestors); $i++) {
-    $output[] = array(
-      'tid' => $ancestors[$i]->tid,
-      'name' => $ancestors[$i]->name,
-    );     
+    $output[] = _build_adm_term_data($ancestors[$i]);
   }
   return $output;
 }
+
+/**
+ * Gets nested ancestors for a Term TID
+ * The first element in taxonomy_get_parents_all() is skipped because it's the initial term itself
+ *
+ * @param int $tid
+ *   Term ID to get ancestors for
+ * @return array
+ *   Array of nested ancestors
+ */
+function _siasar_services_entityform_alter_get_nested_ancestors($tid) {
+  $ancestors = taxonomy_get_parents_all($tid);
+  $output = array();
+  $current = &$output;
+  for ($i = 1; $i < count($ancestors) - 1; $i++) {
+    $current = _build_adm_term_data($ancestors[$i]);
+    $current = &$current['parent'];
+  }
+  $current = _build_adm_term_data($ancestors[$i]);
+  return $output;
+}
+
+
+/**
+ * Builds adminstrative division taxonomy term object
+ *
+ * @param array $term
+ *   Term we want to process
+ * @return array
+ *   New object containing only needed fields
+ */
+function _build_adm_term_data($term) {
+  return array(
+    'tid' => $term->tid,
+    'name' => $term->name,
+    'country' => $term->field_pais[LANGUAGE_NONE][0]['iso2']
+  );
+}
+
 
 /**
  * Gets user and adds loaded info to $field array
@@ -150,7 +187,7 @@ function _siasar_services_entityform_alter_attach_user_info($field) {
   $uid = $field['id'];
   if (!isset($users[$uid])) {
     $users[$uid] = user_load($uid);
-  } 
+  }
 
   $field['name'] = $users[$uid]->name;
   $field['uid'] = $users[$uid]->uid;
