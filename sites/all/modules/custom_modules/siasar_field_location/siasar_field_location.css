@@ -5,18 +5,7 @@
 .location-tree-selector.intro-animate {
   animation-duration: 0.5s;
   animation-timing-function: cubic-bezier(0, 0, 0.25, 1);
-  animation-name: creating-form-item;
-}
-
-@keyframes creating-form-item {
-  from {
-    transform: translateX(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  animation-name: translate-form-item, fade-in;
 }
 
 .location-tree-selector-wrapper.ajax-progress {
@@ -27,4 +16,33 @@
   float: none;
   display: inline-block;
   margin: 0px 5px -4px;
+}
+
+.location-tree-selector-wrapper .ok {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  margin: 0px 7px;
+  font-size: 1.25em;
+  line-height: 100%;
+  animation-duration: 0.5s;
+  animation-name: fade-in;
+}
+
+@keyframes translate-form-item {
+  from {
+    transform: translateX(-30px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,0 +1,5 @@
+name = SIASAR Services counter
+description = Provides custom endpoints to get totals regarding entities. For example, how many entityforms of type "X" we currently have.
+package = SIASAR
+core = 7.x
+dependencies[] = "services"
