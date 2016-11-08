@@ -882,6 +882,13 @@ function _taxonomy_csv_term_field_import($term, $update_or_ignore = TAXONOMY_CSV
           $term->{$field_name}[$language][0] = array('value' => $value);
           break;
 
+        case 'country':
+          $country = country_load($values[0]);
+          if ($country && $country->enabled == true) {
+            $term->{$field_name}[$language][0] = array('iso2' => $values[0]);
+          }
+          break;
+
         // Managed by default:
         // case 'number_decimal':
         // case 'number_integer':

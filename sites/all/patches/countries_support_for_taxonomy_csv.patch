@@ -1,0 +1,18 @@
+diff --git a/import/taxonomy_csv.import.line.api.inc b/import/taxonomy_csv.import.line.api.inc
+index e0fe714..de1d034 100644
+--- a/import/taxonomy_csv.import.line.api.inc
++++ b/import/taxonomy_csv.import.line.api.inc
+@@ -882,6 +882,13 @@ function _taxonomy_csv_term_field_import($term, $update_or_ignore = TAXONOMY_CSV
+           $term->{$field_name}[$language][0] = array('value' => $value);
+           break;
+ 
++        case 'country':
++          $country = country_load($values[0]);
++          if ($country && $country->enabled == true) {
++            $term->{$field_name}[$language][0] = array('iso2' => $values[0]);
++          }
++          break;
++
+         // Managed by default:
+         // case 'number_decimal':
+         // case 'number_integer':
