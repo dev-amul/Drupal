@@ -392,6 +392,11 @@ function taxonomy_csv_line_import_fields($line, $options, $previous_items = arra
     }
   }
 
+  // If Import process is set up to add fields to parents, save custom fields.
+  if ($options['import_fields_parents'] == 'all-ancestors') {
+    _taxonomy_csv_save_fields_on_ancestors($term, $previous_items['tid']);
+  }
+
   // Import parents if any.
   foreach ($parents as $value) {
     // Presume that item is a tid if it's a number.
@@ -1132,5 +1137,34 @@ function _taxonomy_csv_line_replace_field_text($term, $field_name, $language = '
       );
     }
     $term->{$field_name}[$language] = $field;
+  }
+}
+
+/**
+ * Helper function to save field values on parent items.
+ * To be executed only if import process is set to "fields"
+ * and option 'import_fields_parents' is set to 'all-ancestors'. 
+ */
+function _taxonomy_csv_save_fields_on_ancestors($child, $terms) {
+  static $cache;
+
+  foreach ($terms as $tid) {
+    foreach ($child->fields_to_import as $fname => $fvalue) {
+      if (!isset($cache[$tid]) || !in_array($fname, $cache[$tid])) {
+        $current_ancestor = taxonomy_term_load($tid);
+        $current_ancestor->fields_to_import = $child->fields_to_import;
+        $current_ancestor->fields_to_import_instances = $child->fields_to_import_instances;
+        $current_ancestor->fields_to_import_fields = $child->fields_to_import_fields;        
+
+        if (isset($current_ancestor->{$fname})) {
+          $messages = _taxonomy_csv_term_field_import($current_ancestor, TAXONOMY_CSV_EXISTING_UPDATE);
+        }
+
+        taxonomy_term_save($current_ancestor);
+
+        $cache[$tid][] = $fname;
+      }
+
+    }
   }
 }
