@@ -883,7 +883,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
           'create_new_levels' => 0,
           'create_new_terms' => 0,
           'force_deepest' => 1,
-          'node_count' => 0,
         ),
       ),
       'type' => 'taxonomy_shs',
