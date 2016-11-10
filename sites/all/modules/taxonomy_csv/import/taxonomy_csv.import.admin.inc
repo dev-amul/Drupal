@@ -323,6 +323,23 @@ function taxonomy_csv_import_form($form, &$form_state) {
     ),
   );
 
+  // Specific options of Fields.
+  $form['tab']['format']['specific'][TAXONOMY_CSV_FORMAT_FIELDS]['import_fields_parents'] = array(
+    '#type'          => 'radios',
+    '#title'         => t('Should field values be applied to all items found per line, or only to last item (deepest element)?'),
+    '#default_value' => $list_previous_values['import_fields_parents'],
+    '#options'         => array(
+      'all-ancestors' => t('Yes, apply field values to current term and all its ancestors.'),
+      'child-only'  => t('No, apply field values to deepest child only.'),
+    ),   
+    '#description'   => t('If you\'re importing a tree + fields, several nested items can be created per line. What about field values for those parent terms?'),
+    '#states'        => array(
+      'visible' => array(
+        ':input[name=import_format]' => array('value' => TAXONOMY_CSV_FORMAT_FIELDS),
+      ),
+    ),
+  );
+
   // Specific options of Translate.
   $form['tab']['format']['specific'][TAXONOMY_CSV_FORMAT_TRANSLATE]['translate_by'] = array(
     '#type'          => 'radios',
@@ -1319,6 +1336,7 @@ function taxonomy_csv_import_form_submit($form, &$form_state) {
       'structure_type',
       'tid_structure_type',
       'import_fields_format',
+      'import_fields_parents',
       'translate_by',
       'translate_languages',
       'keep_order',
