@@ -304,7 +304,6 @@ function taxonomy_csv_import_form($form, &$form_state) {
       . '<ul>'
         . '<li>' . t('First item of the format should be "tree" or "poly", depending on your choice.') . '</li>'
         . '<li>' . t('This first item should not be repeated, unlike fields.') . '</li>'
-        . '<li>' . t('The fields are always attached to the last term of the tree.') . '</li>'
         . '<li>' . t('On the imported csv line, empty fields should always be marked, <em>particularly at the end of the line</em>. In the previous example, there are a first field and a third field only for <code>Europe</code>, neither for <code>France</code> nor <code>Lyon</code>), but they are marked in them with an empty content.') . '</li>'
         . '<li>' . t('On the imported csv line, you can add empty names in order to begin the fields at the same column on each line.') . '</li>'
       . '</ul>'
@@ -327,7 +326,7 @@ function taxonomy_csv_import_form($form, &$form_state) {
   $form['tab']['format']['specific'][TAXONOMY_CSV_FORMAT_FIELDS]['import_fields_parents'] = array(
     '#type'          => 'radios',
     '#title'         => t('Should field values be applied to all items found per line, or only to last item (deepest element)?'),
-    '#default_value' => $list_previous_values['import_fields_parents'],
+    '#default_value' => $list_previous_values['import_fields_parents'] ? $list_previous_values['import_fields_parents'] : 'child-only',
     '#options'         => array(
       'all-ancestors' => t('Yes, apply field values to current term and all its ancestors.'),
       'child-only'  => t('No, apply field values to deepest child only.'),
