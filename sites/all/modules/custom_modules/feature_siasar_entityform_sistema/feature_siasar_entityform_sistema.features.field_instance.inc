@@ -341,12 +341,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // 'entityform-sistema-field_cantidad_de_cloro_residual'.
   $field_instances['entityform-sistema-field_cantidad_de_cloro_residual'] = array(
     'bundle' => 'sistema',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-        'target_id' => 599,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -382,13 +377,15 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
             'enable' => 0,
-            'unit' => 599,
+            'unit' => 681,
             'weight' => 0,
           ),
           'locale' => array(
             'en' => -1,
             'enable' => 1,
-            'es' => 599,
+            'es' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
             'pt-br' => -1,
             'weight' => 0,
           ),
@@ -1212,15 +1209,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // Exported field_instance: 'entityform-sistema-field_latitud'.
   $field_instances['entityform-sistema-field_latitud'] = array(
     'bundle' => 'sistema',
-    'default_value' => array(
-      0 => array(
-        'input_format' => 'lat/lon',
-        'geom' => array(
-          'lat' => '0.00',
-          'lon' => '0.00',
-        ),
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1562,9 +1551,16 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'field_collection_item',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
     'field_name' => 'field_origen_de_financiamiento_i',
     'label' => 'Origen de financiamiento (institución, organismo, donación, aporte, etc.)',
-    'required' => 1,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
