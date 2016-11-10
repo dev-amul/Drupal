@@ -1,0 +1,175 @@
+From 6eb318c42c4096d03d1e641134e700f0571913b5 Mon Sep 17 00:00:00 2001
+From: Ignacio Segura <nacho@isegura.es>
+Date: Tue, 8 Nov 2016 10:48:27 +0100
+Subject: [PATCH] 293 - Path file storing module changes
+
+---
+ .../patches/countries_support_for_taxonomy_csv.patch   | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+ create mode 100644 sites/all/patches/countries_support_for_taxonomy_csv.patch
+
+diff --git a/sites/all/patches/countries_support_for_taxonomy_csv.patch b/sites/all/patches/countries_support_for_taxonomy_csv.patch
+new file mode 100644
+index 0000000..3d8cf7f
+--- /dev/null
++++ b/sites/all/patches/countries_support_for_taxonomy_csv.patch
+@@ -0,0 +1,18 @@
++diff --git a/import/taxonomy_csv.import.line.api.inc b/import/taxonomy_csv.import.line.api.inc
++index e0fe714..de1d034 100644
++--- a/import/taxonomy_csv.import.line.api.inc
+++++ b/import/taxonomy_csv.import.line.api.inc
++@@ -882,6 +882,13 @@ function _taxonomy_csv_term_field_import($term, $update_or_ignore = TAXONOMY_CSV
++           $term->{$field_name}[$language][0] = array('value' => $value);
++           break;
++ 
+++        case 'country':
+++          $country = country_load($values[0]);
+++          if ($country && $country->enabled == true) {
+++            $term->{$field_name}[$language][0] = array('iso2' => $values[0]);
+++          }
+++          break;
+++
++         // Managed by default:
++         // case 'number_decimal':
++         // case 'number_integer':
+-- 
+1.7.11.1
+
+From 7bb9a2a9660b123d589efaf6eea2db7531856294 Mon Sep 17 00:00:00 2001
+From: Ignacio Segura <nacho@isegura.es>
+Date: Wed, 9 Nov 2016 23:31:37 +0100
+Subject: [PATCH] 293 - Import custom fields into parents
+
+---
+ .../import/taxonomy_csv.import.admin.inc           | 20 ++++++++++++-
+ .../import/taxonomy_csv.import.line.api.inc        | 34 ++++++++++++++++++++++
+ 2 files changed, 53 insertions(+), 1 deletion(-)
+
+diff --git a/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.admin.inc b/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.admin.inc
+index c86b2d8..9f8a170 100644
+--- a/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.admin.inc
++++ b/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.admin.inc
+@@ -323,6 +323,23 @@ function taxonomy_csv_import_form($form, &$form_state) {
+     ),
+   );
+ 
++  // Specific options of Fields.
++  $form['tab']['format']['specific'][TAXONOMY_CSV_FORMAT_FIELDS]['import_fields_parents'] = array(
++    '#type'          => 'radios',
++    '#title'         => t('Should field values be applied to all items found per line, or only to last item (deepest element)?'),
++    '#default_value' => $list_previous_values['import_fields_parents'],
++    '#options'         => array(
++      'all-ancestors' => t('Yes, apply field values to current term and all its ancestors.'),
++      'child-only'  => t('No, apply field values to deepest child only.'),
++    ),   
++    '#description'   => t('If you\'re importing a tree + fields, several nested items can be created per line. What about field values for those parent terms?'),
++    '#states'        => array(
++      'visible' => array(
++        ':input[name=import_format]' => array('value' => TAXONOMY_CSV_FORMAT_FIELDS),
++      ),
++    ),
++  );
++
+   // Specific options of Translate.
+   $form['tab']['format']['specific'][TAXONOMY_CSV_FORMAT_TRANSLATE]['translate_by'] = array(
+     '#type'          => 'radios',
+@@ -1319,6 +1336,7 @@ function taxonomy_csv_import_form_submit($form, &$form_state) {
+       'structure_type',
+       'tid_structure_type',
+       'import_fields_format',
++      'import_fields_parents',
+       'translate_by',
+       'translate_languages',
+       'keep_order',
+@@ -1429,4 +1447,4 @@ function taxonomy_csv_import_form_default_values_submit($form, &$form_state) {
+   unset($form_state['storage']);
+ 
+   drupal_set_message(t('Import options have been reset to default.'));
+-}
+\ No newline at end of file
++}
+diff --git a/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.line.api.inc b/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.line.api.inc
+index de1d034..4d7861d 100644
+--- a/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.line.api.inc
++++ b/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.line.api.inc
+@@ -392,6 +392,11 @@ function taxonomy_csv_line_import_fields($line, $options, $previous_items = arra
+     }
+   }
+ 
++  // If Import process is set up to add fields to parents, save custom fields.
++  if ($options['import_fields_parents'] == 'all-ancestors') {
++    _taxonomy_csv_save_fields_on_ancestors($term, $previous_items['tid']);
++  }
++
+   // Import parents if any.
+   foreach ($parents as $value) {
+     // Presume that item is a tid if it's a number.
+@@ -1134,3 +1139,32 @@ function _taxonomy_csv_line_replace_field_text($term, $field_name, $language = '
+     $term->{$field_name}[$language] = $field;
+   }
+ }
++
++/**
++ * Helper function to save field values on parent items.
++ * To be executed only if import process is set to "fields"
++ * and option 'import_fields_parents' is set to 'all-ancestors'. 
++ */
++function _taxonomy_csv_save_fields_on_ancestors($child, $terms) {
++  static $cache;
++
++  foreach ($terms as $tid) {
++    foreach ($child->fields_to_import as $fname => $fvalue) {
++      if (!isset($cache[$tid]) || !in_array($fname, $cache[$tid])) {
++        $current_ancestor = taxonomy_term_load($tid);
++        $current_ancestor->fields_to_import = $child->fields_to_import;
++        $current_ancestor->fields_to_import_instances = $child->fields_to_import_instances;
++        $current_ancestor->fields_to_import_fields = $child->fields_to_import_fields;        
++
++        if (isset($current_ancestor->{$fname})) {
++          $messages = _taxonomy_csv_term_field_import($current_ancestor, TAXONOMY_CSV_EXISTING_UPDATE);
++        }
++
++        taxonomy_term_save($current_ancestor);
++
++        $cache[$tid][] = $fname;
++      }
++
++    }
++  }
++}
+-- 
+1.7.11.1
+
+From a10ab3cb2df1ba1209624af206e380a0991a445e Mon Sep 17 00:00:00 2001
+From: Ignacio Segura <nacho@isegura.es>
+Date: Thu, 10 Nov 2016 10:49:17 +0100
+Subject: [PATCH] 293 - Default value for form item
+
+---
+ sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.admin.inc | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.admin.inc b/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.admin.inc
+index 9f8a170..0f71e42 100644
+--- a/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.admin.inc
++++ b/sites/all/modules/taxonomy_csv/import/taxonomy_csv.import.admin.inc
+@@ -304,7 +304,6 @@ function taxonomy_csv_import_form($form, &$form_state) {
+       . '<ul>'
+         . '<li>' . t('First item of the format should be "tree" or "poly", depending on your choice.') . '</li>'
+         . '<li>' . t('This first item should not be repeated, unlike fields.') . '</li>'
+-        . '<li>' . t('The fields are always attached to the last term of the tree.') . '</li>'
+         . '<li>' . t('On the imported csv line, empty fields should always be marked, <em>particularly at the end of the line</em>. In the previous example, there are a first field and a third field only for <code>Europe</code>, neither for <code>France</code> nor <code>Lyon</code>), but they are marked in them with an empty content.') . '</li>'
+         . '<li>' . t('On the imported csv line, you can add empty names in order to begin the fields at the same column on each line.') . '</li>'
+       . '</ul>'
+@@ -327,7 +326,7 @@ function taxonomy_csv_import_form($form, &$form_state) {
+   $form['tab']['format']['specific'][TAXONOMY_CSV_FORMAT_FIELDS]['import_fields_parents'] = array(
+     '#type'          => 'radios',
+     '#title'         => t('Should field values be applied to all items found per line, or only to last item (deepest element)?'),
+-    '#default_value' => $list_previous_values['import_fields_parents'],
++    '#default_value' => $list_previous_values['import_fields_parents'] ? $list_previous_values['import_fields_parents'] : 'child-only',
+     '#options'         => array(
+       'all-ancestors' => t('Yes, apply field values to current term and all its ancestors.'),
+       'child-only'  => t('No, apply field values to deepest child only.'),
+-- 
+1.7.11.1
+
