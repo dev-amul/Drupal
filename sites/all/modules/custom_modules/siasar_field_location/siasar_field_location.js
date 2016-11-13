@@ -115,7 +115,7 @@
 
       function processResult(data, status, term) {
         removeThrobber();
-        if (data.length == 0) {
+        if (data.length == 0 && term.tid !== 0) {
           $locationField.val(term.tid);
           addOK();
           return;
