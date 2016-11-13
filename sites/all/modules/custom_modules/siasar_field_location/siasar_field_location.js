@@ -129,6 +129,7 @@
         buildSelectorLevel(term.tid, level + 1);
       }
 
+      // TODO: refactor to object
       function addThrobber() {
         $locationTreeSelectorWrapper.addClass('ajax-progress');
         $locationTreeSelectorWrapper.append('<div class="throbber"></div>');
