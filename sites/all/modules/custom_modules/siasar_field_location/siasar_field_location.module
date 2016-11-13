@@ -45,6 +45,8 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
 
   $user_wrapper = entity_metadata_wrapper('user', user_load($user->uid));
   $module_path = drupal_get_path('module', 'siasar_field_location');
+  $field = $instance['field_name'];
+  
   $element += array(
     '#type' => 'textfield',
     '#size' => 8,
@@ -57,8 +59,13 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
         $module_path . '/siasar_field_location.js',
         array(
           'data' => array(
-            'user' => array(
-              'country' => $user_wrapper->field_pais->value()->iso2
+            'siasarHierarchicalSelect' => array(
+              'user' => array(
+                'country' => $user_wrapper->field_pais->value()->iso2
+              ),
+              $field => array(
+                'forceDeepest' => $instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'],
+              ),
             ),
           ),
           'type' => 'setting',
@@ -71,6 +78,32 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
   );
 
   return $element;
+}
+
+/**
+ * Implements hook_field_widget_settings_form().
+ */
+function siasar_field_location_field_widget_settings_form($field, $instance) {
+  $widget = $instance['widget'];
+  $settings = $widget['settings'];
+
+  if ($widget['type'] == 'siasar_hierarchical_select') {
+    $form['siasar_hierarchical_select'] = array(
+      '#type' => 'fieldset',
+      '#title' => 'Simple hierarchical select settings',
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+      '#tree' => TRUE,
+    );
+    $form['siasar_hierarchical_select']['force_deepest'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Force selection of deepest level'),
+      '#description' => t('If checked the user will be forced to select terms from the deepest level.'),
+      '#default_value' => empty($settings['siasar_hierarchical_select']['force_deepest']) ? FALSE : $settings['siasar_hierarchical_select']['force_deepest'],
+    );
+  }
+
+  return $form;
 }
 
 /**

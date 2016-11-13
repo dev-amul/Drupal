@@ -5,7 +5,8 @@
     attach: function (context, settings) {
       if (context !== document) return;
 
-      var $locationWrapper = $('.field-name-field-entidad-local');
+      var $locationWrapper = $('.field-widget-siasar-hierarchical-select');
+      var fieldName = $locationWrapper.attr('id').replace('edit-', '').replace(/-/g, '_');
       var $locationField = $locationWrapper.find('.form-text');
       var initialValue = parseInt($locationField.val());
       var $initOptions = $locationField.find('option');
@@ -14,9 +15,10 @@
         tid: '_none',
         name: Drupal.t('- Ninguno - '),
       }
-      var userCountry = settings.user.country
-        ? settings.user.country
+      var userCountry = settings.siasarHierarchicalSelect.user.country
+        ? settings.siasarHierarchicalSelect.user.country
         : 'all';
+      var forceDeepest = (settings.siasarHierarchicalSelect[fieldName].forceDeepest === 1);
       var tidCache = {};
       var $locationTreeSelectorWrapper;
 
@@ -138,11 +140,15 @@
       }
 
       function addOK() {
-        $locationTreeSelectorWrapper.append('<div class="ok">&#x2705;</div>');
+        if (forceDeepest) {
+          $locationTreeSelectorWrapper.append('<div class="ok">&#x2705;</div>');
+        }
       }
 
       function removeOK() {
-        $locationTreeSelectorWrapper.find('.ok').remove();
+        if (forceDeepest) {
+          $locationTreeSelectorWrapper.find('.ok').remove();
+        }
       }
 
 
