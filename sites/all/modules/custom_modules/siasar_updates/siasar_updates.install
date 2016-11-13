@@ -178,3 +178,17 @@ function siasar_updates_update_7111(&$sandbox) {
   variable_set('jquery_update_jquery_cdn', 'google');
   variable_set('jquery_update_jquery_version', '1.10');
 }
+
+/**
+ * Issue 290: Crear nuevo endopoint en la API que entregue las cantidades totales de objetos de cada formulario
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/290
+ */
+function siasar_updates_update_7112(&$sandbox) {
+  $modules = array(
+    'siasar_services_counter',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}

@@ -304,7 +304,6 @@ function taxonomy_csv_import_form($form, &$form_state) {
       . '<ul>'
         . '<li>' . t('First item of the format should be "tree" or "poly", depending on your choice.') . '</li>'
         . '<li>' . t('This first item should not be repeated, unlike fields.') . '</li>'
-        . '<li>' . t('The fields are always attached to the last term of the tree.') . '</li>'
         . '<li>' . t('On the imported csv line, empty fields should always be marked, <em>particularly at the end of the line</em>. In the previous example, there are a first field and a third field only for <code>Europe</code>, neither for <code>France</code> nor <code>Lyon</code>), but they are marked in them with an empty content.') . '</li>'
         . '<li>' . t('On the imported csv line, you can add empty names in order to begin the fields at the same column on each line.') . '</li>'
       . '</ul>'
@@ -316,6 +315,23 @@ function taxonomy_csv_import_form($form, &$form_state) {
         . '<li><code>' . t('name, description, weight, parent, synonym, synonym, synonym, related_term, related_term, related_term, related_term') . '</code></li>'
         . '<li><code>' . t('tree, description, weight, my_repeatable_field_1, my_repeatable_field_1, my_custom_field_2') . '</code></li>'
       . '</ul>',
+    '#states'        => array(
+      'visible' => array(
+        ':input[name=import_format]' => array('value' => TAXONOMY_CSV_FORMAT_FIELDS),
+      ),
+    ),
+  );
+
+  // Specific options of Fields.
+  $form['tab']['format']['specific'][TAXONOMY_CSV_FORMAT_FIELDS]['import_fields_parents'] = array(
+    '#type'          => 'radios',
+    '#title'         => t('Should field values be applied to all items found per line, or only to last item (deepest element)?'),
+    '#default_value' => $list_previous_values['import_fields_parents'] ? $list_previous_values['import_fields_parents'] : 'child-only',
+    '#options'         => array(
+      'all-ancestors' => t('Yes, apply field values to current term and all its ancestors.'),
+      'child-only'  => t('No, apply field values to deepest child only.'),
+    ),   
+    '#description'   => t('If you\'re importing a tree + fields, several nested items can be created per line. What about field values for those parent terms?'),
     '#states'        => array(
       'visible' => array(
         ':input[name=import_format]' => array('value' => TAXONOMY_CSV_FORMAT_FIELDS),
@@ -1319,6 +1335,7 @@ function taxonomy_csv_import_form_submit($form, &$form_state) {
       'structure_type',
       'tid_structure_type',
       'import_fields_format',
+      'import_fields_parents',
       'translate_by',
       'translate_languages',
       'keep_order',
