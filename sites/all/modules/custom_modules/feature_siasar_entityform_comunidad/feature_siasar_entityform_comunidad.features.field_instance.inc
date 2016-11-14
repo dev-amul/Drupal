@@ -69,23 +69,30 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_ce_location',
     'label' => 'Lugar en el que está ubicado el centro educativo de referencia',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
-          'force_deepest' => 0,
-          'node_count' => 0,
+        'siasar_hierarchical_select' => array(
+          'force_deepest' => 1,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 15,
     ),
   );
@@ -1935,15 +1942,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
-          'force_deepest' => 0,
+        'siasar_hierarchical_select' => array(
+          'force_deepest' => 1,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 18,
     ),
   );
