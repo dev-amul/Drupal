@@ -741,16 +741,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
+        'siasar_hierarchical_select' => array(
           'force_deepest' => 1,
-          'node_count' => 0,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 27,
     ),
   );
