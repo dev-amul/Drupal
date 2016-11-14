@@ -44,6 +44,7 @@
             i++;
           }
         }
+        if (data[item].length == 0) addOK();
         $locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(initialValue);
       }
 
