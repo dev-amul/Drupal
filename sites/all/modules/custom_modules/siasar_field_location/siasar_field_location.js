@@ -44,7 +44,7 @@
             i++;
           }
         }
-        if (data[item].length == 0) addOK();
+        if (data[item].length == 0 && forceDeepest) addOK();
         $locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(initialValue);
       }
 
