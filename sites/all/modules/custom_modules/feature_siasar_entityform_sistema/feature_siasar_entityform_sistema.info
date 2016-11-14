@@ -21,6 +21,7 @@ dependencies[] = mvf
 dependencies[] = number
 dependencies[] = options
 dependencies[] = shs
+dependencies[] = siasar_field_location
 dependencies[] = text
 features[entityform_type][] = sistema
 features[features_api][] = api:2
