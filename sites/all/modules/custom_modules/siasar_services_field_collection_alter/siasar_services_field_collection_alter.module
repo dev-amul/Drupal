@@ -17,11 +17,12 @@ function siasar_services_field_collection_alter_services_request_postprocess_alt
 
   if (arg(1) == 'field_collection_structure') { // At this moment, only field collection structure is considered for changes.
     if (arg(2) == null && is_object($result)) {
-      foreach ($result as &$fc) {
+      foreach ($result as $key => &$fc) {
         $fc = _siasar_services_field_collection_alter_get_referenced_entityform_name($fc);
       }
     } elseif (arg(2) !== null && is_array($result[$args[0]])) {
       $result = _siasar_services_field_collection_alter_get_referenced_entityform_name($result[$args[0]]);
+      $result = _siasar_services_field_collection_alter_get_referenced_type($result);
     }
   }
 
@@ -54,5 +55,32 @@ function _siasar_services_field_collection_alter_get_referenced_entityform_name(
       }
     }
   }
+  return $data;
+}
+
+/**
+ * Gets type of referenced entities on "entity reference" fields
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_field_collection_alter_get_referenced_type($data) {
+
+  if (!is_array($data)) return $data;
+
+  foreach ($data as &$field) {
+    if ($field['display']['default']['module'] !== 'entityreference') continue;
+    
+    $field_base = field_info_field($field['field_name']);
+    if ($field_base['settings']['handler'] == 'views') {
+      // do stuff views
+    } elseif ($field_base['settings']['handler'] == 'banana') {
+      // same stuff different way
+    }
+    $field = $field;
+
+
+  }
+
   return $data;
 }
