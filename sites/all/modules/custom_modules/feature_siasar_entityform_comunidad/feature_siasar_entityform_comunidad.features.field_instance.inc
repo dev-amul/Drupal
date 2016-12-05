@@ -6852,7 +6852,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2');
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:');
   t('Cantidad de viviendas totales');
-  t('Centros educativos. Información general ');
+  t('Centros educativos. Información general');
   t('Clasificación');
   t('Cuenca hidrográfica');
   t('Código Comunidad');
