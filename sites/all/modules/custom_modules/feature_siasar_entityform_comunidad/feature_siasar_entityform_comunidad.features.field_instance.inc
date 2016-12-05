@@ -1892,7 +1892,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_con_fic_ce_ficha',
-    'label' => 'Ficha de centro educativo',
+    'label' => 'Centros educativos. Información general',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2036,7 +2036,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_entidad_local'.
   $field_instances['entityform-comunidad-field_entidad_local'] = array(
     'bundle' => 'comunidad',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2957,7 +2957,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssa_pa',
-    'label' => '¿El centro educativo tiene algún sistema de agua asociado?',
+    'label' => '¿El centro de salud tiene algún sistema de agua asociado?',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -6852,6 +6852,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2');
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:');
   t('Cantidad de viviendas totales');
+  t('Centros educativos. Información general ');
   t('Clasificación');
   t('Cuenca hidrográfica');
   t('Código Comunidad');
@@ -6863,7 +6864,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Fecha de aplicación');
   t('Fecha en la que se llena la encuesta');
   t('Ficha de centro de salud');
-  t('Ficha de centro educativo');
   t('Fuente / institución');
   t('Georeferenciación');
   t('Idioma predominante');
@@ -6966,6 +6966,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Viviendas con sistema');
   t('Viviendas sin sistema');
   t('¿Cuál es la disposición final de la basura más habitual en la comunidad? (quema, enterrada, tirada, tirada en un cuerpo de agua, etc.)');
+  t('¿El centro de salud tiene algún sistema de agua asociado?');
   t('¿El centro educativo tiene algún sistema de agua asociado?');
   t('¿Existe algún centro de salud en la comunidad?');
   t('¿Existe algún centro educativo en la comunidad?');
