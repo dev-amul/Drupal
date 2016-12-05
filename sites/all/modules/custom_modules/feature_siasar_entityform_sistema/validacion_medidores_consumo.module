@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Validación de medidores con consumo feature.
+ */
+
+include_once 'validacion_medidores_consumo.features.inc';
