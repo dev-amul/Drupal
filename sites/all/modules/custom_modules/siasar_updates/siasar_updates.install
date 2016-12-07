@@ -176,7 +176,7 @@ function siasar_updates_update_7111(&$sandbox) {
   }
 
   variable_set('jquery_update_jquery_cdn', 'google');
-  variable_set('jquery_update_jquery_version', '1.10');
+  variable_set('jquery_update_jquery_version', '1.8');
 }
 
 /**
@@ -191,4 +191,22 @@ function siasar_updates_update_7112(&$sandbox) {
   if (!$modules_enabled) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
+}
+
+/**
+ * Issue 302: Instalar Localization client y conseguir que funcione con jQuery Update
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/302
+ */
+function siasar_updates_update_7113(&$sandbox) {
+  $modules = array(
+    'jquery_update',
+    'l10n_client',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+  
+  variable_set('jquery_update_jquery_cdn', 'google');
+  variable_set('jquery_update_jquery_version', '1.8');
 }
