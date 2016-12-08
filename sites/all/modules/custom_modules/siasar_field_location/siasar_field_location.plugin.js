@@ -8,6 +8,7 @@
   'use strict';
 
   $.fn.siasarHierarchicalSelect = function () {
+    var tidCache = {};
 
     return this.each(function () {
       var $locationWrapper = $(this);
@@ -24,7 +25,6 @@
         ? Drupal.settings.siasarHierarchicalSelect.user.country
         : 'all';
       var forceDeepest = (Drupal.settings.siasarHierarchicalSelect[fieldName].forceDeepest === 1);
-      var tidCache = {};
       var $locationTreeSelectorWrapper;
 
       init();
@@ -129,7 +129,8 @@
           return;
         }
         var $lastSelectorInChain = $locationTreeSelectorWrapper.find('.location-tree-selector').last();
-        var level = ($lastSelectorInChain.data('level') !== true) ? $lastSelectorInChain.data('level') : -1;
+        var levelDoesExist = !isNaN(parseInt($lastSelectorInChain.data('level')));
+        var level = levelDoesExist ? $lastSelectorInChain.data('level') : -1;
 
         tidCache[term.tid] = mapTermsFromRequestToArray(data);
         buildSelectorLevel(term.tid, level + 1);
