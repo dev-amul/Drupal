@@ -105,6 +105,7 @@ function _siasar_services_field_collection_alter_get_referenced_type($data) {
  */
 function _siasar_services_field_collection_alter_get_view_filter_type($view) {
   $display = $view->current_display;
+  $default_filters = $view->display_handler->default_display->display->display_options['filters'];
   $master_filters = $view->display_handler->display->display_options['filters'];
   $display_filters = $view->display[$display]->display_options['filters'];
 
@@ -112,6 +113,8 @@ function _siasar_services_field_collection_alter_get_view_filter_type($view) {
     $output = array_values($display_filters['type']['value']);
   } elseif (!empty($master_filters['type'])) {
     $output = array_values($master_filters['type']['value']);
+  } elseif (!empty($default_filters['type'])) {
+    $output = array_values($default_filters['type']['value']);
   }
   return !empty($output) ? $output : null;
 }
