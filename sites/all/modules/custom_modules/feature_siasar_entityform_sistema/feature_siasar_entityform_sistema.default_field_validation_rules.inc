@@ -1,20 +1,20 @@
 <?php
 /**
  * @file
- * validacion_medidores_consumo.default_field_validation_rules.inc
+ * feature_siasar_entityform_sistema.default_field_validation_rules.inc
  */
 
 /**
  * Implements hook_default_field_validation_rule().
  */
-function validacion_medidores_consumo_default_field_validation_rule() {
+function feature_siasar_entityform_sistema_default_field_validation_rule() {
   $export = array();
 
   $rule = new stdClass();
   $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
   $rule->api_version = 2;
-  $rule->rulename = 'validar-medidores';
-  $rule->name = 'validar_medidores';
+  $rule->rulename = 'Medidores con consumo VS medidores instalados';
+  $rule->name = 'med_cons_inst';
   $rule->field_name = 'field_f1_4';
   $rule->col = 'value';
   $rule->entity_type = 'field_collection_item';
@@ -44,7 +44,7 @@ function validacion_medidores_consumo_default_field_validation_rule() {
     ),
   );
   $rule->error_message = 'Error: La cantidad de [value] [field-name], supera el número de Medidores Instalados.';
-  $export['validar_medidores'] = $rule;
+  $export['med_cons_inst'] = $rule;
 
   return $export;
 }
