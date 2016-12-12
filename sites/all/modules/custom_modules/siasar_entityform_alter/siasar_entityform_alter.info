@@ -1,0 +1,5 @@
+name = SIASAR Entityform Alter
+description = Actions and changes on all Entityforms. Any change that should be applied on all forms should go in this module. If you want to alter just one form, use the appropriate feature's .module file for that.
+version = 7.x-1.0
+core = 7.x
+package = siasar

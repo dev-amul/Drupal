@@ -61,9 +61,6 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
         array(
           'data' => array(
             'siasarHierarchicalSelect' => array(
-              'user' => array(
-                'country' => $user_wrapper->field_pais->value()->iso2
-              ),
               $field => array(
                 'forceDeepest' => $instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'],
               ),

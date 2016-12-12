@@ -21,18 +21,16 @@
         tid: '_none',
         name: Drupal.t('- Ninguno - '),
       }
-      var userCountry = Drupal.settings.siasarHierarchicalSelect.user.country
-        ? Drupal.settings.siasarHierarchicalSelect.user.country
-        : 'all';
       var forceDeepest = (Drupal.settings.siasarHierarchicalSelect[fieldName].forceDeepest === 1);
       var $locationTreeSelectorWrapper;
+      var country;
 
       init();
 
       function getAllTermsInChain() {
         if (initialValue == 0) return;
 
-        var url = '/ajax/location/' + initialValue + '/' + userCountry + '/parents';
+        var url = '/ajax/location/' + initialValue + '/' + country + '/parents';
 
         $.get(url, null, function (data, status) {
           processParentData(data, status);
@@ -111,7 +109,7 @@
 
 
       function requestChildrenTerms(term) {
-        var url = '/ajax/location/' + term.tid + '/' + userCountry;
+        var url = '/ajax/location/' + term.tid + '/' + country;
 
         addThrobber();
 
@@ -170,9 +168,22 @@
         return output;
       }
 
+      function getCountry() {
+        var countryInForm = $('#edit-field-pais-und').val();
+
+        if(countryInForm && countryInForm !== '_none') {
+          return countryInForm;
+        }
+        return 'all';
+      }
+
 
       function init() {
         var hierarchicalSelectorWrapper = '<div class="location-tree-selector-wrapper"></div>';
+
+        country = getCountry();
+
+        // TODO: Reset on Country switchs
 
         $locationWrapper.append(hierarchicalSelectorWrapper);
         $locationTreeSelectorWrapper = $locationWrapper.find('.location-tree-selector-wrapper');
