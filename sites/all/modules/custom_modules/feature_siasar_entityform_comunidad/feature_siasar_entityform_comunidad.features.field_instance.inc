@@ -69,23 +69,30 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_ce_location',
     'label' => 'Lugar en el que está ubicado el centro educativo de referencia',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
-          'force_deepest' => 0,
-          'node_count' => 0,
+        'siasar_hierarchical_select' => array(
+          'force_deepest' => 1,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 15,
     ),
   );
@@ -95,7 +102,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'bundle' => 'comunidad',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'La altitud se mide en metros sobre el nivel del mar (msnm).',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -119,7 +126,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'max' => '',
       'min' => '0.00',
       'prefix' => '',
-      'suffix' => 'mts.',
+      'suffix' => 'm',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -502,7 +509,15 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_georef'.
   $field_instances['entityform-comunidad-field_com_georef'] = array(
     'bundle' => 'comunidad',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'input_format' => 'lat/lon',
+        'geom' => array(
+          'lat' => '0.0',
+          'lon' => '0.0',
+        ),
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -519,7 +534,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_com_georef',
     'label' => 'Georeferenciación',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1877,7 +1892,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_con_fic_ce_ficha',
-    'label' => 'Ficha de centro educativo',
+    'label' => 'Centros educativos. Información general',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1927,15 +1942,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
-          'force_deepest' => 0,
+        'siasar_hierarchical_select' => array(
+          'force_deepest' => 1,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 18,
     ),
   );
@@ -2023,7 +2036,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_entidad_local'.
   $field_instances['entityform-comunidad-field_entidad_local'] = array(
     'bundle' => 'comunidad',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2055,15 +2068,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
+        'siasar_hierarchical_select' => array(
           'force_deepest' => 1,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 63,
     ),
   );
@@ -2946,7 +2957,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssa_pa',
-    'label' => '¿El centro educativo tiene algún sistema de agua asociado?',
+    'label' => '¿El centro de salud tiene algún sistema de agua asociado?',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -6841,6 +6852,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2');
   t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:');
   t('Cantidad de viviendas totales');
+  t('Centros educativos. Información general');
   t('Clasificación');
   t('Cuenca hidrográfica');
   t('Código Comunidad');
@@ -6852,7 +6864,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Fecha de aplicación');
   t('Fecha en la que se llena la encuesta');
   t('Ficha de centro de salud');
-  t('Ficha de centro educativo');
   t('Fuente / institución');
   t('Georeferenciación');
   t('Idioma predominante');
@@ -6955,6 +6966,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Viviendas con sistema');
   t('Viviendas sin sistema');
   t('¿Cuál es la disposición final de la basura más habitual en la comunidad? (quema, enterrada, tirada, tirada en un cuerpo de agua, etc.)');
+  t('¿El centro de salud tiene algún sistema de agua asociado?');
   t('¿El centro educativo tiene algún sistema de agua asociado?');
   t('¿Existe algún centro de salud en la comunidad?');
   t('¿Existe algún centro educativo en la comunidad?');

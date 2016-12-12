@@ -5,5 +5,5 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 
-# ignore VISUAL Studio Code PHP debug config
-.vscode/launch.json
+# Ignore IDE specific files
+.vscode

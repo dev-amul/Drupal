@@ -17,11 +17,13 @@ function siasar_services_field_collection_alter_services_request_postprocess_alt
 
   if (arg(1) == 'field_collection_structure') { // At this moment, only field collection structure is considered for changes.
     if (arg(2) == null && is_object($result)) {
-      foreach ($result as &$fc) {
+      foreach ($result as $key => &$fc) {
         $fc = _siasar_services_field_collection_alter_get_referenced_entityform_name($fc);
+        $fc = _siasar_services_field_collection_alter_get_referenced_type($fc);
       }
     } elseif (arg(2) !== null && is_array($result[$args[0]])) {
       $result = _siasar_services_field_collection_alter_get_referenced_entityform_name($result[$args[0]]);
+      $result = _siasar_services_field_collection_alter_get_referenced_type($result);
     }
   }
 
@@ -55,4 +57,64 @@ function _siasar_services_field_collection_alter_get_referenced_entityform_name(
     }
   }
   return $data;
+}
+
+/**
+ * Gets referenced entities and bundles on "entity reference" fields
+ *
+ * @param array $data
+ *   Array of results that can be altered
+ */
+function _siasar_services_field_collection_alter_get_referenced_type($data) {
+
+  if (!is_array($data)) return $data;
+
+  foreach ($data as &$field) {
+    if ($field['display']['default']['module'] !== 'entityreference') continue;
+
+    $reference = array();
+
+    if (isset($field['settings']['handler'])) {
+      $settings = $field['settings'];
+    } else {
+      $field_base = field_info_field($field['field_name']);
+      $settings = $field_base['settings'];
+    }
+    if ($settings['target_type'] !== 'entityform') return;
+
+    $reference['entity'] = $settings['target_type'];
+
+    if ($settings['handler'] == 'views') {
+      $view = views_get_view($settings['handler_settings']['view']['view_name']);
+      $view->set_display($settings['handler_settings']['view']['display_name']);
+      $reference['bundles'] = _siasar_services_field_collection_alter_get_view_filter_type($view);
+    } elseif ($settings['handler'] == 'base') {
+      $reference['bundles'] = array_values($settings['handler_settings']['target_bundles']);
+    }
+    $field['reference'] = $reference;
+  }
+
+  return $data;
+}
+
+/**
+ * Gets type of referenced entities from view's filter
+ *
+ * @param object $view
+ *   View object
+ */
+function _siasar_services_field_collection_alter_get_view_filter_type($view) {
+  $display = $view->current_display;
+  $default_filters = $view->display_handler->default_display->display->display_options['filters'];
+  $master_filters = $view->display_handler->display->display_options['filters'];
+  $display_filters = $view->display[$display]->display_options['filters'];
+
+  if (!empty($display_filters['type'])) {
+    $output = array_values($display_filters['type']['value']);
+  } elseif (!empty($master_filters['type'])) {
+    $output = array_values($master_filters['type']['value']);
+  } elseif (!empty($default_filters['type'])) {
+    $output = array_values($default_filters['type']['value']);
+  }
+  return !empty($output) ? $output : null;
 }

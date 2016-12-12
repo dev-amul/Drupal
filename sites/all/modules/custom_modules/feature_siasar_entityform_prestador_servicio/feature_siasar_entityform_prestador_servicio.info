@@ -19,6 +19,7 @@ dependencies[] = mvf
 dependencies[] = number
 dependencies[] = options
 dependencies[] = shs
+dependencies[] = siasar_field_location
 dependencies[] = taxonomy
 dependencies[] = text
 features[entityform_type][] = prestador_de_servicio

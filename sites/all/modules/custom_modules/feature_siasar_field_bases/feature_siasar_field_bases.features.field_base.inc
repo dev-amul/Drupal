@@ -1037,6 +1037,9 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_c1_4',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -2880,6 +2883,9 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_com_fic_cs_ficha',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -2971,6 +2977,9 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_com_fic_cssa_pa',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -3045,6 +3054,9 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_com_fic_cssh_pa',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -4938,6 +4950,9 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_d_infraestructura',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -4950,7 +4965,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
       'hide_blank_items' => 1,
       'path' => '',
     ),
-    'translatable' => 0,
+    'translatable' => 1,
     'type' => 'field_collection',
   );
 
@@ -7586,6 +7601,9 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_infraestructura_captacion',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',

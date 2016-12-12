@@ -17,6 +17,7 @@ dependencies[] = mvf
 dependencies[] = number
 dependencies[] = options
 dependencies[] = shs
+dependencies[] = siasar_field_location
 dependencies[] = text
 features[entityform_type][] = prestador_de_asistencia_t_cnica
 features[features_api][] = api:2

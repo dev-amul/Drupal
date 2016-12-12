@@ -868,16 +868,13 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
-          'force_deepest' => 0,
-          'node_count' => 0,
+        'siasar_hierarchical_select' => array(
+          'force_deepest' => 1,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 31,
     ),
   );

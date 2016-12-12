@@ -498,7 +498,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'bundle' => 'prestador_de_servicio',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'La altitud se mide en metros sobre el nivel del mar (msnm).',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -522,7 +522,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => 'mts.',
+      'suffix' => 'm',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -877,15 +877,13 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
+        'siasar_hierarchical_select' => array(
           'force_deepest' => 1,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 151,
     ),
   );

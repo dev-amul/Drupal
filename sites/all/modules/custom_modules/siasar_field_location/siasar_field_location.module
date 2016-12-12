@@ -45,6 +45,8 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
 
   $user_wrapper = entity_metadata_wrapper('user', user_load($user->uid));
   $module_path = drupal_get_path('module', 'siasar_field_location');
+  $field = $instance['field_name'];
+
   $element += array(
     '#type' => 'textfield',
     '#size' => 8,
@@ -54,11 +56,17 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
     '#attached' => array(
       'css' => array($module_path . '/siasar_field_location.css'),
       'js' => array(
+        $module_path . '/siasar_field_location.plugin.js',
         $module_path . '/siasar_field_location.js',
         array(
           'data' => array(
-            'user' => array(
-              'country' => $user_wrapper->field_pais->value()->iso2
+            'siasarHierarchicalSelect' => array(
+              'user' => array(
+                'country' => $user_wrapper->field_pais->value()->iso2
+              ),
+              $field => array(
+                'forceDeepest' => $instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'],
+              ),
             ),
           ),
           'type' => 'setting',
@@ -74,9 +82,38 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
 }
 
 /**
+ * Implements hook_field_widget_settings_form().
+ */
+function siasar_field_location_field_widget_settings_form($field, $instance) {
+  $widget = $instance['widget'];
+  $settings = $widget['settings'];
+
+  if ($widget['type'] == 'siasar_hierarchical_select') {
+    $form['siasar_hierarchical_select'] = array(
+      '#type' => 'fieldset',
+      '#title' => 'SIASAR Hierarchical Select settings',
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+      '#tree' => TRUE,
+    );
+    $form['siasar_hierarchical_select']['force_deepest'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Force selection of deepest level'),
+      '#description' => t('If checked the user will be forced to select terms from the deepest level.'),
+      '#default_value' => empty($settings['siasar_hierarchical_select']['force_deepest']) ? FALSE : $settings['siasar_hierarchical_select']['force_deepest'],
+    );
+  }
+
+  return $form;
+}
+
+/**
  * Form element validate handler for SIASAR Field Location taxonomy term element.
  */
 function siasar_field_location_validate($element, &$form_state) {
+  $field_name = $element['#field_name'];
+  $language = $element['#language'];
+  $widget_settings = $form_state['field'][$field_name][$language]['instance']['widget']['settings']['siasar_hierarchical_select'];
 
   if ($element['#value'] === '') {
     return;
@@ -106,6 +143,14 @@ function siasar_field_location_validate($element, &$form_state) {
   if (!in_array($term->vid, array_keys($vocabularies))) {
     form_set_error($element['#name'], t('Specified term does not belong to an allowed vocabulary. See field [@field] configuration for details.', array('@field' => $element['#field_name'])));
     return;
+  }
+
+  if ($widget_settings['force_deepest'] === 1) {
+    $children = _siasar_field_location_get_term_list_from_view($element['#value'], 'all');
+    if (!empty($children)) {
+        form_error($element, t('You need to select a term from the deepest level in field [@field].', array('@field' => $element['#field_name'])));
+        return;
+    }
   }
 
   form_set_value($element, (array) $term, $form_state);

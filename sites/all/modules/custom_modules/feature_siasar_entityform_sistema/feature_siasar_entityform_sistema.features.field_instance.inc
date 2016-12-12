@@ -209,7 +209,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'bundle' => 'sistema',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'La altitud se mide en metros sobre el nivel del mar (msnm).',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -233,7 +233,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => 'mts.',
+      'suffix' => 'm',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -250,7 +250,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'bundle' => 'sistema',
     'default_value' => array(),
     'deleted' => 0,
-    'description' => 'Año en que se construyó el sistema ',
+    'description' => 'Year the system was built',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -709,7 +709,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // Exported field_instance: 'entityform-sistema-field_entidad_local'.
   $field_instances['entityform-sistema-field_entidad_local'] = array(
     'bundle' => 'sistema',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -741,16 +741,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
+        'siasar_hierarchical_select' => array(
           'force_deepest' => 1,
-          'node_count' => 0,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 27,
     ),
   );
@@ -4073,7 +4070,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Altitud');
   t('Año');
   t('Año de construcción');
-  t('Año en que se construyó el sistema ');
   t('Cantidad de cloro residual');
   t('Capacidad de almacenamiento (volumen)');
   t('Caudal actual del sistema');
@@ -4142,6 +4138,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Tipo de sistema de abastecimiento de agua');
   t('Tipo de tratamiento');
   t('Validado');
+  t('Year the system was built');
   t('¿Con qué frecuencia se realiza la limpieza?');
   t('¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)');
   t('¿Cuál es el Estado físico de la infraestructura de almacenamiento de agua?');
