@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Process all entityforms to add Country data.
+ * Implements hook_install()
+ */
+function siasar_entityform_alter_install() {
+
+  drupal_set_message(t('Processing all entityforms to add country data if possible.'), 'status');
+
+  $bundles = array_keys(entity_get_info('entityform')['bundles']);
+
+  $q = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'entityform')
+    ->entityCondition('bundle', $bundles, IN)
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->fieldCondition('field_pais', 'value', '', '<>');
+
+  $result = $query->execute();
+  if (isset($result['node'])) {
+    $news_items_nids = array_keys($result['node']);
+    $news_items = entity_load('node', $news_items_nids);
+  }
+}
