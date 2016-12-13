@@ -1093,7 +1093,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
-      'weight' => 13,
+      'weight' => 43,
     ),
   );
 
@@ -1355,6 +1355,39 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_pais'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_pais'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 38,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_pais',
+    'label' => 'País',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_recolectar_muestras_agua'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_recolectar_muestras_agua'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -1609,7 +1642,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 14,
+      'weight' => 44,
     ),
   );
 
@@ -1696,6 +1729,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Monto');
   t('Nombre');
   t('Observaciones y comentarios');
+  t('País');
   t('Tipo de PAT');
   t('Total de comunidades en la zona de atención');
   t('Validado');

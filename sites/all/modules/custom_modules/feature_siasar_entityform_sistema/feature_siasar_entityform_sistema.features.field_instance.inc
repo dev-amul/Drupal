@@ -953,7 +953,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
-      'weight' => 22,
+      'weight' => 113,
     ),
   );
 
@@ -1318,6 +1318,38 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-sistema-field_pais'.
+  $field_instances['entityform-sistema-field_pais'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 34,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_pais',
+    'label' => 'País',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 112,
+    ),
+  );
+
   // Exported field_instance:
   // 'entityform-sistema-field_rehabilitaciones_y_o_ampli'.
   $field_instances['entityform-sistema-field_rehabilitaciones_y_o_ampli'] = array(
@@ -1437,7 +1469,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 23,
+      'weight' => 114,
     ),
   );
 
@@ -4110,6 +4142,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Infraestructura de almacenamiento');
   t('Infraestructura de tratamiento');
   t('Institución ejecutora	');
+  t('La altitud se mide en metros sobre el nivel del mar (msnm).');
   t('Localidad');
   t('Longitud de la línea');
   t('Líneas de conducción');
@@ -4128,6 +4161,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Otras divisiones');
   t('Pasa el test de análisis físico-químicos');
   t('Pasa el test de coliformes?');
+  t('País');
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
   t('Red de distribución');

@@ -7601,9 +7601,6 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_infraestructura_captacion',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',

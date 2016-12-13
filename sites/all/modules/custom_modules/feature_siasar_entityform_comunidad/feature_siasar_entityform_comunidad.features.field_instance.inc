@@ -2226,7 +2226,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
-      'weight' => 0,
+      'weight' => 69,
     ),
   );
 
@@ -2432,6 +2432,38 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-comunidad-field_pais'.
+  $field_instances['entityform-comunidad-field_pais'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 57,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_pais',
+    'label' => 'País',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 68,
+    ),
+  );
+
   // Exported field_instance: 'entityform-comunidad-field_user_reference'.
   $field_instances['entityform-comunidad-field_user_reference'] = array(
     'bundle' => 'comunidad',
@@ -2469,7 +2501,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 70,
     ),
   );
 
@@ -6868,6 +6900,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Georeferenciación');
   t('Idioma predominante');
   t('Imagen');
+  t('La altitud se mide en metros sobre el nivel del mar (msnm).');
   t('Localidad');
   t('Lugar en el que está ubicado el centro de salud de referencia');
   t('Lugar en el que está ubicado el centro educativo de referencia');
@@ -6945,6 +6978,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Observaciones sobre el grupo de población');
   t('Otras características de la comunidad');
   t('Otras divisiones');
+  t('País');
   t('Personal de salud y administrativo. Femenino');
   t('Personal de salud y administrativo. Masculino');
   t('Personal docente y administrativo. Femenino');
