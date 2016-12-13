@@ -233,7 +233,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => 'Mts.',
+      'suffix' => 'mts.',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2482,8 +2482,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'max' => 24,
-      'min' => 0,
+      'max' => '',
+      'min' =>'',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
