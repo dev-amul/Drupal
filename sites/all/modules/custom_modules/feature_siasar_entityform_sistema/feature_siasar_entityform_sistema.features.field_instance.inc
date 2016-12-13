@@ -2483,7 +2483,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
-      'min' =>'',
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
