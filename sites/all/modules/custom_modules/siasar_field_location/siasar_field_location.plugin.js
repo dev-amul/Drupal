@@ -8,6 +8,7 @@
   'use strict';
 
   $.fn.siasarHierarchicalSelect = function () {
+    var $countrySelector = $('#edit-field-pais-und');
     var tidCache = {};
 
     return this.each(function () {
@@ -26,6 +27,7 @@
       var country;
 
       init();
+      listenToCountrySelector();
 
       function getAllTermsInChain() {
         if (initialValue == 0) return;
@@ -169,7 +171,7 @@
       }
 
       function getCountry() {
-        var countryInForm = $('#edit-field-pais-und').val();
+        var countryInForm = $countrySelector.val();
 
         if(countryInForm && countryInForm !== '_none') {
           return countryInForm;
@@ -177,13 +179,20 @@
         return 'all';
       }
 
+      // INIT functions
+
+      function listenToCountrySelector() {
+        $countrySelector.on('change', function() {
+          $locationTreeSelectorWrapper.remove();
+          initialValue = 0;
+          init();
+        });
+      }
 
       function init() {
         var hierarchicalSelectorWrapper = '<div class="location-tree-selector-wrapper"></div>';
 
         country = getCountry();
-
-        // TODO: Reset on Country switchs
 
         $locationWrapper.append(hierarchicalSelectorWrapper);
         $locationTreeSelectorWrapper = $locationWrapper.find('.location-tree-selector-wrapper');
