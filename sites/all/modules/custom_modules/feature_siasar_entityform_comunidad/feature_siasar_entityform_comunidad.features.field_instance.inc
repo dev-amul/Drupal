@@ -102,7 +102,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'bundle' => 'comunidad',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'La altitud se mide en metros sobre el nivel del mar (msnm).',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -126,7 +126,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'max' => '',
       'min' => '0.00',
       'prefix' => '',
-      'suffix' => 'mts.',
+      'suffix' => 'm',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
