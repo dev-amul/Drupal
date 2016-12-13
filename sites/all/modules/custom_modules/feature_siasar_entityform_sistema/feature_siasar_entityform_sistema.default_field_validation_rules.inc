@@ -79,7 +79,7 @@ function feature_siasar_entityform_sistema_default_field_validation_rule() {
       'condition_value' => '',
     ),
   );
-  $rule->error_message = 'Error: La cantidad de [value] [field-name], supera el número de Conexiones de la Red.';
+  $rule->error_message = 'Error: El [field-name] ([value]), supera el número de Conexiones de la Red.';
   $export['valid_conex_red_dist'] = $rule;
 
   return $export;
