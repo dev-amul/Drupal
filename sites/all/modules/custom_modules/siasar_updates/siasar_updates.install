@@ -176,7 +176,7 @@ function siasar_updates_update_7111(&$sandbox) {
   }
 
   variable_set('jquery_update_jquery_cdn', 'google');
-  variable_set('jquery_update_jquery_version', '1.8');
+  variable_set('jquery_update_jquery_version', '1.10');
 }
 
 /**
