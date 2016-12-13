@@ -121,4 +121,5 @@ features[field_instance][] = field_collection_item-field_rehabilitaciones_y_o_am
 features[field_instance][] = field_collection_item-field_rehabilitaciones_y_o_ampli-field_programa_especifico_fondos
 features[field_instance][] = field_collection_item-field_rehabilitaciones_y_o_ampli-field_tipo_de_rehabilitacion
 features[field_validation_rule][] = med_cons_inst
+features[field_validation_rule][] = valid_conex_red_dist
 project path = sites/all/modules/custom_modules
