@@ -2268,7 +2268,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_mantenimiento_sistema'.
   $field_instances['entityform-prestador_de_servicio-field_mantenimiento_sistema'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2302,7 +2302,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'active' => 1,
       'module' => 'options',
       'settings' => array(),
-      'type' => 'options_select',
+      'type' => 'options_buttons',
       'weight' => 130,
     ),
   );
