@@ -4110,6 +4110,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Infraestructura de almacenamiento');
   t('Infraestructura de tratamiento');
   t('Institución ejecutora	');
+  t('La altitud se mide en metros sobre el nivel del mar (msnm).');
   t('Localidad');
   t('Longitud de la línea');
   t('Líneas de conducción');
