@@ -3353,38 +3353,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'entityform-prestador_de_servicio-field_pais'.
-  $field_instances['entityform-prestador_de_servicio-field_pais'] = array(
-    'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'countries',
-        'settings' => array(),
-        'type' => 'country_default',
-        'weight' => 86,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_pais',
-    'label' => 'País',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 151,
-    ),
-  );
-
   // Exported field_instance:
   // 'entityform-prestador_de_servicio-field_pasivos_corrientes_'.
   $field_instances['entityform-prestador_de_servicio-field_pasivos_corrientes_'] = array(
@@ -5200,7 +5168,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Georeferenciación');
   t('Género');
   t('Imagen');
-  t('La altitud se mide en metros sobre el nivel del mar (msnm).');
   t('Localidad');
   t('Monitoreo de la higiene comunitaria: ¿El prestador promueve saneamiento ambiental?');
   t('Monto previsto para el año en curso');
@@ -5219,7 +5186,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Otra clase de prestador');
   t('Pasivos Corrientes ');
   t('Pasivos No Corrientes');
-  t('País');
   t('Promoción de no descargas de aguas residuales');
   t('Promoción del no uso de plaguicidas en la zona cercana a la fuente o toma de agua del sistema');
   t('Protección de la flora y fauna de la zona cercana a la fuente o toma de agua del sistema');
