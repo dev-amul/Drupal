@@ -2977,9 +2977,6 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_com_fic_cssa_pa',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -3054,9 +3051,6 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_com_fic_cssh_pa',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -8017,7 +8011,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
   // Exported field_base: 'field_mantenimiento_sistema'.
   $field_bases['field_mantenimiento_sistema'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_mantenimiento_sistema',
