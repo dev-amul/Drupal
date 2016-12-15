@@ -81,6 +81,7 @@ features[field_instance][] = entityform-prestador_de_servicio-field_numero_reuni
 features[field_instance][] = entityform-prestador_de_servicio-field_otra_clase_de_prestador
 features[field_instance][] = entityform-prestador_de_servicio-field_otros_mantenimientos
 features[field_instance][] = entityform-prestador_de_servicio-field_otros_motivos
+features[field_instance][] = entityform-prestador_de_servicio-field_pais
 features[field_instance][] = entityform-prestador_de_servicio-field_pasivos_corrientes_
 features[field_instance][] = entityform-prestador_de_servicio-field_pasivos_no_corrientes
 features[field_instance][] = entityform-prestador_de_servicio-field_personal_prestador
