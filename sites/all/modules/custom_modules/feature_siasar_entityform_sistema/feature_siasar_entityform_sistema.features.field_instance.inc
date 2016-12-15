@@ -250,7 +250,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'bundle' => 'sistema',
     'default_value' => array(),
     'deleted' => 0,
-    'description' => 'Año en que se construyó el sistema ',
+    'description' => 'Year the system was built',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -289,7 +289,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label_position' => 'none',
         'no_fieldset' => 0,
         'text_parts' => array(),
-        'year_range' => '1920:+0',
+        'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
       'weight' => 26,
@@ -341,12 +341,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // 'entityform-sistema-field_cantidad_de_cloro_residual'.
   $field_instances['entityform-sistema-field_cantidad_de_cloro_residual'] = array(
     'bundle' => 'sistema',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-        'target_id' => 599,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -382,13 +377,15 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
             'enable' => 0,
-            'unit' => 599,
+            'unit' => 681,
             'weight' => 0,
           ),
           'locale' => array(
             'en' => -1,
             'enable' => 1,
-            'es' => 599,
+            'es' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
             'pt-br' => -1,
             'weight' => 0,
           ),
@@ -712,7 +709,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // Exported field_instance: 'entityform-sistema-field_entidad_local'.
   $field_instances['entityform-sistema-field_entidad_local'] = array(
     'bundle' => 'sistema',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -744,16 +741,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'siasar_field_location',
       'settings' => array(
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
+        'siasar_hierarchical_select' => array(
           'force_deepest' => 1,
-          'node_count' => 0,
         ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'siasar_hierarchical_select',
       'weight' => 27,
     ),
   );
@@ -1082,8 +1076,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_g4_3',
-    'label' => '¿Pasa el test de coliformes?',
-    'required' => 0,
+    'label' => 'Pasa el test de coliformes?',
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1114,7 +1108,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_g4_4',
-    'label' => '¿Pasa el test de análisis físico-químicos?',
+    'label' => 'Pasa el test de análisis físico-químicos',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1212,15 +1206,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // Exported field_instance: 'entityform-sistema-field_latitud'.
   $field_instances['entityform-sistema-field_latitud'] = array(
     'bundle' => 'sistema',
-    'default_value' => array(
-      0 => array(
-        'input_format' => 'lat/lon',
-        'geom' => array(
-          'lat' => '0.00',
-          'lon' => '0.00',
-        ),
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1562,9 +1548,16 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'field_collection_item',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
     'field_name' => 'field_origen_de_financiamiento_i',
     'label' => 'Origen de financiamiento (institución, organismo, donación, aporte, etc.)',
-    'required' => 1,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -4077,7 +4070,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Altitud');
   t('Año');
   t('Año de construcción');
-  t('Año en que se construyó el sistema ');
   t('Cantidad de cloro residual');
   t('Capacidad de almacenamiento (volumen)');
   t('Caudal actual del sistema');
@@ -4118,6 +4110,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Infraestructura de almacenamiento');
   t('Infraestructura de tratamiento');
   t('Institución ejecutora	');
+  t('La altitud se mide en metros sobre el nivel del mar (msnm).');
   t('Localidad');
   t('Longitud de la línea');
   t('Líneas de conducción');
@@ -4134,6 +4127,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Observaciones y comentarios');
   t('Origen de financiamiento (institución, organismo, donación, aporte, etc.)');
   t('Otras divisiones');
+  t('Pasa el test de análisis físico-químicos');
+  t('Pasa el test de coliformes?');
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
   t('Red de distribución');
@@ -4144,6 +4139,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Tipo de sistema de abastecimiento de agua');
   t('Tipo de tratamiento');
   t('Validado');
+  t('Year the system was built');
   t('¿Con qué frecuencia se realiza la limpieza?');
   t('¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)');
   t('¿Cuál es el Estado físico de la infraestructura de almacenamiento de agua?');
@@ -4151,8 +4147,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('¿Es la fuente principal del sistema? (sólo debe ser una entre todas las asociadas)');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el invierno / época de lluvias?');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el verano / época seca?');
-  t('¿Pasa el test de análisis físico-químicos?');
-  t('¿Pasa el test de coliformes?');
   t('¿Qué otro tipo de sistema es?');
   t('Área o zona de planificación');
 
