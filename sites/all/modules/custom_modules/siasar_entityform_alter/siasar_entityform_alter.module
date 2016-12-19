@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
+  $form_id_clean = str_replace('_entityform_edit_form', '', $form_id);
+  $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
+
+  if (in_array($form_id_clean, $possible_entityforms) && !isset($form_item_pais['#default_value'][0])) {
+    $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
+    $form_item_pais['#default_value'][0] = $user_country_iso2;
+  }
+}
