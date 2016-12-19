@@ -5,16 +5,6 @@
  * Implements hook_install()
  */
 function siasar_entityform_alter_install() {
-  // Reset the schema version, so our update hooks can be processed after installation.
-  drupal_set_installed_schema_version('siasar_entityform_alter', '7100');
-}
-
-/**
- * Implements hook_update_N().
- *
- * Updates all entityforms to have Country information
- */
-function siasar_entityform_alter_update_7100(&$sandbox) {
   drupal_set_message(t('Processing all entityforms to add country data if possible.'), 'status');
 
   $bundles = array_keys(entity_get_info('entityform')['bundles']);
