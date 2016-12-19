@@ -5,21 +5,46 @@
  * Implements hook_install()
  */
 function siasar_entityform_alter_install() {
+  // Reset the schema version, so our update hooks can be processed after installation.
+  drupal_set_installed_schema_version('siasar_entityform_alter', '7100');
+}
 
+/**
+ * Implements hook_update_N().
+ *
+ * Updates all entityforms to have Country information
+ */
+function siasar_entityform_alter_update_7100(&$sandbox) {
   drupal_set_message(t('Processing all entityforms to add country data if possible.'), 'status');
 
   $bundles = array_keys(entity_get_info('entityform')['bundles']);
-
-  $q = new EntityFieldQuery();
-
+  $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'entityform')
-    ->entityCondition('bundle', $bundles, IN)
-    ->propertyCondition('status', NODE_PUBLISHED)
-    ->fieldCondition('field_pais', 'value', '', '<>');
-
+    ->entityCondition('bundle', $bundles, 'IN')
+    ->propertyOrderBy('entityform_id', 'ASC');
   $result = $query->execute();
-  if (isset($result['node'])) {
-    $news_items_nids = array_keys($result['node']);
-    $news_items = entity_load('node', $news_items_nids);
+
+  if (isset($result['entityform'])) {
+    $entities_list = $result['entityform'];
+    drupal_set_message(t('There are %entities entityforms to process', array('%entities' => count($entities_list))), 'status');
+
+    foreach($entities_list as $entity_id => $item) {
+      $entity = entity_load_single('entityform', $entity_id);
+      if (isset($entity->field_pais) && empty($entity->field_pais)) {
+        $wrapper = entity_metadata_wrapper('entityform', $entity);
+
+        if (!empty($entity->field_entidad_local)) { // Country by taxonomy
+          $country_to_set = $wrapper->field_entidad_local->field_pais->value();
+        } else { // country by user
+          $user_wrapper = entity_metadata_wrapper('user', $entity->uid);
+          $country_to_set = $user_wrapper->field_pais->value();
+        }
+
+        if ($country_to_set) {
+          $wrapper->field_pais->set($country_to_set);
+          $wrapper->save();
+        }
+      }
+    }
   }
 }

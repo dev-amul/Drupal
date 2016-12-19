@@ -8,53 +8,10 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
 
   $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
   $form_id_clean = str_replace('_entityform_edit_form', '', $form_id);
-  if (in_array($form_id_clean, $possible_entityforms)) {
-    siasar_entityform_alter_enable();// Remove this!!!!
+  $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
+
+  if (in_array($form_id_clean, $possible_entityforms) && !isset($form_item_pais['#default_value'][0])) {
     $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
-    $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
-
-    if (!isset($form_item_pais['#default_value'][0])) {
-      $form_item_pais['#default_value'][0] = $user_country_iso2;
-    }
+    $form_item_pais['#default_value'][0] = $user_country_iso2;
   }
 }
-
-function siasar_entityform_alter_enable() {
-
-  drupal_set_message(t('Processing all entityforms to add country data if possible.'), 'status');
-
-  $bundles = array_keys(entity_get_info('entityform')['bundles']);
-
-  $query = new EntityFieldQuery();
-
-  $query->entityCondition('entity_type', 'entityform')
-    ->entityCondition('bundle', $bundles, 'IN')
-    ->propertyOrderBy('entityform_id', 'ASC');
-
-  $result = $query->execute();
-  if (isset($result['entityform'])) {
-    $entities_list = $result['entityform'];
-    drupal_set_message(t('There are %entities entityforms to process', array('%entities' => count($entities_list))), 'status');
-
-    foreach($entities_list as $entity_id => $item) {
-      $entity = entity_load_single('entityform', $entity_id);
-      if (isset($entity->field_pais) && empty($entity->field_pais)) {
-        $wrapper = entity_metadata_wrapper('entityform', $entity);
-
-        if (!empty($entity->field_entidad_local)) {
-          // Country by taxonomy
-          $blick = null;
-        } else {
-          // country by user
-          $user_wrapper = entity_metadata_wrapper('user', $entity->uid);
-          $user_country = $user_wrapper->field_pais->value();
-          if ($user_country) {
-            $wrapper->field_pais->set($user_country);
-            //$wrapper->save();
-          }
-        }
-      }
-    }
-  }
-}
-
