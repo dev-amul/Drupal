@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * Alter results on the Entityform services call used to retrieve form structure
+ *
+ * @param $controller
+ *   Controller definition
+ * @param array $args
+ *   Arguments passed to services callback
+ * @param array $result
+ *   Array of results that can be altered
+ *
+ * @see services_controller_execute()
+ * @see services.runtime.inc
+ */
+function siasar_services_form_alter_services_request_postprocess_alter($controller, $args, &$result) {
+
+  $allowed_ops = array('retrieve', 'index');
+
+  if (arg(1) == 'forms') {
+    foreach ($result as $key => &$form) {
+      $form = _siasar_services_form_alter_process_form($form);
+    }
+  }
+}
+
+/**
+ * Helper function to process all forms
+ */
+function _siasar_services_form_alter_process_form($form) {
+
+  foreach($form as $key => &$form_field) {
+    if ($key == 'field_pais') {
+      $form_field['settings']['allowed_values'] = _siasar_services_form_alter_get_countries_list();
+    }
+  }
+
+  return $form;
+}
+
+/**
+ * Helper function to get a list of all enabled countries
+ * @return array
+ */
+function _siasar_services_form_alter_get_countries_list() {
+  $query = db_query('select iso2, name from countries_country where enabled = 1 order by iso2');
+  $result = $query->fetchAll();
+  $output = array();
+
+  foreach ($result as $row) {
+    $output[$row->iso2] = $row->name;
+  }
+  return $output;
+}

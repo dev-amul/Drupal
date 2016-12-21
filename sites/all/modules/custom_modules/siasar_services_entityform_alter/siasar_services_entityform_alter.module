@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Alter results on the Entityform services call.
+ * Alter results on the Entityform services call used to retrieve results
  *
  * @param $controller
  *   Controller definition
@@ -261,7 +261,7 @@ function _siasar_services_entityform_alter_get_value_from_wrapper($entity, $wrap
     default:
       $value = $wrapper->language($language)->{$key}->value();
       if ($value == null && !empty($entity->{$key}[$language])) {
-        $value = (count($entity->{$key}[$language])> 1) 
+        $value = (count($entity->{$key}[$language])> 1)
           ? $entity->{$key}[$language]
           : $entity->{$key}[$language][0]['value'];
       }

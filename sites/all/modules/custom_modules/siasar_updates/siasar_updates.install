@@ -241,3 +241,18 @@ function siasar_updates_update_7115(&$sandbox) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
 }
+
+/**
+ * Issue 324: Obtener los datos de los países para el campo país a través de la API
+ * Entregar los datos como parte del endpoint /rest/forms
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/324
+ */
+function siasar_updates_update_7116(&$sandbox) {
+  $modules = array(
+    'siasar_services_form_alter',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
