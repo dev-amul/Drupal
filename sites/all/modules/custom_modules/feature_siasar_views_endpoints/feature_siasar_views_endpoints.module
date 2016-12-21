@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SIASAR Views Endpoints feature.
+ */
+
+include_once 'feature_siasar_views_endpoints.features.inc';

@@ -1,0 +1,12 @@
+name = SIASAR Services Config
+description = SIASAR services global configuration
+core = 7.x
+package = SIASAR
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = rest_server
+dependencies[] = services
+features[ctools][] = services:services:3
+features[features_api][] = api:2
+features[services_endpoint][] = api_v1
+project path = sites/all/modules/custom_modules
