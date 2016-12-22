@@ -61,9 +61,6 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
         array(
           'data' => array(
             'siasarHierarchicalSelect' => array(
-              'user' => array(
-                'country' => $user_wrapper->field_pais->value()->iso2
-              ),
               $field => array(
                 'forceDeepest' => $instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'],
               ),
@@ -130,7 +127,7 @@ function siasar_field_location_validate($element, &$form_state) {
   if ($term === false) {
     form_set_error($element['#name'], t('Specified TID does not match any term.'));
     return;
-  } 
+  }
 
   // Does it belong to the right vocabulary?
   $field = field_widget_field($element, $form_state);
@@ -173,7 +170,7 @@ function _siasar_field_location_get_term_list_from_view($parent, $country) {
   $result = '';
   $terms_view = views_get_view('division_politica_administrativa');
 
-  if (is_object($terms_view) ) { 
+  if (is_object($terms_view) ) {
     $terms_view->set_display('term_reference_location_by_country');
     $terms_view->set_arguments(array($parent, $country));
     $terms_view->execute();
@@ -203,7 +200,7 @@ function siasar_field_location_term_parents($tid, $country = 'all') {
   $parents = taxonomy_get_parents_all($tid);
   $parents_clean = array();
   foreach ($parents as $p) {
-    $parents_clean[$p->tid] = _siasar_field_location_get_term_list_from_view($p->tid);
+    $parents_clean[$p->tid] = _siasar_field_location_get_term_list_from_view($p->tid, $country);
   };
   $parents_clean[0] = _siasar_field_location_get_term_list_from_view(0, $country);
 

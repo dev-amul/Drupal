@@ -4262,6 +4262,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Observaciones y comentarios');
   t('Origen de financiamiento (institución, organismo, donación, aporte, etc.)');
   t('Otras divisiones');
+  t('Pasa el test de análisis físico-químicos');
+  t('Pasa el test de coliformes?');
   t('País');
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
