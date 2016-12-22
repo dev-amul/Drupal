@@ -4,14 +4,39 @@
  * Implements hook_form_alter().
  */
 function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
-  global $user;
 
   $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
   $form_id_clean = str_replace('_entityform_edit_form', '', $form_id);
+
+  if(in_array($form_id_clean, $possible_entityforms)) {
+    _siasar_entityform_alter_set_default_country($form);
+    _siasar_entityform_alter_hide_validate_if_new($form, $form_state);
+  }
+
+}
+
+
+/**
+ * Helper function to set default country value from user if needed.
+ */
+function _siasar_entityform_alter_set_default_country(&$form) {
+  global $user;
   $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
 
-  if (in_array($form_id_clean, $possible_entityforms) && !isset($form_item_pais['#default_value'][0])) {
+  if (isset($form_item_pais['#default_value'][0])) {
     $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
     $form_item_pais['#default_value'][0] = $user_country_iso2;
   }
+}
+
+/**
+ * Helper function to hide Validate field if form is new
+ */
+function _siasar_entityform_alter_hide_validate_if_new(&$form, $form_state) {
+
+  if (empty($form_state['entityform']->entityform_id)) {
+    $form['field_cuestionario_validado']['#access'] = false;
+  }
+
+
 }
