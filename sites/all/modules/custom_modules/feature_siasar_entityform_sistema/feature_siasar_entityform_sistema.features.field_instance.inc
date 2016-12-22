@@ -981,7 +981,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_fecha_analisiscalidad_agua',
-    'label' => 'Fecha de análisis de la calidad del agua',
+    'label' => 'Fecha de Análisis de la calidad del agua',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -4231,7 +4231,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Fecha de Aplicación');
   t('Fecha de Análisis - Coliformes');
   t('Fecha de Análisis - Físicos/Químicos');
-  t('Fecha de análisis de la calidad del agua');
+  t('Fecha de Análisis de la calidad del agua');
   t('Fecha de la toma del caudal de la fuente');
   t('Fecha de la toma del caudal de la fuente en época seca');
   t('Fecha en la que se llena la encuesta');
