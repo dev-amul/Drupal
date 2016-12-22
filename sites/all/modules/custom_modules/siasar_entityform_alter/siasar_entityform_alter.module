@@ -33,10 +33,7 @@ function _siasar_entityform_alter_set_default_country(&$form) {
  * Helper function to hide Validate field if form is new
  */
 function _siasar_entityform_alter_hide_validate_if_new(&$form, $form_state) {
-
   if (empty($form_state['entityform']->entityform_id)) {
     $form['field_cuestionario_validado']['#access'] = false;
   }
-
-
 }
