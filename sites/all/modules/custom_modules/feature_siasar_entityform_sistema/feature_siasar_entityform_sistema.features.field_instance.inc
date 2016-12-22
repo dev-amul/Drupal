@@ -880,7 +880,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_fec_analisis_coliformes',
-    'label' => 'Fecha de análisis - Coliformes',
+    'label' => 'Fecha de Análisis - Coliformes',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -930,7 +930,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_fec_analisis_fis_quim',
-    'label' => 'Fecha de análisis - Físicos/Químicos',
+    'label' => 'Fecha de Análisis - Físicos/Químicos',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -1209,7 +1209,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_g4_4',
-    'label' => '¿Pasa el test de análisis Físicos-Químicos?',
+    'label' => '¿Pasa el test de Análisis Físicos-Químicos?',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -4229,8 +4229,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Existencia de zonas erosionadas en los alrededores de fuente / toma de agua');
   t('Existencia de áreas verdes o zonas forestadas alrededor de la fuente / toma de agua');
   t('Fecha de Aplicación');
-  t('Fecha de análisis - Coliformes');
-  t('Fecha de análisis - Físicos/Químicos');
+  t('Fecha de Análisis - Coliformes');
+  t('Fecha de Análisis - Físicos/Químicos');
   t('Fecha de análisis de la calidad del agua');
   t('Fecha de la toma del caudal de la fuente');
   t('Fecha de la toma del caudal de la fuente en época seca');
@@ -4281,7 +4281,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('¿Es la fuente principal del sistema? (sólo debe ser una entre todas las asociadas)');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el invierno / época de lluvias?');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el verano / época seca?');
-  t('¿Pasa el test de análisis Físicos-Químicos?');
+  t('¿Pasa el test de Análisis Físicos-Químicos?');
   t('¿Pasa el test de coliformes?');
   t('¿Qué otro tipo de sistema es?');
   t('Área o zona de planificación');
