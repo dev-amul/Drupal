@@ -5,6 +5,7 @@ package = SIASAR
 version = 7.x-1.3
 dependencies[] = computed_field
 dependencies[] = conditional_fields
+dependencies[] = countries
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = entity
