@@ -880,7 +880,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_fecha_analisiscalidad_agua',
-    'label' => 'Fecha de análisis de la calidad del agua',
+    'label' => 'Fecha del último análisis de la calidad del agua',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -1077,7 +1077,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_g4_3',
     'label' => 'Pasa el test de coliformes?',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -4128,9 +4128,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Existencia de zonas erosionadas en los alrededores de fuente / toma de agua');
   t('Existencia de áreas verdes o zonas forestadas alrededor de la fuente / toma de agua');
   t('Fecha de Aplicación');
-  t('Fecha de análisis de la calidad del agua');
   t('Fecha de la toma del caudal de la fuente');
   t('Fecha de la toma del caudal de la fuente en época seca');
+  t('Fecha del último análisis de la calidad del agua');
   t('Fecha en la que se llena la encuesta');
   t('Filtración domiciliaria');
   t('Fuentes de financiamiento');
