@@ -3230,8 +3230,8 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
+      'max' => 180,
+      'min' => 0,
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
