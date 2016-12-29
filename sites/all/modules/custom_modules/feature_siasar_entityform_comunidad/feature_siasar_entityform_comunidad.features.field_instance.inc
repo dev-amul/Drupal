@@ -2127,7 +2127,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_entity_name',
-    'label' => 'Nombre',
+    'label' => 'Nombre de la comunidad',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -5008,7 +5008,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_ce_fdocf',
-    'label' => 'Personal docente y administrativo. Femenino',
+    'label' => 'Número total de trabajadoras y docentes femeninas',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -5023,7 +5023,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -5054,7 +5054,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_ce_fdocm',
-    'label' => 'Personal docente y administrativo. Masculino',
+    'label' => 'Número total de trabajadores y docentes masculinos',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -5069,7 +5069,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 6,
     ),
   );
 
@@ -5100,7 +5100,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_ce_festf',
-    'label' => 'Población estudiantil. Femenino',
+    'label' => 'Número total de alumnas femeninas',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -5146,7 +5146,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_ce_festm',
-    'label' => 'Población estudiantil. Masculino',
+    'label' => 'Número total de alumnos masculinos',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -5161,7 +5161,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 5,
+      'weight' => 7,
     ),
   );
 
@@ -7006,7 +7006,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Lugar en el que está ubicado el centro de salud de referencia');
   t('Lugar en el que está ubicado el centro educativo de referencia');
   t('Mejora de sistema');
-  t('Nombre');
+  t('Nombre de la comunidad');
   t('Nombre del centro de salud');
   t('Nombre del centro de salud externo que acude la población de la comunidad');
   t('Nombre del centro educativo');
@@ -7075,6 +7075,10 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Nº instalaciones mixtas para personal y alumnado NO MEJORADA');
   t('Nº instalaciones mixtas para personal y alumnado de TIPO 1');
   t('Nº instalaciones mixtas para personal y alumnado de TIPO 2');
+  t('Número total de alumnas femeninas');
+  t('Número total de alumnos masculinos');
+  t('Número total de trabajadoras y docentes femeninas');
+  t('Número total de trabajadores y docentes masculinos');
   t('Observaciones ');
   t('Observaciones sobre el grupo de población');
   t('Otras características de la comunidad');
@@ -7082,10 +7086,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('País');
   t('Personal de salud y administrativo. Femenino');
   t('Personal de salud y administrativo. Masculino');
-  t('Personal docente y administrativo. Femenino');
-  t('Personal docente y administrativo. Masculino');
-  t('Población estudiantil. Femenino');
-  t('Población estudiantil. Masculino');
   t('Población total');
   t('Redacción');
   t('Se posee de servicios de conexión a Internet (3G o 4G)');
