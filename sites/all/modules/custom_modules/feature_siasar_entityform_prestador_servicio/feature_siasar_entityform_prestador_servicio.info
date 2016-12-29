@@ -4,6 +4,7 @@ core = 7.x
 package = SIASAR
 version = 7.x-1.2
 dependencies[] = computed_field
+dependencies[] = countries
 dependencies[] = date
 dependencies[] = entity
 dependencies[] = entityform
