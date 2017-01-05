@@ -289,7 +289,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label_position' => 'none',
         'no_fieldset' => 0,
         'text_parts' => array(),
-        'year_range' => '1900:+0',
+        'year_range' => '1920:+0',
       ),
       'type' => 'date_select',
       'weight' => 26,

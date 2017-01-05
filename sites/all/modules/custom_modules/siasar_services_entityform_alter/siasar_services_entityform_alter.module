@@ -1,4 +1,21 @@
 <?php
+/**
+ * Alters incoming request to take care of "field_pais" country fields.
+ *
+ * @param array $data
+ *   The parsed request data.
+ * @param array $controller
+ *   The current controller definition.
+ *
+ * @see RESTServer->getControllerArguments()
+ */
+function siasar_services_entityform_alter_rest_server_request_parsed_alter(&$data, $controller) {
+  $allowed_operations = array('create', 'update');
+  if (!empty($data['field_pais']) && $controller['callback'] == '_services_entity_resource_callback' && in_array($controller['access arguments'][0], $allowed_operations)) {
+    $data['field_pais'] = country_load($data['field_pais']);
+  }
+}
+
 
 /**
  * Alter results on the Entityform services call used to retrieve results

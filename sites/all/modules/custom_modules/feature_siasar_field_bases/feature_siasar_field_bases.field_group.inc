@@ -779,11 +779,9 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'field_con_fic_ce_fnombre',
-      1 => 'field_com_fic_ce_fdocf',
-      2 => 'field_com_fic_ce_festf',
-      3 => 'field_com_fic_ce_fcodigo',
-      4 => 'field_com_fic_ce_fdocm',
-      5 => 'field_com_fic_ce_festm',
+      1 => 'field_com_fic_ce_fcodigo',
+      2 => 'group_personal_docente',
+      3 => 'group_poblacion_estudiantil',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -844,41 +842,41 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '2',
     'children' => array(
       0 => 'field_com_fic_cesh_pi',
-      1 => 'field_com_fic_cesh_pp',
-      2 => 'field_com_fic_cesh_pc',
-      3 => 'field_com_fic_cesh_pd',
-      4 => 'field_com_fic_cesh_pq',
-      5 => 'field_com_fic_cesh_pu',
-      6 => 'field_com_fic_cesh_pv',
-      7 => 'field_com_fic_cesh_ph',
-      8 => 'field_com_fic_cesh_pg',
+      1 => 'field_com_fic_cesh_pq',
+      2 => 'field_com_fic_cesh_pu',
+      3 => 'field_com_fic_cesh_pc',
+      4 => 'field_com_fic_cesh_pd',
+      5 => 'field_com_fic_cesh_pv',
+      6 => 'field_com_fic_cesh_pw',
+      7 => 'field_com_fic_cesh_px',
+      8 => 'field_com_fic_cesh_ph',
       9 => 'field_com_fic_cesh_pl',
-      10 => 'field_com_fic_cesh_ps',
-      11 => 'field_com_fic_cesh_pw',
-      12 => 'field_com_fic_cesh_px',
-      13 => 'field_com_fic_cesh_pf',
-      14 => 'field_com_fic_cesh_pm',
-      15 => 'field_com_fic_cesh_pr',
-      16 => 'field_com_fic_cesh_pt',
-      17 => 'field_com_fic_cesh_paa',
-      18 => 'field_com_fic_cesh_pa',
-      19 => 'field_com_fic_cesh_pbc',
-      20 => 'field_com_fic_cesh_pbb',
-      21 => 'field_com_fic_cesh_pcc',
-      22 => 'field_com_fic_cesh_pcb',
-      23 => 'field_com_fic_cesh_pcd',
-      24 => 'field_com_fic_cesh_pe',
-      25 => 'field_com_fic_cesh_pab',
-      26 => 'field_com_fic_cesh_pac',
-      27 => 'field_com_fic_cesh_pba',
-      28 => 'field_com_fic_cesh_pca',
-      29 => 'field_com_fic_cesh_pbd',
-      30 => 'field_com_fic_cesh_pad',
-      31 => 'field_com_fic_cesh_pj',
-      32 => 'field_com_fic_cesh_pn',
-      33 => 'field_com_fic_cesh_pk',
-      34 => 'field_com_fic_cesh_po',
-      35 => 'field_com_fic_cesh_pb',
+      10 => 'field_com_fic_cesh_pp',
+      11 => 'field_com_fic_cesh_ps',
+      12 => 'field_com_fic_cesh_pf',
+      13 => 'field_com_fic_cesh_pm',
+      14 => 'field_com_fic_cesh_pr',
+      15 => 'field_com_fic_cesh_pt',
+      16 => 'field_com_fic_cesh_paa',
+      17 => 'field_com_fic_cesh_pbb',
+      18 => 'field_com_fic_cesh_pcc',
+      19 => 'field_com_fic_cesh_pe',
+      20 => 'field_com_fic_cesh_pcd',
+      21 => 'field_com_fic_cesh_pbd',
+      22 => 'field_com_fic_cesh_pab',
+      23 => 'field_com_fic_cesh_pca',
+      24 => 'field_com_fic_cesh_pac',
+      25 => 'field_com_fic_cesh_pba',
+      26 => 'field_com_fic_cesh_pad',
+      27 => 'field_com_fic_cesh_pk',
+      28 => 'field_com_fic_cesh_pn',
+      29 => 'field_com_fic_cesh_pj',
+      30 => 'field_com_fic_cesh_po',
+      31 => 'field_com_fic_cesh_pb',
+      32 => 'field_com_fic_cesh_pcb',
+      33 => 'field_com_fic_cesh_pa',
+      34 => 'field_com_fic_cesh_pg',
+      35 => 'field_com_fic_cesh_pbc',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3374,6 +3372,36 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_personal_docente|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_personal_docente';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_com_fic_cecg';
+  $field_group->data = array(
+    'label' => 'Personal docente y administrativo',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_com_fic_ce_fdocf',
+      1 => 'field_com_fic_ce_fdocm',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Personal docente y administrativo',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-personal-docente field-group-fieldset',
+        'description' => '',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_personal_docente|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_personal|entityform|prestador_de_servicio|form';
   $field_group->group_name = 'group_personal';
   $field_group->entity_type = 'entityform';
@@ -3398,6 +3426,36 @@ function feature_siasar_field_bases_field_group_info() {
     ),
   );
   $field_groups['group_personal|entityform|prestador_de_servicio|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_poblacion_estudiantil|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_poblacion_estudiantil';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_com_fic_cecg';
+  $field_group->data = array(
+    'label' => 'Población estudiantil',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_com_fic_ce_festf',
+      1 => 'field_com_fic_ce_festm',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Población estudiantil',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-poblacion-estudiantil field-group-fieldset',
+        'description' => '',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_poblacion_estudiantil|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -4024,6 +4082,8 @@ function feature_siasar_field_bases_field_group_info() {
   t('H4. Type of corrective measures');
   t('H5. Type of preventive measures ');
   t('I1.');
+  t('Personal docente y administrativo');
+  t('Población estudiantil');
 
   return $field_groups;
 }
