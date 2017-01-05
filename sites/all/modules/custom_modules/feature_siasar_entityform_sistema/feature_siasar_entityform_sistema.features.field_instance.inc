@@ -361,7 +361,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_cantidad_de_cloro_residual',
-    'label' => 'Cantidad de Cloro Residual',
+    'label' => 'Cantidad de cloro residual',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -423,7 +423,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
@@ -857,9 +857,10 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'entityform-sistema-field_fec_analisis_coliformes'.
-  $field_instances['entityform-sistema-field_fec_analisis_coliformes'] = array(
+  // 'entityform-sistema-field_fecha_analisis_coliformes'.
+  $field_instances['entityform-sistema-field_fecha_analisis_coliformes'] = array(
     'bundle' => 'sistema',
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -879,8 +880,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_fec_analisis_coliformes',
-    'label' => 'Fecha de Análisis - Coliformes',
+    'field_name' => 'field_fecha_analisis_coliformes',
+    'label' => 'Fecha de analisis - Test de Coliformes',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -907,8 +908,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_fec_analisis_fis_quim'.
-  $field_instances['entityform-sistema-field_fec_analisis_fis_quim'] = array(
+  // Exported field_instance: 'entityform-sistema-field_fecha_analisis_fq'.
+  $field_instances['entityform-sistema-field_fecha_analisis_fq'] = array(
     'bundle' => 'sistema',
     'deleted' => 0,
     'description' => '',
@@ -929,8 +930,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_fec_analisis_fis_quim',
-    'label' => 'Fecha de Análisis - Físicos/Químicos',
+    'field_name' => 'field_fecha_analisis_fq',
+    'label' => 'Fecha de análisis - Físico/Químico',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -981,7 +982,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_fecha_analisiscalidad_agua',
-    'label' => 'Fecha de Análisis de la calidad del agua',
+    'label' => 'Fecha de análisis - Cloro Residual',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -1054,7 +1055,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
-      'weight' => 113,
+      'weight' => 22,
     ),
   );
 
@@ -1209,7 +1210,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_g4_4',
-    'label' => '¿Pasa el test de Análisis Físicos-Químicos?',
+    'label' => '¿Pasa el test de análisis Físico/Químico?',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1220,7 +1221,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -1419,38 +1420,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_pais'.
-  $field_instances['entityform-sistema-field_pais'] = array(
-    'bundle' => 'sistema',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'countries',
-        'settings' => array(),
-        'type' => 'country_default',
-        'weight' => 34,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_pais',
-    'label' => 'País',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 112,
-    ),
-  );
-
   // Exported field_instance:
   // 'entityform-sistema-field_rehabilitaciones_y_o_ampli'.
   $field_instances['entityform-sistema-field_rehabilitaciones_y_o_ampli'] = array(
@@ -1570,7 +1539,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 114,
+      'weight' => 23,
     ),
   );
 
@@ -2615,8 +2584,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'max' => 24,
-      'min' => 0,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -4203,7 +4172,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Altitud');
   t('Año');
   t('Año de construcción');
-  t('Cantidad de Cloro Residual');
+  t('Cantidad de cloro residual');
   t('Capacidad de almacenamiento (volumen)');
   t('Caudal actual del sistema');
   t('Caudal de la fuente');
@@ -4229,9 +4198,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Existencia de zonas erosionadas en los alrededores de fuente / toma de agua');
   t('Existencia de áreas verdes o zonas forestadas alrededor de la fuente / toma de agua');
   t('Fecha de Aplicación');
-  t('Fecha de Análisis - Coliformes');
-  t('Fecha de Análisis - Físicos/Químicos');
-  t('Fecha de Análisis de la calidad del agua');
+  t('Fecha de analisis - Test de Coliformes');
+  t('Fecha de análisis - Cloro Residual');
+  t('Fecha de análisis - Físico/Químico');
   t('Fecha de la toma del caudal de la fuente');
   t('Fecha de la toma del caudal de la fuente en época seca');
   t('Fecha en la que se llena la encuesta');
@@ -4262,9 +4231,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Observaciones y comentarios');
   t('Origen de financiamiento (institución, organismo, donación, aporte, etc.)');
   t('Otras divisiones');
-  t('Pasa el test de análisis físico-químicos');
-  t('Pasa el test de coliformes?');
-  t('País');
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
   t('Red de distribución');
@@ -4283,7 +4249,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('¿Es la fuente principal del sistema? (sólo debe ser una entre todas las asociadas)');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el invierno / época de lluvias?');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el verano / época seca?');
-  t('¿Pasa el test de Análisis Físicos-Químicos?');
+  t('¿Pasa el test de análisis Físico/Químico?');
   t('¿Pasa el test de coliformes?');
   t('¿Qué otro tipo de sistema es?');
   t('Área o zona de planificación');
