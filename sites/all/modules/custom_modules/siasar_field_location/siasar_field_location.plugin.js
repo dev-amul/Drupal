@@ -162,7 +162,7 @@
 
       function mapTermsFromRequestToArray(data) {
         var mapped = Object.keys(data).map(function (k) {
-          return { tid: k, name: data[k] };
+          return { tid: data[k].tid, name: data[k].name };
         });
         var output = [];
 
