@@ -187,7 +187,10 @@ function _siasar_field_location_get_term_list_from_view($parent, $country) {
 function _siasar_field_location_map_result_into_term_list($result) {
   $terms = array();
   foreach ($result as $r) {
-    $terms[$r->tid] = $r->taxonomy_term_data_name;
+    $terms[] = array(
+      'tid' => $r->tid,
+      'name' => $r->taxonomy_term_data_name
+    );
   }
   return $terms;
 }
