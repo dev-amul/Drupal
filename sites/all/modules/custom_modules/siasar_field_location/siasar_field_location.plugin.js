@@ -111,7 +111,11 @@
 
 
       function requestChildrenTerms(term) {
-        var url = '/ajax/location/' + term.tid + '/' + country;
+        var url = '/ajax/location/' + term.tid + '/';
+        
+        url = term.tid === 0
+          ? url + country
+          : url + 'all';
 
         addThrobber();
 
