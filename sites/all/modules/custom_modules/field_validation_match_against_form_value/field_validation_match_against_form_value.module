@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function field_validation_match_against_form_value_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'field_validation' && $plugin == 'validator') {
+    return 'plugins/' . $plugin;
+  }
+}

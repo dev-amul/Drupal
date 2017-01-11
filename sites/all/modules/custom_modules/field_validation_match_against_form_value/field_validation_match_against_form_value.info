@@ -1,0 +1,5 @@
+name = Field Validation Match Against Form Value
+description = This module is a plugin for Field Validation module. It adds a new validation criteria. It lets you set validation criteria that compare the field value to another value in a different field from the same form.
+package = Fields
+core = 7.x
+dependencies[] = field_validation
