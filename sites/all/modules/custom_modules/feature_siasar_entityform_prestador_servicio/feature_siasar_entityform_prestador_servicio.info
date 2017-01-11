@@ -125,5 +125,4 @@ features[field_instance][] = field_collection_item-field_tecnicos-field_genero_t
 features[field_instance][] = field_collection_item-field_tecnicos-field_nombre_tecnico
 features[field_instance][] = field_collection_item-field_tecnicos-field_telef
 features[field_validation_rule][] = billing_is_greater_equal_income
-features[field_validation_rule][] = is_numeric
 project path = sites/all/modules/custom_modules
