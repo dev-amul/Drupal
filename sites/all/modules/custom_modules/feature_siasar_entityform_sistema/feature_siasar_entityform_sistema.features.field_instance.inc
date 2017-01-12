@@ -368,7 +368,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'mvf' => array(
         'max' => array(
           'target_id' => 705,
-          'value' => 0.5,
+          'value' => '1.0',
         ),
         'min' => array(
           'target_id' => 705,
