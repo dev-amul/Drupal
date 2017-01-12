@@ -21,7 +21,7 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
   $rule->bundle = 'comunidad';
   $rule->validator = 'field_validation_match_against_form_value';
   $rule->settings = array(
-    'operator' => 'lower',
+    'operator' => 'lower_equal',
     'target_field_machine_name' => 'field_com_viv_totales',
     'bypass' => 0,
     'roles' => array(
