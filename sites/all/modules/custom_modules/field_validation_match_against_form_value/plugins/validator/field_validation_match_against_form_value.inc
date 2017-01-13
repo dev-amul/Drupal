@@ -22,11 +22,10 @@ class field_validation_match_against_form_value extends field_validation_validat
     $settings = $this->rule->settings;
     $value = $this->extract_value_to_match($this->field['field_name']);
     $operator = $settings['operator'];
-    $field_type = $this->field['type'];
     $match_value = $this->extract_value_to_match($settings['target_field_machine_name']);
 
     if (is_numeric($value) && is_numeric($match_value)) {
-      $flag = $this->compare_values($value, $operator, $match_value, $field_type);
+      $flag = $this->compare_values($value, $operator, $match_value);
 
       if (!$flag) {
         $token = array(
