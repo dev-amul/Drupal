@@ -68,8 +68,7 @@ class field_validation_match_against_form_value extends field_validation_validat
    * Helper function to extract value from target field.
    */
   private function extract_value_to_match($field_to_match) {
-    $wrapper = &$this->wrapper;
-    $match_value = $wrapper->{$field_to_match}->value();
+    $match_value = $this->wrapper->{$field_to_match}->value();
 
     if (is_array($match_value) && isset($match_value['value'])) {
       $match_value = $match_value['value'];
