@@ -6,7 +6,7 @@
  */
 $plugin = array(
   'label' => t('Match against form value'),
-  'description' => t('Verifies that user-entered values fulfill certain criteria when compared to another field\'s value in the form.'),
+  'description' => t('Verifies that user-entered values fulfill certain criteria when compared to another field\'s value in the form. It currently processes numeric and date fields.'),
   'handler' => array(
     'class' => 'field_validation_match_against_form_value',
   ),
@@ -18,13 +18,13 @@ class field_validation_match_against_form_value extends field_validation_validat
    * Validate field. 
    */
   public function validate() {
+    $this->wrapper = entity_metadata_wrapper($this->entity_type, $this->entity);
     $settings = $this->rule->settings;
-    $value = $this->value;
+    $value = $this->extract_value_to_match($this->field['field_name']);
     $operator = $settings['operator'];
-    $match_value = $this->extract_value_to_match($this->entity_type, $this->entity, $settings['target_field_machine_name']);
+    $match_value = $this->extract_value_to_match($settings['target_field_machine_name']);
 
     if (is_numeric($value) && is_numeric($match_value)) {
-
       $flag = $this->compare_values($value, $operator, $match_value);
 
       if (!$flag) {
@@ -67,8 +67,8 @@ class field_validation_match_against_form_value extends field_validation_validat
   /**
    * Helper function to extract value from target field.
    */
-  private function extract_value_to_match($entity_type, $entity, $field_to_match) {
-    $wrapper = entity_metadata_wrapper($entity_type, $entity);
+  private function extract_value_to_match($field_to_match) {
+    $wrapper = &$this->wrapper;
     $match_value = $wrapper->{$field_to_match}->value();
 
     if (is_array($match_value) && isset($match_value['value'])) {
@@ -87,7 +87,7 @@ class field_validation_match_against_form_value extends field_validation_validat
       'different' => t('different to'),
       'greater' => t('greater than'),
       'lower' => t('lower than'),
-      'greater_equal' => t('grear or equal to'),
+      'greater_equal' => t('greater or equal to'),
       'lower_equal' => t('lower or equal to'),
     );
 
