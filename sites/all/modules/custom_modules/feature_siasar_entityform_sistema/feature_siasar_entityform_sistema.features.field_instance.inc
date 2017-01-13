@@ -367,17 +367,17 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'entity_translation_sync' => FALSE,
       'mvf' => array(
         'max' => array(
-          'target_id' => 705,
+          'target_id' => 681,
           'value' => '1.0',
         ),
         'min' => array(
-          'target_id' => 705,
+          'target_id' => 681,
           'value' => 0.5,
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
             'enable' => 0,
-            'unit' => 705,
+            'unit' => 681,
             'weight' => 0,
           ),
           'locale' => array(
