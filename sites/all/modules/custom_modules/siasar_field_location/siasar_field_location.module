@@ -203,7 +203,7 @@ function siasar_field_location_term_parents($tid, $country = 'all') {
   $parents = taxonomy_get_parents_all($tid);
   $parents_clean = array();
   foreach ($parents as $p) {
-    $parents_clean[$p->tid] = _siasar_field_location_get_term_list_from_view($p->tid, $country);
+    $parents_clean[$p->tid] = _siasar_field_location_get_term_list_from_view($p->tid, 'all');
   };
   $parents_clean[0] = _siasar_field_location_get_term_list_from_view(0, $country);
 
