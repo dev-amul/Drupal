@@ -23,7 +23,7 @@ function siasar_services_form_alter_services_request_postprocess_alter($controll
         $form = _siasar_services_form_alter_process_form($form);
       }
     } else {
-        _siasar_services_form_alter_translate_form_names($result);
+      _siasar_services_form_alter_translate_form_names($result);
     }
   }
 }
