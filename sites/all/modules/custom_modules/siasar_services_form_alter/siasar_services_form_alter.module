@@ -65,5 +65,4 @@ function _siasar_services_form_alter_translate_form_names($result) {
     $i18n_string_path = 'entityform:entityform_type:'. $bundle .':label';
     $string = i18n_string_translate($i18n_string_path, $string);
   }
-  $result = $result;
 }
