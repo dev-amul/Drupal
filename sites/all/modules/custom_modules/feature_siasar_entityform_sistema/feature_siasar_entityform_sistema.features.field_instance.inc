@@ -1419,7 +1419,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'weight' => 110,
     ),
   );
-
   // Exported field_instance:
   // 'entityform-sistema-field_rehabilitaciones_y_o_ampli'.
   $field_instances['entityform-sistema-field_rehabilitaciones_y_o_ampli'] = array(

@@ -75,7 +75,6 @@ function feature_siasar_entityform_sistema_field_default_field_bases() {
     'translatable' => 0,
     'type' => 'datetime',
   );
-
   // Exported field_base: 'field_fecha_analisis_coliformes'.
   $field_bases['field_fecha_analisis_coliformes'] = array(
     'active' => 1,
