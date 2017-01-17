@@ -79,7 +79,7 @@ function _siasar_services_form_alter_translate_form_names($result) {
  * @return array
  */
 function _siasar_services_form_alter_translate_form_group_labels($result) {
-  foreach ($result as $key => &$element) {
+  foreach ($result as &$element) {
     if (is_array($element)) {
       $element = _siasar_services_form_alter_translate_form_group_labels($element);
     } elseif (is_object($element) && isset($element->label)) {
