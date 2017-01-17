@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Alter results on the Entityform services call used to retrieve form structure
+ * Alter results on all Entityform Services calls used to retrieve form structure
  *
  * @param $controller
  *   Controller definition
@@ -17,10 +17,20 @@ function siasar_services_form_alter_services_request_postprocess_alter($controll
 
   $allowed_ops = array('retrieve', 'index');
 
-  if (arg(1) == 'forms') {
-    foreach ($result as $key => &$form) {
-      $form = _siasar_services_form_alter_process_form($form);
-    }
+  switch (arg(1)) {
+    case 'forms':
+      if (is_string(arg(2))) {
+        foreach ($result as $key => &$form) {
+          $form = _siasar_services_form_alter_process_form($form);
+        }
+      } else {
+        _siasar_services_form_alter_translate_form_names($result);
+      }
+      break;
+
+    case 'field_group_structure':
+      $result = _siasar_services_form_alter_translate_form_group_labels($result);
+      break;
   }
 }
 
@@ -28,7 +38,6 @@ function siasar_services_form_alter_services_request_postprocess_alter($controll
  * Helper function to process all forms
  */
 function _siasar_services_form_alter_process_form($form) {
-
   foreach($form as $key => &$form_field) {
     if ($key == 'field_pais') {
       $form_field['settings']['allowed_values'] = _siasar_services_form_alter_get_countries_list();
@@ -51,4 +60,32 @@ function _siasar_services_form_alter_get_countries_list() {
     $output[$row->iso2] = $row->name;
   }
   return $output;
+}
+
+/**
+ * Helper function to translate form names
+ * @return array
+ */
+function _siasar_services_form_alter_translate_form_names($result) {
+  foreach ($result as $bundle => &$string) {
+    $i18n_string_path = 'entityform:entityform_type:'. $bundle .':label';
+    $string = i18n_string_translate($i18n_string_path, $string);
+  }
+}
+
+
+/**
+ * Helper function to translate form group labels
+ * @return array
+ */
+function _siasar_services_form_alter_translate_form_group_labels($result) {
+  foreach ($result as &$element) {
+    if (is_array($element)) {
+      $element = _siasar_services_form_alter_translate_form_group_labels($element);
+    } elseif (is_object($element)) {
+      $element->label = t($element->label);
+      return $element;
+    }
+  }
+  return $result;
 }

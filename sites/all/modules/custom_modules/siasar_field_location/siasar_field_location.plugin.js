@@ -111,7 +111,11 @@
 
 
       function requestChildrenTerms(term) {
-        var url = '/ajax/location/' + term.tid + '/' + country;
+        var url = '/ajax/location/' + term.tid + '/';
+        
+        url = term.tid === 0
+          ? url + country
+          : url + 'all';
 
         addThrobber();
 
@@ -162,7 +166,7 @@
 
       function mapTermsFromRequestToArray(data) {
         var mapped = Object.keys(data).map(function (k) {
-          return { tid: k, name: data[k] };
+          return { tid: data[k].tid, name: data[k].name };
         });
         var output = [];
 
