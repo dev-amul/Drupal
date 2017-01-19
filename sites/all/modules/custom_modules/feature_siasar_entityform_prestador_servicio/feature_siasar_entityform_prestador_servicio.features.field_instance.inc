@@ -2194,7 +2194,15 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // Exported field_instance: 'entityform-prestador_de_servicio-field_latitud'.
   $field_instances['entityform-prestador_de_servicio-field_latitud'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'input_format' => 'lat/lon',
+        'geom' => array(
+          'lat' => 13.50436,
+          'lon' => '-85.5661649801656',
+        ),
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2211,7 +2219,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'entity_type' => 'entityform',
     'field_name' => 'field_latitud',
     'label' => 'Georeferenciación',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
