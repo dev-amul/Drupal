@@ -13,6 +13,41 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
   $rule = new stdClass();
   $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
   $rule->api_version = 2;
+  $rule->rulename = 'comunidad_sample_lower_equal_total_houses';
+  $rule->name = 'comunidad_sample_lower_equal_tot';
+  $rule->field_name = 'field_com_num_viv_muestra';
+  $rule->col = 'value';
+  $rule->entity_type = 'entityform';
+  $rule->bundle = 'comunidad';
+  $rule->validator = 'field_validation_match_against_form_value';
+  $rule->settings = array(
+    'operator' => 'lower_equal',
+    'target_field_machine_name' => 'field_com_viv_totales',
+    'bypass' => 0,
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      7 => 0,
+      8 => 0,
+      5 => 0,
+      9 => 0,
+      6 => 0,
+      10 => 0,
+    ),
+    'errors' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+  );
+  $rule->error_message = 'Número de viviendas de la muestra inferior o igual a la cantidad total de viviendas de la comunidad.';
+  $export['comunidad_sample_lower_equal_tot'] = $rule;
+
+  $rule = new stdClass();
+  $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
+  $rule->api_version = 2;
   $rule->rulename = 'Houses processing household waste is lower than total houses';
   $rule->name = 'household_waste_total_houses';
   $rule->field_name = 'field_com_recontrata_numvivc';
