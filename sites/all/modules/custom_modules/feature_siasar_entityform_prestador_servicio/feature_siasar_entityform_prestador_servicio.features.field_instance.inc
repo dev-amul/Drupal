@@ -2198,8 +2198,8 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       0 => array(
         'input_format' => 'lat/lon',
         'geom' => array(
-          'lat' => 13.50436,
-          'lon' => '-85.5661649801656',
+          'lat' => '',
+          'lon' => '',
         ),
       ),
     ),
