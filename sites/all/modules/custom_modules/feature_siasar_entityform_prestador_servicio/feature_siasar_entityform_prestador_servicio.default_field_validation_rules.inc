@@ -48,6 +48,41 @@ function feature_siasar_entityform_prestador_servicio_default_field_validation_r
   $rule = new stdClass();
   $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
   $rule->api_version = 2;
+  $rule->rulename = 'Fecha de la última elección de la junta debe ser igual o superior a la fecha de creación ';
+  $rule->name = 'election_date_higher_equal_creat';
+  $rule->field_name = 'field_fecha_eleccion';
+  $rule->col = 'value';
+  $rule->entity_type = 'entityform';
+  $rule->bundle = 'prestador_de_servicio';
+  $rule->validator = 'field_validation_match_against_form_value';
+  $rule->settings = array(
+    'operator' => 'greater_equal',
+    'target_field_machine_name' => 'field_fecha_creacion',
+    'bypass' => 0,
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      7 => 0,
+      8 => 0,
+      5 => 0,
+      9 => 0,
+      6 => 0,
+      10 => 0,
+    ),
+    'errors' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+  );
+  $rule->error_message = 'La fecha de la última elección de la junta debe ser igual o superior a la fecha de creación ';
+  $export['election_date_higher_equal_creat'] = $rule;
+
+  $rule = new stdClass();
+  $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
+  $rule->api_version = 2;
   $rule->rulename = 'Users that should pay is higher equal users up to date';
   $rule->name = 'paying_users_higher_equal_paid';
   $rule->field_name = 'field_usuarios_deberian_pagan';
