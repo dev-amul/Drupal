@@ -133,8 +133,8 @@ class field_validation_match_against_form_value extends field_validation_validat
       '#default_value' => isset($default_settings['operator']) ? $default_settings['operator'] : '',
     );
     $form['settings']['target_field_machine_name'] = array(
-      '#title' => t('Target field'),
-      '#description' => t("Field whose value you want to compare to. You can write the name of a single field, or you can write a math expression, such as [field1 + field2 + field3]"),
+      '#title' => t('Target field or math rule'),
+      '#description' => t("Field or fields whose value you want to compare to. You can write the name of a single field, or you can write a math expression, such as [field1 + field2 + field3]"),
       '#type' => 'textfield',
       '#size' => 125,
       '#default_value' => isset($default_settings['target_field_machine_name']) ? $default_settings['target_field_machine_name'] : '',
