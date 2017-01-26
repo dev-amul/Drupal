@@ -66,7 +66,7 @@ class field_validation_match_against_form_value extends field_validation_validat
 
 
   /**
-   * Helper function to parse target expression and get a omputed value.
+   * Helper function to parse target expression and pass it to the computer function for a result.
    */
   private function get_target_value($expression) {
     $expression = trim(preg_replace('/\t+/', '', $expression));
@@ -79,7 +79,6 @@ class field_validation_match_against_form_value extends field_validation_validat
       $this->set_error();
       return false;
     }
-
 
     return $this->get_field_value($expression);
   }
@@ -95,6 +94,7 @@ class field_validation_match_against_form_value extends field_validation_validat
         : (float) $value;
       $expression = str_replace($f, $value, $expression);
     }
+
     $result = eval('$out = ' . $expression . '; return $out;');
     return $result;
   }
