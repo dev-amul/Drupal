@@ -15,14 +15,14 @@ $plugin = array(
 class field_validation_match_against_form_value extends field_validation_validator {
 
   /**
-   * Validate field. 
+   * Validate field.
    */
   public function validate() {
     $this->wrapper = entity_metadata_wrapper($this->entity_type, $this->entity);
     $settings = $this->rule->settings;
-    $value = $this->extract_value_to_match($this->field['field_name']);
+    $value = $this->get_field_value($this->field['field_name']);
     $operator = $settings['operator'];
-    $match_value = $this->extract_value_to_match($settings['target_field_machine_name']);
+    $match_value = $this->get_target_value($settings['target_field_machine_name']);
 
     if (is_numeric($value) && is_numeric($match_value)) {
       $flag = $this->compare_values($value, $operator, $match_value);
@@ -64,18 +64,53 @@ class field_validation_match_against_form_value extends field_validation_validat
     return $flag;
   }
 
+
+  /**
+   * Helper function to parse target expression and get a omputed value.
+   */
+  private function get_target_value($expression) {
+    $expression = trim(preg_replace('/\t+/', '', $expression));
+    $pattern = '/[a-zA-Z0-9_.]+/';
+    $result = preg_match_all($pattern, $expression, $split);
+
+    if ($result > 0) {
+      return $this->process_math_expression($expression, $split[0]);
+    } else {
+      $this->set_error();
+      return false;
+    }
+
+
+    return $this->get_field_value($expression);
+  }
+
+  /**
+   * Helper function to process the mathematical expression and return a value
+   */
+  private function process_math_expression($expression, $fields) {
+    foreach ($fields as $f) {
+      $value = $this->get_field_value($f);
+      $value = ($value == (int) $value)
+        ? (int) $value
+        : (float) $value;
+      $expression = str_replace($f, $value, $expression);
+    }
+    $result = eval('$out = ' . $expression . '; return $out;');
+    return $result;
+  }
+
   /**
    * Helper function to extract value from target field.
    */
-  private function extract_value_to_match($field_to_match) {
-    $match_value = $this->wrapper->{$field_to_match}->value();
+  private function get_field_value($field) {
+    $value = $this->wrapper->{$field}->value();
 
-    if (is_array($match_value) && isset($match_value['value'])) {
-      $match_value = $match_value['value'];
+    if (is_array($value) && isset($value['value'])) {
+      $value = $value['value'];
     }
-    return $match_value;
+    return $value;
   }
-  
+
   /**
    * Provide settings option
    */
@@ -106,14 +141,14 @@ class field_validation_match_against_form_value extends field_validation_validat
 
     parent::settings_form($form, $form_state);
   }
-  
+
   /**
    * Provide token help info for error message.
    */
   public function token_help() {
     $token_help = parent::token_help();
     $token_help += array(
-      '[target-field]' => t('target field'), 
+      '[target-field]' => t('target field'),
       '[operator]' => t('Operator'),
     );
     return $token_help;
