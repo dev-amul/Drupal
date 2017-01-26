@@ -115,5 +115,75 @@ function feature_siasar_entityform_prestador_servicio_default_field_validation_r
   $rule->error_message = 'El número de usuarios que deberían pagar factura debe ser igual o mayor que el número de usuarios al día en sus pagos ordinarios. ';
   $export['paying_users_higher_equal_paid'] = $rule;
 
+  $rule = new stdClass();
+  $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
+  $rule->api_version = 2;
+  $rule->rulename = 'Real total should match reals';
+  $rule->name = 'real_total_should_match_reals';
+  $rule->field_name = 'field_sumatoria_gastos_reales';
+  $rule->col = 'value';
+  $rule->entity_type = 'entityform';
+  $rule->bundle = 'prestador_de_servicio';
+  $rule->validator = 'field_validation_match_against_form_value';
+  $rule->settings = array(
+    'operator' => 'same',
+    'target_field_machine_name' => 'field_gasto_promedio_admin + field_gasto_real_operacion + field_gasto_real_mantenimiento + field_gasto_real_ambientales',
+    'bypass' => 0,
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      7 => 0,
+      8 => 0,
+      5 => 0,
+      9 => 0,
+      6 => 0,
+      10 => 0,
+    ),
+    'errors' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+  );
+  $rule->error_message = 'El total de gastos reales debe ser la suma de los subcampos de tipologías de gastos reales.';
+  $export['real_total_should_match_reals'] = $rule;
+
+  $rule = new stdClass();
+  $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
+  $rule->api_version = 2;
+  $rule->rulename = 'Theoretical total should match theoreticals';
+  $rule->name = 'theory_total_match_theory_values';
+  $rule->field_name = 'field_sumatoria_gastos_teoricos';
+  $rule->col = 'value';
+  $rule->entity_type = 'entityform';
+  $rule->bundle = 'prestador_de_servicio';
+  $rule->validator = 'field_validation_match_against_form_value';
+  $rule->settings = array(
+    'operator' => 'same',
+    'target_field_machine_name' => 'field_gasto_teorico_admin + field_gasto_teorico_operacion + field_gasto_teorico_mantenimient + field_gasto_teorico_ambientales',
+    'bypass' => 0,
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      7 => 0,
+      8 => 0,
+      5 => 0,
+      9 => 0,
+      6 => 0,
+      10 => 0,
+    ),
+    'errors' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+  );
+  $rule->error_message = 'El total de gastos teóricos debe ser la suma de los subcampos de tipologías de gastos teóricos.';
+  $export['theory_total_match_theory_values'] = $rule;
+
   return $export;
 }
