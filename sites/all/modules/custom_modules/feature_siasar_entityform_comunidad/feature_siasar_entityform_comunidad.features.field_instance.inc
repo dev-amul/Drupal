@@ -69,9 +69,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_ce_location',
     'label' => 'Lugar en el que está ubicado el centro educativo de referencia',
-    'options_limit' => FALSE,
+    'options_limit' => 0,
     'options_limit_empty_behaviour' => 0,
-    'options_limit_fields' => array(),
+    'options_limit_fields' => array(
+      'field_pais' => 0,
+    ),
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -89,7 +91,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'siasar_field_location',
       'settings' => array(
         'siasar_hierarchical_select' => array(
-          'force_deepest' => 1,
+          'force_deepest' => 0,
         ),
       ),
       'type' => 'siasar_hierarchical_select',
@@ -1921,9 +1923,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_cs_location',
     'label' => 'Lugar en el que está ubicado el centro de salud de referencia',
-    'options_limit' => FALSE,
+    'options_limit' => 0,
     'options_limit_empty_behaviour' => 0,
-    'options_limit_fields' => array(),
+    'options_limit_fields' => array(
+      'field_pais' => 0,
+    ),
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1941,7 +1945,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'siasar_field_location',
       'settings' => array(
         'siasar_hierarchical_select' => array(
-          'force_deepest' => 1,
+          'force_deepest' => 0,
         ),
       ),
       'type' => 'siasar_hierarchical_select',
