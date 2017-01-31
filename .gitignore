@@ -8,3 +8,6 @@ sites/all/translations
 
 # Ignore IDE specific files
 .vscode
+
+# Ignore backup files
+*.pgsql
