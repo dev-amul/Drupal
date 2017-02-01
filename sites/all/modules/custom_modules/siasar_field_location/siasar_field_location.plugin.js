@@ -87,7 +87,7 @@
       function setCanonicalValue(value) {
         var hasChildren = (typeof (tidCache[value]) === 'object' && tidCache[value].length > 1);
 
-        if (value == 0 || (forceDeepest && hasChildren)) return;
+        if (value === 0 || (forceDeepest && hasChildren)) return;
 
         $locationField.val(value);
         addOK();
