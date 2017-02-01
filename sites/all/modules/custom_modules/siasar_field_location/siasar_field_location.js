@@ -1,11 +1,11 @@
-(function($) {
-    'use strict';
+(function ($) {
+  'use strict';
 
-    Drupal.behaviors.siasarFieldLocation = {
-        attach: function(context, settings) {
-            $('.field-widget-siasar-hierarchical-select', context).siasarHierarchicalSelect();
-        }
-    };
+  Drupal.behaviors.siasarFieldLocation = {
+    attach: function (context, settings) {
+      $('.field-widget-siasar-hierarchical-select', context).siasarHierarchicalSelect();
+    }
+  };
 
 })(jQuery);
 
