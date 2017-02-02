@@ -851,9 +851,11 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'entity_type' => 'entityform',
     'field_name' => 'field_entidad_local',
     'label' => 'Zona de Atención',
-    'options_limit' => FALSE,
+    'options_limit' => 0,
     'options_limit_empty_behaviour' => 0,
-    'options_limit_fields' => array(),
+    'options_limit_fields' => array(
+      'field_pais' => 0,
+    ),
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -871,7 +873,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
       'module' => 'siasar_field_location',
       'settings' => array(
         'siasar_hierarchical_select' => array(
-          'force_deepest' => 1,
+          'force_deepest' => 0,
         ),
       ),
       'type' => 'siasar_hierarchical_select',
