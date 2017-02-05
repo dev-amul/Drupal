@@ -1,0 +1,29 @@
+name                                   = SIASAR Material Design theme.
+
+description                            = Based on Materialize base theme. Built to use Material Design system.
+core                                   = 7.x
+screenshot                             = screenshot.png
+
+base theme                             = materialize
+
+
+; STYLESHEETS
+;-------------------------------------------------------------------------------
+stylesheets[all][]                     = css/style.css
+
+; SCRIPTS
+;-------------------------------------------------------------------------------
+scripts[]                              = js/custom.js
+
+
+; REGIONS
+;-------------------------------------------------------------------------------
+regions[header]                        = Header
+regions[user_nav]                      = User navigation
+regions[highlight]                     = Highlighted
+regions[help]                          = Help
+regions[content]                       = Content
+regions[sidebar_first]                 = Sidebar first
+regions[sidebar_second]                = Sidebar second
+regions[footer]                        = Footer
+
