@@ -8,7 +8,7 @@ body {
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   position: relative;
-  background-color: #f1f1f1;
+  background-color: #666;
 }
 body.not-logged-in {
   background-color: #00829e;
@@ -35,6 +35,10 @@ h4 {
   font-size: 2rem;
 }
 
+p {
+  margin-top: 0;
+}
+
 .page {
   max-width: 1280px;
   margin: 80px auto;
@@ -53,7 +57,7 @@ h4 {
   padding: 0;
 }
 .page .block {
-  background: #f1f1f1;
+  background: white;
   padding: 20px;
 }
 
@@ -89,6 +93,9 @@ span.form-required {
 .header-menu {
   background: #00add2;
 }
+.header-menu .nav-wrapper {
+  width: 100%;
+}
 .header-menu a.brand-logo {
   top: 0;
   display: block;
@@ -102,6 +109,11 @@ span.form-required {
 @media (min-width: 600px) {
   .header-menu a.brand-logo {
     top: 10px;
+  }
+}
+@media (min-width: 992px) {
+  .header-menu a.brand-logo {
+    left: 20px;
   }
 }
 .header-menu a.brand-logo img {
@@ -139,9 +151,21 @@ span.form-required {
   font-size: 0.8em;
 }
 
+body.page-eform-submit .page .block {
+  background: #666;
+  padding: 0;
+}
+body.page-eform-submit .page h1 {
+  font-size: 2.75rem;
+  text-align: left;
+  background: none;
+  line-height: 1.2;
+}
+
 form.entityform .vertical-tabs {
   border: none;
   margin-top: 0;
+  margin-bottom: 20px;
 }
 form.entityform .vertical-tabs-list {
   border: none;
@@ -177,6 +201,19 @@ form.entityform .vertical-tabs-panes {
   background-color: white;
   border: none;
   padding: 20px;
+}
+form.entityform fieldset {
+  border: none;
+  box-shadow: none;
+}
+form.entityform fieldset legend {
+  font-size: 2rem;
+}
+form.entityform .form-actions {
+  text-align: right;
+}
+form.entityform .form-actions input {
+  margin-left: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,10 @@
 .header-menu {
   background: $siasar-cyan;
 
+  .nav-wrapper {
+    width: 100%;
+  }
+
   a.brand-logo {
     top: 0;
     display: block;
@@ -13,6 +17,9 @@
 
     @include breakpoint($break-small) {
       top: 10px;
+    }
+    @include breakpoint($break-medium) {
+      left: 20px;
     }
 
     img {

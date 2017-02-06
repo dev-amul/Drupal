@@ -1,10 +1,27 @@
+body.page-eform-submit .page {
+  .block {
+    background: $siasar-dark-grey;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+    text-align: left;
+    background: none;
+    line-height: 1.2;
+  }
+}
+
+
 form.entityform {
 
   .vertical-tabs {
     border: none;
     margin-top: 0;
+    margin-bottom: 20px;
   }
 
+  // Tabs
   .vertical-tabs-list {
     border: none;
     margin-top: 0;
@@ -43,9 +60,27 @@ form.entityform {
     }
   }
 
+  // Form elements
   .vertical-tabs-panes {
     background-color: white;
     border: none;
     padding: 20px;
+  }
+
+  fieldset {
+    border: none;
+    box-shadow: none;
+
+    legend {
+      font-size: 2rem;
+    }
+  }
+
+  .form-actions {
+    text-align: right;
+
+    input {
+      margin-left: 20px;
+    }
   }
 }
