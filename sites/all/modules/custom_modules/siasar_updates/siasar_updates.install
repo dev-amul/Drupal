@@ -259,12 +259,27 @@ function siasar_updates_update_7116(&$sandbox) {
 
 /**
  * Issue 247: [PS][Regla de validación] Campos C5: la facturación debe ser
- * igual o mayor a ingresos por facturación 
+ * igual o mayor a ingresos por facturación
  * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/247
  */
 function siasar_updates_update_7117(&$sandbox) {
   $modules = array(
     'field_validation_match_against_form_value',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Material Design Theme - Theme redesign
+ */
+function siasar_updates_update_7118(&$sandbox) {
+  $modules = array(
+    'empty_page',
+    'strongarm',
+    'feature_siasar_theme_settings'
   );
   $modules_enabled = module_enable($modules, TRUE);
   if (!$modules_enabled) {

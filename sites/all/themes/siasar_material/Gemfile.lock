@@ -1,0 +1,66 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
+    autoprefixer-rails (6.7.2)
+      execjs
+    breakpoint (2.0.7)
+      compass (>= 0.12.1)
+      sass (>= 3.2.0)
+    chunky_png (1.3.8)
+    color-schemer (0.2.8)
+      compass-blend-modes (~> 0.0.2)
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-blend-modes (0.0.2)
+      compass
+    compass-core (1.0.3)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-flexbox (1.1.3)
+      compass
+      sass
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
+    css_parser (1.3.7)
+      addressable
+    execjs (2.7.0)
+    ffi (1.9.17)
+    multi_json (1.12.1)
+    public_suffix (2.0.5)
+    rb-fsevent (0.9.8)
+    rb-inotify (0.9.8)
+      ffi (>= 0.5.0)
+    sass (3.4.23)
+    sassy-strings (1.0.0)
+      compass (>= 0.12.2)
+    singularitygs (1.1.2)
+      breakpoint (>= 2.0.1)
+      compass (>= 0.12.2)
+      sass (>= 3.2.1)
+    toolkit (1.2.2)
+      breakpoint (>= 2.0.2)
+      color-schemer (>= 0.2.3)
+      compass (>= 0.12.2)
+      sassy-strings (>= 0.1)
+      singularitygs (>= 1.0.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  autoprefixer-rails
+  breakpoint (~> 2.0.1)
+  compass-flexbox (~> 1.1, >= 1.1.3)
+  css_parser (~> 1.3.4)
+  singularitygs (~> 1.1.2)
+  toolkit (~> 1.2.2)
+
+BUNDLED WITH
+   1.10.6

@@ -1,6 +1,6 @@
-name                                   = SIASAR Material Design theme.
+name                                   = SIASAR Material Design theme
 
-description                            = Based on Materialize base theme. Built to use Material Design system.
+description                            = Based on Materialize base theme. Built to use Material Design system. It uses SASS and Compass. You will need Ruby and Bundle to compile SASS.
 core                                   = 7.x
 screenshot                             = screenshot.png
 

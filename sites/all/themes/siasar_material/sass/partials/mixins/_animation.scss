@@ -1,0 +1,7 @@
+//  Animation Mixin
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  animation: #{$str};      
+}

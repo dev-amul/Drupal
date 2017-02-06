@@ -1,55 +1,24 @@
-/*********** overide css ***********/
-.brand-logo {
-  margin-top: 7px;
-}
+////////////////////////
+// Style File
+//
+// This file gets turned into style.css. This file should really hold nothing except for imports of your base, style guide, layout, and design partials.
+////////////////////////
 
-.collection-header {
-  margin: 0;
-}
+@import 'partials/styleguide/_fonts';
+@import 'partials/styleguide/_variables';
 
-.field-type-text-long {
-  margin-bottom: 1em;
-}
+@import 'compass/css3/deprecated-support';
+@import 'compass/css3/transform';
+@import 'compass/css3/transition';
+@import 'breakpoint';
+@import 'partials/mixins/_kerning';
+@import 'partials/mixins/_animation';
 
-.btn {
-  margin-right: 1em;
-}
+@import 'partials/layout/_global';
+@import 'partials/layout/_header';
+@import 'partials/layout/_footer';
+@import 'partials/layout/_blocks';
+@import 'partials/layout/_menus';
 
-/************ css for sidebar regions ***********/
-.region-sidebar-first,
-.region-sidebar-last,
-.action-links {
-	li {
-	  list-style-type: none;
-  } 
-}
-
-.field-type-taxonomy-term-reference {
-	.field-item {
-	  display: inline-block;
-	  margin-right: 0.5rem;
-	}
-}
-
-/******** for comment form ***********/
-.comment-form {
-	.form-type-item {
-		label {
-			position: inherit;
-			display: block;
-    	margin-bottom: 12px;
-		}
-		span, .username {
-			padding-left: 12px;
-		}
-	}
-	.filter-wrapper {
-		.form-type-select {
-			label {
-				position: inherit;
-			  display: block;
-    	  margin-bottom: 20px;
-			}
-		}
-	}
-}
+@import 'partials/pages/_entityforms';
+@import 'partials/pages/_results';

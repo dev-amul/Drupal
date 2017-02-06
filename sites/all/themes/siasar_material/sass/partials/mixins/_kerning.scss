@@ -1,0 +1,21 @@
+//////////////////////////////
+// Kerning Mixin
+//
+// The following Mixin makes browsers use font's kerning info.
+// While related to tracking ("letter-spacing"), kerning is not the same thing.
+// Think of tracking as the general "distance between characters" parameter,
+// and kerning as an adjustment applied to tracking on certain character pairs
+// that need special consideration.
+//
+// For example, "MT"
+//
+// Only OpenType fonts support kerning.
+//
+// Prefixes are automatically added by SASS compiler for Safari support.
+//
+//////////////////////////////
+
+@mixin kerning() {
+  font-feature-settings: "kern" 1; // Required by IE
+  font-kerning: normal;
+}

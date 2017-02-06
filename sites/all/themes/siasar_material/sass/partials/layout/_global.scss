@@ -1,0 +1,56 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+
+}
+body {
+  font-family: $body-font;
+  position: relative;
+  background-color: $siasar-almost-white;
+
+  &.not-logged-in {
+    background-color: $siasar-dark-cyan;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: $headers-font;
+  font-weight: bold;
+  color: $siasar-cyan;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+section.main {
+  max-width: 1280px;
+
+  .block {
+    background: white;
+    padding: 20px;
+  }
+
+}
+
+.btn {
+  background-color: $siasar-green;
+  text-transform: lowercase;
+
+  &.form-submit {
+    background-image: url('../img/tick.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    padding-left: 55px;
+    padding-right: 25px;
+  }
+}
+
+input.form-text {
+  box-sizing: border-box;
+  padding-left: 10px;
+}
