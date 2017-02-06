@@ -22,21 +22,45 @@ h1, h2, h3, h4 {
   margin-bottom: 1em;
 }
 
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  background: #096396;
+  color: white;
+}
+
 h4 {
   font-size: 2rem;
 }
 
-section.main {
+.page {
   max-width: 1280px;
+  margin: 80px auto;
 }
-section.main .block {
-  background: white;
+@media (min-width: 600px) {
+  .page {
+    margin: 100px auto;
+  }
+}
+@media (min-width: 992px) {
+  .page {
+    margin: 120px auto;
+  }
+}
+.page .main {
+  padding: 0;
+}
+.page .block {
+  background: #f1f1f1;
   padding: 20px;
 }
 
 .btn {
   background-color: #26c726;
   text-transform: lowercase;
+  border-radius: 5px;
 }
 .btn.form-submit {
   background-image: url("../img/tick.svg");
@@ -50,6 +74,16 @@ section.main .block {
 input.form-text {
   box-sizing: border-box;
   padding-left: 10px;
+  background-color: white;
+  border: solid #ccc 2px;
+}
+input.form-text:focus {
+  border-bottom-width: 2px;
+}
+
+span.form-required {
+  color: #c1272d;
+  font-weight: bold;
 }
 
 .header-menu {
@@ -63,7 +97,7 @@ input.form-text {
   height: 100px;
   background-color: #00add2;
   border-radius: 50%;
-  box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 0px 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 600px) {
   .header-menu a.brand-logo {
@@ -83,7 +117,12 @@ input.form-text {
   text-align: center;
 }
 
+#block-system-main {
+  padding: 0;
+}
+
 #block-user-login {
+  background: white;
   min-width: 250px;
   position: absolute;
   top: 50%;
@@ -98,6 +137,46 @@ input.form-text {
 }
 #block-user-login .item-list a {
   font-size: 0.8em;
+}
+
+form.entityform .vertical-tabs {
+  border: none;
+  margin-top: 0;
+}
+form.entityform .vertical-tabs-list {
+  border: none;
+  margin-top: 0;
+}
+form.entityform .vertical-tabs-list li {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  margin-bottom: 3px;
+  background: #de861b;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
+}
+form.entityform .vertical-tabs-list li.first {
+  border-top-left-radius: 0;
+}
+form.entityform .vertical-tabs-list li:hover {
+  background-color: #ebb676;
+}
+form.entityform .vertical-tabs-list li a {
+  color: white;
+  text-decoration: none;
+}
+form.entityform .vertical-tabs-list li a:hover {
+  text-decoration: none;
+}
+form.entityform .vertical-tabs-list li.selected {
+  background-color: white;
+}
+form.entityform .vertical-tabs-list li.selected a {
+  text-decoration: none;
+}
+form.entityform .vertical-tabs-panes {
+  background-color: white;
+  border: none;
+  padding: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

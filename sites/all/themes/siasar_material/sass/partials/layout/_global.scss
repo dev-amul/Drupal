@@ -22,15 +22,36 @@ h1, h2, h3, h4 {
   margin-bottom: 1em;
 }
 
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  background: $siasar-blue;
+  color: white;
+}
+
 h4 {
   font-size: 2rem;
 }
 
-section.main {
+.page {
   max-width: 1280px;
+  margin: 80px auto;
+
+  @include breakpoint($break-small) {
+    margin: 100px auto;
+  }
+  @include breakpoint($break-medium) {
+    margin: 120px auto;
+  }
+
+  .main {
+    padding: 0;
+  }
 
   .block {
-    background: white;
+    background: $siasar-almost-white;
     padding: 20px;
   }
 
@@ -39,6 +60,7 @@ section.main {
 .btn {
   background-color: $siasar-green;
   text-transform: lowercase;
+  border-radius: $siasar-border-radius;
 
   &.form-submit {
     background-image: url('../img/tick.svg');
@@ -53,4 +75,15 @@ section.main {
 input.form-text {
   box-sizing: border-box;
   padding-left: 10px;
+  background-color: white;
+  border: solid $siasar-light-grey 2px;
+
+  &:focus {
+    border-bottom-width: 2px;
+  }
+}
+
+span.form-required {
+  color: #c1272d;
+  font-weight: bold;
 }

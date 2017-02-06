@@ -22,7 +22,6 @@ function materialize_css_alter(&$css) {
     'modules/search/search.css' => FALSE,
     'modules/filter/filter.css' => FALSE,
     'modules/field/theme/field.css' => FALSE,
-    'misc/vertical-tabs.css' => FALSE,
   );
   $css = array_diff_key($css, $exclude);
 }

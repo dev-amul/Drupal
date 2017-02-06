@@ -1,0 +1,51 @@
+form.entityform {
+
+  .vertical-tabs {
+    border: none;
+    margin-top: 0;
+  }
+
+  .vertical-tabs-list {
+    border: none;
+    margin-top: 0;
+
+    li {
+      border: none;
+      border-radius: $siasar-border-radius 0 0 $siasar-border-radius;
+      margin-bottom: 3px;
+      background: $siasar-orange;
+      box-shadow: $shadow-tabs;
+
+      &.first {
+        border-top-left-radius: 0;
+      }
+
+      &:hover {
+        background-color: $siasar-orange-light;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &.selected {
+        background-color: white;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .vertical-tabs-panes {
+    background-color: white;
+    border: none;
+    padding: 20px;
+  }
+}

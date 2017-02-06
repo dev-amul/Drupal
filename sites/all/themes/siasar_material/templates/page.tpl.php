@@ -109,10 +109,12 @@
 
       <?php print render($secondary_navigation); ?>
 
-      <?php if (!empty($breadcrumb)): print $breadcrumb; endif; ?>
       <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php print render($title_suffix); ?>
+      <?php if ($title): ?>
+        <?php print render($title_prefix); ?>
+        <h1><?php print $title ?></h1>
+        <?php print render($title_suffix); ?>
+      <?php endif; ?>
       <?php print $messages; ?>
       <?php if (!empty($tabs['#primary'])): ?>
         <?php print render($tabs_primary); ?>

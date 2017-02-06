@@ -4,10 +4,15 @@
   }
 }
 
+#block-system-main {
+  padding: 0;
+}
+
 // ***
 // Login block
 // ***
 #block-user-login {
+  background: white;
   min-width: 250px;
   position: absolute;
   top: 50%;
