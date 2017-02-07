@@ -40,7 +40,10 @@ function _siasar_material_add_meta_viewport() {
  */
 function _siasar_material_add_status_classes_to_body(&$vars) {
   $status = drupal_get_http_header("status");
-  $vars['classes_array'] = array_filter($vars['classes_array'], '_siasar_material_filter_body_classes');
+
+  if($status === '403 Forbidden' || $status === '404 Not Found') {
+    $vars['classes_array'] = array_filter($vars['classes_array'], '_siasar_material_filter_body_classes');
+  }
 
   switch ($status) {
     case '403 Forbidden':

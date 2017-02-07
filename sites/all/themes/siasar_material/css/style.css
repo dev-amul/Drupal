@@ -268,6 +268,27 @@ form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.for
 form.entityform .vertical-tabs-panes .form-wrapper:not(:first-child) {
   margin-top: 25px;
 }
+form.entityform .field-type-field-collection .field-multiple-table input.form-submit {
+  background-image: url("../img/cross.svg");
+  background-color: #bf1d50;
+  background-size: 20px;
+  padding-left: 50px;
+  float: right;
+}
+form.entityform input.field-add-more-submit {
+  background-image: url("../img/plus.svg");
+  background-color: #de861b;
+  background-size: 20px;
+  padding-left: 50px;
+  margin-top: 20px;
+}
+form.entityform .image-widget input[type=submit] {
+  background-image: url("../img/arrow_up.svg");
+  background-color: #de861b;
+  background-size: 20px;
+  padding-left: 50px;
+  margin-left: 20px;
+}
 form.entityform .form-actions {
   text-align: right;
 }
