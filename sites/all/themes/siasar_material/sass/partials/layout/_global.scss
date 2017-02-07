@@ -109,6 +109,11 @@ p {
   }
 }
 
+select.location-tree-selector {
+  display: inline-block;
+  width: auto;
+}
+
 span.form-required {
   color: #c1272d;
   font-weight: bold;
