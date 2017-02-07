@@ -9,6 +9,7 @@ body.page-eform-submit .page {
     text-align: left;
     background: none;
     line-height: 1.2;
+    padding-left: 5px;
   }
 }
 
@@ -26,36 +27,32 @@ form.entityform {
     border: none;
     margin-top: 0;
 
-    li {
+    li.vertical-tab-button {
       border: none;
       border-radius: $siasar-border-radius 0 0 $siasar-border-radius;
       margin-bottom: 3px;
       background: $siasar-orange;
       box-shadow: $shadow-tabs;
-
-      &.first {
-        border-top-left-radius: 0;
-      }
+      border-right: $siasar-orange - #111111 solid 2px;
 
       &:hover {
-        background-color: $siasar-orange-light;
+        background-color: $siasar-light-orange;
       }
 
       a {
         color: white;
         text-decoration: none;
 
-        &:hover {
+        &:hover,
+        &:hover strong,
+        &:focus strong {
           text-decoration: none;
         }
       }
 
       &.selected {
         background-color: white;
-
-        a {
-          text-decoration: none;
-        }
+        border: none;
       }
     }
   }
@@ -64,18 +61,66 @@ form.entityform {
   .vertical-tabs-panes {
     background-color: white;
     border: none;
-    padding: 20px;
-  }
+    padding: 40px;
 
-  fieldset {
-    border: none;
-    box-shadow: none;
+    fieldset {
+      border: none;
+      box-shadow: none;
+      padding: 0;
 
-    legend {
-      font-size: 2rem;
+      legend {
+        color: white;
+        background: $siasar-dark-cyan;
+        font-size: 1.25rem;
+        padding: 3px 20px;
+        position: relative;
+        left: -40px;
+
+        a {
+          color: white;
+        }
+      }
+
+      .field-group-fieldset {
+        padding: 20px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        fieldset.form-wrapper {
+          padding: 10px 0 0 20px;
+          margin: 20px 0 30px 20px;
+          overflow: visible;
+
+          legend {
+            float: left;
+            padding: 0;
+            background: white;
+            color: $siasar-dark-cyan;
+            font-size: 1rem;
+          }
+
+          > .fieldset-wrapper {
+            float: left;
+            border-left: solid $siasar-dark-cyan 2px;
+            padding-left: 20px;
+            margin: 0;
+
+            .form-item:last-child input {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .form-wrapper:not(:first-child) {
+      margin-top: 25px;
     }
   }
-
   .form-actions {
     text-align: right;
 
@@ -83,4 +128,5 @@ form.entityform {
       margin-left: 20px;
     }
   }
+
 }

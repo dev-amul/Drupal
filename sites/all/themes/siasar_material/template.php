@@ -18,6 +18,13 @@ function siasar_material_css_alter(&$css) {
  * Implements hook_preprocess_html().
  */
 function siasar_material_preprocess_html(&$vars) {
+  _siasar_material_add_meta_viewport();
+  _siasar_material_add_status_classes_to_body($vars);
+}
+/**
+ * Helper function to add Meta Viewport
+ */
+function _siasar_material_add_meta_viewport() {
   $viewport = array(
    '#tag' => 'meta',
    '#attributes' => array(
@@ -26,4 +33,20 @@ function siasar_material_preprocess_html(&$vars) {
    ),
   );
   drupal_add_html_head($viewport, 'viewport');
+}
+
+/**
+ * Helper function to add 403 and 404 body classes
+ */
+function _siasar_material_add_status_classes_to_body(&$vars) {
+  $status = drupal_get_http_header("status");
+
+  switch ($status) {
+    case '403 Forbidden':
+      $vars['classes_array'][] = 'forbidden-403';
+      break;
+    case '404 Not Found':
+      $vars['classes_array'][] = 'not-found-404';
+      break;
+  }
 }

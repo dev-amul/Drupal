@@ -75,14 +75,35 @@ p {
   padding-right: 25px;
 }
 
-input.form-text {
+.input-field {
+  margin-top: 0;
+}
+.input-field label,
+.input-field label:not(.label-icon).active {
+  font-size: 1rem;
+  color: #00829e;
+  position: static;
+  display: block;
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+.input-field [type="radio"]:not(:checked) + label,
+.input-field [type="radio"]:checked + label {
+  color: #666;
+}
+.input-field input.form-text,
+.input-field textarea {
   box-sizing: border-box;
   padding-left: 10px;
   background-color: white;
   border: solid #ccc 2px;
 }
-input.form-text:focus {
+.input-field input.form-text:focus,
+.input-field textarea:focus {
   border-bottom-width: 2px;
+}
+.input-field textarea {
+  min-height: 8em;
 }
 
 span.form-required {
@@ -160,6 +181,7 @@ body.page-eform-submit .page h1 {
   text-align: left;
   background: none;
   line-height: 1.2;
+  padding-left: 5px;
 }
 
 form.entityform .vertical-tabs {
@@ -171,49 +193,97 @@ form.entityform .vertical-tabs-list {
   border: none;
   margin-top: 0;
 }
-form.entityform .vertical-tabs-list li {
+form.entityform .vertical-tabs-list li.vertical-tab-button {
   border: none;
   border-radius: 5px 0 0 5px;
   margin-bottom: 3px;
   background: #de861b;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
+  border-right: #cd750a solid 2px;
 }
-form.entityform .vertical-tabs-list li.first {
-  border-top-left-radius: 0;
-}
-form.entityform .vertical-tabs-list li:hover {
+form.entityform .vertical-tabs-list li.vertical-tab-button:hover {
   background-color: #ebb676;
 }
-form.entityform .vertical-tabs-list li a {
+form.entityform .vertical-tabs-list li.vertical-tab-button a {
   color: white;
   text-decoration: none;
 }
-form.entityform .vertical-tabs-list li a:hover {
+form.entityform .vertical-tabs-list li.vertical-tab-button a:hover, form.entityform .vertical-tabs-list li.vertical-tab-button a:hover strong, form.entityform .vertical-tabs-list li.vertical-tab-button a:focus strong {
   text-decoration: none;
 }
-form.entityform .vertical-tabs-list li.selected {
+form.entityform .vertical-tabs-list li.vertical-tab-button.selected {
   background-color: white;
-}
-form.entityform .vertical-tabs-list li.selected a {
-  text-decoration: none;
+  border: none;
 }
 form.entityform .vertical-tabs-panes {
   background-color: white;
   border: none;
-  padding: 20px;
+  padding: 40px;
 }
-form.entityform fieldset {
+form.entityform .vertical-tabs-panes fieldset {
   border: none;
   box-shadow: none;
+  padding: 0;
 }
-form.entityform fieldset legend {
-  font-size: 2rem;
+form.entityform .vertical-tabs-panes fieldset legend {
+  color: white;
+  background: #00829e;
+  font-size: 1.25rem;
+  padding: 3px 20px;
+  position: relative;
+  left: -40px;
+}
+form.entityform .vertical-tabs-panes fieldset legend a {
+  color: white;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset {
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset:first-child {
+  margin-top: 0;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper {
+  padding: 10px 0 0 20px;
+  margin: 20px 0 30px 20px;
+  overflow: visible;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper legend {
+  float: left;
+  padding: 0;
+  background: white;
+  color: #00829e;
+  font-size: 1rem;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper > .fieldset-wrapper {
+  float: left;
+  border-left: solid #00829e 2px;
+  padding-left: 20px;
+  margin: 0;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper > .fieldset-wrapper .form-item:last-child input {
+  margin-bottom: 0;
+}
+form.entityform .vertical-tabs-panes .form-wrapper:not(:first-child) {
+  margin-top: 25px;
 }
 form.entityform .form-actions {
   text-align: right;
 }
 form.entityform .form-actions input {
   margin-left: 20px;
+}
+
+body.forbidden-403 h1,
+body.not-found-404 h1 {
+  background: none;
+}
+body.forbidden-403 #block-system-main,
+body.not-found-404 #block-system-main {
+  background: none;
+  text-align: center;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

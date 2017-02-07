@@ -17,10 +17,11 @@ $siasar-red: #bf1d50;
 $siasar-light-red: #db6e72;
 
 $siasar-maroon: #bf1d50;
-$siasar-maroon-light: #d97796;
+$siasar-light-maroon: #d97796;
 
 $siasar-orange: #de861b;
-$siasar-orange-light: #ebb676;
+$siasar-dark-orange: #a76514;
+$siasar-light-orange: #ebb676;
 
 $siasar-cyan: #00add2;
 $siasar-dark-cyan: #00829e;
@@ -36,7 +37,6 @@ $layout-max-width: 1240px;
 $left-box: 625px;
 
 // Shadows
-
 $shadow-interactive: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 $shadow-subtle: 0 3px 1px -2px rgba(0,0,0,0.2);
 $shadow-tabs: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);

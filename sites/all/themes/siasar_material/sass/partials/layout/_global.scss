@@ -76,14 +76,36 @@ p {
   }
 }
 
-input.form-text {
-  box-sizing: border-box;
-  padding-left: 10px;
-  background-color: white;
-  border: solid $siasar-light-grey 2px;
+.input-field {
+  margin-top: 0;
 
-  &:focus {
-    border-bottom-width: 2px;
+  label,
+  label:not(.label-icon).active {
+    font-size: 1rem;
+    color: $siasar-dark-cyan;
+    position: static;
+    display: block;
+    transform: translate(0);
+  }
+
+  [type="radio"]:not(:checked) + label,
+  [type="radio"]:checked + label {
+    color: $siasar-dark-grey;
+  }
+
+  input.form-text,
+  textarea {
+    box-sizing: border-box;
+    padding-left: 10px;
+    background-color: white;
+    border: solid $siasar-light-grey 2px;
+
+    &:focus {
+      border-bottom-width: 2px;
+    }
+  }
+  textarea {
+    min-height: 8em;
   }
 }
 
