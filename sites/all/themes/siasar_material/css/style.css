@@ -163,11 +163,6 @@ span.form-required {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-#block-user-login .input-field label {
-  font-size: .8rem;
-  -webkit-transform: translateY(-140%);
-          transform: translateY(-140%);
-}
 #block-user-login .item-list a {
   font-size: 0.8em;
 }
