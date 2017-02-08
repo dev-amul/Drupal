@@ -98,6 +98,7 @@ p {
   padding-left: 10px;
   background-color: white;
   border: solid #ccc 2px;
+  margin-bottom: 0;
 }
 .input-field input.form-text:focus,
 .input-field select.form-select:focus,
@@ -112,6 +113,11 @@ select.location-tree-selector {
   display: inline-block;
   width: auto;
   border: solid #ccc 2px;
+}
+
+.field-type-number-decimal input.form-text,
+.field-type-geofield input.form-text {
+  width: auto;
 }
 
 span.form-required {
@@ -269,11 +275,11 @@ form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.for
   padding-left: 20px;
   margin: 0;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper > .fieldset-wrapper .form-item:last-child input {
-  margin-bottom: 0;
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper > .fieldset-wrapper .form-item:not(:last-child) {
+  margin-bottom: 15px;
 }
 form.entityform .vertical-tabs-panes .form-wrapper:not(:first-child) {
-  margin-top: 25px;
+  margin-top: 30px;
 }
 form.entityform .field-type-field-collection .field-multiple-table input.form-submit {
   background-image: url("../img/cross.svg");

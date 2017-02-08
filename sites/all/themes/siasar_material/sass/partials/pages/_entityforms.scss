@@ -109,8 +109,8 @@ form.entityform {
             padding-left: 20px;
             margin: 0;
 
-            .form-item:last-child input {
-              margin-bottom: 0;
+            .form-item:not(:last-child) {
+              margin-bottom: 15px;
             }
           }
         }
@@ -118,7 +118,7 @@ form.entityform {
     }
 
     .form-wrapper:not(:first-child) {
-      margin-top: 25px;
+      margin-top: 30px;
     }
   }
 
