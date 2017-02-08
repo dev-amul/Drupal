@@ -49,6 +49,9 @@ p {
   @include breakpoint($break-medium) {
     margin: 120px auto;
   }
+  a:hover {
+    text-decoration: underline;
+  }
 
   .main {
     padding: 0;
