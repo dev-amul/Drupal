@@ -279,7 +279,8 @@ function siasar_updates_update_7118(&$sandbox) {
   $modules = array(
     'empty_page',
     'strongarm',
-    'feature_siasar_theme_settings'
+    'feature_siasar_theme_settings',
+    'special_menu_items'
   );
   $modules_enabled = module_enable($modules, TRUE);
   if (!$modules_enabled) {
