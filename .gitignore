@@ -14,5 +14,7 @@ sites/all/translations
 
 # Ignore SASS cache
 .sass-cache
+.sass-cache*
 *.scssc
+.css.map
 
