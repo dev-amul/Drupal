@@ -92,6 +92,7 @@ p {
   color: #666;
 }
 .input-field input.form-text,
+.input-field select.form-select,
 .input-field textarea {
   box-sizing: border-box;
   padding-left: 10px;
@@ -99,6 +100,7 @@ p {
   border: solid #ccc 2px;
 }
 .input-field input.form-text:focus,
+.input-field select.form-select:focus,
 .input-field textarea:focus {
   border-bottom-width: 2px;
 }
@@ -109,11 +111,16 @@ p {
 select.location-tree-selector {
   display: inline-block;
   width: auto;
+  border: solid #ccc 2px;
 }
 
 span.form-required {
   color: #c1272d;
   font-weight: bold;
+}
+
+.form-type-date-select .form-item {
+  margin-right: 3px;
 }
 
 .header-menu {

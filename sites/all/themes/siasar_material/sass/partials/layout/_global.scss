@@ -94,6 +94,7 @@ p {
   }
 
   input.form-text,
+  select.form-select,
   textarea {
     box-sizing: border-box;
     padding-left: 10px;
@@ -104,6 +105,7 @@ p {
       border-bottom-width: 2px;
     }
   }
+
   textarea {
     min-height: 8em;
   }
@@ -112,9 +114,14 @@ p {
 select.location-tree-selector {
   display: inline-block;
   width: auto;
+  border: solid $siasar-light-grey 2px;
 }
 
 span.form-required {
   color: #c1272d;
   font-weight: bold;
+}
+
+.form-type-date-select .form-item {
+  margin-right: 3px;
 }
