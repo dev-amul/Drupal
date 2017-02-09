@@ -10,29 +10,6 @@
 function feature_siasar_theme_settings_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: menu-front-page-menu_aadir-cuestionarios:<nolink>.
-  $menu_links['menu-front-page-menu_aadir-cuestionarios:<nolink>'] = array(
-    'menu_name' => 'menu-front-page-menu',
-    'link_path' => '<nolink>',
-    'router_path' => '<nolink>',
-    'link_title' => 'Añadir cuestionarios',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-front-page-menu_aadir-cuestionarios:<nolink>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 1,
-    'expanded' => 1,
-    'weight' => -50,
-    'customized' => 1,
-    'language' => 'es',
-    'menu_links_customized' => 1,
-  );
   // Exported menu link: menu-front-page-menu_comunidad:eform/submit/comunidad.
   $menu_links['menu-front-page-menu_comunidad:eform/submit/comunidad'] = array(
     'menu_name' => 'menu-front-page-menu',
@@ -55,7 +32,7 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'customized' => 1,
     'language' => 'es',
     'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-front-page-menu_aadir-cuestionarios:<nolink>',
+    'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
   );
   // Exported menu link: menu-front-page-menu_consultar-los-resultados:<nolink>.
   $menu_links['menu-front-page-menu_consultar-los-resultados:<nolink>'] = array(
@@ -102,7 +79,7 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'customized' => 1,
     'language' => 'es',
     'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-front-page-menu_aadir-cuestionarios:<nolink>',
+    'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
   );
   // Exported menu link: menu-front-page-menu_mis-borradores:drafts.
   $menu_links['menu-front-page-menu_mis-borradores:drafts'] = array(
@@ -150,7 +127,7 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'customized' => 1,
     'language' => 'es',
     'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-front-page-menu_aadir-cuestionarios:<nolink>',
+    'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
   );
   // Exported menu link: menu-front-page-menu_prestador-de-servicio:eform/submit/prestador_de_servicio.
   $menu_links['menu-front-page-menu_prestador-de-servicio:eform/submit/prestador_de_servicio'] = array(
@@ -174,7 +151,30 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'customized' => 1,
     'language' => 'es',
     'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-front-page-menu_aadir-cuestionarios:<nolink>',
+    'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
+  );
+  // Exported menu link: menu-front-page-menu_rellenar-cuestionarios:<nolink>.
+  $menu_links['menu-front-page-menu_rellenar-cuestionarios:<nolink>'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => '<nolink>',
+    'router_path' => '<nolink>',
+    'link_title' => 'Rellenar cuestionarios',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 1,
+    'weight' => -50,
+    'customized' => 1,
+    'language' => 'es',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: menu-front-page-menu_sistema:eform/submit/sistema.
   $menu_links['menu-front-page-menu_sistema:eform/submit/sistema'] = array(
@@ -198,7 +198,7 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'customized' => 1,
     'language' => 'es',
     'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-front-page-menu_aadir-cuestionarios:<nolink>',
+    'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
   );
   // Exported menu link: menu-front-page-menu_todos-los-datos:submissions.
   $menu_links['menu-front-page-menu_todos-los-datos:submissions'] = array(
@@ -227,13 +227,13 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Añadir cuestionarios');
   t('Comunidad');
   t('Consultar los resultados');
   t('Formulario de Pruebas');
   t('Mis borradores');
   t('Prestador de Asistencia Técnica');
   t('Prestador de Servicio');
+  t('Rellenar cuestionarios');
   t('Sistema');
   t('Todos los datos');
 
