@@ -4,17 +4,24 @@
  */
 function siasar_services_counter_services_resources() {
   return array(
-    'entity_entityform_count' => array(
+    'entity_count' => array(
       'operations' => array(
         'index' => array(
-          'help' => 'Retrieves total number of entityforms saved, by type',
-          'callback' => '_siasar_services_counter_entityform_count',
+          'help' => 'Retrieves total number of entities saved, by type. Parameters: entity type, bundle.',
+          'callback' => '_siasar_services_counter_entity_count',
           'args' => array(
             array(
-              'name' => 'entityform_type',
+              'name' => 'entity_name',
               'type' => 'string',
               'description' => '',
               'source' => array('path' => 0),
+              'optional' => FALSE,
+            ),
+            array(
+              'name' => 'bundle',
+              'type' => 'string',
+              'description' => '',
+              'source' => array('path' => 1),
               'optional' => TRUE,
             )
           ),
@@ -26,28 +33,25 @@ function siasar_services_counter_services_resources() {
 }
 
 /**
- * Callback for 'entity_entityform_count' endpoint.
- * Delivers te number of saved entityforms by type.
+ * Callback for 'entity_count' endpoint.
+ * Delivers te number of saved entities by type and bundle.
  *
- * @param string $entityform_type
- *   Entityform machine name. If empty, it will find totals for all entityforms.
+ * @param string $entity_name
+ *   Entity name. Required.
+ *
+ * @param string $bundle
+ *   Entity bundle.
  *
  * @return array
- *   Keyed array [entityform_machine_name] => int
+ *   Keyed array [bundle_machine_name] => int
  */
-function _siasar_services_counter_entityform_count($entityform_type = null) {
-  module_load_include('module', 'entityform', 'entityform');
-
-  $total = array();
-
-  if ($entityform_type == null) {
-    $bundles = array_keys(entityform_get_types());
-  } else {
-    $bundles = array($entityform_type);
-  }
+function _siasar_services_counter_entity_count($entity_name, $bundle) {
+  $bundles = $bundle
+    ? array($bundle)
+    : array_keys(entity_get_info($entity_name)['bundles']);
 
   foreach ($bundles as $b) {
-    $total[$b] = _siasar_services_counter_get_totals_per_bundle('entityform', $b);
+    $total[$b] = _siasar_services_counter_get_totals_per_bundle($entity_name, $b);
   }
 
   return $total;
