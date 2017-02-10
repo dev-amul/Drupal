@@ -83,6 +83,41 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
   $rule = new stdClass();
   $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
   $rule->api_version = 2;
+  $rule->rulename = 'Total houses vs safe drinking water storage';
+  $rule->name = 'total_houses_vs_drink_storage';
+  $rule->field_name = 'field_com_viv_totales';
+  $rule->col = 'value';
+  $rule->entity_type = 'entityform';
+  $rule->bundle = 'comunidad';
+  $rule->validator = 'field_validation_match_against_form_value';
+  $rule->settings = array(
+    'operator' => 'greater_equal',
+    'target_field_machine_name' => 'field_com_hig_num_vivagua',
+    'bypass' => 0,
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      7 => 0,
+      8 => 0,
+      5 => 0,
+      9 => 0,
+      6 => 0,
+      10 => 0,
+    ),
+    'errors' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+  );
+  $rule->error_message = 'La cantidad total de viviendas no puede ser menor que la cantidad de viviendas que almacenan el agua de bebida de forma segura (B5).';
+  $export['total_houses_vs_drink_storage'] = $rule;
+
+  $rule = new stdClass();
+  $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
+  $rule->api_version = 2;
   $rule->rulename = 'Total houses vs existing infrastructure';
   $rule->name = 'total_houses_vs_existing_sanitat';
   $rule->field_name = 'field_com_viv_totales';
@@ -127,7 +162,7 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
   $rule->validator = 'field_validation_match_against_form_value';
   $rule->settings = array(
     'operator' => 'greater_equal',
-    'target_field_machine_name' => 'field_com_hig_num_vivbasica + field_com_hig_num_vivtodos + field_com_hig_num_vivagua',
+    'target_field_machine_name' => 'field_com_hig_num_vivbasica',
     'bypass' => 0,
     'roles' => array(
       1 => 0,
@@ -147,7 +182,7 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
       'condition_value' => '',
     ),
   );
-  $rule->error_message = 'La cantidad total de viviendas no puede ser menor que la suma del bloque B5.';
+  $rule->error_message = 'La cantidad total de viviendas no puede ser menor que la cantidad de viviendas que cuentan con una instalación básica (con agua y jabón) para el lavado de manos cerca de la instalación de saneamiento (B5).';
   $export['total_houses_vs_hygiene_houses'] = $rule;
 
   $rule = new stdClass();
@@ -184,6 +219,41 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
   );
   $rule->error_message = 'El número total de viviendas debe ser igual o mayor que la suma de los bloques B3 y B4.';
   $export['total_houses_vs_sanitation'] = $rule;
+
+  $rule = new stdClass();
+  $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
+  $rule->api_version = 2;
+  $rule->rulename = 'Total houses vs washing Installation all users';
+  $rule->name = 'total_houses_vs_wash_all_users';
+  $rule->field_name = 'field_com_viv_totales';
+  $rule->col = 'value';
+  $rule->entity_type = 'entityform';
+  $rule->bundle = 'comunidad';
+  $rule->validator = 'field_validation_match_against_form_value';
+  $rule->settings = array(
+    'operator' => 'greater_equal',
+    'target_field_machine_name' => 'field_com_hig_num_vivtodos',
+    'bypass' => 0,
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      7 => 0,
+      8 => 0,
+      5 => 0,
+      9 => 0,
+      6 => 0,
+      10 => 0,
+    ),
+    'errors' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+  );
+  $rule->error_message = 'El número total de viviendas no puede ser menor que la cantidad de viviendas en que todos sus miembros utilizan la instalación de lavado (B5).';
+  $export['total_houses_vs_wash_all_users'] = $rule;
 
   return $export;
 }
