@@ -11,3 +11,10 @@ sites/all/translations
 
 # Ignore backup files
 *.pgsql
+
+# Ignore SASS cache
+.sass-cache
+.sass-cache*
+*.scssc
+.css.map
+

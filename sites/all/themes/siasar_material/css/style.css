@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  position: relative;
+  background-color: #666;
+}
+body.not-logged-in {
+  background-color: #00829e;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  color: #00add2;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  background: #096396;
+  color: white;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+.page {
+  max-width: 1280px;
+  margin: 80px auto;
+}
+@media (min-width: 600px) {
+  .page {
+    margin: 100px auto;
+  }
+}
+@media (min-width: 992px) {
+  .page {
+    margin: 120px auto;
+  }
+}
+.page a:hover {
+  text-decoration: underline;
+}
+.page .main {
+  padding: 0;
+}
+.page .block {
+  background: white;
+  padding: 20px;
+}
+
+.btn {
+  background-color: #26c726;
+  text-transform: lowercase;
+  border-radius: 5px;
+}
+.btn.form-submit {
+  background-image: url("../img/tick.svg");
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  padding-left: 55px;
+  padding-right: 25px;
+}
+
+.input-field {
+  margin-top: 0;
+}
+.input-field label,
+.input-field label:not(.label-icon).active {
+  font-size: 1rem;
+  color: #00829e;
+  position: static;
+  display: block;
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+.input-field [type="radio"]:not(:checked) + label,
+.input-field [type="radio"]:checked + label {
+  color: #666;
+}
+.input-field input.form-text,
+.input-field select.form-select,
+.input-field textarea {
+  box-sizing: border-box;
+  padding-left: 10px;
+  background-color: white;
+  border: solid #ccc 2px;
+  margin-bottom: 0;
+}
+.input-field input.form-text:focus,
+.input-field select.form-select:focus,
+.input-field textarea:focus {
+  border-bottom-width: 2px;
+}
+.input-field textarea {
+  min-height: 8em;
+}
+
+select.location-tree-selector {
+  display: inline-block;
+  width: auto;
+  border: solid #ccc 2px;
+}
+
+.field-type-number-decimal input.form-text,
+.field-type-geofield input.form-text {
+  width: auto;
+}
+
+span.form-required {
+  color: #c1272d;
+  font-weight: bold;
+}
+
+.form-type-date-select .form-item {
+  margin-right: 3px;
+}
+
+.header-menu {
+  background: #00add2;
+}
+.header-menu .nav-wrapper {
+  width: 100%;
+}
+.header-menu a.brand-logo {
+  top: 0;
+  display: block;
+  font-size: 1rem;
+  width: 100px;
+  height: 100px;
+  background-color: #00add2;
+  border-radius: 50%;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 600px) {
+  .header-menu a.brand-logo {
+    top: 10px;
+  }
+}
+@media (min-width: 992px) {
+  .header-menu a.brand-logo {
+    left: 20px;
+  }
+}
+.header-menu a.brand-logo img {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  display: block;
+  top: 25px;
+  left: 25px;
+}
+
+.block h4 {
+  text-align: center;
+}
+
+#block-system-main {
+  padding: 0;
+}
+
+#block-user-login {
+  background: white;
+  min-width: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+#block-user-login .item-list a {
+  font-size: 0.8em;
+}
+
+body.page-frontpage .page {
+  max-width: 520px;
+}
+body.page-frontpage #block-menu-menu-front-page-menu {
+  background: none;
+}
+body.page-frontpage #block-menu-menu-front-page-menu h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  color: white;
+}
+body.page-frontpage #block-menu-menu-front-page-menu .content {
+  background: white;
+  padding: 20px;
+}
+body.page-frontpage #block-menu-menu-front-page-menu .content ul.menu {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body.page-frontpage #block-menu-menu-front-page-menu .content ul.menu > li {
+  display: table;
+  width: 100%;
+}
+body.page-frontpage #block-menu-menu-front-page-menu .content ul.menu > li:not(:last-child) {
+  margin-bottom: 30px;
+}
+body.page-frontpage #block-menu-menu-front-page-menu .content ul.menu > li span {
+  color: #666;
+  font-weight: bold;
+  text-align: right;
+  letter-spacing: 0.02em;
+  padding-right: 20px;
+}
+@media (min-width: 600px) {
+  body.page-frontpage #block-menu-menu-front-page-menu .content ul.menu > li span,
+  body.page-frontpage #block-menu-menu-front-page-menu .content ul.menu > li ul {
+    margin: 0;
+    float: left;
+    width: 50%;
+  }
+}
+
+body.page-eform-submit .page .block {
+  background: #666;
+  padding: 0;
+}
+body.page-eform-submit .page h1 {
+  font-size: 2.75rem;
+  text-align: left;
+  background: none;
+  line-height: 1.2;
+  padding-left: 5px;
+}
+
+form.entityform .vertical-tabs {
+  border: none;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+form.entityform .vertical-tabs-list {
+  border: none;
+  margin-top: 0;
+}
+form.entityform .vertical-tabs-list li.vertical-tab-button {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  margin-bottom: 3px;
+  background: #de861b;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
+  border-right: #cd750a solid 2px;
+}
+form.entityform .vertical-tabs-list li.vertical-tab-button:hover {
+  background-color: #ebb676;
+}
+form.entityform .vertical-tabs-list li.vertical-tab-button a {
+  color: white;
+  text-decoration: none;
+}
+form.entityform .vertical-tabs-list li.vertical-tab-button a:hover, form.entityform .vertical-tabs-list li.vertical-tab-button a:hover strong, form.entityform .vertical-tabs-list li.vertical-tab-button a:focus strong {
+  text-decoration: none;
+}
+form.entityform .vertical-tabs-list li.vertical-tab-button.selected {
+  background-color: white;
+  border: none;
+}
+form.entityform .vertical-tabs-panes {
+  background-color: white;
+  border: none;
+  padding: 40px;
+}
+form.entityform .vertical-tabs-panes fieldset {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+form.entityform .vertical-tabs-panes fieldset legend {
+  color: white;
+  background: #00829e;
+  font-size: 1.25rem;
+  padding: 3px 20px;
+  position: relative;
+  left: -40px;
+}
+form.entityform .vertical-tabs-panes fieldset legend a {
+  color: white;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset {
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset:first-child {
+  margin-top: 0;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper {
+  padding: 10px 0 0 20px;
+  margin: 20px 0 30px 20px;
+  overflow: visible;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper legend {
+  float: left;
+  padding: 0;
+  background: white;
+  color: #00829e;
+  font-size: 1rem;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper > .fieldset-wrapper {
+  float: left;
+  border-left: solid #00829e 2px;
+  padding-left: 20px;
+  margin: 0;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper > .fieldset-wrapper .form-item:not(:last-child) {
+  margin-bottom: 15px;
+}
+form.entityform .vertical-tabs-panes .form-wrapper:not(:first-child) {
+  margin-top: 30px;
+}
+form.entityform .field-type-field-collection .field-multiple-table input.form-submit {
+  background-image: url("../img/cross.svg");
+  background-color: #bf1d50;
+  background-size: 20px;
+  padding-left: 50px;
+  float: right;
+}
+form.entityform input.field-add-more-submit {
+  background-image: url("../img/plus.svg");
+  background-color: #de861b;
+  background-size: 20px;
+  padding-left: 50px;
+  margin-top: 20px;
+}
+form.entityform .image-widget input[type=submit] {
+  background-image: url("../img/arrow_up.svg");
+  background-color: #de861b;
+  background-size: 20px;
+  padding-left: 50px;
+  margin-left: 20px;
+}
+form.entityform .form-actions {
+  text-align: right;
+}
+form.entityform .form-actions input {
+  margin-left: 20px;
+}
+
+body.forbidden-403 h1,
+body.not-found-404 h1 {
+  background: none;
+}
+body.forbidden-403 #block-system-main,
+body.not-found-404 #block-system-main {
+  background: none;
+  text-align: center;
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -187,6 +187,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -2002,6 +2003,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 1,
@@ -2028,6 +2030,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -2054,6 +2057,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -2080,6 +2084,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -2908,6 +2913,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -2989,6 +2995,9 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_com_fic_cssa_pa',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -3063,6 +3072,9 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_com_fic_cssh_pa',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -4415,6 +4427,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 1,
@@ -4516,6 +4529,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -4969,6 +4983,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 1,
@@ -5275,6 +5290,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -6037,6 +6053,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -6207,6 +6224,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'translatable' => 0,
     'type' => 'datetime',
   );
+
   // Exported field_base: 'field_fecha_analisiscalidad_agua'.
   $field_bases['field_fecha_analisiscalidad_agua'] = array(
     'active' => 1,
@@ -6653,6 +6671,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -7672,6 +7691,9 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_infraestructura_captacion',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -8009,6 +8031,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -9885,6 +9908,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -9911,6 +9935,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -10522,6 +10547,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
@@ -10638,6 +10664,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,

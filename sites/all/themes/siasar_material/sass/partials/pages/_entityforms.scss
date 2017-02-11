@@ -1,0 +1,158 @@
+body.page-eform-submit .page {
+  .block {
+    background: $siasar-dark-grey;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+    text-align: left;
+    background: none;
+    line-height: 1.2;
+    padding-left: 5px;
+  }
+}
+
+
+form.entityform {
+
+  .vertical-tabs {
+    border: none;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  // Tabs
+  .vertical-tabs-list {
+    border: none;
+    margin-top: 0;
+
+    li.vertical-tab-button {
+      border: none;
+      border-radius: $siasar-border-radius 0 0 $siasar-border-radius;
+      margin-bottom: 3px;
+      background: $siasar-orange;
+      box-shadow: $shadow-tabs;
+      border-right: $siasar-orange - #111111 solid 2px;
+
+      &:hover {
+        background-color: $siasar-light-orange;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+
+        &:hover,
+        &:hover strong,
+        &:focus strong {
+          text-decoration: none;
+        }
+      }
+
+      &.selected {
+        background-color: white;
+        border: none;
+      }
+    }
+  }
+
+  // Form elements
+  .vertical-tabs-panes {
+    background-color: white;
+    border: none;
+    padding: 40px;
+
+    fieldset {
+      border: none;
+      box-shadow: none;
+      padding: 0;
+
+      legend {
+        color: white;
+        background: $siasar-dark-cyan;
+        font-size: 1.25rem;
+        padding: 3px 20px;
+        position: relative;
+        left: -40px;
+
+        a {
+          color: white;
+        }
+      }
+
+      .field-group-fieldset {
+        padding: 20px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        fieldset.form-wrapper {
+          padding: 10px 0 0 20px;
+          margin: 20px 0 30px 20px;
+          overflow: visible;
+
+          legend {
+            float: left;
+            padding: 0;
+            background: white;
+            color: $siasar-dark-cyan;
+            font-size: 1rem;
+          }
+
+          > .fieldset-wrapper {
+            float: left;
+            border-left: solid $siasar-dark-cyan 2px;
+            padding-left: 20px;
+            margin: 0;
+
+            .form-item:not(:last-child) {
+              margin-bottom: 15px;
+            }
+          }
+        }
+      }
+    }
+
+    .form-wrapper:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+
+  // Buttons in form
+  .field-type-field-collection .field-multiple-table input.form-submit {
+    background-image: url('../img/cross.svg');
+    background-color: $siasar-red;
+    background-size: 20px;
+    padding-left: 50px;
+    float: right;
+  }
+
+  input.field-add-more-submit {
+    background-image: url('../img/plus.svg');
+    background-color: $siasar-orange;
+    background-size: 20px;
+    padding-left: 50px;
+    margin-top: 20px;
+  }
+
+  .image-widget input[type=submit] {
+    background-image: url('../img/arrow_up.svg');
+    background-color: $siasar-orange;
+    background-size: 20px;
+    padding-left: 50px;
+    margin-left: 20px;
+  }
+
+  .form-actions {
+    text-align: right;
+
+    input {
+      margin-left: 20px;
+    }
+  }
+
+}

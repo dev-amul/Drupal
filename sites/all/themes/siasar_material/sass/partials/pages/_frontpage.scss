@@ -1,0 +1,54 @@
+body.page-frontpage {
+  .page {
+    max-width: 520px;
+  }
+
+  #block-menu-menu-front-page-menu {
+    background: none;
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      line-height: 1.5;
+      margin: 0;
+      color: white;
+    }
+
+    .content {
+      background: white;
+      padding: 20px;
+
+      ul.menu {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        > li {
+          display: table;
+          width: 100%;
+
+          &:not(:last-child) {
+            margin-bottom: 30px;
+          }
+
+          span {
+            color: $siasar-dark-grey;
+            font-weight: bold;
+            text-align: right;
+            letter-spacing: 0.02em;
+            padding-right: 20px;
+          }
+
+          span,
+          ul {
+            @include breakpoint($break-small) {
+              margin: 0;
+              float: left;
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

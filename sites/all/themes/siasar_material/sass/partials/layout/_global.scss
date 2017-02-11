@@ -1,0 +1,138 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+
+}
+body {
+  font-family: $body-font;
+  position: relative;
+  background-color: $siasar-dark-grey;
+
+  &.not-logged-in {
+    background-color: $siasar-dark-cyan;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: $headers-font;
+  font-weight: bold;
+  color: $siasar-cyan;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  background: $siasar-blue;
+  color: white;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+.page {
+  max-width: 1280px;
+  margin: 80px auto;
+
+  @include breakpoint($break-small) {
+    margin: 100px auto;
+  }
+  @include breakpoint($break-medium) {
+    margin: 120px auto;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .main {
+    padding: 0;
+  }
+
+  .block {
+    background: white;
+    padding: 20px;
+  }
+
+}
+
+.btn {
+  background-color: $siasar-green;
+  text-transform: lowercase;
+  border-radius: $siasar-border-radius;
+
+  &.form-submit {
+    background-image: url('../img/tick.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    padding-left: 55px;
+    padding-right: 25px;
+  }
+}
+
+.input-field {
+  margin-top: 0;
+
+  label,
+  label:not(.label-icon).active {
+    font-size: 1rem;
+    color: $siasar-dark-cyan;
+    position: static;
+    display: block;
+    transform: translate(0);
+  }
+
+  [type="radio"]:not(:checked) + label,
+  [type="radio"]:checked + label {
+    color: $siasar-dark-grey;
+  }
+
+  input.form-text,
+  select.form-select,
+  textarea {
+    box-sizing: border-box;
+    padding-left: 10px;
+    background-color: white;
+    border: solid $siasar-light-grey 2px;
+    margin-bottom: 0;
+
+    &:focus {
+      border-bottom-width: 2px;
+    }
+  }
+
+  textarea {
+    min-height: 8em;
+  }
+}
+
+select.location-tree-selector {
+  display: inline-block;
+  width: auto;
+  border: solid $siasar-light-grey 2px;
+}
+
+.field-type-number-decimal,
+.field-type-geofield {
+  input.form-text {
+    width: auto;
+  }
+}
+
+span.form-required {
+  color: #c1272d;
+  font-weight: bold;
+}
+
+.form-type-date-select .form-item {
+  margin-right: 3px;
+}
