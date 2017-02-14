@@ -22,9 +22,13 @@ class field_validation_match_against_form_value extends field_validation_validat
     $settings = $this->rule->settings;
     $value = $this->get_field_value($this->field['field_name']);
     $operator = $settings['operator'];
-    $match_value = $this->get_target_value($settings['target_field_machine_name']);
+    try {
+      $match_value = $this->get_target_value($settings['target_field_machine_name']);
+    } catch (Exception $e) {
+      drupal_set_message(t($e->getMessage()), 'notice');
+    }
 
-    if (is_numeric($value) && is_numeric($match_value)) {
+    if (is_numeric($value) && is_numeric($match_value) && !isset($e)) {
       $flag = $this->compare_values($value, $operator, $match_value);
 
       if (!$flag) {
@@ -79,8 +83,6 @@ class field_validation_match_against_form_value extends field_validation_validat
       $this->set_error();
       return false;
     }
-
-    return $this->get_field_value($expression);
   }
 
   /**
@@ -107,6 +109,9 @@ class field_validation_match_against_form_value extends field_validation_validat
 
     if (is_array($value) && isset($value['value'])) {
       $value = $value['value'];
+    }
+    if (empty($value) && $value !== 0 && (bool) $this->rule->settings['ignore_rule_if_blank_value']) {
+      throw new Exception('Field ['. $field . ']: Value is empty, whole validation rule will be ignored.');
     }
     return $value;
   }
@@ -137,6 +142,11 @@ class field_validation_match_against_form_value extends field_validation_validat
       '#description' => t("Field or fields whose value you want to compare to. You can write the name of a single field, or you can write a math expression, such as [field1 + field2 + field3]"),
       '#type' => 'textarea',
       '#default_value' => isset($default_settings['target_field_machine_name']) ? $default_settings['target_field_machine_name'] : '',
+    );
+    $form['settings']['ignore_rule_if_blank_value'] = array(
+      '#title' => t('Ignore the whole rule if any of the target values is blank'),
+      '#type' => 'checkbox',
+      '#default_value' => isset($default_settings['ignore_rule_if_blank_value']) ? $default_settings['ignore_rule_if_blank_value'] : 0,
     );
 
     parent::settings_form($form, $form_state);

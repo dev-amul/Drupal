@@ -64,72 +64,19 @@ p {
   padding: 20px;
 }
 
-.btn {
-  background-color: #26c726;
-  text-transform: lowercase;
+.messages {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #99f199;
+  border: solid #26c726 2px;
   border-radius: 5px;
 }
-.btn.form-submit {
-  background-image: url("../img/tick.svg");
-  background-position: 10px center;
-  background-repeat: no-repeat;
-  background-size: 25px;
-  padding-left: 55px;
-  padding-right: 25px;
+.messages.error {
+  background-color: #ffefa1;
+  border-color: #d81d40;
 }
-
-.input-field {
-  margin-top: 0;
-}
-.input-field label,
-.input-field label:not(.label-icon).active {
-  font-size: 1rem;
-  color: #00829e;
-  position: static;
-  display: block;
-  -webkit-transform: translate(0);
-          transform: translate(0);
-}
-.input-field [type="radio"]:not(:checked) + label,
-.input-field [type="radio"]:checked + label {
-  color: #666;
-}
-.input-field input.form-text,
-.input-field select.form-select,
-.input-field textarea {
-  box-sizing: border-box;
-  padding-left: 10px;
-  background-color: white;
-  border: solid #ccc 2px;
-  margin-bottom: 0;
-}
-.input-field input.form-text:focus,
-.input-field select.form-select:focus,
-.input-field textarea:focus {
-  border-bottom-width: 2px;
-}
-.input-field textarea {
-  min-height: 8em;
-}
-
-select.location-tree-selector {
-  display: inline-block;
-  width: auto;
-  border: solid #ccc 2px;
-}
-
-.field-type-number-decimal input.form-text,
-.field-type-geofield input.form-text {
-  width: auto;
-}
-
-span.form-required {
-  color: #c1272d;
-  font-weight: bold;
-}
-
-.form-type-date-select .form-item {
-  margin-right: 3px;
+.messages ul {
+  margin: 0;
 }
 
 .header-menu {
@@ -186,6 +133,79 @@ span.form-required {
 }
 #block-user-login .item-list a {
   font-size: 0.8em;
+}
+
+.btn {
+  background-color: #26c726;
+  text-transform: lowercase;
+  border-radius: 5px;
+}
+.btn.form-submit {
+  background-image: url("../img/tick.svg");
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  padding-left: 55px;
+  padding-right: 25px;
+}
+
+.input-field {
+  margin-top: 0;
+}
+.input-field label,
+.input-field label:not(.label-icon).active {
+  font-size: 1rem;
+  color: #00829e;
+  position: static;
+  display: block;
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+.input-field [type="radio"]:not(:checked) + label,
+.input-field [type="radio"]:checked + label {
+  color: #666;
+}
+.input-field input.form-text,
+.input-field select.form-select,
+.input-field textarea {
+  box-sizing: border-box;
+  padding-left: 10px;
+  background-color: white;
+  border: solid #ccc 2px;
+  margin-bottom: 0;
+}
+.input-field input.form-text:focus,
+.input-field select.form-select:focus,
+.input-field textarea:focus {
+  border-bottom-width: 2px;
+}
+.input-field input.form-text.error,
+.input-field select.form-select.error,
+.input-field textarea.error {
+  border-color: #d81d40;
+}
+.input-field textarea {
+  min-height: 8em;
+}
+
+select.location-tree-selector {
+  display: inline-block;
+  width: auto;
+  border: solid #ccc 2px;
+}
+
+.field-type-number-decimal input.form-text,
+.field-type-geofield input.form-text {
+  width: auto;
+}
+
+span.form-required {
+  color: #c1272d;
+  font-weight: bold;
+}
+
+.form-type-date-select .form-item {
+  margin-right: 3px;
 }
 
 body.page-frontpage .page {
@@ -331,7 +351,7 @@ form.entityform .vertical-tabs-panes .form-wrapper:not(:first-child) {
 }
 form.entityform .field-type-field-collection .field-multiple-table input.form-submit {
   background-image: url("../img/cross.svg");
-  background-color: #bf1d50;
+  background-color: #d81d40;
   background-size: 20px;
   padding-left: 50px;
   float: right;
