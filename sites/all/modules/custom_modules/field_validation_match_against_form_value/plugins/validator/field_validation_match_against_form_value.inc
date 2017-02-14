@@ -138,6 +138,11 @@ class field_validation_match_against_form_value extends field_validation_validat
       '#type' => 'textarea',
       '#default_value' => isset($default_settings['target_field_machine_name']) ? $default_settings['target_field_machine_name'] : '',
     );
+    $form['settings']['ignore_rule_if_blank_value'] = array(
+      '#title' => t('Ignore the whole rule if any of the target values is blank'),
+      '#type' => 'checkbox',
+      '#default_value' => isset($default_settings['ignore_rule_if_blank_value']) ? $default_settings['ignore_rule_if_blank_value'] : 1,
+    );
 
     parent::settings_form($form, $form_state);
   }
