@@ -318,7 +318,7 @@ form.entityform .vertical-tabs-panes fieldset legend a {
   color: white;
 }
 form.entityform .vertical-tabs-panes fieldset .field-group-fieldset {
-  padding: 20px;
+  padding: 20px 0;
   margin-top: 50px;
   margin-bottom: 50px;
 }
