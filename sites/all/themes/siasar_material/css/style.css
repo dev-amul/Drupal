@@ -3,6 +3,13 @@ html,
 body {
   height: 100%;
   min-height: 100%;
+  font-size: 12px;
+}
+@media (min-width: 600px) {
+  html,
+  body {
+    font-size: 14px;
+  }
 }
 
 body {
@@ -39,6 +46,15 @@ p {
   margin-top: 0;
 }
 
+div,
+fieldset,
+input,
+select,
+textarea,
+fieldset {
+  box-sizing: border-box;
+}
+
 .page {
   max-width: 1280px;
   margin: 80px auto;
@@ -62,6 +78,11 @@ p {
 .page .block {
   background: white;
   padding: 20px;
+}
+
+table.responsive-table tbody {
+  white-space: normal;
+  clear: left;
 }
 
 .messages {
@@ -172,6 +193,7 @@ p {
   padding-left: 10px;
   background-color: white;
   border: solid #ccc 2px;
+  border-radius: 5px;
   margin-bottom: 0;
 }
 .input-field input.form-text:focus,
@@ -194,11 +216,6 @@ select.location-tree-selector {
   border: solid #ccc 2px;
 }
 
-.field-type-number-decimal input.form-text,
-.field-type-geofield input.form-text {
-  width: auto;
-}
-
 span.form-required {
   color: #c1272d;
   font-weight: bold;
@@ -206,6 +223,12 @@ span.form-required {
 
 .form-type-date-select .form-item {
   margin-right: 3px;
+}
+
+.field-widget-mvf-widget-default .form-type-mvf-widget select,
+.field-widget-mvf-widget-default .form-type-mvf-widget input {
+  width: auto;
+  display: inline-block;
 }
 
 body.page-frontpage .page {
@@ -258,11 +281,16 @@ body.page-eform-submit .page .block {
   padding: 0;
 }
 body.page-eform-submit .page h1 {
-  font-size: 2.75rem;
+  font-size: 2rem;
   text-align: left;
   background: none;
   line-height: 1.2;
   padding-left: 5px;
+}
+@media (min-width: 600px) {
+  body.page-eform-submit .page h1 {
+    font-size: 2.75rem;
+  }
 }
 
 form.entityform .vertical-tabs {
@@ -305,6 +333,7 @@ form.entityform .vertical-tabs-panes fieldset {
   border: none;
   box-shadow: none;
   padding: 0;
+  margin: 0;
 }
 form.entityform .vertical-tabs-panes fieldset legend {
   color: white;

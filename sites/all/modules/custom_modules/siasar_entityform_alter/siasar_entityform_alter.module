@@ -12,7 +12,6 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
     _siasar_entityform_alter_set_default_country($form);
     _siasar_entityform_alter_hide_validate_if_new($form, $form_state);
   }
-
 }
 
 
