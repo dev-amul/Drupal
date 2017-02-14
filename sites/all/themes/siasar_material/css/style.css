@@ -355,6 +355,7 @@ form.entityform .field-type-field-collection .field-multiple-table input.form-su
   background-size: 20px;
   padding-left: 50px;
   float: right;
+  margin-top: 20px;
 }
 form.entityform input.field-add-more-submit {
   background-image: url("../img/plus.svg");
