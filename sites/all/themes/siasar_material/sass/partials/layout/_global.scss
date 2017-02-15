@@ -4,9 +4,10 @@ body {
   min-height: 100%;
   font-size: 12px;
 
-  @include breakpoint($break-small) {
+  @include breakpoint($break-medium) {
     font-size: 14px;
   }
+
 }
 body {
   font-family: $body-font;

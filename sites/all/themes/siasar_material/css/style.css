@@ -5,7 +5,7 @@ body {
   min-height: 100%;
   font-size: 12px;
 }
-@media (min-width: 600px) {
+@media (min-width: 992px) {
   html,
   body {
     font-size: 14px;
@@ -102,6 +102,14 @@ table.responsive-table tbody {
 
 .header-menu {
   background: #00add2;
+  height: 40px;
+  line-height: 40px;
+}
+@media (min-width: 600px) {
+  .header-menu {
+    height: 64px;
+    line-height: 64px;
+  }
 }
 .header-menu .nav-wrapper {
   width: 100%;
@@ -110,14 +118,16 @@ table.responsive-table tbody {
   top: 0;
   display: block;
   font-size: 1rem;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   background-color: #00add2;
   border-radius: 50%;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 600px) {
   .header-menu a.brand-logo {
+    width: 100px;
+    height: 100px;
     top: 10px;
   }
 }
@@ -128,11 +138,19 @@ table.responsive-table tbody {
 }
 .header-menu a.brand-logo img {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: block;
-  top: 25px;
-  left: 25px;
+  top: 18px;
+  left: 18px;
+}
+@media (min-width: 600px) {
+  .header-menu a.brand-logo img {
+    width: 50px;
+    height: 50px;
+    top: 25px;
+    left: 25px;
+  }
 }
 
 .block h4 {
@@ -295,12 +313,24 @@ body.page-eform-submit .page h1 {
 
 form.entityform .vertical-tabs {
   border: none;
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin: 0 0 20px 10em;
+}
+@media (min-width: 992px) {
+  form.entityform .vertical-tabs {
+    margin-left: 15em;
+  }
 }
 form.entityform .vertical-tabs-list {
   border: none;
   margin-top: 0;
+  width: 10em;
+  margin-left: -10em;
+}
+@media (min-width: 992px) {
+  form.entityform .vertical-tabs-list {
+    width: 15em;
+    margin-left: -15em;
+  }
 }
 form.entityform .vertical-tabs-list li.vertical-tab-button {
   border: none;
@@ -316,18 +346,24 @@ form.entityform .vertical-tabs-list li.vertical-tab-button:hover {
 form.entityform .vertical-tabs-list li.vertical-tab-button a {
   color: white;
   text-decoration: none;
+  padding: 0.4em;
 }
 form.entityform .vertical-tabs-list li.vertical-tab-button a:hover, form.entityform .vertical-tabs-list li.vertical-tab-button a:hover strong, form.entityform .vertical-tabs-list li.vertical-tab-button a:focus strong {
   text-decoration: none;
 }
 form.entityform .vertical-tabs-list li.vertical-tab-button.selected {
   background-color: white;
-  border: none;
+  border-color: white;
 }
 form.entityform .vertical-tabs-panes {
   background-color: white;
   border: none;
-  padding: 40px;
+  padding: 20px;
+}
+@media (min-width: 992px) {
+  form.entityform .vertical-tabs-panes {
+    padding: 40px;
+  }
 }
 form.entityform .vertical-tabs-panes fieldset {
   border: none;
@@ -341,15 +377,25 @@ form.entityform .vertical-tabs-panes fieldset legend {
   font-size: 1.25rem;
   padding: 3px 20px;
   position: relative;
-  left: -40px;
+  left: -20px;
+}
+@media (min-width: 992px) {
+  form.entityform .vertical-tabs-panes fieldset legend {
+    left: -40px;
+  }
 }
 form.entityform .vertical-tabs-panes fieldset legend a {
   color: white;
 }
 form.entityform .vertical-tabs-panes fieldset .field-group-fieldset {
-  padding: 20px 0;
+  padding: 10px 0;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+@media (min-width: 992px) {
+  form.entityform .vertical-tabs-panes fieldset .field-group-fieldset {
+    padding: 20px 0;
+  }
 }
 form.entityform .vertical-tabs-panes fieldset .field-group-fieldset:first-child {
   margin-top: 0;
