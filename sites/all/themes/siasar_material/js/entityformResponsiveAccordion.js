@@ -13,12 +13,32 @@
     attach: function (context, settings) {
       if (context !== document) return;
 
-      var $accordionElements = $('form.entityform .vertical-tabs-panes > fieldset.vertical-tabs-pane');
-      $accordionElements.removeAttr('style');
-      $accordionElements.first().addClass('open');
-      $accordionElements.not(':first-child').removeAttr('style').addClass('closed');
+      var $entityform = $('form.entityform');
+      var $accordionElements = $('.vertical-tabs-panes > fieldset.vertical-tabs-pane', $entityform);
+      var $verticalTabs = $('.vertical-tabs-list', $entityform);
+      var $window = $(window);
+      var smallBreakpoint = 600;
+      var mobile = ($window.innerWidth() >= smallBreakpoint)
+        ? false
+        : true;
 
+      cleanUp();
       $accordionElements.on('click', openCloseAccordion);
+      $window.on('resize', cleanUp);
+
+      function cleanUp() {
+        if ($window.innerWidth() < smallBreakpoint && mobile == true) {
+          mobile = false;
+          $accordionElements.removeAttr('style');
+          $accordionElements.first().addClass('open');
+          $accordionElements.not(':first-child').addClass('closed');
+        } else if ($window.innerWidth() >= smallBreakpoint && mobile == false) {
+          mobile = true;
+          $verticalTabs.removeClass('selected');
+          $verticalTabs.first().addClass('selected');
+          $accordionElements.not(':first-child').hide();
+        }
+      }
 
       function openCloseAccordion(e) {
         var $target = $(e.currentTarget);
