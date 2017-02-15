@@ -95,7 +95,7 @@ form.entityform {
 
     fieldset.vertical-tabs-pane {
       transition: max-height $transition-time $transition-curve;
-      max-height: 2000px;
+      max-height: 3000px;
       overflow-y: hidden;
 
       @include breakpoint($break-small) {
