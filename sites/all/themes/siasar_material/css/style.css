@@ -47,6 +47,8 @@ p {
 }
 
 div,
+ul,
+li,
 fieldset,
 input,
 select,
@@ -313,7 +315,12 @@ body.page-eform-submit .page h1 {
 
 form.entityform .vertical-tabs {
   border: none;
-  margin: 0 0 20px 10em;
+  margin: 0 0 20px 0;
+}
+@media (min-width: 600px) {
+  form.entityform .vertical-tabs {
+    margin-left: 10em;
+  }
 }
 @media (min-width: 992px) {
   form.entityform .vertical-tabs {
@@ -323,8 +330,14 @@ form.entityform .vertical-tabs {
 form.entityform .vertical-tabs-list {
   border: none;
   margin-top: 0;
-  width: 10em;
-  margin-left: -10em;
+  display: none;
+}
+@media (min-width: 600px) {
+  form.entityform .vertical-tabs-list {
+    display: block;
+    width: 10em;
+    margin-left: -10em;
+  }
 }
 @media (min-width: 992px) {
   form.entityform .vertical-tabs-list {
@@ -333,6 +346,7 @@ form.entityform .vertical-tabs-list {
   }
 }
 form.entityform .vertical-tabs-list li.vertical-tab-button {
+  min-width: 10em;
   border: none;
   border-radius: 5px 0 0 5px;
   margin-bottom: 3px;
@@ -358,12 +372,61 @@ form.entityform .vertical-tabs-list li.vertical-tab-button.selected {
 form.entityform .vertical-tabs-panes {
   background-color: white;
   border: none;
-  padding: 20px;
+  padding: 0;
+}
+@media (min-width: 600px) {
+  form.entityform .vertical-tabs-panes {
+    padding: 20px;
+  }
 }
 @media (min-width: 992px) {
   form.entityform .vertical-tabs-panes {
     padding: 40px;
   }
+}
+form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane {
+  -webkit-transition: max-height 0.4s ease-in-out;
+  transition: max-height 0.4s ease-in-out;
+  max-height: 2000px;
+  overflow-y: hidden;
+}
+@media (min-width: 600px) {
+  form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane {
+    overflow: visible;
+  }
+}
+form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > legend {
+  display: block;
+  width: calc(100% + 40px);
+  position: static;
+  margin: 0;
+  background: url("../img/triangle_white_open.svg") 5px 8px no-repeat #de861b;
+  background-size: 15px 15px;
+  padding-left: 30px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+@media (min-width: 600px) {
+  form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > legend {
+    display: none;
+  }
+}
+form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > .fieldset-wrapper {
+  padding: 20px;
+}
+form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane.closed {
+  max-height: 36px;
+  -webkit-transition: max-height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
+}
+@media (min-width: 600px) {
+  form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane.closed {
+    max-height: 10000px;
+  }
+}
+form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane.closed > legend {
+  background-image: url("../img/triangle_white_closed.svg");
 }
 form.entityform .vertical-tabs-panes fieldset {
   border: none;

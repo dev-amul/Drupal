@@ -13,7 +13,8 @@ stylesheets[all][]                     = css/style.css
 
 ; SCRIPTS
 ;-------------------------------------------------------------------------------
-scripts[]                              = js/custom.js
+scripts[]                              = js/materializeFieldset.js
+scripts[]                              = js/entityformResponsiveAccordion.js
 
 
 ; REGIONS
