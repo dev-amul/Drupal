@@ -21,8 +21,8 @@ function feature_siasar_entityform_prestador_servicio_default_field_validation_r
   $rule->bundle = 'prestador_de_servicio';
   $rule->validator = 'field_validation_match_against_form_value';
   $rule->settings = array(
-    'target_field_machine_name' => 'field_ingresos_reales',
     'operator' => 'greater_equal',
+    'target_field_machine_name' => 'field_ingresos_reales',
     'bypass' => 0,
     'roles' => array(
       1 => 0,
