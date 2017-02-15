@@ -2,6 +2,11 @@ html,
 body {
   height: 100%;
   min-height: 100%;
+  font-size: 12px;
+
+  @include breakpoint($break-medium) {
+    font-size: 14px;
+  }
 
 }
 body {
@@ -39,6 +44,15 @@ p {
   margin-top: 0;
 }
 
+div,
+fieldset,
+input,
+select,
+textarea,
+fieldset {
+  box-sizing: border-box;
+}
+
 .page {
   max-width: 1280px;
   margin: 80px auto;
@@ -61,6 +75,11 @@ p {
     background: white;
     padding: 20px;
   }
+}
+
+table.responsive-table tbody {
+  white-space: normal;
+  clear: left;
 }
 
 // Errors and notices

@@ -5,11 +5,15 @@ body.page-eform-submit .page {
   }
 
   h1 {
-    font-size: 2.75rem;
+    font-size: 2rem;
     text-align: left;
     background: none;
     line-height: 1.2;
     padding-left: 5px;
+
+    @include breakpoint($break-small) {
+      font-size: 2.75rem;
+    }
   }
 }
 
@@ -18,14 +22,24 @@ form.entityform {
 
   .vertical-tabs {
     border: none;
-    margin-top: 0;
-    margin-bottom: 20px;
+    margin: 0 0 20px 10em;
+
+    @include breakpoint($break-medium) {
+      margin-left: 15em;
+    }
   }
 
   // Tabs
   .vertical-tabs-list {
     border: none;
     margin-top: 0;
+    width: 10em;
+    margin-left: -10em;
+
+    @include breakpoint($break-medium) {
+      width: 15em;
+      margin-left: -15em;
+    }
 
     li.vertical-tab-button {
       border: none;
@@ -42,6 +56,7 @@ form.entityform {
       a {
         color: white;
         text-decoration: none;
+        padding: 0.4em;
 
         &:hover,
         &:hover strong,
@@ -52,7 +67,7 @@ form.entityform {
 
       &.selected {
         background-color: white;
-        border: none;
+        border-color: white;
       }
     }
   }
@@ -61,12 +76,17 @@ form.entityform {
   .vertical-tabs-panes {
     background-color: white;
     border: none;
-    padding: 40px;
+    padding: $vertical-tabs-padding;
+
+    @include breakpoint($break-medium) {
+      padding: $vertical-tabs-padding * 2;
+    }
 
     fieldset {
       border: none;
       box-shadow: none;
       padding: 0;
+      margin: 0;
 
       legend {
         color: white;
@@ -74,7 +94,11 @@ form.entityform {
         font-size: 1.25rem;
         padding: 3px 20px;
         position: relative;
-        left: -40px;
+        left: -$vertical-tabs-padding;
+
+        @include breakpoint($break-medium) {
+          left: -$vertical-tabs-padding * 2;
+        }
 
         a {
           color: white;
@@ -82,9 +106,13 @@ form.entityform {
       }
 
       .field-group-fieldset {
-        padding: 20px;
+        padding: $vertical-tabs-padding/2 0;
         margin-top: 50px;
         margin-bottom: 50px;
+
+        @include breakpoint($break-medium) {
+          padding: $vertical-tabs-padding 0;
+        }
 
         &:first-child {
           margin-top: 0;
