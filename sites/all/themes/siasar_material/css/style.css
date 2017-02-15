@@ -387,7 +387,7 @@ form.entityform .vertical-tabs-panes {
 form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane {
   -webkit-transition: max-height 0.3s ease-in-out;
   transition: max-height 0.3s ease-in-out;
-  max-height: 3000px;
+  max-height: 5000px;
   overflow-y: hidden;
 }
 @media (min-width: 600px) {
