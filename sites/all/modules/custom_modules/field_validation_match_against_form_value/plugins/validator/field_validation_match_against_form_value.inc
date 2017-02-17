@@ -19,19 +19,18 @@ class field_validation_match_against_form_value extends field_validation_validat
    */
   public function validate() {
     $this->wrapper = entity_metadata_wrapper($this->entity_type, $this->entity);
+    $this->validation_status = $this->generate_validation_status_object();
     $settings = $this->rule->settings;
     $value = $this->get_field_value($this->field['field_name']);
     $operator = $settings['operator'];
-    try {
-      $match_value = $this->get_target_value($settings['target_field_machine_name']);
-    } catch (Exception $e) {
-      drupal_set_message(t($e->getMessage()), 'notice');
-    }
+    $match_value = $this->get_target_value($settings['target_field_machine_name']);
 
-    if (is_numeric($value) && is_numeric($match_value) && !isset($e)) {
-      $flag = $this->compare_values($value, $operator, $match_value);
+    if ($this->validation_status->error) {
+      drupal_set_message($this->validation_status->message, $this->validation_status->type);
+    } elseif (is_numeric($value) && is_numeric($match_value)) {
+      $is_a_match = $this->compare_values($value, $operator, $match_value);
 
-      if (!$flag) {
+      if (!$is_a_match) {
         $token = array(
           '[target_field_machine_name]' => isset($settings['target_field_machine_name']) ? $settings['target_field_machine_name'] : '',
           '[operator]' => isset($settings['operator']) ? $settings['operator'] : '',
@@ -111,9 +110,22 @@ class field_validation_match_against_form_value extends field_validation_validat
       $value = $value['value'];
     }
     if (empty($value) && $value !== 0 && (bool) $this->rule->settings['ignore_rule_if_blank_value']) {
-      throw new Exception('Field ['. $field . ']: Value is empty, whole validation rule will be ignored.');
+      $this->validation_status->error = true;
+      $this->validation_status->type = 'notice';
+      $this->validation_status->message = 'Field ['. $field . ']: Value is empty, whole validation rule will be ignored.';
     }
     return $value;
+  }
+
+  /**
+   * Helper function to generate initial validation_status object
+   */
+  private function generate_validation_status_object() {
+    $object = new StdClass();
+    $object->error = false;
+    $object->type = null;
+    $object->message = null;
+    return $object;
   }
 
   /**
