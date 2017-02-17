@@ -637,8 +637,8 @@ body.page-entityform-view .entity-entityform h3 {
 }
 body.page-entityform-view .entity-entityform .field {
   clear: left;
-  padding-bottom: 0.3em;
-  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.75em;
   border-bottom: dotted #ccc 1px;
   overflow: auto;
   line-height: 1.25;
@@ -647,7 +647,7 @@ body.page-entityform-view .entity-entityform .field:last-child {
   border: none;
 }
 body.page-entityform-view .entity-entityform .field-label {
-  color: blacvk;
+  color: black;
   font-weight: bold;
   padding-right: 10px;
 }
