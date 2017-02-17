@@ -60,6 +60,9 @@ body.page-entityform-view {
         float: left;
         clear: left;
       }
+      @include breakpoint($break-medium) {
+        width: 325px;
+      }
     }
     .field-type-field-collection {
       > .field-label {
