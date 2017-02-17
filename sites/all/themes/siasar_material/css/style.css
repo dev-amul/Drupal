@@ -393,6 +393,7 @@ form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane {
 @media (min-width: 600px) {
   form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane {
     overflow: visible;
+    max-height: 10000px;
   }
 }
 form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > legend {
@@ -414,6 +415,11 @@ form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > legend {
 }
 form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > .fieldset-wrapper {
   padding: 20px;
+}
+@media (min-width: 600px) {
+  form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > .fieldset-wrapper {
+    padding: 0;
+  }
 }
 form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane.closed {
   max-height: 36px;

@@ -100,6 +100,7 @@ form.entityform {
 
       @include breakpoint($break-small) {
         overflow: visible;
+        max-height: 10000px;
       }
 
       > legend {
@@ -120,6 +121,10 @@ form.entityform {
       }
       > .fieldset-wrapper {
         padding: $vertical-tabs-padding;
+
+        @include breakpoint($break-small) {
+          padding: 0;
+        }
       }
 
       &.closed {
