@@ -13,6 +13,7 @@
 @import 'breakpoint';
 @import 'partials/mixins/_kerning';
 @import 'partials/mixins/_animation';
+@import 'partials/mixins/_layout_mixins';
 
 @import 'partials/layout/_global';
 @import 'partials/layout/_header';
@@ -22,6 +23,9 @@
 @import 'partials/layout/_forms';
 
 @import 'partials/pages/_frontpage';
-@import 'partials/pages/_entityforms';
 @import 'partials/pages/_403-404';
 @import 'partials/pages/_results';
+
+@import 'partials/pages/_entityform';
+@import 'partials/pages/_entityform_form';
+@import 'partials/pages/_entityform_view';

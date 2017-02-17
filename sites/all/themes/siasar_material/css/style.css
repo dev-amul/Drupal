@@ -38,6 +38,14 @@ h1 {
   color: white;
 }
 
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
 h4 {
   font-size: 2rem;
 }
@@ -296,23 +304,56 @@ body.page-frontpage #block-menu-menu-front-page-menu .content ul.menu > li span 
   }
 }
 
-body.page-eform-submit .page .block {
-  background: #666;
-  padding: 0;
-}
-body.page-eform-submit .page h1 {
-  font-size: 2rem;
-  text-align: left;
+body.forbidden-403 h1,
+body.not-found-404 h1 {
   background: none;
+}
+body.forbidden-403 #block-system-main,
+body.not-found-404 #block-system-main {
+  background: none;
+  text-align: center;
+  color: white;
+}
+
+body.page-entityform h1 {
+  background: none;
+  text-align: left;
+  font-size: 2rem;
   line-height: 1.2;
   padding-left: 5px;
 }
 @media (min-width: 600px) {
-  body.page-eform-submit .page h1 {
+  body.page-entityform h1 {
     font-size: 2.75rem;
   }
 }
+@media (min-width: 600px) {
+  body.page-entityform h1 {
+    float: left;
+  }
+}
+@media (min-width: 600px) {
+  body.page-entityform .tabs {
+    width: auto;
+    float: right;
+  }
+}
+body.page-entityform .submitted {
+  color: #666;
+  position: absolute;
+  z-index: 1;
+  font-size: 0.85em;
+}
 
+body.page-eform-submit .page .block,
+body.page-entityform-edit .page .block {
+  background: #666;
+  padding: 0;
+}
+
+form.entityform {
+  position: relative;
+}
 form.entityform .vertical-tabs {
   border: none;
   margin: 0 0 20px 0;
@@ -529,15 +570,126 @@ form.entityform .form-actions input {
   margin-left: 20px;
 }
 
-body.forbidden-403 h1,
-body.not-found-404 h1 {
-  background: none;
+body.page-entityform-edit h1 {
+  padding-bottom: 15px;
 }
-body.forbidden-403 #block-system-main,
-body.not-found-404 #block-system-main {
-  background: none;
-  text-align: center;
+body.page-entityform-edit .submitted {
+  top: -65px;
+  left: 6px;
   color: white;
+}
+@media (min-width: 600px) {
+  body.page-entityform-edit .submitted {
+    color: #666;
+    top: 8px;
+    left: 140px;
+  }
+}
+@media (min-width: 992px) {
+  body.page-entityform-edit .submitted {
+    top: 11px;
+    left: 250px;
+  }
+}
+body.page-entityform-edit fieldset.vertical-tabs-pane:first-child {
+  padding-top: 20px;
+}
+@media (min-width: 992px) {
+  body.page-entityform-edit fieldset.vertical-tabs-pane:first-child {
+    padding-top: 20px;
+  }
+}
+
+body.page-entityform-view h1 {
+  padding-left: 0;
+}
+body.page-entityform-view .entity-entityform {
+  position: relative;
+  padding: 10px;
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .entity-entityform {
+    padding: 20px;
+  }
+}
+@media (min-width: 992px) {
+  body.page-entityform-view .entity-entityform {
+    padding: 40px;
+  }
+}
+body.page-entityform-view .entity-entityform .submitted {
+  position: static;
+  margin-bottom: 2em;
+}
+body.page-entityform-view .entity-entityform fieldset {
+  border: none;
+}
+body.page-entityform-view .entity-entityform .field-group {
+  margin-bottom: 30px;
+}
+body.page-entityform-view .entity-entityform h2 {
+  margin-bottom: 0.5em;
+}
+body.page-entityform-view .entity-entityform h3 {
+  font-size: 1.5rem;
+  color: #00829e;
+  margin: 0 0 0.5em;
+}
+body.page-entityform-view .entity-entityform .field {
+  clear: left;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.5em;
+  border-bottom: dotted #ccc 1px;
+  overflow: auto;
+  line-height: 1.25;
+}
+body.page-entityform-view .entity-entityform .field:last-child {
+  border: none;
+}
+body.page-entityform-view .entity-entityform .field-label {
+  color: #de861b;
+  font-weight: bold;
+  padding-right: 10px;
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .entity-entityform .field-label {
+    width: 200px;
+    float: left;
+    clear: left;
+  }
+}
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-label {
+  float: none;
+  width: auto;
+}
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items {
+  margin-top: 10px;
+  margin-left: 40px;
+  padding-left: 20px;
+  border-left: dotted #ccc 1px;
+  list-style-type: none;
+  position: relative;
+  counter-reset: item;
+}
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items li {
+  counter-increment: item;
+}
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items li::before {
+  content: counter(item);
+  font-size: 0.8em;
+  background-color: #00add2;
+  color: white;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: -7px;
+  z-index: 1;
+}
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items .field-collection-view {
+  padding: 0;
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

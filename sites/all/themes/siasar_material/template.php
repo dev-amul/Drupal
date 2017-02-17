@@ -20,6 +20,7 @@ function siasar_material_css_alter(&$css) {
 function siasar_material_preprocess_html(&$vars) {
   _siasar_material_add_meta_viewport();
   _siasar_material_add_status_classes_to_body($vars);
+  _siasar_material_add_class_to_entityform_view($vars);
 }
 /**
  * Helper function to add Meta Viewport
@@ -52,6 +53,15 @@ function _siasar_material_add_status_classes_to_body(&$vars) {
     case '404 Not Found':
       $vars['classes_array'][] = 'not-found-404';
       break;
+  }
+}
+
+/**
+ * Helper function to add class to body when vieweing an entityform
+ */
+function _siasar_material_add_class_to_entityform_view(&$vars) {
+  if (arg(0) == 'entityform' && is_numeric(arg(1)) && empty(arg(2))) {
+    $vars['classes_array'][] = 'page-entityform-view';
   }
 }
 
@@ -128,4 +138,36 @@ function siasar_material_menu_link(array $variables) {
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+
+function siasar_material_field($variables) {
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
+  }
+
+  $items_tag = ($variables['element']['#field_type'] === 'field_collection')
+    ? 'ol'
+    : 'div';
+
+  // Render the items.
+  $output .= '<' . $items_tag . ' class="field-items"' . $variables['content_attributes'] . '>';
+
+  if (count($variables['items']) > 1) {
+    foreach ($variables['items'] as $delta => $item) {
+      $classes = 'field-item ' . ($delta % 2 ? 'odd' : 'even');
+      $output .= '<div class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</div>';
+    }
+  } else {
+    $output .= drupal_render($variables['items'][0]);
+  }
+  $output .= '</' . $items_tag . '>';
+
+  // Render the top-level DIV.
+  $output = '<div class="' . $variables['classes'] . '"' . $variables['attributes'] . '>' . $output . '</div>';
+
+  return $output;
 }
