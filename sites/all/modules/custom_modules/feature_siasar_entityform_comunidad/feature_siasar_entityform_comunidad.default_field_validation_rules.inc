@@ -128,6 +128,7 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
   $rule->settings = array(
     'operator' => 'greater_equal',
     'target_field_machine_name' => 'field_com_num_viv_infta + field_com_num_viv_inftb + field_field_com_num_viv_infnt',
+    'ignore_rule_if_blank_value' => 1,
     'bypass' => 0,
     'roles' => array(
       1 => 0,
