@@ -153,13 +153,13 @@ function feature_siasar_field_bases_field_group_info() {
       0 => 'field_revision_componentes_toma',
       1 => 'field_proteccion_flora_fauna',
       2 => 'field_proteccion_suelos',
-      3 => 'field_vigilancia_zona',
-      4 => 'field_no_tala_y_resforestacion',
-      5 => 'field_revision_estado_cercano',
-      6 => 'field_proteccion_terreno',
+      3 => 'field_no_tala_y_resforestacion',
+      4 => 'field_revision_estado_cercano',
+      5 => 'field_proteccion_terreno',
+      6 => 'field_revision_estado_obra',
       7 => 'field_revision_plan_contingencia',
-      8 => 'field_revision_estado_obra',
-      9 => 'field_revision_demarcacion',
+      8 => 'field_revision_demarcacion',
+      9 => 'field_vigilancia_zona',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -219,8 +219,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'H1.',
     'weight' => '9',
     'children' => array(
-      0 => 'field_apoyo_gob_otros',
-      1 => 'field_nombre_entidad_apoya',
+      0 => 'field_nombre_entidad_apoya',
+      1 => 'field_apoyo_gob_otros',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -396,11 +396,11 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'F3. Is there a balance sheet?',
     'weight' => '100',
     'children' => array(
-      0 => 'field_pasivos_no_corrientes',
+      0 => 'field_activos_corrientes',
       1 => 'field_balance_contable',
-      2 => 'field_pasivos_corrientes_',
-      3 => 'field_activos_corrientes',
-      4 => 'field_activos_no_corrientes',
+      2 => 'field_activos_no_corrientes',
+      3 => 'field_pasivos_no_corrientes',
+      4 => 'field_pasivos_corrientes_',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1920,9 +1920,9 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'field_usuarios_deberian_pagan',
-      1 => 'field_usuarios_al_dia',
-      2 => 'field_ingresos_reales',
-      3 => 'field_facturacion_promedio',
+      1 => 'field_ingresos_reales',
+      2 => 'field_facturacion_promedio',
+      3 => 'field_usuarios_al_dia',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2221,16 +2221,16 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'E1.',
     'weight' => '114',
     'children' => array(
-      0 => 'field_gasto_teorico_ambientales',
-      1 => 'field_gasto_teorico_mantenimient',
-      2 => 'field_gasto_promedio_admin',
-      3 => 'field_gasto_real_mantenimiento',
-      4 => 'field_sumatoria_gastos_teoricos',
+      0 => 'field_gasto_real_operacion',
+      1 => 'field_gasto_real_ambientales',
+      2 => 'field_gasto_teorico_mantenimient',
+      3 => 'field_gasto_promedio_admin',
+      4 => 'field_gasto_real_mantenimiento',
       5 => 'field_sumatoria_gastos_reales',
       6 => 'field_gasto_teorico_operacion',
-      7 => 'field_gasto_real_ambientales',
+      7 => 'field_sumatoria_gastos_teoricos',
       8 => 'field_gasto_teorico_admin',
-      9 => 'field_gasto_real_operacion',
+      9 => 'field_gasto_teorico_ambientales',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2381,13 +2381,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A1.',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-info-general field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_inf_basica|entityform|prestador_de_servicio|form'] = $field_group;
@@ -2405,8 +2406,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'F. FINANCIAL INFORMATION: SAVINGS',
     'weight' => '5',
     'children' => array(
-      0 => 'group_balance_contable',
-      1 => 'group_fondos_disponibles',
+      0 => 'group_fondos_disponibles',
+      1 => 'group_balance_contable',
       2 => 'group_ingresos_egresos',
     ),
     'format_type' => 'tab',
@@ -2461,9 +2462,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D. FINANCIAL INFORMATION: ADDITIONAL INCOME ',
     'weight' => '3',
     'children' => array(
-      0 => 'group_aportaciones_extas',
-      1 => 'group_inf_ingresos_extras',
-      2 => 'group_tasa_extension',
+      0 => 'group_inf_ingresos_extras',
+      1 => 'group_tasa_extension',
+      2 => 'group_aportaciones_extas',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2585,10 +2586,10 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'group_fact_pago',
       1 => 'group_inf_medicion_agua',
-      2 => 'group_mantenimiento_sistema',
-      3 => 'group_mecanismo_pago',
-      4 => 'group_tarifa',
-      5 => 'group_tipo_tarifa',
+      2 => 'group_tarifa',
+      3 => 'group_tipo_tarifa',
+      4 => 'group_mecanismo_pago',
+      5 => 'group_mantenimiento_sistema',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2730,7 +2731,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => '',
         'description' => '',
       ),
-      'formatter' => 'open',
+      'formatter' => 'closed',
     ),
   );
   $field_groups['group_info_general|entityform|prestador_de_servicio|form'] = $field_group;
@@ -2899,8 +2900,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '28',
     'children' => array(
       0 => 'field_fecha_eleccion',
-      1 => 'field_miembros_nombrados',
-      2 => 'field_numero_reuniones',
+      1 => 'field_numero_reuniones',
+      2 => 'field_miembros_nombrados',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2959,20 +2960,21 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'H. OPERATIONS AND MAINTENANCE',
     'weight' => '7',
     'children' => array(
-      0 => 'group_acciones_correctivas',
-      1 => 'group_acciones_preventivas',
-      2 => 'group_apoyo_tecnico',
-      3 => 'group_higiene_comunitaria',
-      4 => 'group_proteccion',
+      0 => 'group_higiene_comunitaria',
+      1 => 'group_apoyo_tecnico',
+      2 => 'group_proteccion',
+      3 => 'group_acciones_correctivas',
+      4 => 'group_acciones_preventivas',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'H. OPERATIONS AND MAINTENANCE',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
         'required_fields' => 1,
+        'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $field_groups['group_mantenimiento_operacion|entityform|prestador_de_servicio|form'] = $field_group;
@@ -3808,8 +3810,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C2. Rate Type and Amount',
     'weight' => '4',
     'children' => array(
-      0 => 'field_tipo_de_tarifa',
-      1 => 'field_tarifa_media_mensual',
+      0 => 'field_tarifa_media_mensual',
+      1 => 'field_tipo_de_tarifa',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

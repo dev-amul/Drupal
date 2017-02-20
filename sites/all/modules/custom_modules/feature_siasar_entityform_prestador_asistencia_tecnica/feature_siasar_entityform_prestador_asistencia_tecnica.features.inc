@@ -5,6 +5,15 @@
  */
 
 /**
+ * Implements hook_ctools_plugin_api().
+ */
+function feature_siasar_entityform_prestador_asistencia_tecnica_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
+}
+
+/**
  * Implements hook_default_entityform_type().
  */
 function feature_siasar_entityform_prestador_asistencia_tecnica_default_entityform_type() {
