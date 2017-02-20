@@ -18,21 +18,39 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_tipo_de_apoyo';
   $field_group->data = array(
     'label' => 'D1. Services for providers (community managed water service providers, or Community Water Boards – CWBs) ',
-    'weight' => '22',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_otras_numero_comunidade',
+      1 => 'field_apoyar_caps_conflictos',
+      2 => 'field_asesorar_prestador_aom',
+      3 => 'field_otras_tipo_apoyo',
+      4 => 'field_caps_medicion_pozo_agua',
+      5 => 'field_apoyar_caps_planificacion',
+      6 => 'field_apoyar_actualizar_tarifa',
+      7 => 'field_apoyar_legalizacion_reglam',
+      8 => 'field_verificar_apoyar_caps',
+      9 => 'field_revisar_actualizar_finanza',
+      10 => 'field_apoyar_juridica_caps',
+      11 => 'field_actualizar_prov_servicio',
+      12 => 'field_siasar_planification_anual',
+      13 => 'field_recolectar_muestras_agua',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
       'label' => 'D1. Services for providers (community managed water service providers, or Community Water Boards – CWBs) ',
       'instance_settings' => array(
-        'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-cantidad-comun-servicios field-group-fieldset',
+        'classes' => 'field-group',
         'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_cantidad_comun_servicios|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -45,20 +63,26 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_observaciones';
   $field_group->data = array(
     'label' => 'E1',
-    'weight' => '28',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_observaciones_comentarios',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'E1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-e1 field-group-fieldset',
-        'required_fields' => 1,
         'id' => '',
+        'classes' => 'field-group',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_e1|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -75,7 +99,14 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->data = array(
     'label' => 'A. GENERAL INFORMATION AND SYSTEM OVERVIEW',
     'weight' => '0',
-    'children' => array(),
+    'children' => array(
+      0 => 'field_fecha_de_aplicacion',
+      1 => 'field_user_reference',
+      2 => 'field_pais',
+      3 => 'group_pat_a2',
+      4 => 'group_pat_a3',
+      5 => 'group_pat_a1',
+    ),
     'format_type' => 'div',
     'format_settings' => array(
       'label' => 'A. GENERAL INFORMATION AND SYSTEM OVERVIEW',
@@ -106,7 +137,8 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
     'label' => 'B. INTERVENTION',
     'weight' => '1',
     'children' => array(
-      0 => 'group_intervention_b1',
+      0 => 'group_intervention_b2',
+      1 => 'group_intervention_b1',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -137,7 +169,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->data = array(
     'label' => 'B1',
     'weight' => '2',
-    'children' => array(),
+    'children' => array(
+      0 => 'field_total_comunidades_zona',
+    ),
     'format_type' => 'div',
     'format_settings' => array(
       'label' => 'B1',
@@ -163,20 +197,26 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_intervencion';
   $field_group->data = array(
     'label' => 'B2',
     'weight' => '3',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'children' => array(
+      0 => 'field_cantidad_comunidades_apoya',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'B2',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-intervention-b2 field-group-fieldset',
-        'required_fields' => 1,
         'id' => '',
+        'classes' => 'field-group',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_intervention_b2|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -192,16 +232,23 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'E. COMMENTS',
-    'weight' => '4',
-    'children' => array(),
-    'format_type' => 'tab',
+    'weight' => '5',
+    'children' => array(
+      0 => 'group_e1',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'E. COMMENTS',
       'instance_settings' => array(
+        'id' => '',
+        'classes' => 'field-group',
         'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_observaciones|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -214,20 +261,27 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A1',
-    'weight' => '45',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'weight' => '41',
+    'children' => array(
+      0 => 'field_entity_name',
+      1 => 'field_imagenpat',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
         'id' => '',
+        'classes' => 'field-group',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $field_groups['group_pat_a1|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -240,20 +294,26 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A2',
-    'weight' => '46',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'weight' => '42',
+    'children' => array(
+      0 => 'field_tipo_de_pat2',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A2',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-pat-a2 field-group-fieldset',
-        'required_fields' => 1,
         'id' => '',
+        'classes' => 'field-group',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_pat_a2|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -266,20 +326,26 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A3',
-    'weight' => '47',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'weight' => '43',
+    'children' => array(
+      0 => 'field_entidad_local',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A3',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-pat-a3 field-group-fieldset',
-        'required_fields' => 1,
         'id' => '',
+        'classes' => 'field-group',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_pat_a3|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -292,20 +358,26 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_recursos_financ_hum_log';
   $field_group->data = array(
     'label' => 'C1',
-    'weight' => '15',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_cantidad_tecnicos_zona',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'C1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-recursos-financ-hum-log-c1 field-group-fieldset',
-        'required_fields' => 1,
         'id' => '',
+        'classes' => 'field-group',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_recursos_financ_hum_log_c1|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -318,20 +390,26 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_recursos_financ_hum_log';
   $field_group->data = array(
     'label' => 'C2',
-    'weight' => '16',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_cuenta_presupuesto_anual',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'C2',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-recursos-financ-hum-log-c2 field-group-fieldset',
-        'required_fields' => 1,
         'id' => '',
+        'classes' => 'field-group',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_recursos_financ_hum_log_c2|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -344,20 +422,26 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_recursos_financ_hum_log';
   $field_group->data = array(
     'label' => 'C3',
-    'weight' => '17',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_monto',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'C3',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
         'id' => '',
+        'classes' => 'field-group',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_recursos_financ_hum_log_c3|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -370,21 +454,35 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_asistencia_t_cnica';
   $field_group->mode = 'default';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_recursos_financ_hum_log';
   $field_group->data = array(
     'label' => 'C4. Logistics',
-    'weight' => '18',
-    'children' => array(),
-    'format_type' => 'fieldset',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_dispone_fondos_viaticos',
+      1 => 'field_cantidad_equipos_transport',
+      2 => 'field_dispone_material_didactico',
+      3 => 'field_dispone_fondos_combistible',
+      4 => 'field_estado_medicion_agua',
+      5 => 'field_estado_equipos_informatico',
+      6 => 'field_cantidad_equipos_inform',
+      7 => 'field_dispone_servicios_internet',
+      8 => 'field_estado_equipos_transporte',
+      9 => 'field_cantidad_medicion_agua',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
       'label' => 'C4. Logistics',
       'instance_settings' => array(
-        'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-recursos-financ-hum-log-c4 field-group-fieldset',
+        'classes' => 'field-group',
         'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_recursos_financ_hum_log_c4|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -401,15 +499,25 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->data = array(
     'label' => 'C. FINANCIAL, HUMAN, AND LOGISTICS RESOURCES ',
     'weight' => '2',
-    'children' => array(),
-    'format_type' => 'tab',
+    'children' => array(
+      0 => 'group_recursos_financ_hum_log_c1',
+      1 => 'group_recursos_financ_hum_log_c2',
+      2 => 'group_recursos_financ_hum_log_c3',
+      3 => 'group_recursos_financ_hum_log_c4',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'C. FINANCIAL, HUMAN, AND LOGISTICS RESOURCES ',
       'instance_settings' => array(
+        'id' => '',
+        'classes' => 'field-group',
         'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
+        'show_label' => '1',
+        'label_element' => 'h2',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_recursos_financ_hum_log|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
@@ -426,15 +534,22 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->data = array(
     'label' => 'D. TYPE OF SUPPORT',
     'weight' => '3',
-    'children' => array(),
-    'format_type' => 'tab',
+    'children' => array(
+      0 => 'group_cantidad_comun_servicios',
+    ),
+    'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'D. TYPE OF SUPPORT',
       'instance_settings' => array(
+        'id' => '',
+        'classes' => 'field-group',
         'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
+        'show_label' => '1',
+        'label_element' => 'h2',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_tipo_de_apoyo|entityform|prestador_de_asistencia_t_cnica|default'] = $field_group;
