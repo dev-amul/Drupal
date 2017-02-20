@@ -25,6 +25,7 @@ dependencies[] = options
 dependencies[] = shs
 dependencies[] = siasar_field_location
 dependencies[] = text
+features[ctools][] = field_group:field_group:1
 features[ctools][] = field_validation:default_field_validation_rules:2
 features[entityform_type][] = comunidad
 features[features_api][] = api:2
