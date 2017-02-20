@@ -2193,6 +2193,8 @@ function feature_siasar_field_bases_field_group_info() {
       1 => 'field_g4_3',
       2 => 'field_cantidad_de_cloro_residual',
       3 => 'field_fecha_analisiscalidad_agua',
+      4 => 'field_fecha_analisis_coliformes',
+      5 => 'field_fecha_analisis_fq',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2342,7 +2344,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'H. Comments',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'group_h1',
     ),
