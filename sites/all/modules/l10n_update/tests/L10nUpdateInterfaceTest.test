@@ -40,6 +40,13 @@ class L10nUpdateInterfaceTest extends L10nUpdateTestBase {
     // Enable the module this test uses for its translations.
     module_enable(array('l10n_update_test_translate'));
 
+
+    // Exclude l10n_update so no remote translations are fetched.
+    $edit = array(
+        'disabled_projects' => "l10n_update",
+    );
+    $this->drupalPost('admin/config/regional/language/update', $edit, t('Save configuration'));
+
     // No language added.
     // Check status page and Translate interface update page.
     $this->drupalGet('admin/reports/status');
