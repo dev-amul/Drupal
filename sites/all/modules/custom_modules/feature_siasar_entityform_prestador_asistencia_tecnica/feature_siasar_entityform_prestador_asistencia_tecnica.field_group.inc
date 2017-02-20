@@ -137,8 +137,8 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
     'label' => 'B. INTERVENTION',
     'weight' => '1',
     'children' => array(
-      0 => 'group_intervention_b2',
-      1 => 'group_intervention_b1',
+      0 => 'group_intervention_b1',
+      1 => 'group_intervention_b2',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -244,7 +244,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
         'classes' => 'field-group',
         'description' => '',
         'show_label' => '1',
-        'label_element' => 'h3',
+        'label_element' => 'h2',
         'effect' => 'none',
         'speed' => 'fast',
       ),
@@ -460,8 +460,8 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
     'weight' => '6',
     'children' => array(
       0 => 'field_dispone_fondos_viaticos',
-      1 => 'field_cantidad_equipos_transport',
-      2 => 'field_dispone_material_didactico',
+      1 => 'field_dispone_material_didactico',
+      2 => 'field_cantidad_equipos_transport',
       3 => 'field_dispone_fondos_combistible',
       4 => 'field_estado_medicion_agua',
       5 => 'field_estado_equipos_informatico',
