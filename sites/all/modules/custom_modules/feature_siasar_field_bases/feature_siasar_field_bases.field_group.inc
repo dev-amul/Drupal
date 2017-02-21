@@ -35,7 +35,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-a5 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_a5|entityform|sistema|form'] = $field_group;
@@ -64,7 +64,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-a6-croquis-del-sistema field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_a6_croquis_del_sistema|entityform|sistema|form'] = $field_group;
@@ -85,13 +85,13 @@ function feature_siasar_field_bases_field_group_info() {
       0 => 'field_user_reference',
       1 => 'field_fecha_de_aplicaci_n',
       2 => 'field_pais',
-      3 => 'group_a5',
-      4 => 'group_a6_croquis_del_sistema',
-      5 => 'group_financiamiento_inicial',
-      6 => 'group_info_general',
-      7 => 'group_otras_divisiones',
-      8 => 'group_rehabilitaciones_sistema',
-      9 => 'group_tpo_sist_abastecimeinto',
+      3 => 'group_financiamiento_inicial',
+      4 => 'group_info_general',
+      5 => 'group_otras_divisiones',
+      6 => 'group_rehabilitaciones_sistema',
+      7 => 'group_tpo_sist_abastecimeinto',
+      8 => 'group_a5',
+      9 => 'group_a6_croquis_del_sistema',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -280,13 +280,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'B1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-b1 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-b1 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_b1|entityform|sistema|form'] = $field_group;
@@ -306,8 +307,8 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_existencia_z_erosionadas',
       1 => 'field_existencia_deareas_verdes',
-      2 => 'field_proteccion_de_la_fuente',
-      3 => 'field_existenciade_contaminacion',
+      2 => 'field_existenciade_contaminacion',
+      3 => 'field_proteccion_de_la_fuente',
       4 => 'field_existencia_de_indicio',
     ),
     'format_type' => 'fieldset',
@@ -319,7 +320,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-b2 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_b2|field_collection_item|field_fuente_y_o_captacion|form'] = $field_group;
@@ -342,13 +343,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'B3.',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-b3 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-b3 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_b3|field_collection_item|field_fuente_y_o_captacion|form'] = $field_group;
@@ -378,7 +380,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-b4 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_b4|field_collection_item|field_fuente_y_o_captacion|form'] = $field_group;
@@ -433,13 +435,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'C1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-c1 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-c1 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_c1|entityform|sistema|form'] = $field_group;
@@ -1352,7 +1355,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_groups['group_com_srv|entityform|comunidad|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_com_uso_compartido|entityform|comunidad|form';
   $field_group->group_name = 'group_com_uso_compartido';
@@ -1443,7 +1446,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_groups['group_com_viviendas_sin_sistema|entityform|comunidad|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_comentarios|entityform|prestador_de_servicio|form';
   $field_group->group_name = 'group_comentarios';
@@ -1688,13 +1691,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'E1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-e1 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-e1 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_e1|entityform|sistema|form'] = $field_group;
@@ -1806,13 +1810,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'F1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-f1 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-f1 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_f1|entityform|sistema|form'] = $field_group;
@@ -1962,7 +1967,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-financiamiento-inicial field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_financiamiento_inicial|entityform|sistema|form'] = $field_group;
@@ -2038,15 +2043,15 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'field_nombre_de_la_fuente',
-      1 => 'field_fecha_toma_cdal_epoca_seca',
+      1 => 'field_b1_7',
       2 => 'field_b1_altitud',
-      3 => 'field_b1_7',
-      4 => 'field_codigo_de_la_fuente',
+      3 => 'field_codigo_de_la_fuente',
+      4 => 'field_es_la_fuente_principal',
       5 => 'field_tipo_de_fuente',
-      6 => 'field_es_la_fuente_principal',
-      7 => 'field_fecha_toma_caudal_ep_seca',
+      6 => 'field_fecha_toma_caudal_ep_seca',
+      7 => 'field_caudal_fuente_epoca_seca',
       8 => 'field_caudal_de_la_fuente',
-      9 => 'field_caudal_fuente_epoca_seca',
+      9 => 'field_fecha_toma_cdal_epoca_seca',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2057,7 +2062,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-fuente-y-ocaptacion field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_fuente_y_ocaptacion|field_collection_item|field_fuente_y_o_captacion|form'] = $field_group;
@@ -2113,7 +2118,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-g1 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_g1|entityform|sistema|form'] = $field_group;
@@ -2142,7 +2147,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-g2 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_g2|entityform|sistema|form'] = $field_group;
@@ -2171,7 +2176,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-g3 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_g3|entityform|sistema|form'] = $field_group;
@@ -2205,7 +2210,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-g4 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_g4|entityform|sistema|form'] = $field_group;
@@ -2294,13 +2299,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'H1.',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-h1 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-h1 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_h1|entityform|sistema|form'] = $field_group;
@@ -2754,8 +2760,8 @@ function feature_siasar_field_bases_field_group_info() {
       0 => 'field_alto',
       1 => 'field_latitud',
       2 => 'field_entity_name',
-      3 => 'field_codigo_de_sistema',
-      4 => 'field_entidad_local',
+      3 => 'field_entidad_local',
+      4 => 'field_codigo_de_sistema',
       5 => 'field_anno_construccion',
       6 => 'field_imagen',
     ),
@@ -2768,7 +2774,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-info-general field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_info_general|entityform|sistema|form'] = $field_group;
@@ -3182,7 +3188,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-otras-divisiones field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_otras_divisiones|entityform|sistema|form'] = $field_group;
@@ -3273,7 +3279,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_groups['group_pat_a3|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_personal_docente|field_collection_item|field_con_fic_ce_ficha|form';
   $field_group->group_name = 'group_personal_docente';
@@ -3331,7 +3337,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_groups['group_personal|entityform|prestador_de_servicio|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_poblacion_estudiantil|field_collection_item|field_con_fic_ce_ficha|form';
   $field_group->group_name = 'group_poblacion_estudiantil';
@@ -3651,7 +3657,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-rehabilitaciones-sistema field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_rehabilitaciones_sistema|entityform|sistema|form'] = $field_group;
@@ -3854,7 +3860,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-tpo-sist-abastecimeinto field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_tpo_sist_abastecimeinto|entityform|sistema|form'] = $field_group;

@@ -536,6 +536,25 @@ form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.for
 form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper > .fieldset-wrapper .form-item:not(:last-child) {
   margin-bottom: 15px;
 }
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection th.field-label {
+  display: none;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection fieldset.form-wrapper {
+  margin-left: 0;
+  margin-right: 0;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection fieldset.form-wrapper > legend {
+  color: white;
+  background: #00829e;
+  font-size: 1.25rem;
+  padding: 3px 20px;
+  position: relative;
+}
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection fieldset.form-wrapper > .fieldset-wrapper {
+  padding: 20px 0;
+  margin: 0;
+  border: none;
+}
 form.entityform .vertical-tabs-panes .form-wrapper:not(:first-child) {
   margin-top: 30px;
 }
