@@ -194,7 +194,7 @@ form.entityform {
             display: none;
           }
 
-          fieldset.form-wrapper {
+          fieldset.field-group-fieldset {
             margin-left: 0;
             margin-right: 0;
 
@@ -205,8 +205,36 @@ form.entityform {
               padding: 20px 0;
               margin: 0;
               border: none;
+
+              legend {
+                background: none;
+              }
             }
           }
+
+          tr.draggable td:first-child {
+            background: $siasar-light-orange;
+
+            a.tabledrag-handle {
+              float: none;
+              height: auto;
+              margin: 0;
+              text-decoration: none;
+
+              .handle {
+                background-position: 0px 0px;
+                margin: 0;
+                padding: 0;
+                width: 20px;
+                height: 20px;
+              }
+              &.tabledrag-handle-hover .handle {
+                background-position-y: -20px;
+              }
+            }
+          }
+
+
         }
       }
     }
