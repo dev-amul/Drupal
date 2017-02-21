@@ -462,8 +462,8 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_c1_1',
       1 => 'field_c1_4',
-      2 => 'field_diametro_medio_de_tuberia',
-      3 => 'field_longitud_de_la_linea',
+      2 => 'field_longitud_de_la_linea',
+      3 => 'field_diametro_medio_de_tuberia',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -474,7 +474,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-c1 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_c1|field_collection_item|field_lineas_de_conduccion|form'] = $field_group;
@@ -504,7 +504,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-c2 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_c2|field_collection_item|field_lineas_de_conduccion|form'] = $field_group;
@@ -1569,8 +1569,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D1. Water treatment infrastructure',
     'weight' => '3',
     'children' => array(
-      0 => 'field_tipo_de_tratamiento',
-      1 => 'field_d1_4',
+      0 => 'field_d1_4',
+      1 => 'field_tipo_de_tratamiento',
       2 => 'field_d1_5',
       3 => 'field_d1_1',
       4 => 'field_d1_3',
@@ -1584,7 +1584,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-d1 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d1|field_collection_item|field_d_infraestructura|form'] = $field_group;
@@ -1614,7 +1614,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-d2 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d2|field_collection_item|field_d_infraestructura|form'] = $field_group;
@@ -1731,7 +1731,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-e1 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_e1|field_collection_item|field_e_infraestructura_almac|form'] = $field_group;
@@ -1761,7 +1761,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-e2 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_e2|field_collection_item|field_e_infraestructura_almac|form'] = $field_group;
@@ -1835,8 +1835,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'F1. Water distribution ',
     'weight' => '0',
     'children' => array(
-      0 => 'field_f1_1',
-      1 => 'field_f1_5',
+      0 => 'field_f1_5',
+      1 => 'field_f1_1',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1847,7 +1847,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-f1 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_f1|field_collection_item|field_f_red_de_distribucion|form'] = $field_group;
@@ -1876,7 +1876,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-f2 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_f2|field_collection_item|field_f_red_de_distribucion|form'] = $field_group;
@@ -1906,7 +1906,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-f3 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_f3|field_collection_item|field_f_red_de_distribucion|form'] = $field_group;
@@ -3600,7 +3600,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-red-distribucion field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_red_distribucion|field_collection_item|field_f_red_de_distribucion|form'] = $field_group;
