@@ -492,6 +492,7 @@ form.entityform .vertical-tabs-panes fieldset legend {
   font-size: 1.25rem;
   padding: 3px 20px;
   position: relative;
+  float: none;
   left: -20px;
 }
 @media (min-width: 992px) {
@@ -536,45 +537,49 @@ form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.for
 form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper > .fieldset-wrapper .form-item:not(:last-child) {
   margin-bottom: 15px;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection th.field-label {
+form.entityform .vertical-tabs-panes fieldset .field-type-field-collection th.field-label {
   display: none;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection fieldset.field-group-fieldset {
+form.entityform .vertical-tabs-panes fieldset .field-type-field-collection fieldset.field-group-fieldset {
   margin-left: 0;
   margin-right: 0;
+  padding: 20px;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection fieldset.field-group-fieldset > legend {
+form.entityform .vertical-tabs-panes fieldset .field-type-field-collection fieldset.field-group-fieldset > legend {
   color: white;
   background: #00829e;
   font-size: 1.25rem;
   padding: 3px 20px;
   position: relative;
+  float: none;
+  left: 0;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection fieldset.field-group-fieldset > .fieldset-wrapper {
+form.entityform .vertical-tabs-panes fieldset .field-type-field-collection fieldset.field-group-fieldset > .fieldset-wrapper {
   padding: 20px 0;
   margin: 0;
   border: none;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection fieldset.field-group-fieldset > .fieldset-wrapper legend {
+form.entityform .vertical-tabs-panes fieldset .field-type-field-collection fieldset.field-group-fieldset > .fieldset-wrapper legend {
   background: none;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection tr.draggable td:first-child {
+form.entityform .vertical-tabs-panes fieldset .field-type-field-collection tr.draggable td:first-child {
   background: #f2cfa4;
+  width: 20px;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection tr.draggable td:first-child a.tabledrag-handle {
+form.entityform .vertical-tabs-panes fieldset .field-type-field-collection tr.draggable td:first-child a.tabledrag-handle {
   float: none;
   height: auto;
   margin: 0;
   text-decoration: none;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection tr.draggable td:first-child a.tabledrag-handle .handle {
+form.entityform .vertical-tabs-panes fieldset .field-type-field-collection tr.draggable td:first-child a.tabledrag-handle .handle {
   background-position: 0px 0px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   width: 20px;
   height: 20px;
 }
-form.entityform .vertical-tabs-panes fieldset .field-group-fieldset .field-type-field-collection tr.draggable td:first-child a.tabledrag-handle.tabledrag-handle-hover .handle {
+form.entityform .vertical-tabs-panes fieldset .field-type-field-collection tr.draggable td:first-child a.tabledrag-handle.tabledrag-handle-hover .handle {
   background-position-y: -20px;
 }
 form.entityform .vertical-tabs-panes .form-wrapper:not(:first-child) {

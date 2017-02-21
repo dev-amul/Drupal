@@ -189,54 +189,59 @@ form.entityform {
             }
           }
         }
-        .field-type-field-collection {
-          th.field-label {
-            display: none;
-          }
-
-          fieldset.field-group-fieldset {
-            margin-left: 0;
-            margin-right: 0;
-
-            > legend {
-              @include form_subsection_tag();
-            }
-            > .fieldset-wrapper {
-              padding: 20px 0;
-              margin: 0;
-              border: none;
-
-              legend {
-                background: none;
-              }
-            }
-          }
-
-          tr.draggable td:first-child {
-            background: $siasar-light-orange;
-
-            a.tabledrag-handle {
-              float: none;
-              height: auto;
-              margin: 0;
-              text-decoration: none;
-
-              .handle {
-                background-position: 0px 0px;
-                margin: 0;
-                padding: 0;
-                width: 20px;
-                height: 20px;
-              }
-              &.tabledrag-handle-hover .handle {
-                background-position-y: -20px;
-              }
-            }
-          }
-
-
-        }
       }
+
+      .field-type-field-collection {
+        th.field-label {
+          display: none;
+        }
+
+        fieldset.field-group-fieldset {
+          margin-left: 0;
+          margin-right: 0;
+          padding: $vertical-tabs-padding;
+
+          > legend {
+            @include form_subsection_tag();
+            left: 0;
+          }
+          > .fieldset-wrapper {
+            padding: 20px 0;
+            margin: 0;
+            border: none;
+
+            legend {
+              background: none;
+            }
+          }
+        }
+
+        tr.draggable td:first-child {
+          background: $siasar-light-orange;
+          width: $vertical-tabs-padding;
+
+          a.tabledrag-handle {
+            float: none;
+            height: auto;
+            margin: 0;
+            text-decoration: none;
+
+            .handle {
+              background-position: 0px 0px;
+              margin: 0 auto;
+              padding: 0;
+              width: 20px;
+              height: 20px;
+            }
+            &.tabledrag-handle-hover .handle {
+              background-position-y: -20px;
+            }
+          }
+        }
+
+
+      }
+
     }
 
     .form-wrapper:not(:first-child) {
