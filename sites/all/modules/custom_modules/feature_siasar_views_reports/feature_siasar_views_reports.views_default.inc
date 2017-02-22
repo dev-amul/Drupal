@@ -1,0 +1,358 @@
+<?php
+/**
+ * @file
+ * feature_siasar_views_reports.views_default.inc
+ */
+
+/**
+ * Implements hook_views_default_views().
+ */
+function feature_siasar_views_reports_views_default_views() {
+  $export = array();
+
+  $view = new view();
+  $view->name = 'results_entityforms';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'entityform';
+  $view->human_name = 'Resultados de los formularios';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Resultados de las encuestas';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'view any entityform';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_tags'] = array(
+    0 => 'entityform_results_view',
+  );
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementos por página';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Todo -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Desplazamiento';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['columns'] = array(
+    'entityform_id' => 'entityform_id',
+    'created' => 'created',
+    'field_nombre_completo' => 'field_nombre_completo',
+    'field_user_reference' => 'field_user_reference',
+    'field_entity_name' => 'field_entity_name',
+    'edit_entityform' => 'edit_entityform',
+    'link_entityform' => 'link_entityform',
+    'nothing' => 'nothing',
+    'field_entidad_local' => 'field_entidad_local',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'entityform_id' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_nombre_completo' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_user_reference' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_entity_name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_entityform' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'link_entityform' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_entidad_local' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['sticky'] = TRUE;
+  /* Relación: Entityform Submission: Usuario uid */
+  $handler->display->display_options['relationships']['user']['id'] = 'user';
+  $handler->display->display_options['relationships']['user']['table'] = 'entityform';
+  $handler->display->display_options['relationships']['user']['field'] = 'user';
+  /* Relación: Campo: País (field_pais) */
+  $handler->display->display_options['relationships']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['relationships']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['relationships']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  $handler->display->display_options['relationships']['field_pais_iso2']['relationship'] = 'user';
+  $handler->display->display_options['relationships']['field_pais_iso2']['required'] = TRUE;
+  /* Campo: Entityform Submission: Entityform submission ID */
+  $handler->display->display_options['fields']['entityform_id']['id'] = 'entityform_id';
+  $handler->display->display_options['fields']['entityform_id']['table'] = 'entityform';
+  $handler->display->display_options['fields']['entityform_id']['field'] = 'entityform_id';
+  /* Campo: Entityform Submission: Date submitted */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'entityform';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'short';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Campo: Usuario: Nombre Completo */
+  $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo']['relationship'] = 'user';
+  $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'Usuario';
+  $handler->display->display_options['fields']['field_nombre_completo']['element_label_colon'] = FALSE;
+  /* Campo: Entityform Submission: Nombre */
+  $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
+  /* Campo: Entityform Submission: Editar enlace */
+  $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
+  $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
+  $handler->display->display_options['fields']['edit_entityform']['field'] = 'edit_entityform';
+  $handler->display->display_options['fields']['edit_entityform']['label'] = 'Editar';
+  $handler->display->display_options['fields']['edit_entityform']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_entityform']['element_label_colon'] = FALSE;
+  /* Campo: Entityform Submission: Enlace */
+  $handler->display->display_options['fields']['link_entityform']['id'] = 'link_entityform';
+  $handler->display->display_options['fields']['link_entityform']['table'] = 'entityform';
+  $handler->display->display_options['fields']['link_entityform']['field'] = 'link_entityform';
+  $handler->display->display_options['fields']['link_entityform']['label'] = 'Ver';
+  $handler->display->display_options['fields']['link_entityform']['exclude'] = TRUE;
+  /* Campo: Global: Texto personalizado */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Acciones';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[link_entityform] [edit_entityform]';
+  /* Criterio de filtrado: Entityform Submission: Localidad (field_entidad_local) */
+  $handler->display->display_options['filters']['field_entidad_local_tid']['id'] = 'field_entidad_local_tid';
+  $handler->display->display_options['filters']['field_entidad_local_tid']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['filters']['field_entidad_local_tid']['field'] = 'field_entidad_local_tid';
+  $handler->display->display_options['filters']['field_entidad_local_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_entidad_local_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_entidad_local_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['operator_id'] = 'field_entidad_local_tid_op';
+  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['label'] = 'Localidad';
+  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['operator'] = 'field_entidad_local_tid_op';
+  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['identifier'] = 'field_entidad_local_tid';
+  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  $handler->display->display_options['filters']['field_entidad_local_tid']['type'] = 'textfield';
+  $handler->display->display_options['filters']['field_entidad_local_tid']['vocabulary'] = 'division_administrativa';
+  /* Criterio de filtrado: Entityform Type: Etiqueta */
+  $handler->display->display_options['filters']['label']['id'] = 'label';
+  $handler->display->display_options['filters']['label']['table'] = 'entityform_type';
+  $handler->display->display_options['filters']['label']['field'] = 'label';
+  $handler->display->display_options['filters']['label']['group'] = 1;
+  $handler->display->display_options['filters']['label']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['label']['expose']['operator_id'] = 'label_op';
+  $handler->display->display_options['filters']['label']['expose']['label'] = 'Tipo de formulario';
+  $handler->display->display_options['filters']['label']['expose']['operator'] = 'label_op';
+  $handler->display->display_options['filters']['label']['expose']['identifier'] = 'label';
+  $handler->display->display_options['filters']['label']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  /* Criterio de filtrado: Entityform Submission: Validado (field_cuestionario_validado) */
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['id'] = 'field_cuestionario_validado_value';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['table'] = 'field_data_field_cuestionario_validado';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['field'] = 'field_cuestionario_validado_value';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['operator_id'] = 'field_cuestionario_validado_value_op';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['label'] = 'Validado';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['operator'] = 'field_cuestionario_validado_value_op';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['identifier'] = 'field_cuestionario_validado_value';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  /* Criterio de filtrado: Usuario: Nombre */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'users';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['relationship'] = 'user';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Nombre';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['display_comment'] = 'Esta vista está modificada mediante código en el módulo "feature_siasar_entityform_results"';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Entityform Submission: Entityform submission ID */
+  $handler->display->display_options['fields']['entityform_id']['id'] = 'entityform_id';
+  $handler->display->display_options['fields']['entityform_id']['table'] = 'entityform';
+  $handler->display->display_options['fields']['entityform_id']['field'] = 'entityform_id';
+  $handler->display->display_options['fields']['entityform_id']['label'] = 'ID';
+  $handler->display->display_options['fields']['entityform_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['entityform_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['entityform_id']['separator'] = '';
+  /* Campo: Entityform Submission: Nombre */
+  $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
+  /* Campo: Entityform Submission: Localidad */
+  $handler->display->display_options['fields']['field_entidad_local']['id'] = 'field_entidad_local';
+  $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['fields']['field_entidad_local']['field'] = 'field_entidad_local';
+  $handler->display->display_options['fields']['field_entidad_local']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_entidad_local']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_entidad_local']['settings'] = array(
+    'linked' => 0,
+  );
+  /* Campo: Entityform Submission: Date submitted */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'entityform';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Fecha';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'short';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Campo: Usuario: Nombre Completo */
+  $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo']['relationship'] = 'user';
+  $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'Usuario';
+  $handler->display->display_options['fields']['field_nombre_completo']['element_label_colon'] = FALSE;
+  /* Campo: Entityform Submission: Encuestador */
+  $handler->display->display_options['fields']['field_user_reference']['id'] = 'field_user_reference';
+  $handler->display->display_options['fields']['field_user_reference']['table'] = 'field_data_field_user_reference';
+  $handler->display->display_options['fields']['field_user_reference']['field'] = 'field_user_reference';
+  $handler->display->display_options['fields']['field_user_reference']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user_reference']['settings'] = array(
+    'link' => 0,
+  );
+  /* Campo: Entityform Submission: Editar enlace */
+  $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
+  $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
+  $handler->display->display_options['fields']['edit_entityform']['field'] = 'edit_entityform';
+  $handler->display->display_options['fields']['edit_entityform']['label'] = 'Editar';
+  $handler->display->display_options['fields']['edit_entityform']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_entityform']['element_label_colon'] = FALSE;
+  /* Campo: Entityform Submission: Enlace */
+  $handler->display->display_options['fields']['link_entityform']['id'] = 'link_entityform';
+  $handler->display->display_options['fields']['link_entityform']['table'] = 'entityform';
+  $handler->display->display_options['fields']['link_entityform']['field'] = 'link_entityform';
+  $handler->display->display_options['fields']['link_entityform']['label'] = 'Ver';
+  $handler->display->display_options['fields']['link_entityform']['exclude'] = TRUE;
+  /* Campo: Entityform Submission: Validado */
+  $handler->display->display_options['fields']['field_cuestionario_validado']['id'] = 'field_cuestionario_validado';
+  $handler->display->display_options['fields']['field_cuestionario_validado']['table'] = 'field_data_field_cuestionario_validado';
+  $handler->display->display_options['fields']['field_cuestionario_validado']['field'] = 'field_cuestionario_validado';
+  $handler->display->display_options['fields']['field_cuestionario_validado']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cuestionario_validado']['type'] = 'i18n_list_default';
+  /* Campo: Global: Texto personalizado */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Acciones';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[link_entityform] | [edit_entityform]';
+  $handler->display->display_options['path'] = 'resultados';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Ver';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 1;
+  $handler->display->display_options['menu']['context_only_inline'] = 1;
+
+  /* Display: Exportación de datos */
+  $handler = $view->new_display('views_data_export', 'Exportación de datos', 'views_data_export_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['provide_file'] = 0;
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['separator'] = ';';
+  $handler->display->display_options['style_options']['quote'] = '1';
+  $handler->display->display_options['style_options']['trim'] = 1;
+  $handler->display->display_options['style_options']['replace_newlines'] = 0;
+  $handler->display->display_options['style_options']['newline_token'] = '1';
+  $handler->display->display_options['style_options']['header'] = 1;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['path'] = 'resultados/csv';
+  $export['resultados_encuestas'] = $view;
+
+  return $export;
+}
