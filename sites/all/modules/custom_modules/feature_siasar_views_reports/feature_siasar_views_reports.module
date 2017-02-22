@@ -5,3 +5,17 @@
  */
 
 include_once 'feature_siasar_views_reports.features.inc';
+
+function feature_siasar_views_reports_views_query_alter(&$view, &$query) {
+  global $user;
+
+  if (!in_array("entityform_results_view", $query->options['query_tags'])) return;
+
+  $user = user_load($user->uid);
+  $user_country_iso2 = $user->field_pais[LANGUAGE_NONE][0]['iso2'];
+
+  // Filter by user's country if not an admin
+  if (!in_array('administrator', $user->roles)) {
+    $query->add_where(0, 'users_entityform__field_data_field_pais.field_pais_iso2', $user_country_iso2, 'LIKE');
+  }
+}
