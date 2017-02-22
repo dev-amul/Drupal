@@ -95,6 +95,29 @@ table.responsive-table tbody {
   clear: left;
 }
 
+ul.pagination {
+  display: table;
+  margin: 40px auto;
+}
+ul.pagination li {
+  height: auto;
+  vertical-align: middle;
+}
+ul.pagination li a {
+  color: #de861b;
+}
+ul.pagination li.pager-elipsis {
+  background: none;
+  color: #ccc;
+}
+ul.pagination li.active {
+  background-color: #de861b;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+}
+
 .messages {
   padding: 20px;
   margin-bottom: 20px;
@@ -313,6 +336,45 @@ body.not-found-404 #block-system-main {
   background: none;
   text-align: center;
   color: white;
+}
+
+body.page-resultados .page,
+body.page-resultados .main.container {
+  max-width: 10000px;
+}
+body.page-resultados .view-results-entityforms {
+  padding: 20px;
+}
+body.page-resultados .view-results-entityforms form {
+  margin-bottom: 40px;
+}
+body.page-resultados .view-results-entityforms form .views-exposed-widget {
+  padding-right: 1.5rem;
+}
+body.page-resultados .view-results-entityforms form label {
+  font-size: 1rem;
+}
+body.page-resultados .view-results-entityforms form .form-text,
+body.page-resultados .view-results-entityforms form .form-select {
+  width: 100%;
+  padding-left: 5px;
+}
+@media (min-width: 600px) {
+  body.page-resultados .view-results-entityforms form .form-text,
+  body.page-resultados .view-results-entityforms form .form-select {
+    width: auto;
+  }
+}
+body.page-resultados .view-results-entityforms form .form-item .description {
+  font-size: 0.8rem;
+}
+@media (min-width: 600px) {
+  body.page-resultados .view-results-entityforms form #edit-field-pais-iso2 {
+    width: 5em;
+  }
+  body.page-resultados .view-results-entityforms form .form-autocomplete {
+    width: 25em;
+  }
 }
 
 body.page-entityform h1,

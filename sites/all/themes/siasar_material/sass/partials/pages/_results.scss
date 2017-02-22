@@ -1,0 +1,46 @@
+body.page-resultados {
+
+  .page,
+  .main.container {
+    max-width: 10000px;
+  }
+
+  .view-results-entityforms {
+    padding: $vertical-tabs-padding;
+
+    form {
+      margin-bottom: $vertical-tabs-padding * 2;
+
+      .views-exposed-widget {
+        padding-right: 1.5rem;
+      }
+
+      label {
+        font-size: 1rem;
+      }
+      .form-text,
+      .form-select {
+        width: 100%;
+        padding-left: 5px;
+
+        @include breakpoint($break-small) {
+          width: auto;
+        }
+      }
+      .form-item .description {
+        font-size: 0.8rem;
+      }
+
+      @include breakpoint($break-small) {
+        #edit-field-pais-iso2 {
+          width: 5em;
+        }
+        .form-autocomplete {
+          width: 25em;
+        }
+      }
+
+    }
+  }
+
+}
