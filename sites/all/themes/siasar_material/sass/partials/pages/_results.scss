@@ -2,7 +2,7 @@ body.page-resultados {
 
   .page,
   .main.container {
-    max-width: 10000px;
+    max-width: 1600px;
   }
 
   .view-results-entityforms {
@@ -40,6 +40,42 @@ body.page-resultados {
         }
       }
 
+    }
+
+    table.views-table {
+      position: relative;
+      width: auto;
+      min-width: 100%;
+      margin: 0 -$vertical-tabs-padding;
+
+      tbody tr {
+
+        &:hover {
+          background-color: $siasar-light-yellow;
+        }
+
+        td {
+          padding: ($vertical-tabs-padding / 2) ($vertical-tabs-padding / 4);
+
+          &.views-field-field-cuestionario-validado {
+            text-align: center;
+          }
+          &.views-field-created,
+          &.views-field-nothing {
+            white-space: nowrap;
+          }
+        }
+      }
+
+      td,
+      th {
+        &:first-child {
+          padding-left: $vertical-tabs-padding;
+        }
+        &:last-child {
+          padding-right: $vertical-tabs-padding;
+        }
+      }
     }
   }
 
