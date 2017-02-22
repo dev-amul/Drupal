@@ -6,16 +6,63 @@
 
 include_once 'feature_siasar_views_reports.features.inc';
 
+
+/**
+ * Implements hook_views_query_alter.
+ * Alters entityform_results_view to filter out results depending on user permissions.
+ * Curently, it filters out results by country.
+ */
 function feature_siasar_views_reports_views_query_alter(&$view, &$query) {
   global $user;
-
   if (!in_array("entityform_results_view", $query->options['query_tags'])) return;
 
-  $user = user_load($user->uid);
-  $user_country_iso2 = $user->field_pais[LANGUAGE_NONE][0]['iso2'];
-
-  // Filter by user's country if not an admin
+  // TODO: Maybe check a permission instead of a role?
   if (!in_array('administrator', $user->roles)) {
+    $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
     $query->add_where(0, 'users_entityform__field_data_field_pais.field_pais_iso2', $user_country_iso2, 'LIKE');
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter.
+ * Alters exposed filters on view entityform_results_view
+ * TODO: Maybe check a permission instead of a role?
+ */
+function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  if ($form_state['view']->name !== 'results_entityforms') return;
+
+  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
+
+  // Country filter is only for admins
+  if (!in_array('administrator', $user->roles)) {
+    $form['field_pais_iso2']['#type'] = 'hidden';
+  }
+
+  // Label
+  $form_types = entity_get_info('entityform')['bundles'];
+  foreach ($form_types as $machine => $type) {
+    $options[$machine] = t($type['label']);
+  }
+  $form_type_selector = array(
+    '#type' => 'select',
+    '#options' => $options,
+    '#required' => false,
+    '#empty_option' => t('- All -'),
+  );
+  $form['type'] = $form_type_selector;
+
+  $form_id = $form_id;
+}
+
+function _feature_siasar_views_reports_get_user_country() {
+  global $user;
+  static $user_country = null;
+
+  $user_country = $user_country
+    ? $user_country
+    : user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
+
+  return $user_country;
 }
