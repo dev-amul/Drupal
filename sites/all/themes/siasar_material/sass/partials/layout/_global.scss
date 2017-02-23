@@ -89,6 +89,33 @@ table.responsive-table tbody {
   clear: left;
 }
 
+// Pager
+ul.pagination {
+  display: table;
+  margin: ($vertical-tabs-padding * 2) auto;
+
+  li {
+    height: auto;
+    vertical-align: middle;
+
+    a {
+      color: $siasar-orange;
+    }
+
+    &.pager-elipsis {
+      background: none;
+      color: $siasar-light-grey;
+    }
+    &.active {
+      background-color: $siasar-orange;
+      border-radius: $siasar-border-radius;
+      padding-left: $siasar-border-radius;
+      padding-right: $siasar-border-radius;
+      color: white;
+    }
+  }
+}
+
 // Errors and notices
 .messages {
   padding: 20px;
