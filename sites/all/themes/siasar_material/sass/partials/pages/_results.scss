@@ -1,0 +1,82 @@
+body.page-resultados {
+
+  .page,
+  .main.container {
+    max-width: 1600px;
+  }
+
+  .view-results-entityforms {
+    padding: $vertical-tabs-padding;
+
+    form {
+      margin-bottom: $vertical-tabs-padding * 2;
+
+      .views-exposed-widget {
+        padding-right: 1.5rem;
+      }
+
+      label {
+        font-size: 1rem;
+      }
+      .form-text,
+      .form-select {
+        width: 100%;
+        padding-left: 5px;
+
+        @include breakpoint($break-small) {
+          width: auto;
+        }
+      }
+      .form-item .description {
+        font-size: 0.8rem;
+      }
+
+      @include breakpoint($break-small) {
+        #edit-field-pais-iso2 {
+          width: 5em;
+        }
+        .form-autocomplete {
+          width: 25em;
+        }
+      }
+
+    }
+
+    table.views-table {
+      position: relative;
+      width: auto;
+      min-width: 100%;
+      margin: 0 -$vertical-tabs-padding;
+
+      tbody tr {
+
+        &:hover {
+          background-color: $siasar-light-yellow;
+        }
+
+        td {
+          padding: ($vertical-tabs-padding / 2) ($vertical-tabs-padding / 4);
+
+          &.views-field-field-cuestionario-validado {
+            text-align: center;
+          }
+          &.views-field-created,
+          &.views-field-nothing {
+            white-space: nowrap;
+          }
+        }
+      }
+
+      td,
+      th {
+        &:first-child {
+          padding-left: $vertical-tabs-padding;
+        }
+        &:last-child {
+          padding-right: $vertical-tabs-padding;
+        }
+      }
+    }
+  }
+
+}
