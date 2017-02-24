@@ -18,3 +18,5 @@ sites/all/translations
 *.scssc
 .css.map
 
+# Ignore PHPExcel examples
+sites/all/libraries/PHPExcel/Examples
