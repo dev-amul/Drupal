@@ -42,6 +42,11 @@ body.page-resultados {
 
     }
 
+    table.sticky-header {
+      background: white;
+      z-index: 1;
+    }
+
     table.views-table {
       position: relative;
       width: auto;

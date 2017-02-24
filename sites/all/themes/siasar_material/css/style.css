@@ -376,6 +376,10 @@ body.page-resultados .view-results-entityforms form .form-item .description {
     width: 25em;
   }
 }
+body.page-resultados .view-results-entityforms table.sticky-header {
+  background: white;
+  z-index: 1;
+}
 body.page-resultados .view-results-entityforms table.views-table {
   position: relative;
   width: auto;
