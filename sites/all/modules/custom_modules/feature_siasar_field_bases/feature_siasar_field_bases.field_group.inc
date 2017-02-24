@@ -522,20 +522,20 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D1. Services for providers (community managed water service providers, or Community Water Boards – CWBs) ',
     'weight' => '22',
     'children' => array(
-      0 => 'field_otras_numero_comunidade',
-      1 => 'field_apoyar_caps_conflictos',
-      2 => 'field_asesorar_prestador_aom',
-      3 => 'field_otras_tipo_apoyo',
-      4 => 'field_caps_medicion_pozo_agua',
-      5 => 'field_apoyar_caps_planificacion',
-      6 => 'field_apoyar_actualizar_tarifa',
-      7 => 'field_apoyar_legalizacion_reglam',
-      8 => 'field_verificar_apoyar_caps',
-      9 => 'field_revisar_actualizar_finanza',
+      0 => 'field_siasar_planification_anual',
+      1 => 'field_otras_numero_comunidade',
+      2 => 'field_apoyar_caps_conflictos',
+      3 => 'field_asesorar_prestador_aom',
+      4 => 'field_otras_tipo_apoyo',
+      5 => 'field_caps_medicion_pozo_agua',
+      6 => 'field_apoyar_caps_planificacion',
+      7 => 'field_apoyar_actualizar_tarifa',
+      8 => 'field_apoyar_legalizacion_reglam',
+      9 => 'field_verificar_apoyar_caps',
       10 => 'field_apoyar_juridica_caps',
-      11 => 'field_actualizar_prov_servicio',
-      12 => 'field_recolectar_muestras_agua',
-      13 => 'field_siasar_planification_anual',
+      11 => 'field_revisar_actualizar_finanza',
+      12 => 'field_actualizar_prov_servicio',
+      13 => 'field_recolectar_muestras_agua',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -546,7 +546,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-cantidad-comun-servicios field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_cantidad_comun_servicios|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -1663,13 +1663,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'E1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-e1 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-e1 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_e1|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -2694,9 +2695,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. GENERAL INFORMATION AND SYSTEM OVERVIEW',
     'weight' => '0',
     'children' => array(
-      0 => 'field_user_reference',
-      1 => 'field_pais',
-      2 => 'field_fecha_de_aplicacion',
+      0 => 'field_fecha_de_aplicacion',
+      1 => 'field_user_reference',
+      2 => 'field_pais',
       3 => 'group_pat_a1',
       4 => 'group_pat_a2',
       5 => 'group_pat_a3',
@@ -2855,13 +2856,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'B1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-intervention-b1 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-intervention-b1 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_intervention_b1|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -2883,13 +2885,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'B2',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-intervention-b2 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-intervention-b2 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_intervention_b2|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -3211,13 +3214,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
         'required_fields' => 1,
         'id' => '',
+        'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_pat_a1|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -3239,13 +3243,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A2',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-pat-a2 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-pat-a2 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_pat_a2|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -3267,13 +3272,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'A3',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-pat-a3 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-pat-a3 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_pat_a3|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -3411,13 +3417,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'C1',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-recursos-financ-hum-log-c1 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-recursos-financ-hum-log-c1 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_recursos_financ_hum_log_c1|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -3439,13 +3446,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'C2',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-recursos-financ-hum-log-c2 field-group-fieldset',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-recursos-financ-hum-log-c2 field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_recursos_financ_hum_log_c2|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -3467,13 +3475,14 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'C3',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
         'required_fields' => 1,
         'id' => '',
+        'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_recursos_financ_hum_log_c3|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
@@ -3511,7 +3520,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-recursos-financ-hum-log-c4 field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_recursos_financ_hum_log_c4|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
