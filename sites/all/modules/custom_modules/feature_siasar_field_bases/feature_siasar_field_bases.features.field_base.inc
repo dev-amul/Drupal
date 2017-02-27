@@ -4523,9 +4523,6 @@ function feature_siasar_field_bases_field_default_field_bases() {
       'revision_id' => array(
         0 => 'revision_id',
       ),
-      'value' => array(
-        0 => 'value',
-      ),
     ),
     'locked' => 0,
     'module' => 'field_collection',
@@ -8137,6 +8134,30 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_markup_ayuda_campos'.
+  $field_bases['field_markup_ayuda_campos'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_markup_ayuda_campos',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'markup',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'markup' => array(
+        'format' => 'filtered_html',
+        'value' => 'Este grupo sólo aparece si en la pregunta <em>"Tiene definido un tipo de tarifa?"</em> se ha respondido <em>"sí"</em>',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'markup',
   );
 
   // Exported field_base: 'field_materiales_para_descargar'.
