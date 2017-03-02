@@ -11,6 +11,7 @@ sites/all/translations
 
 # Ignore backup files
 *.pgsql
+db.dump
 
 # Ignore SASS cache
 .sass-cache
