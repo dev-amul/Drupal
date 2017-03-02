@@ -837,7 +837,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -916,7 +916,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'module' => 'computed_field',
       'settings' => array(),
       'type' => 'computed',
-      'weight' => 11,
+      'weight' => 10,
     ),
   );
 
@@ -2312,38 +2312,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 130,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'entityform-prestador_de_servicio-field_markup_ayuda_campos'.
-  $field_instances['entityform-prestador_de_servicio-field_markup_ayuda_campos'] = array(
-    'bundle' => 'prestador_de_servicio',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'markup',
-        'settings' => array(),
-        'type' => 'markup_default',
-        'weight' => 29,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_markup_ayuda_campos',
-    'label' => 'Markup de ayuda para campos',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'markup',
-      'settings' => array(),
-      'type' => 'markup',
-      'weight' => 159,
     ),
   );
 
@@ -4532,7 +4500,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 158,
+      'weight' => 63,
     ),
   );
 
@@ -4730,7 +4698,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 157,
+      'weight' => 62,
     ),
   );
 
@@ -5234,7 +5202,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Imagen');
   t('La altitud se mide en metros sobre el nivel del mar (msnm).');
   t('Localidad');
-  t('Markup de ayuda para campos');
   t('Monitoreo de la higiene comunitaria: ¿El prestador promueve saneamiento ambiental?');
   t('Monto previsto para el año en curso');
   t('Monto total actual');
