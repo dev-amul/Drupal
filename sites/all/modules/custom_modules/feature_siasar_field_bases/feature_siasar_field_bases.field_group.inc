@@ -1446,7 +1446,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_groups['group_com_viviendas_sin_sistema|entityform|comunidad|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_comentarios|entityform|prestador_de_servicio|form';
   $field_group->group_name = 'group_comentarios';
