@@ -34,7 +34,7 @@ function siasar_services_counter_services_resources() {
 
 /**
  * Callback for 'entity_count' endpoint.
- * Delivers te number of saved entities by type and bundle.
+ * Delivers number of saved entities by type and bundle.
  *
  * @param string $entity_name
  *   Entity name. Required.
