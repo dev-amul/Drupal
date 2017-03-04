@@ -301,3 +301,17 @@ function siasar_updates_update_7119(&$sandbox) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
 }
+
+/**
+ * Issue 386 - Modificar las vistas de resultados para que incluyan un filtro expuesto de país
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/386
+ */
+function siasar_updates_update_7120(&$sandbox) {
+  $modules = array(
+    'cors',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
