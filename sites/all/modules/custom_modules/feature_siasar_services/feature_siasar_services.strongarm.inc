@@ -15,7 +15,7 @@ function feature_siasar_services_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'cors_domains';
   $strongarm->value = array(
-    'rest/*' => '<mirror>',
+    'rest/*' => 'http://localhost:9000',
   );
   $export['cors_domains'] = $strongarm;
 
