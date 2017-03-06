@@ -830,6 +830,9 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
   left: -7px;
   z-index: 1;
 }
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items li .field-type-entityreference .field-items {
+  display: inline-block;
+}
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items .field-collection-view {
   padding: 0;
   margin: 0;

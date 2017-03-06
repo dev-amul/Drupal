@@ -179,9 +179,6 @@ function siasar_material_field($variables) {
   return $output;
 }
 
-/**
- * Implementation of hook_menu_local_task()
- */
 /*
 * this function processes your $tabs and should be called from preprocess_page in your template.php
 */
@@ -196,3 +193,15 @@ function siasar_material_process_tabs(&$vars) {
   }
 }
 
+/**
+ * Implementation of hook_preprocess_entity()
+ */
+function siasar_material_preprocess_entity(&$variables) {
+  $els = $variables['elements'];
+  if ($els['#entity_type'] !== 'entityform' || $els['#view_mode'] !== 'entity_reference') return;
+
+  $suggestions = &$variables['theme_hook_suggestions'];
+  $ours = "entityform__entityreference";
+
+  array_splice($suggestions, 1, 0, $ours);
+}
