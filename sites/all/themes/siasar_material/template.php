@@ -22,6 +22,13 @@ function siasar_material_preprocess_html(&$vars) {
   _siasar_material_add_status_classes_to_body($vars);
   _siasar_material_add_class_to_entityform_view($vars);
 }
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function siasar_material_preprocess_page(&$vars) {
+  siasar_material_process_tabs($vars);
+}
 /**
  * Helper function to add Meta Viewport
  */
@@ -171,3 +178,21 @@ function siasar_material_field($variables) {
 
   return $output;
 }
+
+/**
+ * Implementation of hook_menu_local_task()
+ */
+/*
+* this function processes your $tabs and should be called from preprocess_page in your template.php
+*/
+function siasar_material_process_tabs(&$vars) {
+  $types = array('#primary', '#secondary');
+  foreach ($types as $type) {
+    if (is_array($vars['tabs'][$type])) {
+      foreach ($vars['tabs'][$type] as $key => $tab) {
+        $vars['tabs'][$type][$key]['#link']['localized_options']['attributes']['target'] = '_self';
+      }
+    }
+  }
+}
+
