@@ -31,10 +31,10 @@ function feature_siasar_theme_settings_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'materialize' => array(
+      'omega' => array(
         'region' => '',
         'status' => 0,
-        'theme' => 'materialize',
+        'theme' => 'omega',
         'weight' => 0,
       ),
       'seven' => array(
@@ -47,6 +47,12 @@ function feature_siasar_theme_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'siasar_material',
+        'weight' => 0,
+      ),
+      'zen' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'zen',
         'weight' => 0,
       ),
     ),
@@ -71,10 +77,10 @@ function feature_siasar_theme_settings_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'materialize' => array(
+      'omega' => array(
         'region' => 'sidebar_first',
         'status' => 1,
-        'theme' => 'materialize',
+        'theme' => 'omega',
         'weight' => 0,
       ),
       'seven' => array(
@@ -88,6 +94,12 @@ function feature_siasar_theme_settings_default_fe_block_settings() {
         'status' => 1,
         'theme' => 'siasar_material',
         'weight' => -11,
+      ),
+      'zen' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'zen',
+        'weight' => 0,
       ),
     ),
     'title' => '',
