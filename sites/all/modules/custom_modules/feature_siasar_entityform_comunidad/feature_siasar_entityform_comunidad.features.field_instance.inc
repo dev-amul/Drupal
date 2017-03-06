@@ -1582,11 +1582,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_srv_existe'.
   $field_instances['entityform-comunidad-field_com_srv_existe'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1601,7 +1597,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_com_srv_existe',
     'label' => 'Se posee de servicios de energía eléctrica',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1618,11 +1614,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_srv_inte_existe'.
   $field_instances['entityform-comunidad-field_com_srv_inte_existe'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1637,7 +1629,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_com_srv_inte_existe',
     'label' => 'Se posee de servicios de conexión a Internet (3G o 4G)',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1654,11 +1646,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_srv_telf_existe'.
   $field_instances['entityform-comunidad-field_com_srv_telf_existe'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1673,7 +1661,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_com_srv_telf_existe',
     'label' => 'Se posee de servicios de telefonía fija',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1690,11 +1678,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_srv_telm_existe'.
   $field_instances['entityform-comunidad-field_com_srv_telm_existe'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1709,7 +1693,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_com_srv_telm_existe',
     'label' => 'Se posee de servicios de telefonía celular',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
