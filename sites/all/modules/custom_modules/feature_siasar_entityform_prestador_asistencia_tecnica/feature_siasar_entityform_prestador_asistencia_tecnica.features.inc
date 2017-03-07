@@ -11,6 +11,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_ctools_plugin_ap
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
+  if ($module == "field_validation" && $api == "default_field_validation_rules") {
+    return array("version" => "2");
+  }
 }
 
 /**

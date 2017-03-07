@@ -118,6 +118,117 @@ function feature_siasar_entityform_prestador_servicio_default_field_validation_r
   $rule = new stdClass();
   $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
   $rule->api_version = 2;
+  $rule->rulename = 'Fecha de aplicación Now';
+  $rule->name = 'ps_fecha_aplicacion_now';
+  $rule->field_name = 'field_fecha_aplicacion';
+  $rule->col = 'value';
+  $rule->entity_type = 'entityform';
+  $rule->bundle = 'prestador_de_servicio';
+  $rule->validator = 'field_validation_date_range2_validator';
+  $rule->settings = array(
+    'cycle' => 'global',
+    'min' => '',
+    'max' => 'now',
+    'reverse' => 0,
+    'bypass' => 0,
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      7 => 0,
+      8 => 0,
+      5 => 0,
+      9 => 0,
+      6 => 0,
+      10 => 0,
+    ),
+    'errors' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+  );
+  $rule->error_message = 'A. La Fecha de Aplicación tiene que ser menor que la fecha actual.';
+  $export['ps_fecha_aplicacion_now'] = $rule;
+
+  $rule = new stdClass();
+  $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
+  $rule->api_version = 2;
+  $rule->rulename = 'Fecha de creación Now';
+  $rule->name = 'ps_fecha_creacion_now';
+  $rule->field_name = 'field_fecha_creacion';
+  $rule->col = 'value';
+  $rule->entity_type = 'entityform';
+  $rule->bundle = 'prestador_de_servicio';
+  $rule->validator = 'field_validation_date_range2_validator';
+  $rule->settings = array(
+    'cycle' => 'global',
+    'min' => '',
+    'max' => 'now',
+    'reverse' => 0,
+    'bypass' => 0,
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      7 => 0,
+      8 => 0,
+      5 => 0,
+      9 => 0,
+      6 => 0,
+      10 => 0,
+    ),
+    'errors' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+  );
+  $rule->error_message = 'B1. La Fecha de Creación tiene que ser menor que la fecha actual.';
+  $export['ps_fecha_creacion_now'] = $rule;
+
+  $rule = new stdClass();
+  $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
+  $rule->api_version = 2;
+  $rule->rulename = 'Fecha de elección de la última junta Now';
+  $rule->name = 'ps_fecha_eleccion_now';
+  $rule->field_name = 'field_fecha_eleccion';
+  $rule->col = 'value';
+  $rule->entity_type = 'entityform';
+  $rule->bundle = 'prestador_de_servicio';
+  $rule->validator = 'field_validation_date_range2_validator';
+  $rule->settings = array(
+    'cycle' => 'global',
+    'min' => '',
+    'max' => 'now',
+    'reverse' => 0,
+    'bypass' => 0,
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      7 => 0,
+      8 => 0,
+      5 => 0,
+      9 => 0,
+      6 => 0,
+      10 => 0,
+    ),
+    'errors' => 0,
+    'condition' => 0,
+    'condition_wrapper' => array(
+      'condition_field' => '',
+      'condition_operator' => 'equals',
+      'condition_value' => '',
+    ),
+  );
+  $rule->error_message = 'B2. La Fecha de la última elección de los miembros de la Junta tiene que ser menor que la fecha actual.';
+  $export['ps_fecha_eleccion_now'] = $rule;
+
+  $rule = new stdClass();
+  $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
+  $rule->api_version = 2;
   $rule->rulename = 'Real total should match reals';
   $rule->name = 'real_total_should_match_reals';
   $rule->field_name = 'field_sumatoria_gastos_reales';
