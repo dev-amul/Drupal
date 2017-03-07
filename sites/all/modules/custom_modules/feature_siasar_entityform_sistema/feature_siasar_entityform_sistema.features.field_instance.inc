@@ -3795,11 +3795,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // 'field_collection_item-field_lineas_de_conduccion-field_c1_4'.
   $field_instances['field_collection_item-field_lineas_de_conduccion-field_c1_4'] = array(
     'bundle' => 'field_lineas_de_conduccion',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3814,7 +3810,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_c1_4',
     'label' => '¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -3868,12 +3864,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // 'field_collection_item-field_lineas_de_conduccion-field_diametro_medio_de_tuberia'.
   $field_instances['field_collection_item-field_lineas_de_conduccion-field_diametro_medio_de_tuberia'] = array(
     'bundle' => 'field_lineas_de_conduccion',
-    'default_value' => array(
-      0 => array(
-        'value' => '0.00',
-        'target_id' => 637,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3894,7 +3885,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_diametro_medio_de_tuberia',
     'label' => 'Diámetro medio o sección (interior) de la tubería principal',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'mvf' => array(
@@ -3909,7 +3900,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
             'enable' => 0,
-            'unit' => 636,
+            'unit' => 682,
             'weight' => 0,
           ),
           'locale' => array(
@@ -4036,7 +4027,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_longitud_de_la_linea',
     'label' => 'Longitud de la línea',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'mvf' => array(
@@ -4058,6 +4049,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
             'en' => -1,
             'enable' => 0,
             'es' => 2,
+            'es-CO' => -1,
+            'es-HN' => -1,
             'pt-br' => -1,
             'weight' => 0,
           ),
