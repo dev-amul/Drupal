@@ -27,6 +27,7 @@ dependencies[] = shs
 dependencies[] = siasar_field_location
 dependencies[] = taxonomy
 dependencies[] = text
+dependencies[] = title
 features[ctools][] = field_group:field_group:1
 features[ctools][] = field_validation:default_field_validation_rules:2
 features[entityform_type][] = prestador_de_servicio
