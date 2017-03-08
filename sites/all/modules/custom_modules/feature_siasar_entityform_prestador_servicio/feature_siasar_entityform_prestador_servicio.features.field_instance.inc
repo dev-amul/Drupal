@@ -4139,6 +4139,53 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
   );
 
+  // Exported field_instance: 'entityform-prestador_de_servicio-field_rating'.
+  $field_instances['entityform-prestador_de_servicio-field_rating'] = array(
+    'bundle' => 'prestador_de_servicio',
+    'default_value' => array(),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 29,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_rating',
+    'label' => 'Calificación',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(),
+      'type' => 'field_extrawidgets_hidden',
+      'weight' => 95,
+    ),
+  );
+
   // Exported field_instance:
   // 'entityform-prestador_de_servicio-field_recursos_prestador'.
   $field_instances['entityform-prestador_de_servicio-field_recursos_prestador'] = array(
@@ -5665,6 +5712,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Agua facturada (promedio mensual, en metros cúbicos)');
   t('Agua producida (promedio mensual, en metros cúbicos)');
   t('Altitud');
+  t('Calificación');
   t('Cargo');
   t('Clase de prestador');
   t('Código de prestador ');
