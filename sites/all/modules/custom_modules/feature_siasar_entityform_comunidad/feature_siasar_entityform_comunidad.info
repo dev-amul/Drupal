@@ -105,6 +105,7 @@ features[field_instance][] = entityform-comunidad-field_cs_location
 features[field_instance][] = entityform-comunidad-field_cuenca_hidrografica
 features[field_instance][] = entityform-comunidad-field_cuestionario_validado
 features[field_instance][] = entityform-comunidad-field_entidad_local
+features[field_instance][] = entityform-comunidad-field_entity_clasification
 features[field_instance][] = entityform-comunidad-field_entity_name
 features[field_instance][] = entityform-comunidad-field_etnia_en_mayoria
 features[field_instance][] = entityform-comunidad-field_fecha_encuesta

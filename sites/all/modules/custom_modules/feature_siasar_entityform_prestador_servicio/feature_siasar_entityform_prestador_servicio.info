@@ -88,6 +88,7 @@ features[field_instance][] = entityform-prestador_de_servicio-field_comentarios
 features[field_instance][] = entityform-prestador_de_servicio-field_cuenta_banco
 features[field_instance][] = entityform-prestador_de_servicio-field_cuestionario_validado
 features[field_instance][] = entityform-prestador_de_servicio-field_entidad_local
+features[field_instance][] = entityform-prestador_de_servicio-field_entity_clasification
 features[field_instance][] = entityform-prestador_de_servicio-field_entity_name
 features[field_instance][] = entityform-prestador_de_servicio-field_estado_legal
 features[field_instance][] = entityform-prestador_de_servicio-field_facturacion_promedio
