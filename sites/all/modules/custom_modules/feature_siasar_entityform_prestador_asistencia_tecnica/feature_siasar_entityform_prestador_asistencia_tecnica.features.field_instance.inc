@@ -1002,44 +1002,6 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_entity_clasification'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_entity_clasification'] = array(
-    'bundle' => 'prestador_de_asistencia_t_cnica',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'computed_field',
-        'settings' => array(),
-        'type' => 'computed_field_plain',
-        'weight' => 9,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entity_clasification',
-    'label' => 'Clasificación',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'computed_field',
-      'settings' => array(),
-      'type' => 'computed',
-      'weight' => 37,
-    ),
-  );
-
-  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_entity_name'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_entity_name'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -1949,7 +1911,6 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Cantidad de equipos informáticos (computadora/impresora)');
   t('Cantidad de equipos para la medición de la calidad del agua');
   t('Cantidad de técnicos en la zona');
-  t('Clasificación');
   t('Cuenta con presupuesto operativo anual');
   t('Dispone de fondos para combustible');
   t('Dispone de fondos para viáticos');

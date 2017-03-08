@@ -833,43 +833,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_entity_clasification'.
-  $field_instances['entityform-sistema-field_entity_clasification'] = array(
-    'bundle' => 'sistema',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'computed_field',
-        'settings' => array(),
-        'type' => 'computed_field_plain',
-        'weight' => 12,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 28,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entity_clasification',
-    'label' => 'Clasificación',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'computed_field',
-      'settings' => array(),
-      'type' => 'computed',
-      'weight' => 10,
-    ),
-  );
-
   // Exported field_instance: 'entityform-sistema-field_entity_name'.
   $field_instances['entityform-sistema-field_entity_name'] = array(
     'bundle' => 'sistema',
@@ -4398,7 +4361,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Caudal actual del sistema');
   t('Caudal de la fuente');
   t('Caudal de la fuente en epoca seca');
-  t('Clasificación');
   t('Croquis');
   t('Cuenca hidrográfica');
   t('Código de Sistema');

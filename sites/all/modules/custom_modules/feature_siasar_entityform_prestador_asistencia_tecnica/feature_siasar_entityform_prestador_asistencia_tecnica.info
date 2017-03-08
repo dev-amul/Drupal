@@ -62,7 +62,6 @@ features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_di
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_dispone_material_didactico
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_dispone_servicios_internet
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_entidad_local
-features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_entity_clasification
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_entity_name
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_estado_equipos_informatico
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_estado_equipos_transporte

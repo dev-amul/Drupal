@@ -991,44 +991,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_servicio-field_entity_clasification'.
-  $field_instances['entityform-prestador_de_servicio-field_entity_clasification'] = array(
-    'bundle' => 'prestador_de_servicio',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'computed_field',
-        'settings' => array(),
-        'type' => 'computed_field_plain',
-        'weight' => 12,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 47,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entity_clasification',
-    'label' => 'Clasificación',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'computed_field',
-      'settings' => array(),
-      'type' => 'computed',
-      'weight' => 10,
-    ),
-  );
-
-  // Exported field_instance:
   // 'entityform-prestador_de_servicio-field_entity_name'.
   $field_instances['entityform-prestador_de_servicio-field_entity_name'] = array(
     'bundle' => 'prestador_de_servicio',
@@ -5705,7 +5667,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Altitud');
   t('Cargo');
   t('Clase de prestador');
-  t('Clasificación');
   t('Código de prestador ');
   t('El Prestador está dando la atención en operación y mantenimiento al sistema de Agua');
   t('El prestador, ¿rinde cuentas?');

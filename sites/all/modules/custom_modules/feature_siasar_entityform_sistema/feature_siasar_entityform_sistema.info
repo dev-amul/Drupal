@@ -74,7 +74,6 @@ features[field_instance][] = entityform-sistema-field_cuestionario_validado
 features[field_instance][] = entityform-sistema-field_d_infraestructura
 features[field_instance][] = entityform-sistema-field_e_infraestructura_almac
 features[field_instance][] = entityform-sistema-field_entidad_local
-features[field_instance][] = entityform-sistema-field_entity_clasification
 features[field_instance][] = entityform-sistema-field_entity_name
 features[field_instance][] = entityform-sistema-field_f_red_de_distribucion
 features[field_instance][] = entityform-sistema-field_fecha_analisis_coliformes

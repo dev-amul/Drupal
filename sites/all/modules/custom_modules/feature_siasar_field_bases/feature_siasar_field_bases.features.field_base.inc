@@ -5489,42 +5489,6 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_entity_clasification'.
-  $field_bases['field_entity_clasification'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_entity_clasification',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'computed_field',
-    'settings' => array(
-      'code' => '$indices = ["A", "B", "C", "D"];
-$rand_key = array_rand($indices);
-$entity_field[0][\'value\'] = $indices[$rand_key];',
-      'database' => array(
-        'data_default' => '-',
-        'data_index' => 0,
-        'data_length' => 32,
-        'data_not_NULL' => 0,
-        'data_precision' => 10,
-        'data_scale' => 2,
-        'data_size' => 'tiny',
-        'data_type' => 'varchar',
-      ),
-      'display_format' => '$display_output = $entity_field_item[\'value\'];',
-      'entity_translation_sync' => FALSE,
-      'recalculate' => 0,
-      'store' => 1,
-    ),
-    'translatable' => 0,
-    'type' => 'computed',
-  );
-
   // Exported field_base: 'field_entity_name'.
   $field_bases['field_entity_name'] = array(
     'active' => 1,
@@ -9781,6 +9745,47 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_rating'.
+  $field_bases['field_rating'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_rating',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'direction' => 'ASC',
+          'property' => 'name',
+          'type' => 'property',
+        ),
+        'target_bundles' => array(
+          'calificacion' => 'calificacion',
+        ),
+      ),
+      'target_type' => 'taxonomy_term',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
   );
 
   // Exported field_base: 'field_recolectar_muestras_agua'.
