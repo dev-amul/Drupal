@@ -1002,6 +1002,44 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_entity_clasification'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_entity_clasification'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'computed_field',
+        'settings' => array(),
+        'type' => 'computed_field_plain',
+        'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_entity_clasification',
+    'label' => 'Clasificación',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'computed_field',
+      'settings' => array(),
+      'type' => 'computed',
+      'weight' => 37,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_entity_name'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_entity_name'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -1544,54 +1582,6 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_rating'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_rating'] = array(
-    'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 45,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'entityconnect_show_add_icon' => 0,
-    'entityconnect_show_edit_icon' => 0,
-    'entityconnect_unload_add' => 1,
-    'entityconnect_unload_edit' => 1,
-    'field_name' => 'field_rating',
-    'label' => 'Calificación',
-    'options_limit' => FALSE,
-    'options_limit_empty_behaviour' => 0,
-    'options_limit_fields' => array(),
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'field_extrawidgets',
-      'settings' => array(),
-      'type' => 'field_extrawidgets_hidden',
-      'weight' => 45,
-    ),
-  );
-
-  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_recolectar_muestras_agua'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_recolectar_muestras_agua'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -1954,12 +1944,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('7. Apoyar a los CAPS en el análisis y en la solución de conflictos (ej: uso o abuso del agua de los sistemas)');
   t('8. Recolectar muestras para análisis de calidad de agua de los sistemas y asesorar en su toma, medición e interp. de los datos');
   t('9. Asesorar a los CAPS en la medición de niveles estáticos de pozos y caudales de agua superficiales ');
-  t('Calificación');
   t('Cantidad de comunidades apoyadas en los últimos 12 meses');
   t('Cantidad de equipos de transporte ');
   t('Cantidad de equipos informáticos (computadora/impresora)');
   t('Cantidad de equipos para la medición de la calidad del agua');
   t('Cantidad de técnicos en la zona');
+  t('Clasificación');
   t('Cuenta con presupuesto operativo anual');
   t('Dispone de fondos para combustible');
   t('Dispone de fondos para viáticos');
