@@ -27,7 +27,8 @@ function siasar_material_preprocess_html(&$vars) {
  * Implements hook_preprocess_page().
  */
 function siasar_material_preprocess_page(&$vars) {
-  siasar_material_process_tabs($vars);
+  _siasar_material_process_password_request_page($vars);
+  _siasar_material_process_tabs($vars);
 }
 /**
  * Helper function to add Meta Viewport
@@ -179,10 +180,32 @@ function siasar_material_field($variables) {
   return $output;
 }
 
+/**
+ * Helper function to process page on Password request page
+ */
+function _siasar_material_process_password_request_page(&$vars) {
+  if (current_path() != 'user/password') return;
+
+  unset($vars['tabs']);
+  drupal_set_title(t('Request new password'));
+}
+
+/**
+ * Clean up Password form
+ */
+function siasar_material_form_user_pass_alter(&$form, &$form_state, &$form_id) {
+  $class_list = &$form['#attributes']['class'];
+  $pos = array_search('card-panel', $class_list);
+
+  if ($pos !== false) {
+    unset($class_list[$pos]);
+  }
+}
+
 /*
 * this function processes your $tabs and should be called from preprocess_page in your template.php
 */
-function siasar_material_process_tabs(&$vars) {
+function _siasar_material_process_tabs(&$vars) {
   $types = array('#primary', '#secondary');
   foreach ($types as $type) {
     if (is_array($vars['tabs'][$type])) {
