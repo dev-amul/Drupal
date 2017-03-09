@@ -80,7 +80,7 @@ fieldset {
 
   .block {
     background: white;
-    padding: 20px;
+    padding: $vertical-tabs-padding $vertical-tabs-padding ($vertical-tabs-padding + 4);
   }
 }
 

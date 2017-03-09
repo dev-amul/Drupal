@@ -87,7 +87,7 @@ fieldset {
 }
 .page .block {
   background: white;
-  padding: 20px;
+  padding: 20px 20px 24px;
 }
 
 table.responsive-table tbody {
@@ -336,6 +336,14 @@ body.not-found-404 #block-system-main {
   background: none;
   text-align: center;
   color: white;
+}
+body.forbidden-403 #block-user-login,
+body.not-found-404 #block-user-login {
+  position: static;
+  display: table;
+  margin: 20px auto;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 body.page-resultados .page,
