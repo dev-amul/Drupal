@@ -192,8 +192,20 @@ form.entityform {
       }
 
       .field-type-field-collection {
+        table.sticky-header {
+          @include breakpoint($break-small) {
+            z-index: 1;
+          }
+        }
+
         th.field-label {
-          display: none;
+          padding: 0;
+
+          label {
+            font-size: 1.25rem;
+            font-weight: normal;
+            color: #00829e;
+          }
         }
 
         fieldset.field-group-fieldset {
