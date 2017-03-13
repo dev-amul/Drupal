@@ -93,7 +93,7 @@ class field_validation_match_against_form_value extends field_validation_validat
       $value = ($value == (int) $value)
         ? (int) $value
         : (float) $value;
-      $expression = str_replace($f, $value, $expression);
+      $expression = preg_replace('/\b' . $f . '\b/', $value, $expression);
     }
 
     $result = eval('$out = ' . $expression . '; return $out;');
@@ -105,11 +105,14 @@ class field_validation_match_against_form_value extends field_validation_validat
    */
   private function get_field_value($field) {
     $value = $this->wrapper->{$field}->value();
+    $ignore_if_blank = isset($this->rule->settings['ignore_rule_if_blank_value'])
+      ? (bool) $this->rule->settings['ignore_rule_if_blank_value']
+      : false;
 
     if (is_array($value) && isset($value['value'])) {
       $value = $value['value'];
     }
-    if (empty($value) && $value !== 0 && (bool) $this->rule->settings['ignore_rule_if_blank_value']) {
+    if (empty($value) && $value !== 0 && $ignore_if_blank === true) {
       $this->validation_status->error = true;
       $this->validation_status->type = 'notice';
       $this->validation_status->message = 'Field ['. $field . ']: Value is empty, whole validation rule will be ignored.';
