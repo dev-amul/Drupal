@@ -108,7 +108,7 @@ ul.pagination li a {
 }
 ul.pagination li.pager-elipsis {
   background: none;
-  color: #ccc;
+  color: #ddd;
 }
 ul.pagination li.active {
   background-color: #de861b;
@@ -243,7 +243,7 @@ ul.pagination li.active {
   box-sizing: border-box;
   padding-left: 10px;
   background-color: white;
-  border: solid #ccc 2px;
+  border: solid #ddd 2px;
   border-radius: 5px;
   margin-bottom: 0;
 }
@@ -264,7 +264,7 @@ ul.pagination li.active {
 select.location-tree-selector {
   display: inline-block;
   width: auto;
-  border: solid #ccc 2px;
+  border: solid #ddd 2px;
 }
 
 span.form-required {
@@ -725,6 +725,83 @@ form.entityform .vertical-tabs-panes fieldset .field-type-field-collection tr.dr
 form.entityform .vertical-tabs-panes fieldset .field-type-field-collection tr.draggable td:first-child a.tabledrag-handle.tabledrag-handle-hover .handle {
   background-position-y: -20px;
 }
+form.entityform .vertical-tabs-panes fieldset .group-grid {
+  margin: 0;
+  border-top: dotted #00829e 2px;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid:last-child {
+  border-bottom: dotted #00829e 2px;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > h3,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .description {
+  width: 120px;
+  float: left;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 20px 20px 0;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > h3 {
+  color: #00829e;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .description {
+  padding-top: 10px;
+  clear: left;
+  font-size: 0.85rem;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid {
+  margin: 0 0 0 120px;
+  padding: 20px;
+  background: white;
+  border-left: solid #00829e 12px;
+  display: table;
+  width: calc(100% - 120px);
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper:nth-child(odd),
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid:nth-child(odd) {
+  background: #f4f4f4;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper > h3,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper > .description,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid > h3,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid > .description {
+  width: 200px;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper .form-wrapper,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid .form-wrapper {
+  margin-left: 200px;
+  width: calc(100% - 200px);
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper label,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper .description {
+  width: 40%;
+  float: left;
+  clear: left;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper .description {
+  font-size: 0.85rem;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper input {
+  width: auto;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid {
+  padding: 0;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid .form-wrapper {
+  border-width: 2px;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid:nth-child(2) {
+  border-top: none;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid:last-child {
+  border-bottom: none;
+}
+form.entityform .vertical-tabs-panes fieldset .full-width {
+  margin-left: -40px;
+  margin-right: -40px;
+}
 form.entityform .vertical-tabs-panes .form-wrapper:not(:first-child) {
   margin-top: 30px;
 }
@@ -833,7 +910,7 @@ body.page-entityform-view .entity-entityform .field {
   clear: left;
   padding-bottom: 0.5em;
   margin-bottom: 0.75em;
-  border-bottom: dotted #ccc 1px;
+  border-bottom: dotted #ddd 1px;
   overflow: auto;
   line-height: 1.25;
 }
@@ -865,7 +942,7 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
   margin-top: 10px;
   margin-left: 40px;
   padding-left: 20px;
-  border-left: dotted #ccc 1px;
+  border-left: dotted #ddd 1px;
   list-style-type: none;
   position: relative;
   counter-reset: item;
