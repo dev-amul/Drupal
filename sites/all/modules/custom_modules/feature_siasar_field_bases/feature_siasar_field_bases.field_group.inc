@@ -118,10 +118,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'H4. Type of corrective measures',
     'weight' => '13',
     'children' => array(
-      0 => 'field_sustitucion_componentes',
-      1 => 'field_reforestacion',
-      2 => 'field_no_aguas_residuales',
-      3 => 'field_no_uso_plaguicidas',
+      0 => 'field_no_uso_plaguicidas',
+      1 => 'field_no_aguas_residuales',
+      2 => 'field_reforestacion',
+      3 => 'field_sustitucion_componentes',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -150,15 +150,15 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'H5. Type of preventive measures ',
     'weight' => '14',
     'children' => array(
-      0 => 'field_revision_componentes_toma',
-      1 => 'field_proteccion_flora_fauna',
-      2 => 'field_proteccion_suelos',
-      3 => 'field_no_tala_y_resforestacion',
-      4 => 'field_revision_estado_cercano',
-      5 => 'field_proteccion_terreno',
-      6 => 'field_revision_estado_obra',
-      7 => 'field_revision_plan_contingencia',
-      8 => 'field_revision_demarcacion',
+      0 => 'field_proteccion_suelos',
+      1 => 'field_no_tala_y_resforestacion',
+      2 => 'field_revision_estado_cercano',
+      3 => 'field_proteccion_terreno',
+      4 => 'field_revision_estado_obra',
+      5 => 'field_proteccion_flora_fauna',
+      6 => 'field_revision_componentes_toma',
+      7 => 'field_revision_demarcacion',
+      8 => 'field_revision_plan_contingencia',
       9 => 'field_vigilancia_zona',
     ),
     'format_type' => 'fieldset',
@@ -219,8 +219,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'H1.',
     'weight' => '9',
     'children' => array(
-      0 => 'field_nombre_entidad_apoya',
-      1 => 'field_apoyo_gob_otros',
+      0 => 'field_apoyo_gob_otros',
+      1 => 'field_nombre_entidad_apoya',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -328,6 +328,210 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_1_1|entityform|comunidad|form';
+  $field_group->group_name = 'group_b3_grid_1_1';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_b3_grid_1';
+  $field_group->data = array(
+    'label' => 'Uso PARCIAL',
+    'weight' => '86',
+    'children' => array(
+      0 => 'field_com_num_viv_usoinfa',
+      1 => 'field_com_num_viv_usohab',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Uso PARCIAL',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => 'Las personas de la familia usan la infraestructura, pero NO todos o NO siempre.',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_1_1|entityform|comunidad|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_1_2|entityform|comunidad|form';
+  $field_group->group_name = 'group_b3_grid_1_2';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_b3_grid_1';
+  $field_group->data = array(
+    'label' => 'Uso COMPLETO',
+    'weight' => '87',
+    'children' => array(
+      0 => 'field_com_num_viv_usotodos',
+      1 => 'field_com_num_viv_usoinfb',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Uso COMPLETO',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => 'TODAS las personas de la familia usan SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y niños/as).',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_1_2|entityform|comunidad|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_1|entityform|comunidad|form';
+  $field_group->group_name = 'group_b3_grid_1';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_com_uso_inf';
+  $field_group->data = array(
+    'label' => 'Tipo I',
+    'weight' => '78',
+    'children' => array(
+      0 => 'group_b3_grid_1_1',
+      1 => 'group_b3_grid_1_2',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Tipo I',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid full-width',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_1|entityform|comunidad|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_2_1|entityform|comunidad|form';
+  $field_group->group_name = 'group_b3_grid_2_1';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_b3_grid_2';
+  $field_group->data = array(
+    'label' => 'Uso PARCIAL',
+    'weight' => '92',
+    'children' => array(
+      0 => 'field_com_num_viv_usoinfa2',
+      1 => 'field_com_num_viv_usohab2',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Uso PARCIAL',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => 'Las personas de la familia usan la infraestructura, pero NO todos o NO siempre.',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_2_1|entityform|comunidad|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_2_2|entityform|comunidad|form';
+  $field_group->group_name = 'group_b3_grid_2_2';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_b3_grid_2';
+  $field_group->data = array(
+    'label' => 'Uso COMPLETO',
+    'weight' => '93',
+    'children' => array(
+      0 => 'field_com_num_viv_usoinfb2',
+      1 => 'field_com_num_viv_usotodos2',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Uso COMPLETO',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => 'TODAS las personas de la familia usan SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y niños/as).',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_2_2|entityform|comunidad|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_2|entityform|comunidad|form';
+  $field_group->group_name = 'group_b3_grid_2';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_com_uso_inf';
+  $field_group->data = array(
+    'label' => 'Tipo II',
+    'weight' => '79',
+    'children' => array(
+      0 => 'group_b3_grid_2_1',
+      1 => 'group_b3_grid_2_2',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Tipo II',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid full-width',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_2|entityform|comunidad|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_b3|field_collection_item|field_fuente_y_o_captacion|form';
   $field_group->group_name = 'group_b3';
   $field_group->entity_type = 'field_collection_item';
@@ -354,6 +558,40 @@ function feature_siasar_field_bases_field_group_info() {
     ),
   );
   $field_groups['group_b3|field_collection_item|field_fuente_y_o_captacion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b4_grid|entityform|comunidad|form';
+  $field_group->group_name = 'group_b4_grid';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_com_no_uso';
+  $field_group->data = array(
+    'label' => 'No mejorada',
+    'weight' => '73',
+    'children' => array(
+      0 => 'field_com_no_uso_vivnumtodos',
+      1 => 'field_com_no_uso_vivnumuso',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'No mejorada',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => 'group-b4-grid',
+        'classes' => 'group-grid full-width',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'none',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b4_grid|entityform|comunidad|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -398,11 +636,11 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'F3. Is there a balance sheet?',
     'weight' => '100',
     'children' => array(
-      0 => 'field_activos_corrientes',
-      1 => 'field_balance_contable',
-      2 => 'field_activos_no_corrientes',
-      3 => 'field_pasivos_no_corrientes',
-      4 => 'field_pasivos_corrientes_',
+      0 => 'field_balance_contable',
+      1 => 'field_activos_no_corrientes',
+      2 => 'field_pasivos_corrientes_',
+      3 => 'field_activos_corrientes',
+      4 => 'field_pasivos_no_corrientes',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -596,8 +834,8 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_field_com_obs_poblacion',
       1 => 'field_com_poblacion_total',
-      2 => 'field_etnia_en_mayoria',
-      3 => 'field_idioma_predominante',
+      2 => 'field_idioma_predominante',
+      3 => 'field_etnia_en_mayoria',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -655,9 +893,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C1. Schools',
     'weight' => '8',
     'children' => array(
-      0 => 'field_com_ce_nombre',
-      1 => 'field_com_ce_existe',
-      2 => 'field_ce_location',
+      0 => 'field_com_ce_existe',
+      1 => 'field_ce_location',
+      2 => 'field_com_ce_nombre',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -686,9 +924,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D1. Health centers',
     'weight' => '7',
     'children' => array(
-      0 => 'field_cs_location',
+      0 => 'field_com_cs_existe',
       1 => 'field_com_cs_nombre',
-      2 => 'field_com_cs_existe',
+      2 => 'field_cs_location',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -747,8 +985,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '29',
     'children' => array(
       0 => 'field_com_num_viv_inftb',
-      1 => 'field_com_num_viv_infta',
-      2 => 'field_field_com_num_viv_infnt',
+      1 => 'field_field_com_num_viv_infnt',
+      2 => 'field_com_num_viv_infta',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1094,9 +1332,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'E1. Interventions scheduled or in progress ',
     'weight' => '43',
     'children' => array(
-      0 => 'field_com_fc_systypimprove',
-      1 => 'field_com_fc_impsystem',
-      2 => 'field_com_fc_newwatsystem',
+      0 => 'field_com_fc_impsystem',
+      1 => 'field_com_fc_newwatsystem',
+      2 => 'field_com_fc_systypimprove',
       3 => 'field_com_fc_systypunimprove',
     ),
     'format_type' => 'fieldset',
@@ -1153,8 +1391,7 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B4. Un-improved sanitation. Use of infrastructure ',
     'weight' => '32',
     'children' => array(
-      0 => 'field_com_no_uso_vivnumtodos',
-      1 => 'field_com_no_uso_vivnumuso',
+      0 => 'group_b4_grid',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1162,10 +1399,10 @@ function feature_siasar_field_bases_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-com-no-uso field-group-fieldset',
+        'classes' => 'group-com-no-uso field-group-fieldset group-grid-container',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_com_no_uso|entityform|comunidad|form'] = $field_group;
@@ -1239,10 +1476,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B1. Process used to complete this form',
     'weight' => '28',
     'children' => array(
-      0 => 'field_com_lev_utilform',
-      1 => 'field_com_lev_general',
-      2 => 'field_com_num_viv_muestra',
-      3 => 'field_com_lev_muestral',
+      0 => 'field_com_lev_general',
+      1 => 'field_com_lev_muestral',
+      2 => 'field_com_lev_utilform',
+      3 => 'field_com_num_viv_muestra',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1271,9 +1508,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B6. Solid waste collection and disposal',
     'weight' => '34',
     'children' => array(
-      0 => 'field_com_recotrata_prac',
+      0 => 'field_com_recontrata_numvivc',
       1 => 'field_com_recotrata_disp',
-      2 => 'field_com_recontrata_numvivc',
+      2 => 'field_com_recotrata_prac',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1304,10 +1541,10 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'group_com_exist_infestr',
       1 => 'group_com_higiene',
-      2 => 'group_com_no_uso',
-      3 => 'group_com_proc_empleado',
+      2 => 'group_com_proc_empleado',
+      3 => 'group_com_uso_inf',
       4 => 'group_com_recotrata',
-      5 => 'group_com_uso_inf',
+      5 => 'group_com_no_uso',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -1336,8 +1573,8 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_com_srv_caracteristicas',
       1 => 'field_com_srv_telm_existe',
-      2 => 'field_com_srv_telf_existe',
-      3 => 'field_com_srv_existe',
+      2 => 'field_com_srv_existe',
+      3 => 'field_com_srv_telf_existe',
       4 => 'field_com_srv_inte_existe',
     ),
     'format_type' => 'fieldset',
@@ -1393,14 +1630,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B3. Sanitation. Use of IMPROVED infrastructure type 1 or type 2',
     'weight' => '30',
     'children' => array(
-      0 => 'field_com_num_viv_usoinfb',
-      1 => 'field_com_num_viv_usoinfa',
-      2 => 'field_com_num_viv_usotodos2',
-      3 => 'field_com_num_viv_usohab',
-      4 => 'field_com_num_viv_usohab2',
-      5 => 'field_com_num_viv_usoinfa2',
-      6 => 'field_com_num_viv_usotodos',
-      7 => 'field_com_num_viv_usoinfb2',
+      0 => 'group_b3_grid_1',
+      1 => 'group_b3_grid_2',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1408,7 +1639,7 @@ function feature_siasar_field_bases_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-com-uso-inf field-group-fieldset',
+        'classes' => 'group-com-uso-inf field-group-fieldset group-grid-container',
         'description' => '',
       ),
       'formatter' => 'collapsible',
@@ -1453,13 +1684,11 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->entity_type = 'entityform';
   $field_group->bundle = 'prestador_de_servicio';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_observaciones';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'I1.',
     'weight' => '147',
-    'children' => array(
-      0 => 'field_comentarios',
-    ),
+    'children' => array(),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
@@ -1926,9 +2155,9 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'field_usuarios_deberian_pagan',
-      1 => 'field_ingresos_reales',
+      1 => 'field_usuarios_al_dia',
       2 => 'field_facturacion_promedio',
-      3 => 'field_usuarios_al_dia',
+      3 => 'field_ingresos_reales',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2229,16 +2458,16 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'E1.',
     'weight' => '114',
     'children' => array(
-      0 => 'field_gasto_real_operacion',
+      0 => 'field_sumatoria_gastos_reales',
       1 => 'field_gasto_real_ambientales',
-      2 => 'field_gasto_teorico_mantenimient',
-      3 => 'field_gasto_promedio_admin',
+      2 => 'field_gasto_teorico_admin',
+      3 => 'field_gasto_real_operacion',
       4 => 'field_gasto_real_mantenimiento',
-      5 => 'field_sumatoria_gastos_reales',
-      6 => 'field_gasto_teorico_operacion',
-      7 => 'field_sumatoria_gastos_teoricos',
-      8 => 'field_gasto_teorico_admin',
-      9 => 'field_gasto_teorico_ambientales',
+      5 => 'field_gasto_teorico_operacion',
+      6 => 'field_gasto_promedio_admin',
+      7 => 'field_gasto_teorico_ambientales',
+      8 => 'field_gasto_teorico_mantenimient',
+      9 => 'field_sumatoria_gastos_teoricos',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2380,13 +2609,13 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A1.',
     'weight' => '96',
     'children' => array(
-      0 => 'field_entidad_local',
-      1 => 'field_codigo_de_prestador',
-      2 => 'field_entity_name',
-      3 => 'field_latitud',
-      4 => 'field_imagenps',
-      5 => 'field_altitud',
-      6 => 'field_pais',
+      0 => 'field_codigo_de_prestador',
+      1 => 'field_latitud',
+      2 => 'field_altitud',
+      3 => 'field_pais',
+      4 => 'field_entidad_local',
+      5 => 'field_imagenps',
+      6 => 'field_entity_name',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2415,8 +2644,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'F. FINANCIAL INFORMATION: SAVINGS',
     'weight' => '5',
     'children' => array(
-      0 => 'group_fondos_disponibles',
-      1 => 'group_balance_contable',
+      0 => 'group_balance_contable',
+      1 => 'group_fondos_disponibles',
       2 => 'group_ingresos_egresos',
     ),
     'format_type' => 'tab',
@@ -2471,9 +2700,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D. FINANCIAL INFORMATION: ADDITIONAL INCOME ',
     'weight' => '3',
     'children' => array(
-      0 => 'group_inf_ingresos_extras',
-      1 => 'group_tasa_extension',
-      2 => 'group_aportaciones_extas',
+      0 => 'group_aportaciones_extas',
+      1 => 'group_inf_ingresos_extras',
+      2 => 'group_tasa_extension',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2501,8 +2730,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '127',
     'children' => array(
       0 => 'field_ingresos_extra',
-      1 => 'field_monto_total_finalizado',
-      2 => 'field_monto_previsto',
+      1 => 'field_monto_previsto',
+      2 => 'field_monto_total_finalizado',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2595,10 +2824,10 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'group_fact_pago',
       1 => 'group_inf_medicion_agua',
-      2 => 'group_tarifa',
-      3 => 'group_tipo_tarifa',
-      4 => 'group_mecanismo_pago',
-      5 => 'group_mantenimiento_sistema',
+      2 => 'group_mantenimiento_sistema',
+      3 => 'group_mecanismo_pago',
+      4 => 'group_tarifa',
+      5 => 'group_tipo_tarifa',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2625,15 +2854,15 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. General information',
     'weight' => '2',
     'children' => array(
-      0 => 'field_fecha_encuesta',
-      1 => 'field_pais',
-      2 => 'field_user_reference',
-      3 => 'group_co_poblacion',
+      0 => 'field_pais',
+      1 => 'field_user_reference',
+      2 => 'field_fecha_encuesta',
+      3 => 'group_com_dist_viviendas',
       4 => 'group_com_cantidad_viv',
-      5 => 'group_com_dist_viviendas',
+      5 => 'group_com_viviendas_sin_sistema',
       6 => 'group_com_srv',
-      7 => 'group_com_viviendas_sin_sistema',
-      8 => 'group_info_general',
+      7 => 'group_info_general',
+      8 => 'group_co_poblacion',
       9 => 'group_otras_divisiones',
     ),
     'format_type' => 'tab',
@@ -2661,12 +2890,12 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A1.',
     'weight' => '71',
     'children' => array(
-      0 => 'field_com_codigo_comunidad',
-      1 => 'field_entity_name',
-      2 => 'field_imagenc',
-      3 => 'field_com_altitud',
-      4 => 'field_com_georef',
-      5 => 'field_entidad_local',
+      0 => 'field_entity_name',
+      1 => 'field_com_altitud',
+      2 => 'field_com_georef',
+      3 => 'field_entidad_local',
+      4 => 'field_imagenc',
+      5 => 'field_com_codigo_comunidad',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2727,8 +2956,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. General Information',
     'weight' => '0',
     'children' => array(
-      0 => 'field_fecha_aplicacion',
-      1 => 'field_user_reference',
+      0 => 'field_user_reference',
+      1 => 'field_fecha_aplicacion',
       2 => 'group_clase_prestador',
       3 => 'group_inf_basica',
     ),
@@ -2794,8 +3023,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '97',
     'children' => array(
       0 => 'field_libro_ingresos_egresos',
-      1 => 'field_monto_total_de_ingresos',
-      2 => 'field_monto_total_de_egresos',
+      1 => 'field_monto_total_de_egresos',
+      2 => 'field_monto_total_de_ingresos',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2910,9 +3139,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => ' B2. Board of Directors',
     'weight' => '28',
     'children' => array(
-      0 => 'field_fecha_eleccion',
+      0 => 'field_miembros_nombrados',
       1 => 'field_numero_reuniones',
-      2 => 'field_miembros_nombrados',
+      2 => 'field_fecha_eleccion',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2971,11 +3200,11 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'H. OPERATIONS AND MAINTENANCE',
     'weight' => '7',
     'children' => array(
-      0 => 'group_higiene_comunitaria',
-      1 => 'group_apoyo_tecnico',
-      2 => 'group_proteccion',
-      3 => 'group_acciones_correctivas',
-      4 => 'group_acciones_preventivas',
+      0 => 'group_acciones_correctivas',
+      1 => 'group_acciones_preventivas',
+      2 => 'group_apoyo_tecnico',
+      3 => 'group_higiene_comunitaria',
+      4 => 'group_proteccion',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -3033,8 +3262,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C3. Is the community familiar with the rate payment mechanism and is it regularly applied?',
     'weight' => '5',
     'children' => array(
-      0 => 'field_mecanismo_pago_tarifa',
-      1 => 'field_otros_motivos',
+      0 => 'field_otros_motivos',
+      1 => 'field_mecanismo_pago_tarifa',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3827,8 +4056,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C2. Rate Type and Amount',
     'weight' => '4',
     'children' => array(
-      0 => 'field_tarifa_media_mensual',
-      1 => 'field_tipo_de_tarifa',
+      0 => 'field_tipo_de_tarifa',
+      1 => 'field_tarifa_media_mensual',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3992,8 +4221,13 @@ function feature_siasar_field_bases_field_group_info() {
   t('H4. Type of corrective measures');
   t('H5. Type of preventive measures ');
   t('I1.');
+  t('No mejorada');
   t('Personal docente y administrativo');
   t('Población estudiantil');
+  t('Tipo I');
+  t('Tipo II');
+  t('Uso COMPLETO');
+  t('Uso PARCIAL');
 
   return $field_groups;
 }

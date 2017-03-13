@@ -906,7 +906,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'No de viviendas en las que TODAS las personas de la familia usan SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y niños/as).',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -929,7 +929,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_no_uso_vivnumtodos',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento compartida o propia no mejorada:',
+    'label' => 'Uso COMPLETO',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -944,7 +944,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 36,
+      'weight' => 75,
     ),
   );
 
@@ -957,7 +957,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'No de viviendas en las que las personas de la familia usan la infraestructura, pero NO todos o NO siempre.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -980,7 +980,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_no_uso_vivnumuso',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:',
+    'label' => 'Uso PARCIAL',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -995,7 +995,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 35,
+      'weight' => 74,
     ),
   );
 
@@ -1174,7 +1174,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usohab',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2',
+    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1189,7 +1189,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 88,
     ),
   );
 
@@ -1225,7 +1225,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usohab2',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2',
+    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1240,7 +1240,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 94,
     ),
   );
 
@@ -1276,7 +1276,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfa',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2',
+    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1291,7 +1291,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 87,
     ),
   );
 
@@ -1327,7 +1327,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfa2',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, TIPO 2',
+    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1342,7 +1342,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 93,
     ),
   );
 
@@ -1378,7 +1378,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfb',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2',
+    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1393,7 +1393,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 5,
+      'weight' => 88,
     ),
   );
 
@@ -1429,7 +1429,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfb2',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, TIPO 2',
+    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1444,7 +1444,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 8,
+      'weight' => 94,
     ),
   );
 
@@ -1480,7 +1480,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usotodos',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2',
+    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1495,7 +1495,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 7,
+      'weight' => 89,
     ),
   );
 
@@ -1532,7 +1532,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usotodos2',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2',
+    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1547,7 +1547,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 95,
     ),
   );
 
@@ -7297,11 +7297,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('2. Levantamiento utilizando el formulario auxiliar');
   t('3. Levantamiento muestral');
   t('Altitud');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, TIPO 2');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento compartida o propia no mejorada:');
   t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) utilizan la instalación de lavado siempre');
   t('Cantidad de viviendas que TIENEN OTRA infraestructura de saneamiento PROPIA del tipo no mejorada:');
   t('Cantidad de viviendas que TIENEN infraestructura de saneamiento PROPIA mejorada tipo 1: ');
@@ -7309,11 +7304,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Cantidad de viviendas que almacenan el agua de bebida de forma segura (en recipientes limpios y bien tapados)');
   t('Cantidad de viviendas que cuentan con una instalación básica (con agua y jabón) para el lavado de manos cerca (a menos de 10 metros) de la instalación de saneamiento');
   t('Cantidad de viviendas que recogen o tratan las basuras domésticas');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, TIPO 2');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:');
   t('Cantidad de viviendas totales');
   t('Centros educativos. Información general');
   t('Clasificación');
@@ -7336,6 +7326,8 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Lugar en el que está ubicado el centro de salud de referencia');
   t('Lugar en el que está ubicado el centro educativo de referencia');
   t('Mejora de sistema');
+  t('No de viviendas en las que TODAS las personas de la familia usan SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y niños/as).');
+  t('No de viviendas en las que las personas de la familia usan la infraestructura, pero NO todos o NO siempre.');
   t('Nombre de la comunidad');
   t('Nombre del centro de salud');
   t('Nombre del centro de salud externo que acude la población de la comunidad');
@@ -7401,6 +7393,8 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Nº de instalaciones comunes a personal y alumnado masculino NO MEJORADA');
   t('Nº de instalaciones comunes a personal y alumnado masculino de TIPO 1');
   t('Nº de instalaciones comunes a personal y alumnado masculino de TIPO 2');
+  t('Nº de viviendas que usan su infraestructura PROPIA');
+  t('Nº de viviendas que usan una infraestructura COMPARTIDA');
   t('Nº instalaciones mixtas para personal y alumnado BÁSICA');
   t('Nº instalaciones mixtas para personal y alumnado NO MEJORADA');
   t('Nº instalaciones mixtas para personal y alumnado de TIPO 1');
@@ -7424,6 +7418,8 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Se posee de servicios de telefonía fija');
   t('Sistema de Saneamiento del tipo 1 y 2 mejorado');
   t('Sistema de Saneamiento del tipo no mejorado');
+  t('Uso COMPLETO');
+  t('Uso PARCIAL');
   t('Usuarios promedio del sistema de salud. Femenino');
   t('Usuarios promedio del sistema de salud. Masculino');
   t('Validado');
