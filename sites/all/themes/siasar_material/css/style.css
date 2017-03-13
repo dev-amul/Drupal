@@ -734,14 +734,13 @@ form.entityform .vertical-tabs-panes fieldset .group-grid:last-child {
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > h3,
 form.entityform .vertical-tabs-panes fieldset .group-grid > .description {
-  width: 150px;
+  width: 120px;
   float: left;
   box-sizing: border-box;
   margin: 0;
   padding: 20px 20px 0;
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > h3 {
-  width: 150px;
   color: #00829e;
   font-size: 1.25rem;
   font-weight: bold;
@@ -753,16 +752,27 @@ form.entityform .vertical-tabs-panes fieldset .group-grid > .description {
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper,
 form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid {
-  margin: 0 0 0 150px;
+  margin: 0 0 0 120px;
   padding: 20px;
   background: white;
-  border-left: solid #00829e 2px;
+  border-left: solid #00829e 12px;
   display: table;
-  width: calc(100% - 150px);
+  width: calc(100% - 120px);
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper:nth-child(odd),
 form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid:nth-child(odd) {
   background: #f4f4f4;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper > h3,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper > .description,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid > h3,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid > .description {
+  width: 200px;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper .form-wrapper,
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid .form-wrapper {
+  margin-left: 200px;
+  width: calc(100% - 200px);
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper label,
 form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper .description {
@@ -778,6 +788,9 @@ form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper input 
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid {
   padding: 0;
+}
+form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid .form-wrapper {
+  border-width: 2px;
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid:nth-child(2) {
   border-top: none;

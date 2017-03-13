@@ -263,7 +263,7 @@ form.entityform {
 
         > h3,
         > .description {
-          width: 150px;
+          width: 120px;
           float: left;
           box-sizing: border-box;
           margin: 0;
@@ -271,7 +271,6 @@ form.entityform {
         }
 
         > h3 {
-          width: 150px;
           color: $siasar-dark-cyan;
           font-size: 1.25rem;
           font-weight: bold;
@@ -285,15 +284,24 @@ form.entityform {
 
         > .form-wrapper,
         > .group-grid {
-          margin: 0 0 0 150px;
+          margin: 0 0 0 120px;
           padding: $vertical-tabs-padding;
           background: white;
-          border-left: solid $siasar-dark-cyan 2px;
+          border-left: solid $siasar-dark-cyan 12px;
           display: table;
-          width: calc(100% - 150px);
+          width: calc(100% - 120px);
 
           &:nth-child(odd) {
             background: $siasar-almost-white;
+          }
+
+          > h3,
+          > .description {
+            width: 200px;
+          }
+          .form-wrapper {
+            margin-left: 200px;
+            width: calc(100% - 200px);
           }
         }
 
@@ -314,6 +322,10 @@ form.entityform {
 
         > .group-grid {
           padding: 0;
+
+          .form-wrapper {
+            border-width: 2px;
+          }
 
           &:nth-child(2) {
             border-top: none;
