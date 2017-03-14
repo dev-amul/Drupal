@@ -750,6 +750,566 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_1_1|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_1_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_1';
+  $field_group->data = array(
+    'label' => 'Personal',
+    'weight' => '81',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pa',
+      1 => 'field_com_fic_cesh_pe',
+      2 => 'field_com_fic_cesh_pi',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Personal',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_1_1|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_1_2|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_1_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_1';
+  $field_group->data = array(
+    'label' => 'Alumnado',
+    'weight' => '82',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pq',
+      1 => 'field_com_fic_cesh_pm',
+      2 => 'field_com_fic_cesh_pu',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Alumnado',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_1_2|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_1_3|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_1_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_1';
+  $field_group->data = array(
+    'label' => 'Comunes',
+    'weight' => '83',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pca',
+      1 => 'field_com_fic_cesh_pba',
+      2 => 'field_com_fic_cesh_paa',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Comunes',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_1_3|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_1|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_com_fic_cesh';
+  $field_group->data = array(
+    'label' => 'Tipo I',
+    'weight' => '42',
+    'children' => array(
+      0 => 'group_c4_grid_1_3',
+      1 => 'group_c4_grid_1_2',
+      2 => 'group_c4_grid_1_1',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Tipo I',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_1|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_2_1|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_2_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_2';
+  $field_group->data = array(
+    'label' => 'Personal',
+    'weight' => '89',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pf',
+      1 => 'field_com_fic_cesh_pb',
+      2 => 'field_com_fic_cesh_pj',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Personal',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_2_1|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_2_2|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_2_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_2';
+  $field_group->data = array(
+    'label' => 'Alumnado',
+    'weight' => '90',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pr',
+      1 => 'field_com_fic_cesh_pn',
+      2 => 'field_com_fic_cesh_pv',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Alumnado',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_2_2|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_2_3|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_2_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_2';
+  $field_group->data = array(
+    'label' => 'Comunes',
+    'weight' => '91',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pcb',
+      1 => 'field_com_fic_cesh_pbb',
+      2 => 'field_com_fic_cesh_pab',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Comunes',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_2_3|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_2|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_com_fic_cesh';
+  $field_group->data = array(
+    'label' => 'Tipo II',
+    'weight' => '43',
+    'children' => array(
+      0 => 'group_c4_grid_2_1',
+      1 => 'group_c4_grid_2_2',
+      2 => 'group_c4_grid_2_3',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Tipo II',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_2|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_3_1|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_3_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_3';
+  $field_group->data = array(
+    'label' => 'Personal',
+    'weight' => '97',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pc',
+      1 => 'field_com_fic_cesh_pg',
+      2 => 'field_com_fic_cesh_pk',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Personal',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_3_1|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_3_2|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_3_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_3';
+  $field_group->data = array(
+    'label' => 'Alumnado',
+    'weight' => '98',
+    'children' => array(
+      0 => 'field_com_fic_cesh_ps',
+      1 => 'field_com_fic_cesh_pw',
+      2 => 'field_com_fic_cesh_po',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Alumnado',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_3_2|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_3_3|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_3_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_3';
+  $field_group->data = array(
+    'label' => 'Comunes',
+    'weight' => '99',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pcc',
+      1 => 'field_com_fic_cesh_pac',
+      2 => 'field_com_fic_cesh_pbc',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Comunes',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_3_3|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_3|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_com_fic_cesh';
+  $field_group->data = array(
+    'label' => 'No mejorada',
+    'weight' => '44',
+    'children' => array(
+      0 => 'group_c4_grid_3_2',
+      1 => 'group_c4_grid_3_1',
+      2 => 'group_c4_grid_3_3',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'No mejorada',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_3|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_4_1|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_4_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_4';
+  $field_group->data = array(
+    'label' => 'Personal',
+    'weight' => '46',
+    'children' => array(
+      0 => 'field_com_fic_cesh_ph',
+      1 => 'field_com_fic_cesh_pl',
+      2 => 'field_com_fic_cesh_pd',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Personal',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_4_1|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_4_2|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_4_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_4';
+  $field_group->data = array(
+    'label' => 'Alumnado',
+    'weight' => '47',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pp',
+      1 => 'field_com_fic_cesh_pt',
+      2 => 'field_com_fic_cesh_px',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Alumnado',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_4_2|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_4_3|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_4_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_c4_grid_4';
+  $field_group->data = array(
+    'label' => 'Común',
+    'weight' => '48',
+    'children' => array(
+      0 => 'field_com_fic_cesh_pcd',
+      1 => 'field_com_fic_cesh_pbd',
+      2 => 'field_com_fic_cesh_pad',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Común',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_4_3|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_c4_grid_4|field_collection_item|field_con_fic_ce_ficha|form';
+  $field_group->group_name = 'group_c4_grid_4';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_con_fic_ce_ficha';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_com_fic_cesh';
+  $field_group->data = array(
+    'label' => 'Menos 10m',
+    'weight' => '45',
+    'children' => array(
+      0 => 'group_c4_grid_4_1',
+      1 => 'group_c4_grid_4_2',
+      2 => 'group_c4_grid_4_3',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Menos 10m',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_c4_grid_4|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_cantidad_comun_servicios|entityform|prestador_de_asistencia_t_cnica|form';
   $field_group->group_name = 'group_cantidad_comun_servicios';
   $field_group->entity_type = 'entityform';
@@ -1017,10 +1577,10 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_con_fic_ce_fnombre',
       1 => 'field_com_fic_ce_fcodigo',
-      2 => 'field_com_fic_ce_fdocf',
-      3 => 'field_com_fic_ce_festf',
-      4 => 'field_com_fic_ce_fdocm',
-      5 => 'field_com_fic_ce_festm',
+      2 => 'field_com_fic_ce_fdocm',
+      3 => 'field_com_fic_ce_festm',
+      4 => 'field_com_fic_ce_fdocf',
+      5 => 'field_com_fic_ce_festf',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1080,42 +1640,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C4. Schools: Sanitation and hygiene',
     'weight' => '2',
     'children' => array(
-      0 => 'field_com_fic_cesh_pi',
-      1 => 'field_com_fic_cesh_pp',
-      2 => 'field_com_fic_cesh_pq',
-      3 => 'field_com_fic_cesh_pu',
-      4 => 'field_com_fic_cesh_pd',
-      5 => 'field_com_fic_cesh_pv',
-      6 => 'field_com_fic_cesh_pc',
-      7 => 'field_com_fic_cesh_ps',
-      8 => 'field_com_fic_cesh_px',
-      9 => 'field_com_fic_cesh_pg',
-      10 => 'field_com_fic_cesh_pr',
-      11 => 'field_com_fic_cesh_pt',
-      12 => 'field_com_fic_cesh_pm',
-      13 => 'field_com_fic_cesh_paa',
-      14 => 'field_com_fic_cesh_pa',
-      15 => 'field_com_fic_cesh_pbc',
-      16 => 'field_com_fic_cesh_pbb',
-      17 => 'field_com_fic_cesh_pcc',
-      18 => 'field_com_fic_cesh_pe',
-      19 => 'field_com_fic_cesh_pab',
-      20 => 'field_com_fic_cesh_pac',
-      21 => 'field_com_fic_cesh_pw',
-      22 => 'field_com_fic_cesh_pcb',
-      23 => 'field_com_fic_cesh_pca',
-      24 => 'field_com_fic_cesh_pl',
-      25 => 'field_com_fic_cesh_pcd',
-      26 => 'field_com_fic_cesh_pba',
-      27 => 'field_com_fic_cesh_ph',
-      28 => 'field_com_fic_cesh_pad',
-      29 => 'field_com_fic_cesh_pbd',
-      30 => 'field_com_fic_cesh_pf',
-      31 => 'field_com_fic_cesh_pn',
-      32 => 'field_com_fic_cesh_pj',
-      33 => 'field_com_fic_cesh_pk',
-      34 => 'field_com_fic_cesh_po',
-      35 => 'field_com_fic_cesh_pb',
+      0 => 'group_c4_grid_2',
+      1 => 'group_c4_grid_1',
+      2 => 'group_c4_grid_4',
+      3 => 'group_c4_grid_3',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1126,7 +1654,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-com-fic-cesh field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_com_fic_cesh|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
@@ -4130,6 +4658,7 @@ function feature_siasar_field_bases_field_group_info() {
   t('A6. Is there sufficient water in the source(s) to meet demand?');
   t('A7. Electricity and communications');
   t('A7. Water supply system sketch');
+  t('Alumnado');
   t('B. Community Association / Organization Information');
   t('B. INTERVENTION');
   t('B. Sanitation and hygiene');
@@ -4170,6 +4699,8 @@ function feature_siasar_field_bases_field_group_info() {
   t('C4. Schools: Sanitation and hygiene');
   t('C5. Billing, Payment, and Income');
   t('C6. How Is the system maintained?');
+  t('Comunes');
+  t('Común');
   t('D. FINANCIAL INFORMATION: ADDITIONAL INCOME ');
   t('D. Health center');
   t('D. TYPE OF SUPPORT');
@@ -4223,7 +4754,9 @@ function feature_siasar_field_bases_field_group_info() {
   t('H4. Type of corrective measures');
   t('H5. Type of preventive measures ');
   t('I1.');
+  t('Menos 10m');
   t('No mejorada');
+  t('Personal');
   t('Personal docente y administrativo');
   t('Población estudiantil');
   t('Tipo I');
