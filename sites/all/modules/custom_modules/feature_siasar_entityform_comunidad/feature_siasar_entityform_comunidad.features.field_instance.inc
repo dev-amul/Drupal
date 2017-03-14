@@ -2285,6 +2285,50 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-comunidad-field_data_source'.
+  $field_instances['entityform-comunidad-field_data_source'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => array(),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 77,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_data_source',
+    'label' => 'Origen de los datos',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => '',
+        'formatter_settings' => array(),
+        'size' => 60,
+      ),
+      'type' => 'field_extrawidgets_read_only',
       'weight' => 8,
     ),
   );
@@ -2338,43 +2382,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
       'type' => 'siasar_hierarchical_select',
       'weight' => 63,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-comunidad-field_entity_clasification'.
-  $field_instances['entityform-comunidad-field_entity_clasification'] = array(
-    'bundle' => 'comunidad',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'computed_field',
-        'settings' => array(),
-        'type' => 'computed_field_plain',
-        'weight' => 9,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entity_clasification',
-    'label' => 'Clasificación',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'computed_field',
-      'settings' => array(),
-      'type' => 'computed',
-      'weight' => 9,
     ),
   );
 
@@ -2783,6 +2790,59 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 68,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-comunidad-field_rating_s1'.
+  $field_instances['entityform-comunidad-field_rating_s1'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 76,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_rating_s1',
+    'label' => 'Calificación (SIASAR 1)',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'entityreference_label',
+        'formatter_settings' => array(
+          'link' => 0,
+        ),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 7,
     ),
   );
 
@@ -7297,6 +7357,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('2. Levantamiento utilizando el formulario auxiliar');
   t('3. Levantamiento muestral');
   t('Altitud');
+  t('Calificación (SIASAR 1)');
   t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) utilizan la instalación de lavado siempre');
   t('Cantidad de viviendas que TIENEN OTRA infraestructura de saneamiento PROPIA del tipo no mejorada:');
   t('Cantidad de viviendas que TIENEN infraestructura de saneamiento PROPIA mejorada tipo 1: ');
@@ -7306,7 +7367,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Cantidad de viviendas que recogen o tratan las basuras domésticas');
   t('Cantidad de viviendas totales');
   t('Centros educativos. Información general');
-  t('Clasificación');
   t('Cuenca hidrográfica');
   t('Código Comunidad');
   t('Código del centro de salud');
@@ -7405,6 +7465,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Número total de trabajadores y docentes masculinos');
   t('Observaciones ');
   t('Observaciones sobre el grupo de población');
+  t('Origen de los datos');
   t('Otras características de la comunidad');
   t('Otras divisiones');
   t('País');

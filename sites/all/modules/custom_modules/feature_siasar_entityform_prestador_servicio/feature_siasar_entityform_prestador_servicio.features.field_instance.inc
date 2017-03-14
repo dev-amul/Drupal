@@ -845,7 +845,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 115,
+      'weight' => 148,
     ),
   );
 
@@ -938,6 +938,51 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_servicio-field_data_source'.
+  $field_instances['entityform-prestador_de_servicio-field_data_source'] = array(
+    'bundle' => 'prestador_de_servicio',
+    'default_value' => array(),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 30,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_data_source',
+    'label' => 'Origen de los datos',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => '',
+        'formatter_settings' => array(),
+        'size' => 60,
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 157,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_servicio-field_entidad_local'.
   $field_instances['entityform-prestador_de_servicio-field_entidad_local'] = array(
     'bundle' => 'prestador_de_servicio',
@@ -987,44 +1032,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       ),
       'type' => 'siasar_hierarchical_select',
       'weight' => 152,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'entityform-prestador_de_servicio-field_entity_clasification'.
-  $field_instances['entityform-prestador_de_servicio-field_entity_clasification'] = array(
-    'bundle' => 'prestador_de_servicio',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'computed_field',
-        'settings' => array(),
-        'type' => 'computed_field_plain',
-        'weight' => 12,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 47,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entity_clasification',
-    'label' => 'Clasificación',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'computed_field',
-      'settings' => array(),
-      'type' => 'computed',
-      'weight' => 10,
     ),
   );
 
@@ -4178,6 +4185,58 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_servicio-field_rating_s1'.
+  $field_instances['entityform-prestador_de_servicio-field_rating_s1'] = array(
+    'bundle' => 'prestador_de_servicio',
+    'default_value' => array(),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 29,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_rating_s1',
+    'label' => 'Calificación (SIASAR 1)',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => '',
+        'formatter_settings' => array(),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 156,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_servicio-field_recursos_prestador'.
   $field_instances['entityform-prestador_de_servicio-field_recursos_prestador'] = array(
     'bundle' => 'prestador_de_servicio',
@@ -5703,9 +5762,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Agua facturada (promedio mensual, en metros cúbicos)');
   t('Agua producida (promedio mensual, en metros cúbicos)');
   t('Altitud');
+  t('Calificación (SIASAR 1)');
   t('Cargo');
   t('Clase de prestador');
-  t('Clasificación');
   t('Código de prestador ');
   t('El Prestador está dando la atención en operación y mantenimiento al sistema de Agua');
   t('El prestador, ¿rinde cuentas?');
@@ -5743,6 +5802,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Número de usuarios al día en sus pagos ordinarios');
   t('Número de usuarios que deberían pagar factura');
   t('Observaciones y comentarios');
+  t('Origen de los datos');
   t('Otra clase de prestador');
   t('Pasivos Corrientes ');
   t('Pasivos No Corrientes');
