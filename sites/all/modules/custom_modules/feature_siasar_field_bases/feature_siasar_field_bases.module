@@ -23,7 +23,16 @@ function feature_siasar_field_bases_entity_info_alter(&$entity_info) {
 function feature_siasar_field_bases_date_select_process_alter(&$element, &$form_state, $context) {
   if ($element['#date_format'] !== 'Y') return;
 
-  $first = array_shift($element['year']['#options']);
-  $element['year']['#options'] = array_reverse($element['year']['#options'], TRUE);
-  array_unshift($element['year']['#options'], $first);
+  $array = $element['year']['#options'];
+
+  // array_shift screws array keys, we need a more custom approach.
+  reset($array);
+  $key = key($array);
+  $first = array($key => $array[$key]);
+  unset($array[$key]);
+
+  $array = array_reverse($array, true);
+  $array = $first + $array;
+
+  $element['year']['#options'] = $array;
 }
