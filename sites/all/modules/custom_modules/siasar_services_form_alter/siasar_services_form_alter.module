@@ -38,10 +38,8 @@ function siasar_services_form_alter_services_request_postprocess_alter($controll
  * Helper function to process all forms
  */
 function _siasar_services_form_alter_process_form($form) {
-  foreach($form as $key => &$form_field) {
-    if ($key == 'field_pais') {
-      $form_field['settings']['allowed_values'] = _siasar_services_form_alter_get_countries_list();
-    }
+  if (isset($form['field_pais'])) {
+    $form['field_pais']['settings']['allowed_values'] = _siasar_services_form_alter_get_countries_list();
   }
 
   return $form;
