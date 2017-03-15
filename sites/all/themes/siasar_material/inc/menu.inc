@@ -5,9 +5,20 @@
  * Implements theme_menu_tree().
  */
 function siasar_material_menu_tree(&$variables) {
-  if ($variables['theme_hook_original'] == 'menu_tree__menu_front_page_menu') return $variables['tree'];
+  $theme_hook = $variables['theme_hook_original'];
 
-  return '<div class="collection with-header">' . $variables['tree'] . '</div>';
+  switch ($theme_hook) {
+    case 'menu_tree__menu_front_page_menu':
+      $output = $variables['tree'];
+      break;
+    case 'menu_tree__user_menu':
+      $output = '<ul class="user-menu right">' . $variables['tree'] . '</ul>';
+      break;
+    default:
+      $output = '<div class="collection with-header">' . $variables['tree'] . '</div>';
+  }
+
+  return $output;
 }
 
 /**
@@ -64,3 +75,4 @@ function siasar_material_menu_link(array $variables) {
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
+

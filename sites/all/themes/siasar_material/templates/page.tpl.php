@@ -82,6 +82,7 @@
         </a>
       <?php endif; ?>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <?php print render($page['user_nav']); ?>
       <?php if (!empty($primary_nav)): ?>
         <div class="right hide-on-med-and-down">
           <?php print render($primary_nav); ?>

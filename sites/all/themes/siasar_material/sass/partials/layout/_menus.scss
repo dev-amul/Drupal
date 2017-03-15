@@ -1,0 +1,10 @@
+// User menu
+ul.user-menu {
+
+  &:before {
+    color: $siasar-light-cyan;
+    content: "|";
+    display: block;
+    float: left;
+  }
+}

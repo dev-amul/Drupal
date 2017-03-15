@@ -207,6 +207,13 @@ ul.pagination li.active {
   font-size: 0.8em;
 }
 
+ul.user-menu:before {
+  color: #8edced;
+  content: "|";
+  display: block;
+  float: left;
+}
+
 .btn {
   background-color: #26c726;
   text-transform: lowercase;
