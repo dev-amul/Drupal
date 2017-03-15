@@ -842,6 +842,7 @@ form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid {
   background: white;
   border-left: solid #00829e 12px;
   display: table;
+  border-collapse: separate;
   width: calc(100% - 120px);
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper:nth-child(odd),

@@ -289,6 +289,7 @@ form.entityform {
           background: white;
           border-left: solid $siasar-dark-cyan 12px;
           display: table;
+          border-collapse: separate;
           width: calc(100% - 120px);
 
           &:nth-child(odd) {

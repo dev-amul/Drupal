@@ -5666,7 +5666,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 82,
     ),
   );
 
@@ -5712,7 +5712,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 28,
+      'weight' => 84,
     ),
   );
 
@@ -5758,7 +5758,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 29,
+      'weight' => 92,
     ),
   );
 
@@ -5804,7 +5804,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 30,
+      'weight' => 98,
     ),
   );
 
@@ -5850,7 +5850,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 31,
+      'weight' => 47,
     ),
   );
 
@@ -5896,7 +5896,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 5,
+      'weight' => 90,
     ),
   );
 
@@ -5942,7 +5942,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 32,
+      'weight' => 85,
     ),
   );
 
@@ -5988,7 +5988,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 33,
+      'weight' => 93,
     ),
   );
 
@@ -6034,7 +6034,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 34,
+      'weight' => 99,
     ),
   );
 
@@ -6080,7 +6080,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 35,
+      'weight' => 48,
     ),
   );
 
@@ -6126,7 +6126,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 45,
     ),
   );
 
@@ -6172,7 +6172,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 36,
+      'weight' => 86,
     ),
   );
 
@@ -6218,7 +6218,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 37,
+      'weight' => 94,
     ),
   );
 
@@ -6264,7 +6264,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 38,
+      'weight' => 100,
     ),
   );
 
@@ -6310,7 +6310,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 39,
+      'weight' => 49,
     ),
   );
 
@@ -6356,7 +6356,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 7,
+      'weight' => 47,
     ),
   );
 
@@ -6402,7 +6402,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 8,
+      'weight' => 83,
     ),
   );
 
@@ -6448,7 +6448,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 9,
+      'weight' => 91,
     ),
   );
 
@@ -6494,7 +6494,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 46,
     ),
   );
 
@@ -6540,7 +6540,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 11,
+      'weight' => 48,
     ),
   );
 
@@ -6586,7 +6586,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 84,
     ),
   );
 
@@ -6632,7 +6632,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 13,
+      'weight' => 92,
     ),
   );
 
@@ -6678,7 +6678,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 14,
+      'weight' => 47,
     ),
   );
 
@@ -6724,7 +6724,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 49,
     ),
   );
 
@@ -6770,7 +6770,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 16,
+      'weight' => 83,
     ),
   );
 
@@ -6816,7 +6816,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 17,
+      'weight' => 91,
     ),
   );
 
@@ -6862,7 +6862,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 18,
+      'weight' => 50,
     ),
   );
 
@@ -6908,7 +6908,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 19,
+      'weight' => 47,
     ),
   );
 
@@ -6954,7 +6954,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 20,
+      'weight' => 84,
     ),
   );
 
@@ -7000,7 +7000,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 21,
+      'weight' => 92,
     ),
   );
 
@@ -7046,7 +7046,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 22,
+      'weight' => 51,
     ),
   );
 
@@ -7092,7 +7092,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 23,
+      'weight' => 48,
     ),
   );
 
@@ -7138,7 +7138,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 24,
+      'weight' => 85,
     ),
   );
 
@@ -7184,7 +7184,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 25,
+      'weight' => 93,
     ),
   );
 
@@ -7230,7 +7230,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 26,
+      'weight' => 52,
     ),
   );
 
@@ -7276,7 +7276,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 27,
+      'weight' => 49,
     ),
   );
 
