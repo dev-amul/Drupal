@@ -162,9 +162,22 @@ function siasar_field_location_field_widget_settings_form($field, $instance) {
  * Form element validate handler for SIASAR Field Location taxonomy term element.
  */
 function siasar_field_location_validate($element, &$form_state) {
-  $field_name = $element['#field_name'];
-  $language = $element['#language'];
-  $widget_settings = $form_state['field'][$field_name][$language]['instance']['widget']['settings']['siasar_hierarchical_select'];
+  $form_type = isset($form_state['view'])
+    ? 'view'
+    : 'field';
+
+  switch ($form_type) {
+    case 'view':
+      $field_name = $element['#name'];
+      $language = LANGUAGE_NONE;
+      $widget_settings = array('force_deepest' => 0);
+      break;
+    case 'field':
+      $field_name = $element['#field_name'];
+      $language = $element['#language'];
+      $widget_settings = $form_state['field'][$field_name][$language]['instance']['widget']['settings']['siasar_hierarchical_select'];
+      break;
+  }
 
   if ($element['#value'] === '') {
     return;
@@ -184,27 +197,32 @@ function siasar_field_location_validate($element, &$form_state) {
   }
 
   // Does it belong to the right vocabulary?
-  $field = field_widget_field($element, $form_state);
-  $vocabularies = array();
-  foreach ($field['settings']['allowed_values'] as $tree) {
-    if ($vocabulary = taxonomy_vocabulary_machine_name_load($tree['vocabulary'])) {
-      $vocabularies[$vocabulary->vid] = $vocabulary;
+  // Does not apply on Views
+  if ($form_type !== 'view') {
+    $field = field_widget_field($element, $form_state);
+    $vocabularies = array();
+    foreach ($field['settings']['allowed_values'] as $tree) {
+      if ($vocabulary = taxonomy_vocabulary_machine_name_load($tree['vocabulary'])) {
+        $vocabularies[$vocabulary->vid] = $vocabulary;
+      }
     }
-  }
-  if (!in_array($term->vid, array_keys($vocabularies))) {
-    form_set_error($element['#name'], t('Specified term does not belong to an allowed vocabulary. See field [@field] configuration for details.', array('@field' => $element['#field_name'])));
-    return;
+    if (!in_array($term->vid, array_keys($vocabularies))) {
+      form_set_error($element['#name'], t('Specified term does not belong to an allowed vocabulary. See field [@field] configuration for details.', array('@field' => $field_name)));
+      return;
+    }
   }
 
   if ($widget_settings['force_deepest'] === 1) {
     $children = _siasar_field_location_get_term_list_from_view($element['#value'], 'all');
     if (!empty($children)) {
-        form_error($element, t('You need to select a term from the deepest level in field [@field].', array('@field' => $element['#field_name'])));
+        form_error($element, t('You need to select a term from the deepest level in field [@field].', array('@field' => $field_name)));
         return;
     }
   }
 
-  form_set_value($element, (array) $term, $form_state);
+  if ($form_type !== 'view')  {
+    form_set_value($element, (array) $term, $form_state);
+  }
 }
 
 /**
