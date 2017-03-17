@@ -125,6 +125,7 @@ function siasar_field_location_field_widget_skeleton($field, $default_value = nu
     ),
     '#attributes' => array(
       'class' => array('siasar-hierarchical-select'),
+      'field-name' => $field,
     ),
   );
 
