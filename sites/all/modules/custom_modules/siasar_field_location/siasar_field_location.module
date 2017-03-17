@@ -41,16 +41,26 @@ function siasar_field_location_field_widget_info() {
  * Implements hook_field_widget_form().
  */
 function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
-  global $user;
-
-  $user_wrapper = entity_metadata_wrapper('user', user_load($user->uid));
-  $module_path = drupal_get_path('module', 'siasar_field_location');
   $field = $instance['field_name'];
+  $default_value = isset($items[$delta]['tid'])
+    ? $items[$delta]['tid']
+    : null;
+  $force_deepest = isset($instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'])
+    ? isset($instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'])
+    : false;
 
-  $element += array(
+  $element += siasar_field_location_field_widget_skeleton($field, $default_value, $force_deepest);
+
+  return $element;
+}
+
+function siasar_field_location_field_widget_skeleton($field, $default_value = null, $force_deepest = false) {
+  $module_path = drupal_get_path('module', 'siasar_field_location');
+
+  $element = array(
     '#type' => 'textfield',
     '#size' => 8,
-    '#default_value' => isset($items[$delta]['tid']) ? $items[$delta]['tid'] : '',
+    '#default_value' => $default_value,
     '#maxlength' => 1024,
     '#element_validate' => array('siasar_field_location_validate'),
     '#attached' => array(
@@ -62,7 +72,7 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
           'data' => array(
             'siasarHierarchicalSelect' => array(
               $field => array(
-                'forceDeepest' => $instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'],
+                'forceDeepest' => $force_deepest,
               ),
             ),
           ),

@@ -14,7 +14,7 @@ include_once 'feature_siasar_views_reports.features.inc';
  */
 function feature_siasar_views_reports_views_query_alter(&$view, &$query) {
   global $user;
-  if (!in_array("entityform_results_view", $query->options['query_tags'])) return;
+  if (!in_array('entityform_results_view', $query->options['query_tags'])) return;
 
   // TODO: Maybe check a permission instead of a role?
   if (!in_array('administrator', $user->roles)) {
@@ -29,18 +29,28 @@ function feature_siasar_views_reports_views_query_alter(&$view, &$query) {
  * TODO: Maybe check a permission instead of a role?
  */
 function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
-  global $user;
-
   if ($form_state['view']->name !== 'results_entityforms') return;
 
+  // Inject SIASAR hierarchical Select
+  module_load_include('module', 'siasar_field_location', 'siasar_field_location');
+  $field_entidad_local = 'field_entidad_local_tid';
+  $form[$field_entidad_local] = siasar_field_location_field_widget_skeleton($field_entidad_local, null, false);
+
+
+  $form['type'] = _feature_siasar_views_reports_create_entityforms_select_field();
+}
+
+function _feature_siasar_views_reports_hide_country_for_non_admins(&$form) {
+  global $user;
   $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
 
   // Country filter is only for admins
   if (!in_array('administrator', $user->roles)) {
     $form['field_pais_iso2']['#type'] = 'hidden';
   }
+}
 
-  // Label
+function _feature_siasar_views_reports_create_entityforms_select_field() {
   $form_types = entity_get_info('entityform')['bundles'];
   foreach ($form_types as $machine => $type) {
     $options[$machine] = t($type['label']);
@@ -51,14 +61,12 @@ function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$fo
     '#required' => false,
     '#empty_option' => t('- All -'),
   );
-  $form['type'] = $form_type_selector;
 
-  $form_id = $form_id;
+  return $form_type_selector;
 }
 
 function _feature_siasar_views_reports_get_user_country() {
   global $user;
-  static $user_country = null;
 
   $user_country = $user_country
     ? $user_country
