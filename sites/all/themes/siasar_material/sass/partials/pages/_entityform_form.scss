@@ -192,8 +192,20 @@ form.entityform {
       }
 
       .field-type-field-collection {
+        table.sticky-header {
+          @include breakpoint($break-small) {
+            z-index: 1;
+          }
+        }
+
         th.field-label {
-          display: none;
+          padding: 0;
+
+          label {
+            font-size: 1.25rem;
+            font-weight: normal;
+            color: #00829e;
+          }
         }
 
         fieldset.field-group-fieldset {
@@ -238,10 +250,97 @@ form.entityform {
             }
           }
         }
-
-
       }
 
+      // Group grids
+      .group-grid {
+        margin: 0;
+        border-top: dotted $siasar-dark-cyan 2px;
+
+        &:last-child {
+          border-bottom: dotted $siasar-dark-cyan 2px;
+        }
+
+        > h3,
+        > .description {
+          width: 120px;
+          float: left;
+          box-sizing: border-box;
+          margin: 0;
+          padding: $vertical-tabs-padding $vertical-tabs-padding 0;
+        }
+
+        > h3 {
+          color: $siasar-dark-cyan;
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+
+        > .description {
+          padding-top: $vertical-tabs-padding / 2;
+          clear: left;
+          font-size: 0.85rem;
+        }
+
+        > .form-wrapper,
+        > .group-grid {
+          margin: 0 0 0 120px;
+          padding: $vertical-tabs-padding;
+          background: white;
+          border-left: solid $siasar-dark-cyan 12px;
+          display: table;
+          border-collapse: separate;
+          width: calc(100% - 120px);
+
+          &:nth-child(odd) {
+            background: $siasar-almost-white;
+          }
+
+          > h3,
+          > .description {
+            width: 200px;
+          }
+          .form-wrapper {
+            margin-left: 200px;
+            width: calc(100% - 200px);
+          }
+        }
+
+        > .form-wrapper {
+          label,
+          .description {
+            width: 40%;
+            float: left;
+            clear: left;
+          }
+          .description {
+            font-size: 0.85rem;
+          }
+          input {
+            width: auto;
+          }
+        }
+
+        > .group-grid {
+          padding: 0;
+
+          .form-wrapper {
+            border-width: 2px;
+          }
+
+          &:nth-child(2) {
+            border-top: none;
+          }
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+
+      .full-width {
+        margin-left: -2 * $vertical-tabs-padding;
+        margin-right: -2 * $vertical-tabs-padding;
+      }
     }
 
     .form-wrapper:not(:first-child) {

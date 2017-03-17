@@ -63,6 +63,13 @@ function feature_siasar_services_default_services_endpoint() {
         ),
       ),
     ),
+    'entity_count' => array(
+      'operations' => array(
+        'index' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
     'entity_country' => array(
       'operations' => array(
         'retrieve' => array(
@@ -99,13 +106,6 @@ function feature_siasar_services_default_services_endpoint() {
           'enabled' => '1',
         ),
         'entityreference_field_idioma_predominante' => array(
-          'enabled' => '1',
-        ),
-      ),
-    ),
-    'entity_entityform_count' => array(
-      'operations' => array(
-        'index' => array(
           'enabled' => '1',
         ),
       ),
@@ -326,6 +326,13 @@ function feature_siasar_services_default_services_endpoint() {
         'retrieve' => array(
           'enabled' => '1',
         ),
+        'index' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
+    'location_hierarchy' => array(
+      'operations' => array(
         'index' => array(
           'enabled' => '1',
         ),

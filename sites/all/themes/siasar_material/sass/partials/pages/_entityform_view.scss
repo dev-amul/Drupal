@@ -93,6 +93,10 @@ body.page-entityform-view {
             left: -7px;
             z-index: 1;
           }
+
+          .field-type-entityreference .field-items {
+            display: inline-block;
+          }
         }
 
         .field-collection-view {

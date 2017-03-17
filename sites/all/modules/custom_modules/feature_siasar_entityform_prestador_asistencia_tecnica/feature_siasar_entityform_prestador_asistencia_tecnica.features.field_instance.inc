@@ -34,6 +34,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 15,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_actualizar_prov_servicio',
@@ -79,6 +85,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'number_integer',
         'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -126,6 +138,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 12,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_apoyar_caps_conflictos',
@@ -171,6 +189,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'number_integer',
         'weight' => 11,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -218,6 +242,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 7,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_apoyar_juridica_caps',
@@ -263,6 +293,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'number_integer',
         'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -310,6 +346,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 16,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_asesorar_prestador_aom',
@@ -355,6 +397,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'number_integer',
         'weight' => 2,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -402,6 +450,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_decimal',
         'weight' => 10,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_cantidad_equipos_inform',
@@ -447,6 +501,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'number_decimal',
         'weight' => 6,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -494,6 +554,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_decimal',
         'weight' => 8,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_cantidad_medicion_agua',
@@ -539,6 +605,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'number_integer',
         'weight' => 4,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -586,6 +658,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 14,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_caps_medicion_pozo_agua',
@@ -627,6 +705,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'list_default',
         'weight' => 6,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_cuenta_presupuesto_anual',
@@ -664,6 +748,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'list_default',
         'weight' => 8,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_cuestionario_validado',
@@ -680,7 +770,51 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 33,
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_data_source'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_data_source'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 46,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_data_source',
+    'label' => 'Origen de los datos',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'text_default',
+        'formatter_settings' => array(),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 7,
     ),
   );
 
@@ -702,6 +836,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 13,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -740,6 +880,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'list_default',
         'weight' => 12,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_dispone_fondos_viaticos',
@@ -776,6 +922,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 15,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -814,6 +966,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'list_default',
         'weight' => 14,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_dispone_servicios_internet',
@@ -846,6 +1004,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 44,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -882,38 +1046,6 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_entity_clasification'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_entity_clasification'] = array(
-    'bundle' => 'prestador_de_asistencia_t_cnica',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'computed_field',
-        'settings' => array(),
-        'type' => 'computed_field_plain',
-        'weight' => 9,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entity_clasification',
-    'label' => 'Clasificación',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'computed_field',
-      'settings' => array(),
-      'type' => 'computed',
-      'weight' => 37,
-    ),
-  );
-
-  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_entity_name'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_entity_name'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -927,6 +1059,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 1,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -964,6 +1102,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 11,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_estado_equipos_informatico',
@@ -997,6 +1141,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 7,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_estado_equipos_transporte',
@@ -1029,6 +1179,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1068,6 +1224,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'date_default',
         'weight' => 39,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1114,6 +1276,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
           'image_style' => 'large',
         ),
         'type' => 'image',
+        'weight' => 0,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
     ),
@@ -1170,6 +1338,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'mvf_formatter_default',
         'weight' => 6,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1253,6 +1427,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'text_default',
         'weight' => 7,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_observaciones_comentarios',
@@ -1298,6 +1478,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 19,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_otras_numero_comunidade',
@@ -1335,6 +1521,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'text_default',
         'weight' => 18,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_otras_tipo_apoyo',
@@ -1371,6 +1563,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'country_default',
         'weight' => 38,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_pais',
@@ -1386,6 +1584,60 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_rating_s1'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_rating_s1'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 45,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_rating_s1',
+    'label' => 'Calificación (SIASAR 1)',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'entityreference_label',
+        'formatter_settings' => array(
+          'link' => 0,
+        ),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 6,
     ),
   );
 
@@ -1412,6 +1664,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'number_integer',
         'weight' => 13,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1459,6 +1717,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 8,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_revisar_actualizar_finanza',
@@ -1505,6 +1769,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 17,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_siasar_planification_anual',
@@ -1541,6 +1811,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 4,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1584,6 +1860,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 6,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_total_comunidades_zona',
@@ -1622,6 +1904,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         ),
         'type' => 'entityreference_label',
         'weight' => 40,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1672,6 +1960,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'type' => 'number_integer',
         'weight' => 6,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_verificar_apoyar_caps',
@@ -1710,12 +2004,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('7. Apoyar a los CAPS en el análisis y en la solución de conflictos (ej: uso o abuso del agua de los sistemas)');
   t('8. Recolectar muestras para análisis de calidad de agua de los sistemas y asesorar en su toma, medición e interp. de los datos');
   t('9. Asesorar a los CAPS en la medición de niveles estáticos de pozos y caudales de agua superficiales ');
+  t('Calificación (SIASAR 1)');
   t('Cantidad de comunidades apoyadas en los últimos 12 meses');
   t('Cantidad de equipos de transporte ');
   t('Cantidad de equipos informáticos (computadora/impresora)');
   t('Cantidad de equipos para la medición de la calidad del agua');
   t('Cantidad de técnicos en la zona');
-  t('Clasificación');
   t('Cuenta con presupuesto operativo anual');
   t('Dispone de fondos para combustible');
   t('Dispone de fondos para viáticos');
@@ -1731,6 +2025,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Monto');
   t('Nombre');
   t('Observaciones y comentarios');
+  t('Origen de los datos');
   t('País');
   t('Tipo de PAT');
   t('Total de comunidades en la zona de atención');

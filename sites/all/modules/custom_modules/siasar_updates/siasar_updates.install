@@ -303,12 +303,12 @@ function siasar_updates_update_7119(&$sandbox) {
 }
 
 /**
- * Issue 322 - Modificar las vistas de resultados para que incluyan un filtro expuesto de país
- * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/322
+ * Issue 386 - Modificar las vistas de resultados para que incluyan un filtro expuesto de país
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/386
  */
 function siasar_updates_update_7120(&$sandbox) {
   $modules = array(
-    'views_data_export_phpexcel',
+    'cors',
   );
   $modules_enabled = module_enable($modules, TRUE);
   if (!$modules_enabled) {
