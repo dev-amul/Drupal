@@ -3,7 +3,7 @@
 
   Drupal.behaviors.siasarFieldLocation = {
     attach: function (context, settings) {
-      $('.field-widget-siasar-hierarchical-select, .views-exposed-form .form-item-field-entidad-local-tid', context).siasarHierarchicalSelect();
+      $('.field-widget-siasar-hierarchical-select, .form-item-field-entidad-local-siasar-hierarchical-select', context).siasarHierarchicalSelect();
     }
   };
 
