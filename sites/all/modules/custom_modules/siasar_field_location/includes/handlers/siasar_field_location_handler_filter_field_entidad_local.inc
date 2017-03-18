@@ -291,14 +291,25 @@ class siasar_field_location_handler_filter_field_entidad_local extends views_han
     foreach($values as $v) {
       if (is_numeric($v)) {
         $tids[] = (int) $v;
-        $children = array_keys(taxonomy_get_children($v, $vid));
-        $tids = array_merge($tids, $children);
+        $tids = $this->_attach_children($tids, $v, $vid);
       }
     }
 
     if ($tids) {
       $this->validated_exposed_input = $tids;
     }
+  }
+
+  function _attach_children($tids, $v, $vid) {
+    $children = array_keys(taxonomy_get_children($v, $vid));
+
+    if (!empty($children)) {
+      $tids = array_merge($tids, $children);
+      foreach ($children as $child) {
+        $tids = $this->_attach_children($tids, $child, $vid);
+      }
+    }
+    return $tids;
   }
 
 
