@@ -219,9 +219,8 @@ class siasar_field_location_handler_filter_field_entidad_local extends views_han
     }
 
     $values = drupal_explode_tags($form_state['values']['options']['value']);
-    $tids = $this->validate_term_strings($form['value'], $values);
 
-    if ($tids) {
+    if ($values) {
       $form_state['values']['options']['value'] = $tids;
     }
   }

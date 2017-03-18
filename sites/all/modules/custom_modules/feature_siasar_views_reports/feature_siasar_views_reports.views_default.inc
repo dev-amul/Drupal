@@ -136,6 +136,10 @@ function feature_siasar_views_reports_views_default_views() {
     ),
   );
   $handler->display->display_options['style_options']['sticky'] = TRUE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
   /* Relationship: Entityform Submission: User uid */
   $handler->display->display_options['relationships']['user']['id'] = 'user';
   $handler->display->display_options['relationships']['user']['table'] = 'entityform';
@@ -172,13 +176,10 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
-  /* Field: Entityform Submission: Calificación */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_rating']['id'] = 'field_rating';
   $handler->display->display_options['fields']['field_rating']['table'] = 'field_data_field_rating';
   $handler->display->display_options['fields']['field_rating']['field'] = 'field_rating';
-  $handler->display->display_options['fields']['field_rating']['settings'] = array(
-    'link' => 0,
-  );
   /* Field: Entityform Submission: Edit Link */
   $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
   $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
@@ -244,7 +245,6 @@ function feature_siasar_views_reports_views_default_views() {
     6 => 0,
     10 => 0,
   );
-  $handler->display->display_options['filters']['field_entidad_local_tid']['type'] = 'textfield';
   $handler->display->display_options['filters']['field_entidad_local_tid']['vocabulary'] = 'division_administrativa';
   /* Filter criterion: Entityform Type: Machine-readable name */
   $handler->display->display_options['filters']['type']['id'] = 'type';
@@ -314,6 +314,14 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['display_comment'] = 'Esta vista está modificada mediante código en el módulo "feature_siasar_entityform_results"';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No hay resultados con las opciones que ha elegido.';
+  $handler->display->display_options['empty']['area']['format'] = 'plain_text';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Entityform Submission: Entityform submission ID */
   $handler->display->display_options['fields']['entityform_id']['id'] = 'entityform_id';
@@ -378,14 +386,6 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_cuestionario_validado']['field'] = 'field_cuestionario_validado';
   $handler->display->display_options['fields']['field_cuestionario_validado']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_cuestionario_validado']['type'] = 'i18n_list_default';
-  /* Field: Entityform Submission: Calificación */
-  $handler->display->display_options['fields']['field_rating']['id'] = 'field_rating';
-  $handler->display->display_options['fields']['field_rating']['table'] = 'field_data_field_rating';
-  $handler->display->display_options['fields']['field_rating']['field'] = 'field_rating';
-  $handler->display->display_options['fields']['field_rating']['empty'] = '-';
-  $handler->display->display_options['fields']['field_rating']['settings'] = array(
-    'link' => 0,
-  );
   /* Field: Entityform Submission: Edit Link */
   $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
   $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
@@ -405,6 +405,120 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = 'Acciones';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[link_entityform] | [edit_entityform]';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Field: País (field_pais) */
+  $handler->display->display_options['filters']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['filters']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['filters']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  $handler->display->display_options['filters']['field_pais_iso2']['group'] = 1;
+  $handler->display->display_options['filters']['field_pais_iso2']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['operator_id'] = 'field_pais_iso2_op';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['label'] = 'País (ISO2)';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['operator'] = 'field_pais_iso2_op';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['identifier'] = 'field_pais_iso2';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  /* Filter criterion: Entityform Submission: Location. SIASAR Hierarchical Select */
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['id'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['field'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['value'] = '';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['group'] = 1;
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['operator_id'] = 'field_entidad_local_siasar_hierarchical_select_op';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['label'] = 'División administrativa';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['operator'] = 'field_entidad_local_siasar_hierarchical_select_op';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['identifier'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['group_info']['label'] = 'Location. SIASAR Hierarchical Select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['group_info']['identifier'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['group_info']['remember'] = FALSE;
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['group_info']['group_items'] = array(
+    1 => array(),
+    2 => array(),
+    3 => array(),
+  );
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['vocabulary'] = 'division_administrativa';
+  /* Filter criterion: Entityform Type: Machine-readable name */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'entityform_type';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['filters']['type']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Tipo de cuestionario';
+  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  /* Filter criterion: Entityform Submission: Validado (field_cuestionario_validado) */
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['id'] = 'field_cuestionario_validado_value';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['table'] = 'field_data_field_cuestionario_validado';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['field'] = 'field_cuestionario_validado_value';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['operator_id'] = 'field_cuestionario_validado_value_op';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['label'] = 'Validado';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['operator'] = 'field_cuestionario_validado_value_op';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['identifier'] = 'field_cuestionario_validado_value';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  /* Filter criterion: User: Name */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'users';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['relationship'] = 'user';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Usuario/a';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
   $handler->display->display_options['path'] = 'resultados';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Ver';
@@ -450,13 +564,10 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
-  /* Field: Entityform Submission: Calificación */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_rating']['id'] = 'field_rating';
   $handler->display->display_options['fields']['field_rating']['table'] = 'field_data_field_rating';
   $handler->display->display_options['fields']['field_rating']['field'] = 'field_rating';
-  $handler->display->display_options['fields']['field_rating']['settings'] = array(
-    'link' => 0,
-  );
   $handler->display->display_options['path'] = 'resultados/csv';
   $export['results_entityforms'] = $view;
 
