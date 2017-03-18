@@ -295,7 +295,7 @@ class siasar_field_location_handler_filter_field_entidad_local extends views_han
       }
     }
 
-    if ($tids) {
+    if (isset($tids)) {
       $this->validated_exposed_input = $tids;
     }
   }
