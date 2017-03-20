@@ -465,6 +465,9 @@ body.page-resultados .view-results-entityforms table.views-table td:last-child,
 body.page-resultados .view-results-entityforms table.views-table th:last-child {
   padding-right: 20px;
 }
+body.page-resultados .view-results-entityforms .feed-icon {
+  clear: both;
+}
 
 body.maintenance-page {
   background: #096396;
