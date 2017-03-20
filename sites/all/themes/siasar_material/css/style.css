@@ -443,7 +443,7 @@ body.page-resultados .view-results-entityforms table.views-table {
   position: relative;
   width: auto;
   min-width: 100%;
-  margin: -20px;
+  margin: 0 -20px;
 }
 body.page-resultados .view-results-entityforms table.views-table tbody tr:hover {
   background-color: #ffefa1;
@@ -466,6 +466,7 @@ body.page-resultados .view-results-entityforms table.views-table th:last-child {
   padding-right: 20px;
 }
 body.page-resultados .view-results-entityforms .feed-icon {
+  margin-top: 20px;
   clear: both;
 }
 
