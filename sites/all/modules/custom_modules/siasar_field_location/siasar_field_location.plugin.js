@@ -12,10 +12,14 @@
     var tidCache = {};
     var country;
 
+    $countrySelector = ($countrySelector.length > 0)
+      ? $countrySelector
+      : $('#edit-field-pais-iso2');
+
     return this.each(function () {
       var $locationWrapper = $(this);
-      var fieldName = $locationWrapper.attr('id').replace('edit-', '').replace(/-/g, '_');
       var $locationField = $locationWrapper.find('.form-text');
+      var fieldName = $locationField.attr('field-name');
       var initialValue = parseInt($locationField.val());
       var $initOptions = $locationField.find('option');
       var noneSelected = {
@@ -187,7 +191,7 @@
         var countryInForm = $countrySelector.val();
 
         if (countryInForm && countryInForm !== '_none') {
-          return countryInForm;
+          return countryInForm.toUpperCase();
         }
         return 'all';
       }
@@ -195,7 +199,9 @@
       // INIT functions
 
       function listenToCountrySelector() {
-        $countrySelector.on('change', function () {
+        $countrySelector.on('change', function (e) {
+          if (e.target.value.length !== 2) return;
+
           $locationTreeSelectorWrapper.remove();
           initialValue = 0;
           init();

@@ -3,3 +3,5 @@ description = Alters Field Location Field for enhanced performance.
 version = 7.x-1.0
 core = 7.x
 package = siasar
+
+files[] = includes/handlers/siasar_field_location_handler_filter_field_entidad_local.inc
