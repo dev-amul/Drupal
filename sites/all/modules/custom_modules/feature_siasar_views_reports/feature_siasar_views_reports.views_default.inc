@@ -54,11 +54,12 @@ function feature_siasar_views_reports_views_default_views() {
     'field_entidad_local' => 'field_entidad_local',
     'created' => 'created',
     'field_nombre_completo' => 'field_nombre_completo',
-    'field_user_reference' => 'field_user_reference',
+    'field_nombre_completo_1' => 'field_nombre_completo_1',
     'label' => 'label',
+    'draft' => 'draft',
+    'field_cuestionario_validado' => 'field_cuestionario_validado',
     'edit_entityform' => 'edit_entityform',
     'link_entityform' => 'link_entityform',
-    'field_cuestionario_validado' => 'field_cuestionario_validado',
     'nothing' => 'nothing',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
@@ -98,7 +99,7 @@ function feature_siasar_views_reports_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_user_reference' => array(
+    'field_nombre_completo_1' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -112,12 +113,9 @@ function feature_siasar_views_reports_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'edit_entityform' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'link_entityform' => array(
+    'draft' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -125,6 +123,16 @@ function feature_siasar_views_reports_views_default_views() {
     'field_cuestionario_validado' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_entityform' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'link_entityform' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -154,6 +162,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['relationships']['field_user_reference_target_id']['id'] = 'field_user_reference_target_id';
   $handler->display->display_options['relationships']['field_user_reference_target_id']['table'] = 'field_data_field_user_reference';
   $handler->display->display_options['relationships']['field_user_reference_target_id']['field'] = 'field_user_reference_target_id';
+  $handler->display->display_options['relationships']['field_user_reference_target_id']['label'] = 'Encuestador field_user_reference';
   /* Field: Entityform Submission: Entityform submission ID */
   $handler->display->display_options['fields']['entityform_id']['id'] = 'entityform_id';
   $handler->display->display_options['fields']['entityform_id']['table'] = 'entityform';
@@ -352,7 +361,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['relationship'] = 'user';
-  $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'Usuario';
+  $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'Digitador';
   $handler->display->display_options['fields']['field_nombre_completo']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_nombre_completo']['type'] = 'title_linked';
   $handler->display->display_options['fields']['field_nombre_completo']['settings'] = array(
@@ -360,13 +369,17 @@ function feature_siasar_views_reports_views_default_views() {
     'title_link' => 'content',
     'title_class' => '',
   );
-  /* Field: Entityform Submission: Encuestador */
-  $handler->display->display_options['fields']['field_user_reference']['id'] = 'field_user_reference';
-  $handler->display->display_options['fields']['field_user_reference']['table'] = 'field_data_field_user_reference';
-  $handler->display->display_options['fields']['field_user_reference']['field'] = 'field_user_reference';
-  $handler->display->display_options['fields']['field_user_reference']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_user_reference']['settings'] = array(
-    'link' => 1,
+  /* Field: User: Nombre Completo */
+  $handler->display->display_options['fields']['field_nombre_completo_1']['id'] = 'field_nombre_completo_1';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['table'] = 'field_data_field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['field'] = 'field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['relationship'] = 'field_user_reference_target_id';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['label'] = 'Encuestador';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
   );
   /* Field: Entityform Type: Label */
   $handler->display->display_options['fields']['label']['id'] = 'label';
@@ -587,6 +600,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['filename'] = 'siasar_resultados_encuestas-%timestamp-full.csv';
   $handler->display->display_options['style_options']['parent_sort'] = 0;
   $handler->display->display_options['style_options']['separator'] = ';';
   $handler->display->display_options['style_options']['quote'] = '1';
@@ -605,6 +619,11 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
+  /* Field: Entityform Type: Label */
+  $handler->display->display_options['fields']['label']['id'] = 'label';
+  $handler->display->display_options['fields']['label']['table'] = 'entityform_type';
+  $handler->display->display_options['fields']['label']['field'] = 'label';
+  $handler->display->display_options['fields']['label']['label'] = 'Tipo de cuestionario';
   /* Field: Entityform Submission: Date submitted */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'entityform';
@@ -628,27 +647,14 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['relationship'] = 'user';
-  $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'Usuario';
+  $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'Digitador';
   $handler->display->display_options['fields']['field_nombre_completo']['element_label_colon'] = FALSE;
-  /* Field: Entityform Submission: Edit Link */
-  $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
-  $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
-  $handler->display->display_options['fields']['edit_entityform']['field'] = 'edit_entityform';
-  $handler->display->display_options['fields']['edit_entityform']['label'] = 'Editar';
-  $handler->display->display_options['fields']['edit_entityform']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['edit_entityform']['element_label_colon'] = FALSE;
-  /* Field: Entityform Submission: Link */
-  $handler->display->display_options['fields']['link_entityform']['id'] = 'link_entityform';
-  $handler->display->display_options['fields']['link_entityform']['table'] = 'entityform';
-  $handler->display->display_options['fields']['link_entityform']['field'] = 'link_entityform';
-  $handler->display->display_options['fields']['link_entityform']['label'] = 'Ver';
-  $handler->display->display_options['fields']['link_entityform']['exclude'] = TRUE;
-  /* Field: Global: Custom text */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = 'Acciones';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[link_entityform] [edit_entityform]';
+  /* Field: User: Nombre Completo */
+  $handler->display->display_options['fields']['field_nombre_completo_1']['id'] = 'field_nombre_completo_1';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['table'] = 'field_data_field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['field'] = 'field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['relationship'] = 'field_user_reference_target_id';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['label'] = 'Encuestador';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Field: País (field_pais) */
