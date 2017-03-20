@@ -380,11 +380,18 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['label']['field'] = 'label';
   $handler->display->display_options['fields']['label']['label'] = 'Tipo de cuestionario';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
+  /* Field: Entityform Submission: Draft */
+  $handler->display->display_options['fields']['draft']['id'] = 'draft';
+  $handler->display->display_options['fields']['draft']['table'] = 'entityform';
+  $handler->display->display_options['fields']['draft']['field'] = 'draft';
+  $handler->display->display_options['fields']['draft']['label'] = 'Borrador';
+  $handler->display->display_options['fields']['draft']['separator'] = '';
   /* Field: Entityform Submission: Validado */
   $handler->display->display_options['fields']['field_cuestionario_validado']['id'] = 'field_cuestionario_validado';
   $handler->display->display_options['fields']['field_cuestionario_validado']['table'] = 'field_data_field_cuestionario_validado';
   $handler->display->display_options['fields']['field_cuestionario_validado']['field'] = 'field_cuestionario_validado';
   $handler->display->display_options['fields']['field_cuestionario_validado']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cuestionario_validado']['empty'] = '-';
   $handler->display->display_options['fields']['field_cuestionario_validado']['type'] = 'i18n_list_default';
   /* Field: Entityform Submission: Edit Link */
   $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
@@ -438,6 +445,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['label'] = 'División administrativa';
   $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['operator'] = 'field_entidad_local_siasar_hierarchical_select_op';
   $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['identifier'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['remember'] = TRUE;
   $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
@@ -476,6 +484,58 @@ function feature_siasar_views_reports_views_default_views() {
     9 => 0,
     6 => 0,
     10 => 0,
+  );
+  /* Filter criterion: Entityform Submission: Draft */
+  $handler->display->display_options['filters']['draft']['id'] = 'draft';
+  $handler->display->display_options['filters']['draft']['table'] = 'entityform';
+  $handler->display->display_options['filters']['draft']['field'] = 'draft';
+  $handler->display->display_options['filters']['draft']['group'] = 1;
+  $handler->display->display_options['filters']['draft']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['draft']['expose']['operator_id'] = 'draft_op';
+  $handler->display->display_options['filters']['draft']['expose']['label'] = 'Draft';
+  $handler->display->display_options['filters']['draft']['expose']['operator'] = 'draft_op';
+  $handler->display->display_options['filters']['draft']['expose']['identifier'] = 'draft';
+  $handler->display->display_options['filters']['draft']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  $handler->display->display_options['filters']['draft']['is_grouped'] = TRUE;
+  $handler->display->display_options['filters']['draft']['group_info']['label'] = 'Borrador';
+  $handler->display->display_options['filters']['draft']['group_info']['identifier'] = 'draft';
+  $handler->display->display_options['filters']['draft']['group_info']['group_items'] = array(
+    1 => array(
+      'title' => 'No',
+      'operator' => '=',
+      'value' => array(
+        'value' => '0',
+        'min' => '',
+        'max' => '',
+      ),
+    ),
+    2 => array(
+      'title' => 'Sí',
+      'operator' => '=',
+      'value' => array(
+        'value' => '1',
+        'min' => '',
+        'max' => '',
+      ),
+    ),
+    3 => array(
+      'title' => '',
+      'operator' => '=',
+      'value' => array(
+        'value' => '',
+        'min' => '',
+        'max' => '',
+      ),
+    ),
   );
   /* Filter criterion: Entityform Submission: Validado (field_cuestionario_validado) */
   $handler->display->display_options['filters']['field_cuestionario_validado_value']['id'] = 'field_cuestionario_validado_value';

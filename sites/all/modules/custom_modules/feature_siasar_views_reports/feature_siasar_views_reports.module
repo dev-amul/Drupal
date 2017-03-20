@@ -58,3 +58,41 @@ function _feature_siasar_views_reports_get_user_country() {
 
   return $user_country;
 }
+
+/**
+ * Implementation of hook_theme().
+ */
+function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
+  $module_path = drupal_get_path('module', 'feature_siasar_views_reports');
+
+  $themes = array();
+
+  $themes['views_view_field__results_entityforms__draft'] = array(
+    'original hook' => 'views_view_field',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_views_view_field',
+      'feature_siasar_views_reports_preprocess_field_draft',
+    ),
+    'variables' => array('view' => NULL, 'field' => NULL, 'row' => NULL, 'output'),
+    'template' => 'views-view-field--results-entityforms--draft',
+    'path' => $module_path . '/templates',
+  );
+
+  return $themes;
+
+}
+
+
+/**
+ * Preprocesses draft field.
+ */
+function feature_siasar_views_reports_preprocess_field_draft(&$variables) {
+  $output = &$variables['output'];
+
+  $output = ($output == '1')
+    ? t('Yes')
+    : t('No');
+
+    $variables = $variables;
+}
