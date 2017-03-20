@@ -224,28 +224,6 @@ function feature_siasar_views_reports_views_default_views() {
     6 => 0,
     10 => 0,
   );
-  /* Filter criterion: Entityform Submission: Localidad (field_entidad_local) */
-  $handler->display->display_options['filters']['field_entidad_local_tid']['id'] = 'field_entidad_local_tid';
-  $handler->display->display_options['filters']['field_entidad_local_tid']['table'] = 'field_data_field_entidad_local';
-  $handler->display->display_options['filters']['field_entidad_local_tid']['field'] = 'field_entidad_local_tid';
-  $handler->display->display_options['filters']['field_entidad_local_tid']['value'] = '';
-  $handler->display->display_options['filters']['field_entidad_local_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_entidad_local_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['operator_id'] = 'field_entidad_local_tid_op';
-  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['label'] = 'Localidad';
-  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['operator'] = 'field_entidad_local_tid_op';
-  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['identifier'] = 'field_entidad_local_tid';
-  $handler->display->display_options['filters']['field_entidad_local_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    7 => 0,
-    8 => 0,
-    5 => 0,
-    9 => 0,
-    6 => 0,
-    10 => 0,
-  );
-  $handler->display->display_options['filters']['field_entidad_local_tid']['vocabulary'] = 'division_administrativa';
   /* Filter criterion: Entityform Type: Machine-readable name */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'entityform_type';
@@ -308,6 +286,16 @@ function feature_siasar_views_reports_views_default_views() {
     6 => 0,
     10 => 0,
   );
+  /* Filter criterion: Entityform Submission: Location. SIASAR Hierarchical Select */
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['id'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['field'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['operator_id'] = 'field_entidad_local_siasar_hierarchical_select_op';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['label'] = 'Location. SIASAR Hierarchical Select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['operator'] = 'field_entidad_local_siasar_hierarchical_select_op';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['identifier'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['vocabulary'] = 'division_administrativa';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -335,6 +323,12 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['field_entity_name']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
   /* Field: Entityform Submission: Localidad */
   $handler->display->display_options['fields']['field_entidad_local']['id'] = 'field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
@@ -592,7 +586,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
-  $handler->display->display_options['style_options']['provide_file'] = 0;
+  $handler->display->display_options['style_options']['provide_file'] = 1;
   $handler->display->display_options['style_options']['parent_sort'] = 0;
   $handler->display->display_options['style_options']['separator'] = ';';
   $handler->display->display_options['style_options']['quote'] = '1';
@@ -606,13 +600,29 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['entityform_id']['id'] = 'entityform_id';
   $handler->display->display_options['fields']['entityform_id']['table'] = 'entityform';
   $handler->display->display_options['fields']['entityform_id']['field'] = 'entityform_id';
+  $handler->display->display_options['fields']['entityform_id']['separator'] = '';
+  /* Field: Entityform Submission: Nombre */
+  $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
   /* Field: Entityform Submission: Date submitted */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'entityform';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'short';
+  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'd F Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Field: País */
+  $handler->display->display_options['fields']['field_pais']['id'] = 'field_pais';
+  $handler->display->display_options['fields']['field_pais']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['fields']['field_pais']['field'] = 'field_pais';
+  $handler->display->display_options['fields']['field_pais']['type'] = 'country_alpha_2';
+  /* Field: Entityform Submission: Localidad */
+  $handler->display->display_options['fields']['field_entidad_local']['id'] = 'field_entidad_local';
+  $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['fields']['field_entidad_local']['field'] = 'field_entidad_local';
+  $handler->display->display_options['fields']['field_entidad_local']['type'] = 'taxonomy_term_reference_link';
   /* Field: User: Nombre Completo */
   $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
@@ -620,15 +630,136 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_nombre_completo']['relationship'] = 'user';
   $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'Usuario';
   $handler->display->display_options['fields']['field_nombre_completo']['element_label_colon'] = FALSE;
-  /* Field: Entityform Submission: Nombre */
-  $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
-  $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
-  $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_rating']['id'] = 'field_rating';
-  $handler->display->display_options['fields']['field_rating']['table'] = 'field_data_field_rating';
-  $handler->display->display_options['fields']['field_rating']['field'] = 'field_rating';
+  /* Field: Entityform Submission: Edit Link */
+  $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
+  $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
+  $handler->display->display_options['fields']['edit_entityform']['field'] = 'edit_entityform';
+  $handler->display->display_options['fields']['edit_entityform']['label'] = 'Editar';
+  $handler->display->display_options['fields']['edit_entityform']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_entityform']['element_label_colon'] = FALSE;
+  /* Field: Entityform Submission: Link */
+  $handler->display->display_options['fields']['link_entityform']['id'] = 'link_entityform';
+  $handler->display->display_options['fields']['link_entityform']['table'] = 'entityform';
+  $handler->display->display_options['fields']['link_entityform']['field'] = 'link_entityform';
+  $handler->display->display_options['fields']['link_entityform']['label'] = 'Ver';
+  $handler->display->display_options['fields']['link_entityform']['exclude'] = TRUE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Acciones';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[link_entityform] [edit_entityform]';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Field: País (field_pais) */
+  $handler->display->display_options['filters']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['filters']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['filters']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  $handler->display->display_options['filters']['field_pais_iso2']['group'] = 1;
+  $handler->display->display_options['filters']['field_pais_iso2']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['operator_id'] = 'field_pais_iso2_op';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['label'] = 'País (ISO2)';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['operator'] = 'field_pais_iso2_op';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['identifier'] = 'field_pais_iso2';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  /* Filter criterion: Entityform Submission: Location. SIASAR Hierarchical Select */
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['id'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['field'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['value'] = '';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['group'] = 1;
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['operator_id'] = 'field_entidad_local_siasar_hierarchical_select_op';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['label'] = 'Location. SIASAR Hierarchical Select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['operator'] = 'field_entidad_local_siasar_hierarchical_select_op';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['identifier'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['vocabulary'] = 'division_administrativa';
+  /* Filter criterion: Entityform Type: Machine-readable name */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'entityform_type';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['filters']['type']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Tipo de cuestionario';
+  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  /* Filter criterion: Entityform Submission: Validado (field_cuestionario_validado) */
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['id'] = 'field_cuestionario_validado_value';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['table'] = 'field_data_field_cuestionario_validado';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['field'] = 'field_cuestionario_validado_value';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['operator_id'] = 'field_cuestionario_validado_value_op';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['label'] = 'Validado';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['operator'] = 'field_cuestionario_validado_value_op';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['identifier'] = 'field_cuestionario_validado_value';
+  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
+  /* Filter criterion: User: Name */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'users';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['relationship'] = 'user';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Usuario/a';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
+  );
   $handler->display->display_options['path'] = 'resultados/csv';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'default' => 0,
+  );
   $export['results_entityforms'] = $view;
 
   return $export;
