@@ -36,3 +36,24 @@ function _siasar_entityform_alter_hide_validate_if_new(&$form, $form_state) {
     $form['field_cuestionario_validado']['#access'] = false;
   }
 }
+
+
+/**
+* Implements hook_date_select_process_alter().
+*/
+function siasar_entityform_alter_date_select_process_alter(&$element, &$form_state, $context) {
+  if ($element['#date_format'] !== 'Y') return;
+
+  $array = $element['year']['#options'];
+
+  // array_shift screws array keys, we need a more custom approach.
+  reset($array);
+  $key = key($array);
+  $first = array($key => $array[$key]);
+  unset($array[$key]);
+
+  $array = array_reverse($array, true);
+  $array = $first + $array;
+
+  $element['year']['#options'] = $array;
+}

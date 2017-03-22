@@ -16,23 +16,3 @@ function feature_siasar_field_bases_entity_info_alter(&$entity_info) {
     'custom settings' => TRUE,
   );
 }
-
-/**
-* Implements hook_date_select_process_alter().
-*/
-function feature_siasar_field_bases_date_select_process_alter(&$element, &$form_state, $context) {
-  if ($element['#date_format'] !== 'Y') return;
-
-  $array = $element['year']['#options'];
-
-  // array_shift screws array keys, we need a more custom approach.
-  reset($array);
-  $key = key($array);
-  $first = array($key => $array[$key]);
-  unset($array[$key]);
-
-  $array = array_reverse($array, true);
-  $array = $first + $array;
-
-  $element['year']['#options'] = $array;
-}
