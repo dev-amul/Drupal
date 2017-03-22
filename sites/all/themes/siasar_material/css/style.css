@@ -948,6 +948,25 @@ form.entityform .form-actions {
 form.entityform .form-actions input {
   margin-left: 20px;
 }
+form.entityform .form-actions input.form-validate {
+  padding-left: 55px;
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+}
+form.entityform .form-actions input.form-validate[status='not-validated'] {
+  background-color: #de861b;
+  background-image: url(../img/hollow-circle.svg);
+  background-size: 20px;
+  padding-left: 50px;
+}
+form.entityform .form-actions input.form-validate[status='validated'] {
+  background-color: #26c726;
+  background-image: url(../img/tick.svg);
+}
+form.entityform .form-item-field-cuestionario-validado-und {
+  display: none;
+}
 
 body.page-entityform-edit h1 {
   padding-bottom: 15px;
