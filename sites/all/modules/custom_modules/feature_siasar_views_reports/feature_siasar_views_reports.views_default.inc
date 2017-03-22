@@ -391,7 +391,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['draft']['id'] = 'draft';
   $handler->display->display_options['fields']['draft']['table'] = 'entityform';
   $handler->display->display_options['fields']['draft']['field'] = 'draft';
-  $handler->display->display_options['fields']['draft']['label'] = 'Borrador';
+  $handler->display->display_options['fields']['draft']['label'] = 'Terminado';
   $handler->display->display_options['fields']['draft']['separator'] = '';
   /* Field: Entityform Submission: Validado */
   $handler->display->display_options['fields']['field_cuestionario_validado']['id'] = 'field_cuestionario_validado';

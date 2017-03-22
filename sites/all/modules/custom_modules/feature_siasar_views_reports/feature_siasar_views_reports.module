@@ -90,9 +90,10 @@ function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
 function feature_siasar_views_reports_preprocess_field_draft(&$variables) {
   $output = &$variables['output'];
 
+  // Draft property translates as "finished", therefore textual values are the opposite.
   $output = ($output == '1')
-    ? t('Yes')
-    : t('No');
+    ? t('No')
+    : t('Yes');
 
     $variables = $variables;
 }
