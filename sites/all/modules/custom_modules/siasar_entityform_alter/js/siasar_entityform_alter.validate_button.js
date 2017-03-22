@@ -14,25 +14,20 @@
     });
 
     function toggleValidateStatus() {
-      var statusValue = ($validateButton.attr('status') === 'validated')
-        ? 1
-        : 0;
-      var statusString, statusLabel;
+      var currentStatus = $validateButton.attr('status');
+      var statusLabel;
 
-      if (statusValue === 1) {
-        statusValue = 0;
-        statusString = 'not-validated';
+      if (currentStatus === 'validated') {
+        $validateField.attr('checked', false);
+        $validateButton.attr('status', 'not-validated');
         statusLabel = Drupal.t('Validate');
       } else {
-        statusValue = 1;
-        statusString = 'validated';
+        $validateField.attr('checked', true);
+        $validateButton.attr('status', 'validated');
         statusLabel = Drupal.t('Validated');
       }
 
-      $validateButton.attr('status', statusString);
       $validateButton.attr('value', statusLabel);
-      $validateField.val(statusValue);
-
     }
 
   });
