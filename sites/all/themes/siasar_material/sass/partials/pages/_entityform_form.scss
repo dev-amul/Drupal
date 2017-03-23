@@ -348,6 +348,13 @@ form.entityform {
     }
   }
 
+  // Field country selector
+  select[name='field_pais[und]'] {
+    @include breakpoint($break-small) {
+      width: auto;
+    }
+  }
+
   // Buttons in form
   .field-type-field-collection .field-multiple-table input.form-submit {
     background-image: url('../img/cross.svg');
