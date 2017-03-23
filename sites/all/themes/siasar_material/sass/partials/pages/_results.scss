@@ -43,9 +43,6 @@ body.page-resultados {
       }
 
       @include breakpoint($break-small) {
-        #edit-field-pais-iso2 {
-          width: 5em;
-        }
         .form-autocomplete {
           width: 16em;
         }
@@ -60,8 +57,7 @@ body.page-resultados {
 
     table.views-table {
       position: relative;
-      width: auto;
-      min-width: 100%;
+      width: calc(100% + 40px);
       margin: 0 (-$vertical-tabs-padding);
 
       tbody tr {

@@ -428,9 +428,6 @@ body.page-resultados .view-results-entityforms form .form-item .description {
   font-size: 0.8rem;
 }
 @media (min-width: 600px) {
-  body.page-resultados .view-results-entityforms form #edit-field-pais-iso2 {
-    width: 5em;
-  }
   body.page-resultados .view-results-entityforms form .form-autocomplete {
     width: 16em;
   }
@@ -441,8 +438,7 @@ body.page-resultados .view-results-entityforms table.sticky-header {
 }
 body.page-resultados .view-results-entityforms table.views-table {
   position: relative;
-  width: auto;
-  min-width: 100%;
+  width: calc(100% + 40px);
   margin: 0 -20px;
 }
 body.page-resultados .view-results-entityforms table.views-table tbody tr:hover {

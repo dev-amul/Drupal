@@ -428,7 +428,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_pais_iso2']['group'] = 1;
   $handler->display->display_options['filters']['field_pais_iso2']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_pais_iso2']['expose']['operator_id'] = 'field_pais_iso2_op';
-  $handler->display->display_options['filters']['field_pais_iso2']['expose']['label'] = 'País (ISO2)';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['label'] = 'País';
   $handler->display->display_options['filters']['field_pais_iso2']['expose']['operator'] = 'field_pais_iso2_op';
   $handler->display->display_options['filters']['field_pais_iso2']['expose']['identifier'] = 'field_pais_iso2';
   $handler->display->display_options['filters']['field_pais_iso2']['expose']['remember_roles'] = array(
@@ -441,6 +441,11 @@ function feature_siasar_views_reports_views_default_views() {
     6 => 0,
     10 => 0,
   );
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['field_pais_iso2']['expose']['autocomplete_dependent'] = 0;
   /* Filter criterion: Entityform Submission: Location. SIASAR Hierarchical Select */
   $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['id'] = 'field_entidad_local_siasar_hierarchical_select';
   $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['table'] = 'field_data_field_entidad_local';

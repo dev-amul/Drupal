@@ -13,25 +13,33 @@ include_once 'feature_siasar_views_reports.features.inc';
  * TODO: Maybe check a permission instead of a role?
  */
 function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
+
   if ($form_state['view']->name !== 'results_entityforms') return;
 
   // Inject SIASAR hierarchical Select
   module_load_include('module', 'siasar_field_location', 'siasar_field_location');
   $field_entidad_local = 'field_entidad_local_siasar_hierarchical_select';
   $form[$field_entidad_local] = siasar_field_location_field_widget_skeleton($field_entidad_local, null, false);
-
-
+  $form['field_pais_iso2'] = _feature_siasar_views_reports_create_country_selector();
+  $form['field_pais_iso2']['#default_value'] = $user_country_iso2;
   $form['type'] = _feature_siasar_views_reports_create_entityforms_select_field();
+
+  // Country field is only for admins
+  if (!in_array('administrator', $user->roles)) {
+    $form['field_pais_iso2']['#disabled'] = 'true';
+  }
 }
 
+/**
+ * Helper function. Hide country selector for non-admins.
+ */
 function _feature_siasar_views_reports_hide_country_for_non_admins(&$form) {
-  global $user;
   $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
 
-  // Country filter is only for admins
-  if (!in_array('administrator', $user->roles)) {
-    $form['field_pais_iso2']['#type'] = 'hidden';
-  }
+  $form['field_pais_iso2']['#disabled'] = 'true';
+  $form['field_pais_iso2']['#default_value'] = $user_country_iso2;
 }
 
 function _feature_siasar_views_reports_create_entityforms_select_field() {
@@ -49,10 +57,34 @@ function _feature_siasar_views_reports_create_entityforms_select_field() {
   return $form_type_selector;
 }
 
+/**
+ * Helper function builds country selector
+ */
+function _feature_siasar_views_reports_create_country_selector() {
+  module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+
+  $countries = countries_get_countries('name');
+  $members = _siasar_entityform_alter_get_member_countries();
+  $first_option = array('' => t('- None -'));
+  $options = _siasar_entityform_alter_filter_out_countries_from_options($countries, $members);
+
+  $field = array(
+    '#type' => 'select',
+    '#default_value' => _feature_siasar_views_reports_get_user_country(),
+    '#options' => $first_option + $options,
+  );
+
+  return $field;
+}
+
+/**
+ * Helper function gets user country as entity
+ */
 function _feature_siasar_views_reports_get_user_country() {
   global $user;
+  static $user_country;
 
-  $user_country = $user_country
+  $user_country = !empty($user_country)
     ? $user_country
     : user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
 
