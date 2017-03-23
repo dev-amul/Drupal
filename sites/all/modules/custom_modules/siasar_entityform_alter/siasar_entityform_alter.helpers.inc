@@ -38,6 +38,7 @@ function _siasar_entityform_alter_filter_out_countries_from_options($options, $m
     $member_iso2 = $member->field_pais[LANGUAGE_NONE][0]['iso2'];
     $new_options[$member_iso2] = $options[$member_iso2];
   }
+  asort($new_options);
 
   return $new_options;
 }
