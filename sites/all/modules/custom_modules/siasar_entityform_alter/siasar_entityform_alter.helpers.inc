@@ -30,7 +30,7 @@ function _siasar_entityform_alter_get_member_countries() {
  */
 function _siasar_entityform_alter_filter_out_countries_from_options($options, $members) {
   $new_options = array();
-  if (isset($options['none'])) {
+  if (isset($options['_none'])) {
     $new_options['_none'] = $options['_none'];
   }
 
