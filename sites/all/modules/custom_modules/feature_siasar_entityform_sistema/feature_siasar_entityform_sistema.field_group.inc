@@ -537,10 +537,10 @@ function feature_siasar_entityform_sistema_field_group_info() {
     'children' => array(
       0 => 'field_g4_4',
       1 => 'field_g4_3',
-      2 => 'field_fecha_analisis_fq',
-      3 => 'field_cantidad_de_cloro_residual',
-      4 => 'field_fecha_analisiscalidad_agua',
-      5 => 'field_fecha_analisis_coliformes',
+      2 => 'field_fecha_analisiscalidad_agua',
+      3 => 'field_fecha_analisis_coliformes',
+      4 => 'field_fecha_analisis_fq',
+      5 => 'field_cantidad_de_cloro_residual',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -668,11 +668,11 @@ function feature_siasar_entityform_sistema_field_group_info() {
     'children' => array(
       0 => 'field_alto',
       1 => 'field_entity_name',
-      2 => 'field_latitud',
-      3 => 'field_imagen',
-      4 => 'field_entidad_local',
-      5 => 'field_codigo_de_sistema',
-      6 => 'field_anno_construccion',
+      2 => 'field_imagen',
+      3 => 'field_entidad_local',
+      4 => 'field_codigo_de_sistema',
+      5 => 'field_anno_construccion',
+      6 => 'field_latitud',
     ),
     'format_type' => 'div',
     'format_settings' => array(

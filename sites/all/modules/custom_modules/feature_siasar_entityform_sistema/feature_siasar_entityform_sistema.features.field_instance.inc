@@ -158,7 +158,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'list_key',
+        'type' => 'list_default',
         'weight' => 10,
       ),
       'entity_reference' => array(
@@ -200,7 +200,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'list_key',
+        'type' => 'list_default',
         'weight' => 9,
       ),
       'entity_reference' => array(
