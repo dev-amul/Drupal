@@ -1048,7 +1048,7 @@ body.page-entityform-view .entity-entityform .field:last-child {
 body.page-entityform-view .entity-entityform .field-label {
   color: #094069;
   font-weight: bold;
-  padding-right: 10px;
+  padding-right: 20px;
 }
 @media (min-width: 600px) {
   body.page-entityform-view .entity-entityform .field-label {
