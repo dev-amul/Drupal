@@ -3,3 +3,4 @@ description = Actions and changes on all Entityforms. Any change that should be 
 version = 7.x-1.0
 core = 7.x
 package = siasar
+files[] = siasar_entityform_alter.helpers.inc

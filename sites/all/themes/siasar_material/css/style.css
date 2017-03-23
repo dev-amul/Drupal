@@ -913,6 +913,11 @@ form.entityform .vertical-tabs-panes fieldset .full-width {
 form.entityform .vertical-tabs-panes .form-wrapper:not(:first-child) {
   margin-top: 30px;
 }
+@media (min-width: 600px) {
+  form.entityform select[name='field_pais[und]'] {
+    width: auto;
+  }
+}
 form.entityform .field-type-field-collection .field-multiple-table input.form-submit {
   background-image: url("../img/cross.svg");
   background-color: #d81d40;
