@@ -1034,6 +1034,10 @@ body.page-entityform-view .entity-entityform h3 {
   color: #00829e;
   margin: 0 0 0.5em;
 }
+body.page-entityform-view .entity-entityform img {
+  max-width: 100%;
+  height: auto;
+}
 body.page-entityform-view .entity-entityform .field {
   clear: left;
   padding-bottom: 0.5em;
