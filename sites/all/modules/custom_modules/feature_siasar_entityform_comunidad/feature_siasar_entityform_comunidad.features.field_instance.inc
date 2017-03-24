@@ -583,34 +583,58 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'geofield_map',
+        'module' => 'leaflet',
         'settings' => array(
-          'geofield_map_baselayers_hybrid' => 0,
-          'geofield_map_baselayers_map' => 1,
-          'geofield_map_baselayers_physical' => 1,
-          'geofield_map_baselayers_satellite' => 0,
-          'geofield_map_center' => array(
-            'geocode' => 'Find my location',
-            'lat' => '',
-            'lon' => '',
+          'height' => 400,
+          'icon' => array(
+            'html' => '',
+            'htmlClass' => '',
+            'iconAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'iconImageStyle' => '',
+            'iconSize' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'iconType' => 'marker',
+            'iconUrl' => '',
+            'popupAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'shadowAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'shadowUrl' => '',
           ),
-          'geofield_map_controltype' => 'default',
-          'geofield_map_draggable' => 1,
-          'geofield_map_height' => '400px',
-          'geofield_map_maptype' => 'map',
-          'geofield_map_max_zoom' => 0,
-          'geofield_map_min_zoom' => 0,
-          'geofield_map_mtc' => 'standard',
-          'geofield_map_overview' => 0,
-          'geofield_map_overview_opened' => 0,
-          'geofield_map_pancontrol' => 1,
-          'geofield_map_scale' => 1,
-          'geofield_map_scrollwheel' => 0,
-          'geofield_map_streetview_show' => 0,
-          'geofield_map_width' => '100%',
-          'geofield_map_zoom' => 9,
+          'leaflet_map' => 'OSM Mapnik',
+          'popup' => array(
+            'show' => 0,
+            'text' => '',
+          ),
+          'vector_display' => array(
+            'clickable' => 0,
+            'color' => '',
+            'dashArray' => '',
+            'fill' => 0,
+            'fillColor' => '',
+            'fillOpacity' => '',
+            'opacity' => '',
+            'stroke' => 0,
+            'stroke_override' => 0,
+            'weight' => '',
+          ),
+          'zoom' => array(
+            'initialZoom' => 13,
+            'maxZoom' => -1,
+            'minZoom' => 1,
+            'scrollWheelZoom' => 1,
+          ),
         ),
-        'type' => 'geofield_map_map',
+        'type' => 'geofield_leaflet',
         'weight' => 4,
       ),
       'entity_reference' => array(
@@ -952,7 +976,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_no_uso_vivnumtodos',
-    'label' => 'Uso COMPLETO',
+    'label' => 'No mejorada - Uso COMPLETO',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1003,7 +1027,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_no_uso_vivnumuso',
-    'label' => 'Uso PARCIAL',
+    'label' => 'No mejorada - Uso PARCIAL',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1197,7 +1221,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usohab',
-    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
+    'label' => 'Tipo I - Uso Parcial - Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1248,7 +1272,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usohab2',
-    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
+    'label' => 'Tipo II - Uso Parcial - Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1263,7 +1287,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 94,
+      'weight' => 92,
     ),
   );
 
@@ -1299,7 +1323,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfa',
-    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
+    'label' => 'Tipo I - Uso Parcial - Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1350,7 +1374,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfa2',
-    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
+    'label' => 'Tipo II - Uso Parcial - Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1365,7 +1389,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 93,
+      'weight' => 91,
     ),
   );
 
@@ -1401,7 +1425,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfb',
-    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
+    'label' => 'Tipo I - Uso Completo - Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1416,7 +1440,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 88,
+      'weight' => 89,
     ),
   );
 
@@ -1452,7 +1476,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfb2',
-    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
+    'label' => 'Tipo II - Uso Completo - Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1467,7 +1491,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 94,
+      'weight' => 93,
     ),
   );
 
@@ -1503,7 +1527,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usotodos',
-    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
+    'label' => 'Tipo I - Uso Completo - Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1518,7 +1542,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 89,
+      'weight' => 90,
     ),
   );
 
@@ -1555,7 +1579,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usotodos2',
-    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
+    'label' => 'Tipo II - Uso Completo - Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1570,7 +1594,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 95,
+      'weight' => 94,
     ),
   );
 
@@ -2742,7 +2766,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
-          'link' => FALSE,
+          'link' => 0,
         ),
         'type' => 'entityreference_label',
         'weight' => 69,
@@ -5735,7 +5759,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 84,
+      'weight' => 88,
     ),
   );
 
@@ -5781,7 +5805,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 92,
+      'weight' => 97,
     ),
   );
 
@@ -5827,7 +5851,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 98,
+      'weight' => 106,
     ),
   );
 
@@ -5873,7 +5897,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 47,
+      'weight' => 115,
     ),
   );
 
@@ -5919,7 +5943,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 90,
+      'weight' => 91,
     ),
   );
 
@@ -5965,7 +5989,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 85,
+      'weight' => 89,
     ),
   );
 
@@ -6011,7 +6035,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 93,
+      'weight' => 98,
     ),
   );
 
@@ -6057,7 +6081,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 99,
+      'weight' => 107,
     ),
   );
 
@@ -6103,7 +6127,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 48,
+      'weight' => 116,
     ),
   );
 
@@ -6149,7 +6173,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 45,
+      'weight' => 100,
     ),
   );
 
@@ -6195,7 +6219,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 86,
+      'weight' => 90,
     ),
   );
 
@@ -6241,7 +6265,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 94,
+      'weight' => 99,
     ),
   );
 
@@ -6287,7 +6311,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 100,
+      'weight' => 108,
     ),
   );
 
@@ -6333,7 +6357,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 49,
+      'weight' => 117,
     ),
   );
 
@@ -6379,7 +6403,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 47,
+      'weight' => 109,
     ),
   );
 
@@ -6471,7 +6495,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 91,
+      'weight' => 92,
     ),
   );
 
@@ -6517,7 +6541,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 46,
+      'weight' => 101,
     ),
   );
 
@@ -6563,7 +6587,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 48,
+      'weight' => 110,
     ),
   );
 
@@ -6655,7 +6679,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 92,
+      'weight' => 93,
     ),
   );
 
@@ -6701,7 +6725,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 47,
+      'weight' => 102,
     ),
   );
 
@@ -6747,7 +6771,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 49,
+      'weight' => 111,
     ),
   );
 
@@ -6793,7 +6817,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 83,
+      'weight' => 85,
     ),
   );
 
@@ -6839,7 +6863,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 91,
+      'weight' => 94,
     ),
   );
 
@@ -6885,7 +6909,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 50,
+      'weight' => 103,
     ),
   );
 
@@ -6931,7 +6955,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 47,
+      'weight' => 112,
     ),
   );
 
@@ -6977,7 +7001,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 84,
+      'weight' => 86,
     ),
   );
 
@@ -7023,7 +7047,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 92,
+      'weight' => 95,
     ),
   );
 
@@ -7069,7 +7093,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 51,
+      'weight' => 104,
     ),
   );
 
@@ -7115,7 +7139,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 48,
+      'weight' => 113,
     ),
   );
 
@@ -7161,7 +7185,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 85,
+      'weight' => 87,
     ),
   );
 
@@ -7207,7 +7231,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 93,
+      'weight' => 96,
     ),
   );
 
@@ -7253,7 +7277,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 52,
+      'weight' => 105,
     ),
   );
 
@@ -7299,7 +7323,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 49,
+      'weight' => 114,
     ),
   );
 
@@ -7411,6 +7435,8 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Mejora de sistema');
   t('No de viviendas en las que TODAS las personas de la familia usan SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y niños/as).');
   t('No de viviendas en las que las personas de la familia usan la infraestructura, pero NO todos o NO siempre.');
+  t('No mejorada - Uso COMPLETO');
+  t('No mejorada - Uso PARCIAL');
   t('Nombre de la comunidad');
   t('Nombre del centro de salud');
   t('Nombre del centro de salud externo que acude la población de la comunidad');
@@ -7476,8 +7502,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Nº de instalaciones comunes a personal y alumnado masculino NO MEJORADA');
   t('Nº de instalaciones comunes a personal y alumnado masculino de TIPO 1');
   t('Nº de instalaciones comunes a personal y alumnado masculino de TIPO 2');
-  t('Nº de viviendas que usan su infraestructura PROPIA');
-  t('Nº de viviendas que usan una infraestructura COMPARTIDA');
   t('Nº instalaciones mixtas para personal y alumnado BÁSICA');
   t('Nº instalaciones mixtas para personal y alumnado NO MEJORADA');
   t('Nº instalaciones mixtas para personal y alumnado de TIPO 1');
@@ -7502,8 +7526,14 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Se posee de servicios de telefonía fija');
   t('Sistema de Saneamiento del tipo 1 y 2 mejorado');
   t('Sistema de Saneamiento del tipo no mejorado');
-  t('Uso COMPLETO');
-  t('Uso PARCIAL');
+  t('Tipo I - Uso Completo - Nº de viviendas que usan su infraestructura PROPIA');
+  t('Tipo I - Uso Completo - Nº de viviendas que usan una infraestructura COMPARTIDA');
+  t('Tipo I - Uso Parcial - Nº de viviendas que usan su infraestructura PROPIA');
+  t('Tipo I - Uso Parcial - Nº de viviendas que usan una infraestructura COMPARTIDA');
+  t('Tipo II - Uso Completo - Nº de viviendas que usan su infraestructura PROPIA');
+  t('Tipo II - Uso Completo - Nº de viviendas que usan una infraestructura COMPARTIDA');
+  t('Tipo II - Uso Parcial - Nº de viviendas que usan su infraestructura PROPIA');
+  t('Tipo II - Uso Parcial - Nº de viviendas que usan una infraestructura COMPARTIDA');
   t('Usuarios promedio del sistema de salud. Femenino');
   t('Usuarios promedio del sistema de salud. Masculino');
   t('Validado');
