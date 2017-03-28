@@ -6,9 +6,9 @@
 function siasar_drush_migrate_drush_command() {
 
   $items['siasar-migrate-entityforms'] = array(
-    'description' => 'It remaps entities using old units to new ones, as referenced in `units_unit` table.',
+    'description' => 'It helps migrate legacy content to Drupal using the API by taking JSON objects and saving them as entityforms with their field collections.',
     'aliases' => array('siasar-me'),
-    'callback' => 'drush_siasar_create_entityforms',
+    'callback' => 'siasar_drush_migrate_create_entityforms',
     'arguments' => array(
       'entityforms' => 'Source for entityforms',
       'field_collections' => 'Source for Field collections',
@@ -23,17 +23,34 @@ function siasar_drush_migrate_drush_command() {
   return $items;
 }
 
-function drush_siasar_create_entityforms($entityforms, $field_collections) {
+// Drush siasar_drush_migrate_drush_command
+/*
+It can be run from Devel PHP console using this:
+
+module_load_include('inc', 'siasar_drush_migrate', 'siasar_drush_migrate.drush');
+siasar_drush_migrate_create_entityforms();
+*/
+function siasar_drush_migrate_create_entityforms($entityforms = null, $field_collections = null) {
+  set_time_limit(0);
+
+  module_load_include('inc', 'services', '/includes/services.runtime');
+
   //drupal_set_message('Old is ' . $old);
 
   $method = 'create';
-  $entityform = _siasar_drush_migrate_demo_entityform();
   $entity_type = 'entityform';
   $controller = _services_entity_get_controller($entity_type);
-  $args = array('entityform', $entityform);
 
+  // Loop to load all entityforms should start here ---
+  $entityform = _siasar_drush_migrate_demo_entityform();
+  if (isset($entityform['field_pais'])) {
+    $entityform['field_pais'] = country_load($entityform['field_pais']);
+  }
+
+  $args = array('entityform', $entityform);
   $result = call_user_func_array(array($controller, $method), $args);
 
+  // Loop should end here. Result ID can be found at: $result['entityform_id']
   $result = $result;
 }
 
