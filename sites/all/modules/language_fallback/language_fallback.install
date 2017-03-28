@@ -41,9 +41,86 @@ function language_fallback_install() {
 }
 
 /**
- * Implements hook_uninstall().
- */
-function language_fallback_uninstall() {
-  db_drop_field('languages', 'fallback');
-  drupal_static_reset('language_list');
+* Implements hook_disable().
+*
+* WARNING!
+* It is mandatory to remove all "locale_custom_strings_ID" variables!
+* After this module is disabled the class localeWithFallback is no longer
+* available but these variables hold reference to it.
+*/
+function language_fallback_disable() {
+ /*
+  * We do not know all our variable names because they are created dynamically.
+  * So to remove unwanted variables we first need to know their names.
+  *
+  * Our variables are "locale_custom_strings_ID"
+  * and their values contain "localeWithFallback" stirng.
+  *
+  * So the trick is to read all variable names from "variable" table
+  * that met the criteria above.
+  */
+
+ $result = db_update("variable")
+     ->expression('name', "CONCAT('_', name)")
+     ->condition('name', 'locale_custom_string_%', 'LIKE')
+     ->condition('value', '%localeWithFallback%', 'LIKE')
+     ->execute();
 }
+
+/**
+* Implements hook_enable().
+*
+* Revert back "locale_custom_strings_ID" variable names.
+* See language_fallback_disable() for details.
+*/
+function language_fallback_enable() {
+ $result = db_update("variable")
+     ->expression('name', "REPLACE(name, '_locale_custom_strings_', 'locale_custom_strings_')")
+     ->condition('name', '_locale_custom_string_%', 'LIKE')
+     ->condition('value', '%localeWithFallback%', 'LIKE')
+     ->execute();
+}
+
+/**
+* Implements hook_uninstall().
+*
+* WARNING!
+* It is mandatory to remove all "locale_custom_strings_ID" variables!
+* After this module is disabled the class localeWithFallback is no longer
+* available but these variables hold reference to it.
+*/
+ function language_fallback_uninstall() {
+ /*
+  * We do not know all our variable names because they are created dynamically.
+  * So to remove unwanted variables we first need to know their names.
+  *
+  * Our variables are "locale_custom_strings_ID" but they were renamed on
+  * hook_disable to "_locale_custom_strings_ID".
+  * and their values contain "localeWithFallback" stirng.
+  *
+  * So the trick is to read all variable names from "variable" table
+  * that met the criteria above.
+  */
+ $result = db_select("variable", "v")
+     ->fields('v', array('name'))
+     ->condition('name', '_locale_custom_string_%', 'LIKE')
+     ->condition('value', '%localeWithFallback%', 'LIKE')
+     ->execute();
+
+ while ($name = $result->fetchField()) {
+   variable_del($name);
+ }
+
+ if (isset($_SESSION['language_fallback'])) {
+   unset($_SESSION['language_fallback']);
+ }
+
+   db_drop_field('languages', 'fallback');
+   drupal_static_reset('language_list');
+
+ /*
+  * WARNING!
+  * This is also very important as variables are cached!
+  */
+  cache_clear_all('variables', 'cache_bootstrap');
+ }
