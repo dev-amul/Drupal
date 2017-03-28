@@ -18,8 +18,7 @@ function language_fallback_form_alter(&$form, &$form_state, $form_id) {
 
     // Alter label of default language.
     if (isset($options[$default_lang->language])) {
-      $options = array('' => t('Default language (@lang)', array('@lang' => $default_lang->name))) + $options;
-      unset($options[$default_lang->language]);
+      $options[$default_lang->language] = t('Default language (@lang)', array('@lang' => $default_lang->name));
     }
 
     // Add native name.
