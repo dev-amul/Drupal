@@ -37,21 +37,32 @@ function siasar_drush_migrate_create_entityforms($entityforms = null, $field_col
 
   //drupal_set_message('Old is ' . $old);
 
-  $method = 'create';
-  $entity_type = 'entityform';
-  $controller = _services_entity_get_controller($entity_type);
+  $controller = _services_entity_get_controller('entityform');
 
   // Loop to load all entityforms should start here ---
-  $entityform = _siasar_drush_migrate_demo_entityform();
+  $entityform = _siasar_drush_migrate_demo_entityform(); // HARDCODED FOR DEMO
   if (isset($entityform['field_pais'])) {
     $entityform['field_pais'] = country_load($entityform['field_pais']);
   }
 
   $args = array('entityform', $entityform);
-  $result = call_user_func_array(array($controller, $method), $args);
+  $result = call_user_func_array(array($controller, 'create'), $args);
 
   // Loop should end here. Result ID can be found at: $result['entityform_id']
-  $result = $result;
+
+  $entityform_id = $result['entityform_id'];
+  drupal_set_message('New Entityform ID is ' . $entityform_id);
+
+  // Loop to add field collections should start header_register_callback
+  $controller = _services_entity_get_controller('field_collection_item');
+  $field_collection = _siasar_drush_migrate_demo_field_collection($entityform_id); // HARDCODED FOR DEMO
+  $args = array('field_collection_item', $field_collection);
+  $result = call_user_func_array(array($controller, 'create'), $args);
+
+  $field_collection_id = $result['host_entity']['id'];
+  drupal_set_message('New Field Collection ID is ' . $field_collection_id);
+
+  // Loop to add field collections should end here
 }
 
 // delivers a demo entityform for testing purposes
@@ -136,11 +147,11 @@ function _siasar_drush_migrate_demo_entityform() {
 }
 
 // delivers a demo field collecction for testing purposes
-function _siasar_drush_migrate_demo_field_collection() {
+function _siasar_drush_migrate_demo_field_collection($entityform_id) {
   $demo_field_collection = '{
     "name": "field_tecnicos",
     "host_entity": {
-      "id": null,
+      "id": ' . $entityform_id . ',
       "resource": "entityform"
     },
     "field_cargo_tecnico": "222303",
