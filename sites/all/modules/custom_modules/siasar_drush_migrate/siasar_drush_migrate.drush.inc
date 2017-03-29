@@ -34,11 +34,14 @@ function siasar_drush_migrate_create_entityforms($entityforms = null, $field_col
   set_time_limit(0);
   module_load_include('inc', 'services', '/includes/services.runtime');
 
+  $controller_entityform = _services_entity_get_controller('entityform');
+  $controller_field_collection_item = _services_entity_get_controller('field_collection_item');
+
   // Loop to load all entityforms should start here ---
   $entityform = $entityforms
     ? $entityforms
     : _siasar_drush_migrate_demo_entityform(); // HARDCODED FOR DEMO
-  $entityform_id =  _siasar_drush_migrate_save_entityform_from_json($entityform);
+  $entityform_id =  _siasar_drush_migrate_save_entityform_from_json($entityform, $controller_entityform);
   drupal_set_message('New Entityform ID is ' . $entityform_id);
   // Loop should end here. ---
 
@@ -48,7 +51,7 @@ function siasar_drush_migrate_create_entityforms($entityforms = null, $field_col
     ? $field_collection_items
     : _siasar_drush_migrate_demo_field_collection($entityform_id); // HARDCODED FOR DEMO
 
-  $field_collection_item_id = _siasar_drush_migrate_save_field_collection_item_from_json($field_collection_item);
+  $field_collection_item_id = _siasar_drush_migrate_save_field_collection_item_from_json($field_collection_item, $controller_field_collection_item);
   drupal_set_message('New Field Collection ID is ' . $field_collection_item_id);
   // Loop to add field collections should end here
 }
@@ -56,12 +59,11 @@ function siasar_drush_migrate_create_entityforms($entityforms = null, $field_col
 /**
  *  Helper function to save one entityform using JSON as source
  */
-function _siasar_drush_migrate_save_entityform_from_json($entityform) {
+function _siasar_drush_migrate_save_entityform_from_json($entityform, $controller) {
   if (isset($entityform['field_pais'])) {
     $entityform['field_pais'] = country_load($entityform['field_pais']);
   }
 
-  $controller = _services_entity_get_controller('entityform');
   $args = array('entityform', $entityform);
   $result = call_user_func_array(array($controller, 'create'), $args);
 
@@ -71,8 +73,7 @@ function _siasar_drush_migrate_save_entityform_from_json($entityform) {
 /**
  * Helper function to save one field collection item using JSON as source
  */
-function _siasar_drush_migrate_save_field_collection_item_from_json($field_collection_item) {
-  $controller = _services_entity_get_controller('field_collection_item');
+function _siasar_drush_migrate_save_field_collection_item_from_json($field_collection_item, $controller) {
   $args = array('field_collection_item', $field_collection_item);
   $result = call_user_func_array(array($controller, 'create'), $args);
 
