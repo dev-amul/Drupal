@@ -2,6 +2,7 @@
 
 /**
  * Implements hook_drush_command().
+ * We define a new Drush command here.
  */
 function siasar_drush_migrate_drush_command() {
 
@@ -23,7 +24,9 @@ function siasar_drush_migrate_drush_command() {
   return $items;
 }
 
-// Drush siasar_drush_migrate_drush_command
+/**
+ * The function that actually makes the magic in our new Drush command
+ */
 /*
 It can be run from Devel PHP console using this:
 
