@@ -13,7 +13,7 @@ function siasar_drush_migrate_drush_command() {
       'entityforms' => 'Source for entityforms',
       'field_collections' => 'Source for Field collections',
     ),
-    'required-arguments' => true,
+    'required-arguments' => false,
     'examples' => array(
       'drush siasar-me entityforms field_collections' => 'Takes all entityforms found in source as JSON and creates new entityforms',
     ),
@@ -30,40 +30,56 @@ It can be run from Devel PHP console using this:
 module_load_include('inc', 'siasar_drush_migrate', 'siasar_drush_migrate.drush');
 siasar_drush_migrate_create_entityforms();
 */
-function siasar_drush_migrate_create_entityforms($entityforms = null, $field_collections = null) {
+function siasar_drush_migrate_create_entityforms($entityforms = null, $field_collection_items = null) {
   set_time_limit(0);
-
   module_load_include('inc', 'services', '/includes/services.runtime');
 
-  //drupal_set_message('Old is ' . $old);
-
-  $controller = _services_entity_get_controller('entityform');
-
   // Loop to load all entityforms should start here ---
-  $entityform = _siasar_drush_migrate_demo_entityform(); // HARDCODED FOR DEMO
+  $entityform = $entityforms
+    ? $entityforms
+    : _siasar_drush_migrate_demo_entityform(); // HARDCODED FOR DEMO
+  $entityform_id =  _siasar_drush_migrate_save_entityform_from_json($entityform);
+  drupal_set_message('New Entityform ID is ' . $entityform_id);
+  // Loop should end here. ---
+
+
+  // Loop to add field collections should start header_register_callback
+  $field_collection_item = $field_collection_items
+    ? $field_collection_items
+    : _siasar_drush_migrate_demo_field_collection($entityform_id); // HARDCODED FOR DEMO
+
+  $field_collection_item_id = _siasar_drush_migrate_save_field_collection_item_from_json($field_collection_item);
+  drupal_set_message('New Field Collection ID is ' . $field_collection_item_id);
+  // Loop to add field collections should end here
+}
+
+/**
+ *  Helper function to save one entityform using JSON as source
+ */
+function _siasar_drush_migrate_save_entityform_from_json($entityform) {
   if (isset($entityform['field_pais'])) {
     $entityform['field_pais'] = country_load($entityform['field_pais']);
   }
 
+  $controller = _services_entity_get_controller('entityform');
   $args = array('entityform', $entityform);
   $result = call_user_func_array(array($controller, 'create'), $args);
 
-  // Loop should end here. Result ID can be found at: $result['entityform_id']
+  return $result['entityform_id'];
+}
 
-  $entityform_id = $result['entityform_id'];
-  drupal_set_message('New Entityform ID is ' . $entityform_id);
-
-  // Loop to add field collections should start header_register_callback
+/**
+ * Helper function to save one field collection item using JSON as source
+ */
+function _siasar_drush_migrate_save_field_collection_item_from_json($field_collection_item) {
   $controller = _services_entity_get_controller('field_collection_item');
-  $field_collection = _siasar_drush_migrate_demo_field_collection($entityform_id); // HARDCODED FOR DEMO
-  $args = array('field_collection_item', $field_collection);
+  $args = array('field_collection_item', $field_collection_item);
   $result = call_user_func_array(array($controller, 'create'), $args);
 
-  $field_collection_id = $result['host_entity']['id'];
-  drupal_set_message('New Field Collection ID is ' . $field_collection_id);
-
-  // Loop to add field collections should end here
+  return $result['item_id'];
 }
+
+
 
 // delivers a demo entityform for testing purposes
 function _siasar_drush_migrate_demo_entityform() {
