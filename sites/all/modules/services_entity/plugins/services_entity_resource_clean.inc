@@ -352,6 +352,11 @@ class ServicesEntityResourceControllerClean extends ServicesEntityResourceContro
    *   TRUE if the current user has access to set the property, FALSE otherwise.
    */
   protected function propertyAccess($wrapper, $name, $op) {
+
+    if (drupal_is_cli() && function_exists('drush_main')) {
+      return true;
+    }
+
     $property = $wrapper->{$name};
     $info = $property->info();
     switch ($op) {
