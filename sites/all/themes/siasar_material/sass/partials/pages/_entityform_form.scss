@@ -92,7 +92,7 @@ form.entityform {
 
       @include breakpoint($break-small) {
         overflow: visible;
-        max-height: 10000px;
+        max-height: none;
       }
 
       > legend {
