@@ -20,8 +20,23 @@ function siasar_drush_migrate_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
 
+  $items['siasar-delete-entityforms'] = array(
+    'description' => 'It helps to delete Drupal content stored as entityforms using the API',
+    'aliases' => array('siasar-de'),
+    'callback' => 'siasar_drush_delete_entityforms',
+    'arguments' => array(
+      '$path' => 'Path of source file'
+    ),
+    'required-arguments' => true,
+    'examples' => array(
+      'drush siasar-de entityforms_ids' => 'Takes all entityform ids found in source as JSON and deletes them',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
+  );
+
   return $items;
 }
+
 
 /**
  * The function that actually makes the magic in our new Drush command
@@ -32,6 +47,21 @@ It can be run from Devel PHP console using this:
 module_load_include('inc', 'siasar_drush_migrate', 'siasar_drush_migrate.drush');
 siasar_drush_migrate_create_entityforms();
 */
+
+function siasar_drush_delete_entityforms($path) {
+  $entityforms_ids = json_decode(file_get_contents($path), true);
+
+  set_time_limit(0);
+  module_load_include('inc', 'services', '/includes/services.runtime');
+
+
+  _print_log('Deleting entities...');
+  _print_log('Forms to be deleted: '.count($entityforms_ids));
+  entityform_delete_multiple($entityforms_ids);  
+  _print_log('Finishing deleting process...');
+
+}
+
 function siasar_drush_migrate_create_entityforms($path) {
   $start = new DateTime('now');
 
@@ -223,3 +253,4 @@ function _siasar_drush_migrate_save_field_collection_item_from_json($field_colle
 function _print_log($text) {
   printf('%s: %s'.PHP_EOL, (new DateTime('now'))->format("Y-m-d H:i:s"), $text);
 }
+
