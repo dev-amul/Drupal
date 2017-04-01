@@ -49,14 +49,11 @@ siasar_drush_migrate_create_entityforms();
 */
 
 function siasar_drush_delete_entityforms($path) {
-  $start = new DateTime('now');
-  $entityforms_ids_file  = $path;
-  $entityforms_ids = json_decode(file_get_contents($entityforms_ids_file), true);
+  $entityforms_ids = json_decode(file_get_contents($path), true);
 
   set_time_limit(0);
   module_load_include('inc', 'services', '/includes/services.runtime');
 
-  $controller_entityform = _services_entity_get_controller('entityform');
 
   _print_log('Deleting entities...');
   _print_log('Forms to be deleted: '.count($entityforms_ids));
