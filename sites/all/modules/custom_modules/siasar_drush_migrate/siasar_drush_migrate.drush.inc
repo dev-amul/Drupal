@@ -25,7 +25,7 @@ function siasar_drush_migrate_drush_command() {
     'aliases' => array('siasar-de'),
     'callback' => 'siasar_drush_delete_entityforms',
     'arguments' => array(
-      '$path' => 'Path to read source file and store log files'
+      '$path' => 'Path of source file'
     ),
     'required-arguments' => true,
     'examples' => array(
