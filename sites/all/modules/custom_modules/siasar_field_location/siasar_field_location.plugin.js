@@ -9,6 +9,7 @@
 
   $.fn.siasarHierarchicalSelect = function () {
     var $countrySelector = $('#edit-field-pais-und');
+    var xhrChildren = new XMLHttpRequest;
     var tidCache = {};
     var country;
 
@@ -131,9 +132,11 @@
           ? url + country
           : url + 'all';
 
+        removeThrobber();
         addThrobber();
 
-        $.get(url, null, function (data, status) {
+        xhrChildren.abort('new request');
+        xhrChildren = $.get(url, null, function (data, status) {
           processResult(data, status, term);
         }, 'json');
       }
