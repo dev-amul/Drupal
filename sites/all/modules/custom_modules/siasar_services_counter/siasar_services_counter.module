@@ -23,6 +23,14 @@ function siasar_services_counter_services_resources() {
               'description' => '',
               'source' => array('path' => 1),
               'optional' => TRUE,
+            ),
+            array(
+              'name' => 'parameters',
+              'type' => 'array',
+              'description' => '',
+              'source' => array('param' => 'parameters'),
+              'optional' => TRUE,
+              'default value' => array(),
             )
           ),
           'access arguments' => array('access content'),
@@ -42,16 +50,19 @@ function siasar_services_counter_services_resources() {
  * @param string $bundle
  *   Entity bundle.
  *
+ * @param array $parameters
+ *   GET parameters
+ *
  * @return array
  *   Keyed array [bundle_machine_name] => int
  */
-function _siasar_services_counter_entity_count($entity_name, $bundle) {
+function _siasar_services_counter_entity_count($entity_name, $bundle, $parameters) {
   $bundles = $bundle
     ? array($bundle)
     : array_keys(entity_get_info($entity_name)['bundles']);
 
   foreach ($bundles as $b) {
-    $total[$b] = _siasar_services_counter_get_totals_per_bundle($entity_name, $b);
+    $total[$b] = _siasar_services_counter_get_totals_per_bundle($entity_name, $b, $parameters);
   }
 
   return $total;
@@ -69,10 +80,29 @@ function _siasar_services_counter_entity_count($entity_name, $bundle) {
  * @return array
  *   Keyed array [entityform_machine_name] => int
  */
-function _siasar_services_counter_get_totals_per_bundle($entity_name, $bundle) {
+function _siasar_services_counter_get_totals_per_bundle($entity_name, $bundle, $parameters) {
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', $entity_name)
     ->entityCondition('bundle', $bundle)
     ->count();
+
+  if (!empty($parameters)) {
+    _siasar_services_counter_add_parameters_to_query($query, $parameters);
+  }
+
   return $query->execute();
+}
+
+
+function _siasar_services_counter_add_parameters_to_query($query, $parameters) {
+  foreach($parameters as $k => $p) {
+    // Is it a field?
+    $k_prefix = 'field_' . $k;
+    $field_info = field_info_field($k_prefix);
+    if ($field_info) {
+      $query->fieldCondition($k_prefix, 'value', $p, '=');
+    } else {
+      $query->fieldCondition($k, 'value', $p, '=');
+    }
+  }
 }
