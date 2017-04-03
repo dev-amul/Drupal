@@ -100,7 +100,8 @@ function _siasar_services_counter_add_parameters_to_query($query, $parameters) {
     $k_prefix = 'field_' . $k;
     $field_info = field_info_field($k_prefix);
     if ($field_info) {
-      $query->fieldCondition($k_prefix, 'value', $p, '=');
+      $column = array_keys($field_info['columns'])[0];
+      $query->fieldCondition($k_prefix, $column, $p, '=');
     } else {
       $query->fieldCondition($k, 'value', $p, '=');
     }
