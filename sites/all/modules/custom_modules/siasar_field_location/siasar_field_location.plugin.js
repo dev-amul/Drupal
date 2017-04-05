@@ -9,7 +9,6 @@
 
   $.fn.siasarHierarchicalSelect = function () {
     var $countrySelector = $('#edit-field-pais-und');
-    var xhrChildren = new XMLHttpRequest;
     var tidCache = {};
     var country;
 
@@ -18,6 +17,7 @@
       : $('#edit-field-pais-iso2');
 
     return this.each(function () {
+      var xhrChildren = new XMLHttpRequest;
       var $locationWrapper = $(this);
       var $locationField = $locationWrapper.find('.form-text');
       var fieldName = $locationField.attr('field-name');
