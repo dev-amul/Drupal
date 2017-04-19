@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Implements hook_field_widget_info().
+ */
+
+function siasar_field_html5_field_widget_info() {
+  return array(
+    'siasar_field_html5_number' => array(
+      'label' => t('HTML5 Number'),
+      'description' => t('Custom HTML5 number field widget for numeric fields.'),
+      'field types' => array('number_integer', 'number_float', 'number_decimal'),
+    ),
+  );
+}
+
+/*
+ * Se usa la implementación de function hook_field_widget_form
+ * para ser usada en los formularios y que aplique a campos numéricos
+ */
+function siasar_field_html5_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  $field_name = $field['field_name'];
+  $element += array(
+    '#type'=> 'numberfield',
+    '#size' => 20,
+    '#default_value'=> isset($items[$delta]['number']) ? $items[$delta]['number'] : '',
+  );
+  return $element;
+}
