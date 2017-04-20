@@ -20,6 +20,18 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   _siasar_entityform_alter_process_country_field($form);
 }
 
+/**
+ * Implements hook_permission().
+ */
+function siasar_entityform_alter_permission() {
+  return array(
+    'validate entityforms' => array(
+      'title' => t('Permission to validate'),
+      'description' => t('Restriction to use the validate button.'),
+    )
+  );
+}
+
 
 /**
  * Helper function to set default country value from user if needed.
@@ -54,10 +66,10 @@ function _siasar_entityform_alter_build_validate_button(&$form, $form_state) {
   $actions_container = &$form['actions'];
   $form_wrapper = entity_metadata_wrapper('entityform', $form_state['entityform']);
   $is_validated = $form_wrapper->field_cuestionario_validado->value();
-  
+
   if(is_object($form_wrapper->draft) && (bool)$form_wrapper->draft->value()) return;
-  
-  
+
+
   if ($is_validated) {
     $status = 'validated';
     $label = t('Validated');
