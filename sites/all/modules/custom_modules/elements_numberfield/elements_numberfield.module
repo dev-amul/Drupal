@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Implements hook_field_widget_info().
+ */
+
+function elements_numberfield_field_widget_info() {
+  return array(
+    'elements_numberfield' => array(
+      'label' => t('HTML5 Number'),
+      'description' => t('Elements HTML5 number field widget for numeric fields.'),
+      'field types' => array('number_integer', 'number_float', 'number_decimal'),
+    ),
+  );
+}
+
+/*
+ * Implementation of the hook_field_widget_form function
+ * to be used in forms and apply to numeric fields
+ */
+function elements_numberfield_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  $field_name = $field['field_name'];
+  $element += array(
+    '#type'=> 'numberfield',
+    '#size' => 20,
+    '#default_value'=> isset($items[$delta]['number']) ? $items[$delta]['number'] : '',
+  );
+  return $element;
+}

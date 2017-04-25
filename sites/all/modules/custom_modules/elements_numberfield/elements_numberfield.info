@@ -1,0 +1,5 @@
+name = Elements HTML5 numberfield
+description = widget to add HTML5 numberfield elements
+version = 7.x-1.0
+core = 7.x
+dependencies[] = elements
