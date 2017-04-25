@@ -17,7 +17,6 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   _siasar_entityform_alter_set_default_country($form);
   _siasar_entityform_alter_hide_validate_if_new($form, $form_state);
   _siasar_entityform_alter_build_validate_button($form, $form_state);
-  _siasar_entityform_alter_hide_validate_button($form);
   _siasar_entityform_alter_process_country_field($form);
 }
 
@@ -46,15 +45,6 @@ function _siasar_entityform_alter_set_default_country(&$form) {
     $form_item_pais['#default_value'][0] = $user_country_iso2;
   }
 }
-
-/**
- * Helper function to restrict the validate button if the user does not have validate permission.
- */
-function _siasar_entityform_alter_hide_validate_button(&$form){
-    $form['field_cuestionario_validado']['#access'] =
-        (user_acccess('validate entityforms') && !$form->draft);
-}
-
 
 /**
  * Helper function to hide Validate field if form is new.
