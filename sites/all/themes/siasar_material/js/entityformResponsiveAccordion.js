@@ -51,7 +51,6 @@
           $accordionElements.filter('.open').addClass('closed').removeClass('open');
           $target.removeClass('closed').addClass('open');
         }
-        console.log("!");
       }
     }
   };
