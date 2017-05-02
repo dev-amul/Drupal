@@ -200,30 +200,6 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
   );
-  // Exported menu link: menu-front-page-menu_todos-los-datos:submissions.
-  $menu_links['menu-front-page-menu_todos-los-datos:submissions'] = array(
-    'menu_name' => 'menu-front-page-menu',
-    'link_path' => 'submissions',
-    'router_path' => 'submissions',
-    'link_title' => 'Todos los datos',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-front-page-menu_todos-los-datos:submissions',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
-    'language' => 'es',
-    'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-front-page-menu_consultar-los-resultados:<nolink>',
-  );
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -235,7 +211,6 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
   t('Prestador de Servicio');
   t('Rellenar cuestionarios');
   t('Sistema');
-  t('Todos los datos');
 
   return $menu_links;
 }
