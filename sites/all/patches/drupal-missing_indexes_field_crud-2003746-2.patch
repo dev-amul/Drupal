@@ -1,0 +1,30 @@
+From 5a84c221d968a66b54c334ed37bc6abcce1fe72b Mon Sep 17 00:00:00 2001
+From: Joris van Eijden <joris.vaneijden@oneshoe.nl>
+Date: Fri, 17 Oct 2014 14:50:33 +0200
+Subject: [PATCH] Issue #2003746 added indexes from hook_field_schema to
+ read_fields
+
+---
+ modules/field/field.crud.inc | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/modules/field/field.crud.inc b/modules/field/field.crud.inc
+index e4486d0..612d1c9 100644
+--- a/modules/field/field.crud.inc
++++ b/modules/field/field.crud.inc
+@@ -392,6 +392,12 @@ function field_read_fields($params = array(), $include_additional = array()) {
+     $schema = (array) module_invoke($field['module'], 'field_schema', $field);
+     $schema += array('columns' => array(), 'indexes' => array());
+     $field['columns'] = $schema['columns'];
++    // 'indexes' can be both hardcoded in the field type, and specified in the
++    // incoming $field definition.
++    $field += array(
++      'indexes' => array(),
++    );
++    $field['indexes'] += $schema['indexes'];
+ 
+     $field_name = $field['field_name'];
+     if ($include_deleted) {
+-- 
+1.9.4.msysgit.0
+
