@@ -21,5 +21,3 @@ sites/all/translations
 
 # Ignore PHPExcel examples
 sites/all/libraries/PHPExcel/Examples
-# Ignore netbeans files
-nbproject/*
