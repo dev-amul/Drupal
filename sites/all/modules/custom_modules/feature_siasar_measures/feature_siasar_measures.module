@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SIASAR Measures feature.
+ */
+
+include_once 'feature_siasar_measures.features.inc';
