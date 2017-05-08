@@ -66,5 +66,19 @@ function configuracion_lenguaje_locale_default_languages() {
     'weight' => 0,
     'fallback' => '',
   );
+  // Exported language: es-NI.
+  $languages['es-NI'] = array(
+    'language' => 'es-NI',
+    'name' => 'Spanish, Nicaragua',
+    'native' => 'Español',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 0,
+    'formula' => '',
+    'domain' => '',
+    'prefix' => 'ni',
+    'weight' => 0,
+    'fallback' => 'es',
+  );
   return $languages;
 }

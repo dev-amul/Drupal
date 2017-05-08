@@ -17,4 +17,4 @@ features[language][] = es
 features[language][] = es-BO
 features[language][] = es-CO
 features[language][] = es-HN
-project path = sites/all/modules/custom_modules
+features[language][] = es-NI
