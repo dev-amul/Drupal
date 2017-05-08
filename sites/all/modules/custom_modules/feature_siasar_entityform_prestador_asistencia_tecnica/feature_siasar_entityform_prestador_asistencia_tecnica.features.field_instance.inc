@@ -1069,7 +1069,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_entity_name',
-    'label' => 'Nombre',
+    'label' => 'Nombre del PAT',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2023,7 +2023,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Fecha en la que se cubre la encuesta');
   t('Imagen');
   t('Monto');
-  t('Nombre');
+  t('Nombre del PAT');
   t('Observaciones y comentarios');
   t('Origen de los datos');
   t('País');
