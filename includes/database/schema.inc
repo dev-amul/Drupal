@@ -252,18 +252,6 @@ abstract class DatabaseSchema implements QueryPlaceholderInterface {
   }
 
   /**
-   * Create names for indexes, primary keys and constraints.
-   *
-   * This prevents using {} around non-table names like indexes and keys.
-   */
-  function prefixNonTable($table) {
-    $args = func_get_args();
-    $info = $this->getPrefixInfo($table);
-    $args[0] = $info['table'];
-    return implode('_', $args);
-  }
-
-  /**
    * Build a condition to match a table name against a standard information_schema.
    *
    * The information_schema is a SQL standard that provides information about the
