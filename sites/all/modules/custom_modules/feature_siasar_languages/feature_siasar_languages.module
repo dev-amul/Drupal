@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the feature_siasar_languages feature.
+ */
+
+include_once 'feature_siasar_languages.features.inc';
