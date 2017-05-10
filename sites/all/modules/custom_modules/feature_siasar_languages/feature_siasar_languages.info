@@ -1,4 +1,4 @@
-name = SIASAR languages
+name = SIASAR Languages
 description = Global language settings
 core = 7.x
 package = SIASAR
@@ -10,7 +10,6 @@ dependencies[] = feeds
 dependencies[] = i18n_variable
 dependencies[] = locale
 dependencies[] = taxonomy
-dependencies[] = variable_realm
 features[ctools][] = feeds:feeds_importer_default:1
 features[features_api][] = api:2
 features[language][] = en
