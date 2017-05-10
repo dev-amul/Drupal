@@ -1,6 +1,7 @@
-name = feature_siasar_languages
-description = Caracteristicas de la configuración de idiomas
+name = SIASAR languages
+description = Global language settings
 core = 7.x
+version = 7.x-1.0
 package = SIASAR
 dependencies[] = ctools
 dependencies[] = currency
