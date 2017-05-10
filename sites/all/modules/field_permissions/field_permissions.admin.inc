@@ -79,7 +79,7 @@ function field_permissions_list_field_permissions($field, $label = NULL) {
     $permission = $permission_type . ' ' . $field['field_name'];
     $permissions[$permission] = array(
       'title' => $permission_info['title'],
-      'description' => $description ? $description : '',
+      'description' => isset($description) ? $description : '',
     );
   }
 
