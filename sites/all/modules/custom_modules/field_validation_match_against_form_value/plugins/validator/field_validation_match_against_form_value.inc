@@ -112,11 +112,6 @@ class field_validation_match_against_form_value extends field_validation_validat
     if (is_array($value) && isset($value['value'])) {
       $value = $value['value'];
     }
-    if (empty($value) && $value !== 0 && $ignore_if_blank === true) {
-      $this->validation_status->error = true;
-      $this->validation_status->type = 'notice';
-      $this->validation_status->message = 'Field ['. $field . ']: Value is empty, whole validation rule will be ignored.';
-    }
     return $value;
   }
 
