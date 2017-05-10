@@ -2658,7 +2658,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'active' => 1,
       'module' => 'options',
       'settings' => array(),
-      'type' => 'options_select',
+      'type' => 'options_buttons',
       'weight' => 3,
     ),
   );
