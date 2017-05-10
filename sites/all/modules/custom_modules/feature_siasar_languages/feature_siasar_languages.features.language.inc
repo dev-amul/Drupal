@@ -24,11 +24,67 @@ function feature_siasar_languages_locale_default_languages() {
     'weight' => -8,
     'fallback' => '',
   );
+  // Exported language: es.
+  $languages['es'] = array(
+    'language' => 'es',
+    'name' => 'Spanish',
+    'native' => 'Español',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 2,
+    'formula' => '($n!=1)',
+    'domain' => '',
+    'prefix' => 'es',
+    'weight' => -10,
+    'fallback' => '',
+  );
+  // Exported language: es-BO.
+  $languages['es-BO'] = array(
+    'language' => 'es-BO',
+    'name' => 'Spanish, Bolivian',
+    'native' => 'Español, Bolivia',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 0,
+    'formula' => '',
+    'domain' => '',
+    'prefix' => 'es-bo',
+    'weight' => 0,
+    'fallback' => 'es',
+  );
+  // Exported language: es-CO.
+  $languages['es-CO'] = array(
+    'language' => 'es-CO',
+    'name' => 'Spanish, Colombia',
+    'native' => 'Español, Colombia',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 0,
+    'formula' => '',
+    'domain' => '',
+    'prefix' => 'co',
+    'weight' => 0,
+    'fallback' => 'es',
+  );
+  // Exported language: es-HN.
+  $languages['es-HN'] = array(
+    'language' => 'es-HN',
+    'name' => 'Spanish, Honduras',
+    'native' => 'Español, Honduras',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 0,
+    'formula' => '',
+    'domain' => '',
+    'prefix' => 'hn',
+    'weight' => 0,
+    'fallback' => 'es',
+  );
   // Exported language: es-NI.
   $languages['es-NI'] = array(
     'language' => 'es-NI',
     'name' => 'Spanish, Nicaragua',
-    'native' => 'Español',
+    'native' => 'Español, Nicaragua',
     'direction' => 0,
     'enabled' => 1,
     'plurals' => 0,
@@ -42,7 +98,7 @@ function feature_siasar_languages_locale_default_languages() {
   $languages['es-PY'] = array(
     'language' => 'es-PY',
     'name' => ' Spanish, Paraguayan',
-    'native' => 'Español Paraguay ',
+    'native' => 'Español, Paraguay ',
     'direction' => 0,
     'enabled' => 1,
     'plurals' => 0,
@@ -70,7 +126,7 @@ function feature_siasar_languages_locale_default_languages() {
   $languages['pt-br'] = array(
     'language' => 'pt-br',
     'name' => 'Portuguese, Brazil',
-    'native' => 'Português',
+    'native' => 'Português, Brasil',
     'direction' => 0,
     'enabled' => 1,
     'plurals' => 2,
