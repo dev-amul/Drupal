@@ -2361,7 +2361,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_ingresos_reales',
-    'label' => ' Ingresos reales por facturación ',
+    'label' => ' Billing Income ',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
