@@ -3629,9 +3629,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'elements_numberfield',
+      'module' => 'number',
       'settings' => array(),
-      'type' => 'elements_numberfield',
+      'type' => 'number',
       'weight' => 53,
     ),
   );
