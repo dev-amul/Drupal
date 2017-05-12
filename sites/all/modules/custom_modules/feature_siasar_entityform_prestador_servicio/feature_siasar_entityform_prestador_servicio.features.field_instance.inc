@@ -2361,7 +2361,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_ingresos_reales',
-    'label' => ' Ingresos reales por facturación ',
+    'label' => 'Billing Income',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -3592,7 +3592,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_numero_reuniones'.
   $field_instances['entityform-prestador_de_servicio-field_numero_reuniones'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5363,11 +5363,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_usuarios_al_dia'.
   $field_instances['entityform-prestador_de_servicio-field_usuarios_al_dia'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5415,11 +5411,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_usuarios_deberian_pagan'.
   $field_instances['entityform-prestador_de_servicio-field_usuarios_deberian_pagan'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
