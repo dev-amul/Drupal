@@ -15,6 +15,7 @@
 
       var $entityform = $('form.entityform');
       var $accordionElements = $('.vertical-tabs-panes > fieldset.vertical-tabs-pane', $entityform);
+      var $accordionElementsLabels = $('> legend', $accordionElements);
       var $verticalTabs = $('.vertical-tabs-list', $entityform);
       var $window = $(window);
       var smallBreakpoint = 600;
@@ -23,7 +24,7 @@
         : true;
 
       cleanUp();
-      $accordionElements.on('click', openCloseAccordion);
+      $accordionElementsLabels.on('click', openCloseAccordion);
       $window.on('resize', cleanUp);
 
       function cleanUp() {
@@ -41,7 +42,8 @@
       }
 
       function openCloseAccordion(e) {
-        var $target = $(e.currentTarget);
+        var $clicked = $(e.currentTarget);
+        var $target = $clicked.parent();
 
         if ($target.hasClass('open')) {
           $target.removeClass('open').addClass('closed');
@@ -49,7 +51,6 @@
           $accordionElements.filter('.open').addClass('closed').removeClass('open');
           $target.removeClass('closed').addClass('open');
         }
-        console.log("!");
       }
     }
   };

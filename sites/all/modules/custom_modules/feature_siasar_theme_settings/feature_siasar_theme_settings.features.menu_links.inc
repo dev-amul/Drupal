@@ -10,6 +10,30 @@
 function feature_siasar_theme_settings_menu_default_menu_links() {
   $menu_links = array();
 
+  // Exported menu link: menu-front-page-menu_calidad-de-agua:eform/submit/waq.
+  $menu_links['menu-front-page-menu_calidad-de-agua:eform/submit/waq'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'eform/submit/waq',
+    'router_path' => 'eform/submit/%',
+    'link_title' => 'Calidad de agua',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_calidad-de-agua:eform/submit/waq',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+    'language' => 'es',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
+  );
   // Exported menu link: menu-front-page-menu_comunidad:eform/submit/comunidad.
   $menu_links['menu-front-page-menu_comunidad:eform/submit/comunidad'] = array(
     'menu_name' => 'menu-front-page-menu',
@@ -28,7 +52,7 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -50,
+    'weight' => -49,
     'customized' => 1,
     'language' => 'es',
     'menu_links_customized' => 1,
@@ -123,7 +147,7 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -48,
+    'weight' => -47,
     'customized' => 1,
     'language' => 'es',
     'menu_links_customized' => 1,
@@ -147,7 +171,7 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -46,
     'customized' => 1,
     'language' => 'es',
     'menu_links_customized' => 1,
@@ -194,24 +218,24 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => -48,
     'customized' => 1,
     'language' => 'es',
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
   );
-  // Exported menu link: menu-front-page-menu_todos-los-datos:submissions.
-  $menu_links['menu-front-page-menu_todos-los-datos:submissions'] = array(
+  // Exported menu link: menu-front-page-menu_validacin:resultados.
+  $menu_links['menu-front-page-menu_validacin:resultados'] = array(
     'menu_name' => 'menu-front-page-menu',
-    'link_path' => 'submissions',
-    'router_path' => 'submissions',
-    'link_title' => 'Todos los datos',
+    'link_path' => 'resultados',
+    'router_path' => 'resultados',
+    'link_title' => 'Validación',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
       'alter' => TRUE,
-      'identifier' => 'menu-front-page-menu_todos-los-datos:submissions',
+      'identifier' => 'menu-front-page-menu_validacin:resultados',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -227,6 +251,7 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Calidad de agua');
   t('Comunidad');
   t('Consultar los resultados');
   t('Formulario de Pruebas');
@@ -235,7 +260,7 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
   t('Prestador de Servicio');
   t('Rellenar cuestionarios');
   t('Sistema');
-  t('Todos los datos');
+  t('Validación');
 
   return $menu_links;
 }

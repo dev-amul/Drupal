@@ -1,0 +1,95 @@
+# LANGUAGE translation of PROJECT
+# Copyright (c) YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2017-05-08 14:01-0300\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: entityform:entityform_type:waq:label
+msgctxt "entityform_type:waq:label"
+msgid "Water Quality"
+msgstr ""
+
+#: entityform:entityform_type:comunidad:label
+msgctxt "entityform_type:comunidad:label"
+msgid "Comunidad"
+msgstr ""
+
+#: entityform:entityform_type:comunidad:submit_button_text
+msgctxt "entityform_type:comunidad:submit_button_text"
+msgid "Enviar"
+msgstr ""
+
+#: entityform:entityform_type:prestador_de_asistencia_t_cnica:draft_button_text
+msgctxt "entityform_type:prestador_de_asistencia_t_cnica:draft_button_text"
+msgid "Guardar"
+msgstr ""
+
+#: entityform:entityform_type:testingpurposes:redirect_path
+msgctxt "entityform_type:testingpurposes:redirect_path"
+msgid "testing"
+msgstr ""
+
+#: entityform:entityform_type:comunidad:draft_button_text
+msgctxt "entityform_type:comunidad:draft_button_text"
+msgid "Salvar"
+msgstr ""
+
+#: entityform:entityform_type:prestador_de_asistencia_t_cnica:submit_button_text
+msgctxt "entityform_type:prestador_de_asistencia_t_cnica:submit_button_text"
+msgid "Enviar"
+msgstr ""
+
+#: entityform:entityform_type:prestador_de_servicio:draft_button_text
+msgctxt "entityform_type:prestador_de_servicio:draft_button_text"
+msgid "Guardar"
+msgstr ""
+
+#: entityform:entityform_type:prestador_de_servicio:label
+msgctxt "entityform_type:prestador_de_servicio:label"
+msgid "Prestador de Servicio"
+msgstr ""
+
+#: entityform:entityform_type:prestador_de_servicio:submit_button_text
+msgctxt "entityform_type:prestador_de_servicio:submit_button_text"
+msgid "Enviar"
+msgstr ""
+
+#: entityform:entityform_type:sistema:draft_button_text
+msgctxt "entityform_type:sistema:draft_button_text"
+msgid "Salvar"
+msgstr ""
+
+#: entityform:entityform_type:sistema:label
+msgctxt "entityform_type:sistema:label"
+msgid "Sistema"
+msgstr ""
+
+#: entityform:entityform_type:sistema:submit_button_text
+msgctxt "entityform_type:sistema:submit_button_text"
+msgid "Enviar"
+msgstr ""
+
+#: entityform:entityform_type:testingpurposes:label
+msgctxt "entityform_type:testingpurposes:label"
+msgid "Formulario de Pruebas"
+msgstr ""
+
+#: entityform:entityform_type:prestador_de_asistencia_t_cnica:label
+msgctxt "entityform_type:prestador_de_asistencia_t_cnica:label"
+msgid "Prestador de Asistencia Técnica"
+msgstr ""
+
+#: entityform:entityform_type:prestador_de_asistencia_t_cnica:submission_page_title
+msgctxt "entityform_type:prestador_de_asistencia_t_cnica:submission_page_title"
+msgid "Dato registrado"
+msgstr ""
+

@@ -315,3 +315,36 @@ function siasar_updates_update_7120(&$sandbox) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
 }
+
+/**
+ * Issue 459 - Ampliar el número de dígitos para almacenar cantidades monetarias
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/459
+ */
+function siasar_updates_update_7121(&$sandbox) {
+  $query = "select * from {field_config} where module = 'mvf'";
+  $result = db_query($query);
+  $result = $result->fetchAll();
+
+  foreach ($result as &$r) {
+    $r->data = unserialize($r->data);
+    $is_monetary_field = ($r->data['settings']['unit']['handler_settings']['view']['view_name'] == 'tipos_de_moneda')
+      ? true
+      : false;
+    if ($is_monetary_field) {
+      $field_name = &$r->field_name;
+      $sql_data = $r->data['storage']['details']['sql'];
+      $tables = array(
+        'current_storage' => $sql_data['FIELD_LOAD_CURRENT'],
+        'revision_storage' => $sql_data['FIELD_LOAD_REVISION'],
+      );
+      foreach ($tables as $table) {
+        $parameters = array();
+        $parameters['table'] = array_keys($table)[0];
+        $parameters['column'] = $table[$parameters['table']]['value'];
+
+        $query = 'ALTER TABLE ' . $parameters['table'] . ' ALTER COLUMN ' . $parameters['column'] . ' TYPE numeric(16,2)';
+        $alter_output = db_query($query);
+      }
+    }
+  }
+}

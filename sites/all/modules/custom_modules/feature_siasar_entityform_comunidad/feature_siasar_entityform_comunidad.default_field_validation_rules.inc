@@ -79,7 +79,7 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
       'condition_value' => '',
     ),
   );
-  $rule->error_message = 'Número de viviendas de la muestra inferior o igual a la cantidad total de viviendas de la comunidad.';
+  $rule->error_message = 'El número de viviendas de la muestra debe ser inferior o igual a la cantidad total de viviendas de la comunidad.';
   $export['comunidad_sample_lower_equal_tot'] = $rule;
 
   $rule = new stdClass();

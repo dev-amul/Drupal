@@ -1069,7 +1069,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_entity_name',
-    'label' => 'Nombre',
+    'label' => 'Nombre del PAT',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1112,10 +1112,20 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'entity_type' => 'entityform',
     'field_name' => 'field_estado_equipos_informatico',
     'label' => 'Estado de los equipos informáticos (computadora/impresora)',
-    'required' => 1,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
     ),
     'widget' => array(
       'active' => 1,
@@ -1151,10 +1161,20 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'entity_type' => 'entityform',
     'field_name' => 'field_estado_equipos_transporte',
     'label' => 'Estado de los equipos de transporte ',
-    'required' => 1,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
     ),
     'widget' => array(
       'active' => 1,
@@ -1190,10 +1210,20 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'entity_type' => 'entityform',
     'field_name' => 'field_estado_medicion_agua',
     'label' => 'Estado de los equipos para la medición de la calidad del agua',
-    'required' => 1,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
     ),
     'widget' => array(
       'active' => 1,
@@ -2023,7 +2053,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Fecha en la que se cubre la encuesta');
   t('Imagen');
   t('Monto');
-  t('Nombre');
+  t('Nombre del PAT');
   t('Observaciones y comentarios');
   t('Origen de los datos');
   t('País');

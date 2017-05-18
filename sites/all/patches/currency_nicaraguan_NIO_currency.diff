@@ -1,0 +1,27 @@
+From ea983b2bba3f6f136288ab17c2bd618da8c34425 Mon Sep 17 00:00:00 2001
+From: Ignacio Segura <nacho@isegura.es>
+Date: Mon, 15 May 2017 14:08:56 +0200
+Subject: [PATCH] 438 - Nicaraguan currency is wrong
+
+---
+ .../currency/currency/vendor/bartfeenstra/currency/resources/NIO.yml  | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/sites/all/modules/currency/currency/vendor/bartfeenstra/currency/resources/NIO.yml b/sites/all/modules/currency/currency/vendor/bartfeenstra/currency/resources/NIO.yml
+index 2777a44..f853fa9 100644
+--- a/sites/all/modules/currency/currency/vendor/bartfeenstra/currency/resources/NIO.yml
++++ b/sites/all/modules/currency/currency/vendor/bartfeenstra/currency/resources/NIO.yml
+@@ -2,8 +2,8 @@ alternativeSigns: {  }
+ exchangeRates: {  }
+ ISO4217Code: NIO
+ ISO4217Number: '558'
+-sign: $
++sign: C$
+ subunits: 100
+-title: 'Nicaraguan córdoba oro'
++title: 'Nicaraguan Córdoba Oro'
+ usage:
+     - { ISO8601From: '1991-04-30', ISO8601To: '', ISO3166Code: NI }
+-- 
+1.7.11.1
+

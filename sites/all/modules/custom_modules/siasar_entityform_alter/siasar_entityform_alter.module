@@ -13,11 +13,26 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   $module_path = drupal_get_path('module', 'siasar_entityform_alter');
 
   drupal_add_js($module_path . '/js/siasar_entityform_alter.validate_button.js');
+  $form_wrapper = entity_metadata_wrapper('entityform', $form_state['entityform']);
+  $form['field_cuestionario_validado']['#access'] =
+  (user_access('validate entityforms') && !$form_wrapper->draft->value());
 
   _siasar_entityform_alter_set_default_country($form);
   _siasar_entityform_alter_hide_validate_if_new($form, $form_state);
   _siasar_entityform_alter_build_validate_button($form, $form_state);
   _siasar_entityform_alter_process_country_field($form);
+}
+
+/**
+ * Implements hook_permission().
+ */
+function siasar_entityform_alter_permission() {
+  return array(
+    'validate entityforms' => array(
+      'title' => t('Validate entityforms'),
+      'description' => t('User can validate entityforms and browse results for more info on validated/not validated forms.'),
+    )
+  );
 }
 
 
@@ -33,6 +48,7 @@ function _siasar_entityform_alter_set_default_country(&$form) {
     $form_item_pais['#default_value'][0] = $user_country_iso2;
   }
 }
+
 
 /**
  * Helper function to hide Validate field if form is new.
@@ -54,6 +70,8 @@ function _siasar_entityform_alter_build_validate_button(&$form, $form_state) {
   $actions_container = &$form['actions'];
   $form_wrapper = entity_metadata_wrapper('entityform', $form_state['entityform']);
   $is_validated = $form_wrapper->field_cuestionario_validado->value();
+
+  if(is_object($form_wrapper->draft) && (bool)$form_wrapper->draft->value()) return;
 
   if ($is_validated) {
     $status = 'validated';

@@ -25,18 +25,6 @@ function feature_siasar_theme_settings_default_fe_block_settings() {
       'usuario autenticado' => 2,
     ),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'omega' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'omega',
-        'weight' => 0,
-      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -47,13 +35,7 @@ function feature_siasar_theme_settings_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'siasar_material',
-        'weight' => 0,
-      ),
-      'zen' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'zen',
-        'weight' => 0,
+        'weight' => -10,
       ),
     ),
     'title' => '¿Qué desea hacer?',
@@ -71,18 +53,6 @@ function feature_siasar_theme_settings_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'omega' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'omega',
-        'weight' => 0,
-      ),
       'seven' => array(
         'region' => 'content',
         'status' => 1,
@@ -94,12 +64,6 @@ function feature_siasar_theme_settings_default_fe_block_settings() {
         'status' => 1,
         'theme' => 'siasar_material',
         'weight' => -11,
-      ),
-      'zen' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'zen',
-        'weight' => 0,
       ),
     ),
     'title' => '',
