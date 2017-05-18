@@ -121,7 +121,12 @@
 
 
       function createOptionElement(term) {
-        return '<option value="' + term.tid + '">' + term.name + '</option>';
+        var label = term.name;
+
+        if (typeof term.field_codigo_division_admin === 'string') {
+          label += ' - ' + term.field_codigo_division_admin;
+        }
+        return '<option value="' + term.tid + '">' + label + '</option>';
       }
 
 
@@ -182,7 +187,14 @@
 
       function mapTermsFromRequestToArray(data) {
         var mapped = Object.keys(data).map(function (k) {
-          return { tid: data[k].tid, name: data[k].name };
+          var term = {
+            tid: data[k].tid,
+            name: data[k].name
+          }
+          if (typeof data[k].field_codigo_division_admin === 'string') {
+            term.field_codigo_division_admin = data[k].field_codigo_division_admin;
+          }
+          return term;
         });
         var output = [];
 
