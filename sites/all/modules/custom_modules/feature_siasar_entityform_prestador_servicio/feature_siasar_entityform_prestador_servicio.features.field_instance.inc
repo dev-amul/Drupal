@@ -2618,7 +2618,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'.
   $field_instances['entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
