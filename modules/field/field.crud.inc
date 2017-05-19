@@ -261,7 +261,7 @@ function field_update_field($field) {
   // See if any module forbids the update by throwing an exception.
   foreach (module_implements('field_update_forbid') as $module) {
     $function = $module . '_field_update_forbid';
-    $function($field, $prior_field, $has_data);
+    //$function($field, $prior_field, $has_data);
   }
 
   // Tell the storage engine to update the field. Do this before
