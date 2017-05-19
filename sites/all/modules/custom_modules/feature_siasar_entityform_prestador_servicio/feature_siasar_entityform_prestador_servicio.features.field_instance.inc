@@ -2361,7 +2361,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_ingresos_reales',
-    'label' => ' Ingresos reales por facturación ',
+    'label' => 'Billing Income',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2618,7 +2618,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'.
   $field_instances['entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2658,7 +2658,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'active' => 1,
       'module' => 'options',
       'settings' => array(),
-      'type' => 'options_select',
+      'type' => 'options_buttons',
       'weight' => 3,
     ),
   );
@@ -3592,7 +3592,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_numero_reuniones'.
   $field_instances['entityform-prestador_de_servicio-field_numero_reuniones'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -4489,7 +4489,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_revision_componentes_toma',
-    'label' => 'Acción preventiva: Revisión y/o sustitución periódica de los componentes pertenecientes a la toma de agua del sistema (antes de rotura o daño)  Realización de acciones que promuevan la NO tala de árboles y la reforestación',
+    'label' => 'Revisión y/o sustitución periódica de los componentes pertenecientes a la toma de agua del sistema (antes de rotura o daño)',
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
@@ -5363,11 +5363,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_usuarios_al_dia'.
   $field_instances['entityform-prestador_de_servicio-field_usuarios_al_dia'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5415,11 +5411,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_usuarios_deberian_pagan'.
   $field_instances['entityform-prestador_de_servicio-field_usuarios_deberian_pagan'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5802,13 +5794,12 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // Translatables
   // Included for use with string extractors like potx.
   t('	¿Dispone de balance contable?');
-  t(' Ingresos reales por facturación ');
-  t('Acción preventiva: Revisión y/o sustitución periódica de los componentes pertenecientes a la toma de agua del sistema (antes de rotura o daño)  Realización de acciones que promuevan la NO tala de árboles y la reforestación');
   t('Activos Corrientes');
   t('Activos No Corrientes');
   t('Agua facturada (promedio mensual, en metros cúbicos)');
   t('Agua producida (promedio mensual, en metros cúbicos)');
   t('Altitud');
+  t('Billing Income');
   t('Calificación (SIASAR 1)');
   t('Cargo');
   t('Clase de prestador');
@@ -5866,6 +5857,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Revisión del estado del cercado de la obra de toma y/o mejorarlo');
   t('Revisión y actualización del plan de contingencia (incendio, desastres naturales)');
   t('Revisión y/o aumento de la protección legal o administrativa del terreno donde se ubica la toma y/o del recurso hídrico');
+  t('Revisión y/o sustitución periódica de los componentes pertenecientes a la toma de agua del sistema (antes de rotura o daño)');
   t('Suma de gastos reales ');
   t('Suma de gastos teóricos');
   t('Sustitución de componentes pertenecientes a la toma de agua del sistema (una vez dañados)');
