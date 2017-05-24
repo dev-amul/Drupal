@@ -21,10 +21,10 @@ function feature_siasar_entityform_water_quality_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'E. Bacteriological Parameters',
-    'weight' => '5',
+    'weight' => '4',
     'children' => array(
-      0 => 'field_fecal_coliforms',
-      1 => 'field_total_coliforms',
+      0 => 'field_total_coliforms',
+      1 => 'field_fecal_coliforms',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -49,25 +49,25 @@ function feature_siasar_entityform_water_quality_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'C. Chemical Parameters',
-    'weight' => '3',
+    'weight' => '2',
     'children' => array(
-      0 => 'field_alkalinity',
-      1 => 'field_carbonates',
-      2 => 'field_calcium',
-      3 => 'field_iron',
-      4 => 'field_hardness',
-      5 => 'field_sulfate',
-      6 => 'field_chlorides',
-      7 => 'field_nitrites',
-      8 => 'field_manganese',
-      9 => 'field_residual_chlorine',
-      10 => 'field_potassium',
-      11 => 'field_fluorine',
-      12 => 'field_arsenic',
-      13 => 'field_sodium',
-      14 => 'field_bicarbonates',
-      15 => 'field_nitrates',
-      16 => 'field_lead',
+      0 => 'field_carbonates',
+      1 => 'field_fluorine',
+      2 => 'field_iron',
+      3 => 'field_manganese',
+      4 => 'field_residual_chlorine',
+      5 => 'field_alkalinity',
+      6 => 'field_arsenic',
+      7 => 'field_bicarbonates',
+      8 => 'field_calcium',
+      9 => 'field_chlorides',
+      10 => 'field_hardness',
+      11 => 'field_lead',
+      12 => 'field_nitrates',
+      13 => 'field_nitrites',
+      14 => 'field_potassium',
+      15 => 'field_sodium',
+      16 => 'field_sulfate',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -94,15 +94,15 @@ function feature_siasar_entityform_water_quality_field_group_info() {
     'label' => 'A. General',
     'weight' => '0',
     'children' => array(
-      0 => 'field_survey_date',
-      1 => 'field_altitude',
-      2 => 'field_water_source_code',
-      3 => 'field_geolocation',
-      4 => 'field_water_source_type',
-      5 => 'field_water_source_name',
-      6 => 'field_pais',
-      7 => 'field_user_reference',
-      8 => 'field_entidad_local',
+      0 => 'field_entidad_local',
+      1 => 'field_geolocation',
+      2 => 'field_pais',
+      3 => 'field_survey_date',
+      4 => 'field_user_reference',
+      5 => 'field_water_source_code',
+      6 => 'field_water_source_type',
+      7 => 'field_altitude',
+      8 => 'field_water_source_name',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -127,7 +127,7 @@ function feature_siasar_entityform_water_quality_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'F. Observations',
-    'weight' => '6',
+    'weight' => '5',
     'children' => array(
       0 => 'field_observations',
     ),
@@ -154,7 +154,7 @@ function feature_siasar_entityform_water_quality_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'D. Organochlorine Parameters',
-    'weight' => '4',
+    'weight' => '3',
     'children' => array(
       0 => 'field_organochlorine_pesticides',
     ),
@@ -181,13 +181,13 @@ function feature_siasar_entityform_water_quality_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'B. Physical Parameters',
-    'weight' => '2',
+    'weight' => '1',
     'children' => array(
-      0 => 'field_ph',
+      0 => 'field_color',
       1 => 'field_conductivity',
-      2 => 'field_temperature',
-      3 => 'field_turbidity',
-      4 => 'field_color',
+      2 => 'field_turbidity',
+      3 => 'field_ph',
+      4 => 'field_temperature',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
