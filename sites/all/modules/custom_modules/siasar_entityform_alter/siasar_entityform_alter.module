@@ -14,8 +14,9 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
 
   drupal_add_js($module_path . '/js/siasar_entityform_alter.validate_button.js');
   $form_wrapper = entity_metadata_wrapper('entityform', $form_state['entityform']);
-  $form['field_cuestionario_validado']['#access'] =
-  (user_access('validate entityforms') && !$form_wrapper->draft->value());
+  if (isset($form['field_cuestionario_validado'])) {
+    $form['field_cuestionario_validado']['#access'] = (user_access('validate entityforms') && !$form_wrapper->draft->value());
+  }
 
   _siasar_entityform_alter_set_default_country($form);
   _siasar_entityform_alter_hide_validate_if_new($form, $form_state);
@@ -75,10 +76,10 @@ function _siasar_entityform_alter_build_validate_button(&$form, $form_state) {
 
   if ($is_validated) {
     $status = 'validated';
-    $label = t('Validated');
+    $label = 'Legacy: ' . t('Validated');
   } else {
     $status = 'not-validated';
-    $label = t('Validate');
+    $label = 'Legacy: ' . t('Validate');
   }
 
   $validate_button = array(
