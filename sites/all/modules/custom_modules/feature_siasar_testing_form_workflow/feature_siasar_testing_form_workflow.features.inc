@@ -22,23 +22,31 @@ function feature_siasar_testing_form_workflow_default_Workflow() {
       "validated" : {"weight":"-18","sysid":"0","state":"Validated","status":"1","name":"validated"}
     },
     "transitions" : {
-      "_creation_to_draft" : {"roles":{"-1":-1},"name":"_creation_to_draft","label":"","rdf_mapping":[],"start_state":"(creation)","end_state":"draft"},
-      "_creation_to_finished" : {"roles":{"-1":-1},"name":"_creation_to_finished","label":"","rdf_mapping":[],"start_state":"(creation)","end_state":"finished"},
-      "_creation_to_validated" : {"roles":[],"name":"_creation_to_validated","label":"","rdf_mapping":[],"start_state":"(creation)","end_state":"validated"},
-      "draft_to_draft" : {"roles":{"-1":-1},"name":"draft_to_draft","label":"","rdf_mapping":[],"start_state":"draft","end_state":"draft"},
-      "draft_to_finished" : {"roles":{"-1":-1},"name":"draft_to_finished","label":"","rdf_mapping":[],"start_state":"draft","end_state":"finished"},
-      "draft_to_validated" : {"roles":[],"name":"draft_to_validated","label":"","rdf_mapping":[],"start_state":"draft","end_state":"validated"},
-      "finished_to_draft" : {"roles":[],"name":"finished_to_draft","label":"","rdf_mapping":[],"start_state":"finished","end_state":"draft"},
-      "finished_to_finished" : {"roles":{"-1":-1},"name":"finished_to_finished","label":"","rdf_mapping":[],"start_state":"finished","end_state":"finished"},
-      "finished_to_validated" : {"roles":[],"name":"finished_to_validated","label":"","rdf_mapping":[],"start_state":"finished","end_state":"validated"},
-      "validated_to_draft" : {"roles":{"-1":-1},"name":"validated_to_draft","label":"","rdf_mapping":[],"start_state":"validated","end_state":"draft"},
-      "validated_to_finished" : {"roles":{"-1":-1},"name":"validated_to_finished","label":"","rdf_mapping":[],"start_state":"validated","end_state":"finished"},
-      "validated_to_validated" : {"roles":{"-1":-1},"name":"validated_to_validated","label":"","rdf_mapping":[],"start_state":"validated","end_state":"validated"}
+      "_creation_to_draft" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"_creation_to_draft","label":"","rdf_mapping":[],"start_state":"(creation)","end_state":"draft"},
+      "_creation_to_finished" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"_creation_to_finished","label":"","rdf_mapping":[],"start_state":"(creation)","end_state":"finished"},
+      "_creation_to_validated" : {"roles":{"9":9,"6":6,"10":10},"name":"_creation_to_validated","label":"","rdf_mapping":[],"start_state":"(creation)","end_state":"validated"},
+      "draft_to_draft" : {"roles":{"-1":-1,"7":7,"8":8,"5":5,"9":9,"6":6,"10":10},"name":"draft_to_draft","label":"","rdf_mapping":[],"start_state":"draft","end_state":"draft"},
+      "draft_to_finished" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"draft_to_finished","label":"","rdf_mapping":[],"start_state":"draft","end_state":"finished"},
+      "draft_to_validated" : {"roles":{"5":5,"9":9,"6":6,"10":10},"name":"draft_to_validated","label":"","rdf_mapping":[],"start_state":"draft","end_state":"validated"},
+      "finished_to_draft" : {"roles":{"9":9,"6":6,"10":10},"name":"finished_to_draft","label":"","rdf_mapping":[],"start_state":"finished","end_state":"draft"},
+      "finished_to_finished" : {"roles":{"-1":-1,"7":7,"8":8,"5":5,"9":9,"6":6,"10":10},"name":"finished_to_finished","label":"","rdf_mapping":[],"start_state":"finished","end_state":"finished"},
+      "finished_to_validated" : {"roles":{"5":5,"9":9,"6":6,"10":10},"name":"finished_to_validated","label":"","rdf_mapping":[],"start_state":"finished","end_state":"validated"},
+      "validated_to_draft" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"validated_to_draft","label":"","rdf_mapping":[],"start_state":"validated","end_state":"draft"},
+      "validated_to_finished" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"validated_to_finished","label":"","rdf_mapping":[],"start_state":"validated","end_state":"finished"},
+      "validated_to_validated" : {"roles":{"-1":-1,"7":7,"8":8,"5":5,"9":9,"6":6,"10":10},"name":"validated_to_validated","label":"","rdf_mapping":[],"start_state":"validated","end_state":"validated"}
     },
     "label" : "entityforms",
     "typeMap" : [],
     "rdf_mapping" : [],
-    "system_roles" : { "-1" : "(autor)" }
+    "system_roles" : {
+      "-1" : "(autor)",
+      "7" : "Encuestador",
+      "8" : "Digitador",
+      "5" : "Validador",
+      "9" : "Administrador Local",
+      "6" : "Administrador Regional",
+      "10" : "administrador"
+    }
   }');
 
   return $workflows;
