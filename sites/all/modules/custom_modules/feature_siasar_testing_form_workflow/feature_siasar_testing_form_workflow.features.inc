@@ -99,7 +99,7 @@ function feature_siasar_testing_form_workflow_default_entityform_type() {
         "1" : 0
       },
       "resubmit_action" : "new",
-      "redirect_path" : "testing",
+      "redirect_path" : "resultados",
       "instruction_pre" : { "value" : "", "format" : "filtered_html" }
     },
     "weight" : "0",
