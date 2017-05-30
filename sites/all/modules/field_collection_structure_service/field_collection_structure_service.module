@@ -64,7 +64,7 @@ function field_collection_structure_service_services_resources() {
  * Callback for retrieving the fields resources.
  */
 function _field_collection_structure_service_retrieve($bundle) {
-  $entity_type = "field_collection_item"; 
+  $entity_type = "field_collection_item";
   return entityform_structure_web_service_get_fields($entity_type, $bundle);
 }
 
@@ -74,7 +74,7 @@ function _field_collection_structure_service_index($page, $parameters) {
 
   foreach ($info['bundles'] as $name => $bundle) {
     // Display just the entityform bundle name.
-    $form_fields->$name = reset(_field_collection_structure_service_retrieve($name));
+    $form_fields->{$name} = reset(_field_collection_structure_service_retrieve($name));
   }
 
   return $form_fields;

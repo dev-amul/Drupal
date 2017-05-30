@@ -1,0 +1,115 @@
+body.page-entityform-view {
+  h1 {
+    padding-left: 0;
+  }
+
+  .entity-entityform {
+    position: relative;
+    padding: $vertical-tabs-padding / 2;
+
+    @include breakpoint($break-small) {
+      padding: $vertical-tabs-padding;
+    }
+    @include breakpoint($break-medium) {
+      padding: $vertical-tabs-padding * 2;
+    }
+
+    .submitted {
+      position: static;
+      margin-bottom: 2em;
+    }
+
+    fieldset {
+      border: none;
+    }
+
+    .field-group {
+      margin-bottom: $vertical-tabs-padding * 1.5;
+    }
+
+    h2 {
+      margin-bottom: 0.5em;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: $siasar-dark-cyan;
+      margin: 0 0 0.5em;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .field {
+      clear: left;
+      padding-bottom: 0.5em;
+      margin-bottom: 0.75em;
+      border-bottom: dotted $siasar-light-grey 1px;
+      overflow: auto;
+      line-height: 1.25;
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    .field-label {
+      color: #094069;
+      font-weight: bold;
+      padding-right: $vertical-tabs-padding / 2;
+
+      @include breakpoint($break-small) {
+        width: 200px;
+        padding-right: $vertical-tabs-padding;
+        float: left;
+        clear: left;
+      }
+      @include breakpoint($break-medium) {
+        width: 325px;
+      }
+    }
+    .field-type-field-collection {
+      > .field-label {
+        float: none;
+        width: auto;
+      }
+      > .field-items {
+        margin-top: $vertical-tabs-padding / 2;
+        margin-left: $vertical-tabs-padding * 2;
+        padding-left: $vertical-tabs-padding;
+        border-left: dotted $siasar-light-grey 1px;
+        list-style-type: none;
+        position: relative;
+        counter-reset: item;
+
+        li {
+          counter-increment: item;
+
+          &::before {
+            content: counter(item);
+            font-size: 0.8em;
+            background-color: $siasar-cyan;
+            color: white;
+            font-weight: bold;
+            padding: 2px 4px;
+            border-radius: $siasar-border-radius * 2;
+            position: absolute;
+            left: -7px;
+            z-index: 1;
+          }
+
+          .field-type-entityreference .field-items {
+            display: inline-block;
+          }
+        }
+
+        .field-collection-view {
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

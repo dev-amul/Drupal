@@ -22,7 +22,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 28,
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 25,
       ),
     ),
     'entity_type' => 'entityform',
@@ -59,7 +65,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 14,
+        'weight' => 11,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'entityform',
@@ -100,19 +112,18 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection_table',
+        'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'cssfield' => FALSE,
-          'cssrowcol' => FALSE,
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'empty' => TRUE,
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_table_view',
+        'type' => 'field_collection_fields',
         'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 29,
       ),
     ),
     'entity_type' => 'entityform',
@@ -147,8 +158,14 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'list_key',
-        'weight' => 13,
+        'type' => 'list_default',
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 32,
       ),
     ),
     'entity_type' => 'entityform',
@@ -183,8 +200,14 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'list_key',
-        'weight' => 12,
+        'type' => 'list_default',
+        'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 30,
       ),
     ),
     'entity_type' => 'entityform',
@@ -223,11 +246,17 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'type' => 'number_decimal',
         'weight' => 7,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_alto',
     'label' => 'Altitud',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -266,6 +295,12 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 4,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_anno_construccion',
@@ -289,7 +324,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label_position' => 'none',
         'no_fieldset' => 0,
         'text_parts' => array(),
-        'year_range' => '1900:+0',
+        'year_range' => '1920:+0',
       ),
       'type' => 'date_select',
       'weight' => 26,
@@ -310,7 +345,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 32,
+        'weight' => 33,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'entityform',
@@ -356,7 +397,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 24,
+        'weight' => 11,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'entityform',
@@ -367,11 +414,11 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'entity_translation_sync' => FALSE,
       'mvf' => array(
         'max' => array(
-          'target_id' => '_none',
+          'target_id' => 681,
           'value' => '',
         ),
         'min' => array(
-          'target_id' => '_none',
+          'target_id' => 681,
           'value' => 0,
         ),
         'unit_suggesters_settings' => array(
@@ -423,7 +470,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
@@ -446,7 +493,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 20,
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'entityform',
@@ -529,6 +582,12 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 8,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_codigo_de_sistema',
@@ -564,7 +623,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 31,
+        'weight' => 32,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
       ),
     ),
     'entity_type' => 'entityform',
@@ -607,7 +672,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 29,
+        'weight' => 11,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 22,
       ),
     ),
     'entity_type' => 'entityform',
@@ -640,14 +711,16 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 17,
+        'type' => 'field_collection_fields',
+        'weight' => 4,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 24,
       ),
     ),
     'entity_type' => 'entityform',
@@ -667,6 +740,49 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-sistema-field_data_source'.
+  $field_instances['entityform-sistema-field_data_source'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 36,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_data_source',
+    'label' => 'Origen de los datos',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'text_default',
+        'formatter_settings' => array(),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance:
   // 'entityform-sistema-field_e_infraestructura_almac'.
   $field_instances['entityform-sistema-field_e_infraestructura_almac'] = array(
@@ -679,14 +795,16 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 18,
+        'type' => 'field_collection_fields',
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'entityform',
@@ -720,6 +838,12 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 5,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_entidad_local',
@@ -752,37 +876,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_entity_clasification'.
-  $field_instances['entityform-sistema-field_entity_clasification'] = array(
-    'bundle' => 'sistema',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'computed_field',
-        'settings' => array(),
-        'type' => 'computed_field_plain',
-        'weight' => 30,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entity_clasification',
-    'label' => 'Clasificación',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'computed_field',
-      'settings' => array(),
-      'type' => 'computed',
-      'weight' => 9,
-    ),
-  );
-
   // Exported field_instance: 'entityform-sistema-field_entity_name'.
   $field_instances['entityform-sistema-field_entity_name'] = array(
     'bundle' => 'sistema',
@@ -796,6 +889,17 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 3,
+      ),
+      'entity_reference' => array(
+        'label' => 'hidden',
+        'module' => 'title',
+        'settings' => array(
+          'title_class' => '',
+          'title_link' => 'content',
+          'title_style' => '_none',
+        ),
+        'type' => 'title_linked',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -829,14 +933,16 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 19,
+        'type' => 'field_collection_fields',
+        'weight' => 6,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 31,
       ),
     ),
     'entity_type' => 'entityform',
@@ -853,6 +959,120 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'settings' => array(),
       'type' => 'field_collection_embed',
       'weight' => 73,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-sistema-field_fecha_analisis_coliformes'.
+  $field_instances['entityform-sistema-field_fecha_analisis_coliformes'] = array(
+    'bundle' => 'sistema',
+    'default_value' => array(),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 13,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_fecha_analisis_coliformes',
+    'label' => 'Fecha de analisis - Test de Coliformes',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'site-wide',
+        'input_format_custom' => '',
+        'label_position' => 'none',
+        'no_fieldset' => 1,
+        'text_parts' => array(),
+        'year_range' => '1900:+0',
+      ),
+      'type' => 'date_select',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_fecha_analisis_fq'.
+  $field_instances['entityform-sistema-field_fecha_analisis_fq'] = array(
+    'bundle' => 'sistema',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 15,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_fecha_analisis_fq',
+    'label' => 'Fecha de análisis - Físico/Químico',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'site-wide',
+        'input_format_custom' => '',
+        'label_position' => 'none',
+        'no_fieldset' => 1,
+        'text_parts' => array(),
+        'year_range' => '1900:+0',
+      ),
+      'type' => 'date_select',
+      'weight' => 16,
     ),
   );
 
@@ -875,12 +1095,18 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 23,
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 36,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_fecha_analisiscalidad_agua',
-    'label' => 'Fecha de análisis de la calidad del agua',
+    'label' => 'Fecha de análisis - Cloro Residual',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -927,6 +1153,12 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 1,
       ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_fecha_de_aplicaci_n',
@@ -968,14 +1200,16 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 15,
+        'type' => 'field_collection_fields',
+        'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 34,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1007,7 +1241,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 21,
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 23,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1039,7 +1279,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 22,
+        'weight' => 7,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 26,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1071,13 +1317,19 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 25,
+        'weight' => 12,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_g4_3',
-    'label' => 'Pasa el test de coliformes?',
-    'required' => 1,
+    'label' => '¿Pasa el test de coliformes?',
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1087,7 +1339,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 14,
+      'weight' => 13,
     ),
   );
 
@@ -1103,12 +1355,18 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 26,
+        'weight' => 14,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_g4_4',
-    'label' => 'Pasa el test de análisis físico-químicos',
+    'label' => '¿Pasa el test de análisis Físico/Químico?',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1135,7 +1393,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 27,
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1172,7 +1436,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'image_style' => 'large',
         ),
         'type' => 'image',
-        'weight' => 0,
+        'weight' => 2,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1212,12 +1482,65 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'geofield',
+        'module' => 'leaflet',
         'settings' => array(
-          'data' => 'full',
+          'height' => 400,
+          'icon' => array(
+            'html' => '',
+            'htmlClass' => '',
+            'iconAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'iconImageStyle' => '',
+            'iconSize' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'iconType' => 'marker',
+            'iconUrl' => '',
+            'popupAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'shadowAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'shadowUrl' => '',
+          ),
+          'leaflet_map' => 'OSM Mapnik',
+          'popup' => array(
+            'show' => 0,
+            'text' => '',
+          ),
+          'vector_display' => array(
+            'clickable' => 0,
+            'color' => '',
+            'dashArray' => '',
+            'fill' => 0,
+            'fillColor' => '',
+            'fillOpacity' => '',
+            'opacity' => '',
+            'stroke' => 0,
+            'stroke_override' => 0,
+            'weight' => '',
+          ),
+          'zoom' => array(
+            'initialZoom' => 13,
+            'maxZoom' => -1,
+            'minZoom' => 1,
+            'scrollWheelZoom' => 1,
+          ),
         ),
-        'type' => 'geofield_wkt',
+        'type' => 'geofield_leaflet',
         'weight' => 6,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 35,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1250,14 +1573,16 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 16,
+        'type' => 'field_collection_fields',
+        'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 27,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1291,7 +1616,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 33,
+        'weight' => 34,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1318,6 +1649,97 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-sistema-field_pais'.
+  $field_instances['entityform-sistema-field_pais'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 3,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_pais',
+    'label' => 'País',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 112,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-sistema-field_rating_s1'.
+  $field_instances['entityform-sistema-field_rating_s1'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 35,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_rating_s1',
+    'label' => 'Calificación (SIASAR 1)',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'entityreference_label',
+        'formatter_settings' => array(
+          'link' => 0,
+        ),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance:
   // 'entityform-sistema-field_rehabilitaciones_y_o_ampli'.
   $field_instances['entityform-sistema-field_rehabilitaciones_y_o_ampli'] = array(
@@ -1330,14 +1752,16 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 10,
+        'type' => 'field_collection_fields',
+        'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 33,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1370,7 +1794,13 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 11,
+        'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1415,6 +1845,12 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         ),
         'type' => 'entityreference_label',
         'weight' => 2,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2482,8 +2918,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'max' => '',
-      'min' => '',
+      'max' => 24,
+      'min' => 0,
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -3465,11 +3901,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // 'field_collection_item-field_lineas_de_conduccion-field_c1_4'.
   $field_instances['field_collection_item-field_lineas_de_conduccion-field_c1_4'] = array(
     'bundle' => 'field_lineas_de_conduccion',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3484,7 +3916,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_c1_4',
     'label' => '¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -3538,12 +3970,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // 'field_collection_item-field_lineas_de_conduccion-field_diametro_medio_de_tuberia'.
   $field_instances['field_collection_item-field_lineas_de_conduccion-field_diametro_medio_de_tuberia'] = array(
     'bundle' => 'field_lineas_de_conduccion',
-    'default_value' => array(
-      0 => array(
-        'value' => '0.00',
-        'target_id' => 637,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3564,7 +3991,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_diametro_medio_de_tuberia',
     'label' => 'Diámetro medio o sección (interior) de la tubería principal',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'mvf' => array(
@@ -3579,7 +4006,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
             'enable' => 0,
-            'unit' => 636,
+            'unit' => 682,
             'weight' => 0,
           ),
           'locale' => array(
@@ -3706,7 +4133,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_longitud_de_la_linea',
     'label' => 'Longitud de la línea',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'mvf' => array(
@@ -3728,6 +4155,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
             'en' => -1,
             'enable' => 0,
             'es' => 2,
+            'es-CO' => -1,
+            'es-HN' => -1,
             'pt-br' => -1,
             'weight' => 0,
           ),
@@ -4070,12 +4499,12 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Altitud');
   t('Año');
   t('Año de construcción');
+  t('Calificación (SIASAR 1)');
   t('Cantidad de cloro residual');
   t('Capacidad de almacenamiento (volumen)');
   t('Caudal actual del sistema');
   t('Caudal de la fuente');
   t('Caudal de la fuente en epoca seca');
-  t('Clasificación');
   t('Croquis');
   t('Cuenca hidrográfica');
   t('Código de Sistema');
@@ -4096,7 +4525,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Existencia de zonas erosionadas en los alrededores de fuente / toma de agua');
   t('Existencia de áreas verdes o zonas forestadas alrededor de la fuente / toma de agua');
   t('Fecha de Aplicación');
-  t('Fecha de análisis de la calidad del agua');
+  t('Fecha de analisis - Test de Coliformes');
+  t('Fecha de análisis - Cloro Residual');
+  t('Fecha de análisis - Físico/Químico');
   t('Fecha de la toma del caudal de la fuente');
   t('Fecha de la toma del caudal de la fuente en época seca');
   t('Fecha en la que se llena la encuesta');
@@ -4110,6 +4541,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Infraestructura de almacenamiento');
   t('Infraestructura de tratamiento');
   t('Institución ejecutora	');
+  t('La altitud se mide en metros sobre el nivel del mar (msnm).');
   t('Localidad');
   t('Longitud de la línea');
   t('Líneas de conducción');
@@ -4125,9 +4557,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Observaciones sobre la infraestructura');
   t('Observaciones y comentarios');
   t('Origen de financiamiento (institución, organismo, donación, aporte, etc.)');
+  t('Origen de los datos');
   t('Otras divisiones');
-  t('Pasa el test de análisis físico-químicos');
-  t('Pasa el test de coliformes?');
+  t('País');
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
   t('Red de distribución');
@@ -4146,6 +4578,8 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('¿Es la fuente principal del sistema? (sólo debe ser una entre todas las asociadas)');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el invierno / época de lluvias?');
   t('¿Hay suficiente agua en las fuentes en función de la demanda en el verano / época seca?');
+  t('¿Pasa el test de análisis Físico/Químico?');
+  t('¿Pasa el test de coliformes?');
   t('¿Qué otro tipo de sistema es?');
   t('Área o zona de planificación');
 

@@ -5,3 +5,14 @@
  */
 
 include_once 'feature_siasar_field_bases.features.inc';
+
+
+/**
+* Implements hook_entity_info_alter().
+*/
+function feature_siasar_field_bases_entity_info_alter(&$entity_info) {
+  $entity_info['entityform']['view modes']['entity_reference'] = array(
+    'label' => t('Entity Reference'),
+    'custom settings' => TRUE,
+  );
+}

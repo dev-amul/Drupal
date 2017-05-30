@@ -1,0 +1,57 @@
+// Theme SASS variables
+
+// Breakpoints
+$break-small: 600px;
+$break-medium: 992px;
+$break-large: 1280px;
+$break-xlarge: 1600px;
+
+
+// Colors
+$siasar-blue: #096396;
+$siasar-dark-blue: #094069;
+
+$siasar-green: #26c726;
+$siasar-light-green: #99f199;
+
+$siasar-yellow: #ffd815;
+$siasar-light-yellow: #ffefa1;
+
+$siasar-red: #d81d40;
+$siasar-light-red: #df6e52;
+
+$siasar-maroon: #bf1d50;
+$siasar-light-maroon: #d97796;
+
+$siasar-orange: #de861b;
+$siasar-dark-orange: #a76514;
+$siasar-light-orange: #f2cfa4;
+
+$siasar-cyan: #00add2;
+$siasar-dark-cyan: #00829e;
+$siasar-light-cyan: #8edced;
+
+$siasar-dark-grey: #666;
+$siasar-light-grey: #ddd;
+$siasar-almost-white: #f4f4f4;
+
+
+// Layout variables
+$layout-max-width: 1240px;
+$left-box: 625px;
+
+// Shadows
+$shadow-logo: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
+$shadow-interactive: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+$shadow-subtle: 0 3px 1px -2px rgba(0,0,0,0.2);
+$shadow-tabs: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
+
+// Border radius
+$siasar-border-radius: 5px;
+
+// Vertical tabs
+$vertical-tabs-padding: 20px;
+
+// Animations
+$transition-time: 0.3s;
+$transition-curve: ease-in-out;

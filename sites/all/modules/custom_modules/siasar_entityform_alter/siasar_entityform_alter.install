@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * Process all entityforms to add Country data.
+ * Implements hook_install()
+ */
+function siasar_entityform_alter_install() {
+  drupal_set_message(t('Processing all entityforms to add country data if possible.'), 'status');
+
+  $bundles = array_keys(entity_get_info('entityform')['bundles']);
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'entityform')
+    ->entityCondition('bundle', $bundles, 'IN')
+    ->propertyOrderBy('entityform_id', 'ASC');
+  $result = $query->execute();
+
+  if (isset($result['entityform'])) {
+    $entities_list = $result['entityform'];
+    drupal_set_message(t('There are %entities entityforms to process', array('%entities' => count($entities_list))), 'status');
+
+    foreach($entities_list as $entity_id => $item) {
+      $entity = entity_load_single('entityform', $entity_id);
+      if (isset($entity->field_pais) && empty($entity->field_pais)) {
+        $wrapper = entity_metadata_wrapper('entityform', $entity);
+
+        if (!empty($entity->field_entidad_local)) { // Country by taxonomy
+          $country_to_set = $wrapper->field_entidad_local->field_pais->value();
+        } else { // country by user
+          $user_wrapper = entity_metadata_wrapper('user', $entity->uid);
+          $country_to_set = $user_wrapper->field_pais->value();
+        }
+
+        if ($country_to_set) {
+          $wrapper->field_pais->set($country_to_set);
+          $wrapper->save();
+        }
+      }
+    }
+  }
+}

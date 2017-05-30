@@ -8,31 +8,36 @@
   'use strict';
 
   $.fn.siasarHierarchicalSelect = function () {
+    var $countrySelector = $('#edit-field-pais-und');
     var tidCache = {};
+    var country;
+
+    $countrySelector = ($countrySelector.length > 0)
+      ? $countrySelector
+      : $('#edit-field-pais-iso2');
 
     return this.each(function () {
+      var xhrChildren = new XMLHttpRequest;
       var $locationWrapper = $(this);
-      var fieldName = $locationWrapper.attr('id').replace('edit-', '').replace(/-/g, '_');
       var $locationField = $locationWrapper.find('.form-text');
+      var fieldName = $locationField.attr('field-name');
       var initialValue = parseInt($locationField.val());
       var $initOptions = $locationField.find('option');
-      var selected = $locationField.val();
       var noneSelected = {
         tid: '_none',
         name: Drupal.t('- Ninguno - '),
       }
-      var userCountry = Drupal.settings.siasarHierarchicalSelect.user.country
-        ? Drupal.settings.siasarHierarchicalSelect.user.country
-        : 'all';
       var forceDeepest = (Drupal.settings.siasarHierarchicalSelect[fieldName].forceDeepest === 1);
       var $locationTreeSelectorWrapper;
 
+
       init();
+      listenToCountrySelector();
 
       function getAllTermsInChain() {
         if (initialValue == 0) return;
 
-        var url = '/ajax/location/' + initialValue + '/' + userCountry + '/parents';
+        var url = '/ajax/location/' + initialValue + '/' + country + '/parents';
 
         $.get(url, null, function (data, status) {
           processParentData(data, status);
@@ -73,14 +78,24 @@
         var level = parseInt($(this).data('level'));
 
         this.blur();
-        cleanSelectorChain(level);
         $locationField.val('');
+        cleanSelectorChain(level);
 
         if (tidCache[term.tid]) {
+          setCanonicalValue(term.tid);
           buildSelectorLevel(term.tid, level + 1);
         } else if (term.tid !== '_none') {
           requestChildrenTerms(term);
         }
+      }
+
+      function setCanonicalValue(value) {
+        var hasChildren = (typeof (tidCache[value]) === 'object' && tidCache[value].length > 1);
+
+        if (value === 0 || (forceDeepest && hasChildren)) return;
+
+        $locationField.val(value);
+        addOK();
       }
 
       function cleanSelectorChain(level) {
@@ -106,16 +121,27 @@
 
 
       function createOptionElement(term) {
-        return '<option value="' + term.tid + '">' + term.name + '</option>';
+        var label = term.name;
+
+        if (typeof term.field_codigo_division_admin === 'string') {
+          label += ' - ' + term.field_codigo_division_admin;
+        }
+        return '<option value="' + term.tid + '">' + label + '</option>';
       }
 
 
       function requestChildrenTerms(term) {
-        var url = '/ajax/location/' + term.tid + '/' + userCountry;
+        var url = '/ajax/location/' + term.tid + '/';
 
+        url = term.tid === 0
+          ? url + country
+          : url + 'all';
+
+        removeThrobber();
         addThrobber();
 
-        $.get(url, null, function (data, status) {
+        xhrChildren.abort('new request');
+        xhrChildren = $.get(url, null, function (data, status) {
           processResult(data, status, term);
         }, 'json');
       }
@@ -123,16 +149,15 @@
 
       function processResult(data, status, term) {
         removeThrobber();
-        if (data.length == 0 && term.tid !== 0) {
-          $locationField.val(term.tid);
-          addOK();
-          return;
-        }
+        tidCache[term.tid] = mapTermsFromRequestToArray(data);
+        setCanonicalValue(term.tid);
+
+        if (data.length == 0 && term.tid !== 0) return;
+
         var $lastSelectorInChain = $locationTreeSelectorWrapper.find('.location-tree-selector').last();
         var levelDoesExist = !isNaN(parseInt($lastSelectorInChain.data('level')));
         var level = levelDoesExist ? $lastSelectorInChain.data('level') : -1;
 
-        tidCache[term.tid] = mapTermsFromRequestToArray(data);
         buildSelectorLevel(term.tid, level + 1);
       }
 
@@ -162,7 +187,14 @@
 
       function mapTermsFromRequestToArray(data) {
         var mapped = Object.keys(data).map(function (k) {
-          return { tid: k, name: data[k] };
+          var term = {
+            tid: data[k].tid,
+            name: data[k].name
+          }
+          if (typeof data[k].field_codigo_division_admin === 'string') {
+            term.field_codigo_division_admin = data[k].field_codigo_division_admin;
+          }
+          return term;
         });
         var output = [];
 
@@ -170,9 +202,31 @@
         return output;
       }
 
+      function getCountry() {
+        var countryInForm = $countrySelector.val();
+
+        if (countryInForm && countryInForm !== '_none') {
+          return countryInForm.toUpperCase();
+        }
+        return 'all';
+      }
+
+      // INIT functions
+
+      function listenToCountrySelector() {
+        $countrySelector.on('change', function (e) {
+          if (e.target.value.length !== 2) return;
+
+          $locationTreeSelectorWrapper.remove();
+          initialValue = 0;
+          init();
+        });
+      }
 
       function init() {
         var hierarchicalSelectorWrapper = '<div class="location-tree-selector-wrapper"></div>';
+
+        country = getCountry();
 
         $locationWrapper.append(hierarchicalSelectorWrapper);
         $locationTreeSelectorWrapper = $locationWrapper.find('.location-tree-selector-wrapper');

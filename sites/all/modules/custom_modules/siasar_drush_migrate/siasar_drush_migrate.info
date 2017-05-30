@@ -1,0 +1,5 @@
+name = SIASAR Drush Migrate
+description = Provides Drush commands to leverage legacy data migration processes.
+version = 7.x-1.0
+core = 7.x
+package = siasar

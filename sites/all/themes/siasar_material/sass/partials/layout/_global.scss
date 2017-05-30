@@ -1,0 +1,135 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  font-size: 12px;
+
+  @include breakpoint($break-medium) {
+    font-size: 14px;
+  }
+
+}
+body {
+  font-family: $body-font;
+  position: relative;
+  background-color: $siasar-dark-grey;
+
+  &.not-logged-in {
+    background-color: $siasar-dark-cyan;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: $headers-font;
+  font-weight: bold;
+  color: $siasar-cyan;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  background: $siasar-blue;
+  color: white;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 2.5rem;
+}
+h4 {
+  font-size: 2rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+div,
+ul,
+li,
+fieldset,
+input,
+select,
+textarea,
+fieldset {
+  box-sizing: border-box;
+}
+
+.page {
+  max-width: 1280px;
+  margin: 80px auto;
+
+  @include breakpoint($break-small) {
+    margin: 100px auto;
+  }
+  @include breakpoint($break-medium) {
+    margin: 120px auto;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .main {
+    padding: 0;
+  }
+
+  .block {
+    background: white;
+    padding: $vertical-tabs-padding $vertical-tabs-padding ($vertical-tabs-padding + 4);
+  }
+}
+
+table.responsive-table tbody {
+  white-space: normal;
+  clear: left;
+}
+
+// Pager
+ul.pagination {
+  display: table;
+  margin: ($vertical-tabs-padding * 2) auto;
+
+  li {
+    height: auto;
+    vertical-align: middle;
+
+    a {
+      color: $siasar-orange;
+    }
+
+    &.pager-elipsis {
+      background: none;
+      color: $siasar-light-grey;
+    }
+    &.active {
+      background-color: $siasar-orange;
+      border-radius: $siasar-border-radius;
+      padding-left: $siasar-border-radius;
+      padding-right: $siasar-border-radius;
+      color: white;
+    }
+  }
+}
+
+// Errors and notices
+.messages {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: $siasar-light-green;
+  border: solid $siasar-green 2px;
+  border-radius: $siasar-border-radius;
+
+  &.error {
+    background-color: $siasar-light-yellow;
+    border-color: $siasar-red;
+  }
+
+  ul {
+    margin: 0;
+  }
+}

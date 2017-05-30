@@ -106,7 +106,7 @@ function l10n_update_test_l10n_update_projects_alter(&$projects) {
         'info' => array(
           'name' => 'Locale test',
           'interface translation project' => 'l10n_update_test',
-          'l10n path' => 'sites/all/modules/l10n_update/tests/test.%language.po',
+          'l10n path' => drupal_get_path('module', 'l10n_update') . '/tests/test.%language.po',
           'package' => 'Other',
           'version' => NULL,
           'project' => 'l10n_update_test',

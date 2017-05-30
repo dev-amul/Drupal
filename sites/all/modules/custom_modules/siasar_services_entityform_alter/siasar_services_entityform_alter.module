@@ -1,7 +1,24 @@
 <?php
+/**
+ * Alters incoming request to take care of "field_pais" country fields.
+ *
+ * @param array $data
+ *   The parsed request data.
+ * @param array $controller
+ *   The current controller definition.
+ *
+ * @see RESTServer->getControllerArguments()
+ */
+function siasar_services_entityform_alter_rest_server_request_parsed_alter(&$data, $controller) {
+  $allowed_operations = array('create', 'update');
+  if (!empty($data['field_pais']) && $controller['callback'] == '_services_entity_resource_callback' && in_array($controller['access arguments'][0], $allowed_operations)) {
+    $data['field_pais'] = country_load($data['field_pais']);
+  }
+}
+
 
 /**
- * Alter results on the Entityform services call.
+ * Alter results on the Entityform services call used to retrieve results
  *
  * @param $controller
  *   Controller definition
@@ -109,13 +126,36 @@ function _siasar_services_entityform_alter_attach_term_info($field) {
   $field['name'] = $terms[$tid]->name;
   $field['tid'] = $terms[$tid]->tid;
   if ($terms[$tid]->vocabulary_machine_name == 'division_administrativa') {
-    $field['country'] = $terms[$tid]->field_pais[LANGUAGE_NONE][0]['iso2'];
     $field['parent'] = _siasar_services_entityform_alter_get_nested_ancestors($tid);
+
+    if (!empty($terms[$tid]->field_pais)) {
+      $field['country'] = $terms[$tid]->field_pais[LANGUAGE_NONE][0]['iso2'];
+    } else {
+      $field['country'] = _siasar_services_entityform_alter_get_country_from_ancestors($field['parent']);
+    }
   }
 
   unset ($field['id']);
 
   return $field;
+}
+
+/**
+ * Helper function traverses parents recursive array of N11 terms to find country iso2 code, if it exists.
+ *
+ * @param array $ancestors
+ *   Recursive array of term parents data.
+ * @return string or null
+ *   ISO2 code.
+ */
+function _siasar_services_entityform_alter_get_country_from_ancestors($ancestors) {
+  if (isset($ancestors['country'])) {
+    return $ancestors['country'];
+  }
+  if (isset($ancestors['parent'])) {
+    return _siasar_services_entityform_alter_get_country_from_ancestors($ancestors['parent']);
+  }
+  return null;
 }
 
 /**
@@ -214,7 +254,7 @@ function _siasar_services_entityform_alter_attach_field_collection_info($field) 
   $field_list = array_keys($fc_structure[$fc_name]);
 
   foreach ($field_list as $key) {
-    $field[$key] = _siasar_services_entityform_alter_get_value_from_wrapper($wrapper, $key);
+    $field[$key] = _siasar_services_entityform_alter_get_value_from_wrapper($entity, $wrapper, $key);
   }
 
   return $field;
@@ -246,7 +286,9 @@ function _siasar_services_entityform_alter_array_is_numeric(array $array) {
  * @return string or array
  *   Return fetched value
  */
-function _siasar_services_entityform_alter_get_value_from_wrapper($wrapper, $key) {
+function _siasar_services_entityform_alter_get_value_from_wrapper($entity, $wrapper, $key) {
+  $language = field_language($wrapper->type(), $entity, $key);
+
   $value = null;
   switch($wrapper->{$key}->type()) {
     case 'taxonomy_term':
@@ -257,7 +299,20 @@ function _siasar_services_entityform_alter_get_value_from_wrapper($wrapper, $key
       }
       break;
     default:
-      $value = $wrapper->{$key}->value();
+      $value = $wrapper->language($language)->{$key}->value();
+      if ($value == null && !empty($entity->{$key}[$language])) {
+        $value = (count($entity->{$key}[$language])> 1)
+          ? $entity->{$key}[$language]
+          : $entity->{$key}[$language][0]['value'];
+      }
+
+      $options_list = $wrapper->language($language)->{$key}->optionsList();
+      if ($options_list && !is_array($value) && isset($options_list[$value])) {
+        $value = array(
+          'value' => $value,
+          'label' => $options_list[$value],
+        );
+      }
   }
 
   return $value;
