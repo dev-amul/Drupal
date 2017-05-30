@@ -609,6 +609,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['field'] = 'field_nombre_completo_value';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['relationship'] = 'field_user_reference_target_id';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_nombre_completo_value_1']['group'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['operator_id'] = 'field_nombre_completo_value_1_op';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['label'] = 'Encuestador/a';
@@ -631,6 +632,47 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_dependent'] = 0;
+  /* Criterio de filtrado: Entityform Submission: Status (field_status) */
+  $handler->display->display_options['filters']['field_status_value']['id'] = 'field_status_value';
+  $handler->display->display_options['filters']['field_status_value']['table'] = 'field_data_field_status';
+  $handler->display->display_options['filters']['field_status_value']['field'] = 'field_status_value';
+  $handler->display->display_options['filters']['field_status_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_status_value']['expose']['operator_id'] = 'field_status_value_op';
+  $handler->display->display_options['filters']['field_status_value']['expose']['label'] = 'Status (field_status)';
+  $handler->display->display_options['filters']['field_status_value']['expose']['operator'] = 'field_status_value_op';
+  $handler->display->display_options['filters']['field_status_value']['expose']['identifier'] = 'field_status_value';
+  $handler->display->display_options['filters']['field_status_value']['is_grouped'] = TRUE;
+  $handler->display->display_options['filters']['field_status_value']['group_info']['label'] = 'Estado';
+  $handler->display->display_options['filters']['field_status_value']['group_info']['identifier'] = 'field_status_value';
+  $handler->display->display_options['filters']['field_status_value']['group_info']['group_items'] = array(
+    1 => array(
+      'title' => 'Draft',
+      'operator' => '=',
+      'value' => array(
+        'value' => '2',
+        'min' => '',
+        'max' => '',
+      ),
+    ),
+    2 => array(
+      'title' => 'Finished',
+      'operator' => '=',
+      'value' => array(
+        'value' => '3',
+        'min' => '',
+        'max' => '',
+      ),
+    ),
+    3 => array(
+      'title' => 'Validated',
+      'operator' => '=',
+      'value' => array(
+        'value' => '4',
+        'min' => '',
+        'max' => '',
+      ),
+    ),
+  );
   $handler->display->display_options['path'] = 'resultados';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Ver';
