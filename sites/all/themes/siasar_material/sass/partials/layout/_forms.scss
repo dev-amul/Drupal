@@ -1,0 +1,79 @@
+
+.btn {
+  background-color: $siasar-green;
+  text-transform: lowercase;
+  border-radius: $siasar-border-radius;
+
+  &.form-submit {
+    background-image: url('../img/tick.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    padding-left: 55px;
+    padding-right: 25px;
+  }
+}
+
+.input-field {
+  margin-top: 0;
+
+  label,
+  label:not(.label-icon).active {
+    font-size: 1rem;
+    color: $siasar-dark-cyan;
+    position: static;
+    display: block;
+    transform: translate(0);
+  }
+
+  [type="radio"]:not(:checked) + label,
+  [type="radio"]:checked + label {
+    color: $siasar-dark-grey;
+  }
+
+  input.form-text,
+  select.form-select,
+  textarea {
+    box-sizing: border-box;
+    padding-left: 10px;
+    background-color: white;
+    border: solid $siasar-light-grey 2px;
+    border-radius: $siasar-border-radius;
+    margin-bottom: 0;
+
+    &:focus {
+      border-bottom-width: 2px;
+    }
+
+    &.error {
+      border-color: $siasar-red;
+    }
+  }
+
+  textarea {
+    min-height: 8em;
+  }
+}
+
+select.location-tree-selector {
+  display: inline-block;
+  width: auto;
+  border: solid $siasar-light-grey 2px;
+}
+
+span.form-required {
+  color: #c1272d;
+  font-weight: bold;
+}
+
+.form-type-date-select .form-item {
+  margin-right: 3px;
+}
+
+.field-widget-mvf-widget-default .form-type-mvf-widget {
+  select,
+  input {
+    width: auto;
+    display: inline-block;
+  }
+}

@@ -1,6 +1,16 @@
 <?php
 
 /**
+ * Implements hook_views_api().
+ */
+function siasar_field_location_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'siasar_field_location') . '/views',
+  );
+}
+
+/**
  * Implements hook_menu()
  **/
 function siasar_field_location_menu() {
@@ -19,6 +29,49 @@ function siasar_field_location_menu() {
   return $items;
 }
 
+
+/**
+ * Implementation of hook_services_resources().
+ */
+function siasar_field_location_services_resources() {
+  return array(
+    'location_hierarchy' => array(
+      'operations' => array(
+        'index' => array(
+          'help' => 'Retrieves hierarchy of location terms. Arguments:<br/>OPERATION (children/ancestors) = children, TID = 0, COUNTRY (ISO2) = all',
+          'callback' => '_siasar_field_location_api_children',
+          'file' => array('file' => 'services.inc', 'module' => 'siasar_field_location'),
+          'args' => array(
+            array(
+              'name' => 'operation',
+              'type' => 'string',
+              'description' => 'children/ancestors: retrieve children or ancestors',
+              'source' => array('path' => 0),
+              'optional' => FALSE,
+            ),
+            array(
+              'name' => 'tid',
+              'type' => 'integer',
+              'description' => 'Term ID, defaults to 0, top level of hierarchy',
+              'default value' => 0,
+              'source' => array('path' => 1),
+              'optional' => TRUE,
+            ),
+            array(
+              'name' => 'country',
+              'type' => 'string',
+              'description' => 'Country as ISO2, defaults to "all"',
+              'default value' => 'all',
+              'source' => array('path' => 2),
+              'optional' => TRUE,
+            )
+          ),
+          'access arguments' => array('access content'),
+        ),
+      ),
+    ),
+  );
+}
 
 /**
  * Implements hook_field_widget_info().
@@ -41,16 +94,26 @@ function siasar_field_location_field_widget_info() {
  * Implements hook_field_widget_form().
  */
 function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
-  global $user;
-
-  $user_wrapper = entity_metadata_wrapper('user', user_load($user->uid));
-  $module_path = drupal_get_path('module', 'siasar_field_location');
   $field = $instance['field_name'];
+  $default_value = isset($items[$delta]['tid'])
+    ? $items[$delta]['tid']
+    : null;
+  $force_deepest = isset($instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'])
+    ? isset($instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'])
+    : false;
 
-  $element += array(
+  $element += siasar_field_location_field_widget_skeleton($field, $default_value, $force_deepest);
+
+  return $element;
+}
+
+function siasar_field_location_field_widget_skeleton($field, $default_value = null, $force_deepest = false) {
+  $module_path = drupal_get_path('module', 'siasar_field_location');
+
+  $element = array(
     '#type' => 'textfield',
     '#size' => 8,
-    '#default_value' => isset($items[$delta]['tid']) ? $items[$delta]['tid'] : '',
+    '#default_value' => $default_value,
     '#maxlength' => 1024,
     '#element_validate' => array('siasar_field_location_validate'),
     '#attached' => array(
@@ -61,11 +124,8 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
         array(
           'data' => array(
             'siasarHierarchicalSelect' => array(
-              'user' => array(
-                'country' => $user_wrapper->field_pais->value()->iso2
-              ),
               $field => array(
-                'forceDeepest' => $instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'],
+                'forceDeepest' => $force_deepest,
               ),
             ),
           ),
@@ -75,6 +135,7 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
     ),
     '#attributes' => array(
       'class' => array('siasar-hierarchical-select'),
+      'field-name' => $field,
     ),
   );
 
@@ -111,9 +172,22 @@ function siasar_field_location_field_widget_settings_form($field, $instance) {
  * Form element validate handler for SIASAR Field Location taxonomy term element.
  */
 function siasar_field_location_validate($element, &$form_state) {
-  $field_name = $element['#field_name'];
-  $language = $element['#language'];
-  $widget_settings = $form_state['field'][$field_name][$language]['instance']['widget']['settings']['siasar_hierarchical_select'];
+  $form_type = isset($form_state['view'])
+    ? 'view'
+    : 'field';
+
+  switch ($form_type) {
+    case 'view':
+      $field_name = $element['#name'];
+      $language = LANGUAGE_NONE;
+      $widget_settings = array('force_deepest' => 0);
+      break;
+    case 'field':
+      $field_name = $element['#field_name'];
+      $language = $element['#language'];
+      $widget_settings = $form_state['field'][$field_name][$language]['instance']['widget']['settings']['siasar_hierarchical_select'];
+      break;
+  }
 
   if ($element['#value'] === '') {
     return;
@@ -130,30 +204,35 @@ function siasar_field_location_validate($element, &$form_state) {
   if ($term === false) {
     form_set_error($element['#name'], t('Specified TID does not match any term.'));
     return;
-  } 
+  }
 
   // Does it belong to the right vocabulary?
-  $field = field_widget_field($element, $form_state);
-  $vocabularies = array();
-  foreach ($field['settings']['allowed_values'] as $tree) {
-    if ($vocabulary = taxonomy_vocabulary_machine_name_load($tree['vocabulary'])) {
-      $vocabularies[$vocabulary->vid] = $vocabulary;
+  // Does not apply on Views
+  if ($form_type !== 'view') {
+    $field = field_widget_field($element, $form_state);
+    $vocabularies = array();
+    foreach ($field['settings']['allowed_values'] as $tree) {
+      if ($vocabulary = taxonomy_vocabulary_machine_name_load($tree['vocabulary'])) {
+        $vocabularies[$vocabulary->vid] = $vocabulary;
+      }
     }
-  }
-  if (!in_array($term->vid, array_keys($vocabularies))) {
-    form_set_error($element['#name'], t('Specified term does not belong to an allowed vocabulary. See field [@field] configuration for details.', array('@field' => $element['#field_name'])));
-    return;
+    if (!in_array($term->vid, array_keys($vocabularies))) {
+      form_set_error($element['#name'], t('Specified term does not belong to an allowed vocabulary. See field [@field] configuration for details.', array('@field' => $field_name)));
+      return;
+    }
   }
 
   if ($widget_settings['force_deepest'] === 1) {
     $children = _siasar_field_location_get_term_list_from_view($element['#value'], 'all');
     if (!empty($children)) {
-        form_error($element, t('You need to select a term from the deepest level in field [@field].', array('@field' => $element['#field_name'])));
+        form_error($element, t('You need to select a term from the deepest level in field [@field].', array('@field' => $field_name)));
         return;
     }
   }
 
-  form_set_value($element, (array) $term, $form_state);
+  if ($form_type !== 'view')  {
+    form_set_value($element, (array) $term, $form_state);
+  }
 }
 
 /**
@@ -173,7 +252,7 @@ function _siasar_field_location_get_term_list_from_view($parent, $country) {
   $result = '';
   $terms_view = views_get_view('division_politica_administrativa');
 
-  if (is_object($terms_view) ) { 
+  if (is_object($terms_view) ) {
     $terms_view->set_display('term_reference_location_by_country');
     $terms_view->set_arguments(array($parent, $country));
     $terms_view->execute();
@@ -190,22 +269,40 @@ function _siasar_field_location_get_term_list_from_view($parent, $country) {
 function _siasar_field_location_map_result_into_term_list($result) {
   $terms = array();
   foreach ($result as $r) {
-    $terms[$r->tid] = $r->taxonomy_term_data_name;
+    $latest_term = &$terms[];
+    $latest_term = array(
+      'tid' => $r->tid,
+      'name' => $r->taxonomy_term_data_name
+    );
+    if (!empty($r->field_field_codigo_division_admin)) {
+      $latest_term['field_codigo_division_admin'] = $r->field_field_codigo_division_admin[0]['raw']['safe_value'];
+    }
   }
   return $terms;
 }
 
 /**
- * Returns an array of parent terms for a given TID,
+ * Returns a JSON of parent terms for a given TID,
  * sorted from higher ancestor to itself.
  */
 function siasar_field_location_term_parents($tid, $country = 'all') {
+  $parents_clean = _siasar_field_location_get_term_ancestors($tid, $country);
+
+  return drupal_json_output($parents_clean);
+}
+
+/**
+ * Helper function.
+ * Returns an array of parent terms for a given TID,
+ * sorted from higher ancestor to itself.
+ */
+function _siasar_field_location_get_term_ancestors($tid, $country = 'all') {
   $parents = taxonomy_get_parents_all($tid);
   $parents_clean = array();
   foreach ($parents as $p) {
-    $parents_clean[$p->tid] = _siasar_field_location_get_term_list_from_view($p->tid);
+    $parents_clean[$p->tid] = _siasar_field_location_get_term_list_from_view($p->tid, 'all');
   };
   $parents_clean[0] = _siasar_field_location_get_term_list_from_view(0, $country);
 
-  return drupal_json_output($parents_clean);
+  return $parents_clean;
 }

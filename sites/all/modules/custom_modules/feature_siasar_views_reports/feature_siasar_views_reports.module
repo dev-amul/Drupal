@@ -1,0 +1,131 @@
+<?php
+/**
+ * @file
+ * Code for the SIASAR Views Reports feature.
+ */
+
+include_once 'feature_siasar_views_reports.features.inc';
+
+
+/**
+ * Implements hook_form_FORM_ID_alter.
+ * Alters exposed filters on view entityform_results_view
+ * TODO: Maybe check a permission instead of a role?
+ */
+function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
+
+  if ($form_state['view']->name !== 'results_entityforms') return;
+
+  // Inject SIASAR hierarchical Select
+  module_load_include('module', 'siasar_field_location', 'siasar_field_location');
+  $field_entidad_local = 'field_entidad_local_siasar_hierarchical_select';
+  $form[$field_entidad_local] = siasar_field_location_field_widget_skeleton($field_entidad_local, null, false);
+  $form['field_pais_iso2'] = _feature_siasar_views_reports_create_country_selector();
+  $form['field_pais_iso2']['#default_value'] = $user_country_iso2;
+  $form['type'] = _feature_siasar_views_reports_create_entityforms_select_field();
+
+  // Country field is only for admins
+  if (!in_array('administrator', $user->roles)) {
+    $form['field_pais_iso2']['#disabled'] = 'true';
+  }
+}
+
+/**
+ * Helper function. Hide country selector for non-admins.
+ */
+function _feature_siasar_views_reports_hide_country_for_non_admins(&$form) {
+  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
+
+  $form['field_pais_iso2']['#disabled'] = 'true';
+  $form['field_pais_iso2']['#default_value'] = $user_country_iso2;
+}
+
+function _feature_siasar_views_reports_create_entityforms_select_field() {
+  $form_types = entity_get_info('entityform')['bundles'];
+  foreach ($form_types as $machine => $type) {
+    $options[$machine] = t($type['label']);
+  }
+  $form_type_selector = array(
+    '#type' => 'select',
+    '#options' => $options,
+    '#required' => false,
+    '#empty_option' => t('- All -'),
+  );
+
+  return $form_type_selector;
+}
+
+/**
+ * Helper function builds country selector
+ */
+function _feature_siasar_views_reports_create_country_selector() {
+  module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+
+  $countries = countries_get_countries('name');
+  $members = _siasar_entityform_alter_get_member_countries();
+  $first_option = array('' => t('- None -'));
+  $options = _siasar_entityform_alter_filter_out_countries_from_options($countries, $members);
+
+  $field = array(
+    '#type' => 'select',
+    '#default_value' => _feature_siasar_views_reports_get_user_country(),
+    '#options' => $first_option + $options,
+  );
+
+  return $field;
+}
+
+/**
+ * Helper function gets user country as entity
+ */
+function _feature_siasar_views_reports_get_user_country() {
+  global $user;
+  static $user_country;
+
+  $user_country = !empty($user_country)
+    ? $user_country
+    : user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
+
+  return $user_country;
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
+  $module_path = drupal_get_path('module', 'feature_siasar_views_reports');
+
+  $themes = array();
+
+  $themes['views_view_field__results_entityforms__draft'] = array(
+    'original hook' => 'views_view_field',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_views_view_field',
+      'feature_siasar_views_reports_preprocess_field_draft',
+    ),
+    'variables' => array('view' => NULL, 'field' => NULL, 'row' => NULL, 'output'),
+    'template' => 'views-view-field--results-entityforms--draft',
+    'path' => $module_path . '/templates',
+  );
+
+  return $themes;
+
+}
+
+
+/**
+ * Preprocesses draft field.
+ */
+function feature_siasar_views_reports_preprocess_field_draft(&$variables) {
+  $output = &$variables['output'];
+
+  // Draft property translates as "finished", therefore textual values are the opposite.
+  $output = ($output == '1')
+    ? t('No')
+    : t('Yes');
+
+    $variables = $variables;
+}

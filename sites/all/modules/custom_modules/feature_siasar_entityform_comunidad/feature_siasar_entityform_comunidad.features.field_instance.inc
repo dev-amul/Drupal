@@ -24,7 +24,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 55,
+        'weight' => 68,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -63,15 +69,23 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 17,
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_ce_location',
     'label' => 'Lugar en el que está ubicado el centro educativo de referencia',
-    'options_limit' => FALSE,
+    'options_limit' => 0,
     'options_limit_empty_behaviour' => 0,
-    'options_limit_fields' => array(),
+    'options_limit_fields' => array(
+      'field_pais' => 0,
+    ),
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -89,7 +103,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'siasar_field_location',
       'settings' => array(
         'siasar_hierarchical_select' => array(
-          'force_deepest' => 1,
+          'force_deepest' => 0,
         ),
       ),
       'type' => 'siasar_hierarchical_select',
@@ -114,13 +128,19 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
-        'weight' => 6,
+        'weight' => 5,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_altitud',
     'label' => 'Altitud',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -154,7 +174,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 15,
+        'weight' => 8,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -186,7 +212,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 16,
+        'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -221,7 +253,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 6,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -260,7 +298,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 18,
+        'weight' => 4,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -292,7 +336,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 19,
+        'weight' => 5,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -326,14 +376,16 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Agregar',
-          'delete' => 'Eliminar',
-          'description' => TRUE,
-          'edit' => 'Editar',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 47,
+        'type' => 'field_collection_fields',
+        'weight' => 5,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -364,14 +416,16 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Agregar',
-          'delete' => 'Eliminar',
-          'description' => TRUE,
-          'edit' => 'Editar',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 48,
+        'type' => 'field_collection_fields',
+        'weight' => 6,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -402,14 +456,16 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Agregar',
-          'delete' => 'Eliminar',
-          'description' => TRUE,
-          'edit' => 'Editar',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 49,
+        'type' => 'field_collection_fields',
+        'weight' => 7,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -441,14 +497,16 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Agregar',
-          'delete' => 'Eliminar',
-          'description' => TRUE,
-          'edit' => 'Editar',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 50,
+        'type' => 'field_collection_fields',
+        'weight' => 8,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -479,14 +537,16 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 46,
+        'type' => 'field_collection_fields',
+        'weight' => 7,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -523,12 +583,41 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'geofield',
+        'module' => 'geofield_map',
         'settings' => array(
-          'data' => 'full',
+          'geofield_map_baselayers_hybrid' => 0,
+          'geofield_map_baselayers_map' => 1,
+          'geofield_map_baselayers_physical' => 1,
+          'geofield_map_baselayers_satellite' => 0,
+          'geofield_map_center' => array(
+            'geocode' => 'Find my location',
+            'lat' => '',
+            'lon' => '',
+          ),
+          'geofield_map_controltype' => 'default',
+          'geofield_map_draggable' => 1,
+          'geofield_map_height' => '400px',
+          'geofield_map_maptype' => 'map',
+          'geofield_map_max_zoom' => 0,
+          'geofield_map_min_zoom' => 0,
+          'geofield_map_mtc' => 'standard',
+          'geofield_map_overview' => 0,
+          'geofield_map_overview_opened' => 0,
+          'geofield_map_pancontrol' => 1,
+          'geofield_map_scale' => 1,
+          'geofield_map_scrollwheel' => 0,
+          'geofield_map_streetview_show' => 0,
+          'geofield_map_width' => '100%',
+          'geofield_map_zoom' => 9,
         ),
-        'type' => 'geofield_wkt',
-        'weight' => 5,
+        'type' => 'geofield_map_map',
+        'weight' => 4,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -571,7 +660,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 41,
+        'weight' => 27,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -617,7 +712,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 39,
+        'weight' => 25,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -662,7 +763,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 40,
+        'weight' => 26,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -702,7 +809,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 26,
+        'weight' => 17,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -738,7 +851,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 28,
+        'weight' => 19,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -774,7 +893,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 27,
+        'weight' => 18,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -804,7 +929,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'No de viviendas en las que TODAS las personas de la familia usan SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y niños/as).',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -816,12 +941,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 38,
+        'weight' => 22,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_no_uso_vivnumtodos',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento compartida o propia no mejorada:',
+    'label' => 'Uso COMPLETO',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -836,7 +967,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 36,
+      'weight' => 75,
     ),
   );
 
@@ -849,7 +980,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'No de viviendas en las que las personas de la familia usan la infraestructura, pero NO todos o NO siempre.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -861,12 +992,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 37,
+        'weight' => 21,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_no_uso_vivnumuso',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:',
+    'label' => 'Uso PARCIAL',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -881,7 +1018,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 35,
+      'weight' => 74,
     ),
   );
 
@@ -906,7 +1043,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 30,
+        'weight' => 20,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -951,7 +1094,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 31,
+        'weight' => 21,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -987,7 +1136,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 29,
+        'weight' => 20,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1031,12 +1186,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 35,
+        'weight' => 27,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usohab',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2',
+    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1051,7 +1212,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 88,
     ),
   );
 
@@ -1076,12 +1237,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 35,
+        'weight' => 31,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usohab2',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2',
+    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1096,7 +1263,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 94,
     ),
   );
 
@@ -1121,12 +1288,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 33,
+        'weight' => 25,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfa',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2',
+    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1141,7 +1314,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 87,
     ),
   );
 
@@ -1166,12 +1339,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 33,
+        'weight' => 28,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfa2',
-    'label' => 'Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, TIPO 2',
+    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1186,7 +1365,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 93,
     ),
   );
 
@@ -1211,12 +1390,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 34,
+        'weight' => 26,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfb',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2',
+    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1231,7 +1416,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 5,
+      'weight' => 88,
     ),
   );
 
@@ -1256,12 +1441,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 34,
+        'weight' => 30,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usoinfb2',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, TIPO 2',
+    'label' => 'Nº de viviendas que usan su infraestructura PROPIA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1276,7 +1467,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 8,
+      'weight' => 94,
     ),
   );
 
@@ -1301,12 +1492,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 36,
+        'weight' => 29,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usotodos',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2',
+    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1321,7 +1518,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 7,
+      'weight' => 89,
     ),
   );
 
@@ -1347,12 +1544,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 36,
+        'weight' => 32,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_num_viv_usotodos2',
-    'label' => 'Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2',
+    'label' => 'Nº de viviendas que usan una infraestructura COMPARTIDA',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1367,7 +1570,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 95,
     ),
   );
 
@@ -1383,7 +1586,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 51,
+        'weight' => 6,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1423,7 +1632,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 8,
+        'weight' => 9,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1469,7 +1684,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 43,
+        'weight' => 29,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1505,7 +1726,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 44,
+        'weight' => 30,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1541,7 +1768,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 42,
+        'weight' => 28,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1574,7 +1807,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 25,
+        'weight' => 23,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1600,11 +1839,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_srv_existe'.
   $field_instances['entityform-comunidad-field_com_srv_existe'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1613,13 +1848,19 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 21,
+        'weight' => 19,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_srv_existe',
     'label' => 'Se posee de servicios de energía eléctrica',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1636,11 +1877,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_srv_inte_existe'.
   $field_instances['entityform-comunidad-field_com_srv_inte_existe'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1649,13 +1886,19 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 24,
+        'weight' => 22,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_srv_inte_existe',
     'label' => 'Se posee de servicios de conexión a Internet (3G o 4G)',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1672,11 +1915,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_srv_telf_existe'.
   $field_instances['entityform-comunidad-field_com_srv_telf_existe'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1685,13 +1924,19 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 22,
+        'weight' => 20,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_srv_telf_existe',
     'label' => 'Se posee de servicios de telefonía fija',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1708,11 +1953,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_srv_telm_existe'.
   $field_instances['entityform-comunidad-field_com_srv_telm_existe'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1721,13 +1962,19 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 23,
+        'weight' => 21,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_srv_telm_existe',
     'label' => 'Se posee de servicios de telefonía celular',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -1752,14 +1999,16 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 13,
+        'type' => 'field_collection_fields',
+        'weight' => 11,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1800,7 +2049,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 14,
+        'weight' => 12,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1827,11 +2082,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_com_viv_totales'.
   $field_instances['entityform-comunidad-field_com_viv_totales'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1845,7 +2096,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 12,
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1855,7 +2112,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
-      'min' => 0,
+      'min' => 1,
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -1880,14 +2137,16 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 45,
+        'type' => 'field_collection_fields',
+        'weight' => 11,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -1919,15 +2178,23 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 20,
+        'weight' => 6,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_cs_location',
     'label' => 'Lugar en el que está ubicado el centro de salud de referencia',
-    'options_limit' => FALSE,
+    'options_limit' => 0,
     'options_limit_empty_behaviour' => 0,
-    'options_limit_fields' => array(),
+    'options_limit_fields' => array(
+      'field_pais' => 0,
+    ),
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1945,7 +2212,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'siasar_field_location',
       'settings' => array(
         'siasar_hierarchical_select' => array(
-          'force_deepest' => 1,
+          'force_deepest' => 0,
         ),
       ),
       'type' => 'siasar_hierarchical_select',
@@ -1967,7 +2234,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 54,
+        'weight' => 67,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2011,7 +2284,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 52,
+        'weight' => 8,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2029,6 +2308,50 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-comunidad-field_data_source'.
+  $field_instances['entityform-comunidad-field_data_source'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => array(),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 77,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_data_source',
+    'label' => 'Origen de los datos',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => '',
+        'formatter_settings' => array(),
+        'size' => 60,
+      ),
+      'type' => 'field_extrawidgets_read_only',
       'weight' => 8,
     ),
   );
@@ -2045,7 +2368,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 4,
+        'weight' => 3,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2079,37 +2408,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-comunidad-field_entity_clasification'.
-  $field_instances['entityform-comunidad-field_entity_clasification'] = array(
-    'bundle' => 'comunidad',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'computed_field',
-        'settings' => array(),
-        'type' => 'computed_field_plain',
-        'weight' => 53,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_entity_clasification',
-    'label' => 'Clasificación',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'computed_field',
-      'settings' => array(),
-      'type' => 'computed',
-      'weight' => 9,
-    ),
-  );
-
   // Exported field_instance: 'entityform-comunidad-field_entity_name'.
   $field_instances['entityform-comunidad-field_entity_name'] = array(
     'bundle' => 'comunidad',
@@ -2122,12 +2420,18 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 2,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_entity_name',
-    'label' => 'Nombre',
+    'label' => 'Nombre de la comunidad',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2159,7 +2463,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 9,
+        'weight' => 10,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2198,7 +2508,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 1,
+        'weight' => 74,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2226,7 +2542,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'year_range' => '1900:+0',
       ),
       'type' => 'date_select',
-      'weight' => 0,
+      'weight' => 69,
     ),
   );
 
@@ -2252,7 +2568,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 32,
+        'weight' => 22,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2289,7 +2611,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 12,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2326,7 +2654,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 10,
+        'weight' => 11,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2360,6 +2694,12 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'image_style' => 'large',
         ),
         'type' => 'image',
+        'weight' => 1,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
     ),
@@ -2405,7 +2745,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 56,
+        'weight' => 69,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2432,6 +2778,97 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-comunidad-field_pais'.
+  $field_instances['entityform-comunidad-field_pais'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 73,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_pais',
+    'label' => 'País',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 68,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-comunidad-field_rating_s1'.
+  $field_instances['entityform-comunidad-field_rating_s1'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 76,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_rating_s1',
+    'label' => 'Calificación (SIASAR 1)',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'entityreference_label',
+        'formatter_settings' => array(
+          'link' => 0,
+        ),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 7,
+    ),
+  );
+
   // Exported field_instance: 'entityform-comunidad-field_user_reference'.
   $field_instances['entityform-comunidad-field_user_reference'] = array(
     'bundle' => 'comunidad',
@@ -2446,7 +2883,13 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 2,
+        'weight' => 75,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
@@ -2469,7 +2912,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 70,
     ),
   );
 
@@ -3094,7 +3537,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_paa'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_paa'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3114,7 +3561,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_paa',
     'label' => 'Nº Instalaciones comunes a personal y pacientes femeninos de TIPO 1',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3136,7 +3583,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pab'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pab'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3156,7 +3607,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pab',
     'label' => 'Nº Instalaciones comunes a personal y pacientes femeninos de TIPO 2',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3178,7 +3629,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pac'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pac'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3198,7 +3653,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pac',
     'label' => 'Nº Instalaciones comunes a personal y pacientes femeninos NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3220,7 +3675,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pad'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pad'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3240,7 +3699,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pad',
     'label' => 'Nº Instalaciones comunes a personal y pacientes femeninos BÁSICA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3286,7 +3745,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pb',
     'label' => 'Nº de Instalaciones para personal femenino de TIPO 2',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3308,7 +3767,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pba'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pba'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3328,7 +3791,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pba',
     'label' => 'Nº Instalaciones comunes a personal y pacientes masculinos de TIPO 1',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3350,7 +3813,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbb'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbb'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3370,7 +3837,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pbb',
     'label' => 'Nº Instalaciones comunes a personal y pacientes masculinos de TIPO 2',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3392,7 +3859,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbc'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbc'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3412,7 +3883,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pbc',
     'label' => 'Nº Instalaciones comunes a personal y pacientes masculinos NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3434,7 +3905,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbd'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pbd'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3454,7 +3929,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pbd',
     'label' => 'Nº Instalaciones comunes a personal y pacientes masculinos BÁSICA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3522,7 +3997,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pca'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pca'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3542,7 +4021,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pca',
     'label' => 'Nº Instalaciones mixtas para personal y pacientes de TIPO 1',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3564,7 +4043,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcb'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcb'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3584,7 +4067,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pcb',
     'label' => 'Nº Instalaciones mixtas para personal y pacientes de TIPO 2',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3606,7 +4089,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcc'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcc'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3626,7 +4113,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pcc',
     'label' => 'Nº Instalaciones mixtas para personal y pacientes NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3648,7 +4135,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcd'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pcd'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3668,7 +4159,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pcd',
     'label' => 'Nº Instalaciones mixtas para personal y pacientes BÁSICA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3920,7 +4411,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pi'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_com_fic_cssh_pi'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3940,7 +4435,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cssh_pi',
     'label' => 'Nº de Instalaciones para personal mixto de TIPO 1',
-    'required' => FALSE,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -3950,6 +4445,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 0,
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
@@ -4772,9 +5268,10 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
-          'link' => FALSE,
+          'links' => 0,
+          'view_mode' => 'entity_reference',
         ),
-        'type' => 'entityreference_label',
+        'type' => 'entityreference_entity_view',
         'weight' => 1,
       ),
     ),
@@ -4822,9 +5319,10 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
-          'link' => FALSE,
+          'links' => 0,
+          'view_mode' => 'entity_reference',
         ),
-        'type' => 'entityreference_label',
+        'type' => 'entityreference_entity_view',
         'weight' => 0,
       ),
     ),
@@ -4923,7 +5421,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_ce_fdocf',
-    'label' => 'Personal docente y administrativo. Femenino',
+    'label' => 'Número total de trabajadoras y docentes femeninas',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -4938,7 +5436,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -4969,7 +5467,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_ce_fdocm',
-    'label' => 'Personal docente y administrativo. Masculino',
+    'label' => 'Número total de trabajadores y docentes masculinos',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -4984,7 +5482,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 6,
     ),
   );
 
@@ -5015,7 +5513,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_ce_festf',
-    'label' => 'Población estudiantil. Femenino',
+    'label' => 'Número total de alumnas femeninas',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -5061,7 +5559,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_ce_festm',
-    'label' => 'Población estudiantil. Masculino',
+    'label' => 'Número total de alumnos masculinos',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -5076,7 +5574,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 5,
+      'weight' => 7,
     ),
   );
 
@@ -5177,7 +5675,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pa',
     'label' => 'Nº de Instalaciones para personal femenino de TIPO 1',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5191,7 +5689,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 82,
     ),
   );
 
@@ -5199,7 +5697,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_paa'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_paa'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5219,7 +5721,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_paa',
     'label' => 'Nº de instalaciones comunes a personal y alumnado femenino de TIPO 1',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5233,7 +5735,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 28,
+      'weight' => 84,
     ),
   );
 
@@ -5241,7 +5743,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pab'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pab'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5261,7 +5767,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pab',
     'label' => 'Nº de instalaciones comunes a personal y alumnado femenino de TIPO 2',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5275,7 +5781,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 29,
+      'weight' => 92,
     ),
   );
 
@@ -5283,7 +5789,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pac'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pac'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5303,7 +5813,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pac',
     'label' => 'Nº de instalaciones comunes a personal y alumnado femenino NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5317,7 +5827,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 30,
+      'weight' => 98,
     ),
   );
 
@@ -5325,7 +5835,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pad'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pad'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5345,7 +5859,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pad',
     'label' => 'Nº de instalaciones comunes a personal y alumnado femenino BÁSICA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5359,7 +5873,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 31,
+      'weight' => 47,
     ),
   );
 
@@ -5405,7 +5919,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 5,
+      'weight' => 90,
     ),
   );
 
@@ -5413,7 +5927,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pba'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pba'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5433,7 +5951,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pba',
     'label' => 'Nº de instalaciones comunes a personal y alumnado masculino de TIPO 1',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5447,7 +5965,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 32,
+      'weight' => 85,
     ),
   );
 
@@ -5455,7 +5973,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbb'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbb'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5475,7 +5997,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pbb',
     'label' => 'Nº de instalaciones comunes a personal y alumnado masculino de TIPO 2',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5489,7 +6011,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 33,
+      'weight' => 93,
     ),
   );
 
@@ -5497,7 +6019,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbc'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbc'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5517,7 +6043,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pbc',
     'label' => 'Nº de instalaciones comunes a personal y alumnado masculino NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5531,7 +6057,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 34,
+      'weight' => 99,
     ),
   );
 
@@ -5539,7 +6065,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbd'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pbd'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5559,7 +6089,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pbd',
     'label' => 'Nº de instalaciones comunes a personal y alumnado masculino BÁSICA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5573,7 +6103,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 35,
+      'weight' => 48,
     ),
   );
 
@@ -5605,7 +6135,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pc',
     'label' => 'Nº de Instalaciones para personal femenino NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5619,7 +6149,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 45,
     ),
   );
 
@@ -5627,7 +6157,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pca'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pca'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5647,7 +6181,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pca',
     'label' => 'Nº instalaciones mixtas para personal y alumnado de TIPO 1',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5661,7 +6195,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 36,
+      'weight' => 86,
     ),
   );
 
@@ -5669,7 +6203,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcb'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcb'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5689,7 +6227,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pcb',
     'label' => 'Nº instalaciones mixtas para personal y alumnado de TIPO 2',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5703,7 +6241,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 37,
+      'weight' => 94,
     ),
   );
 
@@ -5711,7 +6249,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcc'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcc'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5731,7 +6273,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pcc',
     'label' => 'Nº instalaciones mixtas para personal y alumnado NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5745,7 +6287,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 38,
+      'weight' => 100,
     ),
   );
 
@@ -5753,7 +6295,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcd'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_com_fic_cesh_pcd'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5773,7 +6319,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pcd',
     'label' => 'Nº instalaciones mixtas para personal y alumnado BÁSICA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -5787,7 +6333,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 39,
+      'weight' => 49,
     ),
   );
 
@@ -5833,7 +6379,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 7,
+      'weight' => 47,
     ),
   );
 
@@ -5879,7 +6425,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 8,
+      'weight' => 83,
     ),
   );
 
@@ -5925,7 +6471,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 9,
+      'weight' => 91,
     ),
   );
 
@@ -5971,7 +6517,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 46,
     ),
   );
 
@@ -6017,7 +6563,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 11,
+      'weight' => 48,
     ),
   );
 
@@ -6063,7 +6609,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 84,
     ),
   );
 
@@ -6109,7 +6655,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 13,
+      'weight' => 92,
     ),
   );
 
@@ -6155,7 +6701,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 14,
+      'weight' => 47,
     ),
   );
 
@@ -6201,7 +6747,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 49,
     ),
   );
 
@@ -6247,7 +6793,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 16,
+      'weight' => 83,
     ),
   );
 
@@ -6293,7 +6839,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 17,
+      'weight' => 91,
     ),
   );
 
@@ -6325,7 +6871,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_po',
     'label' => 'Nº de Instalaciones para alumnado femenino NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6339,7 +6885,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 18,
+      'weight' => 50,
     ),
   );
 
@@ -6371,7 +6917,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pp',
     'label' => 'Nº de Instalaciones para alumnado femenino BÁSICA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6385,7 +6931,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 19,
+      'weight' => 47,
     ),
   );
 
@@ -6417,7 +6963,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pq',
     'label' => 'Nº de Instalaciones para alumnado masculino de TIPO 1',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6431,7 +6977,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 20,
+      'weight' => 84,
     ),
   );
 
@@ -6463,7 +7009,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pr',
     'label' => 'Nº de Instalaciones para alumnado masculino de TIPO 2',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6477,7 +7023,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 21,
+      'weight' => 92,
     ),
   );
 
@@ -6509,7 +7055,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_ps',
     'label' => 'Nº de Instalaciones para alumnado masculino NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6523,7 +7069,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 22,
+      'weight' => 51,
     ),
   );
 
@@ -6555,7 +7101,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pt',
     'label' => 'Nº de Instalaciones para alumnado masculino BÁSICA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6569,7 +7115,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 23,
+      'weight' => 48,
     ),
   );
 
@@ -6601,7 +7147,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pu',
     'label' => 'Nº de Instalaciones para alumnado mixto de TIPO 1',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6615,7 +7161,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 24,
+      'weight' => 85,
     ),
   );
 
@@ -6647,7 +7193,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pv',
     'label' => 'Nº de Instalaciones para alumnado mixto de TIPO 2',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6661,7 +7207,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 25,
+      'weight' => 93,
     ),
   );
 
@@ -6693,7 +7239,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_pw',
     'label' => 'Nº de Instalaciones para alumnado mixto NO MEJORADA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6707,7 +7253,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 26,
+      'weight' => 52,
     ),
   );
 
@@ -6739,7 +7285,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_com_fic_cesh_px',
     'label' => 'Nº de Instalaciones para alumnado mixto BÁSICA',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -6753,7 +7299,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 27,
+      'weight' => 49,
     ),
   );
 
@@ -6834,11 +7380,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('2. Levantamiento utilizando el formulario auxiliar');
   t('3. Levantamiento muestral');
   t('Altitud');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, TIPO 2');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento PROPIA mejorada, tipo de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2');
-  t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) USAN esta infraestructura de saneamiento compartida o propia no mejorada:');
+  t('Calificación (SIASAR 1)');
   t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) utilizan la instalación de lavado siempre');
   t('Cantidad de viviendas que TIENEN OTRA infraestructura de saneamiento PROPIA del tipo no mejorada:');
   t('Cantidad de viviendas que TIENEN infraestructura de saneamiento PROPIA mejorada tipo 1: ');
@@ -6846,14 +7388,8 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Cantidad de viviendas que almacenan el agua de bebida de forma segura (en recipientes limpios y bien tapados)');
   t('Cantidad de viviendas que cuentan con una instalación básica (con agua y jabón) para el lavado de manos cerca (a menos de 10 metros) de la instalación de saneamiento');
   t('Cantidad de viviendas que recogen o tratan las basuras domésticas');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada TIPO 2');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento COMPARTIDA entre varias viviendas, mejorada tipo 1 o 2');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, TIPO 2');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento PROPIA mejorada, tipo 1 o 2');
-  t('Cantidad de viviendas que sus miembros USAN habitualmente infraestructura de saneamiento compartida o propia del tipo no mejorada:');
   t('Cantidad de viviendas totales');
   t('Centros educativos. Información general');
-  t('Clasificación');
   t('Cuenca hidrográfica');
   t('Código Comunidad');
   t('Código del centro de salud');
@@ -6868,11 +7404,14 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Georeferenciación');
   t('Idioma predominante');
   t('Imagen');
+  t('La altitud se mide en metros sobre el nivel del mar (msnm).');
   t('Localidad');
   t('Lugar en el que está ubicado el centro de salud de referencia');
   t('Lugar en el que está ubicado el centro educativo de referencia');
   t('Mejora de sistema');
-  t('Nombre');
+  t('No de viviendas en las que TODAS las personas de la familia usan SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y niños/as).');
+  t('No de viviendas en las que las personas de la familia usan la infraestructura, pero NO todos o NO siempre.');
+  t('Nombre de la comunidad');
   t('Nombre del centro de salud');
   t('Nombre del centro de salud externo que acude la población de la comunidad');
   t('Nombre del centro educativo');
@@ -6937,20 +7476,24 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Nº de instalaciones comunes a personal y alumnado masculino NO MEJORADA');
   t('Nº de instalaciones comunes a personal y alumnado masculino de TIPO 1');
   t('Nº de instalaciones comunes a personal y alumnado masculino de TIPO 2');
+  t('Nº de viviendas que usan su infraestructura PROPIA');
+  t('Nº de viviendas que usan una infraestructura COMPARTIDA');
   t('Nº instalaciones mixtas para personal y alumnado BÁSICA');
   t('Nº instalaciones mixtas para personal y alumnado NO MEJORADA');
   t('Nº instalaciones mixtas para personal y alumnado de TIPO 1');
   t('Nº instalaciones mixtas para personal y alumnado de TIPO 2');
+  t('Número total de alumnas femeninas');
+  t('Número total de alumnos masculinos');
+  t('Número total de trabajadoras y docentes femeninas');
+  t('Número total de trabajadores y docentes masculinos');
   t('Observaciones ');
   t('Observaciones sobre el grupo de población');
+  t('Origen de los datos');
   t('Otras características de la comunidad');
   t('Otras divisiones');
+  t('País');
   t('Personal de salud y administrativo. Femenino');
   t('Personal de salud y administrativo. Masculino');
-  t('Personal docente y administrativo. Femenino');
-  t('Personal docente y administrativo. Masculino');
-  t('Población estudiantil. Femenino');
-  t('Población estudiantil. Masculino');
   t('Población total');
   t('Redacción');
   t('Se posee de servicios de conexión a Internet (3G o 4G)');
@@ -6959,6 +7502,8 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Se posee de servicios de telefonía fija');
   t('Sistema de Saneamiento del tipo 1 y 2 mejorado');
   t('Sistema de Saneamiento del tipo no mejorado');
+  t('Uso COMPLETO');
+  t('Uso PARCIAL');
   t('Usuarios promedio del sistema de salud. Femenino');
   t('Usuarios promedio del sistema de salud. Masculino');
   t('Validado');

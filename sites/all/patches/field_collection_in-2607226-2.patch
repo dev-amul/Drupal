@@ -1,0 +1,16 @@
+Index: field_collection.entity.inc
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- a/field_collection.entity.inc	(revision 2ebf32cb1a139ad24130a672e71db91f3bbce20a)
++++ b/field_collection.entity.inc	(revision )
+@@ -225,7 +225,7 @@
+     }
+     else {
+       $current_host = entity_revision_load($this->hostEntityType, $this->hostEntityRevisionId);
+-      list($current_id) = entity_extract_ids($this->hostEntityType, $current_host);
++      list($current_id) = $current_host ? entity_extract_ids($this->hostEntityType, $current_host) : array($recieved_id);
+     }
+
+     if ($current_id == $recieved_id) {

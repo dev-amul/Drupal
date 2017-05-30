@@ -4,6 +4,22 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+sites/all/translations
 
 # Ignore IDE specific files
 .vscode
+
+# Ignore backup files
+*.pgsql
+*.dump
+
+# Ignore SASS cache
+.sass-cache
+.sass-cache*
+*.scssc
+.css.map
+
+# Ignore PHPExcel examples
+sites/all/libraries/PHPExcel/Examples
+# Ignore netbeans files
+nbproject/*

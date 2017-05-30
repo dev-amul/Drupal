@@ -1,0 +1,3600 @@
+# LANGUAGE translation of PROJECT
+# Copyright (c) YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2017-05-08 14:01-0300\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: field:field_cuenta_banco:#allowed_values:0
+msgctxt "field_cuenta_banco:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_lev_muestral:#allowed_values:0
+msgctxt "field_com_lev_muestral:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_lev_muestral:#allowed_values:1
+msgctxt "field_com_lev_muestral:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_com_lev_utilform:#allowed_values:1
+msgctxt "field_com_lev_utilform:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_com_srv_inte_existe:#allowed_values:1
+msgctxt "field_com_srv_inte_existe:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_imagenc:comunidad:label
+msgctxt "field_imagenc:comunidad:label"
+msgid "Imagen"
+msgstr ""
+
+#: field:field_existenciade_contaminacion:#allowed_values:0
+msgctxt "field_existenciade_contaminacion:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_existencia_de_indicio:#allowed_values:0
+msgctxt "field_existencia_de_indicio:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_ce_existe:#allowed_values:1
+msgctxt "field_com_ce_existe:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_es_la_fuente_principal:#allowed_values:1
+msgctxt "field_es_la_fuente_principal:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_ano:field_rehabilitaciones_y_o_ampli:label
+msgctxt "field_ano:field_rehabilitaciones_y_o_ampli:label"
+msgid "Año"
+msgstr ""
+
+#: field:field_agua_en_verano:#allowed_values:0
+msgctxt "field_agua_en_verano:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_c1_4:#allowed_values:0
+msgctxt "field_c1_4:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_agua_en_invierno:#allowed_values:0
+msgctxt "field_agua_en_invierno:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_existencia_deareas_verdes:#allowed_values:0
+msgctxt "field_existencia_deareas_verdes:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_b1_7:field_fuente_y_o_captacion:label
+msgctxt "field_b1_7:field_fuente_y_o_captacion:label"
+msgid "Georreferenciación"
+msgstr ""
+
+#: field:field_gasto_teorico_ambientales:prestador_de_servicio:label
+msgctxt "field_gasto_teorico_ambientales:prestador_de_servicio:label"
+msgid "Gasto promedio mensual teórico en servicios ambientales      "
+msgstr ""
+
+#: field:field_es_la_fuente_principal:#allowed_values:0
+msgctxt "field_es_la_fuente_principal:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_existencia_z_erosionadas:#allowed_values:0
+msgctxt "field_existencia_z_erosionadas:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:sistema:label
+msgctxt "field_a_fuentes_de_financiamient:sistema:label"
+msgid "Fuentes de financiamiento"
+msgstr ""
+
+#: field:field_proteccion_de_la_fuente:#allowed_values:0
+msgctxt "field_proteccion_de_la_fuente:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_user_reference:sistema:label
+msgctxt "field_user_reference:sistema:label"
+msgid "Encuestador"
+msgstr ""
+
+#: field:field_latitud:sistema:label
+msgctxt "field_latitud:sistema:label"
+msgid "Georeferenciación"
+msgstr ""
+
+#: field:field_alto:sistema:label
+msgctxt "field_alto:sistema:label"
+msgid "Altitud"
+msgstr ""
+
+#: field:field_codigo_de_sistema:sistema:label
+msgctxt "field_codigo_de_sistema:sistema:label"
+msgid "Código de Sistema"
+msgstr ""
+
+#: field:field_a4_2:sistema:label
+msgctxt "field_a4_2:sistema:label"
+msgid "¿Qué otro tipo de sistema es?"
+msgstr ""
+
+#: field:field_agua_en_invierno:#allowed_values:1
+msgctxt "field_agua_en_invierno:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_nombre_de_la_fuente:field_fuente_y_o_captacion:label
+msgctxt "field_nombre_de_la_fuente:field_fuente_y_o_captacion:label"
+msgid "Nombre de la fuente"
+msgstr ""
+
+#: field:field_codigo_de_la_fuente:field_fuente_y_o_captacion:label
+msgctxt "field_codigo_de_la_fuente:field_fuente_y_o_captacion:label"
+msgid "Código de la fuente"
+msgstr ""
+
+#: field:field_es_la_fuente_principal:field_fuente_y_o_captacion:label
+msgctxt "field_es_la_fuente_principal:field_fuente_y_o_captacion:label"
+msgid ""
+"¿Es la fuente principal del sistema? (sólo debe ser una entre todas "
+"las asociadas)"
+msgstr ""
+
+#: field:field_fecha_toma_cdal_epoca_seca:field_fuente_y_o_captacion:label
+msgctxt "field_fecha_toma_cdal_epoca_seca:field_fuente_y_o_captacion:label"
+msgid "Fecha de la toma del caudal de la fuente en época seca"
+msgstr ""
+
+#: field:field_b1_altitud:field_fuente_y_o_captacion:label
+msgctxt "field_b1_altitud:field_fuente_y_o_captacion:label"
+msgid "Altitud"
+msgstr ""
+
+#: field:field_existencia_deareas_verdes:#allowed_values:1
+msgctxt "field_existencia_deareas_verdes:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_diametro_medio_de_tuberia:field_lineas_de_conduccion:label
+msgctxt "field_diametro_medio_de_tuberia:field_lineas_de_conduccion:label"
+msgid "Diámetro medio o sección (interior) de la tubería principal"
+msgstr ""
+
+#: field:field_edo_fisico_red_dist:field_f_red_de_distribucion:label
+msgctxt "field_edo_fisico_red_dist:field_f_red_de_distribucion:label"
+msgid "Estado físico de la infraestructura de distribución de agua"
+msgstr ""
+
+#: field:field_rehabilitaciones_y_o_ampli:sistema:label
+msgctxt "field_rehabilitaciones_y_o_ampli:sistema:label"
+msgid "Rehabilitaciones y/o ampliaciones"
+msgstr ""
+
+#: field:field_fuente_y_o_captacion:sistema:label
+msgctxt "field_fuente_y_o_captacion:sistema:label"
+msgid " Fuente y/o captación"
+msgstr ""
+
+#: field:field_anno_construccion:sistema:label
+msgctxt "field_anno_construccion:sistema:label"
+msgid "Año de construcción"
+msgstr ""
+
+#: field:field_infraestructura_captacion:#allowed_values:0
+msgctxt "field_infraestructura_captacion:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_user_reference:comunidad:label
+msgctxt "field_user_reference:comunidad:label"
+msgid "Encuestador"
+msgstr ""
+
+#: field:field_otras_divisiones:sistema:label
+msgctxt "field_otras_divisiones:sistema:label"
+msgid "Otras divisiones"
+msgstr ""
+
+#: field:field_area_planificacion:comunidad:label
+msgctxt "field_area_planificacion:comunidad:label"
+msgid "Área o zona de planificación"
+msgstr ""
+
+#: field:field_d1_3:#allowed_values:0
+msgctxt "field_d1_3:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_d1_4:field_d_infraestructura:label
+msgctxt "field_d1_4:field_d_infraestructura:label"
+msgid "Georreferenciación"
+msgstr ""
+
+#: field:field_programa_especifico_fondos:field_a_fuentes_de_financiamient:label
+msgctxt "field_programa_especifico_fondos:field_a_fuentes_de_financiamient:label"
+msgid "Programa específico de donde provienen los fondos"
+msgstr ""
+
+#: field:field_monto_financiamiento:field_a_fuentes_de_financiamient:label
+msgctxt "field_monto_financiamiento:field_a_fuentes_de_financiamient:label"
+msgid "Monto"
+msgstr ""
+
+#: field:field_e_infraestructura_almac:sistema:label
+msgctxt "field_e_infraestructura_almac:sistema:label"
+msgid "Infraestructura de almacenamiento"
+msgstr ""
+
+#: field:field_institucion_ejecutora:field_rehabilitaciones_y_o_ampli:label
+msgctxt "field_institucion_ejecutora:field_rehabilitaciones_y_o_ampli:label"
+msgid "Institución ejecutora\t"
+msgstr ""
+
+#: field:field_d1_5:field_d_infraestructura:label
+msgctxt "field_d1_5:field_d_infraestructura:label"
+msgid "Altitud"
+msgstr ""
+
+#: field:field_proteccion_de_la_fuente:field_fuente_y_o_captacion:label
+msgctxt "field_proteccion_de_la_fuente:field_fuente_y_o_captacion:label"
+msgid ""
+"Protección (delimitación con cerca u otros sistemas) de la fuente / "
+"toma de agua"
+msgstr ""
+
+#: field:field_infraestructura_captacion:#allowed_values:1
+msgctxt "field_infraestructura_captacion:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_existencia_z_erosionadas:#allowed_values:1
+msgctxt "field_existencia_z_erosionadas:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_proteccion_de_la_fuente:#allowed_values:1
+msgctxt "field_proteccion_de_la_fuente:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_existenciade_contaminacion:#allowed_values:1
+msgctxt "field_existenciade_contaminacion:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_existencia_de_indicio:#allowed_values:1
+msgctxt "field_existencia_de_indicio:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_d1_3:#allowed_values:1
+msgctxt "field_d1_3:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_infraestructura_captacion:field_fuente_y_o_captacion:label
+msgctxt "field_infraestructura_captacion:field_fuente_y_o_captacion:label"
+msgid "Existe infraestructura de Captación de Agua  del sistema"
+msgstr ""
+
+#: field:field_c1_1:field_lineas_de_conduccion:label
+msgctxt "field_c1_1:field_lineas_de_conduccion:label"
+msgid "Código de la línea"
+msgstr ""
+
+#: field:field_c1_4:field_lineas_de_conduccion:label
+msgctxt "field_c1_4:field_lineas_de_conduccion:label"
+msgid ""
+"¿Contiene estructuras especiales la línea? (Tanque rompe presión, "
+"válvulas, etc.)"
+msgstr ""
+
+#: field:field_d1_1:field_d_infraestructura:label
+msgctxt "field_d1_1:field_d_infraestructura:label"
+msgid "Código de la infraestructura"
+msgstr ""
+
+#: field:field_d1_3:field_d_infraestructura:label
+msgctxt "field_d1_3:field_d_infraestructura:label"
+msgid "Funcionamiento correcto"
+msgstr ""
+
+#: field:field_d2_2:field_d_infraestructura:label
+msgctxt "field_d2_2:field_d_infraestructura:label"
+msgid "Observaciones sobre la infraestructura"
+msgstr ""
+
+#: field:field_user_reference:prestador_de_asistencia_t_cnica:label
+msgctxt "field_user_reference:prestador_de_asistencia_t_cnica:label"
+msgid "Encuestador"
+msgstr ""
+
+#: field:field_total_comunidades_zona:prestador_de_asistencia_t_cnica:label
+msgctxt "field_total_comunidades_zona:prestador_de_asistencia_t_cnica:label"
+msgid "Total de comunidades en la zona de atención"
+msgstr ""
+
+#: field:field_cantidad_comunidades_apoya:prestador_de_asistencia_t_cnica:label
+msgctxt "field_cantidad_comunidades_apoya:prestador_de_asistencia_t_cnica:label"
+msgid "Cantidad de comunidades apoyadas en los últimos 12 meses"
+msgstr ""
+
+#: field:field_cantidad_tecnicos_zona:prestador_de_asistencia_t_cnica:label
+msgctxt "field_cantidad_tecnicos_zona:prestador_de_asistencia_t_cnica:label"
+msgid "Cantidad de técnicos en la zona"
+msgstr ""
+
+#: field:field_cuenta_presupuesto_anual:prestador_de_asistencia_t_cnica:label
+msgctxt "field_cuenta_presupuesto_anual:prestador_de_asistencia_t_cnica:label"
+msgid "Cuenta con presupuesto operativo anual"
+msgstr ""
+
+#: field:field_cantidad_equipos_transport:prestador_de_asistencia_t_cnica:label
+msgctxt "field_cantidad_equipos_transport:prestador_de_asistencia_t_cnica:label"
+msgid "Cantidad de equipos de transporte "
+msgstr ""
+
+#: field:field_cantidad_medicion_agua:prestador_de_asistencia_t_cnica:label
+msgctxt "field_cantidad_medicion_agua:prestador_de_asistencia_t_cnica:label"
+msgid "Cantidad de equipos para la medición de la calidad del agua"
+msgstr ""
+
+#: field:field_cantidad_equipos_inform:prestador_de_asistencia_t_cnica:label
+msgctxt "field_cantidad_equipos_inform:prestador_de_asistencia_t_cnica:label"
+msgid "Cantidad de equipos informáticos (computadora/impresora)"
+msgstr ""
+
+#: field:field_dispone_fondos_viaticos:prestador_de_asistencia_t_cnica:label
+msgctxt "field_dispone_fondos_viaticos:prestador_de_asistencia_t_cnica:label"
+msgid "Dispone de fondos para viáticos"
+msgstr ""
+
+#: field:field_dispone_fondos_combistible:prestador_de_asistencia_t_cnica:label
+msgctxt "field_dispone_fondos_combistible:prestador_de_asistencia_t_cnica:label"
+msgid "Dispone de fondos para combustible"
+msgstr ""
+
+#: field:field_dispone_servicios_internet:prestador_de_asistencia_t_cnica:label
+msgctxt "field_dispone_servicios_internet:prestador_de_asistencia_t_cnica:label"
+msgid "Dispone de servicios de internet"
+msgstr ""
+
+#: field:field_verificar_apoyar_caps:prestador_de_asistencia_t_cnica:label
+msgctxt "field_verificar_apoyar_caps:prestador_de_asistencia_t_cnica:label"
+msgid ""
+"1. Verificar y apoyar la conformación, funcionamiento y "
+"reorganización de los CAPS"
+msgstr ""
+
+#: field:field_clase_de_prestador:prestador_de_servicio:label
+msgctxt "field_clase_de_prestador:prestador_de_servicio:label"
+msgid "Clase de prestador"
+msgstr ""
+
+#: field:field_observaciones:field_fuente_y_o_captacion:label
+msgctxt "field_observaciones:field_fuente_y_o_captacion:label"
+msgid "Observaciones"
+msgstr ""
+
+#: field:field_lineas_de_conduccion:sistema:label
+msgctxt "field_lineas_de_conduccion:sistema:label"
+msgid "Líneas de conducción"
+msgstr ""
+
+#: field:field_latitud_longitud:field_e_infraestructura_almac:label
+msgctxt "field_latitud_longitud:field_e_infraestructura_almac:label"
+msgid "Georeferenciación"
+msgstr ""
+
+#: field:field_f1_1:field_f_red_de_distribucion:label
+msgctxt "field_f1_1:field_f_red_de_distribucion:label"
+msgid "Código de la distribución"
+msgstr ""
+
+#: field:field_f2_1:field_f_red_de_distribucion:label
+msgctxt "field_f2_1:field_f_red_de_distribucion:label"
+msgid ""
+"Señalar a qué distancia aproximada se encuentran instalados los "
+"puntos de toma de agua públicos a las casas de los usuarios."
+msgstr ""
+
+#: field:field_f3_2:field_f_red_de_distribucion:label
+msgctxt "field_f3_2:field_f_red_de_distribucion:label"
+msgid "Observaciones sobre la distribución"
+msgstr ""
+
+#: field:field_c2_2:field_lineas_de_conduccion:label
+msgctxt "field_c2_2:field_lineas_de_conduccion:label"
+msgid "Observaciones sobre la conducción"
+msgstr ""
+
+#: field:field_f_red_de_distribucion:sistema:label
+msgctxt "field_f_red_de_distribucion:sistema:label"
+msgid "Red de distribución"
+msgstr ""
+
+#: field:field_dispone_material_didactico:#allowed_values:0
+msgctxt "field_dispone_material_didactico:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_f2_1:#allowed_values:1
+msgctxt "field_f2_1:#allowed_values:1"
+msgid "Menor de 100 metros"
+msgstr ""
+
+#: field:field_f2_1:#allowed_values:2
+msgctxt "field_f2_1:#allowed_values:2"
+msgid "Mayor de 100 metros"
+msgstr ""
+
+#: field:field_g2_1:#allowed_values:3
+msgctxt "field_g2_1:#allowed_values:3"
+msgid "No"
+msgstr ""
+
+#: field:field_com_srv_existe:#allowed_values:1
+msgctxt "field_com_srv_existe:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_dispone_fondos_combistible:#allowed_values:0
+msgctxt "field_dispone_fondos_combistible:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_dispone_servicios_internet:#allowed_values:0
+msgctxt "field_dispone_servicios_internet:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_dispone_fondos_viaticos:#allowed_values:0
+msgctxt "field_dispone_fondos_viaticos:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_cuenta_presupuesto_anual:#allowed_values:0
+msgctxt "field_cuenta_presupuesto_anual:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_g3_1:#allowed_values:3
+msgctxt "field_g3_1:#allowed_values:3"
+msgid "No"
+msgstr ""
+
+#: field:field_c1_4:#allowed_values:1
+msgctxt "field_c1_4:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_altitud:prestador_de_servicio:label
+msgctxt "field_altitud:prestador_de_servicio:label"
+msgid "Altitud"
+msgstr ""
+
+#: field:field_e1_5_altitud:field_e_infraestructura_almac:label
+msgctxt "field_e1_5_altitud:field_e_infraestructura_almac:label"
+msgid "Altitud"
+msgstr ""
+
+#: field:field_e1_1:field_e_infraestructura_almac:label
+msgctxt "field_e1_1:field_e_infraestructura_almac:label"
+msgid "Código de la infraestructura"
+msgstr ""
+
+#: field:field_e2_2:field_e_infraestructura_almac:label
+msgctxt "field_e2_2:field_e_infraestructura_almac:label"
+msgid "Observaciones sobre la infraestructura"
+msgstr ""
+
+#: field:field_f1_5:field_f_red_de_distribucion:label
+msgctxt "field_f1_5:field_f_red_de_distribucion:label"
+msgid "Horas de servicio al día"
+msgstr ""
+
+#: field:field_f1_3:field_f_red_de_distribucion:label
+msgctxt "field_f1_3:field_f_red_de_distribucion:label"
+msgid "Número de micro medidores instalados"
+msgstr ""
+
+#: field:field_f1_4:field_f_red_de_distribucion:label
+msgctxt "field_f1_4:field_f_red_de_distribucion:label"
+msgid "Número de micro medidores con consumo registrado"
+msgstr ""
+
+#: field:field_g2_1:sistema:label
+msgctxt "field_g2_1:sistema:label"
+msgid "Desinfección con cloro"
+msgstr ""
+
+#: field:field_g3_1:sistema:label
+msgctxt "field_g3_1:sistema:label"
+msgid "Filtración domiciliaria"
+msgstr ""
+
+#: field:field_g3_1:#allowed_values:1
+msgctxt "field_g3_1:#allowed_values:1"
+msgid "Si, de manera mayoritaria"
+msgstr ""
+
+#: field:field_g3_1:#allowed_values:2
+msgctxt "field_g3_1:#allowed_values:2"
+msgid "Si, pero de manera minoritaria"
+msgstr ""
+
+#: field:field_g2_1:#allowed_values:1
+msgctxt "field_g2_1:#allowed_values:1"
+msgid "Si, y funciona"
+msgstr ""
+
+#: field:field_g2_1:#allowed_values:2
+msgctxt "field_g2_1:#allowed_values:2"
+msgid "Si, y no funciona"
+msgstr ""
+
+#: field:field_user_reference:prestador_de_servicio:label
+msgctxt "field_user_reference:prestador_de_servicio:label"
+msgid "Encuestador"
+msgstr ""
+
+#: field:field_dispone_material_didactico:#allowed_values:1
+msgctxt "field_dispone_material_didactico:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_dispone_fondos_combistible:#allowed_values:1
+msgctxt "field_dispone_fondos_combistible:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_dispone_servicios_internet:#allowed_values:1
+msgctxt "field_dispone_servicios_internet:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_dispone_fondos_viaticos:#allowed_values:1
+msgctxt "field_dispone_fondos_viaticos:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_cuenta_presupuesto_anual:#allowed_values:1
+msgctxt "field_cuenta_presupuesto_anual:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_dispone_material_didactico:prestador_de_asistencia_t_cnica:label
+msgctxt "field_dispone_material_didactico:prestador_de_asistencia_t_cnica:label"
+msgid "Dispone de material didáctico impreso para distribución"
+msgstr ""
+
+#: field:field_apoyar_juridica_caps:prestador_de_asistencia_t_cnica:label
+msgctxt "field_apoyar_juridica_caps:prestador_de_asistencia_t_cnica:label"
+msgid "2. Apoyar la obtención de la figura Legal de los CAPS"
+msgstr ""
+
+#: field:field_revisar_actualizar_finanza:prestador_de_asistencia_t_cnica:label
+msgctxt "field_revisar_actualizar_finanza:prestador_de_asistencia_t_cnica:label"
+msgid "3. Revisar y actualizar las finanzas del sistema"
+msgstr ""
+
+#: field:field_apoyar_actualizar_tarifa:prestador_de_asistencia_t_cnica:label
+msgctxt "field_apoyar_actualizar_tarifa:prestador_de_asistencia_t_cnica:label"
+msgid "4. Apoyar a establecer y actualizar la tarifa"
+msgstr ""
+
+#: field:field_apoyar_legalizacion_reglam:prestador_de_asistencia_t_cnica:label
+msgctxt "field_apoyar_legalizacion_reglam:prestador_de_asistencia_t_cnica:label"
+msgid ""
+"5. Apoyar en el establecimiento y legalización de reglamentos "
+"operativos"
+msgstr ""
+
+#: field:field_apoyar_caps_conflictos:prestador_de_asistencia_t_cnica:label
+msgctxt "field_apoyar_caps_conflictos:prestador_de_asistencia_t_cnica:label"
+msgid ""
+"7. Apoyar a los CAPS en el análisis y en la solución de conflictos "
+"(ej: uso o abuso del agua de los sistemas)"
+msgstr ""
+
+#: field:field_caps_medicion_pozo_agua:prestador_de_asistencia_t_cnica:label
+msgctxt "field_caps_medicion_pozo_agua:prestador_de_asistencia_t_cnica:label"
+msgid ""
+"9. Asesorar a los CAPS en la medición de niveles estáticos de pozos "
+"y caudales de agua superficiales "
+msgstr ""
+
+#: field:field_asesorar_prestador_aom:prestador_de_asistencia_t_cnica:label
+msgctxt "field_asesorar_prestador_aom:prestador_de_asistencia_t_cnica:label"
+msgid "11. Asesorar al prestador (incluyendo fontanero) en temas de AOM"
+msgstr ""
+
+#: field:field_siasar_planification_anual:prestador_de_asistencia_t_cnica:label
+msgctxt "field_siasar_planification_anual:prestador_de_asistencia_t_cnica:label"
+msgid ""
+"12. Actualizar y utilizar el SIASAR para propósitos de planificación "
+"municipal anual en materia de agua y saneamiento rural "
+msgstr ""
+
+#: field:field_otras_tipo_apoyo:prestador_de_asistencia_t_cnica:label
+msgctxt "field_otras_tipo_apoyo:prestador_de_asistencia_t_cnica:label"
+msgid "13. Otros servicios ofrecidos"
+msgstr ""
+
+#: field:field_latitud:prestador_de_servicio:label
+msgctxt "field_latitud:prestador_de_servicio:label"
+msgid "Georeferenciación"
+msgstr ""
+
+#: field:field_codigo_de_prestador:prestador_de_servicio:label
+msgctxt "field_codigo_de_prestador:prestador_de_servicio:label"
+msgid "Código de prestador "
+msgstr ""
+
+#: field:field_otra_clase_de_prestador:prestador_de_servicio:label
+msgctxt "field_otra_clase_de_prestador:prestador_de_servicio:label"
+msgid "Otra clase de prestador"
+msgstr ""
+
+#: field:field_tiene_definido_tipo_tarifa:#allowed_values:0
+msgctxt "field_tiene_definido_tipo_tarifa:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_tiene_definido_tipo_tarifa:#allowed_values:1
+msgctxt "field_tiene_definido_tipo_tarifa:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_tipo_de_tarifa:prestador_de_servicio:label
+msgctxt "field_tipo_de_tarifa:prestador_de_servicio:label"
+msgid "Tipo de tarifa"
+msgstr ""
+
+#: field:field_miembros_nombrados:#allowed_values:0
+msgctxt "field_miembros_nombrados:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_rinde_cuentas:#allowed_values:0
+msgctxt "field_rinde_cuentas:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_acta_rendicion_cuentas:#allowed_values:0
+msgctxt "field_acta_rendicion_cuentas:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_inf_medicion_agua:#allowed_values:0
+msgctxt "field_inf_medicion_agua:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_personal_prestador:#allowed_values:0
+msgctxt "field_personal_prestador:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_otros_mantenimientos:prestador_de_servicio:label
+msgctxt "field_otros_mantenimientos:prestador_de_servicio:label"
+msgid "¿Qué \"otros\" mantiene el sistema?"
+msgstr ""
+
+#: field:field_com_srv_telf_existe:#allowed_values:1
+msgctxt "field_com_srv_telf_existe:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_otros_motivos:prestador_de_servicio:label
+msgctxt "field_otros_motivos:prestador_de_servicio:label"
+msgid "¿Por qué otros motivos no se conoce el mecanismo?"
+msgstr ""
+
+#: field:field_inf_medicion_agua:#allowed_values:1
+msgctxt "field_inf_medicion_agua:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_miembros_nombrados:#allowed_values:1
+msgctxt "field_miembros_nombrados:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_cuenta_banco:#allowed_values:1
+msgctxt "field_cuenta_banco:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_acta_rendicion_cuentas:#allowed_values:1
+msgctxt "field_acta_rendicion_cuentas:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_fecha_creacion:prestador_de_servicio:label
+msgctxt "field_fecha_creacion:prestador_de_servicio:label"
+msgid "Fecha de creación"
+msgstr ""
+
+#: field:field_estado_legal:prestador_de_servicio:label
+msgctxt "field_estado_legal:prestador_de_servicio:label"
+msgid "Estado legal del prestador "
+msgstr ""
+
+#: field:field_fecha_eleccion:prestador_de_servicio:label
+msgctxt "field_fecha_eleccion:prestador_de_servicio:label"
+msgid "Fecha de última elección de los miembros de Junta"
+msgstr ""
+
+#: field:field_miembros_nombrados:prestador_de_servicio:label
+msgctxt "field_miembros_nombrados:prestador_de_servicio:label"
+msgid "¿Todos los miembros de la Junta Directiva están nombrados?"
+msgstr ""
+
+#: field:field_numero_reuniones:prestador_de_servicio:label
+msgctxt "field_numero_reuniones:prestador_de_servicio:label"
+msgid "Número de reuniones de la junta directiva en los últimos 6 meses"
+msgstr ""
+
+#: field:field_nombre_representante:field_representantes:label
+msgctxt "field_nombre_representante:field_representantes:label"
+msgid "Nombre del Representante"
+msgstr ""
+
+#: field:field_genero:field_representantes:label
+msgctxt "field_genero:field_representantes:label"
+msgid "Género"
+msgstr ""
+
+#: field:field_telefon:field_representantes:label
+msgctxt "field_telefon:field_representantes:label"
+msgid "Teléfono"
+msgstr ""
+
+#: field:field_cuenta_banco:prestador_de_servicio:label
+msgctxt "field_cuenta_banco:prestador_de_servicio:label"
+msgid "El prestador, ¿tiene cuenta bancaria?"
+msgstr ""
+
+#: field:field_rinde_cuentas:prestador_de_servicio:label
+msgctxt "field_rinde_cuentas:prestador_de_servicio:label"
+msgid "El prestador, ¿rinde cuentas?"
+msgstr ""
+
+#: field:field_acta_rendicion_cuentas:prestador_de_servicio:label
+msgctxt "field_acta_rendicion_cuentas:prestador_de_servicio:label"
+msgid "¿Existe acta de la última asamblea de rendición de cuentas?"
+msgstr ""
+
+#: field:field_tiene_definido_tipo_tarifa:prestador_de_servicio:label
+msgctxt "field_tiene_definido_tipo_tarifa:prestador_de_servicio:label"
+msgid "Tiene definido un tipo de tarifa?"
+msgstr ""
+
+#: field:field_mecanismo_pago_tarifa:prestador_de_servicio:label
+msgctxt "field_mecanismo_pago_tarifa:prestador_de_servicio:label"
+msgid ""
+"¿La comunidad conoce el mecanismo de pago de la tarifa y se aplica de "
+"forma regular? "
+msgstr ""
+
+#: field:field_inf_medicion_agua:prestador_de_servicio:label
+msgctxt "field_inf_medicion_agua:prestador_de_servicio:label"
+msgid "¿Se tiene información sobre la medición del agua?"
+msgstr ""
+
+#: field:field_mantenimiento_sistema:prestador_de_servicio:label
+msgctxt "field_mantenimiento_sistema:prestador_de_servicio:label"
+msgid "¿De qué forma es mantenido el sistema?"
+msgstr ""
+
+#: field:field_atencion_del_prestador:prestador_de_servicio:label
+msgctxt "field_atencion_del_prestador:prestador_de_servicio:label"
+msgid ""
+"El Prestador está dando la atención en operación y mantenimiento al "
+"sistema de Agua"
+msgstr ""
+
+#: field:field_g4_3:sistema:label
+msgctxt "field_g4_3:sistema:label"
+msgid "¿Pasa el test de coliformes?"
+msgstr ""
+
+#: field:field_ingresos_extra:#allowed_values:0
+msgctxt "field_ingresos_extra:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_libro_ingresos_egresos:#allowed_values:0
+msgctxt "field_libro_ingresos_egresos:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field__aportaciones_extras:#allowed_values:0
+msgctxt "field__aportaciones_extras:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_balance_contable:#allowed_values:0
+msgctxt "field_balance_contable:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_recursos_prestador:#allowed_values:0
+msgctxt "field_recursos_prestador:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_apoyo_gob_otros:#allowed_values:0
+msgctxt "field_apoyo_gob_otros:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_higiene_comunitaria:#allowed_values:0
+msgctxt "field_higiene_comunitaria:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_proteccion_zona_fuente:#allowed_values:0
+msgctxt "field_proteccion_zona_fuente:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_viv_totales:comunidad:label
+msgctxt "field_com_viv_totales:comunidad:label"
+msgid "Cantidad de viviendas totales"
+msgstr ""
+
+#: field:field_personal_prestador:#allowed_values:1
+msgctxt "field_personal_prestador:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_apoyo_gob_otros:#allowed_values:1
+msgctxt "field_apoyo_gob_otros:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_higiene_comunitaria:#allowed_values:1
+msgctxt "field_higiene_comunitaria:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_proteccion_zona_fuente:#allowed_values:1
+msgctxt "field_proteccion_zona_fuente:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_ingresos_extra:#allowed_values:1
+msgctxt "field_ingresos_extra:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field__aportaciones_extras:#allowed_values:1
+msgctxt "field__aportaciones_extras:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_libro_ingresos_egresos:#allowed_values:1
+msgctxt "field_libro_ingresos_egresos:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_recursos_prestador:#allowed_values:1
+msgctxt "field_recursos_prestador:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field__aportaciones_extras:prestador_de_servicio:label
+msgctxt "field__aportaciones_extras:prestador_de_servicio:label"
+msgid ""
+"¿Se han realizado aportaciones extraordinarias no directamente "
+"vinculadas al servicio de agua? "
+msgstr ""
+
+#: field:field_balance_contable:prestador_de_servicio:label
+msgctxt "field_balance_contable:prestador_de_servicio:label"
+msgid "\t¿Dispone de balance contable?"
+msgstr ""
+
+#: field:field_com_srv_telm_existe:#allowed_values:1
+msgctxt "field_com_srv_telm_existe:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_personal_prestador:prestador_de_servicio:label
+msgctxt "field_personal_prestador:prestador_de_servicio:label"
+msgid ""
+"¿Cuentan con personal técnico, operador o fontanero para la "
+"operación y mantenimiento?"
+msgstr ""
+
+#: field:field_reglamento_servicios:prestador_de_servicio:label
+msgctxt "field_reglamento_servicios:prestador_de_servicio:label"
+msgid "¿Poseen un reglamento para la prestación del servicio?"
+msgstr ""
+
+#: field:field_higiene_comunitaria:prestador_de_servicio:label
+msgctxt "field_higiene_comunitaria:prestador_de_servicio:label"
+msgid ""
+"Monitoreo de la higiene comunitaria: ¿El prestador promueve "
+"saneamiento ambiental?"
+msgstr ""
+
+#: field:field_proteccion_zona_fuente:prestador_de_servicio:label
+msgctxt "field_proteccion_zona_fuente:prestador_de_servicio:label"
+msgid ""
+"¿El prestador promueve acciones de protección de la zona cercana a "
+"la fuente o toma de agua del sistema?"
+msgstr ""
+
+#: field:field_no_uso_plaguicidas:prestador_de_servicio:label
+msgctxt "field_no_uso_plaguicidas:prestador_de_servicio:label"
+msgid ""
+"Promoción del no uso de plaguicidas en la zona cercana a la fuente o "
+"toma de agua del sistema"
+msgstr ""
+
+#: field:field_no_aguas_residuales:prestador_de_servicio:label
+msgctxt "field_no_aguas_residuales:prestador_de_servicio:label"
+msgid "Promoción de no descargas de aguas residuales"
+msgstr ""
+
+#: field:field_reforestacion:prestador_de_servicio:label
+msgctxt "field_reforestacion:prestador_de_servicio:label"
+msgid "Reforestación"
+msgstr ""
+
+#: field:field_sustitucion_componentes:prestador_de_servicio:label
+msgctxt "field_sustitucion_componentes:prestador_de_servicio:label"
+msgid ""
+"Sustitución de componentes pertenecientes a la toma de agua del "
+"sistema (una vez dañados)"
+msgstr ""
+
+#: field:field_vigilancia_zona:prestador_de_servicio:label
+msgctxt "field_vigilancia_zona:prestador_de_servicio:label"
+msgid "Vigilancia de la zona cercana a la fuente o toma de agua del sistema"
+msgstr ""
+
+#: field:field_proteccion_flora_fauna:prestador_de_servicio:label
+msgctxt "field_proteccion_flora_fauna:prestador_de_servicio:label"
+msgid ""
+"Protección de la flora y fauna de la zona cercana a la fuente o toma "
+"de agua del sistema"
+msgstr ""
+
+#: field:field_revision_demarcacion:prestador_de_servicio:label
+msgctxt "field_revision_demarcacion:prestador_de_servicio:label"
+msgid ""
+"Revisión del buen estado de la demarcación y señalización de la "
+"zona cercana a la fuente o toma de agua del sistema"
+msgstr ""
+
+#: field:field_revision_estado_cercano:prestador_de_servicio:label
+msgctxt "field_revision_estado_cercano:prestador_de_servicio:label"
+msgid "Revisión del estado del cercado de la obra de toma y/o mejorarlo"
+msgstr ""
+
+#: field:field_revision_estado_obra:prestador_de_servicio:label
+msgctxt "field_revision_estado_obra:prestador_de_servicio:label"
+msgid "Revisión del estado de la obra de toma limpia y/o mejorarlo"
+msgstr ""
+
+#: field:field_no_tala_y_resforestacion:prestador_de_servicio:label
+msgctxt "field_no_tala_y_resforestacion:prestador_de_servicio:label"
+msgid ""
+"Realización de acciones que promuevan la NO tala de árboles y la "
+"reforestación"
+msgstr ""
+
+#: field:field_proteccion_suelos:prestador_de_servicio:label
+msgctxt "field_proteccion_suelos:prestador_de_servicio:label"
+msgid ""
+"Protección de suelos (Estabilización de taludes, barreras vivas, "
+"barreras muertas, etc.)"
+msgstr ""
+
+#: field:field_revision_plan_contingencia:prestador_de_servicio:label
+msgctxt "field_revision_plan_contingencia:prestador_de_servicio:label"
+msgid ""
+"Revisión y actualización del plan de contingencia (incendio, "
+"desastres naturales)"
+msgstr ""
+
+#: field:field_g4_3:#allowed_values:0
+msgctxt "field_g4_3:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_g4_4:#allowed_values:0
+msgctxt "field_g4_4:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_fecha_encuesta:comunidad:description
+msgctxt "field_fecha_encuesta:comunidad:description"
+msgid "Fecha en la que se llena la encuesta"
+msgstr ""
+
+#: field:field_com_ce_existe:#allowed_values:0
+msgctxt "field_com_ce_existe:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_cs_existe:#allowed_values:0
+msgctxt "field_com_cs_existe:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_srv_existe:#allowed_values:0
+msgctxt "field_com_srv_existe:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_srv_telf_existe:#allowed_values:0
+msgctxt "field_com_srv_telf_existe:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_srv_telm_existe:#allowed_values:0
+msgctxt "field_com_srv_telm_existe:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_srv_inte_existe:#allowed_values:0
+msgctxt "field_com_srv_inte_existe:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_recotrata_prac:#allowed_values:0
+msgctxt "field_com_recotrata_prac:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_lev_general:#allowed_values:0
+msgctxt "field_com_lev_general:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_com_lev_utilform:#allowed_values:0
+msgctxt "field_com_lev_utilform:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_nombre_entidad_apoya:prestador_de_servicio:label
+msgctxt "field_nombre_entidad_apoya:prestador_de_servicio:label"
+msgid "Nombre de entidad que apoya"
+msgstr ""
+
+#: field:field_comentarios:prestador_de_servicio:label
+msgctxt "field_comentarios:prestador_de_servicio:label"
+msgid "Observaciones y comentarios"
+msgstr ""
+
+#: field:field_entidad_local:comunidad:label
+msgctxt "field_entidad_local:comunidad:label"
+msgid "Localidad"
+msgstr ""
+
+#: field:field_tipo_de_fuente:field_fuente_y_o_captacion:label
+msgctxt "field_tipo_de_fuente:field_fuente_y_o_captacion:label"
+msgid "Tipo de fuente"
+msgstr ""
+
+#: field:field_com_poblacion_total:comunidad:label
+msgctxt "field_com_poblacion_total:comunidad:label"
+msgid "Población total"
+msgstr ""
+
+#: field:field_field_com_obs_poblacion:comunidad:label
+msgctxt "field_field_com_obs_poblacion:comunidad:label"
+msgid "Observaciones sobre el grupo de población"
+msgstr ""
+
+#: field:field_com_viv_sin_sistema:comunidad:label
+msgctxt "field_com_viv_sin_sistema:comunidad:label"
+msgid "Viviendas sin sistema"
+msgstr ""
+
+#: field:field_com_srv_existe:comunidad:label
+msgctxt "field_com_srv_existe:comunidad:label"
+msgid "Se posee de servicios de energía eléctrica"
+msgstr ""
+
+#: field:field_tipo_de_tratamiento:field_d_infraestructura:label
+msgctxt "field_tipo_de_tratamiento:field_d_infraestructura:label"
+msgid "Tipo de tratamiento"
+msgstr ""
+
+#: field:field_fecha_analisiscalidad_agua:sistema:label
+msgctxt "field_fecha_analisiscalidad_agua:sistema:label"
+msgid "Fecha de análisis - Cloro Residual"
+msgstr ""
+
+#: field:field_com_lev_general:#allowed_values:1
+msgctxt "field_com_lev_general:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_g4_3:#allowed_values:1
+msgctxt "field_g4_3:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_g4_4:#allowed_values:1
+msgctxt "field_g4_4:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_com_srv_telf_existe:comunidad:label
+msgctxt "field_com_srv_telf_existe:comunidad:label"
+msgid "Se posee de servicios de telefonía fija"
+msgstr ""
+
+#: field:field_com_srv_telm_existe:comunidad:label
+msgctxt "field_com_srv_telm_existe:comunidad:label"
+msgid "Se posee de servicios de telefonía celular"
+msgstr ""
+
+#: field:field_com_srv_inte_existe:comunidad:label
+msgctxt "field_com_srv_inte_existe:comunidad:label"
+msgid "Se posee de servicios de conexión a Internet (3G o 4G)"
+msgstr ""
+
+#: field:field_com_lev_general:comunidad:label
+msgctxt "field_com_lev_general:comunidad:label"
+msgid ""
+"1. Levantamiento general aproximado (entrevistas, control parcial de "
+"las viviendas)"
+msgstr ""
+
+#: field:field_com_lev_utilform:comunidad:label
+msgctxt "field_com_lev_utilform:comunidad:label"
+msgid "2. Levantamiento utilizando el formulario auxiliar"
+msgstr ""
+
+#: field:field_com_lev_muestral:comunidad:label
+msgctxt "field_com_lev_muestral:comunidad:label"
+msgid "3. Levantamiento muestral"
+msgstr ""
+
+#: field:field_com_num_viv_muestra:comunidad:label
+msgctxt "field_com_num_viv_muestra:comunidad:label"
+msgid "Nº Viviendas de la muestra:"
+msgstr ""
+
+#: field:field_com_codigo_comunidad:comunidad:label
+msgctxt "field_com_codigo_comunidad:comunidad:label"
+msgid "Código Comunidad"
+msgstr ""
+
+#: field:field_com_num_viv_infta:comunidad:label
+msgctxt "field_com_num_viv_infta:comunidad:label"
+msgid ""
+"Cantidad de viviendas que TIENEN infraestructura de saneamiento PROPIA "
+"mejorada tipo 1: "
+msgstr ""
+
+#: field:field_com_num_viv_inftb:comunidad:label
+msgctxt "field_com_num_viv_inftb:comunidad:label"
+msgid ""
+"Cantidad de viviendas que TIENEN infraestructura de saneamiento PROPIA "
+"mejorada tipo 2:"
+msgstr ""
+
+#: field:field_com_recotrata_prac:comunidad:label
+msgctxt "field_com_recotrata_prac:comunidad:label"
+msgid ""
+"¿Existe algún tipo de práctica de recolección y/o tratamiento de "
+"basuras en la comunidad?"
+msgstr ""
+
+#: field:field_com_ce_existe:comunidad:label
+msgctxt "field_com_ce_existe:comunidad:label"
+msgid "¿Existe algún centro educativo en la comunidad?"
+msgstr ""
+
+#: field:field_com_ce_nombre:comunidad:label
+msgctxt "field_com_ce_nombre:comunidad:label"
+msgid ""
+"Nombre del centro educativo externo donde acude la población "
+"estudiantil"
+msgstr ""
+
+#: field:field_com_cs_existe:comunidad:label
+msgctxt "field_com_cs_existe:comunidad:label"
+msgid "¿Existe algún centro de salud en la comunidad?"
+msgstr ""
+
+#: field:field_com_cs_nombre:comunidad:label
+msgctxt "field_com_cs_nombre:comunidad:label"
+msgid ""
+"Nombre del centro de salud externo que acude la población de la "
+"comunidad"
+msgstr ""
+
+#: field:field_com_viv_con_sistnva:field_com_viv_con_sistema:label
+msgctxt "field_com_viv_con_sistnva:field_com_viv_con_sistema:label"
+msgid "Viviendas atendidas"
+msgstr ""
+
+#: field:field_revision_componentes_toma:prestador_de_servicio:label
+msgctxt "field_revision_componentes_toma:prestador_de_servicio:label"
+msgid ""
+"Acción preventiva: Revisión y/o sustitución periódica de los "
+"componentes pertenecientes a la toma de agua del sistema (antes de "
+"rotura o daño)  Realización de acciones que promuevan la NO tala de "
+"árboles y la reforestación"
+msgstr ""
+
+#: field:field_com_viv_con_sistema:comunidad:label
+msgctxt "field_com_viv_con_sistema:comunidad:label"
+msgid "Viviendas con sistema"
+msgstr ""
+
+#: field:field_g4_4:sistema:label
+msgctxt "field_g4_4:sistema:label"
+msgid "¿Pasa el test de análisis Físico/Químico?"
+msgstr ""
+
+#: field:field_com_fic_cesa_pa:#allowed_values:No
+msgctxt "field_com_fic_cesa_pa:#allowed_values:No"
+msgid "No"
+msgstr ""
+
+#: field:field_com_fic_cs_ficha:comunidad:label
+msgctxt "field_com_fic_cs_ficha:comunidad:label"
+msgid "Ficha de centro de salud"
+msgstr ""
+
+#: field:field_com_fic_cssgcodigo:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssgcodigo:field_com_fic_cs_ficha:label"
+msgid "Código del centro de salud"
+msgstr ""
+
+#: field:field_con_fic_ce_ficha:comunidad:label
+msgctxt "field_con_fic_ce_ficha:comunidad:label"
+msgid "Centros educativos. Información general"
+msgstr ""
+
+#: field:field_com_hig_num_vivbasica:comunidad:label
+msgctxt "field_com_hig_num_vivbasica:comunidad:label"
+msgid ""
+"Cantidad de viviendas que cuentan con una instalación básica (con "
+"agua y jabón) para el lavado de manos cerca (a menos de 10 metros) de "
+"la instalación de saneamiento"
+msgstr ""
+
+#: field:field_com_hig_num_vivagua:comunidad:label
+msgctxt "field_com_hig_num_vivagua:comunidad:label"
+msgid ""
+"Cantidad de viviendas que almacenan el agua de bebida de forma segura "
+"(en recipientes limpios y bien tapados)"
+msgstr ""
+
+#: field:field_com_recontrata_numvivc:comunidad:label
+msgctxt "field_com_recontrata_numvivc:comunidad:label"
+msgid "Cantidad de viviendas que recogen o tratan las basuras domésticas"
+msgstr ""
+
+#: field:field_com_fic_ce_fdocf:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_ce_fdocf:field_con_fic_ce_ficha:label"
+msgid "Número total de trabajadoras y docentes femeninas"
+msgstr ""
+
+#: field:field_con_fic_ce_fnombre:field_con_fic_ce_ficha:label
+msgctxt "field_con_fic_ce_fnombre:field_con_fic_ce_ficha:label"
+msgid "Nombre del centro educativo"
+msgstr ""
+
+#: field:field_com_fic_ce_fcodigo:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_ce_fcodigo:field_con_fic_ce_ficha:label"
+msgid "Código del centro educativo"
+msgstr ""
+
+#: field:field_com_fic_ce_festf:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_ce_festf:field_con_fic_ce_ficha:label"
+msgid "Número total de alumnas femeninas"
+msgstr ""
+
+#: field:field_com_no_uso_vivnumuso:comunidad:label
+msgctxt "field_com_no_uso_vivnumuso:comunidad:label"
+msgid "No mejorada - Uso PARCIAL"
+msgstr ""
+
+#: field:field_com_num_viv_usoinfb:comunidad:label
+msgctxt "field_com_num_viv_usoinfb:comunidad:label"
+msgid ""
+"Tipo I - Uso Completo - Nº de viviendas que usan su infraestructura "
+"PROPIA"
+msgstr ""
+
+#: field:field_fecha_encuesta:comunidad:label
+msgctxt "field_fecha_encuesta:comunidad:label"
+msgid "Fecha de aplicación"
+msgstr ""
+
+#: field:field_com_fic_ce_fdocm:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_ce_fdocm:field_con_fic_ce_ficha:label"
+msgid "Número total de trabajadores y docentes masculinos"
+msgstr ""
+
+#: field:field_com_fic_ce_festm:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_ce_festm:field_con_fic_ce_ficha:label"
+msgid "Número total de alumnos masculinos"
+msgstr ""
+
+#: field:field_com_fic_cesh_pa:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pa:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal femenino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cesh_pb:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pb:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal femenino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cesh_pc:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pc:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal femenino NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pe:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pe:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal masculino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cssh_pe:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pe:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal masculino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cesh_pf:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pf:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal masculino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_pf:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pf:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal masculino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_pg:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pg:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal masculino NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pg:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pg:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal masculino NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_ph:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_ph:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal masculino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pi:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pi:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal mixto de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cesh_pj:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pj:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal mixto de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cesh_pk:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pk:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal mixto NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pl:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pl:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal mixto BÁSICA"
+msgstr ""
+
+#: field:field_group_com_fic_cscgnom:field_com_fic_cs_ficha:label
+msgctxt "field_group_com_fic_cscgnom:field_com_fic_cs_ficha:label"
+msgid "Nombre del centro de salud"
+msgstr ""
+
+#: field:field_com_fic_cesh_pd:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pd:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para personal femenino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cesa_pa:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesa_pa:field_con_fic_ce_ficha:label"
+msgid "¿El centro educativo tiene algún sistema de agua asociado?"
+msgstr ""
+
+#: field:field_com_fic_cesa_pd:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesa_pd:field_con_fic_ce_ficha:label"
+msgid "Observaciones "
+msgstr ""
+
+#: field:field_com_fic_cesh_pm:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pm:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado femenino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cesh_pn:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pn:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado femenino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cesh_po:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_po:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado femenino NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pp:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pp:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado femenino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pt:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pt:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado masculino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pq:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pq:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado masculino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cesh_pr:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pr:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado masculino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cesh_ps:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_ps:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado masculino NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pu:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pu:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado mixto de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cesh_pv:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pv:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado mixto de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cesh_px:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_px:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado mixto BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cesa_pa:#allowed_values:Si, funciona sobre la demanda
+msgctxt "field_com_fic_cesa_pa:#allowed_values:Si, funciona sobre la demanda"
+msgid "Si, funciona sobre la demanda"
+msgstr ""
+
+#: field:field_com_fic_cesa_pa:#allowed_values:Si, funciona pero no absorbe picos de demanda
+msgctxt ""
+"field_com_fic_cesa_pa:#allowed_values:Si, funciona pero no absorbe "
+"picos de demanda"
+msgid "Si, funciona pero no absorbe picos de demanda"
+msgstr ""
+
+#: field:field_com_fic_cesa_pa:#allowed_values:Si, no funciona
+msgctxt "field_com_fic_cesa_pa:#allowed_values:Si, no funciona"
+msgid "Si, no funciona"
+msgstr ""
+
+#: field:field_com_fic_cscgperm:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cscgperm:field_com_fic_cs_ficha:label"
+msgid "Personal de salud y administrativo. Masculino"
+msgstr ""
+
+#: field:field_com_fic_cscgperf:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cscgperf:field_com_fic_cs_ficha:label"
+msgid "Personal de salud y administrativo. Femenino"
+msgstr ""
+
+#: field:field_com_fic_cscgusum:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cscgusum:field_com_fic_cs_ficha:label"
+msgid "Usuarios promedio del sistema de salud. Masculino"
+msgstr ""
+
+#: field:field_com_fic_cscgusuf:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cscgusuf:field_com_fic_cs_ficha:label"
+msgid "Usuarios promedio del sistema de salud. Femenino"
+msgstr ""
+
+#: field:field_com_fic_cssa_pa:#allowed_values:No
+msgctxt "field_com_fic_cssa_pa:#allowed_values:No"
+msgid "No"
+msgstr ""
+
+#: field:field_com_fic_cssh_pm:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pm:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes femenino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cssh_pn:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pn:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes femenino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_po:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_po:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes femenino NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pp:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pp:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes femenino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pq:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pq:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes masculino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cssh_pr:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pr:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes masculino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_ps:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_ps:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes masculino NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pt:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pt:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes masculino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pu:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pu:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes mixto de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cssh_pv:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pv:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes mixto de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_pw:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pw:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes mixto NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cssh_px:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_px:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para pacientes mixto BÁSICA"
+msgstr ""
+
+#: field:field_edo_fisico_infra_cptcion:field_fuente_y_o_captacion:label
+msgctxt "field_edo_fisico_infra_cptcion:field_fuente_y_o_captacion:label"
+msgid "Estado físico de la infraestructura de captación de agua"
+msgstr ""
+
+#: field:field_com_fic_cssa_pa:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssa_pa:field_com_fic_cs_ficha:label"
+msgid "¿El centro de salud tiene algún sistema de agua asociado?"
+msgstr ""
+
+#: field:field_edo_fisico_linea_conducion:field_lineas_de_conduccion:label
+msgctxt "field_edo_fisico_linea_conducion:field_lineas_de_conduccion:label"
+msgid "¿Cuál es el estado físico de la línea de conducción de agua?"
+msgstr ""
+
+#: field:field_edo_fisico_infr_almac:field_e_infraestructura_almac:label
+msgctxt "field_edo_fisico_infr_almac:field_e_infraestructura_almac:label"
+msgid ""
+"¿Cuál es el Estado físico de la infraestructura de almacenamiento "
+"de agua?"
+msgstr ""
+
+#: field:field_estado_equipos_transporte:prestador_de_asistencia_t_cnica:label
+msgctxt "field_estado_equipos_transporte:prestador_de_asistencia_t_cnica:label"
+msgid "Estado de los equipos de transporte "
+msgstr ""
+
+#: field:field_estado_equipos_informatico:prestador_de_asistencia_t_cnica:label
+msgctxt "field_estado_equipos_informatico:prestador_de_asistencia_t_cnica:label"
+msgid "Estado de los equipos informáticos (computadora/impresora)"
+msgstr ""
+
+#: field:field_nombre_tecnico:field_tecnicos:label
+msgctxt "field_nombre_tecnico:field_tecnicos:label"
+msgid "Nombre del Técnico"
+msgstr ""
+
+#: field:field_genero_tecnico:field_tecnicos:label
+msgctxt "field_genero_tecnico:field_tecnicos:label"
+msgid "Género"
+msgstr ""
+
+#: field:field_telef:field_tecnicos:label
+msgctxt "field_telef:field_tecnicos:label"
+msgid "Teléfono"
+msgstr ""
+
+#: field:field_com_fic_cssa_pd:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssa_pd:field_com_fic_cs_ficha:label"
+msgid "Observaciones "
+msgstr ""
+
+#: field:field_com_fic_cssh_pa:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pa:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal femenino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cssh_pb:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pb:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal femenino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_pc:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pc:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal femenino NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pd:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pd:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal femenino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cssh_ph:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_ph:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal masculino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pi:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pi:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal mixto de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cssh_pj:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pj:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal mixto de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_pk:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pk:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal mixto NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pl:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pl:field_com_fic_cs_ficha:label"
+msgid "Nº de Instalaciones para personal mixto BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cssa_pa:#allowed_values:Si, funciona sobre la demanda
+msgctxt "field_com_fic_cssa_pa:#allowed_values:Si, funciona sobre la demanda"
+msgid "Si, funciona sobre la demanda"
+msgstr ""
+
+#: field:field_com_fic_cssa_pa:#allowed_values:Si, funciona pero no absorbe picos de demanda
+msgctxt ""
+"field_com_fic_cssa_pa:#allowed_values:Si, funciona pero no absorbe "
+"picos de demanda"
+msgid "Si, funciona pero no absorbe picos de demanda"
+msgstr ""
+
+#: field:field_com_fic_cssa_pa:#allowed_values:Si, no funciona
+msgctxt "field_com_fic_cssa_pa:#allowed_values:Si, no funciona"
+msgid "Si, no funciona"
+msgstr ""
+
+#: field:field_com_obs_obscomre:comunidad:label
+msgctxt "field_com_obs_obscomre:comunidad:label"
+msgid "Redacción"
+msgstr ""
+
+#: field:field_entity_name:comunidad:label
+msgctxt "field_entity_name:comunidad:label"
+msgid "Nombre de la comunidad"
+msgstr ""
+
+#: field:field_system_ref:field_com_viv_con_sistema:label
+msgctxt "field_system_ref:field_com_viv_con_sistema:label"
+msgid "Nombre del sistema"
+msgstr ""
+
+#: field:field_prestador_servicio:field_com_viv_con_sistema:label
+msgctxt "field_prestador_servicio:field_com_viv_con_sistema:label"
+msgid "Nombre del prestador de servicio"
+msgstr ""
+
+#: field:field_entidad_local:sistema:label
+msgctxt "field_entidad_local:sistema:label"
+msgid "Localidad"
+msgstr ""
+
+#: field:field_com_georef:comunidad:label
+msgctxt "field_com_georef:comunidad:label"
+msgid "Georeferenciación"
+msgstr ""
+
+#: field:field_area_planificacion:sistema:label
+msgctxt "field_area_planificacion:sistema:label"
+msgid "Área o zona de planificación"
+msgstr ""
+
+#: field:field_existencia_de_indicio:field_fuente_y_o_captacion:label
+msgctxt "field_existencia_de_indicio:field_fuente_y_o_captacion:label"
+msgid ""
+"Existencia de indicios o riesgo de contaminación causada por "
+"productos químicos o residuos alrededor de la toma de agua con origen "
+"en actividades industriales, agrícolas, artesanales, etc."
+msgstr ""
+
+#: field:field_tipo_de_rehabilitacion:field_rehabilitaciones_y_o_ampli:label
+msgctxt "field_tipo_de_rehabilitacion:field_rehabilitaciones_y_o_ampli:label"
+msgid "Tipo de rehabilitación o de ampliación"
+msgstr ""
+
+#: field:field_tipo_de_sistema_de_absto:sistema:label
+msgctxt "field_tipo_de_sistema_de_absto:sistema:label"
+msgid "Tipo de sistema de abastecimiento de agua"
+msgstr ""
+
+#: field:field_a6_croquis:sistema:label
+msgctxt "field_a6_croquis:sistema:label"
+msgid "Croquis"
+msgstr ""
+
+#: field:field_caudal_de_la_fuente:field_fuente_y_o_captacion:label
+msgctxt "field_caudal_de_la_fuente:field_fuente_y_o_captacion:label"
+msgid "Caudal de la fuente"
+msgstr ""
+
+#: field:field_com_altitud:comunidad:label
+msgctxt "field_com_altitud:comunidad:label"
+msgid "Altitud"
+msgstr ""
+
+#: field:field_sumatoria_gastos_teoricos:prestador_de_servicio:label
+msgctxt "field_sumatoria_gastos_teoricos:prestador_de_servicio:label"
+msgid "Suma de gastos teóricos"
+msgstr ""
+
+#: field:field_existencia_z_erosionadas:field_fuente_y_o_captacion:label
+msgctxt "field_existencia_z_erosionadas:field_fuente_y_o_captacion:label"
+msgid ""
+"Existencia de zonas erosionadas en los alrededores de fuente / toma de "
+"agua"
+msgstr ""
+
+#: field:field_idioma_predominante:comunidad:label
+msgctxt "field_idioma_predominante:comunidad:label"
+msgid "Idioma predominante"
+msgstr ""
+
+#: field:field_f1_2:field_f_red_de_distribucion:label
+msgctxt "field_f1_2:field_f_red_de_distribucion:label"
+msgid "Número de conexiones de la red de distribución"
+msgstr ""
+
+#: field:field_caudal_actual_del_sistema:sistema:label
+msgctxt "field_caudal_actual_del_sistema:sistema:label"
+msgid "Caudal actual del sistema"
+msgstr ""
+
+#: field:field__cuenta_con_fondos_disponi:#allowed_values:1
+msgctxt "field__cuenta_con_fondos_disponi:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_imagenps:prestador_de_servicio:label
+msgctxt "field_imagenps:prestador_de_servicio:label"
+msgid "Imagen"
+msgstr ""
+
+#: field:field_com_e1source:field_com_fc_newwatsystem:label
+msgctxt "field_com_e1source:field_com_fc_newwatsystem:label"
+msgid "Fuente / institución"
+msgstr ""
+
+#: field:field_imagen:sistema:label
+msgctxt "field_imagen:sistema:label"
+msgid "Imagen"
+msgstr ""
+
+#: field:field_com_hig_num_vivtodos:comunidad:label
+msgctxt "field_com_hig_num_vivtodos:comunidad:label"
+msgid ""
+"Cantidad de viviendas en que TODOS sus miembros (incluyendo "
+"ancianos/as, hombres, mujeres y niños/as) utilizan la instalación de "
+"lavado siempre"
+msgstr ""
+
+#: field:field_actualizar_prov_servicio:prestador_de_asistencia_t_cnica:label
+msgctxt "field_actualizar_prov_servicio:prestador_de_asistencia_t_cnica:label"
+msgid ""
+"10. Llevar actualizado un listado de proveedores de servicio "
+"(electricistas, fontaneros mayores, laboratorios de calidad de agua) y "
+"proveedores de bienes (materiales de construcción y fontanería, "
+"productos químicos) para brindar apoyo a los CAPS"
+msgstr ""
+
+#: field:field_recursos_prestador:prestador_de_servicio:label
+msgctxt "field_recursos_prestador:prestador_de_servicio:label"
+msgid ""
+"¿El prestador de servicio cuenta con recursos (material de "
+"construcción, herramientas, equipo) para el desarrollo de sus "
+"actividades de mantenimiento?"
+msgstr ""
+
+#: field:field_agua_producida:prestador_de_servicio:label
+msgctxt "field_agua_producida:prestador_de_servicio:label"
+msgid "Agua producida (promedio mensual, en metros cúbicos)"
+msgstr ""
+
+#: field:field_agua_facturada:prestador_de_servicio:label
+msgctxt "field_agua_facturada:prestador_de_servicio:label"
+msgid "Agua facturada (promedio mensual, en metros cúbicos)"
+msgstr ""
+
+#: field:field_com_fc_systypimprove:comunidad:label
+msgctxt "field_com_fc_systypimprove:comunidad:label"
+msgid "Sistema de Saneamiento del tipo 1 y 2 mejorado"
+msgstr ""
+
+#: field:field_com_fc_systypunimprove:comunidad:label
+msgctxt "field_com_fc_systypunimprove:comunidad:label"
+msgid "Sistema de Saneamiento del tipo no mejorado"
+msgstr ""
+
+#: field:field_monto_total_finalizado:prestador_de_servicio:label
+msgctxt "field_monto_total_finalizado:prestador_de_servicio:label"
+msgid "Monto total del último año finalizado"
+msgstr ""
+
+#: field:field_monto:prestador_de_asistencia_t_cnica:label
+msgctxt "field_monto:prestador_de_asistencia_t_cnica:label"
+msgid "Monto"
+msgstr ""
+
+#: field:field_caudal_fuente_epoca_seca:field_fuente_y_o_captacion:label
+msgctxt "field_caudal_fuente_epoca_seca:field_fuente_y_o_captacion:label"
+msgid "Caudal de la fuente en epoca seca"
+msgstr ""
+
+#: field:field_longitud_de_la_linea:field_lineas_de_conduccion:label
+msgctxt "field_longitud_de_la_linea:field_lineas_de_conduccion:label"
+msgid "Longitud de la línea"
+msgstr ""
+
+#: field:field_etnia_en_mayoria:comunidad:label
+msgctxt "field_etnia_en_mayoria:comunidad:label"
+msgid "Etnia en mayoría"
+msgstr ""
+
+#: field:field_capacidad_almacenamiento:field_e_infraestructura_almac:label
+msgctxt "field_capacidad_almacenamiento:field_e_infraestructura_almac:label"
+msgid "Capacidad de almacenamiento (volumen)"
+msgstr ""
+
+#: field:field_com_e1source:field_com_fc_systypimprove:label
+msgctxt "field_com_e1source:field_com_fc_systypimprove:label"
+msgid "Fuente / institución"
+msgstr ""
+
+#: field:field_com_e1source:field_com_fc_systypunimprove:label
+msgctxt "field_com_e1source:field_com_fc_systypunimprove:label"
+msgid "Fuente / institución"
+msgstr ""
+
+#: field:field_com_fc_newwatsystem:comunidad:label
+msgctxt "field_com_fc_newwatsystem:comunidad:label"
+msgid "Nuevo sistema de agua"
+msgstr ""
+
+#: field:field_sumatoria_gastos_reales:prestador_de_servicio:label
+msgctxt "field_sumatoria_gastos_reales:prestador_de_servicio:label"
+msgid "Suma de gastos reales "
+msgstr ""
+
+#: field:field_ingresos_reales:prestador_de_servicio:label
+msgctxt "field_ingresos_reales:prestador_de_servicio:label"
+msgid " Ingresos reales por facturación "
+msgstr ""
+
+#: field:field_gasto_promedio_admin:prestador_de_servicio:label
+msgctxt "field_gasto_promedio_admin:prestador_de_servicio:label"
+msgid "Gasto promedio mensual real en administración"
+msgstr ""
+
+#: field:field_gasto_teorico_admin:prestador_de_servicio:label
+msgctxt "field_gasto_teorico_admin:prestador_de_servicio:label"
+msgid "Gasto promedio mensual teórico en administración "
+msgstr ""
+
+#: field:field_gasto_real_operacion:prestador_de_servicio:label
+msgctxt "field_gasto_real_operacion:prestador_de_servicio:label"
+msgid "Gasto promedio mensual real en operación"
+msgstr ""
+
+#: field:field_gasto_teorico_operacion:prestador_de_servicio:label
+msgctxt "field_gasto_teorico_operacion:prestador_de_servicio:label"
+msgid "Gasto promedio mensual teórico en operación"
+msgstr ""
+
+#: field:field_gasto_real_mantenimiento:prestador_de_servicio:label
+msgctxt "field_gasto_real_mantenimiento:prestador_de_servicio:label"
+msgid "Gasto promedio mensual real en mantenimiento "
+msgstr ""
+
+#: field:field_gasto_teorico_mantenimient:prestador_de_servicio:label
+msgctxt "field_gasto_teorico_mantenimient:prestador_de_servicio:label"
+msgid "Gasto promedio mensual teórico en mantenimiento"
+msgstr ""
+
+#: field:field_entity_name:prestador_de_asistencia_t_cnica:label
+msgctxt "field_entity_name:prestador_de_asistencia_t_cnica:label"
+msgid "Nombre"
+msgstr ""
+
+#: field:field_monto_aporte_previsto:prestador_de_servicio:label
+msgctxt "field_monto_aporte_previsto:prestador_de_servicio:label"
+msgid "Monto previsto para el año en curso"
+msgstr ""
+
+#: field:field_monto_aporte_finalizado:prestador_de_servicio:label
+msgctxt "field_monto_aporte_finalizado:prestador_de_servicio:label"
+msgid "Monto total del último año finalizado"
+msgstr ""
+
+#: field:field_tasa_anual_de_expansion_pr:prestador_de_servicio:label
+msgctxt "field_tasa_anual_de_expansion_pr:prestador_de_servicio:label"
+msgid "Tasa anual de expansión promedio"
+msgstr ""
+
+#: field:field_monto_previsto:prestador_de_servicio:label
+msgctxt "field_monto_previsto:prestador_de_servicio:label"
+msgid "Monto previsto para el año en curso"
+msgstr ""
+
+#: field:field_monto_total_de_ingresos:prestador_de_servicio:label
+msgctxt "field_monto_total_de_ingresos:prestador_de_servicio:label"
+msgid "Monto total de ingresos en el último año "
+msgstr ""
+
+#: field:field_monto_total_de_egresos:prestador_de_servicio:label
+msgctxt "field_monto_total_de_egresos:prestador_de_servicio:label"
+msgid "Monto total de egresos en el último año"
+msgstr ""
+
+#: field:field_monto_total_fondos:prestador_de_servicio:label
+msgctxt "field_monto_total_fondos:prestador_de_servicio:label"
+msgid "Monto total actual"
+msgstr ""
+
+#: field:field_activos_corrientes:prestador_de_servicio:label
+msgctxt "field_activos_corrientes:prestador_de_servicio:label"
+msgid "Activos Corrientes"
+msgstr ""
+
+#: field:field_activos_no_corrientes:prestador_de_servicio:label
+msgctxt "field_activos_no_corrientes:prestador_de_servicio:label"
+msgid "Activos No Corrientes"
+msgstr ""
+
+#: field:field_pasivos_corrientes_:prestador_de_servicio:label
+msgctxt "field_pasivos_corrientes_:prestador_de_servicio:label"
+msgid "Pasivos Corrientes "
+msgstr ""
+
+#: field:field_pasivos_no_corrientes:prestador_de_servicio:label
+msgctxt "field_pasivos_no_corrientes:prestador_de_servicio:label"
+msgid "Pasivos No Corrientes"
+msgstr ""
+
+#: field:field_system_ref:field_con_fic_ce_ficha:label
+msgctxt "field_system_ref:field_con_fic_ce_ficha:label"
+msgid "Nombre del sistema"
+msgstr ""
+
+#: field:field_com_recotrata_disp:#allowed_values:0
+msgctxt "field_com_recotrata_disp:#allowed_values:0"
+msgid "Quema"
+msgstr ""
+
+#: field:field_com_recotrata_disp:#allowed_values:1
+msgctxt "field_com_recotrata_disp:#allowed_values:1"
+msgid "Enterrada"
+msgstr ""
+
+#: field:field_com_recotrata_disp:#allowed_values:2
+msgctxt "field_com_recotrata_disp:#allowed_values:2"
+msgid "Reciclaje"
+msgstr ""
+
+#: field:field_com_recotrata_disp:#allowed_values:3
+msgctxt "field_com_recotrata_disp:#allowed_values:3"
+msgid "Tirada"
+msgstr ""
+
+#: field:field_com_recotrata_disp:#allowed_values:4
+msgctxt "field_com_recotrata_disp:#allowed_values:4"
+msgid "Tirada en un cuerpo de agua"
+msgstr ""
+
+#: field:field_com_recotrata_disp:#allowed_values:5
+msgctxt "field_com_recotrata_disp:#allowed_values:5"
+msgid "Basurero"
+msgstr ""
+
+#: field:field_com_recotrata_disp:#allowed_values:6
+msgctxt "field_com_recotrata_disp:#allowed_values:6"
+msgid "Outro"
+msgstr ""
+
+#: field:field__cuenta_con_fondos_disponi:#allowed_values:0
+msgctxt "field__cuenta_con_fondos_disponi:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_existe_macro_medicion:#allowed_values:1
+msgctxt "field_existe_macro_medicion:#allowed_values:1"
+msgid "Sí existe y no funciona"
+msgstr ""
+
+#: field:field_existe_macro_medicion:#allowed_values:0
+msgctxt "field_existe_macro_medicion:#allowed_values:0"
+msgid "No Existe"
+msgstr ""
+
+#: field:field_existe_macro_medicion:#allowed_values:2
+msgctxt "field_existe_macro_medicion:#allowed_values:2"
+msgid "Sí existe y funciona"
+msgstr ""
+
+#: field:field_entidad_local:prestador_de_asistencia_t_cnica:label
+msgctxt "field_entidad_local:prestador_de_asistencia_t_cnica:label"
+msgid "Zona de Atención"
+msgstr ""
+
+#: field:field_entity_name:sistema:label
+msgctxt "field_entity_name:sistema:label"
+msgid "Nombre"
+msgstr ""
+
+#: field:field_existe_macro_medicion:field_fuente_y_o_captacion:label
+msgctxt "field_existe_macro_medicion:field_fuente_y_o_captacion:label"
+msgid "Existe macro medición del caudal captado instalada"
+msgstr ""
+
+#: field:field_frecuencia_limpieza_infr:field_e_infraestructura_almac:label
+msgctxt "field_frecuencia_limpieza_infr:field_e_infraestructura_almac:label"
+msgid "¿Con qué frecuencia se realiza la limpieza?"
+msgstr ""
+
+#: field:field_cantidad_de_cloro_residual:sistema:label
+msgctxt "field_cantidad_de_cloro_residual:sistema:label"
+msgid "Cantidad de cloro residual"
+msgstr ""
+
+#: field:field_com_recotrata_disp:comunidad:label
+msgctxt "field_com_recotrata_disp:comunidad:label"
+msgid ""
+"¿Cuál es la disposición final de la basura más habitual en la "
+"comunidad? (quema, enterrada, tirada, tirada en un cuerpo de agua, "
+"etc.)"
+msgstr ""
+
+#: field:field_ce_location:comunidad:label
+msgctxt "field_ce_location:comunidad:label"
+msgid "Lugar en el que está ubicado el centro educativo de referencia"
+msgstr ""
+
+#: field:field_com_e1source:field_com_fc_impsystem:label
+msgctxt "field_com_e1source:field_com_fc_impsystem:label"
+msgid "Fuente / institución"
+msgstr ""
+
+#: field:field_com_fc_impsystem:comunidad:label
+msgctxt "field_com_fc_impsystem:comunidad:label"
+msgid "Mejora de sistema"
+msgstr ""
+
+#: field:field_anno_construccion:sistema:description
+msgctxt "field_anno_construccion:sistema:description"
+msgid "Year the system was built"
+msgstr ""
+
+#: field:field__cuenta_con_fondos_disponi:prestador_de_servicio:label
+msgctxt "field__cuenta_con_fondos_disponi:prestador_de_servicio:label"
+msgid "¿Cuenta con fondos disponibles?"
+msgstr ""
+
+#: field:field_system_ref:field_com_fic_cs_ficha:label
+msgctxt "field_system_ref:field_com_fic_cs_ficha:label"
+msgid "Nombre del sistema"
+msgstr ""
+
+#: field:field_cuenca_hidrografica:comunidad:label
+msgctxt "field_cuenca_hidrografica:comunidad:label"
+msgid "Cuenca hidrográfica"
+msgstr ""
+
+#: field:field_field_com_num_viv_infnt:comunidad:label
+msgctxt "field_field_com_num_viv_infnt:comunidad:label"
+msgid ""
+"Cantidad de viviendas que TIENEN OTRA infraestructura de saneamiento "
+"PROPIA del tipo no mejorada:"
+msgstr ""
+
+#: field:field_origen_de_financiamiento_i:field_rehabilitaciones_y_o_ampli:label
+msgctxt "field_origen_de_financiamiento_i:field_rehabilitaciones_y_o_ampli:label"
+msgid ""
+"Origen de financiamiento (institución, organismo, donación, aporte, "
+"etc.)"
+msgstr ""
+
+#: field:field_tipo_de_sistema_de_absto:testingpurposes:label
+msgctxt "field_tipo_de_sistema_de_absto:testingpurposes:label"
+msgid "Tipo de sistema de abastecimiento de agua"
+msgstr ""
+
+#: field:field_agua_en_verano:sistema:label
+msgctxt "field_agua_en_verano:sistema:label"
+msgid ""
+"¿Hay suficiente agua en las fuentes en función de la demanda en el "
+"verano / época seca?"
+msgstr ""
+
+#: field:field_agua_en_verano:#allowed_values:1
+msgctxt "field_agua_en_verano:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_edo_fisico_linea_tto:field_d_infraestructura:label
+msgctxt "field_edo_fisico_linea_tto:field_d_infraestructura:label"
+msgid "Estado físico de la línea de tratamiento de agua"
+msgstr ""
+
+#: field:field_com_cs_existe:#allowed_values:1
+msgctxt "field_com_cs_existe:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_imagenpat:prestador_de_asistencia_t_cnica:label
+msgctxt "field_imagenpat:prestador_de_asistencia_t_cnica:label"
+msgid "Imagen"
+msgstr ""
+
+#: field:field_tipo_de_pat2:prestador_de_asistencia_t_cnica:label
+msgctxt "field_tipo_de_pat2:prestador_de_asistencia_t_cnica:label"
+msgid "Tipo de PAT"
+msgstr ""
+
+#: field:field_com_srv_caracteristicas:comunidad:label
+msgctxt "field_com_srv_caracteristicas:comunidad:label"
+msgid "Otras características de la comunidad"
+msgstr ""
+
+#: field:field_otras_divisiones:comunidad:label
+msgctxt "field_otras_divisiones:comunidad:label"
+msgid "Otras divisiones"
+msgstr ""
+
+#: field:field_entity_name:prestador_de_servicio:label
+msgctxt "field_entity_name:prestador_de_servicio:label"
+msgid "Nombre"
+msgstr ""
+
+#: field:field_balance_contable:#allowed_values:1
+msgctxt "field_balance_contable:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_entidad_local:prestador_de_servicio:label
+msgctxt "field_entidad_local:prestador_de_servicio:label"
+msgid "Localidad"
+msgstr ""
+
+#: field:field_fecha_toma_caudal_ep_seca:field_fuente_y_o_captacion:label
+msgctxt "field_fecha_toma_caudal_ep_seca:field_fuente_y_o_captacion:label"
+msgid "Fecha de la toma del caudal de la fuente"
+msgstr ""
+
+#: field:field_cuenca_hidrografica:sistema:label
+msgctxt "field_cuenca_hidrografica:sistema:label"
+msgid "Cuenca hidrográfica"
+msgstr ""
+
+#: field:field_origen_de_financiamiento_i:field_a_fuentes_de_financiamient:label
+msgctxt "field_origen_de_financiamiento_i:field_a_fuentes_de_financiamient:label"
+msgid ""
+"Origen de financiamiento (institución, organismo, donación, aporte, "
+"etc.)"
+msgstr ""
+
+#: field:field_monto_rehabilitacion:field_rehabilitaciones_y_o_ampli:label
+msgctxt "field_monto_rehabilitacion:field_rehabilitaciones_y_o_ampli:label"
+msgid "Monto"
+msgstr ""
+
+#: field:field_programa_especifico_fondos:field_rehabilitaciones_y_o_ampli:label
+msgctxt "field_programa_especifico_fondos:field_rehabilitaciones_y_o_ampli:label"
+msgid "Programa específico de donde provienen los fondos"
+msgstr ""
+
+#: field:field_existencia_deareas_verdes:field_fuente_y_o_captacion:label
+msgctxt "field_existencia_deareas_verdes:field_fuente_y_o_captacion:label"
+msgid ""
+"Existencia de áreas verdes o zonas forestadas alrededor de la fuente "
+"/ toma de agua"
+msgstr ""
+
+#: field:field_existenciade_contaminacion:field_fuente_y_o_captacion:label
+msgctxt "field_existenciade_contaminacion:field_fuente_y_o_captacion:label"
+msgid ""
+"Existencia de contaminación causada por basuras de hogares o por "
+"aguas servidas alrededor de la toma de agua (presencia de letrinas, "
+"animales, viviendas, basura doméstica, etc.)"
+msgstr ""
+
+#: field:field_com_recotrata_prac:#allowed_values:1
+msgctxt "field_com_recotrata_prac:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_cs_location:comunidad:label
+msgctxt "field_cs_location:comunidad:label"
+msgid "Lugar en el que está ubicado el centro de salud de referencia"
+msgstr ""
+
+#: field:field_fecha_aplicacion:prestador_de_servicio:label
+msgctxt "field_fecha_aplicacion:prestador_de_servicio:label"
+msgid "Fecha de Aplicación"
+msgstr ""
+
+#: field:field_rinde_cuentas:#allowed_values:1
+msgctxt "field_rinde_cuentas:#allowed_values:1"
+msgid "Si"
+msgstr ""
+
+#: field:field_apoyar_caps_planificacion:prestador_de_asistencia_t_cnica:label
+msgctxt "field_apoyar_caps_planificacion:prestador_de_asistencia_t_cnica:label"
+msgid ""
+"6. Apoyar a los CAPS en la planificación y desarrollo de asambleas de "
+"rendición de cuentas a la comunidad"
+msgstr ""
+
+#: field:field_recolectar_muestras_agua:prestador_de_asistencia_t_cnica:label
+msgctxt "field_recolectar_muestras_agua:prestador_de_asistencia_t_cnica:label"
+msgid ""
+"8. Recolectar muestras para análisis de calidad de agua de los "
+"sistemas y asesorar en su toma, medición e interp. de los datos"
+msgstr ""
+
+#: field:field_com_num_viv_usotodos:comunidad:label
+msgctxt "field_com_num_viv_usotodos:comunidad:label"
+msgid ""
+"Tipo I - Uso Completo - Nº de viviendas que usan una infraestructura "
+"COMPARTIDA"
+msgstr ""
+
+#: field:field_com_num_viv_usoinfb2:comunidad:label
+msgctxt "field_com_num_viv_usoinfb2:comunidad:label"
+msgid ""
+"Tipo II - Uso Completo - Nº de viviendas que usan su infraestructura "
+"PROPIA"
+msgstr ""
+
+#: field:field_com_num_viv_usohab2:comunidad:label
+msgctxt "field_com_num_viv_usohab2:comunidad:label"
+msgid ""
+"Tipo II - Uso Parcial - Nº de viviendas que usan una infraestructura "
+"COMPARTIDA"
+msgstr ""
+
+#: field:field_com_num_viv_usotodos2:comunidad:label
+msgctxt "field_com_num_viv_usotodos2:comunidad:label"
+msgid ""
+"Tipo II - Uso Completo - Nº de viviendas que usan una infraestructura "
+"COMPARTIDA"
+msgstr ""
+
+#: field:field_com_num_viv_usoinfa2:comunidad:label
+msgctxt "field_com_num_viv_usoinfa2:comunidad:label"
+msgid ""
+"Tipo II - Uso Parcial - Nº de viviendas que usan su infraestructura "
+"PROPIA"
+msgstr ""
+
+#: field:field_com_num_viv_usohab:comunidad:label
+msgctxt "field_com_num_viv_usohab:comunidad:label"
+msgid ""
+"Tipo I - Uso Parcial - Nº de viviendas que usan una infraestructura "
+"COMPARTIDA"
+msgstr ""
+
+#: field:field_h1_1:sistema:label
+msgctxt "field_h1_1:sistema:label"
+msgid "Observaciones y comentarios"
+msgstr ""
+
+#: field:field_observaciones_comentarios:prestador_de_asistencia_t_cnica:label
+msgctxt "field_observaciones_comentarios:prestador_de_asistencia_t_cnica:label"
+msgid "Observaciones y comentarios"
+msgstr ""
+
+#: field:field_estado_medicion_agua:prestador_de_asistencia_t_cnica:label
+msgctxt "field_estado_medicion_agua:prestador_de_asistencia_t_cnica:label"
+msgid "Estado de los equipos para la medición de la calidad del agua"
+msgstr ""
+
+#: field:field_cargo_representante:field_representantes:label
+msgctxt "field_cargo_representante:field_representantes:label"
+msgid "Cargo"
+msgstr ""
+
+#: field:field_cargo_tecnico:field_tecnicos:label
+msgctxt "field_cargo_tecnico:field_tecnicos:label"
+msgid "Cargo"
+msgstr ""
+
+#: field:field_ingresos_extra:prestador_de_servicio:label
+msgctxt "field_ingresos_extra:prestador_de_servicio:label"
+msgid "¿Han tenido ingresos extraordinarios de funcionamiento?"
+msgstr ""
+
+#: field:field_facturacion_promedio:prestador_de_servicio:label
+msgctxt "field_facturacion_promedio:prestador_de_servicio:label"
+msgid ""
+"Facturación (promedio mensual de los últimos 12 meses, en la moneda "
+"especificada en la C2)"
+msgstr ""
+
+#: field:field_usuarios_al_dia:prestador_de_servicio:label
+msgctxt "field_usuarios_al_dia:prestador_de_servicio:label"
+msgid "Número de usuarios al día en sus pagos ordinarios"
+msgstr ""
+
+#: field:field_libro_ingresos_egresos:prestador_de_servicio:label
+msgctxt "field_libro_ingresos_egresos:prestador_de_servicio:label"
+msgid "¿Tienen libro de ingresos y egresos al día?"
+msgstr ""
+
+#: field:field_apoyo_gob_otros:prestador_de_servicio:label
+msgctxt "field_apoyo_gob_otros:prestador_de_servicio:label"
+msgid ""
+"¿Reciben apoyo técnico del gobierno/otras instituciones para la "
+"operación del sistema u otras actividades?"
+msgstr ""
+
+#: field:field_proteccion_terreno:prestador_de_servicio:label
+msgctxt "field_proteccion_terreno:prestador_de_servicio:label"
+msgid ""
+"Revisión y/o aumento de la protección legal o administrativa del "
+"terreno donde se ubica la toma y/o del recurso hídrico"
+msgstr ""
+
+#: field:field_agua_en_invierno:sistema:label
+msgctxt "field_agua_en_invierno:sistema:label"
+msgid ""
+"¿Hay suficiente agua en las fuentes en función de la demanda en el "
+"invierno / época de lluvias?"
+msgstr ""
+
+#: field:field_representantes:prestador_de_servicio:label
+msgctxt "field_representantes:prestador_de_servicio:label"
+msgid "Representantes"
+msgstr ""
+
+#: field:field_tecnicos:prestador_de_servicio:label
+msgctxt "field_tecnicos:prestador_de_servicio:label"
+msgid "Técnicos"
+msgstr ""
+
+#: field:field_cuestionario_validado:#allowed_values:0
+msgctxt "field_cuestionario_validado:#allowed_values:0"
+msgid "No"
+msgstr ""
+
+#: field:field_cuestionario_validado:sistema:label
+msgctxt "field_cuestionario_validado:sistema:label"
+msgid "Validado"
+msgstr ""
+
+#: field:field_cuestionario_validado:comunidad:label
+msgctxt "field_cuestionario_validado:comunidad:label"
+msgid "Validado"
+msgstr ""
+
+#: field:field_cuestionario_validado:#allowed_values:1
+msgctxt "field_cuestionario_validado:#allowed_values:1"
+msgid "Sí"
+msgstr ""
+
+#: field:field_tarifa_media_mensual:prestador_de_servicio:label
+msgctxt "field_tarifa_media_mensual:prestador_de_servicio:label"
+msgid "Tarifa media mensual"
+msgstr ""
+
+#: field:field_cuestionario_validado:prestador_de_servicio:label
+msgctxt "field_cuestionario_validado:prestador_de_servicio:label"
+msgid "Validado"
+msgstr ""
+
+#: field:field_cuestionario_validado:prestador_de_asistencia_t_cnica:label
+msgctxt "field_cuestionario_validado:prestador_de_asistencia_t_cnica:label"
+msgid "Validado"
+msgstr ""
+
+#: field:field_com_fic_cssh_pbb:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pbb:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones comunes a personal y pacientes masculinos de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_pad:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pad:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones comunes a personal y pacientes femeninos BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cssh_paa:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_paa:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones comunes a personal y pacientes femeninos de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cssh_pab:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pab:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones comunes a personal y pacientes femeninos de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_pac:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pac:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones comunes a personal y pacientes femeninos NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pbd:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pbd:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones comunes a personal y pacientes masculinos BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pba:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pba:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones comunes a personal y pacientes masculinos de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cssh_pbc:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pbc:field_com_fic_cs_ficha:label"
+msgid ""
+"Nº Instalaciones comunes a personal y pacientes masculinos NO "
+"MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pcd:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pcd:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones mixtas para personal y pacientes BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cssh_pca:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pca:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones mixtas para personal y pacientes de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cssh_pcb:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pcb:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones mixtas para personal y pacientes de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cssh_pcc:field_com_fic_cs_ficha:label
+msgctxt "field_com_fic_cssh_pcc:field_com_fic_cs_ficha:label"
+msgid "Nº Instalaciones mixtas para personal y pacientes NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pw:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pw:field_con_fic_ce_ficha:label"
+msgid "Nº de Instalaciones para alumnado mixto NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pcc:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pcc:field_con_fic_ce_ficha:label"
+msgid "Nº instalaciones mixtas para personal y alumnado NO MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pcd:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pcd:field_con_fic_ce_ficha:label"
+msgid "Nº instalaciones mixtas para personal y alumnado BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cesh_paa:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_paa:field_con_fic_ce_ficha:label"
+msgid "Nº de instalaciones comunes a personal y alumnado femenino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cesh_pab:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pab:field_con_fic_ce_ficha:label"
+msgid "Nº de instalaciones comunes a personal y alumnado femenino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cesh_pac:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pac:field_con_fic_ce_ficha:label"
+msgid ""
+"Nº de instalaciones comunes a personal y alumnado femenino NO "
+"MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pad:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pad:field_con_fic_ce_ficha:label"
+msgid "Nº de instalaciones comunes a personal y alumnado femenino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pba:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pba:field_con_fic_ce_ficha:label"
+msgid "Nº de instalaciones comunes a personal y alumnado masculino de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cesh_pbb:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pbb:field_con_fic_ce_ficha:label"
+msgid "Nº de instalaciones comunes a personal y alumnado masculino de TIPO 2"
+msgstr ""
+
+#: field:field_com_fic_cesh_pbc:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pbc:field_con_fic_ce_ficha:label"
+msgid ""
+"Nº de instalaciones comunes a personal y alumnado masculino NO "
+"MEJORADA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pbd:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pbd:field_con_fic_ce_ficha:label"
+msgid "Nº de instalaciones comunes a personal y alumnado masculino BÁSICA"
+msgstr ""
+
+#: field:field_com_fic_cesh_pca:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pca:field_con_fic_ce_ficha:label"
+msgid "Nº instalaciones mixtas para personal y alumnado de TIPO 1"
+msgstr ""
+
+#: field:field_com_fic_cesh_pcb:field_con_fic_ce_ficha:label
+msgctxt "field_com_fic_cesh_pcb:field_con_fic_ce_ficha:label"
+msgid "Nº instalaciones mixtas para personal y alumnado de TIPO 2"
+msgstr ""
+
+#: field:field_cantidad_comunidades_apoya:testingpurposes:label
+msgctxt "field_cantidad_comunidades_apoya:testingpurposes:label"
+msgid "Cantidad de comunidades apoyadas en los últimos 12 meses"
+msgstr ""
+
+#: field:field_otras_numero_comunidade:prestador_de_asistencia_t_cnica:label
+msgctxt "field_otras_numero_comunidade:prestador_de_asistencia_t_cnica:label"
+msgid "14. Número de comunidades en los que se ofrece otros servicios"
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:testingpurposes:setting_add
+msgctxt "field_a_fuentes_de_financiamient:testingpurposes:setting_add"
+msgid "Agregar"
+msgstr ""
+
+#: field:field_com_num_viv_usoinfa:comunidad:label
+msgctxt "field_com_num_viv_usoinfa:comunidad:label"
+msgid ""
+"Tipo I - Uso Parcial - Nº de viviendas que usan su infraestructura "
+"PROPIA"
+msgstr ""
+
+#: field:field_com_no_uso_vivnumtodos:comunidad:label
+msgctxt "field_com_no_uso_vivnumtodos:comunidad:label"
+msgid "No mejorada - Uso COMPLETO"
+msgstr ""
+
+#: field:field_fecha_de_aplicacion:prestador_de_asistencia_t_cnica:label
+msgctxt "field_fecha_de_aplicacion:prestador_de_asistencia_t_cnica:label"
+msgid "Fecha de Aplicación"
+msgstr ""
+
+#: field:field_fecha_de_aplicaci_n:sistema:label
+msgctxt "field_fecha_de_aplicaci_n:sistema:label"
+msgid "Fecha de Aplicación"
+msgstr ""
+
+#: field:field_usuarios_deberian_pagan:prestador_de_servicio:label
+msgctxt "field_usuarios_deberian_pagan:prestador_de_servicio:label"
+msgid "Número de usuarios que deberían pagar factura"
+msgstr ""
+
+#: field:field_pais:comunidad:label
+msgctxt "field_pais:comunidad:label"
+msgid "País"
+msgstr ""
+
+#: field:field_pais:prestador_de_servicio:label
+msgctxt "field_pais:prestador_de_servicio:label"
+msgid "País"
+msgstr ""
+
+#: field:field_pais:sistema:label
+msgctxt "field_pais:sistema:label"
+msgid "País"
+msgstr ""
+
+#: field:field_pais:prestador_de_asistencia_t_cnica:label
+msgctxt "field_pais:prestador_de_asistencia_t_cnica:label"
+msgid "País"
+msgstr ""
+
+#: field:field_gasto_real_ambientales:prestador_de_servicio:label
+msgctxt "field_gasto_real_ambientales:prestador_de_servicio:label"
+msgid "Gasto promedio mensual real en servicios ambientales"
+msgstr ""
+
+#: field:field_observations:waq:label
+msgctxt "field_observations:waq:label"
+msgid "Observations"
+msgstr ""
+
+#: field:field_alkalinity:waq:label
+msgctxt "field_alkalinity:waq:label"
+msgid "Alkalinity"
+msgstr ""
+
+#: field:field_altitude:waq:label
+msgctxt "field_altitude:waq:label"
+msgid "Altitude"
+msgstr ""
+
+#: field:field_potassium:waq:label
+msgctxt "field_potassium:waq:label"
+msgid "Potassium"
+msgstr ""
+
+#: field:field_arsenic:waq:label
+msgctxt "field_arsenic:waq:label"
+msgid "Arsenic"
+msgstr ""
+
+#: field:field_residual_chlorine:waq:label
+msgctxt "field_residual_chlorine:waq:label"
+msgid "Residual Chlorine"
+msgstr ""
+
+#: field:field_calcium:waq:label
+msgctxt "field_calcium:waq:label"
+msgid "Calcium"
+msgstr ""
+
+#: field:field_bicarbonates:waq:label
+msgctxt "field_bicarbonates:waq:label"
+msgid "Bicarbonates"
+msgstr ""
+
+#: field:field_carbonates:waq:label
+msgctxt "field_carbonates:waq:label"
+msgid "Carbonates"
+msgstr ""
+
+#: field:field_sodium:waq:label
+msgctxt "field_sodium:waq:label"
+msgid "Sodium"
+msgstr ""
+
+#: field:field_chlorides:waq:label
+msgctxt "field_chlorides:waq:label"
+msgid "Chlorides"
+msgstr ""
+
+#: field:field_color:waq:label
+msgctxt "field_color:waq:label"
+msgid "Color"
+msgstr ""
+
+#: field:field_entidad_local:waq:label
+msgctxt "field_entidad_local:waq:label"
+msgid "Location"
+msgstr ""
+
+#: field:field_conductivity:waq:label
+msgctxt "field_conductivity:waq:label"
+msgid "Conductivity"
+msgstr ""
+
+#: field:field_sulfate:waq:label
+msgctxt "field_sulfate:waq:label"
+msgid "Sulfate"
+msgstr ""
+
+#: field:field_fecal_coliforms:waq:label
+msgctxt "field_fecal_coliforms:waq:label"
+msgid "Fecal Coliforms"
+msgstr ""
+
+#: field:field_fluorine:waq:label
+msgctxt "field_fluorine:waq:label"
+msgid "Fluorine"
+msgstr ""
+
+#: field:field_geolocation:waq:label
+msgctxt "field_geolocation:waq:label"
+msgid "Geolocation"
+msgstr ""
+
+#: field:field_survey_date:waq:label
+msgctxt "field_survey_date:waq:label"
+msgid "Survey Date"
+msgstr ""
+
+#: field:field_hardness:waq:label
+msgctxt "field_hardness:waq:label"
+msgid "Hardness"
+msgstr ""
+
+#: field:field_iron:waq:label
+msgctxt "field_iron:waq:label"
+msgid "Iron"
+msgstr ""
+
+#: field:field_turbidity:waq:label
+msgctxt "field_turbidity:waq:label"
+msgid "Turbidity"
+msgstr ""
+
+#: field:field_lead:waq:label
+msgctxt "field_lead:waq:label"
+msgid "Lead"
+msgstr ""
+
+#: field:field_manganese:waq:label
+msgctxt "field_manganese:waq:label"
+msgid "Manganese"
+msgstr ""
+
+#: field:field_water_source_code:waq:label
+msgctxt "field_water_source_code:waq:label"
+msgid "Water Source Code"
+msgstr ""
+
+#: field:field_nitrates:waq:label
+msgctxt "field_nitrates:waq:label"
+msgid "Nitrates"
+msgstr ""
+
+#: field:field_nitrites:waq:label
+msgctxt "field_nitrites:waq:label"
+msgid "Nitrites"
+msgstr ""
+
+#: field:field_water_source_name:waq:label
+msgctxt "field_water_source_name:waq:label"
+msgid "Water Source Name"
+msgstr ""
+
+#: field:field_water_source_type:waq:label
+msgctxt "field_water_source_type:waq:label"
+msgid "Water Source Type"
+msgstr ""
+
+#: field:field_ph:waq:label
+msgctxt "field_ph:waq:label"
+msgid "pH"
+msgstr ""
+
+#: field:field_temperature:waq:label
+msgctxt "field_temperature:waq:label"
+msgid "Temperature"
+msgstr ""
+
+#: field:field_organochlorine_pesticides:waq:label
+msgctxt "field_organochlorine_pesticides:waq:label"
+msgid "Organochlorine Pesticides"
+msgstr ""
+
+#: field:field_total_coliforms:waq:label
+msgctxt "field_total_coliforms:waq:label"
+msgid "Total Coliforms"
+msgstr ""
+
+#: field:field_pais:waq:label
+msgctxt "field_pais:waq:label"
+msgid "Country"
+msgstr ""
+
+#: field:field_user_reference:waq:label
+msgctxt "field_user_reference:waq:label"
+msgid "Interviewer"
+msgstr ""
+
+#: field:field_com_no_uso_vivnumtodos:comunidad:description
+msgctxt "field_com_no_uso_vivnumtodos:comunidad:description"
+msgid ""
+"No de viviendas en las que TODAS las personas de la familia usan "
+"SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y "
+"niños/as)."
+msgstr ""
+
+#: field:field_pais:user:label
+msgctxt "field_pais:user:label"
+msgid "País"
+msgstr ""
+
+#: field:field_tecnicos:prestador_de_servicio:setting_edit
+msgctxt "field_tecnicos:prestador_de_servicio:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_com_fc_systypunimprove:comunidad:setting_translate
+msgctxt "field_com_fc_systypunimprove:comunidad:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_com_fc_systypimprove:comunidad:setting_translate
+msgctxt "field_com_fc_systypimprove:comunidad:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_f_red_de_distribucion:sistema:setting_translate
+msgctxt "field_f_red_de_distribucion:sistema:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_pais:cargo_tecnico:label
+msgctxt "field_pais:cargo_tecnico:label"
+msgid "País"
+msgstr ""
+
+#: field:field_con_fic_ce_ficha:comunidad:setting_edit
+msgctxt "field_con_fic_ce_ficha:comunidad:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_e_infraestructura_almac:sistema:setting_translate
+msgctxt "field_e_infraestructura_almac:sistema:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_com_viv_con_sistema:comunidad:setting_delete
+msgctxt "field_com_viv_con_sistema:comunidad:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_d_infraestructura:sistema:setting_edit
+msgctxt "field_d_infraestructura:sistema:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_data_source:prestador_de_asistencia_t_cnica:label
+msgctxt "field_data_source:prestador_de_asistencia_t_cnica:label"
+msgid "Origen de los datos"
+msgstr ""
+
+#: field:field_identificacion:user:label
+msgctxt "field_identificacion:user:label"
+msgid "Identificación"
+msgstr ""
+
+#: field:field_com_fc_impsystem:comunidad:setting_add
+msgctxt "field_com_fc_impsystem:comunidad:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_rehabilitaciones_y_o_ampli:sistema:setting_translate
+msgctxt "field_rehabilitaciones_y_o_ampli:sistema:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_com_fc_newwatsystem:comunidad:setting_translate
+msgctxt "field_com_fc_newwatsystem:comunidad:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_c1_1:field_lineas_de_conduccion:default_value
+msgctxt "field_c1_1:field_lineas_de_conduccion:default_value"
+msgid "CON0"
+msgstr ""
+
+#: field:field_contacto:fuente_de_financiacion:label
+msgctxt "field_contacto:fuente_de_financiacion:label"
+msgid "Contacto #1"
+msgstr ""
+
+#: field:field_codigo_division_admin:division_administrativa:label
+msgctxt "field_codigo_division_admin:division_administrativa:label"
+msgid "Código división administrativa"
+msgstr ""
+
+#: field:field_materiales_para_descargar:evento:label
+msgctxt "field_materiales_para_descargar:evento:label"
+msgid "Materiales para Descargar"
+msgstr ""
+
+#: field:field_rating_s1:prestador_de_servicio:label
+msgctxt "field_rating_s1:prestador_de_servicio:label"
+msgid "Calificación (SIASAR 1)"
+msgstr ""
+
+#: field:field_entity_name:testingpurposes:label
+msgctxt "field_entity_name:testingpurposes:label"
+msgid "Nombre"
+msgstr ""
+
+#: field:field_rehabilitaciones_y_o_ampli:sistema:setting_delete
+msgctxt "field_rehabilitaciones_y_o_ampli:sistema:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_com_fc_impsystem:comunidad:setting_translate
+msgctxt "field_com_fc_impsystem:comunidad:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_fecha_de_aplicaci_n:sistema:description
+msgctxt "field_fecha_de_aplicaci_n:sistema:description"
+msgid "Fecha en la que se llena la encuesta"
+msgstr ""
+
+#: field:field_direccion:fuente_de_financiacion:label
+msgctxt "field_direccion:fuente_de_financiacion:label"
+msgid "Dirección"
+msgstr ""
+
+#: field:field_tecnicos:prestador_de_servicio:setting_delete
+msgctxt "field_tecnicos:prestador_de_servicio:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_tipo_de_financiaci_n:#allowed_values:3
+msgctxt "field_tipo_de_financiaci_n:#allowed_values:3"
+msgid "Empresa privada"
+msgstr ""
+
+#: field:field_image:article:description
+msgctxt "field_image:article:description"
+msgid "Upload an image to go with this article."
+msgstr ""
+
+#: field:field_com_fic_cs_ficha:comunidad:setting_add
+msgctxt "field_com_fic_cs_ficha:comunidad:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_pais:division_administrativa:label
+msgctxt "field_pais:division_administrativa:label"
+msgid "País"
+msgstr ""
+
+#: field:field_entidad_local:testingpurposes:label
+msgctxt "field_entidad_local:testingpurposes:label"
+msgid "Localidad"
+msgstr ""
+
+#: field:field_d_infraestructura:sistema:setting_add
+msgctxt "field_d_infraestructura:sistema:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_pais:instituciones:label
+msgctxt "field_pais:instituciones:label"
+msgid "País"
+msgstr ""
+
+#: field:field_edo_fisico_linea_conducion:testingpurposes:label
+msgctxt "field_edo_fisico_linea_conducion:testingpurposes:label"
+msgid "¿Cuál es el estado físico de la línea de conducción de agua?"
+msgstr ""
+
+#: field:field_rehabilitaciones_y_o_ampli:sistema:setting_edit
+msgctxt "field_rehabilitaciones_y_o_ampli:sistema:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_f_red_de_distribucion:sistema:setting_add
+msgctxt "field_f_red_de_distribucion:sistema:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_con_fic_ce_ficha:comunidad:setting_delete
+msgctxt "field_con_fic_ce_ficha:comunidad:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_f2_1:field_f_red_de_distribucion:description
+msgctxt "field_f2_1:field_f_red_de_distribucion:description"
+msgid ""
+"(Pozos  o sistemas por gravedad / bombeo. No aplica en sistemas con "
+"abastecimiento domiciliar. Al contestar este bloque se entiende que la "
+"distribución es parcial o totalmente mediante puntos de toma de agua "
+"públicos)"
+msgstr ""
+
+#: field:field_pais:raza:label
+msgctxt "field_pais:raza:label"
+msgid "País"
+msgstr ""
+
+#: field:field_tipo_de_financiaci_n:#allowed_values:1
+msgctxt "field_tipo_de_financiaci_n:#allowed_values:1"
+msgid "Gobierno central"
+msgstr ""
+
+#: field:field_direccion:instituciones_obras:label
+msgctxt "field_direccion:instituciones_obras:label"
+msgid "Dirección"
+msgstr ""
+
+#: field:field_contacto:instituciones_obras:label
+msgctxt "field_contacto:instituciones_obras:label"
+msgid "Contacto #1"
+msgstr ""
+
+#: field:field_telefono2:fuente_de_financiacion:label
+msgctxt "field_telefono2:fuente_de_financiacion:label"
+msgid "Teléfono #2"
+msgstr ""
+
+#: field:field_pais:paises:label
+msgctxt "field_pais:paises:label"
+msgid "País"
+msgstr ""
+
+#: field:field_e_infraestructura_almac:sistema:setting_add
+msgctxt "field_e_infraestructura_almac:sistema:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_rating_s1:prestador_de_asistencia_t_cnica:label
+msgctxt "field_rating_s1:prestador_de_asistencia_t_cnica:label"
+msgid "Calificación (SIASAR 1)"
+msgstr ""
+
+#: field:field_com_fc_systypimprove:comunidad:setting_add
+msgctxt "field_com_fc_systypimprove:comunidad:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_fotos:evento:label
+msgctxt "field_fotos:evento:label"
+msgid "Fotos"
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:testingpurposes:setting_delete
+msgctxt "field_a_fuentes_de_financiamient:testingpurposes:setting_delete"
+msgid "Eliminar"
+msgstr ""
+
+#: field:field_com_fc_systypunimprove:comunidad:setting_edit
+msgctxt "field_com_fc_systypunimprove:comunidad:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_com_fc_systypimprove:comunidad:setting_edit
+msgctxt "field_com_fc_systypimprove:comunidad:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_fecha_de_aplicacion:prestador_de_asistencia_t_cnica:description
+msgctxt "field_fecha_de_aplicacion:prestador_de_asistencia_t_cnica:description"
+msgid "Fecha en la que se cubre la encuesta"
+msgstr ""
+
+#: field:field_pais:fuente_de_financiacion:label
+msgctxt "field_pais:fuente_de_financiacion:label"
+msgid "País"
+msgstr ""
+
+#: field:field_telefono:user:description
+msgctxt "field_telefono:user:description"
+msgid "Por favor, incluir el código de área de su país."
+msgstr ""
+
+#: field:field_image:testingpurposes:label
+msgctxt "field_image:testingpurposes:label"
+msgid "Image"
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:testingpurposes:setting_translate
+msgctxt "field_a_fuentes_de_financiamient:testingpurposes:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_com_fc_systypunimprove:comunidad:setting_delete
+msgctxt "field_com_fc_systypunimprove:comunidad:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_com_e1estado:field_com_fc_newwatsystem:label
+msgctxt "field_com_e1estado:field_com_fc_newwatsystem:label"
+msgid "Estado"
+msgstr ""
+
+#: field:field_b1_7:testingpurposes:label
+msgctxt "field_b1_7:testingpurposes:label"
+msgid "Georreferenciación"
+msgstr ""
+
+#: field:field_con_fic_ce_ficha:comunidad:setting_translate
+msgctxt "field_con_fic_ce_ficha:comunidad:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_tecnicos:prestador_de_servicio:setting_translate
+msgctxt "field_tecnicos:prestador_de_servicio:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_com_fic_cs_ficha:comunidad:setting_edit
+msgctxt "field_com_fic_cs_ficha:comunidad:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_com_e1estado:field_com_fc_impsystem:label
+msgctxt "field_com_e1estado:field_com_fc_impsystem:label"
+msgid "Estado"
+msgstr ""
+
+#: field:field_com_fic_cs_ficha:comunidad:setting_translate
+msgctxt "field_com_fic_cs_ficha:comunidad:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_pais:prueba:label
+msgctxt "field_pais:prueba:label"
+msgid "País"
+msgstr ""
+
+#: field:field_pais:programa_de_financiacion:label
+msgctxt "field_pais:programa_de_financiacion:label"
+msgid "País"
+msgstr ""
+
+#: field:field_data_source:comunidad:label
+msgctxt "field_data_source:comunidad:label"
+msgid "Origen de los datos"
+msgstr ""
+
+#: field:field_fuente_y_o_captacion:sistema:setting_add
+msgctxt "field_fuente_y_o_captacion:sistema:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_d_infraestructura:sistema:setting_delete
+msgctxt "field_d_infraestructura:sistema:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_telefono:user:label
+msgctxt "field_telefono:user:label"
+msgid "Teléfono"
+msgstr ""
+
+#: field:body:article:label
+msgctxt "body:article:label"
+msgid "Body"
+msgstr ""
+
+#: field:field_com_fc_newwatsystem:comunidad:setting_edit
+msgctxt "field_com_fc_newwatsystem:comunidad:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_codigo:#field:label
+msgctxt "field_codigo:#field:label"
+msgid "field_codigo"
+msgstr ""
+
+#: field:field_e_infraestructura_almac:sistema:setting_delete
+msgctxt "field_e_infraestructura_almac:sistema:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_fuente_y_o_captacion:sistema:setting_edit
+msgctxt "field_fuente_y_o_captacion:sistema:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_contacto2:fuente_de_financiacion:label
+msgctxt "field_contacto2:fuente_de_financiacion:label"
+msgid "Contacto #2"
+msgstr ""
+
+#: field:field_representantes:prestador_de_servicio:setting_add
+msgctxt "field_representantes:prestador_de_servicio:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_country_currency:paises:label
+msgctxt "field_country_currency:paises:label"
+msgid "Moneda"
+msgstr ""
+
+#: field:name_field:paises:label
+msgctxt "name_field:paises:label"
+msgid "Nombre"
+msgstr ""
+
+#: field:field_identificacion:user:description
+msgctxt "field_identificacion:user:description"
+msgid "Registro o número de identificación ciudadana."
+msgstr ""
+
+#: field:field_com_fc_systypimprove:comunidad:setting_delete
+msgctxt "field_com_fc_systypimprove:comunidad:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_nombre_de_la_fuente:field_fuente_y_o_captacion:default_value
+msgctxt "field_nombre_de_la_fuente:field_fuente_y_o_captacion:default_value"
+msgid "Nombre  de la fuente"
+msgstr ""
+
+#: field:field_pais:testingpurposes:label
+msgctxt "field_pais:testingpurposes:label"
+msgid "País"
+msgstr ""
+
+#: field:field_com_fc_systypunimprove:comunidad:setting_add
+msgctxt "field_com_fc_systypunimprove:comunidad:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:testingpurposes:label
+msgctxt "field_a_fuentes_de_financiamient:testingpurposes:label"
+msgid "Fuentes de financiamiento"
+msgstr ""
+
+#: field:field_rating_s1:comunidad:label
+msgctxt "field_rating_s1:comunidad:label"
+msgid "Calificación (SIASAR 1)"
+msgstr ""
+
+#: field:field_telefono:fuente_de_financiacion:label
+msgctxt "field_telefono:fuente_de_financiacion:label"
+msgid "Teléfono #1"
+msgstr ""
+
+#: field:field_fecha_analisis_coliformes:sistema:label
+msgctxt "field_fecha_analisis_coliformes:sistema:label"
+msgid "Fecha de analisis - Test de Coliformes"
+msgstr ""
+
+#: field:field_f_red_de_distribucion:sistema:setting_delete
+msgctxt "field_f_red_de_distribucion:sistema:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_d_infraestructura:sistema:label
+msgctxt "field_d_infraestructura:sistema:label"
+msgid "Infraestructura de tratamiento"
+msgstr ""
+
+#: field:field_d_infraestructura:sistema:setting_translate
+msgctxt "field_d_infraestructura:sistema:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_data_source:prestador_de_servicio:label
+msgctxt "field_data_source:prestador_de_servicio:label"
+msgid "Origen de los datos"
+msgstr ""
+
+#: field:field_pais:idiomas:label
+msgctxt "field_pais:idiomas:label"
+msgid "País"
+msgstr ""
+
+#: field:field_com_fc_impsystem:comunidad:setting_edit
+msgctxt "field_com_fc_impsystem:comunidad:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_tipo_de_financiaci_n:fuente_de_financiacion:label
+msgctxt "field_tipo_de_financiaci_n:fuente_de_financiacion:label"
+msgid "Tipo de financiación"
+msgstr ""
+
+#: field:field_com_e1estado:field_com_fc_systypimprove:label
+msgctxt "field_com_e1estado:field_com_fc_systypimprove:label"
+msgid "Estado"
+msgstr ""
+
+#: field:field_pais:cargo_representante:label
+msgctxt "field_pais:cargo_representante:label"
+msgid "País"
+msgstr ""
+
+#: field:field_com_viv_con_sistema:comunidad:setting_translate
+msgctxt "field_com_viv_con_sistema:comunidad:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_codigo_de_la_fuente:field_fuente_y_o_captacion:default_value
+msgctxt "field_codigo_de_la_fuente:field_fuente_y_o_captacion:default_value"
+msgid "FTE0"
+msgstr ""
+
+#: field:field_telefono2:instituciones_obras:label
+msgctxt "field_telefono2:instituciones_obras:label"
+msgid "Teléfono #2"
+msgstr ""
+
+#: field:field_com_fc_impsystem:comunidad:setting_delete
+msgctxt "field_com_fc_impsystem:comunidad:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:comment_body:comment_node_article:label
+msgctxt "comment_body:comment_node_article:label"
+msgid "Comment"
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:testingpurposes:setting_edit
+msgctxt "field_a_fuentes_de_financiamient:testingpurposes:setting_edit"
+msgid "Editar"
+msgstr ""
+
+#: field:field_data_source:sistema:label
+msgctxt "field_data_source:sistema:label"
+msgid "Origen de los datos"
+msgstr ""
+
+#: field:field_fecha:evento:label
+msgctxt "field_fecha:evento:label"
+msgid "Fecha"
+msgstr ""
+
+#: field:field_com_no_uso_vivnumuso:comunidad:description
+msgctxt "field_com_no_uso_vivnumuso:comunidad:description"
+msgid ""
+"No de viviendas en las que las personas de la familia usan la "
+"infraestructura, pero NO todos o NO siempre."
+msgstr ""
+
+#: field:field_lineas_de_conduccion:sistema:setting_add
+msgctxt "field_lineas_de_conduccion:sistema:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_tipo_de_financiaci_n:#allowed_values:2
+msgctxt "field_tipo_de_financiaci_n:#allowed_values:2"
+msgid "ONG"
+msgstr ""
+
+#: field:body:evento:label
+msgctxt "body:evento:label"
+msgid "Objetivos"
+msgstr ""
+
+#: field:field_com_srv_telf_existe:testingpurposes:label
+msgctxt "field_com_srv_telf_existe:testingpurposes:label"
+msgid "Se posee de servicios de telefonía fija"
+msgstr ""
+
+#: field:field_data_source:prestador_de_servicio:default_value
+msgctxt "field_data_source:prestador_de_servicio:default_value"
+msgid "siasar2_web"
+msgstr ""
+
+#: field:field_pais:division_politico_administrativa:label
+msgctxt "field_pais:division_politico_administrativa:label"
+msgid "País"
+msgstr ""
+
+#: field:field_lineas_de_conduccion:sistema:setting_translate
+msgctxt "field_lineas_de_conduccion:sistema:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_tags:article:description
+msgctxt "field_tags:article:description"
+msgid "Enter a comma-separated list of words to describe your content."
+msgstr ""
+
+#: field:field_telefono:instituciones_obras:label
+msgctxt "field_telefono:instituciones_obras:label"
+msgid "Teléfono #1"
+msgstr ""
+
+#: field:field_alto:sistema:description
+msgctxt "field_alto:sistema:description"
+msgid "La altitud se mide en metros sobre el nivel del mar (msnm)."
+msgstr ""
+
+#: field:field_fuente_y_o_captacion:sistema:setting_delete
+msgctxt "field_fuente_y_o_captacion:sistema:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_representantes:prestador_de_servicio:setting_translate
+msgctxt "field_representantes:prestador_de_servicio:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_com_fc_newwatsystem:comunidad:setting_add
+msgctxt "field_com_fc_newwatsystem:comunidad:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_codigo_division_admin:prueba:label
+msgctxt "field_codigo_division_admin:prueba:label"
+msgid "Código división administrativa"
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:sistema:setting_translate
+msgctxt "field_a_fuentes_de_financiamient:sistema:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_image:article:label
+msgctxt "field_image:article:label"
+msgid "Image"
+msgstr ""
+
+#: field:field_e_infraestructura_almac:sistema:setting_edit
+msgctxt "field_e_infraestructura_almac:sistema:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_tecnicos:prestador_de_servicio:setting_add
+msgctxt "field_tecnicos:prestador_de_servicio:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_lineas_de_conduccion:sistema:setting_delete
+msgctxt "field_lineas_de_conduccion:sistema:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_pais:instituciones_obras:label
+msgctxt "field_pais:instituciones_obras:label"
+msgid "País"
+msgstr ""
+
+#: field:field_altitud:prestador_de_servicio:description
+msgctxt "field_altitud:prestador_de_servicio:description"
+msgid "La altitud se mide en metros sobre el nivel del mar (msnm)."
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:sistema:setting_add
+msgctxt "field_a_fuentes_de_financiamient:sistema:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_representantes:prestador_de_servicio:setting_edit
+msgctxt "field_representantes:prestador_de_servicio:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_com_e1estado:field_com_fc_systypunimprove:label
+msgctxt "field_com_e1estado:field_com_fc_systypunimprove:label"
+msgid "Estado"
+msgstr ""
+
+#: field:field_tags:article:label
+msgctxt "field_tags:article:label"
+msgid "Tags"
+msgstr ""
+
+#: field:field_com_viv_con_sistema:comunidad:setting_edit
+msgctxt "field_com_viv_con_sistema:comunidad:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_lineas_de_conduccion:sistema:setting_edit
+msgctxt "field_lineas_de_conduccion:sistema:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_com_viv_con_sistema:comunidad:setting_add
+msgctxt "field_com_viv_con_sistema:comunidad:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_nombre_completo:user:description
+msgctxt "field_nombre_completo:user:description"
+msgid "Nombre y apellidos completos."
+msgstr ""
+
+#: field:field_contacto2:instituciones_obras:label
+msgctxt "field_contacto2:instituciones_obras:label"
+msgid "Contacto #2"
+msgstr ""
+
+#: field:field_com_fic_cs_ficha:comunidad:setting_delete
+msgctxt "field_com_fic_cs_ficha:comunidad:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:sistema:setting_delete
+msgctxt "field_a_fuentes_de_financiamient:sistema:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:field_fuente_y_o_captacion:sistema:setting_translate
+msgctxt "field_fuente_y_o_captacion:sistema:setting_translate"
+msgid "translate"
+msgstr ""
+
+#: field:field_a_fuentes_de_financiamient:sistema:setting_edit
+msgctxt "field_a_fuentes_de_financiamient:sistema:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_con_fic_ce_ficha:comunidad:setting_add
+msgctxt "field_con_fic_ce_ficha:comunidad:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_institucion:user:label
+msgctxt "field_institucion:user:label"
+msgid "Institución"
+msgstr ""
+
+#: field:field_fecha_analisis_fq:sistema:label
+msgctxt "field_fecha_analisis_fq:sistema:label"
+msgid "Fecha de análisis - Físico/Químico"
+msgstr ""
+
+#: field:field_representantes:prestador_de_servicio:setting_delete
+msgctxt "field_representantes:prestador_de_servicio:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:body:page:label
+msgctxt "body:page:label"
+msgid "Body"
+msgstr ""
+
+#: field:field_rehabilitaciones_y_o_ampli:sistema:setting_add
+msgctxt "field_rehabilitaciones_y_o_ampli:sistema:setting_add"
+msgid "add"
+msgstr ""
+
+#: field:field_f_red_de_distribucion:sistema:setting_edit
+msgctxt "field_f_red_de_distribucion:sistema:setting_edit"
+msgid "edit"
+msgstr ""
+
+#: field:field_nombre_completo:user:label
+msgctxt "field_nombre_completo:user:label"
+msgid "Nombre Completo"
+msgstr ""
+
+#: field:field_rating_s1:sistema:label
+msgctxt "field_rating_s1:sistema:label"
+msgid "Calificación (SIASAR 1)"
+msgstr ""
+
+#: field:field_com_fc_newwatsystem:comunidad:setting_delete
+msgctxt "field_com_fc_newwatsystem:comunidad:setting_delete"
+msgid "delete"
+msgstr ""
+
+#: field:comment_body:comment_node_evento:label
+msgctxt "comment_body:comment_node_evento:label"
+msgid "Comment"
+msgstr ""
+
+#: field:comment_body:comment_node_page:label
+msgctxt "comment_body:comment_node_page:label"
+msgid "Comment"
+msgstr ""
+

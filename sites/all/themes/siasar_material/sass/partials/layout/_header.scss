@@ -1,0 +1,50 @@
+.header-menu {
+  background: $siasar-cyan;
+  height: 40px;
+  line-height: 40px;
+
+  @include breakpoint($break-small) {
+    height: 64px;
+    line-height: 64px;
+  }
+
+  .nav-wrapper {
+    width: 100%;
+  }
+
+  a.brand-logo {
+    top: 0;
+    display: block;
+    font-size: 1rem;
+    width: 75px;
+    height: 75px;
+    background-color: $siasar-cyan;
+    border-radius: 50%;
+    box-shadow: $shadow-logo;
+
+    @include breakpoint($break-small) {
+      width: 100px;
+      height: 100px;
+      top: 10px;
+    }
+    @include breakpoint($break-medium) {
+      left: 20px;
+    }
+
+    img {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      display: block;
+      top: 18px;
+      left: 18px;
+
+      @include breakpoint($break-small) {
+      width: 50px;
+      height: 50px;
+      top: 25px;
+      left: 25px;
+      }
+    }
+  }
+}

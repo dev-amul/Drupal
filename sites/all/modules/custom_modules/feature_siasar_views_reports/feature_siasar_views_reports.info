@@ -1,0 +1,14 @@
+name = SIASAR Views Reports
+description = Vista que genera los listados de resultados
+core = 7.x
+package = SIASAR
+version = 7.x-1.8
+dependencies[] = countries
+dependencies[] = views
+dependencies[] = views_autocomplete_filters
+dependencies[] = views_data_export
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = results_entityforms
+features_exclude[dependencies][ctools] = ctools
+project path = sites/all/modules/custom_modules

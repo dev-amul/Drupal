@@ -80,7 +80,7 @@ function _siasar_services_field_collection_alter_get_referenced_type($data) {
       $field_base = field_info_field($field['field_name']);
       $settings = $field_base['settings'];
     }
-    if ($settings['target_type'] !== 'entityform') return;
+    if ($settings['target_type'] !== 'entityform') continue;
 
     $reference['entity'] = $settings['target_type'];
 
@@ -106,8 +106,12 @@ function _siasar_services_field_collection_alter_get_referenced_type($data) {
 function _siasar_services_field_collection_alter_get_view_filter_type($view) {
   $display = $view->current_display;
   $default_filters = $view->display_handler->default_display->display->display_options['filters'];
-  $master_filters = $view->display_handler->display->display_options['filters'];
-  $display_filters = $view->display[$display]->display_options['filters'];
+  $master_filters = isset($view->display_handler->display->display_options['filters'])
+    ? $view->display_handler->display->display_options['filters']
+    : null;
+  $display_filters = isset($view->display[$display]->display_options['filters'])
+    ? $view->display[$display]->display_options['filters']
+    : null;
 
   if (!empty($display_filters['type'])) {
     $output = array_values($display_filters['type']['value']);

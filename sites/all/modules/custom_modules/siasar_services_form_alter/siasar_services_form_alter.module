@@ -1,0 +1,88 @@
+<?php
+
+/**
+ * Alter results on all Entityform Services calls used to retrieve form structure
+ *
+ * @param $controller
+ *   Controller definition
+ * @param array $args
+ *   Arguments passed to services callback
+ * @param array $result
+ *   Array of results that can be altered
+ *
+ * @see services_controller_execute()
+ * @see services.runtime.inc
+ */
+function siasar_services_form_alter_services_request_postprocess_alter($controller, $args, &$result) {
+
+  $allowed_ops = array('retrieve', 'index');
+
+  switch (arg(1)) {
+    case 'forms':
+      if (is_string(arg(2))) {
+        foreach ($result as $key => &$form) {
+          $form = _siasar_services_form_alter_process_form($form);
+        }
+      } else {
+        _siasar_services_form_alter_translate_form_names($result);
+      }
+      break;
+
+    case 'field_group_structure':
+      $result = _siasar_services_form_alter_translate_form_group_labels($result);
+      break;
+  }
+}
+
+/**
+ * Helper function to process all forms
+ */
+function _siasar_services_form_alter_process_form($form) {
+  if (isset($form['field_pais'])) {
+    $form['field_pais']['settings']['allowed_values'] = _siasar_services_form_alter_get_countries_list();
+  }
+
+  return $form;
+}
+
+/**
+ * Helper function to get a list of all enabled countries
+ * @return array
+ */
+function _siasar_services_form_alter_get_countries_list() {
+  $query = db_query('select iso2, name from countries_country where enabled = 1 order by iso2');
+  $result = $query->fetchAll();
+  $output = array();
+
+  foreach ($result as $row) {
+    $output[$row->iso2] = $row->name;
+  }
+  return $output;
+}
+
+/**
+ * Helper function to translate form names
+ * @return array
+ */
+function _siasar_services_form_alter_translate_form_names($result) {
+  foreach ($result as $bundle => &$string) {
+    $i18n_string_path = 'entityform:entityform_type:'. $bundle .':label';
+    $string = i18n_string_translate($i18n_string_path, $string);
+  }
+}
+
+
+/**
+ * Helper function to translate form group labels
+ * @return array
+ */
+function _siasar_services_form_alter_translate_form_group_labels($result) {
+  foreach ($result as &$element) {
+    if (is_array($element)) {
+      $element = _siasar_services_form_alter_translate_form_group_labels($element);
+    } elseif (is_object($element) && isset($element->label)) {
+      $element->label = t($element->label);
+    }
+  }
+  return $result;
+}

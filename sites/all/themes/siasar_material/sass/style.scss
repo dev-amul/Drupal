@@ -1,0 +1,33 @@
+////////////////////////
+// Style File
+//
+// This file gets turned into style.css. This file should really hold nothing except for imports of your base, style guide, layout, and design partials.
+////////////////////////
+
+@import 'partials/styleguide/_fonts';
+@import 'partials/styleguide/_variables';
+
+//@import 'flexbox';
+@import 'compass/css3/deprecated-support';
+@import 'compass/css3/transform';
+@import 'compass/css3/transition';
+@import 'breakpoint';
+@import 'partials/mixins/_kerning';
+@import 'partials/mixins/_animation';
+@import 'partials/mixins/_layout_mixins';
+
+@import 'partials/layout/_global';
+@import 'partials/layout/_header';
+@import 'partials/layout/_footer';
+@import 'partials/layout/_blocks';
+@import 'partials/layout/_menus';
+@import 'partials/layout/_forms';
+
+@import 'partials/pages/_frontpage';
+@import 'partials/pages/_system';
+@import 'partials/pages/_results';
+@import 'partials/pages/_maintenance_page';
+
+@import 'partials/pages/_entityform';
+@import 'partials/pages/_entityform_form';
+@import 'partials/pages/_entityform_view';

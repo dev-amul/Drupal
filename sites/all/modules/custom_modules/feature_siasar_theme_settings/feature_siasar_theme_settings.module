@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SIASAR theme settings feature.
+ */
+
+include_once 'feature_siasar_theme_settings.features.inc';
