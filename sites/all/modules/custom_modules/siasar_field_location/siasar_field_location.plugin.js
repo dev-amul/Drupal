@@ -27,7 +27,7 @@
         tid: '_none',
         name: Drupal.t('- Ninguno - '),
       }
-      var forceDeepest = Drupal.settings.siasarHierarchicalSelect[fieldName].forceDeepest;
+      var forceDeepest = (Drupal.settings.siasarHierarchicalSelect[fieldName].forceDeepest === 1);
       var $locationTreeSelectorWrapper;
 
 
