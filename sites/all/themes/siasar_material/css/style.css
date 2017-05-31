@@ -207,6 +207,15 @@ ul.pagination li.active {
   font-size: 0.8em;
 }
 
+.region-user-nav {
+  text-align: right;
+}
+
+ul.main-menu,
+ul.user-menu {
+  display: inline-block;
+}
+
 ul.user-menu:before {
   color: #8edced;
   content: "|";
