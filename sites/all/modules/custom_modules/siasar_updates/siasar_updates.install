@@ -357,7 +357,7 @@ function siasar_updates_update_7122(&$sandbox) {
   $modules = array(
     'workflow',
     'workflow_admin_ui',
-    'workflow_field',
+    'workflowfield',
     'workflow_actions',
     'feature_siasar_testing_form_workflow'
   );
