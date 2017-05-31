@@ -21,8 +21,9 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'en',
-    'weight' => -8,
+    'weight' => -10,
     'fallback' => '',
+    'parent' => '',
   );
   // Exported language: es.
   $languages['es'] = array(
@@ -35,8 +36,9 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'es',
-    'weight' => -10,
+    'weight' => -9,
     'fallback' => '',
+    'parent' => '',
   );
   // Exported language: es-BO.
   $languages['es-BO'] = array(
@@ -49,8 +51,9 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'es-bo',
-    'weight' => 0,
+    'weight' => -6,
     'fallback' => 'es',
+    'parent' => 'es',
   );
   // Exported language: es-CO.
   $languages['es-CO'] = array(
@@ -63,8 +66,9 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'co',
-    'weight' => 0,
+    'weight' => -5,
     'fallback' => 'es',
+    'parent' => 'es',
   );
   // Exported language: es-HN.
   $languages['es-HN'] = array(
@@ -77,8 +81,9 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'hn',
-    'weight' => 0,
+    'weight' => -4,
     'fallback' => 'es',
+    'parent' => 'es',
   );
   // Exported language: es-NI.
   $languages['es-NI'] = array(
@@ -91,8 +96,9 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'ni',
-    'weight' => 0,
+    'weight' => -3,
     'fallback' => 'es',
+    'parent' => 'es',
   );
   // Exported language: es-PY.
   $languages['es-PY'] = array(
@@ -105,8 +111,9 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'es-py',
-    'weight' => 0,
+    'weight' => -8,
     'fallback' => 'es',
+    'parent' => 'es',
   );
   // Exported language: gn-PY.
   $languages['gn-PY'] = array(
@@ -119,8 +126,9 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'gn-py ',
-    'weight' => 0,
+    'weight' => -7,
     'fallback' => 'es',
+    'parent' => 'es-PY',
   );
   // Exported language: pt-br.
   $languages['pt-br'] = array(
@@ -133,8 +141,9 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'pt-br',
-    'weight' => -9,
+    'weight' => -2,
     'fallback' => '',
+    'parent' => '',
   );
   return $languages;
 }
