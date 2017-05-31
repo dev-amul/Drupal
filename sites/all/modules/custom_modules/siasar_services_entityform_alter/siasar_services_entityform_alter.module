@@ -126,13 +126,36 @@ function _siasar_services_entityform_alter_attach_term_info($field) {
   $field['name'] = $terms[$tid]->name;
   $field['tid'] = $terms[$tid]->tid;
   if ($terms[$tid]->vocabulary_machine_name == 'division_administrativa') {
-    $field['country'] = $terms[$tid]->field_pais[LANGUAGE_NONE][0]['iso2'];
     $field['parent'] = _siasar_services_entityform_alter_get_nested_ancestors($tid);
+
+    if (!empty($terms[$tid]->field_pais)) {
+      $field['country'] = $terms[$tid]->field_pais[LANGUAGE_NONE][0]['iso2'];
+    } else {
+      $field['country'] = _siasar_services_entityform_alter_get_country_from_ancestors($field['parent']);
+    }
   }
 
   unset ($field['id']);
 
   return $field;
+}
+
+/**
+ * Helper function traverses parents recursive array of N11 terms to find country iso2 code, if it exists.
+ *
+ * @param array $ancestors
+ *   Recursive array of term parents data.
+ * @return string or null
+ *   ISO2 code.
+ */
+function _siasar_services_entityform_alter_get_country_from_ancestors($ancestors) {
+  if (isset($ancestors['country'])) {
+    return $ancestors['country'];
+  }
+  if (isset($ancestors['parent'])) {
+    return _siasar_services_entityform_alter_get_country_from_ancestors($ancestors['parent']);
+  }
+  return null;
 }
 
 /**
@@ -284,7 +307,7 @@ function _siasar_services_entityform_alter_get_value_from_wrapper($entity, $wrap
       }
 
       $options_list = $wrapper->language($language)->{$key}->optionsList();
-      if ($options_list && !is_array($value)) {
+      if ($options_list && !is_array($value) && isset($options_list[$value])) {
         $value = array(
           'value' => $value,
           'label' => $options_list[$value],
