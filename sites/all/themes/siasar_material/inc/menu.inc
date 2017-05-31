@@ -12,7 +12,10 @@ function siasar_material_menu_tree(&$variables) {
       $output = $variables['tree'];
       break;
     case 'menu_tree__user_menu':
-      $output = '<ul class="user-menu right">' . $variables['tree'] . '</ul>';
+      $output = '<ul class="user-menu">' . $variables['tree'] . '</ul>';
+      break;
+    case 'menu_tree__main_menu':
+      $output = '<ul class="main-menu">' . $variables['tree'] . '</ul>';
       break;
     default:
       $output = '<div class="collection with-header">' . $variables['tree'] . '</div>';
