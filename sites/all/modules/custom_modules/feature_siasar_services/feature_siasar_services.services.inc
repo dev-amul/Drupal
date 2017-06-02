@@ -63,6 +63,26 @@ function feature_siasar_services_default_services_endpoint() {
         ),
       ),
     ),
+    'entity_Workflow' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'enabled' => '1',
+        ),
+        'index' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
+    'entity_WorkflowState' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'enabled' => '1',
+        ),
+        'index' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
     'entity_count' => array(
       'operations' => array(
         'index' => array(
