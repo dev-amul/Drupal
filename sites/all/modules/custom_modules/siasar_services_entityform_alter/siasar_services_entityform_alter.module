@@ -104,16 +104,11 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name(&$data
  *   Item (entityform) to be fixed.
  */
 function _siasar_services_entityform_alter_fix_workflow_data(&$item) {
-  static $workflow = null;
-
   $entity = entity_load_single('entityform', $item['entityform_id']);
   $wrapper = entity_metadata_wrapper('entityform', $entity);
 
-  if (isset($wrapper->field_status)) {
-    $status_id = (int) $wrapper->field_status->value();
-    $workflow = $workflow
-      ? $workflow
-      : workflow_load_by_name('entityforms');
+  if (isset($wrapper->field_status) && $status_id = (int) $wrapper->field_status->value()) {
+    $workflow = workflow_load_by_name('entityforms');
 
     $item['status']['value'] = $status_id;
     $item['status']['label'] = $workflow->states[$status_id]->state;
