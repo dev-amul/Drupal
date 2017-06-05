@@ -26,10 +26,10 @@ function services_entity_revisions_services_resources() {
               'optional' => FALSE,
             ),
             array(
-              'name' => 'parameters',
-              'type' => 'array',
-              'description' => '',
-              'source' => array('param' => 'parameters'),
+              'name' => 'full',
+              'type' => 'int',
+              'description' => '1 = Returns full entities. 0 or unset = returns just Version IDs',
+              'source' => array('param' => 'full'),
               'optional' => TRUE,
               'default value' => array(),
             )
@@ -44,7 +44,7 @@ function services_entity_revisions_services_resources() {
 /*
  * Entity Revisions endpoint callback
  */
-function _services_entity_revisions_get_revisions($entity_machinename, $entity_id) {
+function _services_entity_revisions_get_revisions($entity_machinename, $entity_id, $full = false) {
   $info = entity_get_info($entity_machinename);
   if (!isset($info['revision table'])) {
     // If this entity does not track revisions then return FALSE.
@@ -60,5 +60,24 @@ function _services_entity_revisions_get_revisions($entity_machinename, $entity_i
     ->condition($info['entity keys']['id'], $entity_id)
     ->execute()
     ->fetchAllAssoc($info['entity keys']['revision']);
+
+  $revisions_vid = array_keys($revisions);
+
+  if ((bool) $full && !empty($revisions_vid)) {
+    return _services_entity_revisions_get_full_entities($entity_machinename, $revisions_vid);
+  }
   return array_keys($revisions);
+}
+
+/*
+ * Helper function that loads and return full entities for every VID received
+ */
+function _services_entity_revisions_get_full_entities($entity_machinename, $revisions_vid) {
+  $entities = array();
+
+  foreach ($revisions_vid as $r) {
+    $entities[$r] = entity_revision_load($entity_machinename, $r);
+  }
+
+  return $entities;
 }
