@@ -219,6 +219,13 @@ function feature_siasar_services_default_services_endpoint() {
         ),
       ),
     ),
+    'entity_revisions' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
     'entity_rules_config' => array(
       'operations' => array(
         'retrieve' => array(
