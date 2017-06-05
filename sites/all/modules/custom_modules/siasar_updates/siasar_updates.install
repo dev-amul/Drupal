@@ -423,5 +423,6 @@ function siasar_updates_update_7125(&$sandbox) {
   if (!$modules_enabled) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
+  features_revert_module('feature_siasar_services');
 }
 
