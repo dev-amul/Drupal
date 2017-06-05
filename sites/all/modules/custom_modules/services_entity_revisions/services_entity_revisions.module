@@ -1,2 +1,64 @@
 <?php
 
+/**
+ * Implementation of hook_services_resources().
+ */
+function services_entity_revisions_services_resources() {
+  return array(
+    'entity_revisions' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'help' => 'Retrieves a list of Entity Revision IDs for a specific entity.',
+          'callback' => '_services_entity_revisions_get_revisions',
+          'args' => array(
+            array(
+              'name' => 'entity_machinename',
+              'type' => 'string',
+              'description' => 'Entity Machine Name',
+              'source' => array('path' => 0),
+              'optional' => FALSE,
+            ),
+            array(
+              'name' => 'entity_id',
+              'type' => 'int',
+              'description' => 'Entity ID',
+              'source' => array('path' => 1),
+              'optional' => FALSE,
+            ),
+            array(
+              'name' => 'parameters',
+              'type' => 'array',
+              'description' => '',
+              'source' => array('param' => 'parameters'),
+              'optional' => TRUE,
+              'default value' => array(),
+            )
+          ),
+          'access arguments' => array('access content'),
+        ),
+      ),
+    ),
+  );
+}
+
+/*
+ * Entity Revisions endpoint callback
+ */
+function _services_entity_revisions_get_revisions($entity_machinename, $entity_id) {
+  $info = entity_get_info($entity_machinename);
+  if (!isset($info['revision table'])) {
+    // If this entity does not track revisions then return FALSE.
+    return FALSE;
+  }
+  if (!isset($info['entity keys']['revision'])) {
+    // If for whatever reason a revision table was defined, but no revision key
+    // then also return FALSE.
+    return FALSE;
+  }
+  $revisions = db_select($info['revision table'], 'r')
+    ->fields('r', array($info['entity keys']['revision']))
+    ->condition($info['entity keys']['id'], $entity_id)
+    ->execute()
+    ->fetchAllAssoc($info['entity keys']['revision']);
+  return array_keys($revisions);
+}
