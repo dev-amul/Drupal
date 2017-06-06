@@ -38,24 +38,35 @@ function siasar_services_entityform_alter_services_request_postprocess_alter($co
 
     if (arg(2) == null) {
       foreach ($result as &$item) {
-        $item = _siasar_services_entityform_alter_get_referenced_entityform_name($item);
+        _siasar_services_entityform_alter_run_alterations($item);
       }
     } elseif (is_numeric(arg(2))) {
-      $result = _siasar_services_entityform_alter_get_referenced_entityform_name($result);
+      _siasar_services_entityform_alter_run_alterations($result);
     }
   }
 }
 
 /**
- * Gets entity name and useful data where a entityform is being referenced.
+ * launches all modifications we want to run on our result item.
+ *
+ * @param array $item
+ *   Item to be altered
+ */
+function _siasar_services_entityform_alter_run_alterations(&$item) {
+    _siasar_services_entityform_alter_get_referenced_entityform_name($item);
+    _siasar_services_entityform_alter_fix_workflow_data($item);
+}
+
+/**
+ * Gets entity name and useful data where an entityform is being referenced.
  * It traverses all fields on the array.
  *
  * @param array $data
- *   Array of results that can be altered
+ *   Item (entityform) to be altered
  */
-function _siasar_services_entityform_alter_get_referenced_entityform_name($data) {
+function _siasar_services_entityform_alter_get_referenced_entityform_name(&$data) {
 
-  if (!is_array($data)) return $data;
+  if (!is_array($data)) return null;
 
   foreach ($data as &$field) {
     if (!is_array($field) || empty($field)) {
@@ -82,8 +93,30 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name($data)
       }
     }
   }
-  return $data;
 }
+
+/**
+ * Bugfix/workaround for Services being unable to properly get Workflow data.
+ * A better solution would be to fix returned info from Services Field formatter, but can't find this one.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/497
+ *
+ * @param array $item
+ *   Item (entityform) to be fixed.
+ */
+function _siasar_services_entityform_alter_fix_workflow_data(&$item) {
+  $entity = entity_load_single('entityform', $item['entityform_id']);
+  $wrapper = entity_metadata_wrapper('entityform', $entity);
+
+  if (isset($wrapper->field_status) && $status_id = (int) $wrapper->field_status->value()) {
+    $workflow = workflow_load_by_name('entityforms');
+
+    $item['status']['value'] = $status_id;
+    $item['status']['label'] = $workflow->states[$status_id]->state;
+    $item['status']['translated_label'] = t($item['status']['label']);
+    $item['status']['workflow'] = 'entityforms';
+  }
+}
+
 
 /**
  * Gets measuring unit and adds loaded info to $field array
