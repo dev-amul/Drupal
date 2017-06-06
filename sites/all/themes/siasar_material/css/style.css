@@ -998,6 +998,9 @@ form.entityform .form-actions input.form-validate[status='validated'] {
 form.entityform .form-item-field-cuestionario-validado-und {
   display: none;
 }
+form.entityform #edit-revision-fieldset {
+  background: #FFF;
+}
 
 body.page-entityform-edit h1 {
   padding-bottom: 15px;
@@ -1027,6 +1030,13 @@ body.page-entityform-edit fieldset.vertical-tabs-pane:first-child {
   body.page-entityform-edit fieldset.vertical-tabs-pane:first-child {
     padding-top: 20px;
   }
+}
+
+.entityform-revisions .diff-revision [type="radio"]:checked,
+.entityform-revisions .diff-revision [type="radio"]:not(:checked) {
+  position: initial;
+  left: initial;
+  opacity: initial;
 }
 
 body.page-entityform-view h1 {

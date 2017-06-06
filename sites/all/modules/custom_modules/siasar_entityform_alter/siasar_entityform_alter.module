@@ -68,8 +68,13 @@ function _siasar_entityform_alter_hide_validate_if_new(&$form, $form_state) {
 function _siasar_entityform_alter_build_validate_button(&$form, $form_state) {
   if (empty($form_state['entityform']->entityform_id) || !isset($form['field_cuestionario_validado'])) return;
 
+  $entityform = $form_state['entityform'];
+
+  // Not all entityforms have this field, while entityforms form have them because of the form alter
+  if (!isset($entityform->field_cuestionario_validado)) return;
+
   $actions_container = &$form['actions'];
-  $form_wrapper = entity_metadata_wrapper('entityform', $form_state['entityform']);
+  $form_wrapper = entity_metadata_wrapper('entityform', $entityform);
   $is_validated = $form_wrapper->field_cuestionario_validado->value();
 
   if(is_object($form_wrapper->draft) && (bool)$form_wrapper->draft->value()) return;

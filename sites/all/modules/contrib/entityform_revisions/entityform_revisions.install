@@ -1,0 +1,165 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ *
+ * @ingroup schemaapi
+ */
+function entityform_revisions_schema() {
+  $schema['entityform_revision'] = array(
+    'description' => 'Keeps track of entityform revisions.',
+    'fields' => array(
+      'entityform_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Entityform id (entity id).',
+      ),
+      'vid' => array(
+        'description' => 'The current {entityform_revision}.vid version identifier.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'The {users}.uid that created this version.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'log' => array(
+        'description' => 'The log entry explaining the changes in this version.',
+        'type' => 'text',
+        'size' => 'big',
+        'default' => '',
+      ),
+      'changed' => array(
+        'description' => 'The Unix timestamp when the entityform was most recently saved.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('entityform_id', 'vid'),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_schema_alter().
+ *
+ * @ingroup schemaapi
+ */
+function entityform_revisions_schema_alter(&$schema) {
+  if (isset($schema['entityform'])) {
+    $schema['entityform']['fields']['vid'] = array(
+      'description' => 'The current {entityform_revision}.vid version identifier.',
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      'default' => 0,
+    );
+  }
+}
+
+/**
+ * Implements hook_install().
+ */
+function entityform_revisions_install() {
+  $entityform_revisions_schema = array(
+    'entityform' => array()
+  );
+
+  entityform_revisions_schema_alter($entityform_revisions_schema);
+
+  foreach($entityform_revisions_schema['entityform']['fields'] as $name => $field) {
+    db_add_field('entityform', $name, $field);
+  }
+
+  // Reset the schema version, so our update hooks can be processed after installation.
+  drupal_set_installed_schema_version('mymodule', '7000');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function entityform_revisions_uninstall() {
+  $entityform_revisions_schema = array(
+    'entityform' => array()
+  );
+
+  entityform_revisions_schema_alter($entityform_revisions_schema);
+
+  foreach($entityform_revisions_schema['entityform']['fields'] as $name => $field) {
+    db_drop_field('entityform', $name);
+  }
+}
+
+/**
+ * Class EntityformRevisionsControllerInstall
+ *
+ * Class used to load an entity that may not have a revision yet
+ * so it changes the entity query from using the INNER JOIN to a LEFT JOIN.
+ */
+class EntityformRevisionsControllerInstall extends EntityformRevisionsController {
+  protected function buildQuery($ids, $conditions = [], $revision_id = FALSE) {
+    $query = parent::buildQuery($ids, $conditions, $revision_id);
+    $tables = &$query->getTables();
+    $tables['revision']['join type'] = 'LEFT OUTER';
+    return $query;
+  }
+}
+
+/**
+ * Update an existing entityform to have a default revision
+ *
+ * @param $entityform_id
+ *
+ * @return array
+ */
+function entityform_revisions_update_current_entityforms($entityform_id) {
+
+  $controller = new EntityformRevisionsControllerInstall('entityform');
+  $entities = $controller->load(array($entityform_id));
+
+  foreach($entities as $entityform) {
+    if (is_null($entityform->vid) || $entityform->vid == 0) {
+      $entityform->revision = TRUE;
+      $entityform->default_revision = TRUE;
+      $entityform->is_new_revision = FALSE;
+      $entityform->save();
+    }
+  }
+  return $entities;
+}
+
+/**
+ * Creates a default revision for each entityform
+ */
+function entityform_revisions_update_7103(&$sandbox) {
+
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['current_entityform_id'] = 0;
+    $sandbox['max'] = db_query('SELECT MAX(DISTINCT entityform_id) FROM {entityform}')->fetchField();
+  }
+
+  $entityform_ids = db_select('entityform', 'ef')
+    ->fields('ef', array('entityform_id'))
+    ->condition('entityform_id', $sandbox['current_entityform_id'], '>')
+    ->orderBy('entityform_id', 'ASC')
+    ->range(0, 100)
+    ->execute();
+
+  foreach ($entityform_ids as $entityform_id) {
+    entityform_revisions_update_current_entityforms($entityform_id->entityform_id);
+
+    $sandbox['progress']++;
+    $sandbox['current_entityform_id'] = $entityform_id->entityform_id;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+
+  return t('The entityform revisions update was executed.');
+}
