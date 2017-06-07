@@ -39,7 +39,7 @@ function _taxonomy_vocab_service_index($vocab_name) {
 
     foreach ($terms as $k => $t) {
       $settings['allowed_values'][$k] = $t->name;
-      $settings['hierarchy'][$k] = $t->parent ? $t->parent : 0;
+      $settings['hierarchy'][$k] = $t->parent ? (int) $t->parent : 0;
 
       if (!empty($t->field_codigo_division_admin_value)) {
         $settings['field_codigo_division_admin'][$k] = $t->field_codigo_division_admin_value;
