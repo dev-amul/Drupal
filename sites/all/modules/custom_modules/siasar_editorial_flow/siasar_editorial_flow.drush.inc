@@ -3,7 +3,7 @@
 /**
  * Implements hook_drush_command().
  */
- function siasar_update_flujo_editorial_drush_command(){
+ function siasar_editorial_flow_drush_command(){
      $items['siasar-update-editorial']=array(
          'description' => 'It update field status in the workflow module',
          'aliases' => 'siasar-ufe',
@@ -32,16 +32,18 @@
     if (isset($result['entityform'])) {
       $entities_list = $result['entityform'];
       drupal_set_message(t('There are %entities entityforms to process', array('%entities' => count($entities_list))), 'status');
+      drupal_set_message(t('Resultado de la consulta'. $result ));
 
       foreach($entities_list as $entity_id => $item) {
         $entity = entity_load_single('entityform', $entity_id);
-        drupal_set_message(t('imprimiendo valores ' .$entity->field_cuestionario_validado. ' '.$entity_id ), 'status');
-        /*if (isset($entity->field_pais) && empty($entity->field_pais)) {
+            drupal_set_message(t('imprimiendo valores '), 'status');
+        /*if(!empty($entity->field_cuestionario_validado)){
+            drupal_set_message(t('imprimiendo valores ' .$entity->field_cuestionario_validado. ' '.$entity_id ), 'status');
+        }
+
+        if (isset($entity->field_pais) && empty($entity->field_pais)) {
           $wrapper = entity_metadata_wrapper('entityform', $entity);
-
-
-
-        }*/
+      }*/
       }
     }
 

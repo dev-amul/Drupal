@@ -1,4 +1,4 @@
-name = SIASAR Flujo Editorial
+name = SIASAR Editorial flow
 description = Provides deployment updates for code releases on the SIASAR site.
 version = 7.x-1.0
 core = 7.x
