@@ -411,3 +411,93 @@ function siasar_updates_update_7124(&$sandbox) {
   }
 }
 
+/**
+ * Issue 492: Enables entityform_revisions module.
+ *
+ * @throws \DrupalUpdateException
+ */
+function siasar_updates_update_7125(&$sandbox) {
+  $modules = array(
+    'entityform_revisions',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Issue 492: Assign entityform_revisions permissions to users.
+ */
+function siasar_updates_update_7126(&$sandbox) {
+
+  $permissions = array(
+    'view entityform revisions',
+    'edit entityform revisions',
+    'delete entityform revisions',
+    'revert entityform revisions',
+  );
+
+  foreach(array('Administrador Local', 'Administrador Regional', 'administrator') as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    user_role_grant_permissions($role->rid, $permissions);
+  }
+}
+
+/**
+ * Issue 484: Add VBO.
+ */
+function siasar_updates_update_7127(&$sandbox) {
+  $modules = array(
+    'views_bulk_operations',
+    'actions_permissions',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Issue 484: Add correct permissions to VBO.
+ */
+function siasar_updates_update_7128(&$sandbox) {
+  $validate_roles = array(
+    'Validator',
+    'Administrador Local',
+    'Administrador Regional',
+    'administrator'
+  );
+
+  $admin_roles = array(
+    'Administrador Local',
+    'Administrador Regional',
+    'administrator'
+  );
+
+  $permissions_config = array(
+    'finish' => array(
+      'perms' => array('execute siasar_finish_questionnaire_action'),
+      'roles' => $admin_roles,
+    ),
+    'validate' => array(
+      'perms' => array('execute siasar_validate_questionnaire_action'),
+      'roles' => $validate_roles,
+    ),
+    'delete' => array(
+      'perms' => array('execute siasar_delete_questionnaire_action'),
+      'roles' => $admin_roles,
+    ),
+    'draft' => array(
+      'perms' => array('execute siasar_draft_questionnaire_action'),
+      'roles' => $admin_roles,
+    ),
+  );
+
+  foreach($permissions_config as $config) {
+    foreach ($config['roles'] as $role_name) {
+      $role = user_role_load_by_name($role_name);
+      user_role_grant_permissions($role->rid, $config['perms']);
+    }
+  }
+}

@@ -27,6 +27,39 @@ class EntityformRevisionsController extends EntityformController {
   }
 
   /**
+   * Updates the revision UID with the real user and keeps the entityform author
+   * in the context to be set in the entity after saving the revision.
+   * It also takes care of setting the changed timestamp when creating default
+   * revisions.
+   *
+   * @param $entity
+   *
+   * @return array
+   */
+  protected function preSaveRevision($entity) {
+    global $user;
+    $context = array();
+    $context['previous_uid'] = $entity->uid;
+    $entity->uid = $user->uid;
+    $context['changed'] = $entity->changed;
+    if (empty($entity->changed)) {
+      $entity->changed = $entity->created;
+    }
+    return $context;
+  }
+
+  /**
+   * Updates the entity after saving its revision
+   *
+   * @param $entity
+   * @param $context
+   */
+  protected function postSaveRevision($entity, $context) {
+    $entity->uid = $context['previous_uid'];
+    $entity->changed = $context['changed'];
+  }
+
+  /**
    * Saves the revision making sure the {entityform_revision}.uid is the current user
    *
    * @param \Entity $entity
@@ -34,11 +67,9 @@ class EntityformRevisionsController extends EntityformController {
    * @return \Entity|int
    */
   protected function saveRevision($entity) {
-    global $user;
-    $previous_uid = $entity->uid;
-    $entity->uid = $user->uid;
-    $entity = parent::saveRevision($entity);
-    $entity->uid = $previous_uid;
+    $context = $this->preSaveRevision($entity);
+    parent::saveRevision($entity);
+    $this->postSaveRevision($entity, $context);
     return $entity;
   }
 }

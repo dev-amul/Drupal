@@ -488,6 +488,12 @@ body.page-resultados .view-results-entityforms .feed-icon {
   margin-top: 20px;
   clear: both;
 }
+body.page-resultados .views-field-views-bulk-operations input[type="checkbox"]:checked,
+body.page-resultados .views-field-views-bulk-operations input[type="checkbox"]:not(:checked) {
+  opacity: 1;
+  left: initial;
+  position: initial;
+}
 
 body.maintenance-page {
   background: #096396;

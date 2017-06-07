@@ -77,8 +77,24 @@ function entityform_revisions_install() {
     db_add_field('entityform', $name, $field);
   }
 
-  // Reset the schema version, so our update hooks can be processed after installation.
-  drupal_set_installed_schema_version('mymodule', '7000');
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * It will create a default entityform submission revision for the entities that
+ * have none.
+ */
+function entityform_revisions_enable() {
+  if (drupal_is_cli() && function_exists('drush_main')) {
+    $context = array(
+      'drush' => true,
+    );
+    entityform_revisions_update_revisions($context);
+  } else {
+    $batch = entityform_revisions_update_revisions_batch();
+    batch_set($batch);
+  }
 }
 
 /**
@@ -94,72 +110,4 @@ function entityform_revisions_uninstall() {
   foreach($entityform_revisions_schema['entityform']['fields'] as $name => $field) {
     db_drop_field('entityform', $name);
   }
-}
-
-/**
- * Class EntityformRevisionsControllerInstall
- *
- * Class used to load an entity that may not have a revision yet
- * so it changes the entity query from using the INNER JOIN to a LEFT JOIN.
- */
-class EntityformRevisionsControllerInstall extends EntityformRevisionsController {
-  protected function buildQuery($ids, $conditions = [], $revision_id = FALSE) {
-    $query = parent::buildQuery($ids, $conditions, $revision_id);
-    $tables = &$query->getTables();
-    $tables['revision']['join type'] = 'LEFT OUTER';
-    return $query;
-  }
-}
-
-/**
- * Update an existing entityform to have a default revision
- *
- * @param $entityform_id
- *
- * @return array
- */
-function entityform_revisions_update_current_entityforms($entityform_id) {
-
-  $controller = new EntityformRevisionsControllerInstall('entityform');
-  $entities = $controller->load(array($entityform_id));
-
-  foreach($entities as $entityform) {
-    if (is_null($entityform->vid) || $entityform->vid == 0) {
-      $entityform->revision = TRUE;
-      $entityform->default_revision = TRUE;
-      $entityform->is_new_revision = FALSE;
-      $entityform->save();
-    }
-  }
-  return $entities;
-}
-
-/**
- * Creates a default revision for each entityform
- */
-function entityform_revisions_update_7103(&$sandbox) {
-
-  if (!isset($sandbox['progress'])) {
-    $sandbox['progress'] = 0;
-    $sandbox['current_entityform_id'] = 0;
-    $sandbox['max'] = db_query('SELECT MAX(DISTINCT entityform_id) FROM {entityform}')->fetchField();
-  }
-
-  $entityform_ids = db_select('entityform', 'ef')
-    ->fields('ef', array('entityform_id'))
-    ->condition('entityform_id', $sandbox['current_entityform_id'], '>')
-    ->orderBy('entityform_id', 'ASC')
-    ->range(0, 100)
-    ->execute();
-
-  foreach ($entityform_ids as $entityform_id) {
-    entityform_revisions_update_current_entityforms($entityform_id->entityform_id);
-
-    $sandbox['progress']++;
-    $sandbox['current_entityform_id'] = $entityform_id->entityform_id;
-  }
-
-  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
-
-  return t('The entityform revisions update was executed.');
 }

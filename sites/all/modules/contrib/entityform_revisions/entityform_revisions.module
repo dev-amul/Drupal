@@ -274,3 +274,133 @@ function entityform_revisions_entity_diff($old_entityform, $new_entityform, $con
   }
   return $result;
 }
+
+/**
+ * Prepares a batch to process entityform submissions without a default revision
+ *
+ * @return array|bool
+ */
+function entityform_revisions_update_revisions_batch() {
+  $t = get_t();
+  $batch = array(
+    'operations' => array(
+      array('entityform_revisions_update_revisions', array()),
+    ),
+    'title' => $t('Processing Entityform revisions update batch'),
+    'init_message' => $t('Entityform revisions update is starting.'),
+    'progress_message' => $t('Processed @progress out of @max.'),
+    'error_message' => $t('Entityform revisions update batch has encountered an error.'),
+    'file' => drupal_get_path('module', 'entityform_revisions') . '/entityform_revisions.module',
+  );
+  return $batch;
+}
+
+/**
+ * It processes entityform revisions to have a default revision in batches of
+ * 100 records.
+ */
+function entityform_revisions_update_revisions(&$context) {
+
+  if (!isset($context['progress'])) {
+    $context['progress'] = 0;
+    $context['current_entityform_id'] = 0;
+    $context['max'] = db_query('SELECT count(DISTINCT entityform_id) FROM {entityform} WHERE vid = 0')->fetchField();
+  }
+
+  $entityform_ids = db_select('entityform', 'ef')
+    ->fields('ef', array('entityform_id'))
+    ->condition('entityform_id', $context['current_entityform_id'], '>')
+    ->condition('vid', 0)
+    ->orderBy('entityform_id', 'ASC')
+    ->execute();
+
+  if (!isset($context['drush'])) {
+    $entityform_ids->range(0, 100);
+  }
+
+  foreach ($entityform_ids as $entityform_id) {
+    entityform_revisions_update_current_entityforms($entityform_id->entityform_id);
+
+    $context['progress']++;
+    $context['current_entityform_id'] = $entityform_id->entityform_id;
+  }
+
+  if ($context['context']['progress'] != $context['context']['max']) {
+    $context['finished'] = $context['context']['progress'] / $context['context']['max'];
+  } else {
+    $context['#finished'] = 1;
+  }
+}
+
+/**
+ * Updates an existing entityform to have a default revision
+ *
+ * @param $entityform_id
+ *
+ * @return array
+ */
+function entityform_revisions_update_current_entityforms($entityform_id) {
+
+  if (class_exists('EntityformRevisionsController') && !class_exists('EntityformRevisionsControllerInstall')) {
+    /**
+     * Class EntityformRevisionsControllerInstall
+     *
+     * Class used to load an entity that may not have a revision yet
+     * so it changes the entity query from using the INNER JOIN to a LEFT JOIN.
+     */
+    class EntityformRevisionsControllerInstall extends EntityformRevisionsController {
+      protected function buildQuery($ids, $conditions = [], $revision_id = FALSE) {
+        $query = parent::buildQuery($ids, $conditions, $revision_id);
+        $tables = &$query->getTables();
+        $tables['revision']['join type'] = 'LEFT OUTER';
+        return $query;
+      }
+
+      /**
+       * Updates the changed property for default revisions
+       *
+       * @param $entity
+       *
+       * @return array|mixed
+       */
+      protected function preSaveRevision($entity) {
+        // Do nothing: the entity should not be modified
+        $context['changed'] = $entity->changed;
+        if (empty($entity->changed)) {
+          $entity->changed = $entity->created;
+        }
+        return $context;
+      }
+
+      /**
+       * Only updates the changed property.
+       * The user will not be modified.
+       *
+       * @param $entity
+       * @param $context
+       */
+      protected function postSaveRevision($entity, $context) {
+        $entity->changed = $context['changed'];
+      }
+    }
+  }
+
+  $controller = new EntityformRevisionsControllerInstall('entityform');
+  $entities = $controller->load(array($entityform_id));
+
+  foreach($entities as $entityform) {
+    if (is_null($entityform->vid) || $entityform->vid == 0) {
+      $entityform->revision = TRUE;
+      $entityform->default_revision = TRUE;
+      $entityform->is_new_revision = FALSE;
+      $entityform->vid = $entityform->identifier();
+
+      // The normal controller is not able to obtain the entity, and some modules
+      // would require the original property set. So we provide a default entity
+      // to avoid issues during this save()
+      $entityform->original = $entityform;
+      $controller->save($entityform);
+    }
+  }
+  return $entities;
+}
