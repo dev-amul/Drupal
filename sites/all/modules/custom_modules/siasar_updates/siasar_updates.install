@@ -394,10 +394,26 @@ function siasar_updates_update_7123(&$sandbox) {
 }
 
 /**
+ * Install Google Analytics module
+ *
+ */
+ function siasar_updates_update_7124(&$sandbox) {
+   $modules = array(
+     'googleanalytics',
+   );
+   $modules_enabled = module_enable($modules, TRUE);
+   if (!$modules_enabled) {
+     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+   }
+   variable_set('googleanalytics_account', 'UA-66702881-1');
+   variable_set('googleanalytics_domain_mode',1);
+ }
+
+/**
  * Issue 481 - Instalar el módulo Workflow y crear un flujo editorial de tres pasos para el Formulario de Pruebas
  * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/481
  */
-function siasar_updates_update_7124(&$sandbox) {
+function siasar_updates_update_7125(&$sandbox) {
   $modules = array(
     'workflow',
     'workflow_admin_ui',
@@ -415,7 +431,7 @@ function siasar_updates_update_7124(&$sandbox) {
  * Issue 483 - Crear un endpoint capaz de informar a la API de cuántas versiones de un formulario tenemos guardadas
  * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/483
  */
-function siasar_updates_update_7125(&$sandbox) {
+function siasar_updates_update_7126(&$sandbox) {
   $modules = array(
     'services_entity_revisions'
   );
@@ -431,7 +447,7 @@ function siasar_updates_update_7125(&$sandbox) {
  *
  * @throws \DrupalUpdateException
  */
-function siasar_updates_update_7126(&$sandbox) {
+function siasar_updates_update_7127(&$sandbox) {
   $modules = array(
     'entityform_revisions',
   );
@@ -444,7 +460,7 @@ function siasar_updates_update_7126(&$sandbox) {
 /**
  * Issue 492: Assign entityform_revisions permissions to users.
  */
-function siasar_updates_update_7127(&$sandbox) {
+function siasar_updates_update_7128(&$sandbox) {
 
   $permissions = array(
     'view entityform revisions',
@@ -462,7 +478,7 @@ function siasar_updates_update_7127(&$sandbox) {
 /**
  * Issue 484: Add VBO.
  */
-function siasar_updates_update_7128(&$sandbox) {
+function siasar_updates_update_7129(&$sandbox) {
   $modules = array(
     'views_bulk_operations',
     'actions_permissions',
@@ -476,7 +492,7 @@ function siasar_updates_update_7128(&$sandbox) {
 /**
  * Issue 484: Add correct permissions to VBO.
  */
-function siasar_updates_update_7129(&$sandbox) {
+function siasar_updates_update_7130(&$sandbox) {
   $validate_roles = array(
     'Validator',
     'Administrador Local',
