@@ -392,3 +392,19 @@ function siasar_updates_update_7123(&$sandbox) {
 
   return t('@num modules have been removed from the system table.', array('@num' => $num));
 }
+
+/**
+ * Install Google Analytics module
+ *
+ */
+ function siasar_updates_update_7124(&sandbox) {
+   $modules = array(
+     'googleanalytics',
+   );
+   $modules_enabled = module_enable($modules, TRUE);
+   if (!$modules_enabled) {
+     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+   }
+   variable_set('googleanalytics_account', 'UA-66702881-1');
+   variable_set('googleanalytics_domain_mode',1);
+ }
