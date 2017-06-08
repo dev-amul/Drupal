@@ -27,36 +27,44 @@
     $query->entityCondition('entity_type', 'entityform')
       ->entityCondition('bundle', $bundles, 'IN')
       ->propertyOrderBy('entityform_id', 'ASC')
-      ->range(0,100);
+      ->range(0,2000);
     $result = $query->execute();
 
     if (isset($result['entityform'])) {
       $entities_list = $result['entityform'];
       $tamano = count($entities_list);
-      //drupal_set_message(t('Tamaño de la consulta 2'. $tamano));
       foreach($entities_list as $entity_id => $item) {
-          //drupal_set_message('id de la entidad '.  $entity_id);
+
           $entity = entity_load_single('entityform', $entity_id);
-          $size = count($entity);
-          drupal_set_message('valor entity '.  $entity->id. ' '. $size);
+          dpm($entity);
+
           if(isset($entity->field_cuestionario_validado) && !empty($entity->field_cuestionario_validado)) {
             $wrapper = entity_metadata_wrapper('entityform', $entity);
-            if($wrapper->field_cuestionario_validado->value()){
-                drupal_set_message('Cuestionario validado ***** ');
-                //Acá va la asignación
+            if($entity->type == 'testingpurposes'){
+
+                drupal_set_message('Nombre del formulario '. $entity->type);
+
+                if($wrapper->field_cuestionario_validado->value()){
+                    drupal_set_message('Cuestionario validado ***** ');
+                $wrapper->field_status->set(4);
+                $wrapper->save();
 
             }
-          }
-          if(isset($entity->field_cuestionario_terminado) && !empty($entity->field_cuestionario_validado)){
-                drupal_set_message('Cuestionario terminado ***** ');
-                //Acá va la asignación
-          }
-          if(isset($entity->draft) && !empty($entity->draft)){
-                drupal_set_message('borrador '.$wrapper->draft->value());
-                //Acá va la asignación
-          }
 
+          if(isset($entity->draft) && !empty($entity->draft)){
+                drupal_set_message('borrador ');
+                if($wrapper->draft->value()){
+                    $wrapper->field_status->set(2);
+                    $wrapper->save();
+                }
+                else{
+                    drupal_set_message('Cuestionario terminado ***** ');
+                    $wrapper->field_status->set(3);
+                    $wrapper->save();
+                    }
+                }
+            }
         }
     }
-
- }
+}
+}
