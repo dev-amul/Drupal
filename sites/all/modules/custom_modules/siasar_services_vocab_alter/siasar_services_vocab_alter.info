@@ -1,5 +1,0 @@
-name = SIASAR Services Vocab Alter
-description = Actions and modifications on vocabulary endpoint
-version = 7.x-1.0
-core = 7.x
-package = siasar
