@@ -26,25 +26,37 @@
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'entityform')
       ->entityCondition('bundle', $bundles, 'IN')
-      ->propertyOrderBy('entityform_id', 'ASC');
+      ->propertyOrderBy('entityform_id', 'ASC')
+      ->range(0,100);
     $result = $query->execute();
 
     if (isset($result['entityform'])) {
       $entities_list = $result['entityform'];
-      drupal_set_message(t('There are %entities entityforms to process', array('%entities' => count($entities_list))), 'status');
-      drupal_set_message(t('Resultado de la consulta'. $result ));
-
+      $tamano = count($entities_list);
+      //drupal_set_message(t('Tamaño de la consulta 2'. $tamano));
       foreach($entities_list as $entity_id => $item) {
-        $entity = entity_load_single('entityform', $entity_id);
-            drupal_set_message(t('imprimiendo valores '), 'status');
-        /*if(!empty($entity->field_cuestionario_validado)){
-            drupal_set_message(t('imprimiendo valores ' .$entity->field_cuestionario_validado. ' '.$entity_id ), 'status');
-        }
+          //drupal_set_message('id de la entidad '.  $entity_id);
+          $entity = entity_load_single('entityform', $entity_id);
+          $size = count($entity);
+          drupal_set_message('valor entity '.  $entity->id. ' '. $size);
+          if(isset($entity->field_cuestionario_validado) && !empty($entity->field_cuestionario_validado)) {
+            $wrapper = entity_metadata_wrapper('entityform', $entity);
+            if($wrapper->field_cuestionario_validado->value()){
+                drupal_set_message('Cuestionario validado ***** ');
+                //Acá va la asignación
 
-        if (isset($entity->field_pais) && empty($entity->field_pais)) {
-          $wrapper = entity_metadata_wrapper('entityform', $entity);
-      }*/
-      }
+            }
+          }
+          if(isset($entity->field_cuestionario_terminado) && !empty($entity->field_cuestionario_validado)){
+                drupal_set_message('Cuestionario terminado ***** ');
+                //Acá va la asignación
+          }
+          if(isset($entity->draft) && !empty($entity->draft)){
+                drupal_set_message('borrador '.$wrapper->draft->value());
+                //Acá va la asignación
+          }
+
+        }
     }
 
  }
