@@ -397,7 +397,7 @@ function siasar_updates_update_7123(&$sandbox) {
  * Install Google Analytics module
  *
  */
- function siasar_updates_update_7124(&sandbox) {
+ function siasar_updates_update_7124(&$sandbox) {
    $modules = array(
      'googleanalytics',
    );
