@@ -45,14 +45,14 @@ function _taxonomy_vocab_service_index($vocab_name) {
         $settings['field_codigo_division_admin'][$k] = $t->field_codigo_division_admin_value;
       }
     }
-  }  
+  }
 	return $settings;
 }
 
 
 function _taxonomy_web_service_get_location_terms_data($country_iso2) {
   $query = db_select('taxonomy_term_data', 't');
-  $query->join('field_data_field_codigo_division_admin', 'c', 't.tid = c.entity_id');
+  $query->leftJoin('field_data_field_codigo_division_admin', 'c', 't.tid = c.entity_id');
   $query->join('field_data_field_pais', 'p', 't.tid = p.entity_id');
   $query->join('taxonomy_term_hierarchy', 'h', 't.tid = h.tid');
   $query
@@ -61,8 +61,6 @@ function _taxonomy_web_service_get_location_terms_data($country_iso2) {
     ->fields('p', array('field_pais_iso2'))
     ->fields('h', array('parent'))
     ->condition('t.vid', '2')
-    ->condition('c.entity_type', 'taxonomy_term')
-    ->condition('c.bundle', 'division_administrativa')
     ->condition('p.entity_type', 'taxonomy_term')
     ->condition('p.bundle', 'division_administrativa')
     ->condition('p.field_pais_iso2', $country_iso2)
