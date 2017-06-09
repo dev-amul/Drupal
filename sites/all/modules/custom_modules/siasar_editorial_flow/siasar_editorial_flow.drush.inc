@@ -25,46 +25,58 @@
     $bundles = array_keys(entity_get_info('entityform')['bundles']);
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'entityform')
-      ->entityCondition('bundle', $bundles, 'IN')
-      ->propertyOrderBy('entityform_id', 'ASC')
-      ->range(0,2000);
+      ->entityCondition('bundle', 'testingpurposes')
+      ->propertyOrderBy('entityform_id', 'ASC');
+      //->range(0,20000);
     $result = $query->execute();
 
     if (isset($result['entityform'])) {
       $entities_list = $result['entityform'];
-      $tamano = count($entities_list);
       foreach($entities_list as $entity_id => $item) {
 
           $entity = entity_load_single('entityform', $entity_id);
           dpm($entity);
-
+          drupal_set_message('Nombre del formulario '. $entity->type);
           if(isset($entity->field_cuestionario_validado) && !empty($entity->field_cuestionario_validado)) {
             $wrapper = entity_metadata_wrapper('entityform', $entity);
-            if($entity->type == 'testingpurposes'){
 
-                drupal_set_message('Nombre del formulario '. $entity->type);
 
                 if($wrapper->field_cuestionario_validado->value()){
                     drupal_set_message('Cuestionario validado ***** ');
-                $wrapper->field_status->set(4);
-                $wrapper->save();
+                    //$wrapper->field_status->set(4);
+                    drupal_set_message("Tiene el campo asignado 1 validado" . $entity->field_status);
+                    drupal_set_message("Tiene el campo asignado 2 validado" . $wrapper->field_status);
+                    $entity->field_status[0]=4;
+                    var_dump($entity->field_status);
 
             }
+        }
 
-          if(isset($entity->draft) && !empty($entity->draft)){
-                drupal_set_message('borrador ');
-                if($wrapper->draft->value()){
-                    $wrapper->field_status->set(2);
-                    $wrapper->save();
+        if(isset($entity->draft) && !empty($entity->draft)){
+                drupal_set_message('borrador '. $entity->draft);
+                if($entity->draft){
+                    if(isset($entity->field_status)){
+                        drupal_set_message("Tiene el campo asignado 1 borrador" . $entity->field_status[0]);
+                        //$entity->field_status->set(2);
+                        var_dump($entity->field_status);
+                        $wrapper->field_status[0]=2;
+                    }
                 }
                 else{
                     drupal_set_message('Cuestionario terminado ***** ');
-                    $wrapper->field_status->set(3);
-                    $wrapper->save();
+                    //$wrapper->field_status->set(3);
+                    //if(isset($entity->field_status))
+                            //$wrapper->field_status->set(2);
+                    if(isset($entity->field_status)){
+                        drupal_set_message("Tiene el campo asignado 1 terminado" . $entity->field_status[0]);
+                        var_dump($entity->field_status);
+                        $entity->field_status[0]=3;
                     }
-                }
-            }
+
+
+         }
         }
+                $entity->save();
     }
-}
-}
+   }
+  }
