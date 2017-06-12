@@ -85,7 +85,7 @@ function drush_siasar_fill_missing_countries() {
     foreach($children as $child) {
       $loaded_term = taxonomy_term_load($child->tid);
       if (empty($loaded_term->field_pais)) {
-        watchdog('siasar_updates', 'Country missing in term id : %tid', array('%tid' => $loaded_term->tid)));
+        watchdog('siasar_updates', 'Country missing in term id : %tid', array('%tid' => $loaded_term->tid));
         drupal_set_message('Country missing in term id : '.$loaded_term->tid);
         _siasar_updates_set_country($loaded_term->tid, $country);
         $num_updated++;
