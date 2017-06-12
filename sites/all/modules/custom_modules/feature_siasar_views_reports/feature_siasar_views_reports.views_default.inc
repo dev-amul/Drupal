@@ -320,6 +320,51 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'No hay resultados con las opciones que ha elegido.';
   $handler->display->display_options['empty']['area']['format'] = 'plain_text';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Bulk operations: Entityform Submission */
+  $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
+  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_entityform';
+  $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
+  $handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
+  $handler->display->display_options['fields']['views_bulk_operations']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['row_clickable'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
+    'action::siasar_delete_questionnaire_action' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'skip_permission_check' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::siasar_draft_questionnaire_action' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'skip_permission_check' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::siasar_validate_questionnaire_action' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'skip_permission_check' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::siasar_finish_questionnaire_action' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'skip_permission_check' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+  );
   /* Campo: Entityform Submission: Entityform submission ID */
   $handler->display->display_options['fields']['entityform_id']['id'] = 'entityform_id';
   $handler->display->display_options['fields']['entityform_id']['table'] = 'entityform';
@@ -413,11 +458,6 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['link_entityform']['field'] = 'link_entityform';
   $handler->display->display_options['fields']['link_entityform']['label'] = 'Ver';
   $handler->display->display_options['fields']['link_entityform']['exclude'] = TRUE;
-  /* Campo: Entityform Submission: Status */
-  $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
-  $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
-  $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
-  $handler->display->display_options['fields']['field_status']['label'] = 'Estado';
   /* Campo: Global: Texto personalizado */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -632,47 +672,6 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_dependent'] = 0;
-  /* Criterio de filtrado: Entityform Submission: Status (field_status) */
-  $handler->display->display_options['filters']['field_status_value']['id'] = 'field_status_value';
-  $handler->display->display_options['filters']['field_status_value']['table'] = 'field_data_field_status';
-  $handler->display->display_options['filters']['field_status_value']['field'] = 'field_status_value';
-  $handler->display->display_options['filters']['field_status_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_status_value']['expose']['operator_id'] = 'field_status_value_op';
-  $handler->display->display_options['filters']['field_status_value']['expose']['label'] = 'Status (field_status)';
-  $handler->display->display_options['filters']['field_status_value']['expose']['operator'] = 'field_status_value_op';
-  $handler->display->display_options['filters']['field_status_value']['expose']['identifier'] = 'field_status_value';
-  $handler->display->display_options['filters']['field_status_value']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['field_status_value']['group_info']['label'] = 'Estado';
-  $handler->display->display_options['filters']['field_status_value']['group_info']['identifier'] = 'field_status_value';
-  $handler->display->display_options['filters']['field_status_value']['group_info']['group_items'] = array(
-    1 => array(
-      'title' => 'Draft',
-      'operator' => '=',
-      'value' => array(
-        'value' => '2',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-    2 => array(
-      'title' => 'Finished',
-      'operator' => '=',
-      'value' => array(
-        'value' => '3',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-    3 => array(
-      'title' => 'Validated',
-      'operator' => '=',
-      'value' => array(
-        'value' => '4',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-  );
   $handler->display->display_options['path'] = 'resultados';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Ver';
