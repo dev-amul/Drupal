@@ -43,11 +43,13 @@
 
                 if($wrapper->field_cuestionario_validado->value()){
                     drupal_set_message('Cuestionario validado ***** ');
-                    //$wrapper->field_status->set(4);
                     drupal_set_message("Tiene el campo asignado 1 validado" . $entity->field_status);
                     drupal_set_message("Tiene el campo asignado 2 validado" . $wrapper->field_status);
-                    $entity->field_status[0]=4;
-                    var_dump($entity->field_status);
+                    if(isset($wrapper->field_status)){
+                        var_dump($wrapper->field_status->value());
+                        $wrapper->field_status->set('4');
+                    }
+                    //var_dump($entity->field_status);
 
             }
         }
@@ -57,9 +59,11 @@
                 if($entity->draft){
                     if(isset($entity->field_status)){
                         drupal_set_message("Tiene el campo asignado 1 borrador" . $entity->field_status[0]);
-                        //$entity->field_status->set(2);
-                        var_dump($entity->field_status);
-                        $wrapper->field_status[0]=2;
+                        if(isset($wrapper->field_status)){
+                            var_dump($wrapper->field_status->value());
+                            $wrapper->field_status->set('2');
+                        }
+
                     }
                 }
                 else{
@@ -70,13 +74,16 @@
                     if(isset($entity->field_status)){
                         drupal_set_message("Tiene el campo asignado 1 terminado" . $entity->field_status[0]);
                         var_dump($entity->field_status);
-                        $entity->field_status[0]=3;
+                        if(isset($wrapper->field_status)){
+                            var_dump($wrapper->field_status->value());
+                            $wrapper->field_status->set('3');
+                        }
                     }
 
 
          }
         }
-                $entity->save();
+                //$wrapper->save();
     }
    }
   }
