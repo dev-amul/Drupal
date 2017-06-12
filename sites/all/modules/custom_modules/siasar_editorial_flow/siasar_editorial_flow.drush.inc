@@ -72,8 +72,8 @@ function drush_siasar_update_editorial($form_type = 'all', $offset = 0, $length 
 
 function siasar_editorial_flow_get_statuses() {
   return array(
-    'STATUS_DRAFT' => '2',
-    'STATUS_FINISHED' => '3',
-    'STATUS_VALIDATED' => '4',
+    'STATUS_DRAFT' => 2,
+    'STATUS_FINISHED' => 3,
+    'STATUS_VALIDATED' => 4,
   );
 }
