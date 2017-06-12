@@ -81,7 +81,7 @@ function drush_siasar_fill_missing_countries($country_to_check = null) {
     ? strtoupper($country_to_check)
     : null;
   $vid = 2; // 2 = Division Administrativa
-  $terms_array = taxonomy_get_tree($vid,0,1,false);
+  $terms_array = taxonomy_get_tree($vid, 0, 1, false);
   $terms = array();
   $num_updated = 0;
 
@@ -89,11 +89,11 @@ function drush_siasar_fill_missing_countries($country_to_check = null) {
     $entity_term = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($term->tid));
     $country = $entity_term->field_pais->value();
 
-    if($country_to_check && $country->iso2 != $country_to_check) continue;
+    if ($country_to_check && $country->iso2 != $country_to_check) continue;
 
     $terms[] = $entity_term;
     $children = taxonomy_get_tree($vid,$term->tid);
-    foreach($children as $child) {
+    foreach ($children as $child) {
       $loaded_term = taxonomy_term_load($child->tid);
       if (empty($loaded_term->field_pais)) {
         drupal_set_message('Country missing in term id : '.$loaded_term->tid . ', name: ' . $loaded_term->name);
