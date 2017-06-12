@@ -21,6 +21,16 @@ function siasar_updates_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
   );
 
+  $items['siasar-fill-missing-countries'] = array(
+    'description' => 'It adds the missing country on those administrative divisions that doesnt have one already set.',
+    'aliases' => array('siasar-fmc'),
+    'callback' => 'drush_siasar_fill_missing_countries',
+    'examples' => array(
+      'drush siasar-fmc' => 'It adds the missing country on those administrative divisions that doesnt have one already set.',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
+  );
+
   return $items;
 }
 
@@ -59,4 +69,34 @@ function drush_siasar_remap_unit($field, $old, $new) {
     ->execute();
 
     drupal_set_message($num_updated . ' affected rows.');
+}
+
+function drush_siasar_fill_missing_countries() {
+  $vid = 2; // 2 = Division Administrativa
+  $terms_array = taxonomy_get_tree($vid,0,1,false);
+  $terms = array();
+  $num_updated = 0;
+  foreach ($terms_array as $term){
+    $entity_term = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($term->tid));
+    $country = $entity_term->field_pais->value();
+
+    $terms[] = $entity_term;
+    $children = taxonomy_get_tree($vid,$term->tid);
+    foreach($children as $child) {
+      $loaded_term = taxonomy_term_load($child->tid);
+      if (empty($loaded_term->field_pais)) {
+        watchdog('siasar_updates', 'Country missing in term id : %tid', array('%tid' => $loaded_term->tid)));
+        drupal_set_message('Country missing in term id : '.$loaded_term->tid);
+        _siasar_updates_set_country($loaded_term->tid, $country);
+        $num_updated++;
+      }
+    }
+  }
+  drupal_set_message($num_updated.' terms updated');
+}
+
+function _siasar_updates_set_country($tid, $country) {
+  $entity_term = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($tid));
+  $entity_term->field_pais->set($country);
+  $entity_term->save();
 }
