@@ -50,7 +50,6 @@ function _siasar_entityform_alter_set_default_country(&$form) {
   }
 }
 
-
 /**
  * Helper function to hide Validate field if form is new.
  */

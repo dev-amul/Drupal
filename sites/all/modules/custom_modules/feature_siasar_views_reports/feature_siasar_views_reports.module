@@ -26,7 +26,7 @@ function _siasar_validate_and_get_default_location($field_name, &$form_state) {
     $default_location = $form_state['input'][$field_name];
 
     // Make sure the $default_location belongs to the user setting
-    if (!siasar_user_is_admin() && $location) {
+    if (!user_access('assign territorial division') && $location) {
       $parents = taxonomy_get_parents_all($default_location);
       $found = FALSE;
       foreach ($parents as $parent) {
@@ -59,11 +59,13 @@ function _siasar_validate_and_get_default_country($field_name, &$form_state) {
   $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
 
   if (!empty($form_state['input'][$field_name])) {
-    if (!siasar_user_is_admin() && $user_country_iso2 !== $form_state['input'][$field_name]) {
+    if (!user_access('assign territorial division') && $user_country_iso2 !== $form_state['input'][$field_name]) {
       $form_state['input'][$field_name] = $user_country_iso2;
     } else {
       $user_country_iso2 = $form_state['input'][$field_name];
     }
+  } else {
+    $form_state['input'][$field_name] = $user_country_iso2;
   }
 
   return $user_country_iso2;
@@ -71,11 +73,10 @@ function _siasar_validate_and_get_default_country($field_name, &$form_state) {
 
 /**
  * Implements hook_form_FORM_ID_alter.
+ *
  * Alters exposed filters on view entityform_results_view
- * TODO: Maybe check a permission instead of a role?
  */
 function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
-  global $user;
 
   if ($form_state['view']->name !== 'results_entityforms') return;
 
@@ -92,25 +93,19 @@ function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$fo
   $form['type'] = _feature_siasar_views_reports_create_entityforms_select_field();
 
   // Country field is only for admins
-  if (!in_array('administrator', $user->roles)) {
+  if (!user_access('assign territorial division')) {
     $form['field_pais_iso2']['#disabled'] = 'true';
   }
 }
 
 /**
- * Helper function. Hide country selector for non-admins.
+ * Creates a select box with all entity type bundles as options
  *
- * @todo deprecate it? I haven't found any reference to this function
+ * @return array
  */
-function _feature_siasar_views_reports_hide_country_for_non_admins(&$form) {
-  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
-
-  $form['field_pais_iso2']['#disabled'] = 'true';
-  $form['field_pais_iso2']['#default_value'] = $user_country_iso2;
-}
-
 function _feature_siasar_views_reports_create_entityforms_select_field() {
   $form_types = entity_get_info('entityform')['bundles'];
+  $options = array();
   foreach ($form_types as $machine => $type) {
     $options[$machine] = t($type['label']);
   }
