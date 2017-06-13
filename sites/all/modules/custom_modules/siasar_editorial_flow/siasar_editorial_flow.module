@@ -3,3 +3,7 @@
  * @file
  * Main module file.
  */
+function siasar_editorial_flow_init() {
+  module_load_include('inc', 'siasar_editorial_flow', 'siasar_editorial_flow.drush');
+  drush_siasar_update_editorial('testingpurposes', 0, 10);
+}

@@ -47,11 +47,12 @@ function drush_siasar_update_editorial($form_type = 'all', $offset = 0, $length 
 
   foreach ($result['entityform'] as $entity_id => $item) {
     $entity = entity_load_single('entityform', $entity_id);
+    $wrapper = entity_metadata_wrapper('entityform', $entity);
+
     if (!isset($entity->field_status)) continue;
+    if ($wrapper->field_status->value()) continue;
 
     drupal_set_message('Processing entityform ID '. $entity->entityform_id);
-
-    $wrapper = entity_metadata_wrapper('entityform', $entity);
 
     $draft = (bool) $wrapper->draft->value();
     $validated = (bool) $wrapper->field_cuestionario_validado->value();
