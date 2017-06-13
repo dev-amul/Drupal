@@ -21,6 +21,21 @@ function siasar_updates_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
   );
 
+  $items['siasar-fill-missing-countries'] = array(
+    'description' => 'It adds the missing country on those administrative divisions that doesnt have one already set.',
+    'aliases' => array('siasar-fmc'),
+    'arguments' => array(
+      'country_iso2' => 'Country ISO2 code',
+    ),
+    'required-arguments' => false,
+    'callback' => 'drush_siasar_fill_missing_countries',
+    'examples' => array(
+      'drush siasar-fmc' => 'It adds the missing country on those administrative divisions that don\'t have one already set.',
+      'drush siasar-fmc co' => 'Same as before, but only for Colombia (ISO2 CO).',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
+  );
+
   return $items;
 }
 
@@ -59,4 +74,39 @@ function drush_siasar_remap_unit($field, $old, $new) {
     ->execute();
 
     drupal_set_message($num_updated . ' affected rows.');
+}
+
+function drush_siasar_fill_missing_countries($country_to_check = null) {
+  $country_to_check = is_string($country_to_check)
+    ? strtoupper($country_to_check)
+    : null;
+  $vid = 2; // 2 = Division Administrativa
+  $terms_array = taxonomy_get_tree($vid, 0, 1, false);
+  $terms = array();
+  $num_updated = 0;
+
+  foreach ($terms_array as $term) {
+    $entity_term = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($term->tid));
+    $country = $entity_term->field_pais->value();
+
+    if ($country_to_check && $country->iso2 != $country_to_check) continue;
+
+    $terms[] = $entity_term;
+    $children = taxonomy_get_tree($vid,$term->tid);
+    foreach ($children as $child) {
+      $loaded_term = taxonomy_term_load($child->tid);
+      if (empty($loaded_term->field_pais)) {
+        drupal_set_message('Country missing in term id : '.$loaded_term->tid . ', name: ' . $loaded_term->name);
+        _siasar_updates_set_country_on_entity('taxonomy_term', $loaded_term, $country);
+        $num_updated++;
+      }
+    }
+  }
+  drupal_set_message($num_updated.' terms updated');
+}
+
+function _siasar_updates_set_country_on_entity($entity_type, $entity, $country) {
+  $wrapper = entity_metadata_wrapper('taxonomy_term', $entity);
+  $wrapper->field_pais->set($country);
+  $wrapper->save();
 }
