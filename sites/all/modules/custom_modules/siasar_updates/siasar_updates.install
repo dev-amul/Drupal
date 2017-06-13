@@ -536,6 +536,6 @@ function siasar_updates_update_7130(&$sandbox) {
 /**
  * Adds VBO to results page
  */
-function siasar_updates_update_7130(&$sandbox) {
+function siasar_updates_update_7131(&$sandbox) {
   features_revert_module('feature_siasar_views_reports');
 }
