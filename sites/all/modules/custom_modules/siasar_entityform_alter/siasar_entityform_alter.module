@@ -22,34 +22,6 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   _siasar_entityform_alter_build_validate_button($form, $form_state);
   _siasar_entityform_alter_process_country_field($form);
 
-  _siasar_entityform_alter_handle_drafts($form, $form_state, $form_id);
-}
-
-/**
- * It allows to keep working with entityform drafts by keeping the save btn
- * saving a draft and a submit button to finish it.
- *
- * @param $form
- * @param $form_sate
- * @param $form_id
- *
- * @see entityform_edit_form().
- */
-function _siasar_entityform_alter_handle_drafts(&$form, &$form_sate, $form_id) {
-  if (isset($form['#entity']) && $form['#entity'] instanceof Entityform) {
-    $entityform = $form['#entity'];
-    $save = isset($form['actions']['save']) ? $form['actions']['save'] : FALSE;
-    if ($save && $save['#entityform_draft'] == '0') {
-      $entityform_type = entityform_type_load($entityform->type);
-      if (!isset($form['actions']['submit'])) {
-        $form['actions']['submit'] = $save;
-        $form['actions']['submit']['#value'] = $entityform_type->get_prop('submit_button_text');
-
-        $form['actions']['save']['#entityform_draft'] = '1';
-        $form['actions']['save']['#value'] = $entityform_type->get_prop('draft_button_text');
-      }
-    }
-  }
 }
 
 /**
