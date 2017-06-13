@@ -677,7 +677,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_dependent'] = 0;
-    /* Criterio de filtrado: Entityform Submission: Status (field_status) */
+  /* Criterio de filtrado: Entityform Submission: Status (field_status) */
   $handler->display->display_options['filters']['field_status_value']['id'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['table'] = 'field_data_field_status';
   $handler->display->display_options['filters']['field_status_value']['field'] = 'field_status_value';
