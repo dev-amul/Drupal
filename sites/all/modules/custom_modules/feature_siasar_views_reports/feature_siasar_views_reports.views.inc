@@ -9,6 +9,9 @@ function feature_siasar_views_reports_views_query_alter(&$view, &$query) {
   global $user;
   if (!in_array('entityform_results_view', $query->options['query_tags'])) return;
 
+  // @todo this is not needed anymore, the filtering is done through the exposed form
+  // @nachenko could you double check this?
+
   // TODO: Maybe check a permission instead of a role?
   if (!in_array('administrator', $user->roles)) {
     $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
