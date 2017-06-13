@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Adds the perm "assign territorial division" to all administrators
+ *
+ * @param $sandbox
+ */
+function siasar_field_location_update_7100(&$sandbox) {
+  $role_names = array(
+    'administrator',
+    'Administrador Local',
+    'Administrador Regional'
+  );
+
+  foreach ($role_names as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    user_role_grant_permissions($role->rid, array('assign territorial division'));
+  }
+}

@@ -6,44 +6,106 @@
 
 include_once 'feature_siasar_views_reports.features.inc';
 
+/**
+ * Determines the default location that should be set for the exposed form
+ *
+ * @param $field_name
+ * @param $form_state
+ *
+ * @return int default location
+ */
+function _siasar_validate_and_get_default_location($field_name, &$form_state) {
+  global $user;
+
+  $user_wrapper = entity_metadata_wrapper('user', $user);
+  $location = $user_wrapper->field_entidad_local->value();
+
+  // If the exposed form is being submitted then, make sure it's using valid
+  // values. Values might be obtained from the session. Validate them.
+  if (!empty($form_state['input'][$field_name])) {
+    $default_location = $form_state['input'][$field_name];
+
+    // Make sure the $default_location belongs to the user setting
+    if (!user_access('assign territorial division') && $location) {
+      $parents = taxonomy_get_parents_all($default_location);
+      $found = FALSE;
+      foreach ($parents as $parent) {
+        if ($parent->tid == $location->tid) {
+          $found = TRUE;
+          break;
+        }
+      }
+
+      if (!$found) {
+        $default_location = $form_state['input'][$field_name] = $location->tid;
+      }
+    }
+  } else {
+    $default_location = $location ? $location->tid : null;
+  }
+
+  return $default_location;
+}
+
+/**
+ * Determines the default country that should be set for the exposed form
+ *
+ * @param $field_name
+ * @param $form_state
+ *
+ * @return string country code iso2
+ */
+function _siasar_validate_and_get_default_country($field_name, &$form_state) {
+  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
+
+  if (!empty($form_state['input'][$field_name])) {
+    if (!user_access('assign territorial division') && $user_country_iso2 !== $form_state['input'][$field_name]) {
+      $form_state['input'][$field_name] = $user_country_iso2;
+    } else {
+      $user_country_iso2 = $form_state['input'][$field_name];
+    }
+  } else {
+    $form_state['input'][$field_name] = $user_country_iso2;
+  }
+
+  return $user_country_iso2;
+}
 
 /**
  * Implements hook_form_FORM_ID_alter.
+ *
  * Alters exposed filters on view entityform_results_view
- * TODO: Maybe check a permission instead of a role?
  */
 function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
-  global $user;
-  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
 
   if ($form_state['view']->name !== 'results_entityforms') return;
 
   // Inject SIASAR hierarchical Select
   module_load_include('module', 'siasar_field_location', 'siasar_field_location');
   $field_entidad_local = 'field_entidad_local_siasar_hierarchical_select';
-  $form[$field_entidad_local] = siasar_field_location_field_widget_skeleton($field_entidad_local, null, false);
+
+  $default_location = _siasar_validate_and_get_default_location($field_entidad_local, $form_state);
+  $form[$field_entidad_local] = siasar_field_location_field_widget_skeleton($field_entidad_local, null, $default_location, false, false, false);
+
+  $user_country_iso2 = _siasar_validate_and_get_default_country('field_pais_iso2', $form_state);
   $form['field_pais_iso2'] = _feature_siasar_views_reports_create_country_selector();
   $form['field_pais_iso2']['#default_value'] = $user_country_iso2;
   $form['type'] = _feature_siasar_views_reports_create_entityforms_select_field();
 
   // Country field is only for admins
-  if (!in_array('administrator', $user->roles)) {
+  if (!user_access('assign territorial division')) {
     $form['field_pais_iso2']['#disabled'] = 'true';
   }
 }
 
 /**
- * Helper function. Hide country selector for non-admins.
+ * Creates a select box with all entity type bundles as options
+ *
+ * @return array
  */
-function _feature_siasar_views_reports_hide_country_for_non_admins(&$form) {
-  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
-
-  $form['field_pais_iso2']['#disabled'] = 'true';
-  $form['field_pais_iso2']['#default_value'] = $user_country_iso2;
-}
-
 function _feature_siasar_views_reports_create_entityforms_select_field() {
   $form_types = entity_get_info('entityform')['bundles'];
+  $options = array();
   foreach ($form_types as $machine => $type) {
     $options[$machine] = t($type['label']);
   }
@@ -114,7 +176,6 @@ function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
   return $themes;
 
 }
-
 
 /**
  * Preprocesses draft field.
