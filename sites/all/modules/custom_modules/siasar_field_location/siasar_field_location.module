@@ -80,10 +80,16 @@ function siasar_field_location_field_widget_info() {
   return array(
     'siasar_hierarchical_select' => array(
       'label' => t('SIASAR Hierarchical Select'),
-      'field types' => array('taxonomy_term_reference'),
+      'field_name types' => array('taxonomy_term_reference'),
       'settings' => array(
         'siasar_hierarchical_select' => array(
           'force_deepest' => FALSE,
+          'country_field_name' => FALSE,
+          'restrictions' => array(
+            'country' => FALSE,
+            'max_level' => 0,
+            'can_change' => TRUE,
+          )
         ),
       ),
     ),
@@ -102,12 +108,93 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
     ? isset($instance['widget']['settings']['siasar_hierarchical_select']['force_deepest'])
     : false;
 
-  $element += siasar_field_location_field_widget_skeleton($field, $default_value, $force_deepest);
+  $country_field_name = isset($instance['widget']['settings']['siasar_hierarchical_select']['country_field_name'])
+    ? $instance['widget']['settings']['siasar_hierarchical_select']['country_field_name']
+    : false;
+
+  $element += siasar_field_location_field_widget_skeleton($field, $instance, $default_value, $force_deepest, $country_field_name);
 
   return $element;
 }
 
-function siasar_field_location_field_widget_skeleton($field, $default_value = null, $force_deepest = false) {
+/**
+ * Determines if the current user is any kind of admin
+ *
+ * @return int
+ */
+function siasar_user_is_admin() {
+  static $user_is_admin = NULL;
+
+  if (is_null($user_is_admin)) {
+    global $user;
+    $administrators = array(
+      'administrator',
+      'Administrador Local',
+      'Administrador Regional'
+    );
+
+    $user_is_admin =  count(array_intersect($administrators, $user->roles));
+  }
+
+  return $user_is_admin;
+}
+
+/**
+ * Prepares an structure of fields that the user should not be able to modify
+ *
+ * The possible values to be returned are:
+ * array(
+ *  'country' => TRUE|FALSE  : Block country yes/no
+ *  'max_level' => int with maximum level : Block up to which location level
+ *  'can_change' => TRUE|FALSE : Determines if the user should be able to change a location
+ * )
+ *
+ * @return array of restrictions
+ */
+function siassar_field_location_get_visibility_restrictions($instance) {
+  global $user;
+
+  $can_change = $instance && siasar_user_is_admin() || !$instance;
+
+  if (siasar_user_is_admin()) {
+    return array(
+      'country' => FALSE,
+      'max_level' => 0,
+      'can_change' => $can_change,
+    );
+  }
+
+  $user_wrapper = entity_metadata_wrapper('user', $user);
+  $country = $user_wrapper->field_pais->value();
+  $location = $user_wrapper->field_entidad_local->value();
+
+  $terms = array();
+  if ($location) {
+    $terms = taxonomy_get_parents_all($location->tid);
+  }
+
+  return array(
+    'country' => $country ? TRUE : FALSE,
+    'max_level' => sizeof($terms),
+    'can_change' => $can_change,
+  );
+
+}
+
+/**
+ * Prepares the location widget structure for rendering
+ *
+ * @param $field_name
+ * @param null $default_value
+ * @param bool $force_deepest
+ * @param bool $country_field_name
+ *
+ * @return array
+ */
+function siasar_field_location_field_widget_skeleton($field_name, $instance, $default_value = null, $force_deepest = false, $country_field_name = false) {
+
+  $restrictions = siassar_field_location_get_visibility_restrictions($instance);
+
   $module_path = drupal_get_path('module', 'siasar_field_location');
 
   $element = array(
@@ -124,8 +211,10 @@ function siasar_field_location_field_widget_skeleton($field, $default_value = nu
         array(
           'data' => array(
             'siasarHierarchicalSelect' => array(
-              $field => array(
+              $field_name => array(
                 'forceDeepest' => $force_deepest,
+                'countryFieldName' => $country_field_name,
+                'restrictions' => $restrictions
               ),
             ),
           ),
@@ -135,7 +224,7 @@ function siasar_field_location_field_widget_skeleton($field, $default_value = nu
     ),
     '#attributes' => array(
       'class' => array('siasar-hierarchical-select'),
-      'field-name' => $field,
+      'field-name' => $field_name,
     ),
   );
 
@@ -157,6 +246,12 @@ function siasar_field_location_field_widget_settings_form($field, $instance) {
       '#collapsed' => FALSE,
       '#tree' => TRUE,
     );
+    $form['siasar_hierarchical_select']['country_field_name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Country field_name name'),
+      '#description' => t('Name of the country field_name (if it\'s present).'),
+      '#default_value' => empty($settings['siasar_hierarchical_select']['country_field_name']) ? FALSE : $settings['siasar_hierarchical_select']['country_field_name'],
+    );
     $form['siasar_hierarchical_select']['force_deepest'] = array(
       '#type' => 'checkbox',
       '#title' => t('Force selection of deepest level'),
@@ -174,24 +269,29 @@ function siasar_field_location_field_widget_settings_form($field, $instance) {
 function siasar_field_location_validate($element, &$form_state) {
   $form_type = isset($form_state['view'])
     ? 'view'
-    : 'field';
+    : 'field_name';
 
   switch ($form_type) {
     case 'view':
       $field_name = $element['#name'];
       $language = LANGUAGE_NONE;
-      $widget_settings = array('force_deepest' => 0);
+      $widget_settings = array(
+        'force_deepest' => 0,
+        'country_field_name' => ''
+      );
       break;
-    case 'field':
+    case 'field_name':
       $field_name = $element['#field_name'];
       $language = $element['#language'];
-      $widget_settings = $form_state['field'][$field_name][$language]['instance']['widget']['settings']['siasar_hierarchical_select'];
+      $widget_settings = $form_state['field_name'][$field_name][$language]['instance']['widget']['settings']['siasar_hierarchical_select'];
       break;
   }
 
   if ($element['#value'] === '') {
     return;
   }
+
+  // @todo add validation that checks if the taxonomy corresponds to the country
 
   // Is it a valid number?
   if (!is_numeric($element['#value'])) {
@@ -217,7 +317,7 @@ function siasar_field_location_validate($element, &$form_state) {
       }
     }
     if (!in_array($term->vid, array_keys($vocabularies))) {
-      form_set_error($element['#name'], t('Specified term does not belong to an allowed vocabulary. See field [@field] configuration for details.', array('@field' => $field_name)));
+      form_set_error($element['#name'], t('Specified term does not belong to an allowed vocabulary. See field_name [@field_name] configuration for details.', array('@field_name' => $field_name)));
       return;
     }
   }
@@ -225,7 +325,7 @@ function siasar_field_location_validate($element, &$form_state) {
   if ($widget_settings['force_deepest'] === 1) {
     $children = _siasar_field_location_get_term_list_from_view($element['#value'], 'all');
     if (!empty($children)) {
-        form_error($element, t('You need to select a term from the deepest level in field [@field].', array('@field' => $field_name)));
+        form_error($element, t('You need to select a term from the deepest level in field_name [@field_name].', array('@field_name' => $field_name)));
         return;
     }
   }
