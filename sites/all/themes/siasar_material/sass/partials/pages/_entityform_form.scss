@@ -392,7 +392,13 @@ form.entityform {
     text-align: right;
 
     input {
-      margin-left: 20px;
+      margin-left: 10px;
+      margin-bottom: 10px;
+
+      @include breakpoint($break-small) {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
     }
   }
 
