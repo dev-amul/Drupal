@@ -979,7 +979,14 @@ form.entityform .form-actions {
   text-align: right;
 }
 form.entityform .form-actions input {
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+@media (min-width: 600px) {
+  form.entityform .form-actions input {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
 }
 form.entityform .form-actions input.form-validate {
   padding-left: 55px;
@@ -1148,12 +1155,12 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
 body.page-entityform-view .field-name-field-status .field-label,
 body.page-entityform-view .field-name-field-status .field-items {
   height: 30px;
+  line-height: 32px;
 }
 body.page-entityform-view .field-name-field-status .field-label {
   width: 352px;
 }
 body.page-entityform-view .field-name-field-status .field-items {
-  line-height: 32px;
   background-size: contain;
   background-position: 325px center;
   background-repeat: no-repeat;
@@ -1166,6 +1173,25 @@ body.page-entityform-view .field-status-finished .field-items {
 }
 body.page-entityform-view .field-status-validated .field-items {
   background-image: url(../img/workflow/validated.svg);
+}
+
+body.page-eform-submit input[id^=edit-workflow],
+body.page-entityform-edit input[id^=edit-workflow] {
+  padding-left: 45px;
+  padding-right: 20px;
+  background-size: 20px;
+}
+body.page-eform-submit #edit-workflow-2,
+body.page-entityform-edit #edit-workflow-2 {
+  background-image: url(../img/workflow/draft-white.svg);
+}
+body.page-eform-submit #edit-workflow-3,
+body.page-entityform-edit #edit-workflow-3 {
+  background-image: url(../img/workflow/finished-white.svg);
+}
+body.page-eform-submit #edit-workflow-4,
+body.page-entityform-edit #edit-workflow-4 {
+  background-image: url(../img/workflow/validated-white.svg);
 }
 
 /*# sourceMappingURL=style.css.map */

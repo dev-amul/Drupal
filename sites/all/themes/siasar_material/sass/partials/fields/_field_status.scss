@@ -4,12 +4,12 @@ body.page-entityform-view {
     .field-label,
     .field-items {
       height: 30px;
+      line-height: 32px;
     }
     .field-label {
       width: 352px;
     }
     .field-items {
-      line-height: 32px;
       background-size: contain;
       background-position: 325px center;
       background-repeat: no-repeat;
@@ -25,6 +25,25 @@ body.page-entityform-view {
   .field-status-validated .field-items  {
     background-image: url(../img/workflow/validated.svg);
   }
+}
 
+body.page-eform-submit,
+body.page-entityform-edit {
+
+  input[id^=edit-workflow] {
+    padding-left: 45px;
+    padding-right: 20px;
+    background-size: 20px;
+  }
+
+  #edit-workflow-2 {
+    background-image: url(../img/workflow/draft-white.svg);
+  }
+  #edit-workflow-3 {
+    background-image: url(../img/workflow/finished-white.svg);
+  }
+  #edit-workflow-4 {
+    background-image: url(../img/workflow/validated-white.svg);
+  }
 
 }

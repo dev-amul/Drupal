@@ -57,6 +57,7 @@ function siasar_material_preprocess_field(&$variables) {
   $sid = $variables['element']['#items'][0]['value'];
   $current_status = workflow_state_load_single($sid);
   $variables['classes_array'][] = 'field-status-' . $current_status->name;
+  $variables['items'][0]['#markup'] = t($variables['items'][0]['#markup']);
 }
 
 /**
