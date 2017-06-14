@@ -62,6 +62,7 @@ input,
 select,
 textarea,
 fieldset {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -172,6 +173,7 @@ ul.pagination li.active {
   height: 75px;
   background-color: #00add2;
   border-radius: 50%;
+  -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 600px) {
@@ -273,6 +275,7 @@ ul.user-menu:before {
 .input-field input.form-text,
 .input-field select.form-select,
 .input-field textarea {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding-left: 10px;
   background-color: white;
@@ -509,6 +512,7 @@ body.maintenance-page #header {
   height: 90px;
   padding: 10px 20px;
   background-color: #00829e;
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 600px) {
@@ -519,6 +523,7 @@ body.maintenance-page #header {
 body.maintenance-page #header #logo {
   display: block;
   float: left;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 75px;
   height: 75px;
@@ -531,6 +536,7 @@ body.maintenance-page #header #logo {
     padding: 20px;
     border-radius: 50%;
     background-color: #00829e;
+    -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
   }
 }
@@ -665,6 +671,7 @@ form.entityform .vertical-tabs-list li.vertical-tab-button {
   border-radius: 5px 0 0 5px;
   margin-bottom: 3px;
   background: #de861b;
+  -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
   border-right: #cd750a solid 2px;
 }
@@ -718,6 +725,7 @@ form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > legend {
   background: url("../img/triangle_white_open.svg") 5px 8px no-repeat #de861b;
   background-size: 15px 15px;
   padding-left: 30px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   font-size: 1.5rem;
@@ -750,6 +758,7 @@ form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane.closed > legend
 }
 form.entityform .vertical-tabs-panes fieldset {
   border: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
   padding: 0;
   margin: 0;
@@ -871,6 +880,7 @@ form.entityform .vertical-tabs-panes fieldset .group-grid > h3,
 form.entityform .vertical-tabs-panes fieldset .group-grid > .description {
   width: 120px;
   float: left;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 20px 20px 0;
