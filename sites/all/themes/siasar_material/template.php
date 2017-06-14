@@ -34,6 +34,31 @@ function siasar_material_preprocess_page(&$vars) {
   _siasar_material_process_password_request_page($vars);
   _siasar_material_process_tabs($vars);
 }
+
+/**
+ * Implementation of hook_preprocess_entity()
+ */
+function siasar_material_preprocess_entity(&$variables) {
+  $els = $variables['elements'];
+  if ($els['#entity_type'] !== 'entityform' || $els['#view_mode'] !== 'entity_reference') return;
+
+  $suggestions = &$variables['theme_hook_suggestions'];
+  $ours = "entityform__entityreference";
+
+  array_splice($suggestions, 1, 0, $ours);
+}
+
+/**
+ * Implementation of hook_preprocess_field()
+ */
+function siasar_material_preprocess_field(&$variables) {
+  if($variables['element']['#field_name'] !== 'field_status') return;
+
+  $sid = $variables['element']['#items'][0]['value'];
+  $current_status = workflow_state_load_single($sid);
+  $variables['classes_array'][] = 'field-status-' . $current_status->name;
+}
+
 /**
  * Helper function to add Meta Viewport
  */
@@ -132,15 +157,3 @@ function siasar_material_form_user_pass_alter(&$form, &$form_state, &$form_id) {
   }
 }
 
-/**
- * Implementation of hook_preprocess_entity()
- */
-function siasar_material_preprocess_entity(&$variables) {
-  $els = $variables['elements'];
-  if ($els['#entity_type'] !== 'entityform' || $els['#view_mode'] !== 'entity_reference') return;
-
-  $suggestions = &$variables['theme_hook_suggestions'];
-  $ours = "entityform__entityreference";
-
-  array_splice($suggestions, 1, 0, $ours);
-}

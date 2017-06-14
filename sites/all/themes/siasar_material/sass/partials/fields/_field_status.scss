@@ -1,0 +1,30 @@
+body.page-entityform-view {
+
+  .field-name-field-status {
+    .field-label,
+    .field-items {
+      height: 30px;
+    }
+    .field-label {
+      width: 352px;
+    }
+    .field-items {
+      line-height: 32px;
+      background-size: contain;
+      background-position: 325px center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .field-status-draft .field-items  {
+    background-image: url(../img/workflow/draft.svg);
+  }
+  .field-status-finished .field-items  {
+    background-image: url(../img/workflow/finished.svg);
+  }
+  .field-status-validated .field-items  {
+    background-image: url(../img/workflow/validated.svg);
+  }
+
+
+}
