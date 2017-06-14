@@ -87,11 +87,6 @@ fieldset {
 table.responsive-table {
   tbody {
     white-space: normal;
-    clear: left;
-  }
-
-  tr {
-    width: 100%;
   }
 }
 
@@ -149,4 +144,14 @@ ul.pagination {
 
 .element-focusable {
   margin: 0;
+}
+
+.page-entityform-workflow #block-system-main .content{
+  position: relative;
+  padding-bottom: 40px;
+  .workflow-transition-entityforms-form {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
 }
