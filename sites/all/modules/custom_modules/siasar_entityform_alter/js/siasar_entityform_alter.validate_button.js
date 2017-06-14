@@ -27,7 +27,6 @@
         statusLabel = Drupal.t('Validated');
       }
 
-      statusLabel = 'Legacy: ' + statusLabel;
       $validateButton.attr('value', statusLabel);
     }
 

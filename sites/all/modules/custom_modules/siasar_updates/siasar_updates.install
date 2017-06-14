@@ -350,16 +350,70 @@ function siasar_updates_update_7121(&$sandbox) {
 }
 
 /**
- * Issue 481 - Instalar el módulo Workflow y crear un flujo editorial de tres pasos para el Formulario de Pruebas
- * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/481
+ * Issue 469 - Desactivar Language Fallback y reemplazarlo por Language Hierarchy
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/469
  */
 function siasar_updates_update_7122(&$sandbox) {
   $modules = array(
-    'workflow',
-    'workflow_admin_ui',
-    'workflow_field',
-    'workflow_actions',
-    'feature_siasar_testing_form_workflow'
+    'language_fallback',
+  );
+  $modules_disabled = module_disable($modules, TRUE);
+
+
+  $modules = array(
+    'language_hierarchy',
+    'entity_translation_hierarchy',
+    'i18n_menu_hierarchy',
+    'translation_fallback',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Removes the records for modules that are not existing
+ *
+ * @param $sandbox
+ *
+ * @return null|string
+ */
+function siasar_updates_update_7123(&$sandbox) {
+  $modules = array(
+    'feature_sistema',
+    'feaute_prestador_servicio',
+    'features_pat',
+  );
+
+  $num = db_delete('system')
+          ->condition('name', $modules)
+          ->execute();
+
+  return t('@num modules have been removed from the system table.', array('@num' => $num));
+}
+
+/**
+ * Install Google Analytics module
+ */
+function siasar_updates_update_7124(&$sandbox) {
+  $modules = array(
+   'googleanalytics',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+   throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+  variable_set('googleanalytics_account', 'UA-66702881-1');
+  variable_set('googleanalytics_domain_mode',1);
+}
+
+/**
+ * Enable feature SIASAR User
+ */
+function siasar_updates_update_7125(&$sandbox) {
+  $modules = array(
+    'feature_siasar_user',
   );
   $modules_enabled = module_enable($modules, TRUE);
   if (!$modules_enabled) {

@@ -24,9 +24,10 @@ function feature_siasar_languages_strongarm() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'en',
-    'weight' => '-8',
+    'weight' => '-10',
     'javascript' => '',
     'fallback' => '',
+    'parent' => NULL,
   );
   $export['language_default'] = $strongarm;
 

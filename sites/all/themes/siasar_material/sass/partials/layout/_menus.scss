@@ -1,4 +1,12 @@
-// User menu
+.region-user-nav {
+  text-align: right;
+}
+
+ul.main-menu,
+ul.user-menu {
+  display: inline-block;
+}
+
 ul.user-menu {
 
   &:before {

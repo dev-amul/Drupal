@@ -84,9 +84,15 @@ fieldset {
   }
 }
 
-table.responsive-table tbody {
-  white-space: normal;
-  clear: left;
+table.responsive-table {
+  tbody {
+    white-space: normal;
+    clear: left;
+  }
+
+  tr {
+    width: 100%;
+  }
 }
 
 // Pager
@@ -132,4 +138,15 @@ ul.pagination {
   ul {
     margin: 0;
   }
+}
+
+// Fixed element invisible inline elements that adds unwanted spaces:
+// @see https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/392
+// @see https://www.drupal.org/node/1328970#comment-5191160
+.element-invisible {
+  margin: -1px;
+}
+
+.element-focusable {
+  margin: 0;
 }
