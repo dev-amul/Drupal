@@ -1210,4 +1210,8 @@ body.page-entityform-edit #edit-workflow-4 {
   background-image: url(../img/workflow/validated-white.svg);
 }
 
+body.workflow-status-validated #edit-workflow-2 {
+  background-image: url(../img/workflow/update-white.svg);
+}
+
 /*# sourceMappingURL=style.css.map */
