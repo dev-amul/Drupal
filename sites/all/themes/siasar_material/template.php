@@ -104,7 +104,8 @@ function _siasar_material_add_class_to_entityform_view(&$vars) {
  * Helper function to add workflow status class to body when editing an entityform
  */
 function _siasar_material_add_workflow_status_class_to_entityform_edit(&$vars) {
-  if (arg(0) == 'entityform' && is_numeric(arg(1)) && arg(2) == 'edit') {
+  $allowed_pages = array('edit', 'workflow');
+  if (arg(0) == 'entityform' && is_numeric(arg(1)) && in_array(arg(2), $allowed_pages)) {
 
     $entityform = entityform_load(arg(1));
     if (empty($entityform->field_status)) return;

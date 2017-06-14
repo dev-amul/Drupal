@@ -1192,21 +1192,25 @@ body.page-entityform-view .field-name-field-status .field-items {
 }
 
 body.page-eform-submit input[id^=edit-workflow],
-body.page-entityform-edit input[id^=edit-workflow] {
+body.page-entityform-edit input[id^=edit-workflow],
+body.page-entityform-workflow input[id^=edit-workflow] {
   padding-left: 45px;
   padding-right: 20px;
   background-size: 20px;
 }
 body.page-eform-submit #edit-workflow-2,
-body.page-entityform-edit #edit-workflow-2 {
+body.page-entityform-edit #edit-workflow-2,
+body.page-entityform-workflow #edit-workflow-2 {
   background-image: url(../img/workflow/draft-white.svg);
 }
 body.page-eform-submit #edit-workflow-3,
-body.page-entityform-edit #edit-workflow-3 {
+body.page-entityform-edit #edit-workflow-3,
+body.page-entityform-workflow #edit-workflow-3 {
   background-image: url(../img/workflow/finished-white.svg);
 }
 body.page-eform-submit #edit-workflow-4,
-body.page-entityform-edit #edit-workflow-4 {
+body.page-entityform-edit #edit-workflow-4,
+body.page-entityform-workflow #edit-workflow-4 {
   background-image: url(../img/workflow/validated-white.svg);
 }
 

@@ -41,7 +41,8 @@ body.page-entityform-view {
 }
 
 body.page-eform-submit,
-body.page-entityform-edit {
+body.page-entityform-edit,
+body.page-entityform-workflow {
 
   input[id^=edit-workflow] {
     padding-left: 45px;
