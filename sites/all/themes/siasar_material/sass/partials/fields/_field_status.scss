@@ -3,27 +3,40 @@ body.page-entityform-view {
   .field-name-field-status {
     .field-label,
     .field-items {
-      height: 30px;
-      line-height: 32px;
+      @include breakpoint($break-small) {
+        height: 30px;
+        line-height: 32px;
+      }
     }
     .field-label {
-      width: 352px;
+      @include breakpoint($break-small) {
+        width: 227px;
+      }
+      @include breakpoint($break-medium) {
+        width: 352px;
+      }
     }
     .field-items {
       background-size: contain;
-      background-position: 325px center;
+      background-position: 200px center;
       background-repeat: no-repeat;
+
+      @include breakpoint($break-medium) {
+        background-position-x: 325px;
+      }
     }
   }
 
-  .field-status-draft .field-items  {
-    background-image: url(../img/workflow/draft.svg);
-  }
-  .field-status-finished .field-items  {
-    background-image: url(../img/workflow/finished.svg);
-  }
-  .field-status-validated .field-items  {
-    background-image: url(../img/workflow/validated.svg);
+  @include breakpoint($break-small) {
+    .field-status-draft .field-items  {
+      background-image: url(../img/workflow/draft.svg);
+    }
+    .field-status-finished .field-items  {
+      background-image: url(../img/workflow/finished.svg);
+    }
+    .field-status-validated .field-items  {
+      background-image: url(../img/workflow/validated.svg);
+    }
   }
 }
 

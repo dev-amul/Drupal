@@ -1152,27 +1152,43 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
   margin: 0;
 }
 
-body.page-entityform-view .field-name-field-status .field-label,
-body.page-entityform-view .field-name-field-status .field-items {
-  height: 30px;
-  line-height: 32px;
+@media (min-width: 600px) {
+  body.page-entityform-view .field-name-field-status .field-label,
+  body.page-entityform-view .field-name-field-status .field-items {
+    height: 30px;
+    line-height: 32px;
+  }
 }
-body.page-entityform-view .field-name-field-status .field-label {
-  width: 352px;
+@media (min-width: 600px) {
+  body.page-entityform-view .field-name-field-status .field-label {
+    width: 227px;
+  }
+}
+@media (min-width: 992px) {
+  body.page-entityform-view .field-name-field-status .field-label {
+    width: 352px;
+  }
 }
 body.page-entityform-view .field-name-field-status .field-items {
   background-size: contain;
-  background-position: 325px center;
+  background-position: 200px center;
   background-repeat: no-repeat;
 }
-body.page-entityform-view .field-status-draft .field-items {
-  background-image: url(../img/workflow/draft.svg);
+@media (min-width: 992px) {
+  body.page-entityform-view .field-name-field-status .field-items {
+    background-position-x: 325px;
+  }
 }
-body.page-entityform-view .field-status-finished .field-items {
-  background-image: url(../img/workflow/finished.svg);
-}
-body.page-entityform-view .field-status-validated .field-items {
-  background-image: url(../img/workflow/validated.svg);
+@media (min-width: 600px) {
+  body.page-entityform-view .field-status-draft .field-items {
+    background-image: url(../img/workflow/draft.svg);
+  }
+  body.page-entityform-view .field-status-finished .field-items {
+    background-image: url(../img/workflow/finished.svg);
+  }
+  body.page-entityform-view .field-status-validated .field-items {
+    background-image: url(../img/workflow/validated.svg);
+  }
 }
 
 body.page-eform-submit input[id^=edit-workflow],
