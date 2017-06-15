@@ -7,9 +7,3 @@ dependencies[] = entityform
 
 files[] = EntityformRevisionsController.inc
 files[] = EntityformRevisionsUIController.inc
-; Information added by Drupal.org packaging script on 2017-06-06
-version = "7.x-1.0-alpha1+2-dev"
-core = "7.x"
-project = "entityform_revisions"
-datestamp = "1496769546"
-

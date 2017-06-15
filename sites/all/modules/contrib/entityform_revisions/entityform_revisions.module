@@ -44,12 +44,34 @@ function entityform_revisions_entity_info_alter(&$entity_info) {
   // Prepare entity schema fields SQL info for
   // DrupalEntityControllerInterface::buildQuery().
   if (isset($entity_info['entityform']['base table'])) {
-    $entity_info['entityform']['base table field types'] = drupal_schema_field_types($entity_info['entityform']['base table']);
+    $entity_info['entityform']['base table field types'] = entityform_revisions_schema_field_types($entity_info['entityform']['base table']);
     $entity_info['entityform']['schema_fields_sql']['base table'] = drupal_schema_fields_sql($entity_info['entityform']['base table']);
     if (isset($entity_info['entityform']['revision table'])) {
       $entity_info['entityform']['schema_fields_sql']['revision table'] = drupal_schema_fields_sql($entity_info['entityform']['revision table']);
     }
   }
+}
+
+/**
+ * Copy of drupal_schema_field_types() for Drupal older then 7.37
+ *
+ * @param $table
+ *   The name of the table from which to retrieve type information.
+ *
+ * @return array
+ *   An array of types, keyed by field name.
+ */
+function entityform_revisions_schema_field_types($table) {
+  if (function_exists('drupal_schema_field_types')) {
+    $field_types = drupal_schema_field_types($table);
+  } else {
+    $table_schema = drupal_get_schema($table);
+    $field_types = array();
+    foreach ($table_schema['fields'] as $field_name => $field_info) {
+      $field_types[$field_name] = isset($field_info['type']) ? $field_info['type'] : NULL;
+    }
+  }
+  return $field_types;
 }
 
 /**
@@ -266,8 +288,8 @@ function entityform_revisions_entity_diff($old_entityform, $new_entityform, $con
       );
       foreach ($context['states'] as $state) {
         $row['#states'][$state] = array(
-          '#old' => array($old->{$key}->value()),
-          '#new' => array($new->{$key}->value()),
+          '#old' => isset($old->{$key}) ? array($old->{$key}->value()) : array(),
+          '#new' => isset($old->{$key}) ? array($new->{$key}->value()) : array(),
         );
       }
     }

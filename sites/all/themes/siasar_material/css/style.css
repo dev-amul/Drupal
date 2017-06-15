@@ -140,27 +140,6 @@ ul.pagination li.active {
   margin: 0;
 }
 
-.page-entityform-workflow #block-system-main .content {
-  position: relative;
-  padding-bottom: 40px;
-}
-.page-entityform-workflow #block-system-main .content .workflow-transition-entityforms-form {
-  position: absolute;
-  bottom: -60px;
-  right: 0px;
-}
-.page-entityform-workflow #block-system-main .content .responsive-table caption {
-  color: #00add2;
-  line-height: 110%;
-  font-weight: bold;
-  font-size: 2.5rem;
-  font-family: "Nunito", sans-serif;
-  font-weight: bold;
-  margin-bottom: 1em;
-  text-align: left;
-  padding: 20px 0px 0px 20px;
-}
-
 .header-menu {
   background: #00add2;
   height: 40px;
@@ -1207,7 +1186,15 @@ body.page-entityform-edit input[id^=edit-workflow],
 body.page-entityform-workflow input[id^=edit-workflow] {
   padding-left: 45px;
   padding-right: 20px;
+  margin-left: 10px;
   background-size: 20px;
+}
+@media (min-width: 600px) {
+  body.page-eform-submit input[id^=edit-workflow],
+  body.page-entityform-edit input[id^=edit-workflow],
+  body.page-entityform-workflow input[id^=edit-workflow] {
+    margin-left: 15px;
+  }
 }
 body.page-eform-submit #edit-workflow-2,
 body.page-entityform-edit #edit-workflow-2,
@@ -1227,6 +1214,26 @@ body.page-entityform-workflow #edit-workflow-4 {
 
 body.workflow-status-validated #edit-workflow-2 {
   background-image: url(../img/workflow/update-white.svg);
+}
+
+body.page-entityform-workflow #block-system-main .content {
+  position: relative;
+  padding-bottom: 40px;
+}
+body.page-entityform-workflow #block-system-main .content h2 {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+@media (min-width: 600px) {
+  body.page-entityform-workflow #block-system-main .content h2 {
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+}
+body.page-entityform-workflow #block-system-main .content .workflow-transition-entityforms-form {
+  position: absolute;
+  bottom: -60px;
+  right: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

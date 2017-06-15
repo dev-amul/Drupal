@@ -41,10 +41,10 @@ class EntityformRevisionsController extends EntityformController {
     $context = array();
     $context['previous_uid'] = $entity->uid;
     $entity->uid = $user->uid;
-    $context['changed'] = $entity->changed;
-    if (empty($entity->changed)) {
-      $entity->changed = $entity->created;
+    if (empty($entity->changed) || !$entity->changed) {
+      $entity->changed = REQUEST_TIME;
     }
+    $context['changed'] = $entity->changed;
     return $context;
   }
 
