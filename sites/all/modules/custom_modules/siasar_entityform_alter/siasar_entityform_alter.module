@@ -37,7 +37,6 @@ function siasar_entityform_alter_permission() {
   );
 }
 
-
 /**
  * Helper function to set default country value from user if needed.
  */
@@ -184,4 +183,78 @@ function siasar_entityform_alter_entity_presave($entity, $entity_type) {
 function siasar_entityform_alter_action_info() {
   module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.vbo');
   return _siasar_entityform_alter_action_info();
+}
+
+/**
+ * Implements hook_entityform_to_revision_query_target_entities_alter()
+ *
+ * @param \EntityFieldQuery $query
+ * @param \Entityform $entityform
+ */
+function siasar_entityform_alter_entityform_to_revision_query_target_entities_alter(&$query, $entityform) {
+  $wrapper = $entityform->wrapper();
+  $location = $wrapper->field_entidad_local->value();
+  if ($location) {
+    $query->fieldCondition('field_entidad_local', 'tid', $location->tid);
+  }
+
+  $country = $wrapper->field_pais->value();
+  if ($country) {
+    $query->fieldCondition('field_pais', 'iso2', $country->iso2);
+  }
+}
+
+/**
+ * Implements hook_preprocess_entityforms_target_table().
+ *
+ * @param $variables
+ */
+function siasar_entityform_alter_preprocess_entityforms_target_table(&$variables) {
+  $variables['element']['#header'] = array(
+    'name' => t('Name'),
+    'location' => t('Location'),
+    'date' => t('Date'),
+    'digitizer' => t('Digitizer'),
+    'interviewer' => t('Interviewer'),
+    'type' => t('Type'),
+    'operations' => t('Operations'),
+  );
+
+  $variables['element']['#empty'] = t('No questionnaires available for converting to revision.');
+
+  foreach ($variables['element']['#options'] as $key => &$value) {
+    /**
+     * @var \EntityStructureWrapper $entityform
+     */
+    $entityform = $value['entityform']->wrapper();
+    $entidad_local = $entityform->field_entidad_local->value();
+    $pais = $entityform->field_pais->value();
+
+    $digitizer = $entityform->user->value();
+
+    $interviewer_name = '-';
+    if (isset($entityform->field_user_reference)) {
+      $interviewer = $entityform->field_user_reference->value();
+      $interviewer_name = $interviewer->name;
+    }
+
+    $date = '-';
+    if ($entityform->created->value()) {
+      $date = format_date(REQUEST_TIME, 'short', $entityform->created->value());
+    }
+
+    $entity_uri = entity_uri('entityform', $entityform->value());
+
+    $value = array(
+      'name' => $entityform->field_entity_name->value(),
+      'location' => $pais->name . ' ' . $entidad_local->name,
+      'date' => $date,
+      'digitizer' => $digitizer->name,
+      'interviewer' => $interviewer_name,
+      'type' => $entityform->getBundle(),
+      'operations' => l('view', $entity_uri['path']),
+    );
+
+    $variables['element'][$key]['#title'] = '&nbsp;';
+  }
 }

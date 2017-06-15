@@ -38,3 +38,35 @@ function siasar_entityform_alter_install() {
     }
   }
 }
+
+/**
+ * Issue #503: Activate entityform_to_revision module
+ *
+ * @throws \DrupalUpdateException
+ */
+function siasar_entityform_alter_update_7100() {
+  $modules = array(
+    'entityform',
+    'entityform_revisions',
+    'entityform_to_revision',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Issue #503: Add admins perms to use entityform_to_revision module
+ */
+function siasar_entityform_alter_update_7101(&$sandbox) {
+
+  $permissions = array(
+    'entityform to revision',
+  );
+
+  foreach(array('Administrador Local', 'Administrador Regional', 'administrator') as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    user_role_grant_permissions($role->rid, $permissions);
+  }
+}

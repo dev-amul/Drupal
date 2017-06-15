@@ -204,7 +204,7 @@ function entityform_revision_revert_confirm_submit($form, &$form_state) {
 function entityform_revision_delete_confirm($form, $form_state, $entityform, $revision) {
   $entityform_revision = entityform_get_revision($entityform, $revision);
   $form['#entityform_revision'] = $entityform_revision;
-  return confirm_form($form, t('Are you sure you want to delete the revision from %revision-date?', array('%revision-date' => format_date($entityform_revision->revision_timestamp))), 'entityform/' . $entityform_revision->identifier() . '/revisions', t('This action cannot be undone.'), t('Delete'), t('Cancel'));
+  return confirm_form($form, t('Are you sure you want to delete the revision from %revision-date?', array('%revision-date' => format_date($entityform_revision->revision_changed))), 'entityform/' . $entityform_revision->identifier() . '/revisions', t('This action cannot be undone.'), t('Delete'), t('Cancel'));
 }
 
 /**
