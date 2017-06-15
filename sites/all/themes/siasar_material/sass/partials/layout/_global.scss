@@ -146,25 +146,3 @@ ul.pagination {
   margin: 0;
 }
 
-.page-entityform-workflow #block-system-main .content{
-  position: relative;
-  padding-bottom: 40px;
-  .workflow-transition-entityforms-form {
-    position: absolute;
-    bottom: -60px;
-    right: 0px;
-  }
-  .responsive-table {
-    caption {
-      color: #00add2;
-      line-height: 110%;
-      font-weight: bold;
-      font-size: 2.5rem;
-      font-family: "Nunito", sans-serif;
-      font-weight: bold;
-      margin-bottom: 1em;
-      text-align: left;
-      padding: 20px 0px 0px 20px;
-    }
-  }
-}

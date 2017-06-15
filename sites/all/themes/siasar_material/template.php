@@ -171,3 +171,44 @@ function siasar_material_form_user_pass_alter(&$form, &$form_state, &$form_id) {
   }
 }
 
+/**
+ * Theme entire workflow history table.
+ */
+function siasar_material_workflow_history_table($variables) {
+  $header = $variables['header'];
+  $rows = $variables['rows'];
+  $footer = $variables['footer'];
+  $entity = $variables['entity'];
+  $entity_type = $variables['entity_type'];
+  $column_field_name = 1;
+  $column_operations = 6;
+
+  // Remove the Operations column if none are added.
+  $empty = TRUE;
+  foreach ($rows as $row) {
+    $empty &= empty($row['data'][$column_operations]);
+  }
+  if ($empty) {
+    foreach ($rows as &$row) {
+      unset($row['data'][$column_operations]);
+      unset($header[$column_operations]);
+    }
+  }
+
+  // Remove the Field name column if only 1 workflow_field exists.
+  if (count(_workflow_info_fields($entity, $entity_type)) < 2) {
+    foreach ($rows as &$row) {
+      unset($row['data'][$column_field_name]);
+      unset($header[$column_field_name]);
+    }
+
+  }
+
+  $output = '<h2>' . t('Workflow History') . '</h2>';
+  $output .= theme('table', array('header' => $header, 'rows' => $rows));
+  if ($footer) {
+    $output .= MARK_STATE_IS_DELETED . ' ' . t('State is no longer available.');
+  }
+  return $output;
+}
+

@@ -67,3 +67,24 @@ body.workflow-status-validated {
     background-image: url(../img/workflow/update-white.svg);
   }
 }
+
+body.page-entityform-workflow #block-system-main .content {
+  position: relative;
+  padding-bottom: 40px;
+
+  h2 {
+    padding-top: 10px;
+    padding-left: 10px;
+
+    @include breakpoint($break-small) {
+      padding-top: 20px;
+      padding-left: 20px;
+    }
+  }
+
+  .workflow-transition-entityforms-form {
+    position: absolute;
+    bottom: -60px;
+    right: 0;
+  }
+}
