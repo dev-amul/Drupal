@@ -1,0 +1,69 @@
+body.page-entityform-view {
+
+  .field-name-field-status {
+    .field-label,
+    .field-items {
+      @include breakpoint($break-small) {
+        height: 30px;
+        line-height: 32px;
+      }
+    }
+    .field-label {
+      @include breakpoint($break-small) {
+        width: 227px;
+      }
+      @include breakpoint($break-medium) {
+        width: 352px;
+      }
+    }
+    .field-items {
+      background-size: contain;
+      background-position: 200px center;
+      background-repeat: no-repeat;
+
+      @include breakpoint($break-medium) {
+        background-position-x: 325px;
+      }
+    }
+  }
+
+  @include breakpoint($break-small) {
+    .field-status-draft .field-items  {
+      background-image: url(../img/workflow/draft.svg);
+    }
+    .field-status-finished .field-items  {
+      background-image: url(../img/workflow/finished.svg);
+    }
+    .field-status-validated .field-items  {
+      background-image: url(../img/workflow/validated.svg);
+    }
+  }
+}
+
+body.page-eform-submit,
+body.page-entityform-edit,
+body.page-entityform-workflow {
+
+  input[id^=edit-workflow] {
+    padding-left: 45px;
+    padding-right: 20px;
+    background-size: 20px;
+  }
+
+  #edit-workflow-2 {
+    background-image: url(../img/workflow/draft-white.svg);
+  }
+  #edit-workflow-3 {
+    background-image: url(../img/workflow/finished-white.svg);
+  }
+  #edit-workflow-4 {
+    background-image: url(../img/workflow/validated-white.svg);
+  }
+
+}
+
+body.workflow-status-validated {
+  #edit-workflow-2 {
+    background-image: url(../img/workflow/update-white.svg);
+  }
+}

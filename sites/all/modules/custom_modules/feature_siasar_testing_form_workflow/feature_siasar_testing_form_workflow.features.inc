@@ -22,18 +22,18 @@ function feature_siasar_testing_form_workflow_default_Workflow() {
       "validated" : {"weight":"-18","sysid":"0","state":"Validated","status":"1","name":"validated"}
     },
     "transitions" : {
-      "_creation_to_draft" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"_creation_to_draft","label":"","rdf_mapping":[],"start_state":"(creation)","end_state":"draft"},
-      "_creation_to_finished" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"_creation_to_finished","label":"","rdf_mapping":[],"start_state":"(creation)","end_state":"finished"},
-      "_creation_to_validated" : {"roles":{"9":9,"6":6,"10":10},"name":"_creation_to_validated","label":"","rdf_mapping":[],"start_state":"(creation)","end_state":"validated"},
-      "draft_to_draft" : {"roles":{"-1":-1,"7":7,"8":8,"5":5,"9":9,"6":6,"10":10},"name":"draft_to_draft","label":"","rdf_mapping":[],"start_state":"draft","end_state":"draft"},
-      "draft_to_finished" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"draft_to_finished","label":"","rdf_mapping":[],"start_state":"draft","end_state":"finished"},
-      "draft_to_validated" : {"roles":{"5":5,"9":9,"6":6,"10":10},"name":"draft_to_validated","label":"","rdf_mapping":[],"start_state":"draft","end_state":"validated"},
-      "finished_to_draft" : {"roles":{"9":9,"6":6,"10":10},"name":"finished_to_draft","label":"","rdf_mapping":[],"start_state":"finished","end_state":"draft"},
-      "finished_to_finished" : {"roles":{"-1":-1,"7":7,"8":8,"5":5,"9":9,"6":6,"10":10},"name":"finished_to_finished","label":"","rdf_mapping":[],"start_state":"finished","end_state":"finished"},
-      "finished_to_validated" : {"roles":{"5":5,"9":9,"6":6,"10":10},"name":"finished_to_validated","label":"","rdf_mapping":[],"start_state":"finished","end_state":"validated"},
-      "validated_to_draft" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"validated_to_draft","label":"","rdf_mapping":[],"start_state":"validated","end_state":"draft"},
-      "validated_to_finished" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"validated_to_finished","label":"","rdf_mapping":[],"start_state":"validated","end_state":"finished"},
-      "validated_to_validated" : {"roles":{"-1":-1,"7":7,"8":8,"5":5,"9":9,"6":6,"10":10},"name":"validated_to_validated","label":"","rdf_mapping":[],"start_state":"validated","end_state":"validated"}
+      "_creation_to_draft" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"_creation_to_draft","label":"Save draft","rdf_mapping":[],"start_state":"(creation)","end_state":"draft"},
+      "_creation_to_finished" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"_creation_to_finished","label":"Finish","rdf_mapping":[],"start_state":"(creation)","end_state":"finished"},
+      "_creation_to_validated" : {"roles":{"9":9,"6":6,"10":10},"name":"_creation_to_validated","label":"Validate","rdf_mapping":[],"start_state":"(creation)","end_state":"validated"},
+      "draft_to_draft" : {"roles":{"-1":-1,"7":7,"8":8,"5":5,"9":9,"6":6,"10":10},"name":"draft_to_draft","label":"Save draft","rdf_mapping":[],"start_state":"draft","end_state":"draft"},
+      "draft_to_finished" : {"roles":{"-1":-1,"9":9,"6":6,"10":10},"name":"draft_to_finished","label":"Finish","rdf_mapping":[],"start_state":"draft","end_state":"finished"},
+      "draft_to_validated" : {"roles":{"9":9,"6":6,"10":10},"name":"draft_to_validated","label":"Validate","rdf_mapping":[],"start_state":"draft","end_state":"validated"},
+      "finished_to_draft" : {"roles":{"9":9,"6":6,"10":10},"name":"finished_to_draft","label":"Return to draft","rdf_mapping":[],"start_state":"finished","end_state":"draft"},
+      "finished_to_finished" : {"roles":{"-1":-1,"7":7,"8":8,"5":5,"9":9,"6":6,"10":10},"name":"finished_to_finished","label":"Save as finished","rdf_mapping":[],"start_state":"finished","end_state":"finished"},
+      "finished_to_validated" : {"roles":{"5":5,"9":9,"6":6,"10":10},"name":"finished_to_validated","label":"Validate","rdf_mapping":[],"start_state":"finished","end_state":"validated"},
+      "validated_to_draft" : {"roles":{"9":9,"6":6,"10":10},"name":"validated_to_draft","label":"Update and save as draft","rdf_mapping":[],"start_state":"validated","end_state":"draft"},
+      "validated_to_finished" : {"roles":{"9":9,"6":6,"10":10},"name":"validated_to_finished","label":"Update and save as finished","rdf_mapping":[],"start_state":"validated","end_state":"finished"},
+      "validated_to_validated" : {"roles":{"-1":-1,"7":7,"8":8,"5":5,"9":9,"6":6,"10":10},"name":"validated_to_validated","label":"Save as validated","rdf_mapping":[],"start_state":"validated","end_state":"validated"}
     },
     "label" : "entityforms",
     "typeMap" : [],
@@ -99,7 +99,7 @@ function feature_siasar_testing_form_workflow_default_entityform_type() {
         "1" : 0
       },
       "resubmit_action" : "new",
-      "redirect_path" : "testing",
+      "redirect_path" : "resultados",
       "instruction_pre" : { "value" : "", "format" : "filtered_html" }
     },
     "weight" : "0",

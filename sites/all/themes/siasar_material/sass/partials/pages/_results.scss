@@ -97,4 +97,12 @@ body.page-resultados {
     }
   }
 
+  .views-field-views-bulk-operations {
+    input[type="checkbox"]:checked,
+    input[type="checkbox"]:not(:checked) {
+      opacity: 1;
+      left: initial;
+      position: initial;
+    }
+  }
 }

@@ -1,0 +1,406 @@
+<?php
+
+/**
+ * @file
+ * Module for the Entityform revisions
+ */
+
+/**
+ * Entity revision action status - update current, make it actual.
+ */
+define('ENTITY_REVISION_UPDATE_AND_USE', 0);
+
+/**
+ * Entity revision action status - create new revision, make it actual.
+ */
+define('ENTITY_REVISION_CREATE_AND_USE', 1);
+
+/**
+ * Entity revision action status - update current revision.
+ */
+define('ENTITY_REVISION_UPDATE_NO_USE', 2);
+
+/**
+ * Entity revision action status - create new revision.
+ */
+define('ENTITY_REVISION_CREATE_NO_USE', 3);
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function entityform_revisions_entity_info_alter(&$entity_info) {
+  // Set the revision table for entityforms to store revisions
+  $entity_info['entityform']['revision table'] = 'entityform_revision';
+  $entity_info['entityform']['revision'] = 'vid';
+  $entity_info['entityform']['entity keys']['revision'] = 'vid';
+
+  $entity_info['entityform']['controller class'] = 'EntityformRevisionsController';
+  $entity_info['entityform']['admin ui']['controller class'] = 'EntityformRevisionsUIController';
+
+  // entity_get_info() is only calling this alter, after preparing its structure.
+  // Since we're adding a revision table, the information of schema_fields_sql is not complete
+  // therefore, we need to manually adjust it repeating the same process:
+
+  // Prepare entity schema fields SQL info for
+  // DrupalEntityControllerInterface::buildQuery().
+  if (isset($entity_info['entityform']['base table'])) {
+    $entity_info['entityform']['base table field types'] = drupal_schema_field_types($entity_info['entityform']['base table']);
+    $entity_info['entityform']['schema_fields_sql']['base table'] = drupal_schema_fields_sql($entity_info['entityform']['base table']);
+    if (isset($entity_info['entityform']['revision table'])) {
+      $entity_info['entityform']['schema_fields_sql']['revision table'] = drupal_schema_fields_sql($entity_info['entityform']['revision table']);
+    }
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function entityform_revisions_permission() {
+  return array(
+    'view entityform revisions' => array(
+      'title' => t('View entityform revisions'),
+      'description' => t('Access to view entityform_revisions.'),
+    ),
+    'edit entityform revisions' => array(
+      'title' => t('Edit entityform revisions'),
+      'description' => t('Edit an entityform revision.'),
+    ),
+    'delete entityform revisions' => array(
+      'title' => t('Delete entityform revisions'),
+      'description' => t('Deletes entityform revisions.'),
+    ),
+    'revert entityform revisions' => array(
+      'title' => t('Revert entityform revisions'),
+      'description' => t('Revert entityform revisions.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function entityform_revisions_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form_state['build_info']['base_form_id'])) {
+    $form_id = $form_state['build_info']['base_form_id'];
+  }
+
+  if ($form_id === 'entityform_edit_form') {
+    $entity = $form_state['entityform'];
+
+    if (!empty($entity)) {
+      $is_current = empty($entity->current_revision_id) || $entity->current_revision;
+      $entity_id = $entity->identifier();
+    }
+    else {
+      $is_current = TRUE;
+      $entity_id = NULL;
+      $entity = NULL;
+    }
+
+    // Add revisions section to the form.
+    $options = array(
+      ENTITY_REVISION_UPDATE_AND_USE => $is_current ? t('Save content') : t('Save revision and use it'),
+      ENTITY_REVISION_CREATE_AND_USE => t('Create new revision and use it'),
+      ENTITY_REVISION_UPDATE_NO_USE => t('Save revision'),
+      ENTITY_REVISION_CREATE_NO_USE => t('Create new revision'),
+    );
+
+    if (!$is_current && !entityform_revisions_access('edit', $entity)) {
+      unset($options[ENTITY_REVISION_UPDATE_AND_USE]);
+      unset($options[ENTITY_REVISION_CREATE_AND_USE]);
+    }
+    if (empty($entity_id) || !entityform_revisions_access('edit', $entity)) {
+      unset($options[ENTITY_REVISION_CREATE_AND_USE]);
+      unset($options[ENTITY_REVISION_CREATE_NO_USE]);
+    }
+    if ($is_current) {
+      unset($options[ENTITY_REVISION_UPDATE_NO_USE]);
+    }
+
+    $revision_fieldset = array(
+      '#type' => 'fieldset',
+      '#title' => t('Revision information'),
+      '#collapsible' => TRUE,
+      '#weight' => 20,
+    );
+
+    $default = isset($entity->revision, $options[(int) $entity->revision]) ? (int) $entity->revision : key($options);
+
+    $revision_fieldset['revision_info'] = array(
+      '#type' => 'markup',
+      '#markup' => $is_current ? t('This is the current version') : t('This is not the current version'),
+    );
+
+    $revision_fieldset['revision'] = array(
+      '#type' => 'radios',
+      '#title' => t('Create new revision'),
+      '#options' => $options,
+      '#default_value' => $default,
+      '#access' => count($options) > 1,
+    );
+
+    $revision_fieldset['log'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Revision log message'),
+      '#rows' => 4,
+      '#default_value' => !empty($entity->log) ? $entity->log : '',
+      '#description' => t('Provide an explanation of the changes you are making. This will help other authors understand your motivations.'),
+    );
+
+    if (empty($form['revision_fieldset'])) {
+      $form['revision_fieldset'] = $revision_fieldset;
+    }
+    else {
+      $form['revision_fieldset'] = $revision_fieldset + $form['revision_fieldset'];
+    }
+
+    array_unshift($form['actions']['save']['#submit'], 'entityform_revision_form_submit');
+  }
+}
+
+/**
+ * Form API submit callback for the entityform revision form.
+ */
+function entityform_revision_form_submit(&$form, &$form_state) {
+  $entity = $form['#entity'];
+
+  if (isset($form_state['values']['revision'])) {
+    switch ($form_state['values']['revision']) {
+      case ENTITY_REVISION_UPDATE_AND_USE:
+        $entity->default_revision = TRUE;
+        $entity->is_new_revision = FALSE;
+        break;
+      case ENTITY_REVISION_CREATE_AND_USE:
+        $entity->default_revision = TRUE;
+        $entity->is_new_revision = TRUE;
+        break;
+      case ENTITY_REVISION_UPDATE_NO_USE:
+        $entity->default_revision = FALSE;
+        $entity->is_new_revision = FALSE;
+        break;
+      case ENTITY_REVISION_CREATE_NO_USE:
+        $entity->default_revision = FALSE;
+        $entity->is_new_revision = TRUE;
+        break;
+    }
+  }
+}
+
+/**
+ * Entityform revisions access controlling
+ *
+ * @param $op
+ *  The operation being performed. One of 'view', 'delete', 'edit'
+ * @param $entityform
+ *  The entityform that is being analized (currently not supported)
+ * @return bool
+ */
+function entityform_revisions_access($op, $entityform) {
+  global $user;
+  return user_access($op . ' entityform revisions', $user);
+}
+
+/**
+ * Fetches a revision from an entityform
+ *
+ * @param $entityform
+ * @param $vid
+ *
+ * @return bool|mixed
+ */
+function entityform_get_revision($entityform, $vid) {
+
+  if ($entityform instanceof Entityform) {
+    $entityform_id = $entityform->identifier();
+  } else {
+    $entityform_id = $entityform;
+  }
+
+  /**
+   * @var $controller EntityformController
+   */
+  $controller = entity_get_controller('entityform');
+  $entities = $controller->load(array($entityform_id), array('vid' => $vid));
+
+  if (!empty($entities)) {
+    $revision = reset($entities);
+    return $revision;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Returns a list of all the existing revision numbers.
+ *
+ * @param \Entityform $entityform
+ *   The entityform object.
+ *
+ * @return array
+ *   An associative array keyed by entityform revision number.
+ */
+function entityform_revision_list($entityform) {
+  $revisions = array();
+  $result = db_query('SELECT r.vid, r.log, r.uid, ef.vid AS current_vid, r.changed, u.name FROM {entityform_revision} r LEFT JOIN {entityform} ef ON ef.vid = r.vid INNER JOIN {users} u ON u.uid = r.uid WHERE r.entityform_id = :entityform_id ORDER BY r.vid DESC', array(':entityform_id' => $entityform->identifier()));
+  foreach ($result as $revision) {
+    $revisions[$revision->vid] = $revision;
+  }
+  return $revisions;
+}
+
+/**
+ * Implements hook_entity_diff().
+ */
+function entityform_revisions_entity_diff($old_entityform, $new_entityform, $context) {
+  $result = array();
+  if ($context['entity_type'] == 'entityform') {
+    $fields = field_info_instances('entityform', $new_entityform->bundle());
+    $old = $old_entityform->wrapper();
+    $new = $new_entityform->wrapper();
+
+    foreach ($fields as $key => $field) {
+      $row = array(
+        '#name' => $field['label'],
+        '#states' => array(),
+        '#settings' => array(),
+      );
+      foreach ($context['states'] as $state) {
+        $row['#states'][$state] = array(
+          '#old' => array($old->{$key}->value()),
+          '#new' => array($new->{$key}->value()),
+        );
+      }
+    }
+  }
+  return $result;
+}
+
+/**
+ * Prepares a batch to process entityform submissions without a default revision
+ *
+ * @return array|bool
+ */
+function entityform_revisions_update_revisions_batch() {
+  $t = get_t();
+  $batch = array(
+    'operations' => array(
+      array('entityform_revisions_update_revisions', array()),
+    ),
+    'title' => $t('Processing Entityform revisions update batch'),
+    'init_message' => $t('Entityform revisions update is starting.'),
+    'progress_message' => $t('Processed @progress out of @max.'),
+    'error_message' => $t('Entityform revisions update batch has encountered an error.'),
+    'file' => drupal_get_path('module', 'entityform_revisions') . '/entityform_revisions.module',
+  );
+  return $batch;
+}
+
+/**
+ * It processes entityform revisions to have a default revision in batches of
+ * 100 records.
+ */
+function entityform_revisions_update_revisions(&$context) {
+
+  if (!isset($context['progress'])) {
+    $context['progress'] = 0;
+    $context['current_entityform_id'] = 0;
+    $context['max'] = db_query('SELECT count(DISTINCT entityform_id) FROM {entityform} WHERE vid = 0')->fetchField();
+  }
+
+  $entityform_ids = db_select('entityform', 'ef')
+    ->fields('ef', array('entityform_id'))
+    ->condition('entityform_id', $context['current_entityform_id'], '>')
+    ->condition('vid', 0)
+    ->orderBy('entityform_id', 'ASC')
+    ->execute();
+
+  if (!isset($context['drush'])) {
+    $entityform_ids->range(0, 100);
+  }
+
+  foreach ($entityform_ids as $entityform_id) {
+    entityform_revisions_update_current_entityforms($entityform_id->entityform_id);
+
+    $context['progress']++;
+    $context['current_entityform_id'] = $entityform_id->entityform_id;
+  }
+
+  if ($context['context']['progress'] != $context['context']['max']) {
+    $context['finished'] = $context['context']['progress'] / $context['context']['max'];
+  } else {
+    $context['#finished'] = 1;
+  }
+}
+
+/**
+ * Updates an existing entityform to have a default revision
+ *
+ * @param $entityform_id
+ *
+ * @return array
+ */
+function entityform_revisions_update_current_entityforms($entityform_id) {
+
+  if (class_exists('EntityformRevisionsController') && !class_exists('EntityformRevisionsControllerInstall')) {
+    /**
+     * Class EntityformRevisionsControllerInstall
+     *
+     * Class used to load an entity that may not have a revision yet
+     * so it changes the entity query from using the INNER JOIN to a LEFT JOIN.
+     */
+    class EntityformRevisionsControllerInstall extends EntityformRevisionsController {
+      protected function buildQuery($ids, $conditions = [], $revision_id = FALSE) {
+        $query = parent::buildQuery($ids, $conditions, $revision_id);
+        $tables = &$query->getTables();
+        $tables['revision']['join type'] = 'LEFT OUTER';
+        return $query;
+      }
+
+      /**
+       * Updates the changed property for default revisions
+       *
+       * @param $entity
+       *
+       * @return array|mixed
+       */
+      protected function preSaveRevision($entity) {
+        // Do nothing: the entity should not be modified
+        $context['changed'] = $entity->changed;
+        if (empty($entity->changed)) {
+          $entity->changed = $entity->created;
+        }
+        return $context;
+      }
+
+      /**
+       * Only updates the changed property.
+       * The user will not be modified.
+       *
+       * @param $entity
+       * @param $context
+       */
+      protected function postSaveRevision($entity, $context) {
+        $entity->changed = $context['changed'];
+      }
+    }
+  }
+
+  $controller = new EntityformRevisionsControllerInstall('entityform');
+  $entities = $controller->load(array($entityform_id));
+
+  foreach($entities as $entityform) {
+    if (is_null($entityform->vid) || $entityform->vid == 0) {
+      $entityform->revision = TRUE;
+      $entityform->default_revision = TRUE;
+      $entityform->is_new_revision = FALSE;
+      $entityform->vid = $entityform->identifier();
+
+      // The normal controller is not able to obtain the entity, and some modules
+      // would require the original property set. So we provide a default entity
+      // to avoid issues during this save()
+      $entityform->original = $entityform;
+      $controller->save($entityform);
+    }
+  }
+  return $entities;
+}

@@ -1,0 +1,13 @@
+// There's an incompatibility between the materializer and entityform revisions module
+// the radio buttons are not displayed if they don't have a label, which is the case
+
+.entityform-revisions {
+  .diff-revision {
+    [type="radio"]:checked,
+    [type="radio"]:not(:checked) {
+      position: initial;
+      left: initial;
+      opacity: initial;
+    }
+  }
+}

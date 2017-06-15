@@ -3,6 +3,7 @@
 require_once dirname(__FILE__) . '/inc/page.inc';
 require_once dirname(__FILE__) . '/inc/menu.inc';
 require_once dirname(__FILE__) . '/inc/form.inc';
+require_once dirname(__FILE__) . '/inc/fields.inc';
 
 /**
  * Implements hook_html_head_alter().
@@ -23,8 +24,9 @@ function siasar_material_css_alter(&$css) {
  */
 function siasar_material_preprocess_html(&$vars) {
   _siasar_material_add_meta_viewport();
-  _siasar_material_add_status_classes_to_body($vars);
+  _siasar_material_add_http_status_classes_to_body($vars);
   _siasar_material_add_class_to_entityform_view($vars);
+  _siasar_material_add_workflow_status_class_to_entityform_edit($vars);
 }
 
 /**
@@ -34,6 +36,27 @@ function siasar_material_preprocess_page(&$vars) {
   _siasar_material_process_password_request_page($vars);
   _siasar_material_process_tabs($vars);
 }
+
+/**
+ * Implementation of hook_preprocess_entity()
+ */
+function siasar_material_preprocess_entity(&$variables) {
+  $els = $variables['elements'];
+  if ($els['#entity_type'] !== 'entityform' || $els['#view_mode'] !== 'entity_reference') return;
+
+  $suggestions = &$variables['theme_hook_suggestions'];
+  $ours = "entityform__entityreference";
+
+  array_splice($suggestions, 1, 0, $ours);
+}
+
+/**
+ * Implementation of hook_preprocess_field()
+ */
+function siasar_material_preprocess_field(&$variables) {
+  _siasar_material_add_state_class_to_workflow_field($variables);
+}
+
 /**
  * Helper function to add Meta Viewport
  */
@@ -51,7 +74,7 @@ function _siasar_material_add_meta_viewport() {
 /**
  * Helper function to add 403 and 404 body classes
  */
-function _siasar_material_add_status_classes_to_body(&$vars) {
+function _siasar_material_add_http_status_classes_to_body(&$vars) {
   $status = drupal_get_http_header("status");
 
   if($status === '403 Forbidden' || $status === '404 Not Found') {
@@ -74,6 +97,22 @@ function _siasar_material_add_status_classes_to_body(&$vars) {
 function _siasar_material_add_class_to_entityform_view(&$vars) {
   if (arg(0) == 'entityform' && is_numeric(arg(1)) && empty(arg(2))) {
     $vars['classes_array'][] = 'page-entityform-view';
+  }
+}
+
+/**
+ * Helper function to add workflow status class to body when editing an entityform
+ */
+function _siasar_material_add_workflow_status_class_to_entityform_edit(&$vars) {
+  $allowed_pages = array('edit', 'workflow');
+  if (arg(0) == 'entityform' && is_numeric(arg(1)) && in_array(arg(2), $allowed_pages)) {
+
+    $entityform = entityform_load(arg(1));
+    if (empty($entityform->field_status)) return;
+
+    $status = workflow_state_load_single($entityform->field_status[LANGUAGE_NONE][0]['value']);
+    $vars['classes_array'][] = 'workflow-status-' . $status->name;
+
   }
 }
 
@@ -132,15 +171,3 @@ function siasar_material_form_user_pass_alter(&$form, &$form_state, &$form_id) {
   }
 }
 
-/**
- * Implementation of hook_preprocess_entity()
- */
-function siasar_material_preprocess_entity(&$variables) {
-  $els = $variables['elements'];
-  if ($els['#entity_type'] !== 'entityform' || $els['#view_mode'] !== 'entity_reference') return;
-
-  $suggestions = &$variables['theme_hook_suggestions'];
-  $ours = "entityform__entityreference";
-
-  array_splice($suggestions, 1, 0, $ours);
-}

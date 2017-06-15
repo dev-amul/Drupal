@@ -62,8 +62,7 @@ input,
 select,
 textarea,
 fieldset {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .page {
@@ -93,10 +92,6 @@ fieldset {
 
 table.responsive-table tbody {
   white-space: normal;
-  clear: left;
-}
-table.responsive-table tr {
-  width: 100%;
 }
 
 ul.pagination {
@@ -145,6 +140,27 @@ ul.pagination li.active {
   margin: 0;
 }
 
+.page-entityform-workflow #block-system-main .content {
+  position: relative;
+  padding-bottom: 40px;
+}
+.page-entityform-workflow #block-system-main .content .workflow-transition-entityforms-form {
+  position: absolute;
+  bottom: -60px;
+  right: 0px;
+}
+.page-entityform-workflow #block-system-main .content .responsive-table caption {
+  color: #00add2;
+  line-height: 110%;
+  font-weight: bold;
+  font-size: 2.5rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  margin-bottom: 1em;
+  text-align: left;
+  padding: 20px 0px 0px 20px;
+}
+
 .header-menu {
   background: #00add2;
   height: 40px;
@@ -167,8 +183,7 @@ ul.pagination li.active {
   height: 75px;
   background-color: #00add2;
   border-radius: 50%;
-  -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 600px) {
   .header-menu a.brand-logo {
@@ -269,8 +284,7 @@ ul.user-menu:before {
 .input-field input.form-text,
 .input-field select.form-select,
 .input-field textarea {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding-left: 10px;
   background-color: white;
   border: solid #ddd 2px;
@@ -488,6 +502,12 @@ body.page-resultados .view-results-entityforms .feed-icon {
   margin-top: 20px;
   clear: both;
 }
+body.page-resultados .views-field-views-bulk-operations input[type="checkbox"]:checked,
+body.page-resultados .views-field-views-bulk-operations input[type="checkbox"]:not(:checked) {
+  opacity: 1;
+  left: initial;
+  position: initial;
+}
 
 body.maintenance-page {
   background: #096396;
@@ -500,8 +520,7 @@ body.maintenance-page #header {
   height: 90px;
   padding: 10px 20px;
   background-color: #00829e;
-  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 600px) {
   body.maintenance-page #header {
@@ -511,8 +530,7 @@ body.maintenance-page #header {
 body.maintenance-page #header #logo {
   display: block;
   float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   width: 75px;
   height: 75px;
   padding: 5px;
@@ -524,8 +542,7 @@ body.maintenance-page #header #logo {
     padding: 20px;
     border-radius: 50%;
     background-color: #00829e;
-    -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
   }
 }
 body.maintenance-page #header #name-and-slogan {
@@ -659,8 +676,7 @@ form.entityform .vertical-tabs-list li.vertical-tab-button {
   border-radius: 5px 0 0 5px;
   margin-bottom: 3px;
   background: #de861b;
-  -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
-          box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
   border-right: #cd750a solid 2px;
 }
 form.entityform .vertical-tabs-list li.vertical-tab-button:hover {
@@ -713,8 +729,7 @@ form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > legend {
   background: url("../img/triangle_white_open.svg") 5px 8px no-repeat #de861b;
   background-size: 15px 15px;
   padding-left: 30px;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   font-size: 1.5rem;
 }
@@ -746,8 +761,7 @@ form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane.closed > legend
 }
 form.entityform .vertical-tabs-panes fieldset {
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 0;
   margin: 0;
 }
@@ -868,8 +882,7 @@ form.entityform .vertical-tabs-panes fieldset .group-grid > h3,
 form.entityform .vertical-tabs-panes fieldset .group-grid > .description {
   width: 120px;
   float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 20px 20px 0;
 }
@@ -977,7 +990,14 @@ form.entityform .form-actions {
   text-align: right;
 }
 form.entityform .form-actions input {
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+@media (min-width: 600px) {
+  form.entityform .form-actions input {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
 }
 form.entityform .form-actions input.form-validate {
   padding-left: 55px;
@@ -997,6 +1017,9 @@ form.entityform .form-actions input.form-validate[status='validated'] {
 }
 form.entityform .form-item-field-cuestionario-validado-und {
   display: none;
+}
+form.entityform #edit-revision-fieldset {
+  background: #FFF;
 }
 
 body.page-entityform-edit h1 {
@@ -1027,6 +1050,13 @@ body.page-entityform-edit fieldset.vertical-tabs-pane:first-child {
   body.page-entityform-edit fieldset.vertical-tabs-pane:first-child {
     padding-top: 20px;
   }
+}
+
+.entityform-revisions .diff-revision [type="radio"]:checked,
+.entityform-revisions .diff-revision [type="radio"]:not(:checked) {
+  position: initial;
+  left: initial;
+  opacity: initial;
 }
 
 body.page-entityform-view h1 {
@@ -1131,6 +1161,72 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items .field-collection-view {
   padding: 0;
   margin: 0;
+}
+
+@media (min-width: 600px) {
+  body.page-entityform-view .field-name-field-status .field-label,
+  body.page-entityform-view .field-name-field-status .field-items {
+    height: 30px;
+    line-height: 32px;
+  }
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .field-name-field-status .field-label {
+    width: 227px;
+  }
+}
+@media (min-width: 992px) {
+  body.page-entityform-view .field-name-field-status .field-label {
+    width: 352px;
+  }
+}
+body.page-entityform-view .field-name-field-status .field-items {
+  background-size: contain;
+  background-position: 200px center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 992px) {
+  body.page-entityform-view .field-name-field-status .field-items {
+    background-position-x: 325px;
+  }
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .field-status-draft .field-items {
+    background-image: url(../img/workflow/draft.svg);
+  }
+  body.page-entityform-view .field-status-finished .field-items {
+    background-image: url(../img/workflow/finished.svg);
+  }
+  body.page-entityform-view .field-status-validated .field-items {
+    background-image: url(../img/workflow/validated.svg);
+  }
+}
+
+body.page-eform-submit input[id^=edit-workflow],
+body.page-entityform-edit input[id^=edit-workflow],
+body.page-entityform-workflow input[id^=edit-workflow] {
+  padding-left: 45px;
+  padding-right: 20px;
+  background-size: 20px;
+}
+body.page-eform-submit #edit-workflow-2,
+body.page-entityform-edit #edit-workflow-2,
+body.page-entityform-workflow #edit-workflow-2 {
+  background-image: url(../img/workflow/draft-white.svg);
+}
+body.page-eform-submit #edit-workflow-3,
+body.page-entityform-edit #edit-workflow-3,
+body.page-entityform-workflow #edit-workflow-3 {
+  background-image: url(../img/workflow/finished-white.svg);
+}
+body.page-eform-submit #edit-workflow-4,
+body.page-entityform-edit #edit-workflow-4,
+body.page-entityform-workflow #edit-workflow-4 {
+  background-image: url(../img/workflow/validated-white.svg);
+}
+
+body.workflow-status-validated #edit-workflow-2 {
+  background-image: url(../img/workflow/update-white.svg);
 }
 
 /*# sourceMappingURL=style.css.map */

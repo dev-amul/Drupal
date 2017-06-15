@@ -114,7 +114,7 @@ function entityform_entity_info() {
     'creation callback' => 'entityform_create',
     'access callback' => 'entityform_access',
     'module' => 'entityform',
-    // The information below is used by the EntityformUIController (which extends the EntityDefaultUIController)
+    // The information below is used by the EntityformRevisionsUIController (which extends the EntityDefaultUIController)
     'admin ui' => array(
       //@todo this goes to default submissions View, what do to if View is disabled?
       'path' => 'admin/structure/entityforms/list',

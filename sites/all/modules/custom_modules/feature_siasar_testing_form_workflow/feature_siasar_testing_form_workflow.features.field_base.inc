@@ -37,7 +37,12 @@ function feature_siasar_testing_form_workflow_field_default_field_bases() {
       'history' => array(
         'history_tab_show' => 1,
         'roles' => array(
-          -1 => -1,
+          -1 => 0,
+          5 => 0,
+          6 => 6,
+          7 => 0,
+          8 => 0,
+          9 => 9,
           10 => 10,
         ),
       ),
