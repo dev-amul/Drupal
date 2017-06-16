@@ -46,6 +46,9 @@ function services_entity_revisions_services_resources() {
  */
 function _services_entity_revisions_get_revisions($entity_machinename, $entity_id, $full = false) {
   $info = entity_get_info($entity_machinename);
+
+  if (!$info) return 'Can\'t get info on entity ' . $entity_machinename . '. Wrong entity machine name, maybe?';
+
   if (!isset($info['revision table'])) {
     // If this entity does not track revisions then return FALSE.
     return FALSE;
@@ -63,21 +66,6 @@ function _services_entity_revisions_get_revisions($entity_machinename, $entity_i
 
   $revisions_vid = array_keys($revisions);
 
-  if ((bool) $full && !empty($revisions_vid)) {
-    return _services_entity_revisions_get_full_entities($entity_machinename, $revisions_vid);
-  }
   return array_keys($revisions);
 }
 
-/*
- * Helper function that loads and return full entities for every VID received
- */
-function _services_entity_revisions_get_full_entities($entity_machinename, $revisions_vid) {
-  $entities = array();
-
-  foreach ($revisions_vid as $r) {
-    $entities[$r] = entity_revision_load($entity_machinename, $r);
-  }
-
-  return $entities;
-}
