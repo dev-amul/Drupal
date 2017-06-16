@@ -551,3 +551,16 @@ function siasar_updates_update_7131(&$sandbox) {
 function siasar_updates_update_7132(&$sandbox) {
   features_revert_module('feature_siasar_views_reports');
 }
+
+/**
+ * Issue 486: Migrate survey status (draft/finished/validated) to a new system, powered by Workflow module, using Drush.
+ */
+function siasar_updates_update_7133(&$sandbox) {
+  $modules = array(
+    'siasar_drush_workflow',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
