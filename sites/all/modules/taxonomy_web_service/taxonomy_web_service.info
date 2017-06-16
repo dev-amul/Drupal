@@ -1,6 +1,6 @@
 name = Hierarchical Taxonomy Service
 description = Exposes hierarchical taxonomies to the Services API.
-package = siasar
+package = Services
 core = 7.x
 version = 7.x-1.0
 dependencies[] = services

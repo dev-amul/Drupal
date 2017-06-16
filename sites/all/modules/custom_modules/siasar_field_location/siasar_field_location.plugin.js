@@ -4,7 +4,7 @@
 //
 // Notice we use wrapper DIV class name.
 
-(function ($) {
+(function ($, Drupal) {
   'use strict';
 
   $.fn.siasarHierarchicalSelect = function () {
@@ -17,89 +17,138 @@
       : $('#edit-field-pais-iso2');
 
     return this.each(function () {
-      var xhrChildren = new XMLHttpRequest;
-      var $locationWrapper = $(this);
-      var $locationField = $locationWrapper.find('.form-text');
-      var fieldName = $locationField.attr('field-name');
-      var initialValue = parseInt($locationField.val());
-      var $initOptions = $locationField.find('option');
+
+      var xhrChildren = new XMLHttpRequest();
+      this.$locationWrapper = $(this);
+      this.$locationField = this.$locationWrapper.find('.form-text');
+      var fieldName = this.$locationField.attr('field-name');
+
+      this.initialValue = parseInt(this.$locationField.val());
       var noneSelected = {
         tid: '_none',
-        name: Drupal.t('- Ninguno - '),
-      }
-      var forceDeepest = (Drupal.settings.siasarHierarchicalSelect[fieldName].forceDeepest === 1);
-      var $locationTreeSelectorWrapper;
+        name: Drupal.t('- Ninguno - ')
+      };
 
+      var countryFieldName = Drupal.settings.siasarHierarchicalSelect[fieldName].countryFieldName;
 
-      init();
-      listenToCountrySelector();
+      this.restrictions = Drupal.settings.siasarHierarchicalSelect[fieldName].restrictions;
+      this.forceDeepest = (Drupal.settings.siasarHierarchicalSelect[fieldName].forceDeepest === 1);
 
-      function getAllTermsInChain() {
-        if (initialValue == 0) return;
+      this.$countrySelector = false;
+      this.country = false;
 
-        var url = '/ajax/location/' + initialValue + '/' + country + '/parents';
-
-        $.get(url, null, function (data, status) {
-          processParentData(data, status);
-        }, 'json');
+      if (countryFieldName) {
+        this.$countrySelector = $('#edit-' + countryFieldName + '-und');
       }
 
-      function processParentData(data, status) {
+      if (!this.$countrySelector || this.$countrySelector.length === 0) {
+        this.$countrySelector = $('#edit-field-pais-und');
+        this.$countrySelector = (this.$countrySelector.length > 0) ? this.$countrySelector : $('#edit-field-pais-iso2');
+      }
+
+      this.$locationTreeSelectorWrapper = false;
+
+      this.getAllTermsInChain = function() {
+        if (this.initialValue === 0) { return; }
+
+        var url = '/ajax/location/' + this.initialValue + '/' + this.country + '/parents';
+
+        $.get(url, null, this.processParentData.bind(this), 'json');
+      };
+
+      this.processParentData = function(data, status) {
         var i = 0;
         for (var item in data) {
           if (data[item].length !== 0) {
             tidCache[item] = mapTermsFromRequestToArray(data[item]);
-            $locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(item);
-            buildSelectorLevel(item, i + 1);
+              this.$locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(item);
+            this.buildSelectorLevel(item, i + 1);
             i++;
           }
         }
-        if (data[item].length == 0 && forceDeepest) addOK();
-        $locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(initialValue);
-      }
 
-      function buildSelectorLevel(tid, level) {
+        if (data[item].length === 0 && this.forceDeepest) { this.addOK(); }
+
+        this.applyRestrictions();
+
+        this.$locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(this.initialValue);
+      };
+
+      /**
+       * It will disable all select boxes that the user shouldn't be modifying according to its configuration
+       */
+      this.applyRestrictions = function() {
+        if (this.restrictions.country) {
+          this.$countrySelector
+              .attr('disabled', 'disabled');
+        }
+
+        var $max_level = this.$locationTreeSelectorWrapper
+            .find('.location-tree-selector[data-level="' + this.restrictions.max_level + '"]');
+
+        if ($max_level.length) {
+            $max_level.prevAll('select').add($max_level).attr('disabled', 'disabled');
+        }
+      };
+
+      this.buildSelectorLevel = function(tid, level) {
+        if (!this.restrictions.can_change && level > this.restrictions.max_level) {
+          return;
+        }
+
         var html = '<select class="location-tree-selector" data-level="' + level + '"></select>';
         var $newSelector;
 
-        $locationTreeSelectorWrapper.append(html);
-        $newSelector = $locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + level + '"]');
+        this.$locationTreeSelectorWrapper.append(html);
+        $newSelector = this.$locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + level + '"]');
         populateSelector(tidCache[tid], $newSelector);
         $newSelector.addClass('intro-animate');
-        $newSelector.on('change', updateFormStructure);
-        $newSelector.on('focus', removeOK);
-      }
+        $newSelector.on('change', this.updateFormStructure.bind(this));
+        $newSelector.on('focus', this.removeOK.bind(this));
+      };
 
-      function updateFormStructure() {
+      this.updateFormStructure = function(e) {
+        var $select = $(e.target);
         var term = {
-          tid: this.value,
-          name: this.selectedOptions[0].textContent,
-        }
-        var level = parseInt($(this).data('level'));
+          tid: $select.val(),
+          name: $select[0].selectedOptions[0].textContent
+        };
 
-        this.blur();
-        $locationField.val('');
-        cleanSelectorChain(level);
+        var level = parseInt($select.data('level'));
+
+        $select.blur();
+        this.$locationField.val('');
+        this.cleanSelectorChain(level);
+        this.setCanonicalValue(term.tid);
 
         if (tidCache[term.tid]) {
-          setCanonicalValue(term.tid);
-          buildSelectorLevel(term.tid, level + 1);
+          this.buildSelectorLevel(term.tid, level + 1);
         } else if (term.tid !== '_none') {
-          requestChildrenTerms(term);
+          this.requestChildrenTerms(term, level + 1);
         }
-      }
+      };
 
-      function setCanonicalValue(value) {
+      this.setCanonicalValue = function(value) {
         var hasChildren = (typeof (tidCache[value]) === 'object' && tidCache[value].length > 1);
 
-        if (value === 0 || (forceDeepest && hasChildren)) return;
+        if (value === 0 || (this.forceDeepest && hasChildren)) { return; }
 
-        $locationField.val(value);
-        addOK();
-      }
+        if (value === '_none') {
+          var $selects = this.$locationWrapper.find('select');
 
-      function cleanSelectorChain(level) {
-        var $selectorChain = $locationWrapper.find('.location-tree-selector');
+          for(var i = 0; i <= $selects.length - 1; i++) {
+            var $select = $($selects[i]);
+            if ($select.val() !== 0 && $select.val() !== '_none') {
+              value = $select.val();
+            }
+          }
+        }
+        this.$locationField.val(value);
+        this.addOK();
+      };
+
+      this.cleanSelectorChain = function(level) {
+        var $selectorChain = this.$locationWrapper.find('.location-tree-selector');
 
         $selectorChain.each(function () {
           var $this = $(this);
@@ -108,17 +157,16 @@
             $this.remove();
           }
         });
-      }
+      };
 
       function populateSelector(options, $selector) {
         var html = '';
         options.forEach(function (element) {
           html += createOptionElement(element);
-        }, this);
+        });
 
         $selector.html(html);
       }
-
 
       function createOptionElement(term) {
         var label = term.name;
@@ -129,68 +177,62 @@
         return '<option value="' + term.tid + '">' + label + '</option>';
       }
 
-
-      function requestChildrenTerms(term) {
+      this.requestChildrenTerms = function (term, level) {
         var url = '/ajax/location/' + term.tid + '/';
 
-        url = term.tid === 0
-          ? url + country
-          : url + 'all';
+        url = term.tid === 0 ? url + this.country : url + 'all';
 
-        removeThrobber();
-        addThrobber();
-
+        this.removeThrobber();
+        this.addThrobber();
+        var self = this;
         xhrChildren.abort('new request');
         xhrChildren = $.get(url, null, function (data, status) {
-          processResult(data, status, term);
+            self.processResult.bind(self, data, status, term, level)();
         }, 'json');
-      }
+      };
 
-
-      function processResult(data, status, term) {
-        removeThrobber();
+      this.processResult = function(data, status, term) {
+        this.removeThrobber();
         tidCache[term.tid] = mapTermsFromRequestToArray(data);
-        setCanonicalValue(term.tid);
+        this.setCanonicalValue(term.tid);
 
-        if (data.length == 0 && term.tid !== 0) return;
+        if (data.length === 0 && term.tid !== 0) { return; }
 
-        var $lastSelectorInChain = $locationTreeSelectorWrapper.find('.location-tree-selector').last();
-        var levelDoesExist = !isNaN(parseInt($lastSelectorInChain.data('level')));
-        var level = levelDoesExist ? $lastSelectorInChain.data('level') : -1;
+        this.$lastSelectorInChain = this.$locationTreeSelectorWrapper.find('.location-tree-selector').last();
+        var levelDoesExist = !isNaN(parseInt(this.$lastSelectorInChain.data('level')));
+        var level = levelDoesExist ? this.$lastSelectorInChain.data('level') : -1;
 
-        buildSelectorLevel(term.tid, level + 1);
-      }
+        this.buildSelectorLevel(term.tid, level + 1);
+      };
 
-      // TODO: refactor to object
-      function addThrobber() {
-        $locationTreeSelectorWrapper.addClass('ajax-progress');
-        $locationTreeSelectorWrapper.append('<div class="throbber"></div>');
-      }
+      this.addThrobber = function() {
+        this.$locationTreeSelectorWrapper.addClass('ajax-progress');
+        this.$locationTreeSelectorWrapper.append('<div class="throbber"></div>');
+      };
 
-      function removeThrobber() {
-        $locationTreeSelectorWrapper.removeClass('ajax-progress');
-        $locationTreeSelectorWrapper.find('.throbber').remove();
-      }
+      this.removeThrobber = function() {
+        this.$locationTreeSelectorWrapper.removeClass('ajax-progress');
+        this.$locationTreeSelectorWrapper.find('.throbber').remove();
+      };
 
-      function addOK() {
-        if (forceDeepest) {
-          $locationTreeSelectorWrapper.append('<div class="ok">&#x2705;</div>');
+      this.addOK = function() {
+        if (this.forceDeepest) {
+          this.$locationTreeSelectorWrapper.append('<div class="ok">&#x2705;</div>');
         }
-      }
+      };
 
-      function removeOK() {
-        if (forceDeepest) {
-          $locationTreeSelectorWrapper.find('.ok').remove();
+      this.removeOK = function() {
+        if (this.forceDeepest) {
+          this.$locationTreeSelectorWrapper.find('.ok').remove();
         }
-      }
-
+      };
 
       function mapTermsFromRequestToArray(data) {
         var mapped = Object.keys(data).map(function (k) {
           var term = {
             tid: data[k].tid,
             name: data[k].name
-          }
+          };
           if (typeof data[k].field_codigo_division_admin === 'string') {
             term.field_codigo_division_admin = data[k].field_codigo_division_admin;
           }
@@ -202,46 +244,48 @@
         return output;
       }
 
-      function getCountry() {
-        var countryInForm = $countrySelector.val();
+      this.getCountry = function() {
+        var countryInForm = this.$countrySelector.val();
 
         if (countryInForm && countryInForm !== '_none') {
           return countryInForm.toUpperCase();
         }
         return 'all';
-      }
+      };
 
       // INIT functions
 
-      function listenToCountrySelector() {
-        $countrySelector.on('change', function (e) {
-          if (e.target.value.length !== 2) return;
+      this.listenToCountrySelector = function() {
+        this.$countrySelector.on('change', function (e) {
+          if (e.target.value.length !== 2) { return; }
 
-          $locationTreeSelectorWrapper.remove();
-          initialValue = 0;
-          init();
-        });
-      }
+          this.$locationTreeSelectorWrapper.remove();
+          this.initialValue = 0;
+          this.init();
+        }.bind(this));
+      };
 
-      function init() {
+      this.init = function() {
         var hierarchicalSelectorWrapper = '<div class="location-tree-selector-wrapper"></div>';
 
-        country = getCountry();
+        this.country = this.getCountry();
 
-        $locationWrapper.append(hierarchicalSelectorWrapper);
-        $locationTreeSelectorWrapper = $locationWrapper.find('.location-tree-selector-wrapper');
+        this.$locationWrapper.append(hierarchicalSelectorWrapper);
+        this.$locationTreeSelectorWrapper = this.$locationWrapper.find('.location-tree-selector-wrapper');
 
-        initialValue = isNaN(initialValue)
-          ? 0
-          : initialValue;
-        if (initialValue > 0) {
-          getAllTermsInChain();
+        this.initialValue = isNaN(this.initialValue) ? 0 : this.initialValue;
+
+        if (this.initialValue > 0) {
+          this.getAllTermsInChain();
         } else {
-          requestChildrenTerms({ tid: 0 });
+          this.requestChildrenTerms({ tid: 0 }, 0);
         }
-      }
+      };
+
+      this.init();
+      this.listenToCountrySelector();
 
     });
-  }
+  };
 
-})(jQuery);
+})(jQuery, Drupal);

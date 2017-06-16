@@ -31,44 +31,22 @@ function taxonomy_web_service_services_resources() {
 }
 
 function _taxonomy_vocab_service_index($vocab_name) {
-	$country_iso2 = get_country_code();
+	$country_code = get_country_code();
   $settings = array();
-  if ($vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name)) {
-    $settings['user_country_iso2'] = $country_iso2;
-    $terms = _taxonomy_web_service_get_location_terms_data($country_iso2);
-
-    foreach ($terms as $k => $t) {
-      $settings['allowed_values'][$k] = $t->name;
-      $settings['hierarchy'][$k] = $t->parent ? (int) $t->parent : 0;
-
-      if (!empty($t->field_codigo_division_admin_value)) {
-        $settings['field_codigo_division_admin'][$k] = $t->field_codigo_division_admin_value;
+  if($vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name)){
+     $options = array();
+     if($terms = taxonomy_get_tree($vocabulary->vid, 0, 1)){     
+      foreach ($terms as $term) {
+        if(is_valid_term($term, $country_code)) {
+          $options[$term->tid] = $term->name;
+        }
       }
     }
+    $hierarchy = array();
+    if(read_children($vocabulary, $options, $hierarchy)){					
+      $settings['hierarchy'] = $hierarchy;
+    }
+    $settings['allowed_values'] = $options;
   }  
 	return $settings;
-}
-
-
-function _taxonomy_web_service_get_location_terms_data($country_iso2) {
-  $query = db_select('taxonomy_term_data', 't');
-  $query->join('field_data_field_codigo_division_admin', 'c', 't.tid = c.entity_id');
-  $query->join('field_data_field_pais', 'p', 't.tid = p.entity_id');
-  $query->join('taxonomy_term_hierarchy', 'h', 't.tid = h.tid');
-  $query
-    ->fields('c', array('field_codigo_division_admin_value'))
-    ->fields('t', array('name', 'tid'))
-    ->fields('p', array('field_pais_iso2'))
-    ->fields('h', array('parent'))
-    ->condition('t.vid', '2')
-    ->condition('c.entity_type', 'taxonomy_term')
-    ->condition('c.bundle', 'division_administrativa')
-    ->condition('p.entity_type', 'taxonomy_term')
-    ->condition('p.bundle', 'division_administrativa')
-    ->condition('p.field_pais_iso2', $country_iso2)
-    ->orderBy('t.tid', 'ASC');
-
-  $result = $query->execute()->fetchAllAssoc('tid');
-
-  return $result;
 }
