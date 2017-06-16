@@ -718,7 +718,6 @@ function feature_siasar_views_reports_views_default_views() {
       ),
     ),
   );
-
   $handler->display->display_options['path'] = 'resultados';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Ver';
