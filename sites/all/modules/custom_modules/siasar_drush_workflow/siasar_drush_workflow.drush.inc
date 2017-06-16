@@ -4,9 +4,9 @@
  * Implements hook_drush_command().
  */
 function siasar_drush_workflow_drush_command() {
-  $items['siasar-update-editorial'] = array(
+  $items['siasar-migrate-workflow'] = array(
     'description' => 'It migrates survey status (draft/finished/validated) to a new system, powered by Workflow module.',
-    'aliases' => array('siasar-ufe'),
+    'aliases' => array('siasar-mw'),
     'callback' => 'drush_siasar_update_to_workflow',
     'arguments' => array(
       'form_type' => 'Form type',
@@ -15,8 +15,8 @@ function siasar_drush_workflow_drush_command() {
     ),
     'required-arguments' => false,
     'examples' => array(
-      'drush siasar-ufe sistema 100 50' => 'Gets legacy draft and validated values for all "sistema" forms, and converts all them to new, Workflow powered state. It gets 50 surveys, starting at the 100th one.',
-      'drush siasar-ufe all 0 100' => 'Process first 100 forms, no matter their type.',
+      'drush siasar-mw sistema 100 50' => 'Gets legacy draft and validated values for all "sistema" forms, and converts all them to new, Workflow powered state. It gets 50 surveys, starting at the 100th one.',
+      'drush siasar-mw all 0 100' => 'Process first 100 forms, no matter their type.',
     ),
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
