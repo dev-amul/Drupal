@@ -3,11 +3,11 @@
 /**
  * Implements hook_drush_command().
  */
-function siasar_editorial_flow_drush_command() {
+function siasar_drush_workflow_drush_command() {
   $items['siasar-update-editorial'] = array(
     'description' => 'It migrates survey status (draft/finished/validated) to a new system, powered by Workflow module.',
     'aliases' => array('siasar-ufe'),
-    'callback' => 'drush_siasar_update_editorial',
+    'callback' => 'drush_siasar_update_to_workflow',
     'arguments' => array(
       'form_type' => 'Form type',
       'offset' => 'Starting at result (zero indexed)',
@@ -24,7 +24,7 @@ function siasar_editorial_flow_drush_command() {
   return $items;
 }
 
-function drush_siasar_update_editorial($form_type = 'all', $offset = 0, $length = null) {
+function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $length = null) {
   $statuses = siasar_editorial_flow_get_statuses();
 
   $bundles = ($form_type !== 'all')
