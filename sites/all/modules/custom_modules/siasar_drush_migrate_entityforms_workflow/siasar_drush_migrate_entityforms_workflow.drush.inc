@@ -3,11 +3,11 @@
 /**
  * Implements hook_drush_command().
  */
-function siasar_editorial_flow_drush_command() {
-  $items['siasar-update-editorial'] = array(
+function siasar_drush_migrate_entityforms_workflow_drush_command() {
+  $items['siasar-migrate-entityforms-workflow'] = array(
     'description' => 'It migrates survey status (draft/finished/validated) to a new system, powered by Workflow module.',
-    'aliases' => array('siasar-ufe'),
-    'callback' => 'drush_siasar_update_editorial',
+    'aliases' => array('siasar-mew'),
+    'callback' => 'siasar_drush_migrate_entityforms_workflow',
     'arguments' => array(
       'form_type' => 'Form type',
       'offset' => 'Starting at result (zero indexed)',
@@ -15,8 +15,8 @@ function siasar_editorial_flow_drush_command() {
     ),
     'required-arguments' => false,
     'examples' => array(
-      'drush siasar-ufe sistema 100 50' => 'Gets legacy draft and validated values for all "sistema" forms, and converts all them to new, Workflow powered state. It gets 50 surveys, starting at the 100th one.',
-      'drush siasar-ufe all 0 100' => 'Process first 100 forms, no matter their type.',
+      'drush siasar-mew sistema 100 50' => 'Gets legacy draft and validated values for all "sistema" forms, and converts all them to new, Workflow powered state. It gets 50 surveys, starting at the 100th one.',
+      'drush siasar-mew all 0 100' => 'Process first 100 forms, no matter their type.',
     ),
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
@@ -24,8 +24,8 @@ function siasar_editorial_flow_drush_command() {
   return $items;
 }
 
-function drush_siasar_update_editorial($form_type = 'all', $offset = 0, $length = null) {
-  $statuses = siasar_editorial_flow_get_statuses();
+function siasar_drush_migrate_entityforms_workflow($form_type = 'all', $offset = 0, $length = null) {
+  $statuses = siasar_drush_migrate_entityforms_workflow_get_statuses();
 
   $bundles = ($form_type !== 'all')
     ? array($form_type)
@@ -71,7 +71,7 @@ function drush_siasar_update_editorial($form_type = 'all', $offset = 0, $length 
 
 }
 
-function siasar_editorial_flow_get_statuses() {
+function siasar_drush_migrate_entityforms_workflow_get_statuses() {
   return array(
     'STATUS_DRAFT' => 2,
     'STATUS_FINISHED' => 3,
