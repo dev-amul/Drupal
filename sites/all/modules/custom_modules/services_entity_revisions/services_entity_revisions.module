@@ -41,11 +41,30 @@ function services_entity_revisions_services_resources() {
   );
 }
 
+/**
+ * Allow to alter arguments before they are passed to service callback.
+ *
+ * @param $controller
+ *   Controller definition
+ * @param $args
+ *   Array of arguments
+ * @param $options
+ *
+ * @see services_controller_execute()
+ * @see services.runtime.inc
+ */
+function services_entity_revisions_services_request_preprocess_alter($controller, &$args, $options) {
+  $args = $args;
+}
+
 /*
  * Entity Revisions endpoint callback
  */
 function _services_entity_revisions_get_revisions($entity_machinename, $entity_id, $full = false) {
   $info = entity_get_info($entity_machinename);
+
+  if (!$info) return 'Can\'t get info on entity ' . $entity_machinename . '. Wrong entity machine name, maybe?';
+
   if (!isset($info['revision table'])) {
     // If this entity does not track revisions then return FALSE.
     return FALSE;
@@ -74,10 +93,15 @@ function _services_entity_revisions_get_revisions($entity_machinename, $entity_i
  */
 function _services_entity_revisions_get_full_entities($entity_machinename, $revisions_vid) {
   $entities = array();
+  $controller = _services_entity_get_controller($entity_machinename);
 
   foreach ($revisions_vid as $r) {
-    $entities[$r] = entity_revision_load($entity_machinename, $r);
+    $entity = entity_revision_load($entity_machinename, $r);
+    $wrapper = entity_metadata_wrapper($entity_machinename, $entity);
+    $processed_entity = $controller->get_data($wrapper);
+
+    $processed_entities[$r] = $processed_entity;
   }
 
-  return $entities;
+  return $processed_entities;
 }
