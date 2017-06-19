@@ -1,0 +1,34 @@
+body.page-user {
+  .page {
+    max-width: 720px;
+  }
+  h1 {
+    float: left;
+    background: none;
+    line-height: 1;
+    margin-top: 5px;
+  }
+
+  .tabs {
+    @include breakpoint($break-small) {
+      width: auto;
+      float: right;
+    }
+  }
+  #block-system-main {
+    padding: 20px;
+
+    @include breakpoint($break-small) {
+      padding: 40px;
+    }
+
+    .field-label {
+      @include breakpoint($break-small) {
+        width: 175px;
+      }
+      @include breakpoint($break-medium) {
+        width: 200px;
+      }
+    }
+  }
+}

@@ -305,6 +305,37 @@ span.form-required {
   display: inline-block;
 }
 
+.field {
+  clear: left;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.75em;
+  border-bottom: dotted #ddd 1px;
+  overflow: auto;
+  line-height: 1.25;
+}
+.field:last-child {
+  border: none;
+}
+
+.field-label {
+  color: #094069;
+  font-weight: bold;
+  padding-right: 10px;
+}
+@media (min-width: 600px) {
+  .field-label {
+    width: 200px;
+    padding-right: 20px;
+    float: left;
+    clear: left;
+  }
+}
+@media (min-width: 992px) {
+  .field-label {
+    width: 325px;
+  }
+}
+
 body.page-frontpage .page {
   max-width: 520px;
 }
@@ -1077,35 +1108,6 @@ body.page-entityform-view .entity-entityform img {
   max-width: 100%;
   height: auto;
 }
-body.page-entityform-view .entity-entityform .field {
-  clear: left;
-  padding-bottom: 0.5em;
-  margin-bottom: 0.75em;
-  border-bottom: dotted #ddd 1px;
-  overflow: auto;
-  line-height: 1.25;
-}
-body.page-entityform-view .entity-entityform .field:last-child {
-  border: none;
-}
-body.page-entityform-view .entity-entityform .field-label {
-  color: #094069;
-  font-weight: bold;
-  padding-right: 10px;
-}
-@media (min-width: 600px) {
-  body.page-entityform-view .entity-entityform .field-label {
-    width: 200px;
-    padding-right: 20px;
-    float: left;
-    clear: left;
-  }
-}
-@media (min-width: 992px) {
-  body.page-entityform-view .entity-entityform .field-label {
-    width: 325px;
-  }
-}
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-label {
   float: none;
   width: auto;
@@ -1140,6 +1142,40 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items .field-collection-view {
   padding: 0;
   margin: 0;
+}
+
+body.page-user .page {
+  max-width: 720px;
+}
+body.page-user h1 {
+  float: left;
+  background: none;
+  line-height: 1;
+  margin-top: 5px;
+}
+@media (min-width: 600px) {
+  body.page-user .tabs {
+    width: auto;
+    float: right;
+  }
+}
+body.page-user #block-system-main {
+  padding: 20px;
+}
+@media (min-width: 600px) {
+  body.page-user #block-system-main {
+    padding: 40px;
+  }
+}
+@media (min-width: 600px) {
+  body.page-user #block-system-main .field-label {
+    width: 175px;
+  }
+}
+@media (min-width: 992px) {
+  body.page-user #block-system-main .field-label {
+    width: 200px;
+  }
 }
 
 @media (min-width: 600px) {
