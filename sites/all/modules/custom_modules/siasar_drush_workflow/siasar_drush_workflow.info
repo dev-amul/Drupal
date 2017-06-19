@@ -1,0 +1,5 @@
+name = SIASAR Drush workflow
+description = It migrates survey status (draft/finished/validated) to a new system, powered by Workflow module, using Drush.
+version = 7.x-1.0
+core = 7.x
+package = SIASAR
