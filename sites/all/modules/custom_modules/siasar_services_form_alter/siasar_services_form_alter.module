@@ -21,7 +21,7 @@ function siasar_services_form_alter_services_request_postprocess_alter($controll
     case 'forms':
       if (is_string(arg(2))) {
         foreach ($result as $key => &$form) {
-          $form = _siasar_services_form_alter_process_form($form);
+          _siasar_services_form_alter_process_form($form);
         }
       } else {
         _siasar_services_form_alter_translate_form_names($result);
@@ -37,12 +37,10 @@ function siasar_services_form_alter_services_request_postprocess_alter($controll
 /**
  * Helper function to process all forms
  */
-function _siasar_services_form_alter_process_form($form) {
+function _siasar_services_form_alter_process_form(&$form) {
   if (isset($form['field_pais'])) {
-    $form['field_pais']['settings']['allowed_values'] = _siasar_services_form_alter_get_countries_list();
+    $form['field_pais']['settings']['allowed_values'] = _siasar_services_form_alter_reduce_country_options_to_members();
   }
-
-  return $form;
 }
 
 /**
@@ -85,4 +83,19 @@ function _siasar_services_form_alter_translate_form_group_labels($result) {
     }
   }
   return $result;
+}
+
+
+/**
+ * Reduce the list of Options for Country selector field to members of SIASAR
+ *
+ * @param array $item
+ *   Item (entityform) to be precessed.
+ */
+function _siasar_services_form_alter_reduce_country_options_to_members($form) {
+  module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+
+  $members = _siasar_entityform_alter_get_member_countries();
+  $options = _siasar_services_form_alter_get_countries_list();
+  return _siasar_entityform_alter_filter_out_countries_from_options($options, $members);
 }
