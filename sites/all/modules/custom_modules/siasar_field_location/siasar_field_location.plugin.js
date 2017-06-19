@@ -8,13 +8,7 @@
   'use strict';
 
   $.fn.siasarHierarchicalSelect = function () {
-    var $countrySelector = $('#edit-field-pais-und');
     var tidCache = {};
-    var country;
-
-    $countrySelector = ($countrySelector.length > 0)
-      ? $countrySelector
-      : $('#edit-field-pais-iso2');
 
     return this.each(function () {
 
@@ -257,10 +251,9 @@
 
       this.listenToCountrySelector = function () {
         this.$countrySelector.on('change', function (e) {
-          if (e.target.value.length !== 2) { return; }
-
           this.$locationTreeSelectorWrapper.remove();
           this.initialValue = 0;
+          this.$locationField.val('');
           this.init();
         }.bind(this));
       };

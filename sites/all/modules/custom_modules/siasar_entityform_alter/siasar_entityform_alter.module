@@ -8,7 +8,7 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
   $form_id_clean = str_replace('_entityform_edit_form', '', $form_id);
 
-  if(!in_array($form_id_clean, $possible_entityforms)) return;
+  if (!in_array($form_id_clean, $possible_entityforms)) return;
 
   $module_path = drupal_get_path('module', 'siasar_entityform_alter');
 

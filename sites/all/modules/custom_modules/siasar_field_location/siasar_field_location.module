@@ -268,7 +268,12 @@ function siasar_field_location_validate($element, &$form_state) {
       break;
   }
 
-  if ($element['#value'] === '') {
+
+  if ($element['#required'] && $element['#value'] === '_none') {
+    form_set_error($element['#name'], t('Field is required.'));
+  }
+
+  if ($element['#value'] === '' || $element['#value'] === '_none') {
     return;
   }
 
