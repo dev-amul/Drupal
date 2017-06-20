@@ -22,7 +22,10 @@ function _siasar_validate_and_get_default_location($field_name, &$form_state) {
 
   // If the exposed form is being submitted then, make sure it's using valid
   // values. Values might be obtained from the session. Validate them.
-  if (!empty($form_state['input'][$field_name])) {
+  // In this particular case, isset($form_state['input'][$field_name] is equal
+  // to know if the user submitted a location. This is only like this as the real
+  // field is not exposed and it's actually handled with a custom widget.
+  if (isset($form_state['input'][$field_name])) {
     $default_location = $form_state['input'][$field_name];
 
     // Make sure the $default_location belongs to the user setting
@@ -58,7 +61,10 @@ function _siasar_validate_and_get_default_location($field_name, &$form_state) {
 function _siasar_validate_and_get_default_country($field_name, &$form_state) {
   $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
 
-  if (!empty($form_state['input'][$field_name])) {
+  // In views exposed forms, there's no $form_state['values'] as the form is not
+  // rebuilt, therefore this is the only way to identify if the user submitted
+  // the form.
+  if (isset($_POST[$field_name])) {
     if (!user_access('assign territorial division') && $user_country_iso2 !== $form_state['input'][$field_name]) {
       $form_state['input'][$field_name] = $user_country_iso2;
     } else {
