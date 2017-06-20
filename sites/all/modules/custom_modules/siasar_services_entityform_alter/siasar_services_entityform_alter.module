@@ -74,7 +74,7 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name(&$data
       continue;
     }
     elseif (_siasar_services_entityform_alter_array_is_numeric($field)) {
-      $field = _siasar_services_entityform_alter_get_referenced_entityform_name($field);
+      _siasar_services_entityform_alter_get_referenced_entityform_name($field);
       continue;
     }
     elseif (isset($field['unit'])) {
