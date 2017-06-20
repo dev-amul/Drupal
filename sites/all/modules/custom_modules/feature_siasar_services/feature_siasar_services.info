@@ -15,3 +15,5 @@ features[features_api][] = api:2
 features[services_endpoint][] = api_v1
 features[variable][] = cors_domains
 project path = sites/all/modules/custom_modules
+
+files[] = SIASARServicesEntityResourceController.inc

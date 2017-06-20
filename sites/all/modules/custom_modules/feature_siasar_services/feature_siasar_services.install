@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Sets the services entity controller for a custom implementation for SIASAR
+ */
+function feature_siasar_services_update_7100() {
+  variable_set('services_entity_resource_class', 'SIASARServicesEntityResourceController');
+}
