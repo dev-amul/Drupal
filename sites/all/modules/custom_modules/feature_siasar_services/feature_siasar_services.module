@@ -5,3 +5,19 @@
  */
 
 include_once 'feature_siasar_services.features.inc';
+
+
+/**
+ * Implements hook_services_entity_resource_info().
+ */
+function feature_siasar_services_services_entity_resource_info() {
+  $result = array();
+
+  $result['siasar_entity_processor'] = array(
+    'title' => 'SIASAR Entity Processor',
+    'description' => 'Acts as a generic wrapper for entities. Data structures are exactly what they are in Drupal.',
+    'class' => 'SIASARServicesEntityResourceController',
+  );
+
+  return $result;
+}
