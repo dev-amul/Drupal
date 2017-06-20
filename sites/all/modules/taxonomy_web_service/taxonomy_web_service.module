@@ -31,7 +31,7 @@ function taxonomy_web_service_services_resources() {
 }
 
 function _taxonomy_vocab_service_index($vocab_name) {
-	$country_iso2 = get_country_code();
+  $country_iso2 = get_country_code();
   $settings = array();
   if ($vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name)) {
     $settings['user_country_iso2'] = $country_iso2;
