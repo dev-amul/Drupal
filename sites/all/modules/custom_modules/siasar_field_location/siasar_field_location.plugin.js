@@ -8,13 +8,7 @@
   'use strict';
 
   $.fn.siasarHierarchicalSelect = function () {
-    var $countrySelector = $('#edit-field-pais-und');
     var tidCache = {};
-    var country;
-
-    $countrySelector = ($countrySelector.length > 0)
-      ? $countrySelector
-      : $('#edit-field-pais-iso2');
 
     return this.each(function () {
 
@@ -48,7 +42,7 @@
 
       this.$locationTreeSelectorWrapper = false;
 
-      this.getAllTermsInChain = function() {
+      this.getAllTermsInChain = function () {
         if (this.initialValue === 0) { return; }
 
         var url = '/ajax/location/' + this.initialValue + '/' + this.country + '/parents';
@@ -56,12 +50,12 @@
         $.get(url, null, this.processParentData.bind(this), 'json');
       };
 
-      this.processParentData = function(data, status) {
+      this.processParentData = function (data, status) {
         var i = 0;
         for (var item in data) {
           if (data[item].length !== 0) {
             tidCache[item] = mapTermsFromRequestToArray(data[item]);
-              this.$locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(item);
+            this.$locationTreeSelectorWrapper.find('.location-tree-selector[data-level="' + i + '"]').val(item);
             this.buildSelectorLevel(item, i + 1);
             i++;
           }
@@ -77,21 +71,21 @@
       /**
        * It will disable all select boxes that the user shouldn't be modifying according to its configuration
        */
-      this.applyRestrictions = function() {
+      this.applyRestrictions = function () {
         if (this.restrictions.country) {
           this.$countrySelector
-              .attr('disabled', 'disabled');
+            .attr('disabled', 'disabled');
         }
 
         var $max_level = this.$locationTreeSelectorWrapper
-            .find('.location-tree-selector[data-level="' + this.restrictions.max_level + '"]');
+          .find('.location-tree-selector[data-level="' + this.restrictions.max_level + '"]');
 
         if ($max_level.length) {
-            $max_level.prevAll('select').add($max_level).attr('disabled', 'disabled');
+          $max_level.prevAll('select').add($max_level).attr('disabled', 'disabled');
         }
       };
 
-      this.buildSelectorLevel = function(tid, level) {
+      this.buildSelectorLevel = function (tid, level) {
         if (!this.restrictions.can_change && level > this.restrictions.max_level) {
           return;
         }
@@ -107,11 +101,11 @@
         $newSelector.on('focus', this.removeOK.bind(this));
       };
 
-      this.updateFormStructure = function(e) {
+      this.updateFormStructure = function (e) {
         var $select = $(e.target);
         var term = {
           tid: $select.val(),
-          name: $select[0].selectedOptions[0].textContent
+          name: $select.find('option:selected').text()
         };
 
         var level = parseInt($select.data('level'));
@@ -128,7 +122,7 @@
         }
       };
 
-      this.setCanonicalValue = function(value) {
+      this.setCanonicalValue = function (value) {
         var hasChildren = (typeof (tidCache[value]) === 'object' && tidCache[value].length > 1);
 
         if (value === 0 || (this.forceDeepest && hasChildren)) { return; }
@@ -136,7 +130,7 @@
         if (value === '_none') {
           var $selects = this.$locationWrapper.find('select');
 
-          for(var i = 0; i <= $selects.length - 1; i++) {
+          for (var i = 0; i <= $selects.length - 1; i++) {
             var $select = $($selects[i]);
             if ($select.val() !== 0 && $select.val() !== '_none') {
               value = $select.val();
@@ -147,7 +141,7 @@
         this.addOK();
       };
 
-      this.cleanSelectorChain = function(level) {
+      this.cleanSelectorChain = function (level) {
         var $selectorChain = this.$locationWrapper.find('.location-tree-selector');
 
         $selectorChain.each(function () {
@@ -187,11 +181,11 @@
         var self = this;
         xhrChildren.abort('new request');
         xhrChildren = $.get(url, null, function (data, status) {
-            self.processResult.bind(self, data, status, term, level)();
+          self.processResult.bind(self, data, status, term, level)();
         }, 'json');
       };
 
-      this.processResult = function(data, status, term) {
+      this.processResult = function (data, status, term) {
         this.removeThrobber();
         tidCache[term.tid] = mapTermsFromRequestToArray(data);
         this.setCanonicalValue(term.tid);
@@ -205,23 +199,23 @@
         this.buildSelectorLevel(term.tid, level + 1);
       };
 
-      this.addThrobber = function() {
+      this.addThrobber = function () {
         this.$locationTreeSelectorWrapper.addClass('ajax-progress');
         this.$locationTreeSelectorWrapper.append('<div class="throbber"></div>');
       };
 
-      this.removeThrobber = function() {
+      this.removeThrobber = function () {
         this.$locationTreeSelectorWrapper.removeClass('ajax-progress');
         this.$locationTreeSelectorWrapper.find('.throbber').remove();
       };
 
-      this.addOK = function() {
+      this.addOK = function () {
         if (this.forceDeepest) {
           this.$locationTreeSelectorWrapper.append('<div class="ok">&#x2705;</div>');
         }
       };
 
-      this.removeOK = function() {
+      this.removeOK = function () {
         if (this.forceDeepest) {
           this.$locationTreeSelectorWrapper.find('.ok').remove();
         }
@@ -244,7 +238,7 @@
         return output;
       }
 
-      this.getCountry = function() {
+      this.getCountry = function () {
         var countryInForm = this.$countrySelector.val();
 
         if (countryInForm && countryInForm !== '_none') {
@@ -255,17 +249,16 @@
 
       // INIT functions
 
-      this.listenToCountrySelector = function() {
+      this.listenToCountrySelector = function () {
         this.$countrySelector.on('change', function (e) {
-          if (e.target.value.length !== 2) { return; }
-
           this.$locationTreeSelectorWrapper.remove();
           this.initialValue = 0;
+          this.$locationField.val('');
           this.init();
         }.bind(this));
       };
 
-      this.init = function() {
+      this.init = function () {
         var hierarchicalSelectorWrapper = '<div class="location-tree-selector-wrapper"></div>';
 
         this.country = this.getCountry();
