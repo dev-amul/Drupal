@@ -1,4 +1,4 @@
-body.page-user {
+body.page-user:not(.page-user-edit) {
   .page {
     max-width: 720px;
   }

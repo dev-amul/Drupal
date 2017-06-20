@@ -833,6 +833,8 @@ form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.for
 }
 form.entityform .vertical-tabs-panes fieldset .field-type-field-collection th.field-label {
   padding: 0;
+  float: none;
+  width: auto;
 }
 form.entityform .vertical-tabs-panes fieldset .field-type-field-collection th.field-label label {
   font-size: 1.25rem;
@@ -1144,36 +1146,36 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
   margin: 0;
 }
 
-body.page-user .page {
+body.page-user:not(.page-user-edit) .page {
   max-width: 720px;
 }
-body.page-user h1 {
+body.page-user:not(.page-user-edit) h1 {
   float: left;
   background: none;
   line-height: 1;
   margin-top: 5px;
 }
 @media (min-width: 600px) {
-  body.page-user .tabs {
+  body.page-user:not(.page-user-edit) .tabs {
     width: auto;
     float: right;
   }
 }
-body.page-user #block-system-main {
+body.page-user:not(.page-user-edit) #block-system-main {
   padding: 20px;
 }
 @media (min-width: 600px) {
-  body.page-user #block-system-main {
+  body.page-user:not(.page-user-edit) #block-system-main {
     padding: 40px;
   }
 }
 @media (min-width: 600px) {
-  body.page-user #block-system-main .field-label {
+  body.page-user:not(.page-user-edit) #block-system-main .field-label {
     width: 175px;
   }
 }
 @media (min-width: 992px) {
-  body.page-user #block-system-main .field-label {
+  body.page-user:not(.page-user-edit) #block-system-main .field-label {
     width: 200px;
   }
 }
