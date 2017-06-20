@@ -1,4 +1,4 @@
-body.page-user:not(.page-user-edit) {
+body.page-user {
   .page {
     max-width: 720px;
   }
@@ -15,6 +15,9 @@ body.page-user:not(.page-user-edit) {
       float: right;
     }
   }
+}
+
+body.page-user:not(.page-user-edit) {
   #block-system-main {
     padding: 20px;
 
@@ -28,6 +31,111 @@ body.page-user:not(.page-user-edit) {
       }
       @include breakpoint($break-medium) {
         width: 200px;
+      }
+    }
+  }
+}
+
+body.page-user-edit {
+  form#user-profile-form {
+    padding: 20px;
+
+    @include breakpoint($break-small) {
+      padding: 40px;
+    }
+
+    .form-wrapper,
+    .form-item {
+      margin-bottom: 30px;
+    }
+    .description {
+      font-size: 0.85em;
+      color: $siasar-dark-grey;
+    }
+
+    .field-widget-siasar-hierarchical-select .form-item {
+      margin-bottom: 0;
+    }
+
+    .form-type-password-confirm {
+      margin: 0 -20px 30px;
+      padding: 20px;
+      background: $siasar-lighter-yellow;
+
+      @include breakpoint($break-small) {
+        margin-left: -40px;
+        margin-right: -40px;
+        padding: 40px;
+        position: relative;
+      }
+
+      .form-item-pass-pass1 {
+        margin-bottom: 20px;
+      }
+      .form-item-pass-pass2 {
+        margin-bottom: 0;
+      }
+
+      .password-strength,
+      .password-indicator,
+      div.password-confirm {
+        display: none;
+        position: relative;
+        float: right;
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include justify-content(flex-start);
+
+        @include breakpoint($break-small) {
+          width: 50%;
+          @include display-flex;
+        }
+      }
+
+      .password-strength,
+      div.password-confirm {
+        padding-top: 28px;
+      }
+
+      .password-strength {
+        .password-strength-title {
+          order: 1;
+          @include flex-basis(auto);
+          padding-right: 5px;
+          white-space: nowrap;
+        }
+        .password-strength-text {
+          position: relative;
+          top: 5px;
+          order: 2;
+
+          @include breakpoint($break-small) {
+            top: 0;
+          }
+        }
+        .password-indicator {
+          display: none;
+        }
+      }
+
+      div.password-confirm {
+        span {
+          padding-left: 5px;
+        }
+      }
+
+      .password-suggestions {
+        ul {
+          margin-bottom: 0;
+        }
+      }
+
+      input {
+        width: 100%;
+
+        @include breakpoint($break-small) {
+          width: calc(50% - 20px);
+        }
       }
     }
   }

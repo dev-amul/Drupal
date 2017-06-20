@@ -20,6 +20,8 @@
   label,
   label:not(.label-icon).active {
     font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.015em;
     color: $siasar-dark-cyan;
     position: static;
     display: block;

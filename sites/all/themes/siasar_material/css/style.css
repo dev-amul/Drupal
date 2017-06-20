@@ -250,6 +250,8 @@ ul.user-menu:before {
 .input-field label,
 .input-field label:not(.label-icon).active {
   font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
   color: #00829e;
   position: static;
   display: block;
@@ -1146,21 +1148,22 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
   margin: 0;
 }
 
-body.page-user:not(.page-user-edit) .page {
+body.page-user .page {
   max-width: 720px;
 }
-body.page-user:not(.page-user-edit) h1 {
+body.page-user h1 {
   float: left;
   background: none;
   line-height: 1;
   margin-top: 5px;
 }
 @media (min-width: 600px) {
-  body.page-user:not(.page-user-edit) .tabs {
+  body.page-user .tabs {
     width: auto;
     float: right;
   }
 }
+
 body.page-user:not(.page-user-edit) #block-system-main {
   padding: 20px;
 }
@@ -1177,6 +1180,114 @@ body.page-user:not(.page-user-edit) #block-system-main {
 @media (min-width: 992px) {
   body.page-user:not(.page-user-edit) #block-system-main .field-label {
     width: 200px;
+  }
+}
+
+body.page-user-edit form#user-profile-form {
+  padding: 20px;
+}
+@media (min-width: 600px) {
+  body.page-user-edit form#user-profile-form {
+    padding: 40px;
+  }
+}
+body.page-user-edit form#user-profile-form .form-wrapper,
+body.page-user-edit form#user-profile-form .form-item {
+  margin-bottom: 30px;
+}
+body.page-user-edit form#user-profile-form .description {
+  font-size: 0.85em;
+  color: #666;
+}
+body.page-user-edit form#user-profile-form .field-widget-siasar-hierarchical-select .form-item {
+  margin-bottom: 0;
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm {
+  margin: 0 -20px 30px;
+  padding: 20px;
+  background: #fff0d0;
+}
+@media (min-width: 600px) {
+  body.page-user-edit form#user-profile-form .form-type-password-confirm {
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 40px;
+    position: relative;
+  }
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm .form-item-pass-pass1 {
+  margin-bottom: 20px;
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm .form-item-pass-pass2 {
+  margin-bottom: 0;
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm .password-strength,
+body.page-user-edit form#user-profile-form .form-type-password-confirm .password-indicator,
+body.page-user-edit form#user-profile-form .form-type-password-confirm div.password-confirm {
+  display: none;
+  position: relative;
+  float: right;
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+@media (min-width: 600px) {
+  body.page-user-edit form#user-profile-form .form-type-password-confirm .password-strength,
+  body.page-user-edit form#user-profile-form .form-type-password-confirm .password-indicator,
+  body.page-user-edit form#user-profile-form .form-type-password-confirm div.password-confirm {
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm .password-strength,
+body.page-user-edit form#user-profile-form .form-type-password-confirm div.password-confirm {
+  padding-top: 28px;
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm .password-strength .password-strength-title {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  padding-right: 5px;
+  white-space: nowrap;
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm .password-strength .password-strength-text {
+  position: relative;
+  top: 5px;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+@media (min-width: 600px) {
+  body.page-user-edit form#user-profile-form .form-type-password-confirm .password-strength .password-strength-text {
+    top: 0;
+  }
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm .password-strength .password-indicator {
+  display: none;
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm div.password-confirm span {
+  padding-left: 5px;
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm .password-suggestions ul {
+  margin-bottom: 0;
+}
+body.page-user-edit form#user-profile-form .form-type-password-confirm input {
+  width: 100%;
+}
+@media (min-width: 600px) {
+  body.page-user-edit form#user-profile-form .form-type-password-confirm input {
+    width: calc(50% - 20px);
   }
 }
 
