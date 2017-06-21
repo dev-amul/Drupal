@@ -20,6 +20,8 @@
   label,
   label:not(.label-icon).active {
     font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.015em;
     color: $siasar-dark-cyan;
     position: static;
     display: block;
@@ -75,5 +77,33 @@ span.form-required {
   input {
     width: auto;
     display: inline-block;
+  }
+}
+
+.field {
+  clear: left;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.75em;
+  border-bottom: dotted $siasar-light-grey 1px;
+  overflow: auto;
+  line-height: 1.25;
+
+  &:last-child {
+    border: none;
+  }
+}
+.field-label {
+  color: #094069;
+  font-weight: bold;
+  padding-right: $vertical-tabs-padding / 2;
+
+  @include breakpoint($break-small) {
+    width: 200px;
+    padding-right: $vertical-tabs-padding;
+    float: left;
+    clear: left;
+  }
+  @include breakpoint($break-medium) {
+    width: 325px;
   }
 }
