@@ -18,7 +18,8 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
     $form['field_cuestionario_validado']['#access'] = (user_access('validate entityforms') && !$form_wrapper->draft->value());
   }
 
-  _siasar_entityform_alter_set_default_country($form);
+  _siasar_entityform_alter_set_default_country_from_user($form);
+  _siasar_entityform_alter_set_default_location_from_user($form);
   _siasar_entityform_alter_hide_validate_if_new($form, $form_state);
   _siasar_entityform_alter_build_validate_button($form, $form_state);
   _siasar_entityform_alter_process_country_field($form);
@@ -40,13 +41,27 @@ function siasar_entityform_alter_permission() {
 /**
  * Helper function to set default country value from user if needed.
  */
-function _siasar_entityform_alter_set_default_country(&$form) {
+function _siasar_entityform_alter_set_default_country_from_user(&$form) {
   global $user;
   $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
 
-  if (!isset($form_item_pais['#default_value'][0])) {
-    $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
+  $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
+
+  if ($user_country_iso2) {
     $form_item_pais['#default_value'][0] = $user_country_iso2;
+  }
+}
+
+/**
+ * Helper function to set default location value from user if needed.
+ */
+function _siasar_entityform_alter_set_default_location_from_user(&$form) {
+  global $user;
+
+  $user_entidad_local = user_load($user->uid)->field_entidad_local[LANGUAGE_NONE][0];
+
+  if ($user_entidad_local && isset($form['field_entidad_local'])) {
+    $form['field_entidad_local'][LANGUAGE_NONE][0]['#default_value'] = $user_entidad_local;
   }
 }
 

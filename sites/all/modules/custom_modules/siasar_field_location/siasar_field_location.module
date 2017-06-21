@@ -134,7 +134,7 @@ function siassar_field_location_get_visibility_restrictions($instance) {
 
   // Having $instance means that this is acting as field widget, not form api
   // ie. the field widget is used in the user entity, while the form api field
-  // is used in am exposed form.
+  // is used in an exposed form.
   $can_change = ($instance && user_access('assign territorial division')) || !$instance;
 
   if (user_access('assign territorial division')) {
