@@ -138,5 +138,22 @@ body.page-user-edit {
         }
       }
     }
+    fieldset {
+      padding: 0;
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 0;
+      border: none;
+      box-shadow: none;
+
+      legend {
+        display: none;
+      }
+
+      .form-type-file,
+      .form-type-select {
+        margin-bottom: 0;
+      }
+    }
   }
 }

@@ -1290,6 +1290,21 @@ body.page-user-edit form#user-profile-form .form-type-password-confirm input {
     width: calc(50% - 20px);
   }
 }
+body.page-user-edit form#user-profile-form fieldset {
+  padding: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  border: none;
+  box-shadow: none;
+}
+body.page-user-edit form#user-profile-form fieldset legend {
+  display: none;
+}
+body.page-user-edit form#user-profile-form fieldset .form-type-file,
+body.page-user-edit form#user-profile-form fieldset .form-type-select {
+  margin-bottom: 0;
+}
 
 @media (min-width: 600px) {
   body.page-entityform-view .field-name-field-status .field-label,
