@@ -38,6 +38,8 @@ function _taxonomy_vocab_service_index($vocab_name) {
     $terms = _taxonomy_web_service_get_location_terms_data($vocabulary, $country_iso2);
     $is_flat = _taxonomy_web_service_check_taxonomy_is_flat($vocabulary->vid);
 
+    $settings['rows'] = count($terms);
+
     foreach ($terms as $k => $t) {
       $settings['allowed_values'][$k] = $t->name;
 
@@ -56,6 +58,8 @@ function _taxonomy_vocab_service_index($vocab_name) {
 
 
 function _taxonomy_web_service_get_location_terms_data($vocabulary, $country_iso2) {
+  $vocabulary->fields = field_info_instances('taxonomy_term', $vocabulary->machine_name);
+
   $query = db_select('taxonomy_term_data', 't');
   $query->join('taxonomy_term_hierarchy', 'h', 't.tid = h.tid');
   $query
@@ -70,9 +74,16 @@ function _taxonomy_web_service_get_location_terms_data($vocabulary, $country_iso
     $query
       ->fields('c', array('field_codigo_division_admin_value'))
       ->fields('p', array('field_pais_iso2'))
+      ->condition('p.field_pais_iso2', $country_iso2)
       ->condition('p.entity_type', 'taxonomy_term')
-      ->condition('p.bundle', $vocabulary->machine_name)
-      ->condition('p.field_pais_iso2', $country_iso2);
+      ->condition('p.bundle', $vocabulary->machine_name);
+  } elseif (isset($vocabulary->fields['field_pais'])) {
+    $query->join('field_data_field_pais', 'p', 't.tid = p.entity_id');
+    $or = db_or();
+    $or->condition('p.field_pais_iso2', $country_iso2);
+    $or->isNull('p.field_pais_iso2');
+    $query->condition($or);
+    $query->fields('p', array('field_pais_iso2'));
   }
 
   $result = $query->execute()->fetchAllAssoc('tid');
