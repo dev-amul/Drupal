@@ -564,3 +564,20 @@ function siasar_updates_update_7133(&$sandbox) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
 }
+
+/**
+ * Issue 516: Enables the entityform drafts feature
+ *
+ * @param $sandbox
+ *
+ * @throws \DrupalUpdateException
+ */
+function siasar_updates_update_7134(&$sandbox) {
+  $modules = array(
+    'feature_siasar_entityform_drafts',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
