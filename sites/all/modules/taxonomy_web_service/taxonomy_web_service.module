@@ -34,15 +34,20 @@ function _taxonomy_vocab_service_index($vocab_name) {
   $country_iso2 = get_country_code();
   $settings = array();
   if ($vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name)) {
-    $settings['user_country_iso2'] = $country_iso2;
-    $terms = _taxonomy_web_service_get_location_terms_data($country_iso2);
+
+    $terms = _taxonomy_web_service_get_location_terms_data($vocabulary, $country_iso2);
+    $is_flat = _taxonomy_web_service_check_taxonomy_is_flat($vocabulary->vid);
 
     foreach ($terms as $k => $t) {
       $settings['allowed_values'][$k] = $t->name;
-      $settings['hierarchy'][$k] = $t->parent ? (int) $t->parent : 0;
 
       if (!empty($t->field_codigo_division_admin_value)) {
         $settings['field_codigo_division_admin'][$k] = $t->field_codigo_division_admin_value;
+      }
+    }
+    if (!$is_flat) {
+      foreach ($terms as $k => $t) {
+        $settings['hierarchy'][$k] = $t->parent ? (int) $t->parent : 0;
       }
     }
   }
@@ -50,23 +55,35 @@ function _taxonomy_vocab_service_index($vocab_name) {
 }
 
 
-function _taxonomy_web_service_get_location_terms_data($country_iso2) {
+function _taxonomy_web_service_get_location_terms_data($vocabulary, $country_iso2) {
   $query = db_select('taxonomy_term_data', 't');
-  $query->leftJoin('field_data_field_codigo_division_admin', 'c', 't.tid = c.entity_id');
-  $query->join('field_data_field_pais', 'p', 't.tid = p.entity_id');
   $query->join('taxonomy_term_hierarchy', 'h', 't.tid = h.tid');
   $query
-    ->fields('c', array('field_codigo_division_admin_value'))
     ->fields('t', array('name', 'tid'))
-    ->fields('p', array('field_pais_iso2'))
     ->fields('h', array('parent'))
-    ->condition('t.vid', '2')
-    ->condition('p.entity_type', 'taxonomy_term')
-    ->condition('p.bundle', 'division_administrativa')
-    ->condition('p.field_pais_iso2', $country_iso2)
+    ->condition('t.vid', $vocabulary->vid)
     ->orderBy('t.tid', 'ASC');
+
+  if($vocabulary->machine_name == 'division_administrativa') {
+    $query->leftJoin('field_data_field_codigo_division_admin', 'c', 't.tid = c.entity_id');
+    $query->join('field_data_field_pais', 'p', 't.tid = p.entity_id');
+    $query
+      ->fields('c', array('field_codigo_division_admin_value'))
+      ->fields('p', array('field_pais_iso2'))
+      ->condition('p.entity_type', 'taxonomy_term')
+      ->condition('p.bundle', $vocabulary->machine_name)
+      ->condition('p.field_pais_iso2', $country_iso2);
+  }
 
   $result = $query->execute()->fetchAllAssoc('tid');
 
   return $result;
+}
+
+
+function _taxonomy_web_service_check_taxonomy_is_flat($vid) {
+  $first_level = taxonomy_get_tree($vid, 0 ,1);
+  $first_and_second_level = taxonomy_get_tree($vid, 0, 2);
+
+  return (count($first_level) == count($first_and_second_level));
 }
