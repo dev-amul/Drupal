@@ -86,10 +86,6 @@
       };
 
       this.buildSelectorLevel = function (tid, level) {
-        if (!this.restrictions.can_change && level > this.restrictions.max_level) {
-          return;
-        }
-
         var html = '<select class="location-tree-selector" data-level="' + level + '"></select>';
         var $newSelector;
 
