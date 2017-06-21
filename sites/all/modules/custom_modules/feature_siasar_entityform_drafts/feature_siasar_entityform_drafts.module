@@ -35,11 +35,3 @@ function feature_siasar_entityform_drafts_form_alter(&$form, &$form_state, $form
     $form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT]['#limit_validation_errors'] = array();
   }
 }
-
-/**
- * @param $form
- * @param $form_state
- */
-function feature_siasar_entityform_drafts_validate($form, $form_state) {
-  $a= 1;
-}
