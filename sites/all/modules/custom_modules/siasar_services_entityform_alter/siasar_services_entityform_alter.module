@@ -45,48 +45,6 @@ function siasar_services_entityform_alter_services_request_postprocess_alter($co
     }
   }
 
-  if (count(arg()) === 3 && arg(1) == 'forms') {
-    // This is the endpoint for retrieving entityform type's information
-    $entity_type = 'entityform';
-
-    ctools_include('export');
-    foreach($result as $bundle => &$fields) {
-
-      $rules = ctools_export_load_object('field_validation_rule', 'conditions', array('entity_type' => $entity_type, 'bundle' => $bundle));
-
-      foreach ($fields as $field_name => &$field) {
-        siasar_services_entityform_alter_append_field_validations($bundle, $field, $rules);
-      }
-    }
-  }
-}
-
-/**
- * Append field validation information on each field
- *
- * @param $bundle
- * @param $field
- * @param $rules
- */
-function siasar_services_entityform_alter_append_field_validations($bundle, &$field, $rules) {
-  if ($rules) {
-    foreach ($rules as $rule) {
-      //Disabled by Ctools.
-      if (!empty($rule->disabled)) {
-        continue;
-      }
-      ctools_include('plugins');
-      $plugin = ctools_get_plugins('field_validation', 'validator', $rule->validator);
-      $class = ctools_plugin_get_class($plugin, 'handler');
-      if (empty($class)) {
-        continue;
-      }
-
-      if ($field['field_name'] == $rule->field_name) {
-        $field['field_validation_rules'][] = $rule;
-      }
-    }
-  }
 }
 
 /**
