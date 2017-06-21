@@ -44,6 +44,26 @@ function _siasar_services_form_alter_process_form(&$form) {
 }
 
 /**
+ * Appends field validation information to each entityform field
+ *
+ * @param $result
+ */
+function _siasar_services_form_append_validation(&$result) {
+  // This is the endpoint for retrieving entityform type's information
+  $entity_type = 'entityform';
+
+  ctools_include('export');
+  foreach($result as $bundle => &$fields) {
+
+    $rules = ctools_export_load_object('field_validation_rule', 'conditions', array('entity_type' => $entity_type, 'bundle' => $bundle));
+
+    foreach ($fields as $field_name => &$field) {
+      siasar_services_form_alter_append_field_validations($bundle, $field, $rules);
+    }
+  }
+}
+
+/**
  * Helper function to get a list of all enabled countries
  * @return array
  */
@@ -98,4 +118,32 @@ function _siasar_services_form_alter_reduce_country_options_to_members($form) {
   $members = _siasar_entityform_alter_get_member_countries();
   $options = _siasar_services_form_alter_get_countries_list();
   return _siasar_entityform_alter_filter_out_countries_from_options($options, $members);
+}
+
+/**
+ * Append field validation information on each field
+ *
+ * @param $bundle
+ * @param $field
+ * @param $rules
+ */
+function siasar_services_form_alter_append_field_validations($bundle, &$field, $rules) {
+  if ($rules) {
+    foreach ($rules as $rule) {
+      //Disabled by Ctools.
+      if (!empty($rule->disabled)) {
+        continue;
+      }
+      ctools_include('plugins');
+      $plugin = ctools_get_plugins('field_validation', 'validator', $rule->validator);
+      $class = ctools_plugin_get_class($plugin, 'handler');
+      if (empty($class)) {
+        continue;
+      }
+
+      if ($field['field_name'] == $rule->field_name) {
+        $field['field_validation_rules'][] = $rule;
+      }
+    }
+  }
 }
