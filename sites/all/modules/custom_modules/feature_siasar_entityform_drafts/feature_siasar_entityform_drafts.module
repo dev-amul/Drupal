@@ -1,0 +1,37 @@
+<?php
+/**
+ * @file
+ * Code for the SIASAR entityform drafts feature.
+ */
+
+define('SIASAR_ENTITYFORM_STATE_CREATED', 1);
+define('SIASAR_ENTITYFORM_STATE_DRAFT', 2);
+define('SIASAR_ENTITYFORM_STATE_FINISHED', 3);
+define('SIASAR_ENTITYFORM_STATE_VALIDATED', 4);
+
+include_once 'feature_siasar_entityform_drafts.features.inc';
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function feature_siasar_entityform_drafts_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_alter' && isset($implementations['feature_siasar_entityform_drafts'])) {
+    $group = $implementations['feature_siasar_entityform_drafts'];
+    unset($implementations['feature_siasar_entityform_drafts']);
+    $implementations['feature_siasar_entityform_drafts'] = $group;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function feature_siasar_entityform_drafts_form_alter(&$form, &$form_state, $form_id) {
+  $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
+  $form_id_clean = str_replace('_entityform_edit_form', '', $form_id);
+
+  if (!in_array($form_id_clean, $possible_entityforms)) return;
+
+  if (isset($form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT])) {
+    $form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT]['#limit_validation_errors'] = array();
+  }
+}
