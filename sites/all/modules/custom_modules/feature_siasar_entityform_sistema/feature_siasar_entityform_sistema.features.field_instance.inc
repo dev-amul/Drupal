@@ -833,9 +833,11 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'i18n_taxonomy',
-        'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'module' => 'siasar_field_location',
+        'settings' => array(
+          'style' => 'links',
+        ),
+        'type' => 'siasar_field_location_hierarchy',
         'weight' => 5,
       ),
       'entity_reference' => array(
