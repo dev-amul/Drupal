@@ -420,3 +420,21 @@ function siasar_updates_update_7125(&$sandbox) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
 }
+
+/**
+ * Enable contrib module max_image_size
+ */
+function siasar_updates_update_7126(&$sandbox) {
+  $modules = array(
+    'file_entity',
+    'max_image_size',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+  else {
+    variable_set('max_image_size_width', 800);
+    variable_set('max_image_size_height', 600);
+  }
+}
