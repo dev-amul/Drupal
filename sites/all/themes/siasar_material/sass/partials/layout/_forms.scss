@@ -92,6 +92,7 @@ span.form-required {
     border: none;
   }
 }
+
 .field-label {
   color: #094069;
   font-weight: bold;
@@ -103,7 +104,8 @@ span.form-required {
     float: left;
     clear: left;
   }
+
   @include breakpoint($break-medium) {
-    width: 325px;
+    width: $fields-alignment;
   }
 }

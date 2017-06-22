@@ -992,9 +992,11 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'i18n_taxonomy',
-        'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'module' => 'siasar_field_location',
+        'settings' => array(
+          'style' => 'links',
+        ),
+        'type' => 'siasar_field_location_hierarchy',
         'weight' => 7,
       ),
       'entity_reference' => array(
@@ -2618,7 +2620,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'.
   $field_instances['entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(

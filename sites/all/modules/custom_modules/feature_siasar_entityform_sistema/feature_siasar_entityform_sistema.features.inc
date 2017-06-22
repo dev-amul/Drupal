@@ -44,11 +44,11 @@ function feature_siasar_entityform_sistema_default_entityform_type() {
       "user_submissions_view" : "user_entityforms",
       "form_status" : "ENTITYFORM_OPEN",
       "roles" : {
+        "1" : "1",
         "2" : "2",
+        "7" : "7",
+        "8" : "8",
         "5" : "5",
-        "1" : 0,
-        "7" : 0,
-        "8" : 0,
         "9" : 0,
         "6" : 0,
         "10" : 0

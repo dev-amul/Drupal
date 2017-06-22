@@ -1,0 +1,22 @@
+.siasar-hierarchy {
+  margin: 0;
+
+  li.parent {
+    text-transform: capitalize;
+    display: inline-block;
+    font-size: 0.7em;
+
+    + li.parent {
+      &:before {
+        content: '-';
+        display: inline-block;
+        margin-left: 3px;
+        margin-right: 3px;
+      }
+    }
+  }
+
+  li.parent + li.selected {
+    margin-top: 5px;
+  }
+}

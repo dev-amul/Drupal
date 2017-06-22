@@ -404,3 +404,183 @@ function siasar_field_location_permission() {
     ),
   );
 }
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function siasar_field_location_field_formatter_info() {
+  return array(
+    'siasar_field_location_hierarchy' => array(
+      'label' => t('SIASAR Full location'),
+      'field types' => array('taxonomy_term_reference'),
+      'settings' => array(
+        'style' => 'text'
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function siasar_field_location_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $summary = '';
+  if ($display['type'] == 'siasar_field_location_hierarchy') {
+    switch($settings['style']) {
+      case 'text':
+        $summary = t('Terms hierarchy displayed as text');
+        break;
+      case 'links':
+        $summary = t('Terms hierarchy displayed as links');
+        break;
+    }
+  }
+
+  return $summary;
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function siasar_field_location_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $element = array();
+
+  if ($display['type'] == 'siasar_field_location_hierarchy') {
+
+    $element['style'] = array(
+      '#type' => 'select',
+      '#title' => 'Display type',
+      '#options' => array(
+        'text' => 'Text plain',
+        'links' => 'Linked terms to SIASAR questionnaires results'
+      ),
+      '#default_value' => $settings['style'],
+    );
+
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_prepare_view().
+ */
+function siasar_field_location_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  $field_column = key($field['columns']);
+  foreach ($entities as $entity_id => $entity) {
+    if (empty($displays[$entity_id]['type']) || $displays[$entity_id]['type'] != 'siasar_field_location_hierarchy') {
+      return;
+    }
+    foreach ($items[$entity_id] as $delta => $item) {
+      $items[$entity_id][$delta]['parents'] = array();
+      // Load list of parent terms.
+      $parents = taxonomy_get_parents_all($item[$field_column]);
+      // Remove current term from list.
+      array_shift($parents);
+      if (module_exists('i18n_taxonomy')) {
+        // Localize terms.
+        $parents = i18n_taxonomy_localize_terms($parents);
+      }
+      foreach (array_reverse($parents) as $parent) {
+        $items[$entity_id][$delta]['parents'][$parent->tid] = $parent;
+      }
+      // Load term.
+      $term_current = taxonomy_term_load($item[$field_column]);
+      if (module_exists('i18n_taxonomy')) {
+        // Localize current term.
+        $term_current = i18n_taxonomy_localize_terms($term_current);
+      }
+      $items[$entity_id][$delta]['term'] = $term_current;
+    }
+  }
+}
+
+/**
+ * Returns a link for a field_location value
+ *
+ * @param $term
+ * @param array $options
+ *
+ * @return string
+ */
+function siasar_field_location_l($term, $options = array()) {
+  // Merge in defaults.
+  $options += array(
+    'attributes' => array(),
+    'html' => FALSE,
+  );
+
+  $field_name = 'field_entidad_local';
+  $widget_type = 'siasar_hierarchical_select';
+  $field_pais = 'field_pais_iso2';
+
+  $options['query'][$field_name . '_' . $widget_type] = $term->tid;
+  if (!empty($term->field_pais)) {
+    $options['query'][$field_pais] = $term->field_pais[LANGUAGE_NONE][0]['iso2'];
+  }
+
+  $name = $term->name;
+
+  if (!empty($term->field_codigo_division_admin)) {
+    $name .= ' - ' . $term->field_codigo_division_admin[LANGUAGE_NONE][0]['safe_value'];
+  }
+
+  return l($name, 'resultados', $options);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function siasar_field_location_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $elements = array();
+  $settings = $display['settings'];
+
+  if (empty($items) || $display['type'] != 'siasar_field_location_hierarchy') {
+    return $elements;
+  }
+
+  $links = $settings['style'] == 'links';
+
+  // Only users with perm can see the links for the territorial division
+  if ($links && !user_access('assign territorial division')) {
+    $links = FALSE;
+  }
+
+  switch ($display['type']) {
+    case 'siasar_field_location_hierarchy':
+      foreach ($items as $delta => $item) {
+        if (empty($item['term'])) {
+          continue;
+        }
+        $list_items = array();
+        // Add parent term names.
+        foreach ($item['parents'] as $parent) {
+          $list_items[] = array(
+            'data' => $links ? siasar_field_location_l($parent) : $parent->name,
+            'class' => array('parent'),
+          );
+        };
+        // Add name of selected term.
+        $list_items[] = array(
+          'data' => $links ? siasar_field_location_l($item['term']) : $item['term']->name,
+          'class' => array('selected'),
+        );
+        $elements[$delta] = array(
+          '#items' => $list_items,
+          '#theme' => 'item_list',
+          '#attributes' => array(
+            'class' => 'siasar-hierarchy',
+          ),
+        );
+      }
+      break;
+  }
+
+  return $elements;
+}
