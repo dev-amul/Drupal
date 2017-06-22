@@ -22,7 +22,6 @@ dependencies[] = geofield
 dependencies[] = geofield_map
 dependencies[] = i18n_taxonomy
 dependencies[] = image
-dependencies[] = leaflet
 dependencies[] = list
 dependencies[] = number
 dependencies[] = options
