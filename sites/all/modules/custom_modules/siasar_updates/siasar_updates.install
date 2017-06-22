@@ -581,3 +581,17 @@ function siasar_updates_update_7134(&$sandbox) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
 }
+
+/**
+ * Issue 522. Traducción. Campos visibles en algunos idiomas y en otros no.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/522
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7135(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.normalize_detranslated_fields');
+  $count = siasar_updates_normalize_field_language('field_com_viv_con_sistema', 'field_collection_item');
+
+  return ($count . ' elements normalized');
+}
+
