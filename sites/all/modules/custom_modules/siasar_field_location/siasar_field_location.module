@@ -528,7 +528,7 @@ function siasar_field_location_l($term, $options = array()) {
   $name = $term->name;
 
   if (!empty($term->field_codigo_division_admin)) {
-    $name .= ' ' . $term->field_codigo_division_admin[LANGUAGE_NONE][0]['safe_value'];
+    $name .= ' - ' . $term->field_codigo_division_admin[LANGUAGE_NONE][0]['safe_value'];
   }
 
   return l($name, 'resultados', $options);
