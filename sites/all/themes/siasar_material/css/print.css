@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+html, body {
+  background-color: #FFF;
+  font-size: 10px;
+}
+
+h1 {
+  color: #000;
+  font-size: 2rem;
+  margin-left: 70px;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+#page {
+  padding: 20px 40px;
+}
+
+#block-system-main {
+  margin-top: 30px;
+  float: left;
+  width: 100%;
+}
+
+#page .header-menu {
+  height: 0;
+  line-height: 0;
+  width: auto;
+  display: inline-block;
+}
+
+.header-menu a.brand-logo {
+  width: 50px;
+  height: 50px;
+}
+.header-menu a.brand-logo img {
+  width: 25px;
+  height: 25px;
+  top: 12.5px;
+  left: 12.5px;
+}
+
+.region.region-user-nav {
+  display: none;
+}
+
+.row.page.grid {
+  margin: 0;
+}
+.row.page.grid > .main > .tabs {
+  display: none;
+}
+
+.field {
+  border: none;
+  overflow: visible;
+}
+
+.field-label {
+  width: 320px;
+  padding-right: 20px;
+  float: left;
+  clear: left;
+}
+
+.field-group {
+  clear: both;
+  overflow: auto;
+}
+.field-group > .field {
+  width: 50%;
+  margin: 5px -10px;
+  padding: 0 20px;
+  float: left;
+  clear: none;
+}
+.field-group > .field .field-label {
+  width: 60%;
+}
+
+body.page-entityform h1, body.page-eform h1 {
+  margin: 15px 40px 0 90px;
+  font-size: 2rem;
+}
+
+body.page-entityform-view .entity-entityform {
+  padding: 0;
+}
+body.page-entityform-view .entity-entityform .field-name-field-com-georef,
+body.page-entityform-view .entity-entityform .field-name-field-latitud {
+  float: left;
+  width: 100%;
+  clear: left;
+}
+body.page-entityform-view .entity-entityform .field-name-field-com-georef .field-label,
+body.page-entityform-view .entity-entityform .field-name-field-latitud .field-label {
+  width: 100%;
+}
+body.page-entityform-view .entity-entityform .field-name-field-com-georef .field-items,
+body.page-entityform-view .entity-entityform .field-name-field-latitud .field-items {
+  clear: left;
+}
+body.page-entityform-view .entity-entityform .field-group {
+  margin-bottom: 20px;
+}
+body.page-entityform-view .entity-entityform > .content > .field-group > .field-group {
+  page-break-inside: avoid;
+}
+
+.siasar-hierarchy li.parent {
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=print.css.map */

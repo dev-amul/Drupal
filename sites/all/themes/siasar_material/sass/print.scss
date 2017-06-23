@@ -1,0 +1,26 @@
+////////////////////////
+// Print style File
+//
+// This file gets turned into print.css. This file should really hold nothing except for imports of your base, style guide, layout, and design partials.
+////////////////////////
+
+@import 'partials/styleguide/_fonts';
+@import 'partials/styleguide/_variables';
+
+@import 'flexbox';
+@import 'compass/css3/deprecated-support';
+@import 'partials/mixins/_kerning';
+@import 'partials/mixins/_animation';
+@import 'partials/mixins/_layout_mixins';
+
+// Print specific partials
+@import 'partials/print/styleguide/variables';
+@import 'partials/print/layout/global';
+@import 'partials/print/layout/blocks';
+@import 'partials/print/layout/header';
+@import 'partials/print/layout/forms';
+@import 'partials/print/pages/entityform';
+@import 'partials/print/pages/entityform_view';
+
+@import 'partials/print/fields/_field_location';
+
