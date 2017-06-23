@@ -32,6 +32,30 @@ function feature_siasar_entityform_drafts_form_alter(&$form, &$form_state, $form
   if (!in_array($form_id_clean, $possible_entityforms)) return;
 
   if (isset($form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT])) {
-    $form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT]['#limit_validation_errors'] = array();
+    $form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT]['#validate'][] = 'feature_siasar_entityform_drafts_validate';
+  }
+}
+
+/**
+ * Removes all validation errors that could happen when saving a draft
+ *
+ * @param $form
+ * @param $form_state
+ */
+function feature_siasar_entityform_drafts_validate($form, &$form_state) {
+  $errors = form_get_errors();
+
+  if (!empty($errors)) {
+    $messages = drupal_get_messages('error', TRUE);
+
+    // Remove error messages originated during the form validation
+    foreach ($messages['error'] as $error) {
+      if (!in_array($error, $errors)) {
+        drupal_set_message('error', $error);
+      }
+    }
+
+    // Remove all form errors
+    form_clear_error();
   }
 }
