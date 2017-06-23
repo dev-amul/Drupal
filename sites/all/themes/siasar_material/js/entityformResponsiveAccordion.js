@@ -27,17 +27,60 @@
       $accordionElementsLabels.on('click', openCloseAccordion);
       $window.on('resize', cleanUp);
 
+      /**
+       * Returns the fieldset that should be displayed to the user
+       *
+       * The fieldset returned will be either (in this order):
+       * - the one with errors
+       * - the already opened
+       * - the first fieldset
+       *
+       * @returns {*}
+       */
+      function getOpenFieldset() {
+        var $fieldset = null;
+        var position = null;
+
+        $accordionElements.each(function(key) {
+          var $this = $(this);
+          if ($this.is('.open') || $('.error', $this).length) {
+            $fieldset = $this;
+            position = key;
+            return;
+          }
+        });
+
+        if ($fieldset) {
+          return {
+            fieldset: $fieldset,
+            position: position
+          };
+        }
+
+        return {
+          fieldset: $accordionElements.first(),
+          position: 0
+        };
+      }
+
       function cleanUp() {
-        if ($window.innerWidth() < smallBreakpoint && mobile == true) {
+        var info = getOpenFieldset();
+        var $fieldset = info.fieldset;
+        var position = info.position;
+
+        if ($window.innerWidth() < smallBreakpoint && mobile) {
           mobile = false;
           $accordionElements.removeAttr('style');
-          $accordionElements.first().addClass('open');
-          $accordionElements.not(':first-child').addClass('closed');
-        } else if ($window.innerWidth() >= smallBreakpoint && mobile == false) {
+          $fieldset.addClass('open');
+          $accordionElements.addClass('closed');
+          $($accordionElements[position]).removeClass('closed');
+
+        } else if ($window.innerWidth() >= smallBreakpoint && !mobile) {
           mobile = true;
           $verticalTabs.removeClass('selected');
-          $verticalTabs.first().addClass('selected');
-          $accordionElements.not(':first-child').hide();
+          $($verticalTabs[position]).addClass('selected');
+          $accordionElements.hide();
+          $($accordionElements[position]).show();
         }
       }
 

@@ -44,11 +44,14 @@ function siasar_entityform_alter_permission() {
 function _siasar_entityform_alter_set_default_country_from_user(&$form) {
   global $user;
   $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
+  $entity = $form_item_pais['#entity'];
 
-  $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
+  if ($entity->is_new) {
+    $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
 
-  if ($user_country_iso2) {
-    $form_item_pais['#default_value'][0] = $user_country_iso2;
+    if ($user_country_iso2) {
+      $form_item_pais['#default_value'][0] = $user_country_iso2;
+    }
   }
 }
 
@@ -57,11 +60,15 @@ function _siasar_entityform_alter_set_default_country_from_user(&$form) {
  */
 function _siasar_entityform_alter_set_default_location_from_user(&$form) {
   global $user;
+  $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
+  $entity = $form_item_pais['#entity'];
 
-  $user_entidad_local = user_load($user->uid)->field_entidad_local[LANGUAGE_NONE][0];
+  if ($entity->is_new) {
+    $user_entidad_local = user_load($user->uid)->field_entidad_local[LANGUAGE_NONE][0];
 
-  if ($user_entidad_local && isset($form['field_entidad_local'])) {
-    $form['field_entidad_local'][LANGUAGE_NONE][0]['#default_value'] = $user_entidad_local;
+    if ($user_entidad_local && isset($form['field_entidad_local'])) {
+      $form['field_entidad_local'][LANGUAGE_NONE][0]['#default_value'] = $user_entidad_local;
+    }
   }
 }
 
