@@ -476,7 +476,6 @@ features[field_group][] = group_com_proc_empleado|entityform|comunidad|form
 features[field_group][] = group_com_recotrata|entityform|comunidad|form
 features[field_group][] = group_com_saneamiento|entityform|comunidad|form
 features[field_group][] = group_com_srv|entityform|comunidad|form
-features[field_group][] = group_com_uso_compartido|entityform|comunidad|form
 features[field_group][] = group_com_uso_inf|entityform|comunidad|form
 features[field_group][] = group_com_viviendas_sin_sistema|entityform|comunidad|form
 features[field_group][] = group_comentarios|entityform|prestador_de_servicio|form
