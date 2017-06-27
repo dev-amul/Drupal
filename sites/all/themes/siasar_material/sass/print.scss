@@ -8,8 +8,10 @@
 @import 'partials/styleguide/_variables';
 
 @import 'flexbox';
+@import "compass/utilities/general/clearfix";
 @import 'compass/css3/deprecated-support';
 @import 'partials/mixins/_kerning';
+@import 'partials/mixins/_inline-grid';
 @import 'partials/mixins/_animation';
 @import 'partials/mixins/_layout_mixins';
 
@@ -21,6 +23,7 @@
 @import 'partials/print/layout/forms';
 @import 'partials/print/pages/entityform';
 @import 'partials/print/pages/entityform_view';
+@import 'partials/print/pages/entityform_edit';
 
 @import 'partials/print/fields/_field_location';
 

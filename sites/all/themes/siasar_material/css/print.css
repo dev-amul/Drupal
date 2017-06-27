@@ -1,4 +1,46 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+/**
+
+ This mixin is in charge of making percentage calculations for each
+ column without knowing the amount of items
+
+Example:
+@include distribute-all-items('.selector', 6);
+
+.selector:nth-child(1):nth-last-child(1) {
+  width: 100%;
+}
+.selector:nth-child(1):nth-last-child(2),
+.selector:nth-child(2):nth-last-child(1) {
+  width: 50%;
+}
+.selector:nth-child(1):nth-last-child(3),
+.selector:nth-child(2):nth-last-child(2),
+.selector:nth-child(3):nth-last-child(1) {
+  width: calc(100% /3);
+}
+.selector:nth-child(1):nth-last-child(4),
+.selector:nth-child(2):nth-last-child(3),
+.selector:nth-child(3):nth-last-child(2),
+.selector:nth-child(4):nth-last-child(1) {
+  width: 25%;
+}
+.selector:nth-child(1):nth-last-child(5),
+.selector:nth-child(2):nth-last-child(4),
+.selector:nth-child(3):nth-last-child(3),
+.selector:nth-child(4):nth-last-child(2),
+.selector:nth-child(5):nth-last-child(1) {
+  width: 20%;
+}
+.selector:nth-child(1):nth-last-child(6),
+.selector:nth-child(2):nth-last-child(5),
+.selector:nth-child(3):nth-last-child(4),
+.selector:nth-child(4):nth-last-child(3),
+.selector:nth-child(5):nth-last-child(2),
+.selector:nth-child(6):nth-last-child(1) {
+  width: calc(100% / 6);
+}
+*/
 html, body {
   background-color: #FFF;
   font-size: 10px;
@@ -118,6 +160,379 @@ body.page-entityform-view .entity-entityform .field-group {
   margin-bottom: 20px;
 }
 body.page-entityform-view .entity-entityform > .content > .field-group > .field-group {
+  page-break-inside: avoid;
+}
+
+/*
+ * Workaround to extend the pages in a form so all changes from JS can fit-in.
+ *
+ * The problem is that the print preview initially calculates the amount of pages to print based on the CSS.
+ * Since we're doing changes with JS, making the page to be bigger, some content will not be printed.
+ * Then the workaround is to make the browser thing that there's a lot of margin (extra space), and when JS executes
+ * it will add the print-page class to the body, which will take out all the margin.
+ * This is the reason why we need to adjust the additional margin needed in each questionnaire.
+ */
+body.page-eform-submit #page {
+  margin: 100rem 0;
+}
+
+body.page-eform-submit-comunidad #page {
+  margin: 20rem 0;
+}
+
+body.page-eform-submit-prestador-de-asistencia-t-cnica #page {
+  margin: 20rem 0;
+}
+
+body.page-eform-submit-prestador-de-servicio #page {
+  margin: 50rem 0;
+}
+
+body.print-page #page {
+  margin: 0;
+}
+
+body.page-entityform-edit #l10n-client,
+body.page-eform-submit #l10n-client {
+  display: none;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-panes,
+body.page-eform-submit form.entityform .vertical-tabs-panes {
+  padding: 10px;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-panes fieldset .field-group-fieldset,
+body.page-eform-submit form.entityform .vertical-tabs-panes fieldset .field-group-fieldset {
+  margin: 10px 0 !important;
+}
+body.page-entityform-edit form.entityform label,
+body.page-eform-submit form.entityform label {
+  top: 0 !important;
+}
+body.page-entityform-edit form.entityform select,
+body.page-entityform-edit form.entityform [type="checkbox"] + label,
+body.page-eform-submit form.entityform select,
+body.page-eform-submit form.entityform [type="checkbox"] + label {
+  padding-left: 25px;
+  height: auto;
+}
+body.page-entityform-edit form.entityform .submitted,
+body.page-entityform-edit form.entityform .submissions-link,
+body.page-entityform-edit form.entityform .print-hide,
+body.page-entityform-edit form.entityform .vertical-tabs-list,
+body.page-eform-submit form.entityform .submitted,
+body.page-eform-submit form.entityform .submissions-link,
+body.page-eform-submit form.entityform .print-hide,
+body.page-eform-submit form.entityform .vertical-tabs-list {
+  display: none;
+}
+body.page-entityform-edit form.entityform .form-wrapper:not(.print-hide),
+body.page-eform-submit form.entityform .form-wrapper:not(.print-hide) {
+  display: block !important;
+}
+body.page-entityform-edit form.entityform .print-checkboxes,
+body.page-eform-submit form.entityform .print-checkboxes {
+  overflow: hidden;
+  *zoom: 1;
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option,
+body.page-eform-submit form.entityform .print-checkboxes .option {
+  width: 25%;
+  float: left;
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(1),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(1) {
+  width: calc(100% / 1);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(2),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(2) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(2):nth-last-child(1),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(2):nth-last-child(1) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(3),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(3) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(2):nth-last-child(2),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(2):nth-last-child(2) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(3):nth-last-child(1),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(3):nth-last-child(1) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(4),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(4) {
+  width: calc(100% / 4);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(2):nth-last-child(3),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(2):nth-last-child(3) {
+  width: calc(100% / 4);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(3):nth-last-child(2),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(3):nth-last-child(2) {
+  width: calc(100% / 4);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(4):nth-last-child(1),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(4):nth-last-child(1) {
+  width: calc(100% / 4);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(5),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(1):nth-last-child(5) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(2):nth-last-child(4),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(2):nth-last-child(4) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(3):nth-last-child(3),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(3):nth-last-child(3) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(4):nth-last-child(2),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(4):nth-last-child(2) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .print-checkboxes .option:nth-child(5):nth-last-child(1),
+body.page-eform-submit form.entityform .print-checkboxes .option:nth-child(5):nth-last-child(1) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .print-checkboxes + select,
+body.page-eform-submit form.entityform .print-checkboxes + select {
+  display: none;
+}
+body.page-entityform-edit form.entityform .print-textfield + input,
+body.page-entityform-edit form.entityform .print-textfield + select,
+body.page-entityform-edit form.entityform .print-textfield + textarea,
+body.page-eform-submit form.entityform .print-textfield + input,
+body.page-eform-submit form.entityform .print-textfield + select,
+body.page-eform-submit form.entityform .print-textfield + textarea {
+  display: none;
+}
+body.page-entityform-edit form.entityform .vertical-tabs,
+body.page-eform-submit form.entityform .vertical-tabs {
+  margin-left: 0;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane,
+body.page-eform-submit form.entityform .vertical-tabs-pane {
+  display: block !important;
+  max-height: initial !important;
+  margin-top: 20px !important;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane > legend,
+body.page-eform-submit form.entityform .vertical-tabs-pane > legend {
+  display: block;
+  background-color: #666;
+  width: 100%;
+  page-break-inside: avoid;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .fieldset-wrapper,
+body.page-eform-submit form.entityform .vertical-tabs-pane .fieldset-wrapper {
+  overflow: hidden;
+  *zoom: 1;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .fieldset-wrapper fieldset legend,
+body.page-eform-submit form.entityform .vertical-tabs-pane .fieldset-wrapper fieldset legend {
+  left: 0;
+  background-color: #666;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane fieldset.field-group-fieldset fieldset.form-wrapper,
+body.page-eform-submit form.entityform .vertical-tabs-pane fieldset.field-group-fieldset fieldset.form-wrapper {
+  padding: 0;
+  margin: 20px 0;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane fieldset.field-group-fieldset fieldset.form-wrapper legend,
+body.page-eform-submit form.entityform .vertical-tabs-pane fieldset.field-group-fieldset fieldset.form-wrapper legend {
+  background: none;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-wrapper,
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-wrapper {
+  margin-top: 10px;
+  padding: 0 10px;
+  float: left;
+  width: 100%;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio,
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio {
+  float: left;
+  width: 33%;
+  page-break-inside: avoid;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-number,
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-text-textfield,
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-options-buttons,
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default,
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-number,
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-text-textfield,
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-options-buttons,
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default {
+  width: 50%;
+  page-break-inside: avoid;
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(1) {
+  width: calc(100% / 1);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(2) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(2):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(2):nth-last-child(1) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(3),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(3) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(2):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(2):nth-last-child(2) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(3):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(3):nth-last-child(1) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(4),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(4) {
+  width: calc(100% / 4);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(2):nth-last-child(3),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(2):nth-last-child(3) {
+  width: calc(100% / 4);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(3):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(3):nth-last-child(2) {
+  width: calc(100% / 4);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(4):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(4):nth-last-child(1) {
+  width: calc(100% / 4);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(5),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(1):nth-last-child(5) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(2):nth-last-child(4),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(2):nth-last-child(4) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(3):nth-last-child(3),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(3):nth-last-child(3) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(4):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(4):nth-last-child(2) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(5):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .form-type-radio:nth-child(5):nth-last-child(1) {
+  width: calc(100% / 5);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(1):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(1):nth-last-child(1) {
+  width: calc(100% / 1);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(1):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(1):nth-last-child(2) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(2):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(2):nth-last-child(1) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(1):nth-last-child(3),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(1):nth-last-child(3) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(2):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(2):nth-last-child(2) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(3):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-number:nth-child(3):nth-last-child(1) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(1):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(1):nth-last-child(1) {
+  width: calc(100% / 1);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(1):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(1):nth-last-child(2) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(2):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(2):nth-last-child(1) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(1):nth-last-child(3),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(1):nth-last-child(3) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(2):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(2):nth-last-child(2) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(3):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-text-textfield:nth-child(3):nth-last-child(1) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(1):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(1):nth-last-child(1) {
+  width: calc(100% / 1);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(1):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(1):nth-last-child(2) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(2):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(2):nth-last-child(1) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(1):nth-last-child(3),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(1):nth-last-child(3) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(2):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(2):nth-last-child(2) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(3):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-options-buttons:nth-child(3):nth-last-child(1) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(1):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(1):nth-last-child(1) {
+  width: calc(100% / 1);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(1):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(1):nth-last-child(2) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(2):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(2):nth-last-child(1) {
+  width: calc(100% / 2);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(1):nth-last-child(3),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(1):nth-last-child(3) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(2):nth-last-child(2),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(2):nth-last-child(2) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(3):nth-last-child(1),
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-mvf-widget-default:nth-child(3):nth-last-child(1) {
+  width: calc(100% / 3);
+}
+body.page-entityform-edit form.entityform .vertical-tabs-pane .field-widget-options-select,
+body.page-eform-submit form.entityform .vertical-tabs-pane .field-widget-options-select {
+  clear: left;
+}
+body.page-entityform-edit form.entityform .form-item.input-field,
+body.page-eform-submit form.entityform .form-item.input-field {
   page-break-inside: avoid;
 }
 
