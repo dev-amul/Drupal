@@ -6043,7 +6043,7 @@ Your account on [site:name] has been canceled.
 --  [site:name] team',
   'user_mail_register_admin_created_body' => 'Hola [user:name],
 
-Hemos creado tu nueva cuenta en [site:name]. 
+Hemos creado tu nueva cuenta en [site:name].
 
 Ingresa en el siguiente link para configurar tu contraseña.
 
@@ -6449,7 +6449,6 @@ password: Your password
     'group_com_proc_empleado|entityform|comunidad|form' => FALSE,
     'group_com_exist_infestr|entityform|comunidad|form' => FALSE,
     'group_com_uso_inf|entityform|comunidad|form' => FALSE,
-    'group_com_uso_compartido|entityform|comunidad|form' => TRUE,
     'group_com_no_uso|entityform|comunidad|form' => FALSE,
     'group_com_higiene|entityform|comunidad|form' => FALSE,
     'group_com_energ|entityform|comunidad|form' => TRUE,

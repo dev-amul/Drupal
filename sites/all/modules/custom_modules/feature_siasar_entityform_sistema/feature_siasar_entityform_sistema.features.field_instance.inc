@@ -1783,6 +1783,48 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-sistema-field_status'.
+  $field_instances['entityform-sistema-field_status'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_status',
+    'label' => 'Status',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'workflowfield',
+      'settings' => array(
+        'comment' => 1,
+        'fieldset' => 0,
+        'name_as_title' => 1,
+      ),
+      'type' => 'workflow_default',
+      'weight' => 11,
+    ),
+  );
+
   // Exported field_instance:
   // 'entityform-sistema-field_tipo_de_sistema_de_absto'.
   $field_instances['entityform-sistema-field_tipo_de_sistema_de_absto'] = array(
@@ -4567,6 +4609,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Red de distribución');
   t('Rehabilitaciones y/o ampliaciones');
   t('Señalar a qué distancia aproximada se encuentran instalados los puntos de toma de agua públicos a las casas de los usuarios.');
+  t('Status');
   t('Tipo de fuente');
   t('Tipo de rehabilitación o de ampliación');
   t('Tipo de sistema de abastecimiento de agua');

@@ -23,20 +23,20 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
     'label' => 'D1. Services for providers (community managed water service providers, or Community Water Boards – CWBs) ',
     'weight' => '4',
     'children' => array(
-      0 => 'field_siasar_planification_anual',
-      1 => 'field_otras_numero_comunidade',
-      2 => 'field_apoyar_caps_conflictos',
-      3 => 'field_asesorar_prestador_aom',
-      4 => 'field_otras_tipo_apoyo',
-      5 => 'field_caps_medicion_pozo_agua',
-      6 => 'field_apoyar_caps_planificacion',
-      7 => 'field_apoyar_actualizar_tarifa',
-      8 => 'field_apoyar_legalizacion_reglam',
-      9 => 'field_verificar_apoyar_caps',
-      10 => 'field_apoyar_juridica_caps',
-      11 => 'field_revisar_actualizar_finanza',
-      12 => 'field_actualizar_prov_servicio',
-      13 => 'field_recolectar_muestras_agua',
+      0 => 'field_apoyar_legalizacion_reglam',
+      1 => 'field_otras_tipo_apoyo',
+      2 => 'field_asesorar_prestador_aom',
+      3 => 'field_caps_medicion_pozo_agua',
+      4 => 'field_apoyar_caps_planificacion',
+      5 => 'field_otras_numero_comunidade',
+      6 => 'field_verificar_apoyar_caps',
+      7 => 'field_revisar_actualizar_finanza',
+      8 => 'field_apoyar_juridica_caps',
+      9 => 'field_recolectar_muestras_agua',
+      10 => 'field_apoyar_actualizar_tarifa',
+      11 => 'field_actualizar_prov_servicio',
+      12 => 'field_apoyar_caps_conflictos',
+      13 => 'field_siasar_planification_anual',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -101,11 +101,12 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
     'weight' => '0',
     'children' => array(
       0 => 'field_user_reference',
-      1 => 'field_fecha_de_aplicacion',
-      2 => 'field_pais',
-      3 => 'group_pat_a3',
+      1 => 'field_pais',
+      2 => 'field_fecha_de_aplicacion',
+      3 => 'field_status',
       4 => 'group_pat_a1',
       5 => 'group_pat_a2',
+      6 => 'group_pat_a3',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -264,7 +265,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A1',
-    'weight' => '41',
+    'weight' => '42',
     'children' => array(
       0 => 'field_entity_name',
       1 => 'field_imagenpat',
@@ -297,7 +298,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A2',
-    'weight' => '42',
+    'weight' => '43',
     'children' => array(
       0 => 'field_tipo_de_pat2',
     ),
@@ -329,7 +330,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A3',
-    'weight' => '43',
+    'weight' => '44',
     'children' => array(
       0 => 'field_entidad_local',
     ),
@@ -460,15 +461,15 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
     'weight' => '6',
     'children' => array(
       0 => 'field_dispone_fondos_viaticos',
-      1 => 'field_cantidad_equipos_transport',
-      2 => 'field_dispone_material_didactico',
-      3 => 'field_dispone_fondos_combistible',
-      4 => 'field_estado_medicion_agua',
-      5 => 'field_estado_equipos_informatico',
-      6 => 'field_cantidad_equipos_inform',
-      7 => 'field_dispone_servicios_internet',
+      1 => 'field_cantidad_medicion_agua',
+      2 => 'field_dispone_fondos_combistible',
+      3 => 'field_dispone_material_didactico',
+      4 => 'field_dispone_servicios_internet',
+      5 => 'field_estado_medicion_agua',
+      6 => 'field_cantidad_equipos_transport',
+      7 => 'field_cantidad_equipos_inform',
       8 => 'field_estado_equipos_transporte',
-      9 => 'field_cantidad_medicion_agua',
+      9 => 'field_estado_equipos_informatico',
     ),
     'format_type' => 'div',
     'format_settings' => array(

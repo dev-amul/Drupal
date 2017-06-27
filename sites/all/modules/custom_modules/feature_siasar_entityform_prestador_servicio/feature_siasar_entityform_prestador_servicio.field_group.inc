@@ -23,10 +23,10 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'H4. Type of corrective measures',
     'weight' => '11',
     'children' => array(
-      0 => 'field_no_uso_plaguicidas',
-      1 => 'field_sustitucion_componentes',
-      2 => 'field_reforestacion',
-      3 => 'field_no_aguas_residuales',
+      0 => 'field_reforestacion',
+      1 => 'field_no_aguas_residuales',
+      2 => 'field_no_uso_plaguicidas',
+      3 => 'field_sustitucion_componentes',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -58,15 +58,15 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'H5. Type of preventive measures ',
     'weight' => '13',
     'children' => array(
-      0 => 'field_revision_demarcacion',
-      1 => 'field_revision_estado_cercano',
-      2 => 'field_proteccion_suelos',
-      3 => 'field_proteccion_terreno',
-      4 => 'field_revision_plan_contingencia',
-      5 => 'field_vigilancia_zona',
-      6 => 'field_no_tala_y_resforestacion',
-      7 => 'field_revision_estado_obra',
-      8 => 'field_revision_componentes_toma',
+      0 => 'field_revision_estado_obra',
+      1 => 'field_revision_componentes_toma',
+      2 => 'field_revision_estado_cercano',
+      3 => 'field_proteccion_suelos',
+      4 => 'field_proteccion_terreno',
+      5 => 'field_revision_plan_contingencia',
+      6 => 'field_vigilancia_zona',
+      7 => 'field_revision_demarcacion',
+      8 => 'field_no_tala_y_resforestacion',
       9 => 'field_proteccion_flora_fauna',
     ),
     'format_type' => 'div',
@@ -100,8 +100,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'weight' => '19',
     'children' => array(
       0 => 'field__aportaciones_extras',
-      1 => 'field_monto_aporte_previsto',
-      2 => 'field_monto_aporte_finalizado',
+      1 => 'field_monto_aporte_finalizado',
+      2 => 'field_monto_aporte_previsto',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -199,9 +199,9 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'weight' => '8',
     'children' => array(
       0 => 'field_activos_corrientes',
-      1 => 'field_balance_contable',
-      2 => 'field_pasivos_no_corrientes',
-      3 => 'field_activos_no_corrientes',
+      1 => 'field_pasivos_no_corrientes',
+      2 => 'field_activos_no_corrientes',
+      3 => 'field_balance_contable',
       4 => 'field_pasivos_corrientes_',
     ),
     'format_type' => 'div',
@@ -232,10 +232,10 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A2. Type of Provider',
-    'weight' => '4',
+    'weight' => '6',
     'children' => array(
-      0 => 'field_clase_de_prestador',
-      1 => 'field_otra_clase_de_prestador',
+      0 => 'field_otra_clase_de_prestador',
+      1 => 'field_clase_de_prestador',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -299,10 +299,10 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'C5. Billing, Payment, and Income',
     'weight' => '8',
     'children' => array(
-      0 => 'field_ingresos_reales',
-      1 => 'field_usuarios_al_dia',
-      2 => 'field_usuarios_deberian_pagan',
-      3 => 'field_facturacion_promedio',
+      0 => 'field_facturacion_promedio',
+      1 => 'field_ingresos_reales',
+      2 => 'field_usuarios_al_dia',
+      3 => 'field_usuarios_deberian_pagan',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -367,16 +367,16 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'E1.',
     'weight' => '5',
     'children' => array(
-      0 => 'field_gasto_real_mantenimiento',
-      1 => 'field_gasto_real_operacion',
-      2 => 'field_sumatoria_gastos_reales',
-      3 => 'field_sumatoria_gastos_teoricos',
-      4 => 'field_gasto_promedio_admin',
-      5 => 'field_gasto_teorico_ambientales',
-      6 => 'field_gasto_teorico_mantenimient',
-      7 => 'field_gasto_teorico_admin',
-      8 => 'field_gasto_real_ambientales',
-      9 => 'field_gasto_teorico_operacion',
+      0 => 'field_gasto_promedio_admin',
+      1 => 'field_gasto_real_mantenimiento',
+      2 => 'field_gasto_teorico_mantenimient',
+      3 => 'field_sumatoria_gastos_reales',
+      4 => 'field_gasto_teorico_admin',
+      5 => 'field_gasto_real_operacion',
+      6 => 'field_gasto_real_ambientales',
+      7 => 'field_gasto_teorico_ambientales',
+      8 => 'field_gasto_teorico_operacion',
+      9 => 'field_sumatoria_gastos_teoricos',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -438,15 +438,14 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A1.',
-    'weight' => '3',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_codigo_de_prestador',
+      0 => 'field_entidad_local',
       1 => 'field_imagenps',
-      2 => 'field_entity_name',
-      3 => 'field_altitud',
-      4 => 'field_latitud',
-      5 => 'field_entidad_local',
-      6 => 'field_pais',
+      2 => 'field_altitud',
+      3 => 'field_codigo_de_prestador',
+      4 => 'field_entity_name',
+      5 => 'field_latitud',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -613,8 +612,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'field_agua_facturada',
-      1 => 'field_inf_medicion_agua',
-      2 => 'field_agua_producida',
+      1 => 'field_agua_producida',
+      2 => 'field_inf_medicion_agua',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -719,10 +718,12 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'A. General Information',
     'weight' => '0',
     'children' => array(
-      0 => 'field_fecha_aplicacion',
-      1 => 'field_user_reference',
-      2 => 'group_clase_prestador',
-      3 => 'group_inf_basica',
+      0 => 'field_pais',
+      1 => 'field_status',
+      2 => 'field_user_reference',
+      3 => 'field_fecha_aplicacion',
+      4 => 'group_clase_prestador',
+      5 => 'group_inf_basica',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -788,9 +789,9 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => ' B2. Board of Directors',
     'weight' => '18',
     'children' => array(
-      0 => 'field_numero_reuniones',
+      0 => 'field_fecha_eleccion',
       1 => 'field_miembros_nombrados',
-      2 => 'field_fecha_eleccion',
+      2 => 'field_numero_reuniones',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -924,8 +925,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'C3. Is the community familiar with the rate payment mechanism and is it regularly applied?',
     'weight' => '6',
     'children' => array(
-      0 => 'field_mecanismo_pago_tarifa',
-      1 => 'field_otros_motivos',
+      0 => 'field_otros_motivos',
+      1 => 'field_mecanismo_pago_tarifa',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1152,8 +1153,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'B5. Accountability',
     'weight' => '21',
     'children' => array(
-      0 => 'field_acta_rendicion_cuentas',
-      1 => 'field_rinde_cuentas',
+      0 => 'field_rinde_cuentas',
+      1 => 'field_acta_rendicion_cuentas',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1249,8 +1250,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'Board of Directors: Representatives and Technicians',
     'weight' => '19',
     'children' => array(
-      0 => 'field_tecnicos',
-      1 => 'field_representantes',
+      0 => 'field_representantes',
+      1 => 'field_tecnicos',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1282,8 +1283,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'C2. Rate Type and Amount',
     'weight' => '5',
     'children' => array(
-      0 => 'field_tipo_de_tarifa',
-      1 => 'field_tarifa_media_mensual',
+      0 => 'field_tarifa_media_mensual',
+      1 => 'field_tipo_de_tarifa',
     ),
     'format_type' => 'div',
     'format_settings' => array(

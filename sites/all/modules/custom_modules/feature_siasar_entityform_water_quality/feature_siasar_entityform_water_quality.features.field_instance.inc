@@ -28,7 +28,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 13,
+        'weight' => 15,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -125,7 +125,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -172,7 +172,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 29,
+        'weight' => 30,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -270,7 +270,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 34,
+        'weight' => 35,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -368,7 +368,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 17,
+        'weight' => 18,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -466,7 +466,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -564,7 +564,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 18,
+        'weight' => 19,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -662,7 +662,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 12,
+        'weight' => 14,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -760,7 +760,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 10,
+        'weight' => 12,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -856,7 +856,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 38,
+        'weight' => 36,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -896,7 +896,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 39,
+        'weight' => 37,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -939,7 +939,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 37,
+        'weight' => 2,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -999,7 +999,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 31,
+        'weight' => 32,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1097,7 +1097,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 24,
+        'weight' => 25,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1191,7 +1191,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'data' => 'full',
         ),
         'type' => 'geofield_wkt',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1237,7 +1237,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 16,
+        'weight' => 17,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1335,7 +1335,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 19,
+        'weight' => 20,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1433,7 +1433,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 28,
+        'weight' => 29,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1531,7 +1531,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 20,
+        'weight' => 21,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1629,7 +1629,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 22,
+        'weight' => 23,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1727,7 +1727,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 23,
+        'weight' => 24,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1819,7 +1819,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 33,
+        'weight' => 34,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1866,7 +1866,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 30,
+        'weight' => 31,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1958,7 +1958,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'module' => 'countries',
         'settings' => array(),
         'type' => 'country_default',
-        'weight' => 35,
+        'weight' => 0,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2001,7 +2001,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
-        'weight' => 8,
+        'weight' => 10,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2049,7 +2049,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 27,
+        'weight' => 28,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2147,7 +2147,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 25,
+        'weight' => 26,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2245,7 +2245,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 26,
+        'weight' => 27,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2325,6 +2325,48 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
   );
 
+  // Exported field_instance: 'entityform-waq-field_status'.
+  $field_instances['entityform-waq-field_status'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_status',
+    'label' => 'Status',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'workflowfield',
+      'settings' => array(
+        'comment' => 1,
+        'fieldset' => 0,
+        'name_as_title' => 1,
+      ),
+      'type' => 'workflow_default',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'entityform-waq-field_sulfate'.
   $field_instances['entityform-waq-field_sulfate'] = array(
     'bundle' => 'waq',
@@ -2343,7 +2385,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 21,
+        'weight' => 22,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2441,7 +2483,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2497,7 +2539,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 9,
+        'weight' => 11,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2595,7 +2637,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 32,
+        'weight' => 33,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2693,7 +2735,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 11,
+        'weight' => 13,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2787,7 +2829,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 36,
+        'weight' => 3,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2834,7 +2876,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 7,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2875,7 +2917,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 8,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2916,7 +2958,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2974,6 +3016,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   t('Potassium');
   t('Residual Chlorine');
   t('Sodium');
+  t('Status');
   t('Sulfate');
   t('Survey Date');
   t('Temperature');
