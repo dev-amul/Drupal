@@ -13,7 +13,6 @@ dependencies[] = entity
 dependencies[] = entityform
 dependencies[] = entityreference
 dependencies[] = feature_siasar_field_bases
-dependencies[] = feature_siasar_testing_form_workflow
 dependencies[] = features
 dependencies[] = field_extrawidgets
 dependencies[] = field_group
