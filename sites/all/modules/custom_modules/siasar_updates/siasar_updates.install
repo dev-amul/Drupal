@@ -608,6 +608,7 @@ function siasar_updates_update_7136() {
 
 /**
  * Issue 527. Implantar el nuevo workflow en los demás formularios.
+ * Revert features.
  * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/527
  *
  * @param $sandbox
@@ -626,4 +627,45 @@ function siasar_updates_update_7137() {
   foreach($features as $f) {
     features_revert_module($f);
   }
+}
+
+/**
+ * Issue 527. Implantar el nuevo workflow en los demás formularios.
+ * Migrate all entityforms to new system.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/527
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7138(&$sandbox) {
+  module_load_include('inc', 'siasar_drush_workflow', 'siasar_drush_workflow.drush');
+
+  $sandbox['offset'] = $sandbox['offset']
+    ? $sandbox['offset']
+    : 0;
+  $sandbox['timer'] = $sandbox['timer']
+    ? $sandbox['timer']
+    : microtime(true);
+
+  if(!$sandbox['total']) {
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'entityform')
+      ->propertyOrderBy('entityform_id', 'ASC');
+    $sandbox['total'] = (int) $query->count()->execute();
+  }
+
+  $batch_step = 100;
+  $processed = drush_siasar_update_to_workflow('all', $sandbox['offset'], $batch_step);
+
+  if($processed > 0) {
+    $sandbox['offset'] += $processed;
+    $sandbox['#finished'] = $sandbox['offset'] / $sandbox['total'];
+  } else {
+    $sandbox['#finished'] = 1;
+    $sandbox['finishing_time'] = microtime(true) - $sandbox['timer'];
+    drupal_set_message('Process finished after ' . $sandbox['finishing_time'] . ' seconds.');
+    // Remove error
+    throw new DrupalUpdateException('Testing.');
+  }
+
+
 }
