@@ -50,8 +50,14 @@ body.page-eform-submit {
     .vertical-tabs-panes {
       padding: 10px;
 
-      fieldset .field-group-fieldset {
-        margin: 10px 0!important;
+      fieldset {
+        .field-type-field-collection fieldset.field-group-fieldset > legend {
+          color: #000;
+        }
+
+        .field-group-fieldset {
+          margin: 10px 0 !important;
+        }
       }
     }
 

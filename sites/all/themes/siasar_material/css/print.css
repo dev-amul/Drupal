@@ -200,6 +200,10 @@ body.page-entityform-edit form.entityform .vertical-tabs-panes,
 body.page-eform-submit form.entityform .vertical-tabs-panes {
   padding: 10px;
 }
+body.page-entityform-edit form.entityform .vertical-tabs-panes fieldset .field-type-field-collection fieldset.field-group-fieldset > legend,
+body.page-eform-submit form.entityform .vertical-tabs-panes fieldset .field-type-field-collection fieldset.field-group-fieldset > legend {
+  color: #000;
+}
 body.page-entityform-edit form.entityform .vertical-tabs-panes fieldset .field-group-fieldset,
 body.page-eform-submit form.entityform .vertical-tabs-panes fieldset .field-group-fieldset {
   margin: 10px 0 !important;
