@@ -1,0 +1,25 @@
+body.page-entityform-view .entity-entityform {
+  padding: 0;
+
+  .field-name-field-com-georef,
+  .field-name-field-latitud {
+    float: left;
+    width: 100%;
+    clear: left;
+
+    .field-label {
+      width: 100%;
+    }
+    .field-items {
+      clear: left;
+    }
+  }
+
+  .field-group {
+    margin-bottom: 20px;
+  }
+
+  > .content > .field-group > .field-group {
+    page-break-inside: avoid;
+  }
+}

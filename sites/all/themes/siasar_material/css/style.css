@@ -1,4 +1,46 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+/**
+
+ This mixin is in charge of making percentage calculations for each
+ column without knowing the amount of items
+
+Example:
+@include distribute-all-items('.selector', 6);
+
+.selector:nth-child(1):nth-last-child(1) {
+  width: 100%;
+}
+.selector:nth-child(1):nth-last-child(2),
+.selector:nth-child(2):nth-last-child(1) {
+  width: 50%;
+}
+.selector:nth-child(1):nth-last-child(3),
+.selector:nth-child(2):nth-last-child(2),
+.selector:nth-child(3):nth-last-child(1) {
+  width: calc(100% /3);
+}
+.selector:nth-child(1):nth-last-child(4),
+.selector:nth-child(2):nth-last-child(3),
+.selector:nth-child(3):nth-last-child(2),
+.selector:nth-child(4):nth-last-child(1) {
+  width: 25%;
+}
+.selector:nth-child(1):nth-last-child(5),
+.selector:nth-child(2):nth-last-child(4),
+.selector:nth-child(3):nth-last-child(3),
+.selector:nth-child(4):nth-last-child(2),
+.selector:nth-child(5):nth-last-child(1) {
+  width: 20%;
+}
+.selector:nth-child(1):nth-last-child(6),
+.selector:nth-child(2):nth-last-child(5),
+.selector:nth-child(3):nth-last-child(4),
+.selector:nth-child(4):nth-last-child(3),
+.selector:nth-child(5):nth-last-child(2),
+.selector:nth-child(6):nth-last-child(1) {
+  width: calc(100% / 6);
+}
+*/
 html,
 body {
   height: 100%;
@@ -1432,6 +1474,24 @@ body.page-entityform-workflow #block-system-main .content .workflow-transition-e
   position: absolute;
   bottom: -60px;
   right: 0;
+}
+
+.siasar-hierarchy {
+  margin: 0;
+}
+.siasar-hierarchy li.parent {
+  text-transform: capitalize;
+  display: inline-block;
+  font-size: 0.7rem;
+}
+.siasar-hierarchy li.parent + li.parent:before {
+  content: '-';
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.siasar-hierarchy li.parent + li.selected {
+  margin-top: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

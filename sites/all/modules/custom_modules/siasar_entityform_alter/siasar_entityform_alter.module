@@ -11,8 +11,9 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   if (!in_array($form_id_clean, $possible_entityforms)) return;
 
   $module_path = drupal_get_path('module', 'siasar_entityform_alter');
+  $form['#attached']['js'][] = $module_path . '/js/siasar_entityform_alter.validate_button.js';
+  $form['#attached']['js'][] = $module_path . '/js/siasar_entityform_alter.print_edit.js';
 
-  drupal_add_js($module_path . '/js/siasar_entityform_alter.validate_button.js');
   $form_wrapper = entity_metadata_wrapper('entityform', $form_state['entityform']);
   if (isset($form['field_cuestionario_validado'])) {
     $form['field_cuestionario_validado']['#access'] = (user_access('validate entityforms') && !$form_wrapper->draft->value());

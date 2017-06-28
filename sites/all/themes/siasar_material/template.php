@@ -17,6 +17,7 @@ function siasar_material_html_head_alter(&$head_elements) {
  */
 function siasar_material_css_alter(&$css) {
   $css['sites/all/themes/siasar_material/css/style.css']['group'] = 200;
+  $css['sites/all/themes/siasar_material/css/print.css']['group'] = 1000;
 }
 
 /**

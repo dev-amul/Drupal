@@ -4,7 +4,7 @@
   li.parent {
     text-transform: capitalize;
     display: inline-block;
-    font-size: 0.7em;
+    font-size: 0.7rem;
 
     + li.parent {
       &:before {
