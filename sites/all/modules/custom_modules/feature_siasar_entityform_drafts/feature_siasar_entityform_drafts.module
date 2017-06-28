@@ -4,11 +4,6 @@
  * Code for the SIASAR entityform drafts feature.
  */
 
-define('SIASAR_ENTITYFORM_STATE_CREATED', 1);
-define('SIASAR_ENTITYFORM_STATE_DRAFT', 2);
-define('SIASAR_ENTITYFORM_STATE_FINISHED', 3);
-define('SIASAR_ENTITYFORM_STATE_VALIDATED', 4);
-
 include_once 'feature_siasar_entityform_drafts.features.inc';
 
 /**

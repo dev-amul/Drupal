@@ -1,5 +1,10 @@
 <?php
 
+define('SIASAR_ENTITYFORM_STATE_CREATED', 1);
+define('SIASAR_ENTITYFORM_STATE_DRAFT', 2);
+define('SIASAR_ENTITYFORM_STATE_FINISHED', 3);
+define('SIASAR_ENTITYFORM_STATE_VALIDATED', 4);
+
 /**
  * Implements hook_form_alter().
  */
@@ -35,6 +40,10 @@ function siasar_entityform_alter_permission() {
     'validate entityforms' => array(
       'title' => t('Validate entityforms'),
       'description' => t('User can validate entityforms and browse results for more info on validated/not validated forms.'),
+    ),
+    'can delete validated entityforms' => array(
+      'title' => t('Deletes validated entityforms'),
+      'description' => t('User can delete validated entityforms.'),
     )
   );
 }
@@ -278,5 +287,58 @@ function siasar_entityform_alter_preprocess_entityforms_target_table(&$variables
     );
 
     $variables['element'][$key]['#title'] = '&nbsp;';
+  }
+}
+
+/**
+ * Returns the list of revisions where the entityform was validated. If it happened.
+ *
+ * @param $entityform
+ *
+ * @return array of revisions that were validated
+ */
+function siasar_entityform_validated_revisions($entityform) {
+
+  $query = 'SELECT r.vid, r.log, r.uid, ef.vid AS current_vid, r.changed, u.name 
+FROM {entityform_revision} r 
+  LEFT JOIN {entityform} ef ON ef.vid = r.vid 
+  LEFT JOIN {field_revision_field_status} fs ON r.entityform_id = fs.entity_id AND r.vid = fs.revision_id
+  INNER JOIN {users} u ON u.uid = r.uid 
+WHERE r.entityform_id = :entityform_id AND fs.field_status_value = :status 
+ORDER BY r.vid DESC';
+
+  $revisions = array();
+  $result = db_query($query,
+    array(
+      ':entityform_id' => $entityform->identifier(),
+      ':status' => SIASAR_ENTITYFORM_STATE_VALIDATED
+    )
+  );
+  foreach ($result as $revision) {
+    $revisions[$revision->vid] = $revision;
+  }
+
+  return $revisions;
+}
+
+/**
+ * Implements hook_entityform_access_alter().
+ *
+ * @see entityform_access().
+ */
+function siasar_entityform_alter_entityform_access_alter(&$access, $op, $context) {
+  if ($op === 'delete') {
+    $entityform = $context['entityform'];
+    $user = $context['account'];
+
+    if (user_access('can delete validated entityforms', $user)) {
+      $access = TRUE;
+      return;
+    }
+
+    $revisions = siasar_entityform_validated_revisions($entityform);
+    if (!empty($revisions)) {
+      $access = FALSE;
+    }
   }
 }
