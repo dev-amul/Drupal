@@ -15,3 +15,13 @@ function feature_siasar_views_references_views_pre_render(&$view) {
     $result = $view->result;
   }
 }
+
+/**
+ * Implements hook_query_alter(&$query)
+ */
+function feature_siasar_views_references_query_alter(&$query) {
+  if(!$query->hasTag('entityform_reference')) return;
+
+  $conditions = $query->conditions();
+  $query = $query;
+}
