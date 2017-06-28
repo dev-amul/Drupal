@@ -663,8 +663,6 @@ function siasar_updates_update_7138(&$sandbox) {
     $sandbox['#finished'] = 1;
     $sandbox['finishing_time'] = microtime(true) - $sandbox['timer'];
     drupal_set_message('Process finished after ' . $sandbox['finishing_time'] . ' seconds.');
-    // Remove error
-    throw new DrupalUpdateException('Testing.');
   }
 
 

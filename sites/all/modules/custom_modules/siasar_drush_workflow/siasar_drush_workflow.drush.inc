@@ -64,7 +64,7 @@ function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $lengt
     } elseif (!$validated && $draft) {
       $wrapper->field_status->set($statuses['STATUS_DRAFT']);
     }
-    //$wrapper->save();
+    $wrapper->save();
   }
   $total = count($result['entityform']);
   $timer = microtime(true) - $timer;
