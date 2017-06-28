@@ -108,7 +108,9 @@ function siasar_validate_questionnaire_action($entity, array $context) {
  * @param array $context
  */
 function siasar_delete_questionnaire_action($entity, array $context) {
-  entity_delete($entity->entityType(), $entity->identifier());
+  if (entity_access('delete', $entity->entityType(), $entity)) {
+    entity_delete($entity->entityType(), $entity->identifier());
+  }
 }
 
 /**

@@ -70,3 +70,18 @@ function siasar_entityform_alter_update_7101(&$sandbox) {
     user_role_grant_permissions($role->rid, $permissions);
   }
 }
+
+/**
+ * Add permission "can delete validated entityforms" to administrators
+ */
+function siasar_entityform_alter_update_7102(&$sandbox) {
+
+  $permissions = array(
+    'can delete validated entityforms',
+  );
+
+  foreach(array('Administrador Local', 'Administrador Regional', 'administrator') as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    user_role_grant_permissions($role->rid, $permissions);
+  }
+}

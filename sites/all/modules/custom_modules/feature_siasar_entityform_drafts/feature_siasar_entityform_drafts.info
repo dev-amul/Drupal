@@ -5,6 +5,7 @@ package = SIASAR
 version = 7.x-1.0
 dependencies[] = currency
 dependencies[] = views
+dependencies[] = siasar_entityform_alter
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = draft_entityforms
