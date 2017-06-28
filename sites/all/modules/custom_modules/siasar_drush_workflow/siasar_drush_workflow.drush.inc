@@ -25,6 +25,7 @@ function siasar_drush_workflow_drush_command() {
 }
 
 function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $length = null) {
+  $timer = microtime(true);
   $statuses = siasar_editorial_flow_get_statuses();
 
   $bundles = ($form_type !== 'all')
@@ -41,8 +42,8 @@ function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $lengt
   $result = $query->execute();
 
   if (empty($result['entityform'])) {
-    drupal_set_message('No valid results to process, aborting.');
-    return;
+    drupal_set_message('No valid results to process, stopping.');
+    return 0;
   }
 
   foreach ($result['entityform'] as $entity_id => $item) {
@@ -51,8 +52,6 @@ function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $lengt
 
     if (!isset($entity->field_status)) continue;
     if ($wrapper->field_status->value()) continue;
-
-    drupal_set_message('Processing entityform ID '. $entity->entityform_id);
 
     $draft = (bool) $wrapper->draft->value();
     $validated = (bool) $wrapper->field_cuestionario_validado->value();
@@ -67,8 +66,10 @@ function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $lengt
     }
     $wrapper->save();
   }
-  drupal_set_message('Processed ' . count($result['entityform']) . ' entityforms.');
-
+  $total = count($result['entityform']);
+  $timer = microtime(true) - $timer;
+  drupal_set_message('Processed ' . $total . ' entityforms. It took ' . $timer . ' seconds.');
+  return $total;
 }
 
 function siasar_editorial_flow_get_statuses() {
