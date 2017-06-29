@@ -50,10 +50,11 @@ function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $lengt
   foreach ($result['entityform'] as $entity_id => $item) {
     $entity = entity_load_single('entityform', $entity_id);
 
-    if (!empty($entity->field_status) && $entity->field_status[LANGUAGE_NONE][0]['value'] != 1) continue;
+    if (!empty($entity->field_status) && $entity->field_status[LANGUAGE_NONE][0]['value'] > 1) continue;
 
     $draft = (bool) $entity->draft;
     $validated = (bool) $entity->field_cuestionario_validado[LANGUAGE_NONE][0]['value'];
+    $transition->old_sid = 1;
 
     if ($validated) {
       $transition->new_sid = $statuses['STATUS_VALIDATED'];
@@ -85,7 +86,7 @@ function siasar_drush_workflow_prepare_transition_object() {
     'wid' => $workflow->wid,
     'entity_type' => 'entityform',
     'field_name' => 'field_status',
-    'old_sid' => 1,
+    'force' => true,
   );
   $transition = new WorkflowTransition($values);
 
