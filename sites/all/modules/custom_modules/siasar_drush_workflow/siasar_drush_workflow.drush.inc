@@ -27,7 +27,6 @@ function siasar_drush_workflow_drush_command() {
 function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $length = null) {
   $timer = microtime(true);
   $statuses = siasar_drush_flow_get_statuses();
-  $transition = siasar_drush_workflow_prepare_transition_object();
 
   $bundles = ($form_type !== 'all')
     ? array($form_type)
@@ -49,11 +48,13 @@ function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $lengt
 
   foreach ($result['entityform'] as $entity_id => $item) {
     $entity = entity_load_single('entityform', $entity_id);
+    $transition = siasar_drush_workflow_prepare_transition_object();
 
-    if (!empty($entity->field_status) && $entity->field_status[LANGUAGE_NONE][0]['value'] != 1) continue;
+    if (!empty($entity->field_status) && $entity->field_status[LANGUAGE_NONE][0]['value'] > 1) continue;
 
     $draft = (bool) $entity->draft;
     $validated = (bool) $entity->field_cuestionario_validado[LANGUAGE_NONE][0]['value'];
+    $transition->old_sid = 1;
 
     if ($validated) {
       $transition->new_sid = $statuses['STATUS_VALIDATED'];
@@ -62,8 +63,10 @@ function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $lengt
     } elseif (!$validated && $draft) {
       $transition->new_sid = $statuses['STATUS_DRAFT'];
     }
+    $transition->sid = $transition->new_sid;
     $transition->entity_id = $entity_id;
-    $transition->execute(true);
+
+    $output_sid = workflow_execute_transition('entityform', $entity, $transition->field_name, $transition, true);
   }
   $total = count($result['entityform']);
   $timer = microtime(true) - $timer;
@@ -85,7 +88,8 @@ function siasar_drush_workflow_prepare_transition_object() {
     'wid' => $workflow->wid,
     'entity_type' => 'entityform',
     'field_name' => 'field_status',
-    'old_sid' => 1,
+    'force' => true,
+    'uid' => 1,
   );
   $transition = new WorkflowTransition($values);
 
