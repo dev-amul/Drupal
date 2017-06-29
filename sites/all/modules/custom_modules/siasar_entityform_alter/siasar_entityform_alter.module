@@ -16,18 +16,10 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   if (!in_array($form_id_clean, $possible_entityforms)) return;
 
   $module_path = drupal_get_path('module', 'siasar_entityform_alter');
-  $form['#attached']['js'][] = $module_path . '/js/siasar_entityform_alter.validate_button.js';
   $form['#attached']['js'][] = $module_path . '/js/siasar_entityform_alter.print_edit.js';
-
-  $form_wrapper = entity_metadata_wrapper('entityform', $form_state['entityform']);
-  if (isset($form['field_cuestionario_validado'])) {
-    $form['field_cuestionario_validado']['#access'] = (user_access('validate entityforms') && !$form_wrapper->draft->value());
-  }
 
   _siasar_entityform_alter_set_default_country_from_user($form);
   _siasar_entityform_alter_set_default_location_from_user($form);
-  _siasar_entityform_alter_hide_validate_if_new($form, $form_state);
-  _siasar_entityform_alter_build_validate_button($form, $form_state);
   _siasar_entityform_alter_process_country_field($form);
   _siasar_entityform_alter_revisions($form, $form_state, $form_id);
 }
@@ -80,56 +72,6 @@ function _siasar_entityform_alter_set_default_location_from_user(&$form) {
       $form['field_entidad_local'][LANGUAGE_NONE][0]['#default_value'] = $user_entidad_local;
     }
   }
-}
-
-/**
- * Helper function to hide Validate field if form is new.
- */
-function _siasar_entityform_alter_hide_validate_if_new(&$form, $form_state) {
-  if (empty($form_state['entityform']->entityform_id) && isset($form['field_cuestionario_validado'])) {
-    $form['field_cuestionario_validado']['#access'] = false;
-  }
-}
-
-/**
- * Helper function to build validate HTML button to replace the checkbox if:
- * a) form is NOT new. AND...
- * b) field 'field_cuestionario_validado' is set.
- */
-function _siasar_entityform_alter_build_validate_button(&$form, $form_state) {
-  if (empty($form_state['entityform']->entityform_id) || !isset($form['field_cuestionario_validado'])) return;
-
-  $entityform = $form_state['entityform'];
-
-  // Not all entityforms have this field, while entityforms form have them because of the form alter
-  if (!isset($entityform->field_cuestionario_validado)) return;
-
-  $actions_container = &$form['actions'];
-  $form_wrapper = entity_metadata_wrapper('entityform', $entityform);
-  $is_validated = $form_wrapper->field_cuestionario_validado->value();
-
-  if(is_object($form_wrapper->draft) && (bool)$form_wrapper->draft->value()) return;
-
-  if ($is_validated) {
-    $status = 'validated';
-    $label = 'Legacy: ' . t('Validated');
-  } else {
-    $status = 'not-validated';
-    $label = 'Legacy: ' . t('Validate');
-  }
-
-  $validate_button = array(
-    '#type' => 'button',
-    '#value' => $label,
-    '#attributes' => array(
-      'status' => $status,
-    ),
-    '#button_type' => 'validate',
-    '#name' => 'validate_button',
-    '#weight' => -1,
-  );
-
-  $actions_container['validate'] = $validate_button;
 }
 
 /**
