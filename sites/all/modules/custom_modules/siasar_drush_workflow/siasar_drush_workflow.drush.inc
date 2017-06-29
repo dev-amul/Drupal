@@ -26,7 +26,8 @@ function siasar_drush_workflow_drush_command() {
 
 function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $length = null) {
   $timer = microtime(true);
-  $statuses = siasar_editorial_flow_get_statuses();
+  $statuses = siasar_drush_flow_get_statuses();
+  $transition = siasar_drush_workflow_prepare_transition_object();
 
   $bundles = ($form_type !== 'all')
     ? array($form_type)
@@ -48,23 +49,21 @@ function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $lengt
 
   foreach ($result['entityform'] as $entity_id => $item) {
     $entity = entity_load_single('entityform', $entity_id);
-    $wrapper = entity_metadata_wrapper('entityform', $entity);
 
-    if (!isset($entity->field_status)) continue;
-    if ($wrapper->field_status->value()) continue;
+    if (!empty($entity->field_status) && $entity->field_status[LANGUAGE_NONE][0]['value'] != 1) continue;
 
-    $draft = (bool) $wrapper->draft->value();
-    $validated = (bool) $wrapper->field_cuestionario_validado->value();
+    $draft = (bool) $entity->draft;
+    $validated = (bool) $entity->field_cuestionario_validado[LANGUAGE_NONE][0]['value'];
 
     if ($validated) {
-      $wrapper->field_status->set($statuses['STATUS_VALIDATED']);
-      $wrapper->draft->set('0');
+      $transition->new_sid = $statuses['STATUS_VALIDATED'];
     } elseif (!$validated && !$draft) {
-      $wrapper->field_status->set($statuses['STATUS_FINISHED']);
+      $transition->new_sid = $statuses['STATUS_FINISHED'];
     } elseif (!$validated && $draft) {
-      $wrapper->field_status->set($statuses['STATUS_DRAFT']);
+      $transition->new_sid = $statuses['STATUS_DRAFT'];
     }
-    $wrapper->save();
+    $transition->entity_id = $entity_id;
+    $transition->execute(true);
   }
   $total = count($result['entityform']);
   $timer = microtime(true) - $timer;
@@ -72,10 +71,23 @@ function drush_siasar_update_to_workflow($form_type = 'all', $offset = 0, $lengt
   return $total;
 }
 
-function siasar_editorial_flow_get_statuses() {
+function siasar_drush_flow_get_statuses() {
   return array(
     'STATUS_DRAFT' => 2,
     'STATUS_FINISHED' => 3,
     'STATUS_VALIDATED' => 4,
   );
+}
+
+function siasar_drush_workflow_prepare_transition_object() {
+  $workflow = workflow_load_by_name('entityforms');
+  $values = array(
+    'wid' => $workflow->wid,
+    'entity_type' => 'entityform',
+    'field_name' => 'field_status',
+    'old_sid' => 1,
+  );
+  $transition = new WorkflowTransition($values);
+
+  return $transition;
 }
