@@ -240,4 +240,5 @@ features_exclude[field_group][group_b3_grid_2_1|entityform|comunidad|form] = gro
 features_exclude[field_group][group_b3_grid_2_2|entityform|comunidad|form] = group_b3_grid_2_2|entityform|comunidad|form
 features_exclude[field_group][group_b3_grid_2|entityform|comunidad|form] = group_b3_grid_2|entityform|comunidad|form
 features_exclude[field_group][group_b4_grid|entityform|comunidad|form] = group_b4_grid|entityform|comunidad|form
+features_exclude[dependencies][feature_siasar_testing_form_workflow] = feature_siasar_testing_form_workflow
 project path = sites/all/modules/custom_modules

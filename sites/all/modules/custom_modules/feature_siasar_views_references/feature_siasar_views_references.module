@@ -5,13 +5,3 @@
  */
 
 include_once 'feature_siasar_views_references.features.inc';
-
-/**
- * Implements hook_views_pre_render(&$view)
- */
-function feature_siasar_views_references_views_pre_render(&$view) {
-  if ($view->name == 'tipos_de_moneda' && $view->current_display == 'entityreference_1') {
-    $result = $view->result;
-    $result = $view->result;
-  }
-}

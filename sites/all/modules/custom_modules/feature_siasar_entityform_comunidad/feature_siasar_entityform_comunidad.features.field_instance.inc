@@ -5302,7 +5302,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_viv_con_sistema-field_prestador_servicio'.
   $field_instances['field_collection_item-field_com_viv_con_sistema-field_prestador_servicio'] = array(
     'bundle' => 'field_com_viv_con_sistema',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5334,7 +5334,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'options',
       'settings' => array(
         'match_operator' => 'CONTAINS',
         'path' => '',
@@ -5344,7 +5344,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'references_dialog_search_view' => '',
         'size' => 60,
       ),
-      'type' => 'entityreference_autocomplete',
+      'type' => 'options_select',
       'weight' => 2,
     ),
   );
@@ -5353,7 +5353,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_viv_con_sistema-field_system_ref'.
   $field_instances['field_collection_item-field_com_viv_con_sistema-field_system_ref'] = array(
     'bundle' => 'field_com_viv_con_sistema',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5385,7 +5385,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'options',
       'settings' => array(
         'match_operator' => 'CONTAINS',
         'path' => '',
@@ -5395,7 +5395,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'references_dialog_search_view' => '',
         'size' => 60,
       ),
-      'type' => 'entityreference_autocomplete',
+      'type' => 'options_select',
       'weight' => 1,
     ),
   );
