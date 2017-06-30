@@ -422,10 +422,23 @@ function siasar_updates_update_7125(&$sandbox) {
 }
 
 /**
+ * Issue 522. Traducción. Campos visibles en algunos idiomas y en otros no.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/522
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7126(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.normalize_detranslated_fields');
+  $count = siasar_updates_normalize_field_language('field_com_viv_con_sistema', 'field_collection_item');
+
+  return ($count . ' elements normalized');
+}
+
+/**
  * Issue 481 - Instalar el módulo Workflow y crear un flujo editorial de tres pasos para el Formulario de Pruebas
  * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/481
  */
-function siasar_updates_update_7126(&$sandbox) {
+function siasar_updates_update_7127(&$sandbox) {
   $modules = array(
     'workflow',
     'workflow_admin_ui',
@@ -443,7 +456,7 @@ function siasar_updates_update_7126(&$sandbox) {
  * Issue 483 - Crear un endpoint capaz de informar a la API de cuántas versiones de un formulario tenemos guardadas
  * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/483
  */
-function siasar_updates_update_7127(&$sandbox) {
+function siasar_updates_update_7128(&$sandbox) {
   $modules = array(
     'services_entity_revisions'
   );
@@ -459,7 +472,7 @@ function siasar_updates_update_7127(&$sandbox) {
  *
  * @throws \DrupalUpdateException
  */
-function siasar_updates_update_7128(&$sandbox) {
+function siasar_updates_update_7129(&$sandbox) {
   $modules = array(
     'entityform_revisions',
   );
@@ -472,7 +485,7 @@ function siasar_updates_update_7128(&$sandbox) {
 /**
  * Issue 492: Assign entityform_revisions permissions to users.
  */
-function siasar_updates_update_7129(&$sandbox) {
+function siasar_updates_update_7130(&$sandbox) {
 
   $permissions = array(
     'view entityform revisions',
@@ -490,7 +503,7 @@ function siasar_updates_update_7129(&$sandbox) {
 /**
  * Issue 484: Add VBO.
  */
-function siasar_updates_update_7130(&$sandbox) {
+function siasar_updates_update_7131(&$sandbox) {
   $modules = array(
     'views_bulk_operations',
     'actions_permissions',
@@ -504,7 +517,7 @@ function siasar_updates_update_7130(&$sandbox) {
 /**
  * Issue 484: Add correct permissions to VBO.
  */
-function siasar_updates_update_7131(&$sandbox) {
+function siasar_updates_update_7132(&$sandbox) {
   $validate_roles = array(
     'Validator',
     'Administrador Local',
@@ -548,14 +561,14 @@ function siasar_updates_update_7131(&$sandbox) {
 /**
  * Adds VBO to results page
  */
-function siasar_updates_update_7132(&$sandbox) {
+function siasar_updates_update_7133(&$sandbox) {
   features_revert_module('feature_siasar_views_reports');
 }
 
 /**
  * Issue 486: Migrate survey status (draft/finished/validated) to a new system, powered by Workflow module, using Drush.
  */
-function siasar_updates_update_7133(&$sandbox) {
+function siasar_updates_update_7134(&$sandbox) {
   $modules = array(
     'siasar_drush_workflow',
   );
@@ -572,7 +585,7 @@ function siasar_updates_update_7133(&$sandbox) {
  *
  * @throws \DrupalUpdateException
  */
-function siasar_updates_update_7134(&$sandbox) {
+function siasar_updates_update_7135(&$sandbox) {
   $modules = array(
     'feature_siasar_entityform_drafts',
   );
@@ -580,19 +593,6 @@ function siasar_updates_update_7134(&$sandbox) {
   if (!$modules_enabled) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
-}
-
-/**
- * Issue 522. Traducción. Campos visibles en algunos idiomas y en otros no.
- * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/522
- *
- * @param $sandbox
- */
-function siasar_updates_update_7135(&$sandbox) {
-  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.normalize_detranslated_fields');
-  $count = siasar_updates_normalize_field_language('field_com_viv_con_sistema', 'field_collection_item');
-
-  return ($count . ' elements normalized');
 }
 
 /**
