@@ -22,6 +22,30 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   _siasar_entityform_alter_set_default_location_from_user($form);
   _siasar_entityform_alter_process_country_field($form);
   _siasar_entityform_alter_revisions($form, $form_state, $form_id);
+  _siasar_entityform_alter_redirect($form, $form_state, $form_id);
+}
+
+/**
+ * Appends a submit callback to modify the redirection of the form submission
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _siasar_entityform_alter_redirect(&$form, &$form_state) {
+  if (isset($form['actions']['submit'])) {
+    $form['actions']['submit']['#submit'][]= 'siasar_entityform_alter_form_submit';
+  }
+  if (isset($form['actions']['save'])) {
+    $form['actions']['save']['#submit'][] = 'siasar_entityform_alter_form_submit';
+  }
+}
+
+/**
+ * It changes the redirection of a form submission so it goes to the resultados
+ * page
+ */
+function siasar_entityform_alter_form_submit(&$form, &$form_state) {
+  $form_state['redirect'] = "/resultados";
 }
 
 /**
