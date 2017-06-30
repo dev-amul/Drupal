@@ -1,0 +1,7 @@
+name = Entityform to revision
+description = Converts an entityform submission to an entityform revision
+version = 7.x-1.0
+core = 7.x
+dependencies[] = entityform_revisions
+dependencies[] = replicate
+dependencies[] = replicate_entityform

@@ -1,0 +1,9 @@
+name = Entityform revisions
+description = Makes entity form submissions revisionable
+core = 7.x
+package = Entityforms
+
+dependencies[] = entityform
+
+files[] = EntityformRevisionsController.inc
+files[] = EntityformRevisionsUIController.inc

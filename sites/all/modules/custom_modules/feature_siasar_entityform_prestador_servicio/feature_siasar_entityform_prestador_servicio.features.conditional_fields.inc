@@ -526,6 +526,134 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
     'entity' => 'entityform',
     'bundle' => 'prestador_de_servicio',
     'dependent' => 'field_facturacion_promedio',
+    'dependee' => 'field_tiene_definido_tipo_tarifa',
+    'options' => array(
+      'state' => '!visible',
+      'condition' => 'value',
+      'grouping' => 'AND',
+      'effect' => 'show',
+      'effect_options' => array(),
+      'element_view' => array(
+        1 => 1,
+        2 => 2,
+        5 => 0,
+        3 => 0,
+        4 => 0,
+      ),
+      'element_view_per_role' => 0,
+      'element_view_roles' => array(
+        1 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+      ),
+      'element_edit' => array(
+        1 => 1,
+        3 => 0,
+      ),
+      'element_edit_per_role' => 0,
+      'element_edit_roles' => array(
+        1 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          3 => 0,
+        ),
+      ),
+      'selector' => '',
+      'values_set' => 1,
+      'value_form' => 0,
+      'value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'values' => array(),
+    ),
+  );
+
+  $items["entityform:prestador_de_servicio:5"] = array(
+    'entity' => 'entityform',
+    'bundle' => 'prestador_de_servicio',
+    'dependent' => 'field_facturacion_promedio',
     'dependee' => 'field_mecanismo_pago_tarifa',
     'options' => array(
       'state' => 'visible',
@@ -650,134 +778,6 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       'value' => array(
         0 => array(
           'tid' => 32021,
-        ),
-      ),
-      'values' => array(),
-    ),
-  );
-
-  $items["entityform:prestador_de_servicio:5"] = array(
-    'entity' => 'entityform',
-    'bundle' => 'prestador_de_servicio',
-    'dependent' => 'field_facturacion_promedio',
-    'dependee' => 'field_tiene_definido_tipo_tarifa',
-    'options' => array(
-      'state' => '!visible',
-      'condition' => 'value',
-      'grouping' => 'AND',
-      'effect' => 'show',
-      'effect_options' => array(),
-      'element_view' => array(
-        1 => 1,
-        2 => 2,
-        5 => 0,
-        3 => 0,
-        4 => 0,
-      ),
-      'element_view_per_role' => 0,
-      'element_view_roles' => array(
-        1 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        2 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        7 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        8 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        5 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        9 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        6 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        10 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-      ),
-      'element_edit' => array(
-        1 => 1,
-        3 => 0,
-      ),
-      'element_edit_per_role' => 0,
-      'element_edit_roles' => array(
-        1 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        2 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        7 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        8 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        5 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        9 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        6 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        10 => array(
-          1 => 1,
-          3 => 0,
-        ),
-      ),
-      'selector' => '',
-      'values_set' => 1,
-      'value_form' => 0,
-      'value' => array(
-        0 => array(
-          'value' => 0,
         ),
       ),
       'values' => array(),
@@ -1044,6 +1044,134 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
     'entity' => 'entityform',
     'bundle' => 'prestador_de_servicio',
     'dependent' => 'field_ingresos_reales',
+    'dependee' => 'field_tiene_definido_tipo_tarifa',
+    'options' => array(
+      'state' => '!visible',
+      'condition' => 'value',
+      'grouping' => 'AND',
+      'effect' => 'show',
+      'effect_options' => array(),
+      'element_view' => array(
+        1 => 1,
+        2 => 2,
+        5 => 0,
+        3 => 0,
+        4 => 0,
+      ),
+      'element_view_per_role' => 0,
+      'element_view_roles' => array(
+        1 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+      ),
+      'element_edit' => array(
+        1 => 1,
+        3 => 0,
+      ),
+      'element_edit_per_role' => 0,
+      'element_edit_roles' => array(
+        1 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          3 => 0,
+        ),
+      ),
+      'selector' => '',
+      'values_set' => 1,
+      'value_form' => 0,
+      'value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'values' => array(),
+    ),
+  );
+
+  $items["entityform:prestador_de_servicio:9"] = array(
+    'entity' => 'entityform',
+    'bundle' => 'prestador_de_servicio',
+    'dependent' => 'field_ingresos_reales',
     'dependee' => 'field_mecanismo_pago_tarifa',
     'options' => array(
       'state' => 'visible',
@@ -1174,263 +1302,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
     ),
   );
 
-  $items["entityform:prestador_de_servicio:9"] = array(
-    'entity' => 'entityform',
-    'bundle' => 'prestador_de_servicio',
-    'dependent' => 'field_ingresos_reales',
-    'dependee' => 'field_tiene_definido_tipo_tarifa',
-    'options' => array(
-      'state' => '!visible',
-      'condition' => 'value',
-      'grouping' => 'AND',
-      'effect' => 'show',
-      'effect_options' => array(),
-      'element_view' => array(
-        1 => 1,
-        2 => 2,
-        5 => 0,
-        3 => 0,
-        4 => 0,
-      ),
-      'element_view_per_role' => 0,
-      'element_view_roles' => array(
-        1 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        2 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        7 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        8 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        5 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        9 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        6 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        10 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-      ),
-      'element_edit' => array(
-        1 => 1,
-        3 => 0,
-      ),
-      'element_edit_per_role' => 0,
-      'element_edit_roles' => array(
-        1 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        2 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        7 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        8 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        5 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        9 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        6 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        10 => array(
-          1 => 1,
-          3 => 0,
-        ),
-      ),
-      'selector' => '',
-      'values_set' => 1,
-      'value_form' => 0,
-      'value' => array(
-        0 => array(
-          'value' => 0,
-        ),
-      ),
-      'values' => array(),
-    ),
-  );
-
   $items["entityform:prestador_de_servicio:10"] = array(
-    'entity' => 'entityform',
-    'bundle' => 'prestador_de_servicio',
-    'dependent' => 'field_mantenimiento_sistema',
-    'dependee' => 'field_balance_contable',
-    'options' => array(
-      'state' => 'visible',
-      'condition' => 'value',
-      'grouping' => 'AND',
-      'effect' => 'show',
-      'effect_options' => array(),
-      'element_view' => array(
-        1 => 1,
-        2 => 2,
-        5 => 0,
-        3 => 0,
-        4 => 0,
-      ),
-      'element_view_per_role' => 0,
-      'element_view_roles' => array(
-        1 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        2 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        7 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        8 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        5 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        9 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        6 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        10 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-      ),
-      'element_edit' => array(
-        1 => 1,
-        3 => 0,
-      ),
-      'element_edit_per_role' => 0,
-      'element_edit_roles' => array(
-        1 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        2 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        7 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        8 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        5 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        9 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        6 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        10 => array(
-          1 => 1,
-          3 => 0,
-        ),
-      ),
-      'selector' => '',
-      'values_set' => 1,
-      'value_form' => 0,
-      'value' => array(
-        0 => array(
-          'value' => 0,
-        ),
-      ),
-      'values' => array(),
-    ),
-  );
-
-  $items["entityform:prestador_de_servicio:11"] = array(
     'entity' => 'entityform',
     'bundle' => 'prestador_de_servicio',
     'dependent' => 'field_mantenimiento_sistema',
@@ -1567,6 +1439,134 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
         ),
         3 => array(
           'tid' => 32025,
+        ),
+      ),
+      'values' => array(),
+    ),
+  );
+
+  $items["entityform:prestador_de_servicio:11"] = array(
+    'entity' => 'entityform',
+    'bundle' => 'prestador_de_servicio',
+    'dependent' => 'field_mantenimiento_sistema',
+    'dependee' => 'field_balance_contable',
+    'options' => array(
+      'state' => 'visible',
+      'condition' => 'value',
+      'grouping' => 'AND',
+      'effect' => 'show',
+      'effect_options' => array(),
+      'element_view' => array(
+        1 => 1,
+        2 => 2,
+        5 => 0,
+        3 => 0,
+        4 => 0,
+      ),
+      'element_view_per_role' => 0,
+      'element_view_roles' => array(
+        1 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+      ),
+      'element_edit' => array(
+        1 => 1,
+        3 => 0,
+      ),
+      'element_edit_per_role' => 0,
+      'element_edit_roles' => array(
+        1 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          3 => 0,
+        ),
+      ),
+      'selector' => '',
+      'values_set' => 1,
+      'value_form' => 0,
+      'value' => array(
+        0 => array(
+          'value' => 0,
         ),
       ),
       'values' => array(),
@@ -5559,6 +5559,134 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
     'entity' => 'entityform',
     'bundle' => 'prestador_de_servicio',
     'dependent' => 'field_usuarios_deberian_pagan',
+    'dependee' => 'field_tiene_definido_tipo_tarifa',
+    'options' => array(
+      'state' => '!visible',
+      'condition' => 'value',
+      'grouping' => 'AND',
+      'effect' => 'show',
+      'effect_options' => array(),
+      'element_view' => array(
+        1 => 1,
+        2 => 2,
+        5 => 0,
+        3 => 0,
+        4 => 0,
+      ),
+      'element_view_per_role' => 0,
+      'element_view_roles' => array(
+        1 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+      ),
+      'element_edit' => array(
+        1 => 1,
+        3 => 0,
+      ),
+      'element_edit_per_role' => 0,
+      'element_edit_roles' => array(
+        1 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          3 => 0,
+        ),
+      ),
+      'selector' => '',
+      'values_set' => 1,
+      'value_form' => 0,
+      'value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'values' => array(),
+    ),
+  );
+
+  $items["entityform:prestador_de_servicio:46"] = array(
+    'entity' => 'entityform',
+    'bundle' => 'prestador_de_servicio',
+    'dependent' => 'field_usuarios_deberian_pagan',
     'dependee' => 'field_mecanismo_pago_tarifa',
     'options' => array(
       'state' => 'visible',
@@ -5683,134 +5811,6 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       'value' => array(
         0 => array(
           'tid' => 32021,
-        ),
-      ),
-      'values' => array(),
-    ),
-  );
-
-  $items["entityform:prestador_de_servicio:46"] = array(
-    'entity' => 'entityform',
-    'bundle' => 'prestador_de_servicio',
-    'dependent' => 'field_usuarios_deberian_pagan',
-    'dependee' => 'field_tiene_definido_tipo_tarifa',
-    'options' => array(
-      'state' => '!visible',
-      'condition' => 'value',
-      'grouping' => 'AND',
-      'effect' => 'show',
-      'effect_options' => array(),
-      'element_view' => array(
-        1 => 1,
-        2 => 2,
-        5 => 0,
-        3 => 0,
-        4 => 0,
-      ),
-      'element_view_per_role' => 0,
-      'element_view_roles' => array(
-        1 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        2 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        7 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        8 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        5 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        9 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        6 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-        10 => array(
-          1 => 1,
-          2 => 2,
-          5 => 0,
-          3 => 0,
-          4 => 0,
-        ),
-      ),
-      'element_edit' => array(
-        1 => 1,
-        3 => 0,
-      ),
-      'element_edit_per_role' => 0,
-      'element_edit_roles' => array(
-        1 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        2 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        7 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        8 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        5 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        9 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        6 => array(
-          1 => 1,
-          3 => 0,
-        ),
-        10 => array(
-          1 => 1,
-          3 => 0,
-        ),
-      ),
-      'selector' => '',
-      'values_set' => 1,
-      'value_form' => 0,
-      'value' => array(
-        0 => array(
-          'value' => 0,
         ),
       ),
       'values' => array(),

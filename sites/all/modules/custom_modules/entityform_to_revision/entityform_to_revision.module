@@ -1,0 +1,374 @@
+<?php
+
+/**
+ * @file Converts an entityform submission to an entityform revision
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function entityform_to_revision_permission() {
+  return array(
+    'entityform to revision' => array(
+      'title' => t('Convert entityform to revision'),
+      'description' => t('Converts an entityform submission to an entityform revision.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function entityform_to_revision_menu() {
+  $items['entityform/%entityform/make_revision'] = array(
+    'title' => 'Convert to revision',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('entityform_to_revision_form', 1),
+    'access callback' => 'entityform_to_revision_access',
+    'access arguments' => array(0, 1),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 3,
+  );
+
+  $items['entityform/%entityform/make_revision/%entityform/confirm'] = array(
+    'title' => 'Convert to revision',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('entityform_to_revision_confirm_form', 1, 3),
+    'access callback' => 'entityform_to_revision_access',
+    'access arguments' => array(0, 1, 3),
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function entityform_to_revision_theme($existing, $type, $theme, $path) {
+  return array(
+    'entityforms_target_table' => array(
+      // The renderable element.
+      'render element' => 'element',
+    ),
+  );
+}
+
+/**
+ * Access control for accessing convert to revision.
+ */
+function entityform_to_revision_access($type, $entity1, $entity2 = NULL) {
+  $entities = array($entity1);
+
+  if ($entity2 !== NULL) {
+    $entities []= $entity2;
+  }
+
+  $access = FALSE;
+
+  foreach ($entities as $etid) {
+    if (is_object($etid)) {
+      $info = entity_get_info($type);
+      // ensure we had a valid entity type or bail early
+      if (!isset($info['entity keys']) || !isset($info['entity keys']['id'])) {
+        return FALSE;
+      }
+      $etid = $etid->{$info['entity keys']['id']};
+    }
+    $access = FALSE;
+    // make sure they can create this item and access replicate
+    $entity = entity_load_single($type, $etid);
+    // ensure this exists, they have access to see and create the type and access the ui
+    if (!empty($entity) && entity_access('view', $type, $entity) && entity_access('create', $type, $entity) && user_access('entityform to revision')) {
+      $access = TRUE;
+    }
+    if (!$access) {
+      return $access;
+    }
+  }
+
+  return $access;
+}
+
+/**
+ * Entityform to revision main form
+ */
+function entityform_to_revision_form($form, &$form_state, $entityform) {
+  // write id / type into form to pass to the submit handler
+  $form['entity_id'] = array(
+    '#type' => 'value',
+    '#value' => $entityform->entityform_id,
+  );
+
+  $query = new EntityFieldQuery();
+  $query
+    ->entityCondition('entity_type', 'entityform')
+    ->entityCondition('bundle', $entityform->bundle())
+    ->propertyCondition('entityform_id', $entityform->entityform_id, '!=')
+  ;
+
+  drupal_alter('entityform_to_revision_query_target_entities', $query, $entityform);
+
+  $result = $query->execute();
+
+  if (isset($result['entityform'])) {
+    $prepare_options = function($entityform) {
+      return array(
+        'entityform_id' => $entityform->entityform_id,
+        'entityform' => $entityform
+      );
+    };
+
+    $entityforms_ids = array_keys($result['entityform']);
+    $entityforms = entity_load('entityform', $entityforms_ids);
+    $options = array_map($prepare_options, $entityforms);
+
+    $form['main_entity'] = array(
+      '#type' => 'tableselect',
+      '#multiple' => FALSE,
+      '#header' => array(
+        'entityform_id' => t('ID'),
+      ),
+      '#options' => $options,
+      '#entities' => $entityforms,
+      '#theme' => 'entityforms_target_table',
+      '#empty' => t('No entityforms available for converting to revision.')
+    );
+
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+    );
+
+  } else {
+    $form['empty'] = array(
+      '#markup' => t('No entityforms available for converting to revision.'),
+    );
+  }
+
+  return $form;
+}
+
+/**
+ * Implements theme_entityforms_target_table().
+ *
+ * We do this so any custom module could hook_preprocess_entityforms_target_table()
+ * specifically for this case, and therefor they don't need to hook on tableselect()
+ * and somehow determine if the origin was the entityform_to_revision module.
+ *
+ * @param $variables
+ *
+ * @return string
+ */
+function theme_entityforms_target_table(&$variables) {
+  return theme_tableselect($variables);
+}
+
+/**
+ * Validates if the entityform can be converted to a new entityform revision
+ *
+ * @param $form
+ * @param $form_state
+ */
+function entityform_to_revision_form_validate($form, &$form_state) {
+  $entity_type = 'entityform';
+  $entity_id = $form_state['values']['entity_id'];
+  $main_entity_id = $form_state['values']['main_entity'];
+
+  // load entity for replicate
+  $original_entity = entity_load_single($entity_type, $entity_id);
+  $main_entity = entity_load_single($entity_type, $main_entity_id);
+
+  $valid = entityform_to_revision_validate_conversion($original_entity, $main_entity);
+
+  if (!$valid['is_valid']) {
+    foreach($valid['errors'] as $key => $errors) {
+      if ($key == 'source') {
+        $field = '';
+      } else {
+        $field = 'main_entity';
+      }
+      foreach($errors as $error) {
+        form_set_error($field, $error);
+      }
+    }
+  }
+}
+
+/**
+ * Validates if a entityform can be converted to a revision of another entityform
+ *
+ * @param $entityform_source \Entityform
+ * @param $entityform_target \Entityform
+ *
+ * @return array
+ *  Properties returned:
+ *    - is_valid: TRUE|FALSE
+ *    - errors: associative array of errors. Possible keys: source/target.
+ */
+function entityform_to_revision_validate_conversion($entityform_source, $entityform_target) {
+  $is_valid = TRUE;
+  $errors = array();
+
+  if ($entityform_target->entityform_id == $entityform_source->entityform_id) {
+    $is_valid = FALSE;
+    $errors['target'][] = t('The main entity should be different than the current entity.');
+  }
+
+  if ($entityform_target->bundle() != $entityform_source->bundle()) {
+    $is_valid = FALSE;
+    $errors['target'][] = t('The main entity bundle (@main_bundle) should be the same as the current bundle (@current_bundle).', array('@main_bundle' => $entityform_target->bundle, '@current_bundle' => $entityform_source->bundle()));
+  }
+
+  return array(
+    'is_valid' => $is_valid,
+    'errors' => $errors
+  );
+}
+
+/**
+ * Creates the new entityform revision
+ *
+ * @param $form
+ * @param $form_state
+ */
+function entityform_to_revision_form_submit($form, &$form_state) {
+  $entity_id = $form_state['values']['entity_id'];
+  $main_entity_id = $form_state['values']['main_entity'];
+
+  drupal_goto('entityform/' . $entity_id . '/make_revision/' . $main_entity_id . '/confirm');
+}
+
+/**
+ * Confirm form to warn the user that converting to a revision cannot be undone
+ *
+ * @param $form
+ * @param $form_state
+ * @param $entityform_source
+ * @param $entityform_target
+ *
+ * @return mixed
+ */
+function entityform_to_revision_confirm_form($form, $form_state, $entityform_source, $entityform_target) {
+
+  if (!$entityform_source || !$entityform_target) {
+    return array(
+      '#type' => 'markup',
+      '#markup' => t('Invalid parameters received. Please review them and try again.')
+    );
+  }
+
+  $form['entityform_source'] = array(
+    '#type' => 'value',
+    '#value' => $entityform_source,
+  );
+
+  $form['entityform_target'] = array(
+    '#type' => 'value',
+    '#value' => $entityform_target,
+  );
+
+  $uri = entity_uri('entityform', $entityform_source);
+
+  return confirm_form($form,
+    t('Are you sure you want to convert the entity [%entityform_id] to become a revision of entity [%target_entityform_id]?',
+      array('%entityform_id' => $entityform_source->entityform_id, '%target_entityform_id' => $entityform_target->entityform_id)),
+    $uri['path'],
+    t('This action cannot be undone.'),
+    t('Convert to revision'),
+    t('Cancel')
+  );
+}
+
+/**
+ * Implements hook_form_validate()
+ *
+ * Makes sure the entity can be converted to the target
+ *
+ * @param $form
+ * @param $form_state
+ */
+function entityform_to_revision_confirm_form_validate($form, &$form_state) {
+  $entityform_source = $form_state['values']['entityform_source'];
+  $entityform_target = $form_state['values']['entityform_target'];
+
+  $valid = entityform_to_revision_validate_conversion($entityform_source, $entityform_target);
+
+  if (!$valid['is_valid']) {
+    foreach($valid['errors'] as $key => $errors) {
+      $field = '';
+
+      foreach($errors as $error) {
+        form_set_error($field, $error);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_submit().
+ *
+ * Performs the entityform conversion
+ *
+ * @param $form
+ * @param $form_state
+ */
+function entityform_to_revision_confirm_form_submit($form, &$form_state) {
+  $entity_type = 'entityform';
+
+  $main_entity = $form_state['values']['entityform_target'];
+
+  // load entity for replicate
+  $original_entity = $form_state['values']['entityform_source'];
+  $original_entity->main_entity_id = $main_entity->entityform_id;
+
+  $new_entity_id = replicate_entity($entity_type, $original_entity);
+
+  if ($new_entity_id == $original_entity->main_entity_id) {
+    drupal_set_message(t('%type %bundle (%id) has become a new revision', array('%type' => $entity_type, '%bundle' => $original_entity->bundle, '%id' => $new_entity_id)));
+  }
+
+  $main_entity = entity_load_single($entity_type, $new_entity_id);
+  $entity_uri = entity_uri($entity_type, $main_entity);
+  $path = $entity_uri['path'];
+
+  $form_state['redirect'] = $path;
+}
+
+/**
+ * Create a new revision instead of a clone
+ *
+ * @param object $replica
+ *   Reference to the fully loaded entity object being saved (the clone) that
+ *   can be altered as needed.
+ * @param string $entity_type
+ *   Type of the entity containing the field.
+ * @param object $original
+ *   The fully loaded original entity object.
+ *
+ * @see replicate_clone_entity()
+ * @see drupal_alter()
+ */
+function entityform_to_revision_replicate_entity_alter(&$replica, $entity_type, $original) {
+  if ($entity_type == 'entityform') {
+    // Create as new revision
+    $replica->entityform_id = $original->main_entity_id;
+    $replica->is_new_revision = TRUE;
+    $replica->default_revision = TRUE;
+    $replica->log = t('Created revision from entity: %entityid', array('%entityid' => $original->entityform_id));
+
+    // This should not be considered a new entity
+    unset($replica->is_new);
+  }
+}
+
+/**
+ * Removes the original entity since now it became a revision
+ *
+ * @param $revision \Entityform revision
+ * @param $entity_type
+ * @param $entityform
+ */
+function entityform_to_revision_replicate_entity_after_save($revision, $entity_type, $entityform) {
+  if ($entity_type == 'entityform' && $revision) {
+    entity_delete('entityform', $entityform->entityform_id);
+  }
+}

@@ -1,0 +1,32 @@
+#page .header-menu {
+  height: 0;
+  line-height: 0;
+  width: auto;
+  display: inline-block;
+}
+
+.header-menu a.brand-logo {
+  width: $logo-size;
+  height: $logo-size;
+
+  img {
+    width: $logo-size / 2;
+    height: $logo-size / 2;
+    top: $logo-size / 4;
+    left: $logo-size / 4;
+  }
+}
+
+.region.region-user-nav {
+  display: none;
+}
+
+.row.page.grid {
+  margin: 0;
+
+  > .main {
+    > .tabs {
+      display: none;
+    }
+  }
+}

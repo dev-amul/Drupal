@@ -978,7 +978,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
         'size' => 60,
       ),
       'type' => 'field_extrawidgets_read_only',
-      'weight' => 157,
+      'weight' => 11,
     ),
   );
 
@@ -992,9 +992,11 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'i18n_taxonomy',
-        'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'module' => 'siasar_field_location',
+        'settings' => array(
+          'style' => 'links',
+        ),
+        'type' => 'siasar_field_location_hierarchy',
         'weight' => 7,
       ),
       'entity_reference' => array(
@@ -2618,7 +2620,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'.
   $field_instances['entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3774,7 +3776,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
         'module' => 'countries',
         'settings' => array(),
         'type' => 'country_default',
-        'weight' => 6,
+        'weight' => 3,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -4279,7 +4281,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
         'formatter_settings' => array(),
       ),
       'type' => 'field_extrawidgets_read_only',
-      'weight' => 156,
+      'weight' => 10,
     ),
   );
 
@@ -4750,6 +4752,48 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 127,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-prestador_de_servicio-field_status'.
+  $field_instances['entityform-prestador_de_servicio-field_status'] = array(
+    'bundle' => 'prestador_de_servicio',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_status',
+    'label' => 'Status',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'workflowfield',
+      'settings' => array(
+        'comment' => 1,
+        'fieldset' => 0,
+        'name_as_title' => 1,
+      ),
+      'type' => 'workflow_default',
+      'weight' => 12,
     ),
   );
 
@@ -5858,6 +5902,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Revisión y actualización del plan de contingencia (incendio, desastres naturales)');
   t('Revisión y/o aumento de la protección legal o administrativa del terreno donde se ubica la toma y/o del recurso hídrico');
   t('Revisión y/o sustitución periódica de los componentes pertenecientes a la toma de agua del sistema (antes de rotura o daño)');
+  t('Status');
   t('Suma de gastos reales ');
   t('Suma de gastos teóricos');
   t('Sustitución de componentes pertenecientes a la toma de agua del sistema (una vez dañados)');

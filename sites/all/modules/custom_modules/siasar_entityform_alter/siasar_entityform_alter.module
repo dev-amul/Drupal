@@ -1,5 +1,10 @@
 <?php
 
+define('SIASAR_ENTITYFORM_STATE_CREATED', 1);
+define('SIASAR_ENTITYFORM_STATE_DRAFT', 2);
+define('SIASAR_ENTITYFORM_STATE_FINISHED', 3);
+define('SIASAR_ENTITYFORM_STATE_VALIDATED', 4);
+
 /**
  * Implements hook_form_alter().
  */
@@ -8,48 +13,15 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
   $form_id_clean = str_replace('_entityform_edit_form', '', $form_id);
 
-  if(!in_array($form_id_clean, $possible_entityforms)) return;
+  if (!in_array($form_id_clean, $possible_entityforms)) return;
 
   $module_path = drupal_get_path('module', 'siasar_entityform_alter');
+  $form['#attached']['js'][] = $module_path . '/js/siasar_entityform_alter.print_edit.js';
 
-  drupal_add_js($module_path . '/js/siasar_entityform_alter.validate_button.js');
-  $form_wrapper = entity_metadata_wrapper('entityform', $form_state['entityform']);
-  $form['field_cuestionario_validado']['#access'] =
-  (user_access('validate entityforms') && !$form_wrapper->draft->value());
-
-  _siasar_entityform_alter_set_default_country($form);
-  _siasar_entityform_alter_hide_validate_if_new($form, $form_state);
-  _siasar_entityform_alter_build_validate_button($form, $form_state);
+  _siasar_entityform_alter_set_default_country_from_user($form);
+  _siasar_entityform_alter_set_default_location_from_user($form);
   _siasar_entityform_alter_process_country_field($form);
-
-  _siasar_entityform_alter_handle_drafts($form, $form_state, $form_id);
-}
-
-/**
- * It allows to keep working with entityform drafts by keeping the save btn
- * saving a draft and a submit button to finish it.
- *
- * @param $form
- * @param $form_sate
- * @param $form_id
- *
- * @see entityform_edit_form().
- */
-function _siasar_entityform_alter_handle_drafts(&$form, &$form_sate, $form_id) {
-  if (isset($form['#entity']) && $form['#entity'] instanceof Entityform) {
-    $entityform = $form['#entity'];
-    $save = isset($form['actions']['save']) ? $form['actions']['save'] : FALSE;
-    if ($save && $save['#entityform_draft'] == '0') {
-      $entityform_type = entityform_type_load($entityform->type);
-      if (!isset($form['actions']['submit'])) {
-        $form['actions']['submit'] = $save;
-        $form['actions']['submit']['#value'] = $entityform_type->get_prop('submit_button_text');
-
-        $form['actions']['save']['#entityform_draft'] = '1';
-        $form['actions']['save']['#value'] = $entityform_type->get_prop('draft_button_text');
-      }
-    }
-  }
+  _siasar_entityform_alter_revisions($form, $form_state, $form_id);
 }
 
 /**
@@ -60,67 +32,46 @@ function siasar_entityform_alter_permission() {
     'validate entityforms' => array(
       'title' => t('Validate entityforms'),
       'description' => t('User can validate entityforms and browse results for more info on validated/not validated forms.'),
+    ),
+    'can delete validated entityforms' => array(
+      'title' => t('Deletes validated entityforms'),
+      'description' => t('User can delete validated entityforms.'),
     )
   );
 }
 
-
 /**
  * Helper function to set default country value from user if needed.
  */
-function _siasar_entityform_alter_set_default_country(&$form) {
+function _siasar_entityform_alter_set_default_country_from_user(&$form) {
   global $user;
   $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
+  $entity = $form_item_pais['#entity'];
 
-  if (!isset($form_item_pais['#default_value'][0])) {
+  if ($entity->is_new) {
     $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
-    $form_item_pais['#default_value'][0] = $user_country_iso2;
+
+    if ($user_country_iso2) {
+      $form_item_pais['#default_value'][0] = $user_country_iso2;
+    }
   }
 }
 
 /**
- * Helper function to hide Validate field if form is new.
+ * Helper function to set default location value from user if needed.
  */
-function _siasar_entityform_alter_hide_validate_if_new(&$form, $form_state) {
-  if (empty($form_state['entityform']->entityform_id) && isset($form['field_cuestionario_validado'])) {
-    $form['field_cuestionario_validado']['#access'] = false;
+function _siasar_entityform_alter_set_default_location_from_user(&$form) {
+  global $user;
+  $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
+  $entity = $form_item_pais['#entity'];
+
+  if ($entity->is_new) {
+    $user_entidad_local = user_load($user->uid)->field_entidad_local[LANGUAGE_NONE][0];
+
+    if ($user_entidad_local && isset($form['field_entidad_local'])) {
+      $form['field_entidad_local'][LANGUAGE_NONE][0]['#default_value'] = $user_entidad_local;
+    }
   }
-}
-
-/**
- * Helper function to build validate HTML button to replace the checkbox if:
- * a) form is NOT new. AND...
- * b) field 'field_cuestionario_validado' is set.
- */
-function _siasar_entityform_alter_build_validate_button(&$form, $form_state) {
-  if (empty($form_state['entityform']->entityform_id) || !isset($form['field_cuestionario_validado'])) return;
-
-  $actions_container = &$form['actions'];
-  $form_wrapper = entity_metadata_wrapper('entityform', $form_state['entityform']);
-  $is_validated = $form_wrapper->field_cuestionario_validado->value();
-
-  if(is_object($form_wrapper->draft) && (bool)$form_wrapper->draft->value()) return;
-
-  if ($is_validated) {
-    $status = 'validated';
-    $label = t('Validated');
-  } else {
-    $status = 'not-validated';
-    $label = t('Validate');
-  }
-
-  $validate_button = array(
-    '#type' => 'button',
-    '#value' => $label,
-    '#attributes' => array(
-      'status' => $status,
-    ),
-    '#button_type' => 'validate',
-    '#name' => 'validate_button',
-    '#weight' => -1,
-  );
-
-  $actions_container['validate'] = $validate_button;
 }
 
 /**
@@ -135,7 +86,6 @@ function _siasar_entityform_alter_process_country_field(&$form) {
 
   $field_pais_options = _siasar_entityform_alter_filter_out_countries_from_options($field_pais_options, $members);
 }
-
 
 /**
 * Implements hook_date_select_process_alter().
@@ -155,4 +105,182 @@ function siasar_entityform_alter_date_select_process_alter(&$element, &$form_sta
   $array = $first + $array;
 
   $element['year']['#options'] = $array;
+}
+
+/**
+ * Process the revisions fieldset so it will not be displayed to any user
+ * and it will be handled by the backend
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function _siasar_entityform_alter_revisions(&$form, &$form_state, $form_id) {
+  if (!empty($form['#entity']) && $form['#entity'] instanceof Entityform) {
+    $form['revision_fieldset']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * It handles the transitions of entityforms in order to create revisions when
+ * the form goes from validated to draft
+ */
+function siasar_entityform_alter_entity_presave($entity, $entity_type) {
+
+  $field = 'field_status';
+  $wrapper = entity_metadata_wrapper($entity_type, $entity);
+
+  if ($entity_type == 'entityform' && isset($entity->original) && isset($wrapper->$field)) {
+    $previous_value = $entity->original;
+
+    $previous_sid = workflow_node_current_state($previous_value, $entity_type, $field);
+    $new_sid = workflow_node_current_state($entity, $entity_type, $field);
+
+    if ($previous_sid != $new_sid) {
+      $old_state = workflow_state_load($previous_sid);
+      $new_state = workflow_state_load($new_sid);
+
+      if ($old_state && $new_state && $old_state->getName() == 'validated' && $new_state->getName() == 'draft') {
+        $entity->default_revision = TRUE;
+        $entity->is_new_revision = TRUE;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_action_info().
+ */
+function siasar_entityform_alter_action_info() {
+  module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.vbo');
+  return _siasar_entityform_alter_action_info();
+}
+
+/**
+ * Implements hook_entityform_to_revision_query_target_entities_alter()
+ *
+ * @param \EntityFieldQuery $query
+ * @param \Entityform $entityform
+ */
+function siasar_entityform_alter_entityform_to_revision_query_target_entities_alter(&$query, $entityform) {
+  $wrapper = $entityform->wrapper();
+  $location = $wrapper->field_entidad_local->value();
+  if ($location) {
+    $query->fieldCondition('field_entidad_local', 'tid', $location->tid);
+  }
+
+  $country = $wrapper->field_pais->value();
+  if ($country) {
+    $query->fieldCondition('field_pais', 'iso2', $country->iso2);
+  }
+}
+
+/**
+ * Implements hook_preprocess_entityforms_target_table().
+ *
+ * @param $variables
+ */
+function siasar_entityform_alter_preprocess_entityforms_target_table(&$variables) {
+  $variables['element']['#header'] = array(
+    'name' => t('Name'),
+    'location' => t('Location'),
+    'date' => t('Date'),
+    'digitizer' => t('Digitizer'),
+    'interviewer' => t('Interviewer'),
+    'type' => t('Type'),
+    'operations' => t('Operations'),
+  );
+
+  $variables['element']['#empty'] = t('No questionnaires available for converting to revision.');
+
+  foreach ($variables['element']['#options'] as $key => &$value) {
+    /**
+     * @var \EntityStructureWrapper $entityform
+     */
+    $entityform = $value['entityform']->wrapper();
+    $entidad_local = $entityform->field_entidad_local->value();
+    $pais = $entityform->field_pais->value();
+
+    $digitizer = $entityform->user->value();
+
+    $interviewer_name = '-';
+    if (isset($entityform->field_user_reference)) {
+      $interviewer = $entityform->field_user_reference->value();
+      $interviewer_name = $interviewer->name;
+    }
+
+    $date = '-';
+    if ($entityform->created->value()) {
+      $date = format_date(REQUEST_TIME, 'short', $entityform->created->value());
+    }
+
+    $entity_uri = entity_uri('entityform', $entityform->value());
+
+    $value = array(
+      'name' => $entityform->field_entity_name->value(),
+      'location' => $pais->name . ' ' . $entidad_local->name,
+      'date' => $date,
+      'digitizer' => $digitizer->name,
+      'interviewer' => $interviewer_name,
+      'type' => $entityform->getBundle(),
+      'operations' => l('view', $entity_uri['path']),
+    );
+
+    $variables['element'][$key]['#title'] = '&nbsp;';
+  }
+}
+
+/**
+ * Returns the list of revisions where the entityform was validated. If it happened.
+ *
+ * @param $entityform
+ *
+ * @return array of revisions that were validated
+ */
+function siasar_entityform_validated_revisions($entityform) {
+
+  $query = 'SELECT r.vid, r.log, r.uid, ef.vid AS current_vid, r.changed, u.name 
+FROM {entityform_revision} r 
+  LEFT JOIN {entityform} ef ON ef.vid = r.vid 
+  LEFT JOIN {field_revision_field_status} fs ON r.entityform_id = fs.entity_id AND r.vid = fs.revision_id
+  INNER JOIN {users} u ON u.uid = r.uid 
+WHERE r.entityform_id = :entityform_id AND fs.field_status_value = :status 
+ORDER BY r.vid DESC';
+
+  $revisions = array();
+  $result = db_query($query,
+    array(
+      ':entityform_id' => $entityform->identifier(),
+      ':status' => SIASAR_ENTITYFORM_STATE_VALIDATED
+    )
+  );
+  foreach ($result as $revision) {
+    $revisions[$revision->vid] = $revision;
+  }
+
+  return $revisions;
+}
+
+/**
+ * Implements hook_entityform_access_alter().
+ *
+ * @see entityform_access().
+ */
+function siasar_entityform_alter_entityform_access_alter(&$access, $op, $context) {
+  if ($op === 'delete') {
+    $entityform = $context['entityform'];
+    $user = $context['account'];
+
+    if (user_access('can delete validated entityforms', $user)) {
+      $access = TRUE;
+      return;
+    }
+
+    $revisions = siasar_entityform_validated_revisions($entityform);
+    if (!empty($revisions)) {
+      $access = FALSE;
+    }
+  }
 }

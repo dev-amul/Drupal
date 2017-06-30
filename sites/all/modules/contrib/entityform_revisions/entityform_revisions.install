@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ *
+ * @ingroup schemaapi
+ */
+function entityform_revisions_schema() {
+  $schema['entityform_revision'] = array(
+    'description' => 'Keeps track of entityform revisions.',
+    'fields' => array(
+      'entityform_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Entityform id (entity id).',
+      ),
+      'vid' => array(
+        'description' => 'The current {entityform_revision}.vid version identifier.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'The {users}.uid that created this version.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'log' => array(
+        'description' => 'The log entry explaining the changes in this version.',
+        'type' => 'text',
+        'size' => 'big',
+      ),
+      'changed' => array(
+        'description' => 'The Unix timestamp when the entityform was most recently saved.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('vid'),
+    'indexes' => array(
+      'entityform_id' => array('entityform_id'),
+      'uid' => array('uid'),
+    ),
+    'foreign keys' => array(
+      'versioned_entityform' => array(
+        'table' => 'entityform',
+        'columns' => array('entityform_id' => 'entityform_id'),
+      ),
+      'version_author' => array(
+        'table' => 'users',
+        'columns' => array('uid' => 'uid'),
+      ),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_schema_alter().
+ *
+ * @ingroup schemaapi
+ */
+function entityform_revisions_schema_alter(&$schema) {
+  if (isset($schema['entityform'])) {
+    $schema['entityform']['fields']['vid'] = array(
+      'description' => 'The current {entityform_revision}.vid version identifier.',
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      'default' => 0,
+    );
+  }
+}
+
+/**
+ * Implements hook_install().
+ */
+function entityform_revisions_install() {
+  $entityform_revisions_schema = array(
+    'entityform' => array()
+  );
+
+  entityform_revisions_schema_alter($entityform_revisions_schema);
+
+  foreach($entityform_revisions_schema['entityform']['fields'] as $name => $field) {
+    db_add_field('entityform', $name, $field);
+  }
+
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * It will create a default entityform submission revision for the entities that
+ * have none.
+ */
+function entityform_revisions_enable() {
+  if (drupal_is_cli() && function_exists('drush_main')) {
+    $context = array(
+      'drush' => true,
+    );
+    entityform_revisions_update_revisions($context);
+  } else {
+    $batch = entityform_revisions_update_revisions_batch();
+    batch_set($batch);
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function entityform_revisions_uninstall() {
+  $entityform_revisions_schema = array(
+    'entityform' => array()
+  );
+
+  entityform_revisions_schema_alter($entityform_revisions_schema);
+
+  foreach($entityform_revisions_schema['entityform']['fields'] as $name => $field) {
+    db_drop_field('entityform', $name);
+  }
+}

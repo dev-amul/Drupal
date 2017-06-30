@@ -7,12 +7,14 @@
 @import 'partials/styleguide/_fonts';
 @import 'partials/styleguide/_variables';
 
-//@import 'flexbox';
+@import 'flexbox';
+@import "compass/utilities/general/clearfix";
 @import 'compass/css3/deprecated-support';
 @import 'compass/css3/transform';
 @import 'compass/css3/transition';
 @import 'breakpoint';
 @import 'partials/mixins/_kerning';
+@import 'partials/mixins/_inline-grid';
 @import 'partials/mixins/_animation';
 @import 'partials/mixins/_layout_mixins';
 
@@ -30,4 +32,9 @@
 
 @import 'partials/pages/_entityform';
 @import 'partials/pages/_entityform_form';
+@import 'partials/pages/_entityform_revisions';
 @import 'partials/pages/_entityform_view';
+@import 'partials/pages/_user';
+
+@import 'partials/fields/_field_status';
+@import 'partials/fields/_field_location';

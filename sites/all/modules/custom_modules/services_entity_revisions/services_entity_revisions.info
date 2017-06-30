@@ -1,0 +1,6 @@
+name = Services entity revisions
+description = Provides an endpoint that returns all Revision IDs for an entity, of false if that entity does not support revisions.
+package = services
+version = 7.x-1.0
+core = 7.x
+dependencies[] = "services"

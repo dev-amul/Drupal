@@ -2120,32 +2120,6 @@ function feature_siasar_field_bases_field_group_info() {
   $field_groups['group_com_srv|entityform|comunidad|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_com_uso_compartido|entityform|comunidad|form';
-  $field_group->group_name = 'group_com_uso_compartido';
-  $field_group->entity_type = 'entityform';
-  $field_group->bundle = 'comunidad';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'B4. Saneamiento mejorado. Uso COMPARTIDO de la infraestructura',
-    'weight' => '31',
-    'children' => array(),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-com-uso-compartido field-group-fieldset',
-        'required_fields' => 1,
-        'id' => '',
-      ),
-    ),
-  );
-  $field_groups['group_com_uso_compartido|entityform|comunidad|form'] = $field_group;
-
-  $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_com_uso_inf|entityform|comunidad|form';
@@ -4044,7 +4018,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_groups['group_pat_a3|entityform|prestador_de_asistencia_t_cnica|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_personal_docente|field_collection_item|field_con_fic_ce_ficha|form';
   $field_group->group_name = 'group_personal_docente';
@@ -4102,7 +4076,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_groups['group_personal|entityform|prestador_de_servicio|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_poblacion_estudiantil|field_collection_item|field_con_fic_ce_ficha|form';
   $field_group->group_name = 'group_poblacion_estudiantil';

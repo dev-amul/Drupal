@@ -3,3 +3,14 @@
  * @file
  * Drupal needs this blank file.
  */
+
+function feature_siasar_user_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id !== 'user_profile_form' && $form_id !== 'user_register_form') return;
+
+  module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+
+  $country_options = &$form['field_pais'][LANGUAGE_NONE]['#options'];
+  $members = _siasar_entityform_alter_get_member_countries();
+
+  $country_options = _siasar_entityform_alter_filter_out_countries_from_options($country_options, $members);
+}

@@ -86,10 +86,6 @@
       };
 
       this.buildSelectorLevel = function (tid, level) {
-        if (!this.restrictions.can_change && level > this.restrictions.max_level) {
-          return;
-        }
-
         var html = '<select class="location-tree-selector" data-level="' + level + '"></select>';
         var $newSelector;
 
@@ -251,10 +247,9 @@
 
       this.listenToCountrySelector = function () {
         this.$countrySelector.on('change', function (e) {
-          if (e.target.value.length !== 2) { return; }
-
           this.$locationTreeSelectorWrapper.remove();
           this.initialValue = 0;
+          this.$locationField.val('');
           this.init();
         }.bind(this));
       };

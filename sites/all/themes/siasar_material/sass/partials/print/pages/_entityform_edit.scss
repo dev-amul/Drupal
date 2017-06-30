@@ -1,0 +1,178 @@
+/*
+ * Workaround to extend the pages in a form so all changes from JS can fit-in.
+ *
+ * The problem is that the print preview initially calculates the amount of pages to print based on the CSS.
+ * Since we're doing changes with JS, making the page to be bigger, some content will not be printed.
+ * Then the workaround is to make the browser thing that there's a lot of margin (extra space), and when JS executes
+ * it will add the print-page class to the body, which will take out all the margin.
+ * This is the reason why we need to adjust the additional margin needed in each questionnaire.
+ */
+body.page-eform-submit #page {
+  margin: 100rem 0;
+}
+
+//body.page-entityform-edit,
+body.page-eform-submit-comunidad {
+  #page {
+    margin: 20rem 0;
+  }
+}
+
+//body.page-entityform-edit,
+body.page-eform-submit-prestador-de-asistencia-t-cnica {
+  #page {
+    margin: 20rem 0;
+  }
+}
+
+//body.page-entityform-edit,
+body.page-eform-submit-prestador-de-servicio {
+  #page {
+    margin: 50rem 0;
+  }
+}
+
+body.print-page {
+  #page {
+    margin: 0;
+  }
+}
+// End workaround
+
+body.page-entityform-edit,
+body.page-eform-submit {
+  #l10n-client {
+    display: none;
+  }
+
+  form.entityform {
+
+    .vertical-tabs-panes {
+      padding: 10px;
+
+      fieldset {
+        .field-type-field-collection fieldset.field-group-fieldset > legend {
+          color: #000;
+        }
+
+        .field-group-fieldset {
+          margin: 10px 0 !important;
+        }
+      }
+    }
+
+    label {
+      top: 0!important;
+    }
+
+    select,
+    [type="checkbox"] + label {
+      padding-left: 25px;
+      height: auto;
+    }
+
+    .submitted,
+    .submissions-link,
+    .print-hide,
+    .vertical-tabs-list {
+      display: none;
+    }
+
+    .form-wrapper:not(.print-hide) {
+      display: block!important;
+    }
+
+    .print-checkboxes {
+      @include clearfix;
+      .option {
+        width: 25%;
+        float: left;
+      }
+
+      @include distribute-all-items('.option', 5);
+
+      + select {
+        display: none;
+      }
+    }
+
+    .print-textfield {
+      + input,
+      + select,
+      + textarea {
+        display: none;
+      }
+    }
+
+    .vertical-tabs {
+      margin-left: 0;
+    }
+
+    .vertical-tabs-pane {
+      display: block!important;
+      max-height: initial!important;
+      margin-top: 20px!important;
+
+      > legend {
+        display: block;
+        background-color: $siasar-dark-grey;
+        width: 100%;
+        page-break-inside: avoid;
+      }
+
+      .fieldset-wrapper {
+        @include clearfix;
+
+        fieldset legend {
+          left: 0;
+          background-color: $siasar-dark-grey;
+        }
+      }
+
+      fieldset.field-group-fieldset fieldset.form-wrapper {
+        padding: 0;
+        margin: 20px 0;
+
+        legend {
+          background: none;
+        }
+      }
+
+      .form-wrapper {
+        margin-top: 10px;
+        padding: 0 10px;
+        float: left;
+        width: 100%;
+      }
+
+      .form-type-radio {
+        float: left;
+        width: 33%;
+        page-break-inside: avoid;
+      }
+
+      .field-widget-number,
+      .field-widget-text-textfield,
+      .field-widget-options-buttons,
+      .field-widget-mvf-widget-default {
+        width: 50%;
+        page-break-inside: avoid;
+      }
+
+      @include distribute-all-items('.form-type-radio', 5);
+
+      @include distribute-all-items('.field-widget-number', 3);
+      @include distribute-all-items('.field-widget-text-textfield', 3);
+      @include distribute-all-items('.field-widget-options-buttons', 3);
+      @include distribute-all-items('.field-widget-mvf-widget-default', 3);
+
+      .field-widget-options-select {
+        clear: left;
+      }
+    }
+
+    .form-item.input-field {
+      page-break-inside: avoid;
+    }
+  }
+}

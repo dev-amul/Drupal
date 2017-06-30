@@ -433,3 +433,237 @@ function siasar_updates_update_7126(&$sandbox) {
 
   return ($count . ' elements normalized');
 }
+
+/**
+ * Issue 481 - Instalar el módulo Workflow y crear un flujo editorial de tres pasos para el Formulario de Pruebas
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/481
+ */
+function siasar_updates_update_7127(&$sandbox) {
+  $modules = array(
+    'workflow',
+    'workflow_admin_ui',
+    'workflowfield',
+    'workflow_actions',
+    'feature_siasar_testing_form_workflow'
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Issue 483 - Crear un endpoint capaz de informar a la API de cuántas versiones de un formulario tenemos guardadas
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/483
+ */
+function siasar_updates_update_7128(&$sandbox) {
+  $modules = array(
+    'services_entity_revisions'
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+  features_revert_module('feature_siasar_services');
+}
+
+/**
+ * Issue 492: Enables entityform_revisions module.
+ *
+ * @throws \DrupalUpdateException
+ */
+function siasar_updates_update_7129(&$sandbox) {
+  $modules = array(
+    'entityform_revisions',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Issue 492: Assign entityform_revisions permissions to users.
+ */
+function siasar_updates_update_7130(&$sandbox) {
+
+  $permissions = array(
+    'view entityform revisions',
+    'edit entityform revisions',
+    'delete entityform revisions',
+    'revert entityform revisions',
+  );
+
+  foreach(array('Administrador Local', 'Administrador Regional', 'administrator') as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    user_role_grant_permissions($role->rid, $permissions);
+  }
+}
+
+/**
+ * Issue 484: Add VBO.
+ */
+function siasar_updates_update_7131(&$sandbox) {
+  $modules = array(
+    'views_bulk_operations',
+    'actions_permissions',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Issue 484: Add correct permissions to VBO.
+ */
+function siasar_updates_update_7132(&$sandbox) {
+  $validate_roles = array(
+    'Validator',
+    'Administrador Local',
+    'Administrador Regional',
+    'administrator'
+  );
+
+  $admin_roles = array(
+    'Administrador Local',
+    'Administrador Regional',
+    'administrator'
+  );
+
+  $permissions_config = array(
+    'finish' => array(
+      'perms' => array('execute siasar_finish_questionnaire_action'),
+      'roles' => $admin_roles,
+    ),
+    'validate' => array(
+      'perms' => array('execute siasar_validate_questionnaire_action'),
+      'roles' => $validate_roles,
+    ),
+    'delete' => array(
+      'perms' => array('execute siasar_delete_questionnaire_action'),
+      'roles' => $admin_roles,
+    ),
+    'draft' => array(
+      'perms' => array('execute siasar_draft_questionnaire_action'),
+      'roles' => $admin_roles,
+    ),
+  );
+
+  foreach($permissions_config as $config) {
+    foreach ($config['roles'] as $role_name) {
+      $role = user_role_load_by_name($role_name);
+      user_role_grant_permissions($role->rid, $config['perms']);
+    }
+  }
+}
+
+/**
+ * Adds VBO to results page
+ */
+function siasar_updates_update_7133(&$sandbox) {
+  features_revert_module('feature_siasar_views_reports');
+}
+
+/**
+ * Issue 486: Migrate survey status (draft/finished/validated) to a new system, powered by Workflow module, using Drush.
+ */
+function siasar_updates_update_7134(&$sandbox) {
+  $modules = array(
+    'siasar_drush_workflow',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Issue 516: Enables the entityform drafts feature
+ *
+ * @param $sandbox
+ *
+ * @throws \DrupalUpdateException
+ */
+function siasar_updates_update_7135(&$sandbox) {
+  $modules = array(
+    'feature_siasar_entityform_drafts',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+
+/**
+ * Issue 520. Revisar problema de carga cuestionario de comunidad para Nicaragua.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/520
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7136() {
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_entityform_comunidad');
+}
+
+/**
+ * Issue 527. Implantar el nuevo workflow en los demás formularios.
+ * Revert features.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/527
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7137() {
+  $features = array(
+    'feature_siasar_field_bases',
+    'feature_siasar_entityform_comunidad',
+    'feature_siasar_entityform_sistema',
+    'feature_siasar_entityform_comunidad',
+    'feature_siasar_entityform_prestador_asistencia_tecnica',
+    'feature_siasar_entityform_prestador_servicio',
+    'feature_siasar_entityform_water_quality'
+  );
+
+  foreach($features as $f) {
+    features_revert_module($f);
+  }
+}
+
+/**
+ * Issue 527. Implantar el nuevo workflow en los demás formularios.
+ * Migrate all entityforms to new system.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/527
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7138(&$sandbox) {
+  module_load_include('inc', 'siasar_drush_workflow', 'siasar_drush_workflow.drush');
+
+  $sandbox['offset'] = $sandbox['offset']
+    ? $sandbox['offset']
+    : 0;
+  $sandbox['timer'] = $sandbox['timer']
+    ? $sandbox['timer']
+    : microtime(true);
+
+  if(!$sandbox['total']) {
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'entityform')
+      ->propertyOrderBy('entityform_id', 'ASC');
+    $sandbox['total'] = (int) $query->count()->execute();
+  }
+
+  $batch_step = 100;
+  $processed = drush_siasar_update_to_workflow('all', $sandbox['offset'], $batch_step);
+
+  if($processed > 0) {
+    $sandbox['offset'] += $processed;
+    $sandbox['#finished'] = $sandbox['offset'] / $sandbox['total'];
+  } else {
+    $sandbox['#finished'] = 1;
+    $sandbox['finishing_time'] = microtime(true) - $sandbox['timer'];
+    drupal_set_message('Process finished after ' . $sandbox['finishing_time'] . ' seconds.');
+  }
+
+
+}

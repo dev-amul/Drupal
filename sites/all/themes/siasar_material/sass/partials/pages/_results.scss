@@ -97,4 +97,39 @@ body.page-resultados {
     }
   }
 
+  .views-field-views-bulk-operations {
+    input[type="checkbox"]:checked,
+    input[type="checkbox"]:not(:checked) {
+      opacity: 1;
+      left: initial;
+      position: initial;
+    }
+  }
+
+  .siasar-hierarchy {
+    li {
+      text-transform: capitalize;
+      display: inline-block;
+      float: left;
+      font-size: 0.7em;
+
+      + li {
+        &:before {
+          content: '-';
+          display: inline-block;
+          margin-left: 3px;
+          margin-right: 3px;
+        }
+      }
+    }
+
+    li.selected {
+      &:before {
+        display: none;
+      }
+      clear: left;
+      display: block;
+      font-size: 1em;
+    }
+  }
 }

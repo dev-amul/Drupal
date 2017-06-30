@@ -4,3 +4,7 @@ version = 7.x-1.0
 core = 7.x
 package = siasar
 files[] = siasar_entityform_alter.helpers.inc
+
+dependences[] = entityform
+dependences[] = entityform_revisions
+dependences[] = entityform_to_revision

@@ -1,3 +1,6 @@
+# Optional manual installation
+# gem install --no-doc compass-flexbox toolkit singularitygs autoprefixer-rails
+
 # Require any additional compass plugins here.
 require 'compass-flexbox'
 require 'toolkit'
