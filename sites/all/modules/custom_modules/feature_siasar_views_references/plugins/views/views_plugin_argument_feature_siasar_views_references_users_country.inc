@@ -10,6 +10,12 @@ class views_plugin_argument_feature_siasar_views_references_users_country extend
 
     $wrapper = entity_metadata_wrapper('user', $user);
 
+    /**
+     * @var $argument \views_handler_argument_taxonomy
+     */
+    $argument = $this->argument;
+    $argument->options['validate']['fail'] = 'ignore';
+
     $user_country = $wrapper->field_pais->value();
     if (is_object($user_country)) {
       return $user_country->iso2;
