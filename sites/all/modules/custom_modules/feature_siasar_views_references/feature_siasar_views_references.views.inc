@@ -1,11 +1,11 @@
 <?php
 
-
 /**
  * Implements hook_views_plugins().
  */
 function feature_siasar_views_references_views_plugins() {
-  $plugin_path = drupal_get_path('module', 'feature_siasar_views_references') . '/plugins/views';
+  $plugin_path = drupal_get_path('module', 'feature_siasar_views_references')
+    . '/plugins/views';
 
   $plugins = array(
     'argument default' => array(

@@ -11,15 +11,32 @@ class views_plugin_argument_feature_siasar_views_references_users_location exten
 
     $wrapper = entity_metadata_wrapper('user', $user);
 
+    /**
+     * @var $argument \views_handler_argument_taxonomy
+     */
+    $argument = $this->argument;
+
+    // We need to use the IN operation which is applied
+    $argument->options['break_phrase'] = '+';
+    $argument->options['validate']['fail'] = 'ignore';
+
     if (isset($wrapper->field_entidad_local)) {
       $user_location = $wrapper->field_entidad_local->value()->tid;
 
-      return $user_location;
+      if ($user_location) {
 
-   //   $children = taxonomy_get_children($user_location, $wrapper->field_entidad_local->value()->vid);
-   //   $children = array_keys($children);
-    } else {
-      return 0;
+        $tree = taxonomy_get_tree($wrapper->field_entidad_local->value()->vid, $user_location);
+
+        $terms = array_map(function($term) {
+          return $term->tid;
+        }, $tree);
+
+        $children = implode('+', $terms);
+        return $children;
+      }
     }
+
+    return;
   }
+
 }
