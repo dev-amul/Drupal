@@ -4451,7 +4451,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
       'hide_initial_item' => FALSE,
       'path' => '',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'field_collection',
   );
 
