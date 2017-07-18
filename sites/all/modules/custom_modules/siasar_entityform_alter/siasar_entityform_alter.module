@@ -290,12 +290,12 @@ function siasar_entityform_alter_preprocess_entityforms_target_table(&$variables
 function siasar_entityform_validated_revisions($entityform) {
 
   $query = 'SELECT r.vid, r.log, r.uid, ef.vid AS current_vid, r.changed, u.name
-FROM {entityform_revision} r
-  LEFT JOIN {entityform} ef ON ef.vid = r.vid
-  LEFT JOIN {field_revision_field_status} fs ON r.entityform_id = fs.entity_id AND r.vid = fs.revision_id
-  INNER JOIN {users} u ON u.uid = r.uid
-WHERE r.entityform_id = :entityform_id AND fs.field_status_value = :status
-ORDER BY r.vid DESC';
+    FROM {entityform_revision} r
+    LEFT JOIN {entityform} ef ON ef.vid = r.vid
+    LEFT JOIN {field_revision_field_status} fs ON r.entityform_id = fs.entity_id AND r.vid = fs.revision_id
+    INNER JOIN {users} u ON u.uid = r.uid
+    WHERE r.entityform_id = :entityform_id AND fs.field_status_value = :status
+    ORDER BY r.vid DESC';
 
   $revisions = array();
   $result = db_query($query,
