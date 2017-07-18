@@ -174,24 +174,28 @@ function siasar_entityform_alter_entity_presave($entity, $entity_type) {
   }
 }
 
-
-/**
- * Implementation of hook_date_field_update_alter()
- */
-function siasar_entityform_alter_date_field_update_alter(&$items, &$context) {
-  // Check if this is needed, or itonly happens with new dates that contain no previous month and day data
-  $i = 1;
-}
 /**
  * Implementation of hook_date_field_insert_alter()
  */
 function siasar_entityform_alter_date_field_insert_alter(&$items, &$context) {
   $date = &$items[0]['value'];
 
-  // Problema
+  // EJEMPLO
+  // Si se usa como año "2001", reparamos el dato. En caso contrario, lo dejamos tal cual y el sitio se rompe.
   $parsed_date = date_parse($date);
   kpr($parsed_date);
+  if($date == '2001') {
+    $date = '2001-01-01';
+  }
+}
+/**
+ * Implementation of hook_date_field_update_alter()
+ */
+function siasar_entityform_alter_date_field_update_alter(&$items, &$context) {
+  // The bug happens on both UPDATE and INSERT, so we need to fix date format on both hooks.
+  $date = &$items[0]['value'];
 
+  // Same solution as before
 }
 
 /**
