@@ -174,6 +174,26 @@ function siasar_entityform_alter_entity_presave($entity, $entity_type) {
   }
 }
 
+
+/**
+ * Implementation of hook_date_field_update_alter()
+ */
+function siasar_entityform_alter_date_field_update_alter(&$items, &$context) {
+  // Check if this is needed, or itonly happens with new dates that contain no previous month and day data
+  $i = 1;
+}
+/**
+ * Implementation of hook_date_field_insert_alter()
+ */
+function siasar_entityform_alter_date_field_insert_alter(&$items, &$context) {
+  $date = &$items[0]['value'];
+
+  // Problema
+  $parsed_date = date_parse($date);
+  kpr($parsed_date);
+
+}
+
 /**
  * Implements hook_action_info().
  */
@@ -265,12 +285,12 @@ function siasar_entityform_alter_preprocess_entityforms_target_table(&$variables
  */
 function siasar_entityform_validated_revisions($entityform) {
 
-  $query = 'SELECT r.vid, r.log, r.uid, ef.vid AS current_vid, r.changed, u.name 
-FROM {entityform_revision} r 
-  LEFT JOIN {entityform} ef ON ef.vid = r.vid 
+  $query = 'SELECT r.vid, r.log, r.uid, ef.vid AS current_vid, r.changed, u.name
+FROM {entityform_revision} r
+  LEFT JOIN {entityform} ef ON ef.vid = r.vid
   LEFT JOIN {field_revision_field_status} fs ON r.entityform_id = fs.entity_id AND r.vid = fs.revision_id
-  INNER JOIN {users} u ON u.uid = r.uid 
-WHERE r.entityform_id = :entityform_id AND fs.field_status_value = :status 
+  INNER JOIN {users} u ON u.uid = r.uid
+WHERE r.entityform_id = :entityform_id AND fs.field_status_value = :status
 ORDER BY r.vid DESC';
 
   $revisions = array();
