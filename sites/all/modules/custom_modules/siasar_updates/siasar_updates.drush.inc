@@ -40,9 +40,7 @@ function siasar_updates_drush_command() {
 }
 
 function drush_siasar_remap_unit($field, $old, $new) {
-  drupal_set_message('Old is ' . $old);
-  drupal_set_message('New is ' . $new);
-  drupal_set_message('Field is ' . $field);
+  drupal_set_message("Field is $field, converting $old -> $new");
 
   $sql_find = "SELECT * FROM field_data_{$field} WHERE {$field}_target_id = $old";
 
@@ -55,7 +53,10 @@ function drush_siasar_remap_unit($field, $old, $new) {
     return;
   }
 
-  $proceed = drush_confirm('Found ' . $items_count . ' items. Do you want to proceed? There\'s no undo!');
+
+  $proceed = function_exists('drush_confirm')
+    ? drush_confirm('Found ' . $items_count . ' items. Do you want to proceed? There\'s no undo!')
+    : true;
 
   if (!$proceed) return;
 
