@@ -46,10 +46,10 @@ function _siasar_entityform_alter_filter_out_countries_from_options($options, $m
 function _siasar_entityform_alter_date(&$items){
 
     $date = &$items[0]['value'];
-    
-    $parsed_date = date_parse($date);
-    kpr($parsed_date);
-    if(!$parsed_date['year'] || !$parsed_date['month'] || !$parsed_date['day']){
-        $date = $date.'-01-01T00:00';
+    if($date!=''){
+        $parsed_date = date_parse($date);
+        if(!$parsed_date['year'] || !$parsed_date['month'] || !$parsed_date['day']){
+            $date = $date.'-01-01T00:00';
+        }
     }
 }
