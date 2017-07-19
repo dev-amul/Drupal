@@ -178,28 +178,16 @@ function siasar_entityform_alter_entity_presave($entity, $entity_type) {
  * Implementation of hook_date_field_insert_alter()
  */
 function siasar_entityform_alter_date_field_insert_alter(&$items, &$context) {
-  $date = &$items[0]['value'];
-  $parsed_date = date_parse($date);
-
-  if(!$parsed_date['year'] && !$parsed_date['month'] && !$parsed_date['day']){
-      kpr($parsed_date);
-      $date = $date.'-01-01T00:00';
-  }
+    module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+    _siasar_entityform_alter_date($items);
 
 }
 /**
  * Implementation of hook_date_field_update_alter()
  */
 function siasar_entityform_alter_date_field_update_alter(&$items, &$context) {
-  // The bug happens on both UPDATE and INSERT, so we need to fix date format on both hooks.
-  $date = &$items[0]['value'];
-
-  $parsed_date = date_parse($date);
-
-  if(!$parsed_date['year'] && !$parsed_date['month'] && !$parsed_date['day']){
-      kpr($parsed_date);
-      $date = $date.'-01-01T00:00';
-  }
+    module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+    _siasar_entityform_alter_date($items);
 }
 
 /**
