@@ -48,9 +48,7 @@ function _siasar_entityform_alter_date(&$items){
     $date = &$items[0]['value'];
     print_r($date);
     if(is_string($date)){
-        print_r($date);
         $date = str_replace(' ', '', $date);
-        print_r($date);
     }
     if(!empty($date) && is_numeric($date)){
         $parsed_date = date_parse($date);
