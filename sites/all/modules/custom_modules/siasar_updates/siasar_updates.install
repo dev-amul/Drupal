@@ -696,6 +696,10 @@ function siasar_updates_update_7141() {
   module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
 
   $params = array(
+    array('field_agua_producida', 676, 730),
+    array('field_agua_producida', 684, 738),
+    array('field_agua_facturada', 676, 730),
+    array('field_agua_facturada', 684, 738),
     array('field_caudal_actual_del_sistema', 667, 721),
     array('field_caudal_actual_del_sistema', 678, 732),
     array('field_caudal_actual_del_sistema', 677, 731),
