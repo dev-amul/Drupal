@@ -681,11 +681,16 @@ function siasar_updates_update_7139() {
  * Remap some units that got broken when creating "water quality"
  */
 function siasar_updates_update_7140() {
-  // This update did not work as expected, we are removing its content.
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
+
+  drush_siasar_remap_unit('field_agua_producida', 676, 730);
+  drush_siasar_remap_unit('field_agua_producida', 684, 738);
+  drush_siasar_remap_unit('field_agua_facturada', 676, 730);
+  drush_siasar_remap_unit('field_agua_facturada', 684, 738);
 }
 
 /**
- * Remap some units that got broken when creating "water quality"
+ * Remap some units that got broken when creating "water quality" - 2
  */
 function siasar_updates_update_7141() {
   module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
