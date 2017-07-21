@@ -292,6 +292,8 @@ function _siasar_services_entityform_alter_attach_field_collection_info($field) 
   static $fc_structure;
 
   $entity = entity_load_single('field_collection_item', $field['id']);
+  if (!$entity) return null;
+
   $wrapper = entity_metadata_wrapper('field_collection_item', $entity);
   $fc_name = $entity->field_name;
 
