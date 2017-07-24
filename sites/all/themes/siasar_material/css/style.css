@@ -221,7 +221,7 @@ ul.pagination li.active {
 .header-menu a.brand-logo img {
   width: 30px;
   min-height: 64px;
-  padding: 5px 0px 0px 0px;
+  padding: 5px 0px 0px;
 }
 @media (min-width: 992px) {
   .header-menu a.brand-logo img {
@@ -276,7 +276,7 @@ ul.pagination li.active {
 }
 
 ul.main-menu {
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid white;
 }
 @media (min-width: 992px) {
   ul.main-menu {
@@ -298,7 +298,7 @@ ul.main-menu li,
 ul.user-menu li {
   float: none;
   text-align: left;
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 1px solid white;
 }
 @media (min-width: 992px) {
   ul.main-menu li,
@@ -321,12 +321,12 @@ ul.user-menu li {
 ul.responsive-menu {
   background-color: #00add2;
   display: block;
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid white;
 }
 ul.responsive-menu li {
   float: none;
   text-align: left;
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 1px solid white;
 }
 @media (min-width: 992px) {
   ul.responsive-menu {

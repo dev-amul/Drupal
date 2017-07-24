@@ -14,7 +14,7 @@
 }
 
 ul.main-menu{
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid white;
   @include breakpoint($break-medium) {
     border-top: none;
   }
@@ -29,7 +29,7 @@ ul.user-menu {
   li {
     float: none;
     text-align: left;
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px solid white;
     @include breakpoint($break-medium) {
       border-bottom: none;
       float: left;
@@ -53,11 +53,11 @@ ul.user-menu {
 ul.responsive-menu {
   background-color: $siasar-cyan;
   display: block;
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid white;
   li {
     float: none;
     text-align: left;
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px solid white;
   }
   @include breakpoint($break-medium) {
     display: none;

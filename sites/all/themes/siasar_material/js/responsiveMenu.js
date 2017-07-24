@@ -13,7 +13,7 @@
         attach: function (context) {
           var menuToggle = $('<span />')
           .addClass("responsive-menu-toggle")
-          .html('≡');
+          .html('&#8801;');
           var regionUserNav = $(".region-user-nav");
           menuToggle.prependTo(regionUserNav);
           $('.responsive-menu-toggle').click(function(e) {

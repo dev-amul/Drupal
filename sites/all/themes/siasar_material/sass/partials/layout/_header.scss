@@ -18,6 +18,7 @@
     position: absolute;
     display: block;
     left: 10px;
+    // reset transform due to materialize default value
     transform: initial;
     @include breakpoint($break-medium) {
       display: block;
@@ -34,7 +35,7 @@
     img {
       width: 30px;
       min-height: 64px;
-      padding: 5px 0px 0px 0px;
+      padding: 5px 0px 0px;
 
       @include breakpoint($break-medium) {
         display: block;
