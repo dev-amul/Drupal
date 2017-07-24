@@ -50,7 +50,7 @@ function _siasar_entityform_alter_date(&$items){
     if($parsed_date){
         if(!empty($date) && is_numeric($date)){
             if(!$parsed_date['year'] || !$parsed_date['month'] || !$parsed_date['day']){
-                $date = $date.'-01-01T00:00';
+                $date = $date.'-01-01T00:00'; 
             }
         }
     }
