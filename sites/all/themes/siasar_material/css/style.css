@@ -288,10 +288,20 @@ ul.main-menu,
 ul.user-menu {
   display: none;
 }
+ul.main-menu.visible,
+ul.user-menu.visible {
+  display: block;
+}
+@media (min-width: 992px) {
+  ul.main-menu.visible,
+  ul.user-menu.visible {
+    display: inline-block;
+  }
+}
 @media (min-width: 992px) {
   ul.main-menu,
   ul.user-menu {
-    display: inline-block !important;
+    display: inline-block;
   }
 }
 ul.main-menu li,

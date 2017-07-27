@@ -18,7 +18,7 @@
           menuToggle.prependTo(regionUserNav);
           $('.responsive-menu-toggle').click(function(e) {
             e.preventDefault();
-            $(".main-menu, .user-menu").toggle();
+            $(".main-menu, .user-menu").toggleClass('visible');
           });
         }
     };
