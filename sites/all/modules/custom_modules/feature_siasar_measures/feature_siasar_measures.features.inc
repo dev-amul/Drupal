@@ -96,6 +96,15 @@ function feature_siasar_measures_default_units_unit() {
     "factor" : "365.242",
     "rdf_mapping" : []
   }');
+  $items['celcius'] = entity_import('units_unit', '{
+    "measure" : "temperature",
+    "machine_name" : "celcius",
+    "label" : "celcius",
+    "symbol" : "\\u00b0C",
+    "description" : "",
+    "factor" : "0",
+    "rdf_mapping" : []
+  }');
   $items['cent_metro'] = entity_import('units_unit', '{
     "measure" : "diametro",
     "machine_name" : "cent_metro",
@@ -103,6 +112,15 @@ function feature_siasar_measures_default_units_unit() {
     "symbol" : "cm",
     "description" : "",
     "factor" : "0.01",
+    "rdf_mapping" : []
+  }');
+  $items['colony_forming_units_per_100ml'] = entity_import('units_unit', '{
+    "measure" : "concentracion",
+    "machine_name" : "colony_forming_units_per_100ml",
+    "label" : "Colony Forming Units per 100ml",
+    "symbol" : "CFU\\/100ml",
+    "description" : "",
+    "factor" : "0",
     "rdf_mapping" : []
   }');
   $items['dia'] = entity_import('units_unit', '{
@@ -240,6 +258,24 @@ function feature_siasar_measures_default_units_unit() {
     "factor" : "0.0002778",
     "rdf_mapping" : []
   }');
+  $items['micrograms_per_litre'] = entity_import('units_unit', '{
+    "measure" : "concentracion",
+    "machine_name" : "micrograms_per_litre",
+    "label" : "Micrograms per Litre",
+    "symbol" : "\\u00b5g\\/L",
+    "description" : "",
+    "factor" : "0",
+    "rdf_mapping" : []
+  }');
+  $items['microsiemens_per_centimeter'] = entity_import('units_unit', '{
+    "measure" : "electrical_conductivity",
+    "machine_name" : "microsiemens_per_centimeter",
+    "label" : "microsiemens per centimeter",
+    "symbol" : "\\u03bcS\\/cm",
+    "description" : "",
+    "factor" : "0.0001",
+    "rdf_mapping" : []
+  }');
   $items['miligramos_por_litro'] = entity_import('units_unit', '{
     "measure" : "concentracion",
     "machine_name" : "miligramos_por_litro",
@@ -256,6 +292,15 @@ function feature_siasar_measures_default_units_unit() {
     "symbol" : "mm",
     "description" : "",
     "factor" : "0.001",
+    "rdf_mapping" : []
+  }');
+  $items['nephelometric_turbidity_units'] = entity_import('units_unit', '{
+    "measure" : "turbidity",
+    "machine_name" : "nephelometric_turbidity_units",
+    "label" : "Nephelometric Turbidity Units",
+    "symbol" : "NTU",
+    "description" : "",
+    "factor" : "1",
     "rdf_mapping" : []
   }');
   $items['partes_por_millon'] = entity_import('units_unit', '{
@@ -301,51 +346,6 @@ function feature_siasar_measures_default_units_unit() {
     "symbol" : "mi",
     "description" : "",
     "factor" : "1609.34",
-    "rdf_mapping" : []
-  }');
-  $items['celcius'] = entity_import('units_unit', '{
-    "measure" : "temperature",
-    "machine_name" : "celcius",
-    "label" : "celcius",
-    "symbol" : "\\u00b0C",
-    "description" : "",
-    "factor" : "0",
-    "rdf_mapping" : []
-  }');
-  $items['colony_forming_units_per_100ml'] = entity_import('units_unit', '{
-    "measure" : "concentracion",
-    "machine_name" : "colony_forming_units_per_100ml",
-    "label" : "Colony Forming Units per 100ml",
-    "symbol" : "CFU\\/100ml",
-    "description" : "",
-    "factor" : "0",
-    "rdf_mapping" : []
-  }');
-  $items['micrograms_per_litre'] = entity_import('units_unit', '{
-    "measure" : "concentracion",
-    "machine_name" : "micrograms_per_litre",
-    "label" : "Micrograms per Litre",
-    "symbol" : "\\u00b5g\\/L",
-    "description" : "",
-    "factor" : "0",
-    "rdf_mapping" : []
-  }');
-  $items['microsiemens_per_centimeter'] = entity_import('units_unit', '{
-    "measure" : "electrical_conductivity",
-    "machine_name" : "microsiemens_per_centimeter",
-    "label" : "microsiemens per centimeter",
-    "symbol" : "\\u03bcS\\/cm",
-    "description" : "",
-    "factor" : "0.0001",
-    "rdf_mapping" : []
-  }');
-  $items['nephelometric_turbidity_units'] = entity_import('units_unit', '{
-    "measure" : "turbidity",
-    "machine_name" : "nephelometric_turbidity_units",
-    "label" : "Nephelometric Turbidity Units",
-    "symbol" : "NTU",
-    "description" : "",
-    "factor" : "1",
     "rdf_mapping" : []
   }');
   return $items;
