@@ -1,9 +1,11 @@
 .header-menu {
   background: $siasar-cyan;
-  height: 40px;
+  height: auto;
   line-height: 40px;
+  top: 0;
+  z-index: 1;
 
-  @include breakpoint($break-small) {
+  @include breakpoint($break-medium) {
     height: 64px;
     line-height: 64px;
   }
@@ -13,37 +15,36 @@
   }
 
   a.brand-logo {
-    top: 0;
+    position: absolute;
     display: block;
-    font-size: 1rem;
-    width: 75px;
-    height: 75px;
-    background-color: $siasar-cyan;
-    border-radius: 50%;
-    box-shadow: $shadow-logo;
-
-    @include breakpoint($break-small) {
+    left: 10px;
+    // reset transform due to materialize default value
+    transform: initial;
+    @include breakpoint($break-medium) {
+      display: block;
+      font-size: 1rem;
+      background-color: $siasar-cyan;
+      border-radius: 50%;
+      box-shadow: $shadow-logo;
       width: 100px;
       height: 100px;
       top: 10px;
-    }
-    @include breakpoint($break-medium) {
       left: 20px;
     }
 
     img {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      display: block;
-      top: 18px;
-      left: 18px;
+      width: 30px;
+      min-height: 64px;
+      padding: 5px 0px 0px;
 
-      @include breakpoint($break-small) {
-      width: 50px;
-      height: 50px;
-      top: 25px;
-      left: 25px;
+      @include breakpoint($break-medium) {
+        display: block;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        min-height: 0px;
+        top: 25px;
+        left: 25px;
       }
     }
   }
