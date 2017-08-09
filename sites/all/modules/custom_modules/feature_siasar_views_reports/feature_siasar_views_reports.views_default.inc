@@ -189,7 +189,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_rating']['id'] = 'field_rating';
   $handler->display->display_options['fields']['field_rating']['table'] = 'field_data_field_rating';
   $handler->display->display_options['fields']['field_rating']['field'] = 'field_rating';
-  /* Campo: Entityform Submission: Editar enlace */
+  /* Campo: Entityform Submission: Link Editar */
   $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
   $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
   $handler->display->display_options['fields']['edit_entityform']['field'] = 'edit_entityform';
@@ -383,7 +383,7 @@ function feature_siasar_views_reports_views_default_views() {
     'title_link' => 'content',
     'title_class' => '',
   );
-  /* Campo: Entityform Submission: Localidad */
+  /* Campo: Campo: Localidad */
   $handler->display->display_options['fields']['field_entidad_local']['id'] = 'field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['field'] = 'field_entidad_local';
@@ -432,20 +432,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['label']['field'] = 'label';
   $handler->display->display_options['fields']['label']['label'] = 'Tipo de cuestionario';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
-  /* Campo: Entityform Submission: Draft */
-  $handler->display->display_options['fields']['draft']['id'] = 'draft';
-  $handler->display->display_options['fields']['draft']['table'] = 'entityform';
-  $handler->display->display_options['fields']['draft']['field'] = 'draft';
-  $handler->display->display_options['fields']['draft']['label'] = 'Terminado';
-  $handler->display->display_options['fields']['draft']['separator'] = '';
-  /* Campo: Entityform Submission: Validado */
-  $handler->display->display_options['fields']['field_cuestionario_validado']['id'] = 'field_cuestionario_validado';
-  $handler->display->display_options['fields']['field_cuestionario_validado']['table'] = 'field_data_field_cuestionario_validado';
-  $handler->display->display_options['fields']['field_cuestionario_validado']['field'] = 'field_cuestionario_validado';
-  $handler->display->display_options['fields']['field_cuestionario_validado']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_cuestionario_validado']['empty'] = '-';
-  $handler->display->display_options['fields']['field_cuestionario_validado']['type'] = 'i18n_list_default';
-  /* Campo: Entityform Submission: Editar enlace */
+  /* Campo: Entityform Submission: Link Editar */
   $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
   $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
   $handler->display->display_options['fields']['edit_entityform']['field'] = 'edit_entityform';
@@ -547,78 +534,6 @@ function feature_siasar_views_reports_views_default_views() {
     6 => 0,
     10 => 0,
   );
-  /* Criterio de filtrado: Entityform Submission: Draft */
-  $handler->display->display_options['filters']['draft']['id'] = 'draft';
-  $handler->display->display_options['filters']['draft']['table'] = 'entityform';
-  $handler->display->display_options['filters']['draft']['field'] = 'draft';
-  $handler->display->display_options['filters']['draft']['group'] = 1;
-  $handler->display->display_options['filters']['draft']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['draft']['expose']['operator_id'] = 'draft_op';
-  $handler->display->display_options['filters']['draft']['expose']['label'] = 'Borrador';
-  $handler->display->display_options['filters']['draft']['expose']['operator'] = 'draft_op';
-  $handler->display->display_options['filters']['draft']['expose']['identifier'] = 'draft';
-  $handler->display->display_options['filters']['draft']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    7 => 0,
-    8 => 0,
-    5 => 0,
-    9 => 0,
-    6 => 0,
-    10 => 0,
-  );
-  $handler->display->display_options['filters']['draft']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['draft']['group_info']['label'] = 'Terminado';
-  $handler->display->display_options['filters']['draft']['group_info']['identifier'] = 'draft';
-  $handler->display->display_options['filters']['draft']['group_info']['group_items'] = array(
-    1 => array(
-      'title' => 'Sí',
-      'operator' => '=',
-      'value' => array(
-        'value' => '0',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-    2 => array(
-      'title' => 'No',
-      'operator' => '=',
-      'value' => array(
-        'value' => '1',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-    3 => array(
-      'title' => '',
-      'operator' => '=',
-      'value' => array(
-        'value' => '',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-  );
-  /* Criterio de filtrado: Entityform Submission: Validado (field_cuestionario_validado) */
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['id'] = 'field_cuestionario_validado_value';
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['table'] = 'field_data_field_cuestionario_validado';
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['field'] = 'field_cuestionario_validado_value';
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['operator_id'] = 'field_cuestionario_validado_value_op';
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['label'] = 'Validado';
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['operator'] = 'field_cuestionario_validado_value_op';
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['identifier'] = 'field_cuestionario_validado_value';
-  $handler->display->display_options['filters']['field_cuestionario_validado_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    7 => 0,
-    8 => 0,
-    5 => 0,
-    9 => 0,
-    6 => 0,
-    10 => 0,
-  );
   /* Criterio de filtrado: Usuario: Nombre Completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value']['id'] = 'field_nombre_completo_value';
   $handler->display->display_options['filters']['field_nombre_completo_value']['table'] = 'field_data_field_nombre_completo';
@@ -681,6 +596,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_status_value']['id'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['table'] = 'field_data_field_status';
   $handler->display->display_options['filters']['field_status_value']['field'] = 'field_status_value';
+  $handler->display->display_options['filters']['field_status_value']['group'] = 1;
   $handler->display->display_options['filters']['field_status_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_status_value']['expose']['operator_id'] = 'field_status_value_op';
   $handler->display->display_options['filters']['field_status_value']['expose']['label'] = 'Status (field_status)';
@@ -769,7 +685,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_pais']['table'] = 'field_data_field_pais';
   $handler->display->display_options['fields']['field_pais']['field'] = 'field_pais';
   $handler->display->display_options['fields']['field_pais']['type'] = 'country_alpha_2';
-  /* Campo: Entityform Submission: Localidad */
+  /* Campo: Campo: Localidad */
   $handler->display->display_options['fields']['field_entidad_local']['id'] = 'field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['field'] = 'field_entidad_local';
@@ -936,7 +852,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_pais']['table'] = 'field_data_field_pais';
   $handler->display->display_options['fields']['field_pais']['field'] = 'field_pais';
   $handler->display->display_options['fields']['field_pais']['type'] = 'country_alpha_2';
-  /* Campo: Entityform Submission: Localidad */
+  /* Campo: Campo: Localidad */
   $handler->display->display_options['fields']['field_entidad_local']['id'] = 'field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['field'] = 'field_entidad_local';
