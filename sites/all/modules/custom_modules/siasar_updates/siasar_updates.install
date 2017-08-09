@@ -698,3 +698,22 @@ function siasar_updates_update_7140() {
 function siasar_updates_update_7141(){
     features_revert_module('feature_siasar_views_reports');
 }
+
+/**
+ * Impedir que las unidades de medida sean reconstruidas al revertir Feature.
+ * Sacar de Feature Field Bases las definiciones de unidades y moverlas a la Feature de unidades de medida.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/537
+*/
+function siasar_updates_update_7142() {
+  module_load_include('module', 'features', 'features');
+
+  $query = db_update('units_unit')
+    ->fields(array(
+      'module' => 'feature_siasar_measures',
+    ))
+    ->condition('module', 'feature_siasar_field_bases');
+  $query->execute();
+
+  features_feature_lock('feature_siasar_measures', 'units_measure');
+  features_feature_lock('feature_siasar_measures', 'units_unit');
+}

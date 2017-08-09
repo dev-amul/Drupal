@@ -1,18 +1,71 @@
 .region-user-nav {
-  text-align: right;
+  text-align: center;
+  @include breakpoint($break-medium) {
+    text-align: right;
+  }
+  .responsive-menu-toggle {
+    display: inline-block;
+    font-size: 54px;
+    line-height: 64px;
+    @include breakpoint($break-medium) {
+      display: none;
+    }
+  }
+}
+
+ul.main-menu{
+  border-top: 1px solid white;
+  @include breakpoint($break-medium) {
+    border-top: none;
+  }
 }
 
 ul.main-menu,
 ul.user-menu {
-  display: inline-block;
+  display: none;
+  &.visible {
+    display: block;
+    @include breakpoint($break-medium) {
+      display: inline-block;
+    }
+  }
+  @include breakpoint($break-medium) {
+    display: inline-block;
+  }
+  li {
+    float: none;
+    text-align: left;
+    border-bottom: 1px solid white;
+    @include breakpoint($break-medium) {
+      border-bottom: none;
+      float: left;
+      text-align: right;
+    }
+  }
 }
 
-ul.user-menu {
 
-  &:before {
-    color: $siasar-light-cyan;
-    content: "|";
-    display: block;
-    float: left;
+
+ul.user-menu {
+  @include breakpoint($break-medium) {
+    &:before {
+      color: $siasar-light-cyan;
+      content: "|";
+      display: block;
+      float: left;
+    }
+  }
+}
+ul.responsive-menu {
+  background-color: $siasar-cyan;
+  display: block;
+  border-top: 1px solid white;
+  li {
+    float: none;
+    text-align: left;
+    border-bottom: 1px solid white;
+  }
+  @include breakpoint($break-medium) {
+    display: none;
   }
 }
