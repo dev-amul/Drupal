@@ -688,6 +688,7 @@ function siasar_updates_update_7140() {
   drush_siasar_remap_unit('field_agua_facturada', 676, 730);
   drush_siasar_remap_unit('field_agua_facturada', 684, 738);
 }
+<<<<<<< HEAD
 
 /**
  * Remap some units that got broken when creating "water quality" - 2
@@ -713,4 +714,14 @@ function siasar_updates_update_7141() {
   foreach ($params as $p) {
     drush_siasar_remap_unit($p[0], $p[1], $p[2]);
   }
+=======
+/**
+ * Issue 535. Eliminar el campo validado. (again)
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/535
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7141(){
+    features_revert_module('feature_siasar_views_reports');
+>>>>>>> Se elimina la columna validado
 }
