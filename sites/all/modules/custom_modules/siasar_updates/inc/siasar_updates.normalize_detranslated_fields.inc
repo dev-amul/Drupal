@@ -45,8 +45,7 @@ function _siasar_updates_normalize_field_language_validate_field_revision_id($fi
         "SELECT 1 FROM information_schema.columns WHERE table_name='".'field_data_'.$field.
     "' and column_name='".$field.'_revision_id'."' LIMIT 1)";
     $result = db_query($sql)->fetchField();
-    echo $result;
-    return false;
+    return $result;
 }
 
 function _siasar_updates_normalize_field_language_and_delete($field, $duplicates, $entity_type,$field_revision_id_exists) {
