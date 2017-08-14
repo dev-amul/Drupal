@@ -24,7 +24,8 @@ var config = {
   api: '/rest/',
   user: 'api_test',
   pass: 'api_test'
-
 }
+
+console.log('\x1b[43m\x1b[30m Testing %s ', config.host);
 
 module.exports = config;
