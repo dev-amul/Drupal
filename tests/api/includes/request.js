@@ -20,8 +20,9 @@ var request = {
       });
     });
   },
-  getOutput: function () {
-    return this.make(config.host, config.api).then(output => output);
+  getOutput: function (path) {
+    var full_path = config.api + path;
+    return this.make(config.host, full_path).then(output => output);
   }
 }
 
