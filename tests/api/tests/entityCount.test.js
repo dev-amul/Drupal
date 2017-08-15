@@ -7,7 +7,6 @@ const request = require('../includes/request');
 it('API is counting entities', async () => {
   expect.hasAssertions();
   var data = await request.getOutput('entity_count/entityform');
-  var item;
 
   data = JSON.parse(data);
 
