@@ -5,7 +5,7 @@ const request = require('../includes/request');
 
 
 it('API is counting entities', async () => {
-  expect.assertions(4);
+  expect.hasAssertions();
   var data = await request.getOutput('entity_count/entityform');
   data = JSON.parse(data);
   expect(data).toHaveProperty('comunidad');
