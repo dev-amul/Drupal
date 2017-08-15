@@ -13,4 +13,5 @@ it('API is fetching entityform results', async () => {
   dataIsArray = Array.isArray(data);
 
   expect(dataIsArray).toBeTruthy();
+  expect(data.length).toBeGreaterThan(0);
 });
