@@ -742,5 +742,13 @@ function siasar_updates_update_7142() {
  * @param $sandbox
  */
 function siasar_updates_update_7143(){
-    features_revert_module('feature_siasar_views_reports');
+  features_revert_module('feature_siasar_views_reports');
+}
+
+/**
+ * Hotfix: Dar permisos para ver resultados a todos los usuarios.
+ */
+function siasar_updates_update_7144() {
+  user_role_grant_permissions(1, array('view any entityform'));
+  user_role_grant_permissions(2, array('view any entityform'));
 }
