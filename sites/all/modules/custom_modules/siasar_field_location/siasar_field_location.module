@@ -264,7 +264,9 @@ function siasar_field_location_validate($element, &$form_state) {
     case 'field_name':
       $field_name = $element['#field_name'];
       $language = $element['#language'];
-      $widget_settings = $form_state['field_name'][$field_name][$language]['instance']['widget']['settings']['siasar_hierarchical_select'];
+      $widget_settings = isset($form_state['field_name'])
+        ? $form_state['field_name'][$field_name][$language]['instance']['widget']['settings']['siasar_hierarchical_select']
+        : null;
       break;
   }
 
@@ -308,7 +310,7 @@ function siasar_field_location_validate($element, &$form_state) {
     }
   }
 
-  if ($widget_settings['force_deepest'] === 1) {
+  if (isset($widget_settings['force_deepest']) && $widget_settings['force_deepest'] === 1) {
     $children = _siasar_field_location_get_term_list_from_view($element['#value'], 'all');
     if (!empty($children)) {
         form_error($element, t('You need to select a term from the deepest level in field_name [@field_name].', array('@field_name' => $field_name)));

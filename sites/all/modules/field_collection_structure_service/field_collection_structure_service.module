@@ -74,7 +74,7 @@ function _field_collection_structure_service_index($page, $parameters) {
 
   foreach ($info['bundles'] as $name => $bundle) {
     // Display just the entityform bundle name.
-    $form_fields->{$name} = reset(_field_collection_structure_service_retrieve($name));
+    $form_fields->{$name} = _field_collection_structure_service_retrieve($name)[$name];
   }
 
   return $form_fields;
