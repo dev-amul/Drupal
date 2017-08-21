@@ -14,7 +14,15 @@
     "jest"
   ],
   "author": "Ignacio Segura <nacho@isegura.es>",
-  "license": "ISC",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "jest": {
+    "globals": {
+      "__GLOBALS__": true
+    }
+  },
   "devDependencies": {
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
