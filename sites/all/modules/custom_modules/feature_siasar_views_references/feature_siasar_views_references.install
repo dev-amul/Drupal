@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Issue 526: Limitar el campo "encuestador" a división territorial del usuario digitador
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/526
+ */
+function feature_siasar_views_references_update_7100($sandbox) {
+  features_revert_module('feature_siasar_views_references');
+}
