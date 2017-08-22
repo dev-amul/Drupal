@@ -1,0 +1,17 @@
+diff --git a/sites/all/modules/mvf/mvf.module b/sites/all/modules/mvf/mvf.module
+index f794707..e97318c 100644
+--- a/sites/all/modules/mvf/mvf.module
++++ b/sites/all/modules/mvf/mvf.module
+@@ -1753,7 +1753,11 @@ function _mvf_unit_suggesters_info_sort($a, $b) {
+  *   Fully loaded 'units_measure' entity that is used in the provided MVF field
+  */
+ function mvf_measure_extract($field) {
+-  return units_measure_machine_name_load(reset($field['settings']['unit']['handler_settings']['target_bundles']));
++  $bundles = isset($field['settings']['unit']['handler_settings']['target_bundles'])
++    ? reset($field['settings']['unit']['handler_settings']['target_bundles'])
++    : null;
++
++  return units_measure_machine_name_load($bundles);
+ }
+ 
+ /**
