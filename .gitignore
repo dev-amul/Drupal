@@ -24,3 +24,8 @@ sites/all/libraries/PHPExcel/Examples
 # Ignore netbeans files
 nbproject/*
 .idea
+
+# Ignore node files
+**/node_modules/*
+**/package-lock.json
+**/npm-debug.log

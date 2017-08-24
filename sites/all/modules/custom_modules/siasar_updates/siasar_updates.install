@@ -752,3 +752,20 @@ function siasar_updates_update_7144() {
   user_role_grant_permissions(1, array('view any entityform'));
   user_role_grant_permissions(2, array('view any entityform'));
 }
+/**  
+ * Enable contrib module max_image_size
+ */
+ function siasar_updates_update_7145(&$sandbox) {
+  $modules = array(
+    'file_entity',
+    'max_image_size',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+  else {
+    variable_set('max_image_size_width', 1920);
+    variable_set('max_image_size_height', 1080);
+  }
+}

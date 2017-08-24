@@ -509,14 +509,21 @@ return $user_full->field_pais[\'und\'][0][\'iso2\'];';
   $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
   $handler->display->display_options['arguments']['field_pais_iso2']['default_action'] = 'default';
   $handler->display->display_options['arguments']['field_pais_iso2']['exception']['title'] = 'Todo';
-  $handler->display->display_options['arguments']['field_pais_iso2']['default_argument_type'] = 'php';
-  $handler->display->display_options['arguments']['field_pais_iso2']['default_argument_options']['code'] = 'global $user;
-$user_full = user_load($user->uid);
-return $user_full->field_pais[\'und\'][0][\'iso2\'];';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_argument_type'] = 'siasar_user_country';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
+  /* Filtro contextual: Campo: Localidad (field_entidad_local) */
+  $handler->display->display_options['arguments']['field_entidad_local_tid']['id'] = 'field_entidad_local_tid';
+  $handler->display->display_options['arguments']['field_entidad_local_tid']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['arguments']['field_entidad_local_tid']['field'] = 'field_entidad_local_tid';
+  $handler->display->display_options['arguments']['field_entidad_local_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_entidad_local_tid']['exception']['title'] = 'Todo';
+  $handler->display->display_options['arguments']['field_entidad_local_tid']['default_argument_type'] = 'siasar_user_location';
+  $handler->display->display_options['arguments']['field_entidad_local_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_entidad_local_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_entidad_local_tid']['summary_options']['items_per_page'] = '25';
   $export['users_select_view'] = $view;
 
   return $export;

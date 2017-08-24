@@ -10,7 +10,7 @@ deploy to development:
     DRUPAL_PATH: "/var/www/drupal_development"
     DB_NAME: "drupal_development"
   script:
-    - sudo su postgres -c "/var/lib/pgsql/backup.sh $DB_NAME"
+    - sudo /root/backup_db.sh $DB_NAME
     - sudo rsync -ah --delete --exclude-from=".rsync-exclude" . $DRUPAL_PATH
     - sudo chown -R apache:apache $DRUPAL_PATH
     - sudo su apache -c "drush updb -y --root=$DRUPAL_PATH"
