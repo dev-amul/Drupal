@@ -776,7 +776,7 @@ function siasar_updates_update_7144() {
  */
 function siasar_updates_update_7146(&$sandbox) {
   module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.normalize_detranslated_fields');
-  $count = siasar_updates_normalize_field_language('"field_fecha_toma_caudal_ep_seca', 'field');
+  $count = siasar_updates_normalize_field_language('field_fecha_toma_caudal_ep_seca', 'field');
 
   return ($count . ' elements normalized');
 }

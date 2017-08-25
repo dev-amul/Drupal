@@ -62,14 +62,14 @@ function _siasar_updates_normalize_field_language_process_duplicates($field, $du
   $prop_revision_id = $field . '_revision_id';
 
   // delete others
-  _siasar_updates_normalize_field_language_delete_revisions_and_fields($others, $field_revision_id_exists, $prop_revision_id);
+  _siasar_updates_normalize_field_language_delete_revisions_and_fields($field, $entity_type, $others, $field_revision_id_exists, $prop_revision_id);
 
   // Normalize $latest
   _siasar_updates_normalize_field_language_normalize_latest($field, $latest, $field_revision_id_exists, $prop_revision_id);
 }
 
 
-function _siasar_updates_normalize_field_language_delete_revisions_and_fields($others, $field_revision_id_exists, $prop_revision_id) {
+function _siasar_updates_normalize_field_language_delete_revisions_and_fields($field, $entity_type, $others, $field_revision_id_exists, $prop_revision_id) {
   foreach($others as $d) {
     $entity = entity_revision_load($entity_type, $d->{$prop_revision_id});
     if ($entity) $entity->delete();
