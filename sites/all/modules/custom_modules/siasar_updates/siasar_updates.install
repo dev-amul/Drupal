@@ -752,7 +752,7 @@ function siasar_updates_update_7144() {
   user_role_grant_permissions(1, array('view any entityform'));
   user_role_grant_permissions(2, array('view any entityform'));
 }
-/**  
+/**
  * Enable contrib module max_image_size
  */
  function siasar_updates_update_7145(&$sandbox) {
@@ -768,4 +768,15 @@ function siasar_updates_update_7144() {
     variable_set('max_image_size_width', 1920);
     variable_set('max_image_size_height', 1080);
   }
+}
+
+/**
+ * Issue 550. Normalizar campo
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/550
+ */
+function siasar_updates_update_7146(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.normalize_detranslated_fields');
+  $count = siasar_updates_normalize_field_language('"field_fecha_toma_caudal_ep_seca', 'field');
+
+  return ($count . ' elements normalized');
 }
