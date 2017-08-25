@@ -5225,7 +5225,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_fic_cs_ficha-field_system_ref'.
   $field_instances['field_collection_item-field_com_fic_cs_ficha-field_system_ref'] = array(
     'bundle' => 'field_com_fic_cs_ficha',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -7385,7 +7385,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_system_ref'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_system_ref'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -7400,8 +7400,15 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'field_collection_item',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
     'field_name' => 'field_system_ref',
     'label' => 'Nombre del sistema',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -7409,17 +7416,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete_tags',
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
       'weight' => 5,
     ),
   );

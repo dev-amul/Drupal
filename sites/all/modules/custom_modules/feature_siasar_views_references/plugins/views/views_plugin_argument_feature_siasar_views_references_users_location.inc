@@ -21,7 +21,8 @@ class views_plugin_argument_feature_siasar_views_references_users_location exten
     $argument->options['validate']['fail'] = 'ignore';
 
     if (isset($wrapper->field_entidad_local)) {
-      $user_location = $wrapper->field_entidad_local->value()->tid;
+      $user_location = $wrapper->field_entidad_local->value();
+      $user_location = $user_location ? $user_location->tid : null; // Putting those two in one line throws a Notice
 
       if ($user_location) {
 

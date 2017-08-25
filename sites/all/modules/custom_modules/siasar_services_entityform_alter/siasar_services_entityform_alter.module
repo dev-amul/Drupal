@@ -347,6 +347,14 @@ function _siasar_services_entityform_alter_get_value_from_wrapper($entity, $wrap
         $value['tid'] = $term->tid;
       }
       break;
+    case 'boolean':
+      $value = $wrapper->language($language)->{$key}->value();
+      $options_list = $wrapper->language($language)->{$key}->optionsList();
+      $value = array(
+        'value' => $value,
+        'label' => $options_list[$value] ? $options_list[$value] : $value,
+      );
+      break;
     default:
       $value = $wrapper->language($language)->{$key}->value();
       if ($value == null && !empty($entity->{$key}[$language])) {
