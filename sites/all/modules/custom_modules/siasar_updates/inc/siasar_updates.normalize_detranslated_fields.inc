@@ -12,7 +12,7 @@
 
 function siasar_updates_normalize_field_language($field = null, $entity_type) {
   if (empty($field)) return false;
-  $field_revision_id_exists =  _siasar_updates_normalize_field_language_validate_field_revision_id($field);
+  $field_revision_id_exists = _siasar_updates_normalize_field_language_validate_field_revision_id($field);
   $query = db_select('field_data_' . $field, 'f');
   $query->fields('f');
   $query->condition('language' , 'und', '<>');
@@ -22,75 +22,81 @@ function siasar_updates_normalize_field_language($field = null, $entity_type) {
   while($row = $result->fetchAssoc()) {
     $count++;
     $duplicates = _siasar_updates_normalize_field_language_get_duplicates($field, $row['entity_id'],$field_revision_id_exists);
-    _siasar_updates_normalize_field_language_and_delete($field, $duplicates, $entity_type,$field_revision_id_exists);
+    _siasar_updates_normalize_field_language_process_duplicates($field, $duplicates, $entity_type, $field_revision_id_exists);
   }
 
   return $count;
 }
 
+/**
+ * Helper function to find duplicated data.
+ *
+ * Returns query result.
+ */
 function _siasar_updates_normalize_field_language_get_duplicates($field, $entity_id,$field_revision_id_exists) {
 
   $query = db_select('field_data_' . $field, 'f');
   $query->fields('f');
   $query->condition('entity_id' , $entity_id);
-  if($field_revision_id_exists)
+  if ($field_revision_id_exists) {
     $query->orderBy($field . '_revision_id', 'DESC');
+  }
   $result = $query->execute()->fetchAll();
 
   return $result;
 }
 
-function _siasar_updates_normalize_field_language_validate_field_revision_id($field){
-    $sql = "SELECT exists (".
-        "SELECT 1 FROM information_schema.columns WHERE table_name='".'field_data_'.$field.
+function _siasar_updates_normalize_field_language_validate_field_revision_id($field) {
+  $sql = "SELECT exists (".
+    "SELECT 1 FROM information_schema.columns WHERE table_name='".'field_data_'.$field.
     "' and column_name='".$field.'_revision_id'."' LIMIT 1)";
-    $result = db_query($sql)->fetchField();
-    return $result;
+  $result = db_query($sql)->fetchField();
+
+  return $result;
 }
 
-function _siasar_updates_normalize_field_language_and_delete($field, $duplicates, $entity_type,$field_revision_id_exists) {
+function _siasar_updates_normalize_field_language_process_duplicates($field, $duplicates, $entity_type,$field_revision_id_exists) {
 
-  echo $field_revision_id_exists;
   $others = $duplicates;
   $latest = array_shift($others);
   $prop_revision_id = $field . '_revision_id';
 
   // delete others
-  foreach($others as $d) {
-    $entity = entity_revision_load($entity_type, $d->{$prop_revision_id});
-    if($entity) $entity->delete();
-
-    if($field_revision_id_exists){
-        $query = db_delete('field_data_' . $field)
-        ->condition('entity_id', $d->entity_id)
-        ->condition('revision_id', $d->revision_id)
-        ->condition($prop_revision_id, $d->{$prop_revision_id});
-    }else{
-        $query = db_delete('field_data_' . $field)
-        ->condition('entity_id', $d->entity_id)
-        ->condition('revision_id', $d->revision_id);
-    }
-
-
-    $query->execute();
-  }
+  _siasar_updates_normalize_field_language_delete_revisions_and_fields($others, $field_revision_id_exists, $prop_revision_id);
 
   // Normalize $latest
-  if ($latest->language !== LANGUAGE_NONE)  {
-    if($field_revision_id_exists){
-        $query = db_update('field_data_' . $field)
-        ->fields(array(
-        'language' => LANGUAGE_NONE,
-      )) ->condition('entity_id', $latest->entity_id)
-         ->condition('revision_id', $latest->revision_id)
-         ->condition($prop_revision_id, $latest->{$prop_revision_id});
-      }else{
-          $query = db_update('field_data_' . $field)
-            ->fields(array(
-              'language' => LANGUAGE_NONE,
-            )) ->condition('entity_id', $latest->entity_id)
-               ->condition('revision_id', $latest->revision_id);
-      }
+  _siasar_updates_normalize_field_language_normalize_latest($field, $latest, $field_revision_id_exists, $prop_revision_id);
+}
+
+
+function _siasar_updates_normalize_field_language_delete_revisions_and_fields($others, $field_revision_id_exists, $prop_revision_id) {
+  foreach($others as $d) {
+    $entity = entity_revision_load($entity_type, $d->{$prop_revision_id});
+    if ($entity) $entity->delete();
+
+    $query = db_delete('field_data_' . $field)
+      ->condition('entity_id', $d->entity_id)
+      ->condition('revision_id', $d->revision_id);
+
+    if ($field_revision_id_exists) {
+      $query->condition($prop_revision_id, $d->{$prop_revision_id});
+    }
     $query->execute();
   }
+}
+
+function _siasar_updates_normalize_field_language_normalize_latest($field, $latest, $field_revision_id_exists, $prop_revision_id) {
+  if ($latest->language == LANGUAGE_NONE) return;
+
+  $query = db_update('field_data_' . $field)
+    ->condition('entity_id', $latest->entity_id)
+    ->condition('revision_id', $latest->revision_id)
+    ->fields(array(
+      'language' => LANGUAGE_NONE,
+    ));
+
+  if ($field_revision_id_exists) {
+    $query->condition($prop_revision_id, $latest->{$prop_revision_id});
+  }
+  $query->execute();
 }
