@@ -16,6 +16,6 @@ function feature_siasar_user_update_7100(&$sandbox) {
  *
  * @param $sandbox
  */
- function feature_siasar_theme_settings_update_7101() {
+ function feature_siasar_user_update_7101() {
   features_revert_module('feature_siasar_user');
 }
