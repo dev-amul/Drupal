@@ -549,6 +549,27 @@ span.form-required {
   display: none;
 }
 
+.vbo-views-form #edit-select {
+  border: none;
+  padding: 0 0 20px;
+}
+.vbo-views-form #edit-select legend {
+  padding: 5px;
+  background: none;
+  font-weight: bold;
+}
+.vbo-views-form #edit-select .fieldset-wrapper input {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-image: none;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+.vbo-views-form #edit-select .fieldset-wrapper input:not(:last-child) {
+  margin-right: 10px;
+}
+
 body.page-frontpage .page {
   max-width: 520px;
 }

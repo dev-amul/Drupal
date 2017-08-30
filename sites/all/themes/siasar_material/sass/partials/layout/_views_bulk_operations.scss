@@ -1,0 +1,29 @@
+.vbo-views-form {
+  #edit-select {
+    border: none;
+    padding: 0 0 20px;
+
+    legend {
+      padding: 5px;
+      background: none;
+      font-weight: bold;
+    }
+
+    .fieldset-wrapper {
+      input {
+        padding-left: 10px;
+        padding-right: 10px;
+        background-image: none;
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: 10px;
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+
+      }
+    }
+  }
+
+}
