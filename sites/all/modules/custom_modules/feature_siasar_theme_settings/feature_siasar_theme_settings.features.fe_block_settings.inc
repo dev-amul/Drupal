@@ -38,7 +38,7 @@ function feature_siasar_theme_settings_default_fe_block_settings() {
         'weight' => -10,
       ),
     ),
-    'title' => 'What do you want to do?',
+    'title' => 'What would you like to do?',
     'visibility' => 1,
   );
 
