@@ -210,7 +210,7 @@ function feature_siasar_user_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Por favor, incluir el código de área de su país.',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -247,7 +247,6 @@ function feature_siasar_user_field_default_field_instances() {
   t('ID number');
   t('Institution');
   t('Phone');
-  t('Por favor, incluir el código de área de su país.');
 
   return $field_instances;
 }
