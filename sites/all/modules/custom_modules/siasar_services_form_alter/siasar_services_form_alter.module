@@ -109,10 +109,9 @@ function _siasar_services_form_alter_translate_form_group_labels($result) {
 /**
  * Reduce the list of Options for Country selector field to members of SIASAR
  *
- * @param array $item
- *   Item (entityform) to be precessed.
+ * @return array
  */
-function _siasar_services_form_alter_reduce_country_options_to_members($form) {
+function _siasar_services_form_alter_reduce_country_options_to_members() {
   module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
 
   $members = _siasar_entityform_alter_get_member_countries();

@@ -14,22 +14,17 @@ function _siasar_entityform_alter_action_info() {
   return array(
     'siasar_finish_questionnaire_action' => array(
       'type' => 'entityform',
-      'label' => t('Questionnarie to Finished'),
+      'label' => t('Survey to Finished'),
       'triggers' => array('any'),
     ),
     'siasar_validate_questionnaire_action' => array(
       'type' => 'entityform',
-      'label' => t('Questionnaire to Validated'),
-      'triggers' => array('any'),
-    ),
-    'siasar_delete_questionnaire_action' => array(
-      'type' => 'entityform',
-      'label' => t('Questionnaire - Deleted'),
+      'label' => t('Survey to Validated'),
       'triggers' => array('any'),
     ),
     'siasar_draft_questionnaire_action' => array(
       'type' => 'entityform',
-      'label' => t('Questionnaire to Draft'),
+      'label' => t('Survey to Draft'),
       'triggers' => array('any'),
     ),
   );
@@ -99,18 +94,6 @@ function siasar_finish_questionnaire_action($entity, array $context) {
  */
 function siasar_validate_questionnaire_action($entity, array $context) {
   _siasar_set_workflow_state($entity, 'validated');
-}
-
-/**
- * Deletes the questionnaire
- *
- * @param \Entityform $entity
- * @param array $context
- */
-function siasar_delete_questionnaire_action($entity, array $context) {
-  if (entity_access('delete', $entity->entityType(), $entity)) {
-    entity_delete($entity->entityType(), $entity->identifier());
-  }
 }
 
 /**

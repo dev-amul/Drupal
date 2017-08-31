@@ -452,6 +452,124 @@ span.form-required {
   }
 }
 
+.view-reports-entityforms {
+  padding: 20px;
+}
+.view-reports-entityforms .views-exposed-form #edit-field-entidad-local-siasar-hierarchical-select-wrapper + div,
+.view-reports-entityforms .views-exposed-form .views-submit-button {
+  clear: left;
+}
+.view-reports-entityforms .views-exposed-form #edit-uid-wrapper input {
+  width: 12em;
+}
+.view-reports-entityforms form {
+  margin-bottom: 40px;
+}
+.view-reports-entityforms form .views-exposed-widget {
+  padding-right: 1.5rem;
+}
+.view-reports-entityforms form label {
+  font-size: 1rem;
+}
+.view-reports-entityforms form .form-text,
+.view-reports-entityforms form .form-select {
+  width: 100%;
+  padding-left: 5px;
+}
+@media (min-width: 600px) {
+  .view-reports-entityforms form .form-text,
+  .view-reports-entityforms form .form-select {
+    width: auto;
+  }
+}
+.view-reports-entityforms form .form-item .description {
+  font-size: 0.8rem;
+}
+@media (min-width: 600px) {
+  .view-reports-entityforms form .form-autocomplete {
+    width: 16em;
+  }
+}
+.view-reports-entityforms table.sticky-header {
+  background: white;
+  z-index: 1;
+}
+.view-reports-entityforms table.views-table {
+  position: relative;
+  width: calc(100% + 40px);
+  margin: 0 -20px;
+}
+.view-reports-entityforms table.views-table tbody tr:hover {
+  background-color: #ffefa1;
+}
+.view-reports-entityforms table.views-table tbody tr td {
+  padding: 10px 5px;
+}
+.view-reports-entityforms table.views-table tbody tr td.views-field-draft, .view-reports-entityforms table.views-table tbody tr td.views-field-field-cuestionario-validado {
+  text-align: center;
+}
+.view-reports-entityforms table.views-table tbody tr td.views-field-created, .view-reports-entityforms table.views-table tbody tr td.views-field-nothing {
+  white-space: nowrap;
+}
+.view-reports-entityforms table.views-table td:first-child,
+.view-reports-entityforms table.views-table th:first-child {
+  padding-left: 20px;
+}
+.view-reports-entityforms table.views-table td:last-child,
+.view-reports-entityforms table.views-table th:last-child {
+  padding-right: 20px;
+}
+.view-reports-entityforms .feed-icon {
+  margin-top: 20px;
+  clear: both;
+}
+.view-reports-entityforms .views-field-views-bulk-operations input[type="checkbox"]:checked,
+.view-reports-entityforms .views-field-views-bulk-operations input[type="checkbox"]:not(:checked) {
+  opacity: 1;
+  left: initial;
+  position: initial;
+}
+.view-reports-entityforms .siasar-hierarchy li {
+  text-transform: capitalize;
+  float: left;
+  font-size: 0.7em;
+}
+.view-reports-entityforms .siasar-hierarchy li + li:before {
+  content: '-';
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.view-reports-entityforms .siasar-hierarchy li.selected {
+  clear: left;
+  display: block;
+  font-size: 1em;
+}
+.view-reports-entityforms .siasar-hierarchy li.selected:before {
+  display: none;
+}
+
+.vbo-views-form #edit-select {
+  border: none;
+  padding: 0 0 20px;
+}
+.vbo-views-form #edit-select legend {
+  padding: 5px;
+  background: none;
+  font-weight: bold;
+}
+.vbo-views-form #edit-select .fieldset-wrapper input {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-image: none;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+.vbo-views-form #edit-select .fieldset-wrapper input:not(:last-child) {
+  margin-right: 10px;
+}
+
 body.page-frontpage .page {
   max-width: 520px;
 }
@@ -557,102 +675,10 @@ body.page-resultados .page,
 body.page-resultados .main.container {
   max-width: 1600px;
 }
-body.page-resultados .views-exposed-form #edit-field-entidad-local-siasar-hierarchical-select-wrapper + div,
-body.page-resultados .views-exposed-form .views-submit-button {
-  clear: left;
-}
-body.page-resultados .views-exposed-form #edit-uid-wrapper input {
-  width: 12em;
-}
-body.page-resultados .view-results-entityforms {
-  padding: 20px;
-}
-body.page-resultados .view-results-entityforms form {
-  margin-bottom: 40px;
-}
-body.page-resultados .view-results-entityforms form .views-exposed-widget {
-  padding-right: 1.5rem;
-}
-body.page-resultados .view-results-entityforms form label {
-  font-size: 1rem;
-}
-body.page-resultados .view-results-entityforms form .form-text,
-body.page-resultados .view-results-entityforms form .form-select {
-  width: 100%;
-  padding-left: 5px;
-}
-@media (min-width: 600px) {
-  body.page-resultados .view-results-entityforms form .form-text,
-  body.page-resultados .view-results-entityforms form .form-select {
-    width: auto;
-  }
-}
-body.page-resultados .view-results-entityforms form .form-item .description {
-  font-size: 0.8rem;
-}
-@media (min-width: 600px) {
-  body.page-resultados .view-results-entityforms form .form-autocomplete {
-    width: 16em;
-  }
-}
-body.page-resultados .view-results-entityforms table.sticky-header {
-  background: white;
-  z-index: 1;
-}
-body.page-resultados .view-results-entityforms table.views-table {
-  position: relative;
-  width: calc(100% + 40px);
-  margin: 0 -20px;
-}
-body.page-resultados .view-results-entityforms table.views-table tbody tr:hover {
-  background-color: #ffefa1;
-}
-body.page-resultados .view-results-entityforms table.views-table tbody tr td {
-  padding: 10px 5px;
-}
-body.page-resultados .view-results-entityforms table.views-table tbody tr td.views-field-draft, body.page-resultados .view-results-entityforms table.views-table tbody tr td.views-field-field-cuestionario-validado {
-  text-align: center;
-}
-body.page-resultados .view-results-entityforms table.views-table tbody tr td.views-field-created, body.page-resultados .view-results-entityforms table.views-table tbody tr td.views-field-nothing {
-  white-space: nowrap;
-}
-body.page-resultados .view-results-entityforms table.views-table td:first-child,
-body.page-resultados .view-results-entityforms table.views-table th:first-child {
-  padding-left: 20px;
-}
-body.page-resultados .view-results-entityforms table.views-table td:last-child,
-body.page-resultados .view-results-entityforms table.views-table th:last-child {
-  padding-right: 20px;
-}
-body.page-resultados .view-results-entityforms .feed-icon {
-  margin-top: 20px;
-  clear: both;
-}
-body.page-resultados .views-field-views-bulk-operations input[type="checkbox"]:checked,
-body.page-resultados .views-field-views-bulk-operations input[type="checkbox"]:not(:checked) {
-  opacity: 1;
-  left: initial;
-  position: initial;
-}
-body.page-resultados .siasar-hierarchy li {
-  text-transform: capitalize;
-  display: inline-block;
-  float: left;
-  font-size: 0.7em;
-}
-body.page-resultados .siasar-hierarchy li + li:before {
-  content: '-';
-  display: inline-block;
-  margin-left: 3px;
-  margin-right: 3px;
-}
-body.page-resultados .siasar-hierarchy li.selected {
-  clear: left;
-  display: block;
-  font-size: 1em;
-}
-body.page-resultados .siasar-hierarchy li.selected:before {
-  display: none;
+
+body.page-drafts .page,
+body.page-drafts .main.container {
+  max-width: 1200px;
 }
 
 body.maintenance-page {

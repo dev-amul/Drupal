@@ -27,7 +27,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_entidad_local',
-    'label' => 'Localidad',
+    'label' => 'Administrative division',
     'options_limit' => 0,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(
@@ -36,7 +36,7 @@ function feature_siasar_user_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'user_register_form' => TRUE,
+      'user_register_form' => 1,
     ),
     'view' => array(
       'args' => array(),
@@ -64,7 +64,7 @@ function feature_siasar_user_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Registro o número de identificación ciudadana.',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -76,7 +76,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_identificacion',
-    'label' => 'Identificación',
+    'label' => 'ID number',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -111,7 +111,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_institucion',
-    'label' => 'Institución',
+    'label' => 'Institution',
     'options_limit' => 1,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(
@@ -143,7 +143,7 @@ function feature_siasar_user_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Nombre y apellidos completos.',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -155,7 +155,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_nombre_completo',
-    'label' => 'Nombre Completo',
+    'label' => 'Full name',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -190,7 +190,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_pais',
-    'label' => 'País',
+    'label' => 'Country',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -210,7 +210,7 @@ function feature_siasar_user_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Por favor, incluir el código de área de su país.',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -222,7 +222,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_telefono',
-    'label' => 'Teléfono',
+    'label' => 'Phone',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -241,15 +241,12 @@ function feature_siasar_user_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Identificación');
-  t('Institución');
-  t('Localidad');
-  t('Nombre Completo');
-  t('Nombre y apellidos completos.');
-  t('País');
-  t('Por favor, incluir el código de área de su país.');
-  t('Registro o número de identificación ciudadana.');
-  t('Teléfono');
+  t('Administrative division');
+  t('Country');
+  t('Full name');
+  t('ID number');
+  t('Institution');
+  t('Phone');
 
   return $field_instances;
 }
