@@ -167,15 +167,26 @@ function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
 
   $themes = array();
 
-  $themes['views_view_field__results_entityforms__draft'] = array(
+  $themes['views_view_field__field_status'] = array(
     'original hook' => 'views_view_field',
     'preprocess functions' => array(
       'template_preprocess',
       'template_preprocess_views_view_field',
-      'feature_siasar_views_reports_preprocess_field_draft',
+      'feature_siasar_views_reports_preprocess_field_translatable',
     ),
     'variables' => array('view' => NULL, 'field' => NULL, 'row' => NULL, 'output'),
-    'template' => 'views-view-field--results-entityforms--draft',
+    'template' => 'views-view-field--field-status',
+    'path' => $module_path . '/templates',
+  );
+  $themes['views_view_field__label'] = array(
+    'original hook' => 'views_view_field',
+    'preprocess functions' => array(
+      'template_preprocess',
+      'template_preprocess_views_view_field',
+      'feature_siasar_views_reports_preprocess_field_translatable',
+    ),
+    'variables' => array('view' => NULL, 'field' => NULL, 'row' => NULL, 'output'),
+    'template' => 'views-view-field--label',
     'path' => $module_path . '/templates',
   );
 
@@ -184,15 +195,8 @@ function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Preprocesses draft field.
+ * Preprocesses translatable field.
  */
-function feature_siasar_views_reports_preprocess_field_draft(&$variables) {
-  $output = &$variables['output'];
-
-  // Draft property translates as "finished", therefore textual values are the opposite.
-  $output = ($output == '1')
-    ? t('No')
-    : t('Yes');
-
-    $variables = $variables;
+function feature_siasar_views_reports_preprocess_field_translatable(&$variables) {
+  $variables['output'] = t($variables['output']);
 }
