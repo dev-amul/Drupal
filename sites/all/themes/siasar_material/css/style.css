@@ -455,6 +455,11 @@ span.form-required {
 .view-reports-entityforms {
   padding: 20px;
 }
+.view-reports-entityforms .views-exposed-form {
+  background-color: #f4f4f4;
+  margin: -20px;
+  padding: 20px;
+}
 .view-reports-entityforms .views-exposed-form #edit-field-entidad-local-siasar-hierarchical-select-wrapper + div,
 .view-reports-entityforms .views-exposed-form .views-submit-button {
   clear: left;
