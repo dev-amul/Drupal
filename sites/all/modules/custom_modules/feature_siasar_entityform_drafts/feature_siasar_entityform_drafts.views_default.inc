@@ -179,7 +179,7 @@ function feature_siasar_entityform_drafts_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Empty ';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'En este momento no tienes borradores. Todos tus formularios han sido publicados para los validadores.';
+  $handler->display->display_options['empty']['area']['content'] = 'You have no drafts at this moment. At this moment, all your surveys are either finished or validated.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['path'] = 'drafts';
   $handler->display->display_options['menu']['type'] = 'normal';

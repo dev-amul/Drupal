@@ -2,6 +2,10 @@
   padding: $vertical-tabs-padding;
 
   .views-exposed-form {
+    background-color: $siasar-almost-white;
+    margin: -20px;
+    padding: 20px;
+
     #edit-field-entidad-local-siasar-hierarchical-select-wrapper + div,
     .views-submit-button {
       clear: left;
