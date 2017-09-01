@@ -805,4 +805,14 @@ function siasar_updates_update_7146(&$sandbox) {
   if ($view = views_get_view('clone_of_entityforms')) {
     views_delete_view($view);
   }
+
+  $modules = array(
+    'feature_siasar_menus',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  features_revert_module('feature_siasar_theme_settings');
 }
