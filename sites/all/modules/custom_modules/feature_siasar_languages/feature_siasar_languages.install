@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * 557 - Setting back default language to spanish
+ */
+ function feature_siasar_languages_update_7100($sandbox) {
+  features_revert_module('feature_siasar_languages');
+}
