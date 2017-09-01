@@ -778,17 +778,8 @@ body.page-questionnaires .main.container {
 body.page-questionnaires #block-system-main {
   background-color: transparent;
 }
-body.page-questionnaires h1 {
-  background: none;
-}
 body.page-questionnaires .view-questionnaires ul {
-  margin: 40px 20px;
-}
-@media (min-width: 600px) {
-  body.page-questionnaires .view-questionnaires ul {
-    margin-left: 0;
-    margin-right: 0;
-  }
+  margin: 0;
 }
 body.page-questionnaires .view-questionnaires li {
   display: block;
@@ -797,6 +788,22 @@ body.page-questionnaires .view-questionnaires li {
   width: 100%;
   margin: 0;
   background: white;
+}
+body.page-questionnaires .view-questionnaires li:first-child a {
+  padding-top: 18px;
+}
+@media (min-width: 600px) {
+  body.page-questionnaires .view-questionnaires li:first-child a {
+    padding-top: 25px;
+  }
+}
+body.page-questionnaires .view-questionnaires li:last-child a {
+  padding-bottom: 18px;
+}
+@media (min-width: 600px) {
+  body.page-questionnaires .view-questionnaires li:last-child a {
+    padding-bottom: 25px;
+  }
 }
 body.page-questionnaires .view-questionnaires li a {
   display: block;

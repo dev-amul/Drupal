@@ -9,18 +9,9 @@ body.page-questionnaires {
     background-color: transparent;
   }
 
-  h1 {
-    background: none;
-  }
-
   .view-questionnaires {
     ul {
-      margin: 40px 20px;
-
-      @include breakpoint($break-small) {
-        margin-left: 0;
-        margin-right: 0;
-      }
+      margin: 0;
     }
 
     li {
@@ -30,6 +21,22 @@ body.page-questionnaires {
       width: 100%;
       margin: 0;
       background: white;
+
+      &:first-child a {
+        padding-top: 18px;
+
+        @include breakpoint($break-small) {
+          padding-top: 25px;
+        }
+      }
+
+      &:last-child a {
+        padding-bottom: 18px;
+
+        @include breakpoint($break-small) {
+          padding-bottom: 25px;
+        }
+      }
 
       a {
         display: block;
