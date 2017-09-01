@@ -771,6 +771,54 @@ body.maintenance-page #container h1 {
   }
 }
 
+body.page-questionnaires .page,
+body.page-questionnaires .main.container {
+  max-width: 400px;
+}
+body.page-questionnaires #block-system-main {
+  background-color: transparent;
+}
+body.page-questionnaires h1 {
+  background: none;
+}
+body.page-questionnaires .view-questionnaires ul {
+  margin: 40px 20px;
+}
+@media (min-width: 600px) {
+  body.page-questionnaires .view-questionnaires ul {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+body.page-questionnaires .view-questionnaires li {
+  display: block;
+  float: left;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  background: white;
+}
+body.page-questionnaires .view-questionnaires li a {
+  display: block;
+  padding: 15px;
+  width: 100%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+  -webkit-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+}
+@media (min-width: 600px) {
+  body.page-questionnaires .view-questionnaires li a {
+    padding: 20px;
+    font-size: 1.5rem;
+  }
+}
+body.page-questionnaires .view-questionnaires li a:hover {
+  background: #ffd815;
+}
+
 body.page-entityform h1,
 body.page-eform h1 {
   background: none;
