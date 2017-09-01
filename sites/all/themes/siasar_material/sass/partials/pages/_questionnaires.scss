@@ -2,7 +2,7 @@ body.page-questionnaires {
 
   .page,
   .main.container {
-    max-width: 480px;
+    max-width: 400px;
   }
 
   #block-system-main {
@@ -15,7 +15,12 @@ body.page-questionnaires {
 
   .view-questionnaires {
     ul {
-      margin: 40px 0;
+      margin: 40px 20px;
+
+      @include breakpoint($break-small) {
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
 
     li {
@@ -25,18 +30,21 @@ body.page-questionnaires {
       width: 100%;
       margin: 0;
       background: white;
-      font-size: 1.5rem;
-      min-height: 60px;
 
       a {
         display: block;
-        padding: 20px;
+        padding: 15px;
         width: 100%;
-        min-height: 60px;
+        font-size: 1.2rem;
         text-decoration: none;
         text-align: center;
         line-height: 1;
         transition: background-color ($transition-time / 3) linear;
+
+        @include breakpoint($break-small) {
+          padding: 20px;
+          font-size: 1.5rem;
+        }
 
         &:hover {
           background: $siasar-yellow;
