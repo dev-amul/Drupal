@@ -51,24 +51,24 @@ function feature_siasar_theme_settings_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['style_options']['wrapper_class'] = '';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Campo: Entityform Type: Nombre de sistema */
+  /* Field: Entityform Type: Machine-readable name */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'entityform_type';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
   $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
-  /* Campo: Entityform Type: Etiqueta */
+  /* Field: Entityform Type: Label */
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'entityform_type';
   $handler->display->display_options['fields']['label']['field'] = 'label';
   $handler->display->display_options['fields']['label']['label'] = '';
   $handler->display->display_options['fields']['label']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['label']['alter']['text'] = '<a href="/submissions/[type]" class="questionnaire-[type]">[label]</a>';
+  $handler->display->display_options['fields']['label']['alter']['text'] = '<a href="/eform/submit/[type]" class="questionnaire-[type]">[label]</a>';
   $handler->display->display_options['fields']['label']['element_type'] = '0';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['label']['element_wrapper_type'] = '0';
-  /* Criterio de ordenación: Entityform Type: Etiqueta */
+  /* Sort criterion: Entityform Type: Label */
   $handler->display->display_options['sorts']['label']['id'] = 'label';
   $handler->display->display_options['sorts']['label']['table'] = 'entityform_type';
   $handler->display->display_options['sorts']['label']['field'] = 'label';
