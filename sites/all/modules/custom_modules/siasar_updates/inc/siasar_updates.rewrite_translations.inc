@@ -55,10 +55,16 @@ function siasar_updates_update_field_groups($group_tree, $source, $target) {
 }
 
 function siasar_updates_match_update_field_group($group_tree, $source, $target) {
-  foreach($group_tree as $group) {
-    if ($group->label !== $source) continue;
+  $lower_source = strtolower($source);
 
-    $group->label = $target;
-    field_group_group_save($group);
+  foreach($group_tree as $group) {
+    $clean_label = strtolower($group->label);
+    $clean_label = trim($clean_label);
+
+    if ($clean_label != $lower_source) continue;
+
+    $entity_group = field_group_load_field_group($group->group_name, $group->entity_type, $group->bundle, $group->mode);
+    $entity_group->label = $target;
+    field_group_group_save($entity_group);
   }
 }
