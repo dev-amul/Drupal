@@ -63,17 +63,10 @@ function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$fo
   module_load_include('module', 'siasar_field_location', 'siasar_field_location');
   $field_entidad_local = 'field_entidad_local_siasar_hierarchical_select';
 
-  $default_location = _siasar_validate_and_get_default_location($field_entidad_local, $form_state);
-  $form[$field_entidad_local] = siasar_field_location_field_widget_skeleton($field_entidad_local, null, $default_location, false, false, false);
-
-  $form['field_pais_iso2'] = _feature_siasar_views_reports_create_country_selector();
+  load_exposed_form_country_location_widget($form, $form_state, $field_entidad_local);
 
   $form['type'] = _feature_siasar_views_reports_create_entityforms_select_field();
 
-  // Country field is only for admins
-  if (!user_access('assign territorial division')) {
-    $form['field_pais_iso2']['#disabled'] = 'true';
-  }
 }
 
 /**
