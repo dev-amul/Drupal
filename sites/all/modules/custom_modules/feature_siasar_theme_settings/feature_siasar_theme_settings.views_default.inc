@@ -63,8 +63,9 @@ function feature_siasar_theme_settings_views_default_views() {
   $handler->display->display_options['fields']['label']['table'] = 'entityform_type';
   $handler->display->display_options['fields']['label']['field'] = 'label';
   $handler->display->display_options['fields']['label']['label'] = '';
-  $handler->display->display_options['fields']['label']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['label']['alter']['text'] = '<a href="/eform/submit/[type]" class="questionnaire-[type]">[label]</a>';
+  $handler->display->display_options['fields']['label']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['label']['alter']['path'] = 'eform/submit/[type]';
+  $handler->display->display_options['fields']['label']['alter']['link_class'] = 'questionnaire-[type]';
   $handler->display->display_options['fields']['label']['element_type'] = '0';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['label']['element_wrapper_type'] = '0';
