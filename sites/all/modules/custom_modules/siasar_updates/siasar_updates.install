@@ -816,3 +816,12 @@ function siasar_updates_update_7146(&$sandbox) {
 
   features_revert_module('feature_siasar_theme_settings');
 }
+
+/**
+ * Issue 557. Corregir traducciones grupos a partir de fichero CSV
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/557
+ */
+ function siasar_updates_update_7149(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.rewrite_translations');
+  siasar_updates_rewrite_translations_from_csv('../files/translation_rewrite_source.csv');
+}
