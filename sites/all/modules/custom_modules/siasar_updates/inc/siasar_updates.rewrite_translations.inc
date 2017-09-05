@@ -62,15 +62,3 @@ function siasar_updates_match_update_field_group($group_tree, $source, $target) 
     break;
   }
 }
-
-
-
-function siasar_updates_get_source_of_translation($string, $language) {
-  $query = db_select('locales_source', 'l')
-    ->fields('l')
-    ->condition('source', $string)
-    ->execute();
-
-  $result = $query->fetchAllAssoc();
-  return $result;
-}
