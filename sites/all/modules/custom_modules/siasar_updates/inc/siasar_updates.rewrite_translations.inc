@@ -35,7 +35,7 @@ function siasar_updates_update_source_of_translation($source_string, $destinatio
         'source' => $destination_string
       )
     )
-    ->condition('source', $source_string)
+    ->condition('source', '%' . db_like($source_string) . '%', 'LIKE')
     ->execute();
 
   return $query;
@@ -59,6 +59,5 @@ function siasar_updates_match_update_field_group($group_tree, $source, $target) 
 
     $group->label = $target;
     field_group_group_save($group);
-    break;
   }
 }
