@@ -30,12 +30,13 @@ function siasar_updates_open_parse_csv($source) {
 }
 
 function siasar_updates_update_source_of_translation($source_string, $destination_string) {
+  $source_string = strtolower($source_string);
   $query = db_update('locales_source')
     ->fields(array(
         'source' => $destination_string
       )
     )
-    ->condition('source', '%' . db_like($source_string) . '%', 'LIKE')
+    ->where('LOWER(source) LIKE LOWER(\''. '%' . db_like($source_string) . '%\')')
     ->execute();
 
   return $query;
