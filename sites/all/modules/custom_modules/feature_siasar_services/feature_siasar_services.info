@@ -2,7 +2,7 @@ name = SIASAR Services Config
 description = SIASAR services global configuration
 core = 7.x
 package = SIASAR
-version = 7.x-1.5
+version = 7.x-1.6
 dependencies[] = cors
 dependencies[] = ctools
 dependencies[] = currency
@@ -14,6 +14,5 @@ features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[services_endpoint][] = api_v1
 features[variable][] = cors_domains
-project path = sites/all/modules/custom_modules
-
 files[] = SIASARServicesEntityResourceController.inc
+project path = sites/all/modules/custom_modules

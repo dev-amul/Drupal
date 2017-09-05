@@ -6,3 +6,10 @@
 function feature_siasar_services_update_7100() {
   variable_set('services_entity_resource_class', 'SIASARServicesEntityResourceController');
 }
+
+/**
+ * Activate "file" endpoint and deactivate "entity_file"
+ */
+ function feature_siasar_services_update_7101() {
+  feature_revert('feature_siasar_services');
+}
