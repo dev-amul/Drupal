@@ -2467,7 +2467,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -5652,7 +5652,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'entity_translation_sync' => FALSE,
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'taxonomy_term_reference',
   );
 
@@ -6543,7 +6543,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'todate' => '',
       'tz_handling' => 'none',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'datetime',
   );
 
@@ -8232,7 +8232,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
   // Exported field_base: 'field_mecanismo_pago_tarifa'.
   $field_bases['field_mecanismo_pago_tarifa'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_mecanismo_pago_tarifa',
