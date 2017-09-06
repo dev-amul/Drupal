@@ -836,3 +836,13 @@ function siasar_updates_update_7150() {
   features_revert_module('feature_siasar_taxonomies');
   features_revert_module('feature_siasar_field_bases');
 }
+
+/**
+ * Issue 367 Filtrar usuarios por país y región
+ */
+function siasar_updates_update_7151() {
+  $modules = array(
+    'feature_siasar_user_administration',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+}
