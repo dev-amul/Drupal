@@ -2,7 +2,7 @@
 
 /**
  * 557 - English translation review and corrections.
- * Also, deactivate translation on a date field.
+ * 550 - Deactivate translation on a date field.
  */
  function feature_siasar_field_bases_update_7100() {
   features_revert_module('feature_siasar_field_bases');
