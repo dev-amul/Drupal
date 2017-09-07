@@ -846,3 +846,13 @@ function siasar_updates_update_7151() {
   );
   $modules_enabled = module_enable($modules, TRUE);
 }
+
+/**
+ * Issue 367 Disable default admin_view
+ */
+function siasar_updates_update_7152() {
+  $status = variable_get('views_defaults', array());
+  $status['admin_views_user'] = TRUE;
+  variable_set('views_defaults', $status);
+
+}
