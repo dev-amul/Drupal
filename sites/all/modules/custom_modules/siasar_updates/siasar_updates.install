@@ -854,5 +854,33 @@ function siasar_updates_update_7152() {
   $status = variable_get('views_defaults', array());
   $status['admin_views_user'] = TRUE;
   variable_set('views_defaults', $status);
-
 }
+
+/**
+ * Hotfix - Repair Country assignment for Colombia N11
+ */
+ function siasar_updates_update_7153() {
+   $country = 'CO';
+   $sql = "select * from field_data_field_pais where bundle = 'division_politico_administrativa' AND field_pais_iso2 = '" . $country. "'";
+
+   $result = db_query($sql);
+
+   foreach($result as $record) {
+     $term = taxonomy_term_load($record->entity_id);
+
+     if ($term->vocabulary_machine_name !== $record->bundle) {
+       $upd_query = db_update('field_data_field_pais')
+       ->fields(array(
+         'bundle' => $term->vocabulary_machine_name
+         )
+       )
+       ->condition('entity_type', 'taxonomy_term')
+       ->condition('field_pais_iso2', 'CO')
+       ->condition('entity_id', $term->tid);
+
+       $count = $upd_query->execute();
+     }
+   }
+ }
+
+
