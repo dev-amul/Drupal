@@ -185,10 +185,6 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_rating']['id'] = 'field_rating';
-  $handler->display->display_options['fields']['field_rating']['table'] = 'field_data_field_rating';
-  $handler->display->display_options['fields']['field_rating']['field'] = 'field_rating';
   /* Field: Entityform Submission: Edit Link */
   $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
   $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
@@ -1026,6 +1022,106 @@ function feature_siasar_views_reports_views_default_views() {
     10 => 0,
   );
   $handler->display->display_options['path'] = 'resultados/xls';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'default' => 0,
+  );
+
+  /* Display: Exportación de datos */
+  $handler = $view->new_display('views_data_export', 'Exportación de datos', 'views_data_export_3');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['attach_text'] = 'descarga com-ps-sys-pat';
+  $handler->display->display_options['style_options']['provide_file'] = 0;
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['quote'] = '1';
+  $handler->display->display_options['style_options']['trim'] = 0;
+  $handler->display->display_options['style_options']['replace_newlines'] = 0;
+  $handler->display->display_options['style_options']['newline_token'] = '1';
+  $handler->display->display_options['style_options']['header'] = 1;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entityform Submission: User uid */
+  $handler->display->display_options['relationships']['user']['id'] = 'user';
+  $handler->display->display_options['relationships']['user']['table'] = 'entityform';
+  $handler->display->display_options['relationships']['user']['field'] = 'user';
+  /* Relationship: Field: País (field_pais) */
+  $handler->display->display_options['relationships']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['relationships']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['relationships']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  $handler->display->display_options['relationships']['field_pais_iso2']['relationship'] = 'user';
+  $handler->display->display_options['relationships']['field_pais_iso2']['required'] = TRUE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_user_reference_target_id']['id'] = 'field_user_reference_target_id';
+  $handler->display->display_options['relationships']['field_user_reference_target_id']['table'] = 'field_data_field_user_reference';
+  $handler->display->display_options['relationships']['field_user_reference_target_id']['field'] = 'field_user_reference_target_id';
+  $handler->display->display_options['relationships']['field_user_reference_target_id']['label'] = 'Encuestador field_user_reference';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_system_ref_field_collection_item']['id'] = 'reverse_field_system_ref_field_collection_item';
+  $handler->display->display_options['relationships']['reverse_field_system_ref_field_collection_item']['table'] = 'entityform';
+  $handler->display->display_options['relationships']['reverse_field_system_ref_field_collection_item']['field'] = 'reverse_field_system_ref_field_collection_item';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Entityform Submission: Entityform submission ID */
+  $handler->display->display_options['fields']['entityform_id']['id'] = 'entityform_id';
+  $handler->display->display_options['fields']['entityform_id']['table'] = 'entityform';
+  $handler->display->display_options['fields']['entityform_id']['field'] = 'entityform_id';
+  /* Field: Entityform Submission: Date submitted */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'entityform';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'short';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: User: Full name */
+  $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
+  $handler->display->display_options['fields']['field_nombre_completo']['relationship'] = 'user';
+  $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'Usuario';
+  $handler->display->display_options['fields']['field_nombre_completo']['element_label_colon'] = FALSE;
+  /* Field: Entityform Submission: Nombre */
+  $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
+  /* Field: Entityform Submission: Edit Link */
+  $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
+  $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
+  $handler->display->display_options['fields']['edit_entityform']['field'] = 'edit_entityform';
+  $handler->display->display_options['fields']['edit_entityform']['label'] = 'Editar';
+  $handler->display->display_options['fields']['edit_entityform']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_entityform']['element_label_colon'] = FALSE;
+  /* Field: Entityform Submission: Link */
+  $handler->display->display_options['fields']['link_entityform']['id'] = 'link_entityform';
+  $handler->display->display_options['fields']['link_entityform']['table'] = 'entityform';
+  $handler->display->display_options['fields']['link_entityform']['field'] = 'link_entityform';
+  $handler->display->display_options['fields']['link_entityform']['label'] = 'Ver';
+  $handler->display->display_options['fields']['link_entityform']['exclude'] = TRUE;
+  /* Field: Entityform Submission: Código de Sistema */
+  $handler->display->display_options['fields']['field_codigo_de_sistema']['id'] = 'field_codigo_de_sistema';
+  $handler->display->display_options['fields']['field_codigo_de_sistema']['table'] = 'field_data_field_codigo_de_sistema';
+  $handler->display->display_options['fields']['field_codigo_de_sistema']['field'] = 'field_codigo_de_sistema';
+  /* Field: Field collection item: Nombre del sistema */
+  $handler->display->display_options['fields']['field_system_ref']['id'] = 'field_system_ref';
+  $handler->display->display_options['fields']['field_system_ref']['table'] = 'field_data_field_system_ref';
+  $handler->display->display_options['fields']['field_system_ref']['field'] = 'field_system_ref';
+  $handler->display->display_options['fields']['field_system_ref']['relationship'] = 'reverse_field_system_ref_field_collection_item';
+  $handler->display->display_options['fields']['field_system_ref']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Field collection item: Nombre del prestador de servicio */
+  $handler->display->display_options['fields']['field_prestador_servicio']['id'] = 'field_prestador_servicio';
+  $handler->display->display_options['fields']['field_prestador_servicio']['table'] = 'field_data_field_prestador_servicio';
+  $handler->display->display_options['fields']['field_prestador_servicio']['field'] = 'field_prestador_servicio';
+  $handler->display->display_options['fields']['field_prestador_servicio']['relationship'] = 'reverse_field_system_ref_field_collection_item';
+  $handler->display->display_options['fields']['field_prestador_servicio']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Entityform Submission: Nombre */
+  $handler->display->display_options['fields']['field_entity_name_1']['id'] = 'field_entity_name_1';
+  $handler->display->display_options['fields']['field_entity_name_1']['table'] = 'field_data_field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name_1']['field'] = 'field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name_1']['label'] = 'Nombre PAT';
+  $handler->display->display_options['path'] = 'resultados/csv2';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
     'default' => 0,
