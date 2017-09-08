@@ -55,16 +55,19 @@ function siasar_updates_update_field_groups($group_tree, $source, $target) {
 }
 
 function siasar_updates_match_update_field_group($group_tree, $source, $target) {
-  $lower_source = strtolower($source);
+  $clean_source = _siasar_updates_clean_string($source);
 
   foreach($group_tree as $group) {
-    $clean_label = strtolower($group->label);
-    $clean_label = trim($clean_label);
+    $clean_label = _siasar_updates_clean_string($group->label);
 
-    if ($clean_label != $lower_source) continue;
+    if ($clean_label != $clean_source) continue;
 
     $entity_group = field_group_load_field_group($group->group_name, $group->entity_type, $group->bundle, $group->mode);
     $entity_group->label = $target;
     field_group_group_save($entity_group);
   }
+}
+
+function _siasar_updates_clean_string($src) {
+  return trim(strtolower($src));
 }
