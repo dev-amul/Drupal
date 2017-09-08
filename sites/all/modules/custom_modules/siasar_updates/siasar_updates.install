@@ -889,6 +889,8 @@ function siasar_updates_update_7152() {
  */
  function siasar_updates_update_7154(&$sandbox) {
   module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.rewrite_translations');
+  siasar_updates_rewrite_translations_from_csv('../files/translation_rewrite_source.csv');
   siasar_updates_rewrite_translations_from_csv('../files/translation_rewrite_source_2.csv');
+  siasar_updates_rewrite_translations_from_csv('../files/translation_rewrite_source_3.csv');
 }
 

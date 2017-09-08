@@ -14,7 +14,7 @@ function siasar_updates_rewrite_translations_from_csv($source) {
 
 function siasar_updates_open_parse_csv($source) {
   $path = dirname(__FILE__);
-  $file = fopen($path . '/../files/translation_rewrite_source.csv', 'r');
+  $file = fopen($path . '/' . $source, 'r');
   $entries = array();
   $entries_count;
 
@@ -63,7 +63,7 @@ function siasar_updates_match_update_field_group($group_tree, $source, $target) 
     if ($clean_label != $clean_source) continue;
 
     $entity_group = field_group_load_field_group($group->group_name, $group->entity_type, $group->bundle, $group->mode);
-    $entity_group->label = $target;
+    $entity_group->label = trim($target);
     field_group_group_save($entity_group);
   }
 }
