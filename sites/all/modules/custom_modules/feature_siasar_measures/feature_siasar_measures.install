@@ -6,4 +6,7 @@
  */
  function feature_siasar_measures_update_7100() {
   features_revert_module('feature_siasar_measures');
+
+  features_feature_unlock('feature_siasar_measures', 'units_measure');
+  features_feature_unlock('feature_siasar_measures', 'units_unit');
 }
