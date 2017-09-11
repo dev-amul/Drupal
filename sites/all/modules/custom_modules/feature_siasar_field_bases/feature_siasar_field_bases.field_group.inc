@@ -20,7 +20,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A6. Is there sufficient water in the source(s) to meet demand?',
+    'label' => 'A6. Are there adequate water resources (at the source) to meet demand?',
     'weight' => '120',
     'children' => array(
       0 => 'field_agua_en_verano',
@@ -50,7 +50,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A7. Water supply system sketch',
+    'label' => 'A7. Water Supply System Design',
     'weight' => '121',
     'children' => array(
       0 => 'field_a6_croquis',
@@ -79,7 +79,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'A. General Information and System Schema',
+    'label' => 'A. General information and design',
     'weight' => '0',
     'children' => array(
       0 => 'field_pais',
@@ -302,7 +302,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'B2. Status of the area near the source or system water intake ',
+    'label' => 'B2. Environmental conditions surrounding the source and/or intake (e.g. riverbanks, recharge zones, well fields, etc.)',
     'weight' => '1',
     'children' => array(
       0 => 'field_existencia_z_erosionadas',
@@ -603,7 +603,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'B4. Physical condition of water catchment infrastructure',
+    'label' => 'B4. State of Water Intake Infrastructure',
     'weight' => '17',
     'children' => array(
       0 => 'field_observaciones',
@@ -695,7 +695,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'C1. Water mains',
+    'label' => 'C1. Water Transmission Line(s)',
     'weight' => '1',
     'children' => array(
       0 => 'field_c1_1',
@@ -727,7 +727,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'C2. Physical condition of the water mains',
+    'label' => 'C2. State of Water Transmission Line(s)',
     'weight' => '6',
     'children' => array(
       0 => 'field_c2_2',
@@ -760,9 +760,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Personal',
     'weight' => '81',
     'children' => array(
-      0 => 'field_com_fic_cesh_pa',
-      1 => 'field_com_fic_cesh_pe',
-      2 => 'field_com_fic_cesh_pi',
+      0 => 'field_com_fic_cesh_pi',
+      1 => 'field_com_fic_cesh_pa',
+      2 => 'field_com_fic_cesh_pe',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -796,8 +796,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '82',
     'children' => array(
       0 => 'field_com_fic_cesh_pq',
-      1 => 'field_com_fic_cesh_pm',
-      2 => 'field_com_fic_cesh_pu',
+      1 => 'field_com_fic_cesh_pu',
+      2 => 'field_com_fic_cesh_pm',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -830,9 +830,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Comunes',
     'weight' => '83',
     'children' => array(
-      0 => 'field_com_fic_cesh_pca',
-      1 => 'field_com_fic_cesh_pba',
-      2 => 'field_com_fic_cesh_paa',
+      0 => 'field_com_fic_cesh_paa',
+      1 => 'field_com_fic_cesh_pca',
+      2 => 'field_com_fic_cesh_pba',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -865,9 +865,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Tipo I',
     'weight' => '42',
     'children' => array(
-      0 => 'group_c4_grid_1_3',
+      0 => 'group_c4_grid_1_1',
       1 => 'group_c4_grid_1_2',
-      2 => 'group_c4_grid_1_1',
+      2 => 'group_c4_grid_1_3',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -935,9 +935,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Alumnado',
     'weight' => '90',
     'children' => array(
-      0 => 'field_com_fic_cesh_pr',
-      1 => 'field_com_fic_cesh_pn',
-      2 => 'field_com_fic_cesh_pv',
+      0 => 'field_com_fic_cesh_pv',
+      1 => 'field_com_fic_cesh_pr',
+      2 => 'field_com_fic_cesh_pn',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -970,9 +970,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Comunes',
     'weight' => '91',
     'children' => array(
-      0 => 'field_com_fic_cesh_pcb',
-      1 => 'field_com_fic_cesh_pbb',
-      2 => 'field_com_fic_cesh_pab',
+      0 => 'field_com_fic_cesh_pab',
+      1 => 'field_com_fic_cesh_pcb',
+      2 => 'field_com_fic_cesh_pbb',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1040,9 +1040,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Personal',
     'weight' => '97',
     'children' => array(
-      0 => 'field_com_fic_cesh_pc',
+      0 => 'field_com_fic_cesh_pk',
       1 => 'field_com_fic_cesh_pg',
-      2 => 'field_com_fic_cesh_pk',
+      2 => 'field_com_fic_cesh_pc',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1076,8 +1076,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '98',
     'children' => array(
       0 => 'field_com_fic_cesh_ps',
-      1 => 'field_com_fic_cesh_pw',
-      2 => 'field_com_fic_cesh_po',
+      1 => 'field_com_fic_cesh_po',
+      2 => 'field_com_fic_cesh_pw',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1111,8 +1111,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '99',
     'children' => array(
       0 => 'field_com_fic_cesh_pcc',
-      1 => 'field_com_fic_cesh_pac',
-      2 => 'field_com_fic_cesh_pbc',
+      1 => 'field_com_fic_cesh_pbc',
+      2 => 'field_com_fic_cesh_pac',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1145,8 +1145,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'No mejorada',
     'weight' => '44',
     'children' => array(
-      0 => 'group_c4_grid_3_2',
-      1 => 'group_c4_grid_3_1',
+      0 => 'group_c4_grid_3_1',
+      1 => 'group_c4_grid_3_2',
       2 => 'group_c4_grid_3_3',
     ),
     'format_type' => 'div',
@@ -1317,7 +1317,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_tipo_de_apoyo';
   $field_group->data = array(
-    'label' => 'D1. Services for providers (community managed water service providers, or Community Water Boards – CWBs) ',
+    'label' => 'D1. Number of Communities - Technical assistance given to service providers (e.g. water committee, Community Water Boards (CWBs), etc.)',
     'weight' => '22',
     'children' => array(
       0 => 'field_otras_numero_comunidade',
@@ -1577,10 +1577,6 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_con_fic_ce_fnombre',
       1 => 'field_com_fic_ce_fcodigo',
-      2 => 'field_com_fic_ce_fdocm',
-      3 => 'field_com_fic_ce_festm',
-      4 => 'field_com_fic_ce_fdocf',
-      5 => 'field_com_fic_ce_festf',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1641,9 +1637,9 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '2',
     'children' => array(
       0 => 'group_c4_grid_2',
-      1 => 'group_c4_grid_1',
-      2 => 'group_c4_grid_4',
-      3 => 'group_c4_grid_3',
+      1 => 'group_c4_grid_3',
+      2 => 'group_c4_grid_1',
+      3 => 'group_c4_grid_4',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2120,7 +2116,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_groups['group_com_srv|entityform|comunidad|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_com_uso_inf|entityform|comunidad|form';
   $field_group->group_name = 'group_com_uso_inf';
@@ -2332,7 +2328,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'D2. Physical condition of water treatment infrastructure',
+    'label' => 'D2. State of Water Treatment Infrastructure',
     'weight' => '6',
     'children' => array(
       0 => 'field_edo_fisico_linea_tto',
@@ -2625,7 +2621,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'F4. Physical condition of water distribution infrastructure',
+    'label' => 'F4. State of Water Distribution Infrastructure',
     'weight' => '3',
     'children' => array(
       0 => 'field_f3_2',
@@ -2655,7 +2651,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_info_economica';
   $field_group->data = array(
-    'label' => 'C5. Billing, Payment, and Income',
+    'label' => 'C5. Billing, Payment and Revenue',
     'weight' => '7',
     'children' => array(
       0 => 'field_usuarios_deberian_pagan',
@@ -2687,7 +2683,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A3. Initial construction financing sources ',
+    'label' => 'A3. Initial Source(s) of Construction Financing',
     'weight' => '117',
     'children' => array(
       0 => 'field_a_fuentes_de_financiamient',
@@ -2716,7 +2712,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_inf_eco_ahorros';
   $field_group->data = array(
-    'label' => 'F2. Are there available funds?',
+    'label' => 'F2. Is liquid capital available?',
     'weight' => '99',
     'children' => array(
       0 => 'field__cuenta_con_fondos_disponi',
@@ -2746,7 +2742,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'B. Water source and catchment',
+    'label' => 'B. Water source and/or water intake works',
     'weight' => '1',
     'children' => array(
       0 => 'group_b1',
@@ -2838,7 +2834,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_g';
   $field_group->data = array(
-    'label' => 'G1. Present system flow',
+    'label' => 'G1. System Flow Rate',
     'weight' => '68',
     'children' => array(
       0 => 'field_caudal_actual_del_sistema',
@@ -2867,7 +2863,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_g';
   $field_group->data = array(
-    'label' => 'G2. Disinfection using chlorine',
+    'label' => 'G2. Chlorine Disinfection',
     'weight' => '69',
     'children' => array(
       0 => 'field_g2_1',
@@ -2896,7 +2892,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_g';
   $field_group->data = array(
-    'label' => 'G3. Household filtration',
+    'label' => 'G3. Household Water Treatment',
     'weight' => '70',
     'children' => array(
       0 => 'field_g3_1',
@@ -3145,7 +3141,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'F. FINANCIAL INFORMATION: SAVINGS',
+    'label' => 'F. Financial information: Working capital',
     'weight' => '5',
     'children' => array(
       0 => 'group_balance_contable',
@@ -3174,7 +3170,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'E. FINANCIAL INFORMATION: EXPENDITURES',
+    'label' => 'E. Financial information: expenditures',
     'weight' => '4',
     'children' => array(
       0 => 'group_gastos_promedios',
@@ -3261,7 +3257,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_info_economica';
   $field_group->data = array(
-    'label' => 'C4. Is there water metering information?',
+    'label' => 'C4. Are metering data available?',
     'weight' => '6',
     'children' => array(
       0 => 'field_inf_medicion_agua',
@@ -3292,7 +3288,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'B. Community Association / Organization Information',
+    'label' => 'B. Community organization information',
     'weight' => '1',
     'children' => array(
       0 => 'group_cuenta_banco',
@@ -3425,7 +3421,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'A. GENERAL INFORMATION AND SYSTEM OVERVIEW',
+    'label' => 'A. General information and design',
     'weight' => '0',
     'children' => array(
       0 => 'field_user_reference',
@@ -3554,7 +3550,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'B. INTERVENTION',
+    'label' => 'B. Supervision',
     'weight' => '1',
     'children' => array(
       0 => 'group_intervention_b1',
@@ -3640,7 +3636,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_info_asoc';
   $field_group->data = array(
-    'label' => ' B2. Board of Directors',
+    'label' => 'B2. Management Committee',
     'weight' => '28',
     'children' => array(
       0 => 'field_miembros_nombrados',
@@ -3671,7 +3667,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_info_asoc';
   $field_group->data = array(
-    'label' => 'B1. Legal Status and Incorporation',
+    'label' => 'B1. Legal Status',
     'weight' => '27',
     'children' => array(
       0 => 'field_estado_legal',
@@ -3701,7 +3697,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'H. OPERATIONS AND MAINTENANCE',
+    'label' => 'H. Operation and maintenance (O&M)',
     'weight' => '7',
     'children' => array(
       0 => 'group_acciones_preventivas',
@@ -3763,7 +3759,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_info_economica';
   $field_group->data = array(
-    'label' => 'C3. Is the community familiar with the rate payment mechanism and is it regularly applied?',
+    'label' => 'C3. Is the community familiar with the billing system and are bills issued at a regular frequency?',
     'weight' => '5',
     'children' => array(
       0 => 'field_mecanismo_pago_tarifa',
@@ -3793,7 +3789,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'E. COMMENTS',
+    'label' => 'E. Comments',
     'weight' => '4',
     'children' => array(
       0 => 'group_e1',
@@ -3820,7 +3816,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => ' I. COMMENTS',
+    'label' => 'I. Comments',
     'weight' => '8',
     'children' => array(
       0 => 'group_comentarios',
@@ -3847,7 +3843,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'G. OPERATIONS AND MAINTENANCE',
+    'label' => 'G. Operation and maintenance (O&M)',
     'weight' => '6',
     'children' => array(
       0 => 'group_atencion',
@@ -3877,7 +3873,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_info_general_comunidad';
   $field_group->data = array(
-    'label' => 'A2. Other divisions',
+    'label' => 'A2. Other Administrative and/or Geographical Divisions',
     'weight' => '72',
     'children' => array(
       0 => 'field_otras_divisiones',
@@ -3908,7 +3904,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A2. Other divisions',
+    'label' => 'A2. Other Administrative and/or Geographical Divisions',
     'weight' => '116',
     'children' => array(
       0 => 'field_area_planificacion',
@@ -4025,7 +4021,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->entity_type = 'field_collection_item';
   $field_group->bundle = 'field_con_fic_ce_ficha';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_com_fic_cecg';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Personal docente y administrativo',
     'weight' => '3',
@@ -4083,13 +4079,13 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->entity_type = 'field_collection_item';
   $field_group->bundle = 'field_con_fic_ce_ficha';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_com_fic_cecg';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Población estudiantil',
     'weight' => '4',
     'children' => array(
-      0 => 'field_com_fic_ce_festf',
-      1 => 'field_com_fic_ce_festm',
+      0 => 'field_com_fic_ce_festm',
+      1 => 'field_com_fic_ce_festf',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -4268,7 +4264,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'C. FINANCIAL, HUMAN, AND LOGISTICS RESOURCES ',
+    'label' => 'C. Financial, human, and logistical resources',
     'weight' => '2',
     'children' => array(
       0 => 'group_recursos_financ_hum_log_c1',
@@ -4385,7 +4381,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A4. System refurbishments and/or expansions',
+    'label' => 'A4. Refurbishment(s) and/or Expansion(s)',
     'weight' => '118',
     'children' => array(
       0 => 'field_rehabilitaciones_y_o_ampli',
@@ -4500,7 +4496,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_info_asoc';
   $field_group->data = array(
-    'label' => 'Board of Directors: Representatives and Technicians',
+    'label' => 'B3. Management Committee Representatives and Technicians',
     'weight' => '29',
     'children' => array(
       0 => 'field_tecnicos',
@@ -4530,7 +4526,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'D. TYPE OF SUPPORT',
+    'label' => 'D. Type of support',
     'weight' => '3',
     'children' => array(
       0 => 'group_cantidad_comun_servicios',
@@ -4610,87 +4606,84 @@ function feature_siasar_field_bases_field_group_info() {
   // Translatables
   // Included for use with string extractors like potx.
   t('	B4.');
-  t(' B2. Board of Directors');
-  t(' I. COMMENTS');
-  t('A. GENERAL INFORMATION AND SYSTEM OVERVIEW');
   t('A. General Information');
-  t('A. General Information and System Schema');
   t('A. General information');
+  t('A. General information and design');
   t('A1');
   t('A1.');
   t('A2');
-  t('A2. Other divisions');
+  t('A2. Other Administrative and/or Geographical Divisions');
   t('A2. Type of Provider');
   t('A3');
   t('A3.');
-  t('A3. Initial construction financing sources ');
+  t('A3. Initial Source(s) of Construction Financing');
   t('A4.');
-  t('A4. System refurbishments and/or expansions');
+  t('A4. Refurbishment(s) and/or Expansion(s)');
   t('A5. Household distribution by system ');
   t('A5. Type of water supply system');
+  t('A6. Are there adequate water resources (at the source) to meet demand?');
   t('A6. Households without system');
-  t('A6. Is there sufficient water in the source(s) to meet demand?');
   t('A7. Electricity and communications');
-  t('A7. Water supply system sketch');
+  t('A7. Water Supply System Design');
   t('Alumnado');
-  t('B. Community Association / Organization Information');
-  t('B. INTERVENTION');
+  t('B. Community organization information');
   t('B. Sanitation and hygiene');
-  t('B. Water source and catchment');
+  t('B. Supervision');
+  t('B. Water source and/or water intake works');
   t('B1');
-  t('B1. Legal Status and Incorporation');
+  t('B1. Legal Status');
   t('B1. Process used to complete this form');
   t('B1. Source and/or catchment');
   t('B2');
+  t('B2. Environmental conditions surrounding the source and/or intake (e.g. riverbanks, recharge zones, well fields, etc.)');
+  t('B2. Management Committee');
   t('B2. Sanitation. Existing household infrastructure');
-  t('B2. Status of the area near the source or system water intake ');
   t('B3.');
+  t('B3. Management Committee Representatives and Technicians');
   t('B3. Sanitation. Use of IMPROVED infrastructure type 1 or type 2');
-  t('B4. Physical condition of water catchment infrastructure');
-  t('B4. Saneamiento mejorado. Uso COMPARTIDO de la infraestructura');
+  t('B4. State of Water Intake Infrastructure');
   t('B4. Un-improved sanitation. Use of infrastructure ');
   t('B5. Accountability');
   t('B5. Household hygiene');
   t('B6. Solid waste collection and disposal');
-  t('Board of Directors: Representatives and Technicians');
-  t('C. FINANCIAL, HUMAN, AND LOGISTICS RESOURCES ');
   t('C. Financial information. Regular income');
+  t('C. Financial, human, and logistical resources');
   t('C. Pipeline');
   t('C. Schools');
   t('C1');
   t('C1.');
   t('C1. Schools');
-  t('C1. Water mains');
+  t('C1. Water Transmission Line(s)');
   t('C2');
-  t('C2. Physical condition of the water mains');
   t('C2. Rate Type and Amount');
   t('C2. School: General characteristics');
+  t('C2. State of Water Transmission Line(s)');
   t('C3');
-  t('C3. Is the community familiar with the rate payment mechanism and is it regularly applied?');
+  t('C3. Is the community familiar with the billing system and are bills issued at a regular frequency?');
   t('C3. School: Water system');
-  t('C4. Is there water metering information?');
+  t('C4. Are metering data available?');
   t('C4. Logistics');
   t('C4. Schools: Sanitation and hygiene');
-  t('C5. Billing, Payment, and Income');
+  t('C5. Billing, Payment and Revenue');
   t('C6. How Is the system maintained?');
   t('Comunes');
   t('Común');
   t('D. FINANCIAL INFORMATION: ADDITIONAL INCOME ');
   t('D. Health center');
-  t('D. TYPE OF SUPPORT');
+  t('D. Type of support');
   t('D. Water treatment infrastructure');
   t('D1. Additional income from operations');
   t('D1. Health centers');
-  t('D1. Services for providers (community managed water service providers, or Community Water Boards – CWBs) ');
+  t('D1. Number of Communities - Technical assistance given to service providers (e.g. water committee, Community Water Boards (CWBs), etc.)');
   t('D1. Water treatment infrastructure');
   t('D2. Have there been special contributions not directly related to water service?');
   t('D2. Healthcare center: General characteristics');
-  t('D2. Physical condition of water treatment infrastructure');
+  t('D2. State of Water Treatment Infrastructure');
   t('D3.');
   t('D3.  Healthcare center: Water system');
   t('D4.  Healthcare center: Sanitation and hygiene');
-  t('E. COMMENTS');
-  t('E. FINANCIAL INFORMATION: EXPENDITURES');
+  t('E. Comments');
+  t('E. Financial information: expenditures');
   t('E. Interventions');
   t('E. Water storage infrastructure');
   t('E1');
@@ -4699,34 +4692,35 @@ function feature_siasar_field_bases_field_group_info() {
   t('E1. Water storage infrastructure');
   t('E2. Physical condition of water storage infrastructure');
   t('F. Comments');
-  t('F. FINANCIAL INFORMATION: SAVINGS');
+  t('F. Financial information: Working capital');
   t('F. Water distribution');
   t('F1');
   t('F1. Comments and observations');
   t('F1. Is the income and expenditure ledger up to date?');
   t('F1. Water distribution ');
-  t('F2. Are there available funds?');
   t('F2. Distribution network');
+  t('F2. Is liquid capital available?');
   t('F3. Average distance from homes to the standpipes ');
   t('F3. Is there a balance sheet?');
-  t('F4. Physical condition of water distribution infrastructure');
+  t('F4. State of Water Distribution Infrastructure');
   t('G. Drinking water quantity and quality');
-  t('G. OPERATIONS AND MAINTENANCE');
+  t('G. Operation and maintenance (O&M)');
   t('G1.');
-  t('G1. Present system flow');
+  t('G1. System Flow Rate');
   t('G2.');
-  t('G2. Disinfection using chlorine');
+  t('G2. Chlorine Disinfection');
   t('G3.');
-  t('G3. Household filtration');
+  t('G3. Household Water Treatment');
   t('G4.');
   t('G4. Water quality');
   t('H. Comments');
-  t('H. OPERATIONS AND MAINTENANCE');
+  t('H. Operation and maintenance (O&M)');
   t('H1.');
   t('H2.');
   t('H3.');
   t('H4. Type of corrective measures');
   t('H5. Type of preventive measures ');
+  t('I. Comments');
   t('I1.');
   t('Menos 10m');
   t('No mejorada');

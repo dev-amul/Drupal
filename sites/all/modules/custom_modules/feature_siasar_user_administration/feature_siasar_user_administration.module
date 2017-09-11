@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ * Code for the SIASAR User Administration feature.
+ */
+
+include_once 'feature_siasar_user_administration.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter.
+ *
+ * Alters exposed filters on view admin_views_user
+ */
+function feature_siasar_user_administration_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+
+  if ($form_state['view']->name !== 'siasar_administration_users') return;
+
+  // Inject SIASAR hierarchical Select
+  module_load_include('module', 'siasar_field_location', 'siasar_field_location');
+  $field_entidad_local = 'field_entidad_local_siasar_hierarchical_select';
+
+  load_exposed_form_country_location_widget($form, $form_state, $field_entidad_local);
+
+}

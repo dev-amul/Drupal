@@ -792,3 +792,67 @@ function siasar_updates_update_7146(&$sandbox) {
   features_revert_module('feature_siasar_views_reports');
   features_revert_module('feature_siasar_entityform_drafts');
 }
+
+
+/**
+ * Issue 557. English issue.
+ * Questionnaires list
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/557
+ *
+ * @param $sandbox
+ */
+ function siasar_updates_update_7148() {
+  if ($view = views_get_view('clone_of_entityforms')) {
+    views_delete_view($view);
+  }
+
+  $modules = array(
+    'feature_siasar_menus',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  features_revert_module('feature_siasar_theme_settings');
+}
+
+/**
+ * Issue 557. Corregir traducciones grupos a partir de fichero CSV
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/557
+ */
+ function siasar_updates_update_7149(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.rewrite_translations');
+  siasar_updates_rewrite_translations_from_csv('../files/translation_rewrite_source.csv');
+}
+
+/**
+ * Issue 562. Desactivar traducción y traducir etiqueta a inglés en campo "name_field" de la paramétrica de países.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/562
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7150() {
+  features_revert_module('feature_siasar_taxonomies');
+  features_revert_module('feature_siasar_field_bases');
+}
+
+/**
+ * Issue 367 Filtrar usuarios por país y región
+ */
+function siasar_updates_update_7151() {
+  $modules = array(
+    'feature_siasar_user_administration',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+}
+
+/**
+ * Issue 367 Disable default admin_view
+ */
+function siasar_updates_update_7152() {
+  $status = variable_get('views_defaults', array());
+  $status['admin_views_user'] = TRUE;
+  variable_set('views_defaults', $status);
+
+}
