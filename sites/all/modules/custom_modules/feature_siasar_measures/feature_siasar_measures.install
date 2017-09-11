@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Corregir el factor de conversión de las unidades de concentración
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/556
+ */
+ function feature_siasar_measures_update_7100() {
+  features_revert_module('feature_siasar_measures');
+}
