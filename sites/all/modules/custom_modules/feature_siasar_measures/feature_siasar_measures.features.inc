@@ -120,7 +120,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Colony Forming Units per 100ml",
     "symbol" : "CFU\\/100ml",
     "description" : "",
-    "factor" : "0",
+    "factor" : "1",
     "rdf_mapping" : []
   }');
   $items['dia'] = entity_import('units_unit', '{
@@ -264,7 +264,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Micrograms per Litre",
     "symbol" : "\\u00b5g\\/L",
     "description" : "",
-    "factor" : "0",
+    "factor" : "0.001",
     "rdf_mapping" : []
   }');
   $items['microsiemens_per_centimeter'] = entity_import('units_unit', '{
@@ -282,7 +282,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "miligramos por litro",
     "symbol" : "mg\\/l",
     "description" : "",
-    "factor" : "6",
+    "factor" : "1",
     "rdf_mapping" : []
   }');
   $items['milimetro'] = entity_import('units_unit', '{
@@ -309,7 +309,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "partes por mill\\u00f3n",
     "symbol" : "ppm",
     "description" : "",
-    "factor" : "6",
+    "factor" : "1",
     "rdf_mapping" : []
   }');
   $items['pies_cubicos'] = entity_import('units_unit', '{
