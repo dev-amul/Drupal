@@ -14,7 +14,7 @@ function siasar_updates_rewrite_translations_from_csv($source) {
 
 function siasar_updates_open_parse_csv($source) {
   $path = dirname(__FILE__);
-  $file = fopen($path . '/../files/translation_rewrite_source.csv', 'r');
+  $file = fopen($path . '/' . $source, 'r');
   $entries = array();
   $entries_count;
 
@@ -55,16 +55,19 @@ function siasar_updates_update_field_groups($group_tree, $source, $target) {
 }
 
 function siasar_updates_match_update_field_group($group_tree, $source, $target) {
-  $lower_source = strtolower($source);
+  $clean_source = _siasar_updates_clean_string($source);
 
   foreach($group_tree as $group) {
-    $clean_label = strtolower($group->label);
-    $clean_label = trim($clean_label);
+    $clean_label = _siasar_updates_clean_string($group->label);
 
-    if ($clean_label != $lower_source) continue;
+    if ($clean_label != $clean_source) continue;
 
     $entity_group = field_group_load_field_group($group->group_name, $group->entity_type, $group->bundle, $group->mode);
-    $entity_group->label = $target;
+    $entity_group->label = trim($target);
     field_group_group_save($entity_group);
   }
+}
+
+function _siasar_updates_clean_string($src) {
+  return trim(strtolower($src));
 }
