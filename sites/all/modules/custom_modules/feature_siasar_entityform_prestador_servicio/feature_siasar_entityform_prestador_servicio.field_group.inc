@@ -296,7 +296,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_economica';
   $field_group->data = array(
-    'label' => 'C5. Billing, Payment, and Income',
+    'label' => 'C5. Billing, Payment and Revenue',
     'weight' => '8',
     'children' => array(
       0 => 'field_facturacion_promedio',
@@ -331,7 +331,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_inf_eco_ahorros';
   $field_group->data = array(
-    'label' => 'F2. Are there available funds?',
+    'label' => 'F2. Is liquid capital available?',
     'weight' => '7',
     'children' => array(
       0 => 'field_monto_total_fondos',
@@ -474,7 +474,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'F. FINANCIAL INFORMATION: SAVINGS',
+    'label' => 'F. Financial information: working capital',
     'weight' => '5',
     'children' => array(
       0 => 'group_balance_contable',
@@ -508,7 +508,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'E. FINANCIAL INFORMATION: EXPENDITURES',
+    'label' => 'E. Financial information: expenditures',
     'weight' => '4',
     'children' => array(
       0 => 'group_gastos_promedios',
@@ -540,7 +540,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'D. FINANCIAL INFORMATION: ADDITIONAL INCOME ',
+    'label' => 'D. Financial information: additional revenue',
     'weight' => '3',
     'children' => array(
       0 => 'group_aportaciones_extas',
@@ -608,7 +608,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_economica';
   $field_group->data = array(
-    'label' => 'C4. Is there water metering information?',
+    'label' => 'C4. Are metering data available?',
     'weight' => '7',
     'children' => array(
       0 => 'field_agua_facturada',
@@ -642,7 +642,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'B. Community Association / Organization Information',
+    'label' => 'B. Community organization information',
     'weight' => '1',
     'children' => array(
       0 => 'group_cuenta_banco',
@@ -678,7 +678,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'C. Financial information. Regular income',
+    'label' => 'C. Financial information: regular income',
     'weight' => '2',
     'children' => array(
       0 => 'group_fact_pago',
@@ -786,7 +786,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_asoc';
   $field_group->data = array(
-    'label' => ' B2. Board of Directors',
+    'label' => 'B2. Management Committee',
     'weight' => '18',
     'children' => array(
       0 => 'field_fecha_eleccion',
@@ -820,7 +820,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_asoc';
   $field_group->data = array(
-    'label' => 'B1. Legal Status and Incorporation',
+    'label' => 'B1. Legal Status',
     'weight' => '17',
     'children' => array(
       0 => 'field_estado_legal',
@@ -853,7 +853,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'H. OPERATIONS AND MAINTENANCE',
+    'label' => 'H. Operation and maintenance (O&M)',
     'weight' => '7',
     'children' => array(
       0 => 'group_acciones_correctivas',
@@ -922,7 +922,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_economica';
   $field_group->data = array(
-    'label' => 'C3. Is the community familiar with the rate payment mechanism and is it regularly applied?',
+    'label' => 'C3. Is the community familiar with the billing system and are bills issued at a regular frequency?',
     'weight' => '6',
     'children' => array(
       0 => 'field_otros_motivos',
@@ -955,7 +955,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => ' I. COMMENTS',
+    'label' => 'I. Comments',
     'weight' => '9',
     'children' => array(
       0 => 'field_comentarios',
@@ -987,7 +987,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'G. OPERATIONS AND MAINTENANCE',
+    'label' => 'G. Operation and maintenance (O&M)',
     'weight' => '6',
     'children' => array(
       0 => 'group_atencion',
@@ -1247,7 +1247,7 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_asoc';
   $field_group->data = array(
-    'label' => 'Board of Directors: Representatives and Technicians',
+    'label' => 'B3. Management Committee Representatives and Technicians',
     'weight' => '19',
     'children' => array(
       0 => 'field_representantes',
@@ -1306,43 +1306,43 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   // Translatables
   // Included for use with string extractors like potx.
   t('	B4.');
-  t(' B2. Board of Directors');
-  t(' I. COMMENTS');
   t('A. General Information');
   t('A1.');
   t('A2. Type of Provider');
-  t('B. Community Association / Organization Information');
-  t('B1. Legal Status and Incorporation');
+  t('B. Community organization information');
+  t('B1. Legal Status');
+  t('B2. Management Committee');
+  t('B3. Management Committee Representatives and Technicians');
   t('B5. Accountability');
-  t('Board of Directors: Representatives and Technicians');
-  t('C. Financial information. Regular income');
+  t('C. Financial information: regular income');
   t('C1.');
   t('C2. Rate Type and Amount');
-  t('C3. Is the community familiar with the rate payment mechanism and is it regularly applied?');
-  t('C4. Is there water metering information?');
-  t('C5. Billing, Payment, and Income');
+  t('C3. Is the community familiar with the billing system and are bills issued at a regular frequency?');
+  t('C4. Are metering data available?');
+  t('C5. Billing, Payment and Revenue');
   t('C6. How Is the system maintained?');
-  t('D. FINANCIAL INFORMATION: ADDITIONAL INCOME ');
+  t('D. Financial information: additional revenue');
   t('D1. Additional income from operations');
   t('D2. Have there been special contributions not directly related to water service?');
   t('D3.');
-  t('E. FINANCIAL INFORMATION: EXPENDITURES');
+  t('E. Financial information: expenditures');
   t('E1.');
-  t('F. FINANCIAL INFORMATION: SAVINGS');
+  t('F. Financial information: working capital');
   t('F1. Is the income and expenditure ledger up to date?');
-  t('F2. Are there available funds?');
+  t('F2. Is liquid capital available?');
   t('F3. Is there a balance sheet?');
-  t('G. OPERATIONS AND MAINTENANCE');
+  t('G. Operation and maintenance (O&M)');
   t('G1.');
   t('G2.');
   t('G3.');
   t('G4.');
-  t('H. OPERATIONS AND MAINTENANCE');
+  t('H. Operation and maintenance (O&M)');
   t('H1.');
   t('H2.');
   t('H3.');
   t('H4. Type of corrective measures');
   t('H5. Type of preventive measures ');
+  t('I. Comments');
 
   return $field_groups;
 }

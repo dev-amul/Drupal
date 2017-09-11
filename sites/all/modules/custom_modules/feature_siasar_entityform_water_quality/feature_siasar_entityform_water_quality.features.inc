@@ -22,7 +22,7 @@ function feature_siasar_entityform_water_quality_default_entityform_type() {
     "type" : "waq",
     "label" : "Water Quality",
     "data" : {
-      "draftable" : 1,
+      "draftable" : 0,
       "draft_redirect_path" : "",
       "draft_button_text" : "",
       "draft_save_text" : { "value" : "", "format" : "filtered_html" },

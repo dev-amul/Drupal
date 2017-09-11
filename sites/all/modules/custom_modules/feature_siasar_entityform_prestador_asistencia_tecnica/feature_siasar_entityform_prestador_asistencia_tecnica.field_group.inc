@@ -20,7 +20,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_tipo_de_apoyo';
   $field_group->data = array(
-    'label' => 'D1. Services for providers (community managed water service providers, or Community Water Boards – CWBs) ',
+    'label' => 'D1. Number of Communities - Technical assistance given to service providers (e.g. water committee, etc.)',
     'weight' => '4',
     'children' => array(
       0 => 'field_apoyar_legalizacion_reglam',
@@ -97,7 +97,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'A. GENERAL INFORMATION AND SYSTEM OVERVIEW',
+    'label' => 'A. General information and design',
     'weight' => '0',
     'children' => array(
       0 => 'field_user_reference',
@@ -135,7 +135,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'B. INTERVENTION',
+    'label' => 'B. Supervision',
     'weight' => '1',
     'children' => array(
       0 => 'group_intervention_b1',
@@ -232,7 +232,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'E. COMMENTS',
+    'label' => 'E. Comments',
     'weight' => '5',
     'children' => array(
       0 => 'group_e1',
@@ -498,7 +498,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'C. FINANCIAL, HUMAN, AND LOGISTICS RESOURCES ',
+    'label' => 'C. Financial, human, and logistical resources',
     'weight' => '2',
     'children' => array(
       0 => 'group_recursos_financ_hum_log_c1',
@@ -533,7 +533,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'D. TYPE OF SUPPORT',
+    'label' => 'D. Type of support',
     'weight' => '3',
     'children' => array(
       0 => 'group_cantidad_comun_servicios',
@@ -557,21 +557,21 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('A. GENERAL INFORMATION AND SYSTEM OVERVIEW');
+  t('A. General information and design');
   t('A1');
   t('A2');
   t('A3');
-  t('B. INTERVENTION');
+  t('B. Supervision');
   t('B1');
   t('B2');
-  t('C. FINANCIAL, HUMAN, AND LOGISTICS RESOURCES ');
+  t('C. Financial, human, and logistical resources');
   t('C1');
   t('C2');
   t('C3');
   t('C4. Logistics');
-  t('D. TYPE OF SUPPORT');
-  t('D1. Services for providers (community managed water service providers, or Community Water Boards – CWBs) ');
-  t('E. COMMENTS');
+  t('D. Type of support');
+  t('D1. Number of Communities - Technical assistance given to service providers (e.g. water committee, etc.)');
+  t('E. Comments');
   t('E1');
 
   return $field_groups;

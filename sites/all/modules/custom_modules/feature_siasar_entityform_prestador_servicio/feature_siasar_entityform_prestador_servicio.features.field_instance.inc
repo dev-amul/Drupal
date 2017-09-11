@@ -2620,7 +2620,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'.
   $field_instances['entityform-prestador_de_servicio-field_mecanismo_pago_tarifa'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5169,11 +5169,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'entity_translation_sync' => FALSE,
       'mvf' => array(
         'max' => array(
-          'target_id' => '_none',
           'value' => '',
         ),
         'min' => array(
-          'target_id' => '_none',
           'value' => 0,
         ),
         'unit_suggesters_settings' => array(
@@ -5186,6 +5184,12 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
             'en' => -1,
             'enable' => 1,
             'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
             'pt-br' => -1,
             'weight' => 0,
           ),
@@ -5205,7 +5209,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
         'max' => '',
         'min' => '',
         'prefix' => '',
-        'suffix' => '',
+        'suffix' => '%',
       ),
     ),
     'widget' => array(
