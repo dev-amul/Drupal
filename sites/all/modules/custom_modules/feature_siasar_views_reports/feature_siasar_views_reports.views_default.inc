@@ -22,7 +22,7 @@ function feature_siasar_views_reports_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Survey results';
+  $handler->display->display_options['title'] = 'Resultados de las encuestas';
   $handler->display->display_options['css_class'] = 'view-reports-entityforms';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
@@ -311,6 +311,15 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['display_comment'] = 'Esta vista está modificada mediante código en el módulo "feature_siasar_entityform_results"';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['field_language'] = 'und';
+  $handler->display->display_options['field_language_add_to_query'] = 0;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Result summary */
+  $handler->display->display_options['footer']['result']['id'] = 'result';
+  $handler->display->display_options['footer']['result']['table'] = 'views';
+  $handler->display->display_options['footer']['result']['field'] = 'result';
+  $handler->display->display_options['footer']['result']['label'] = 'Total:';
+  $handler->display->display_options['footer']['result']['content'] = '<div class="total"><label>Total:</label> @total</div>';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
