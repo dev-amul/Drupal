@@ -338,17 +338,17 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'OCCASIONAL USE',
     'weight' => '86',
     'children' => array(
-      0 => 'field_com_num_viv_usohab',
-      1 => 'field_com_num_viv_usoinfa',
+      0 => 'field_com_num_viv_usoinfa',
+      1 => 'field_com_num_viv_usohab',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => 'Uso PARCIAL',
+      'label' => 'OCCASIONAL USE',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-grid',
-        'description' => 'Las personas de la familia usan la infraestructura, pero NO todos o NO siempre.',
+        'description' => 'SOME family members use improved sanitation SOME of the time.',
         'show_label' => '1',
         'label_element' => 'h3',
         'effect' => 'none',
@@ -372,17 +372,17 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'FULL-TIME use',
     'weight' => '87',
     'children' => array(
-      0 => 'field_com_num_viv_usotodos',
-      1 => 'field_com_num_viv_usoinfb',
+      0 => 'field_com_num_viv_usoinfb',
+      1 => 'field_com_num_viv_usotodos',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => 'Uso COMPLETO',
+      'label' => 'FULL-TIME use',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-grid',
-        'description' => 'TODAS las personas de la familia usan SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y niños/as).',
+        'description' => 'ALL family members (including men, women, the elderly, and children) use improved sanitation ALL of the time.',
         'show_label' => '1',
         'label_element' => 'h3',
         'effect' => 'none',
@@ -440,17 +440,17 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'OCCASIONAL USE',
     'weight' => '92',
     'children' => array(
-      0 => 'field_com_num_viv_usohab2',
-      1 => 'field_com_num_viv_usoinfa2',
+      0 => 'field_com_num_viv_usoinfa2',
+      1 => 'field_com_num_viv_usohab2',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => 'Uso PARCIAL',
+      'label' => 'OCCASIONAL USE',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-grid',
-        'description' => 'Las personas de la familia usan la infraestructura, pero NO todos o NO siempre.',
+        'description' => 'SOME family members use improved sanitation SOME of the time.',
         'show_label' => '1',
         'label_element' => 'h3',
         'effect' => 'none',
@@ -479,12 +479,12 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => 'Uso COMPLETO',
+      'label' => 'FULL-TIME use',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-grid',
-        'description' => 'TODAS las personas de la familia usan SIEMPRE la infraestructura (incluyendo anciano/as, hombres, mujeres y niños/as).',
+        'description' => 'ALL family members (including men, women, the elderly, and children) use improved sanitation ALL of the time.',
         'show_label' => '1',
         'label_element' => 'h3',
         'effect' => 'none',
@@ -795,9 +795,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '82',
     'children' => array(
-      0 => 'field_com_fic_cesh_pq',
-      1 => 'field_com_fic_cesh_pu',
-      2 => 'field_com_fic_cesh_pm',
+      0 => 'field_com_fic_cesh_pu',
+      1 => 'field_com_fic_cesh_pm',
+      2 => 'field_com_fic_cesh_pq',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -831,8 +831,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '83',
     'children' => array(
       0 => 'field_com_fic_cesh_paa',
-      1 => 'field_com_fic_cesh_pca',
-      2 => 'field_com_fic_cesh_pba',
+      1 => 'field_com_fic_cesh_pba',
+      2 => 'field_com_fic_cesh_pca',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -935,9 +935,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '90',
     'children' => array(
-      0 => 'field_com_fic_cesh_pv',
-      1 => 'field_com_fic_cesh_pr',
-      2 => 'field_com_fic_cesh_pn',
+      0 => 'field_com_fic_cesh_pr',
+      1 => 'field_com_fic_cesh_pn',
+      2 => 'field_com_fic_cesh_pv',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1286,8 +1286,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '45',
     'children' => array(
       0 => 'group_c4_grid_4_1',
-      1 => 'group_c4_grid_4_2',
-      2 => 'group_c4_grid_4_3',
+      1 => 'group_c4_grid_4_3',
+      2 => 'group_c4_grid_4_2',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1393,9 +1393,9 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '73',
     'children' => array(
       0 => 'field_field_com_obs_poblacion',
-      1 => 'field_com_poblacion_total',
-      2 => 'field_etnia_en_mayoria',
-      3 => 'field_idioma_predominante',
+      1 => 'field_etnia_en_mayoria',
+      2 => 'field_idioma_predominante',
+      3 => 'field_com_poblacion_total',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1453,9 +1453,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C1. Schools',
     'weight' => '8',
     'children' => array(
-      0 => 'field_ce_location',
-      1 => 'field_com_ce_nombre',
-      2 => 'field_com_ce_existe',
+      0 => 'field_com_ce_existe',
+      1 => 'field_ce_location',
+      2 => 'field_com_ce_nombre',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1484,8 +1484,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D1. Health centers',
     'weight' => '7',
     'children' => array(
-      0 => 'field_com_cs_nombre',
-      1 => 'field_com_cs_existe',
+      0 => 'field_com_cs_existe',
+      1 => 'field_com_cs_nombre',
       2 => 'field_cs_location',
     ),
     'format_type' => 'fieldset',
@@ -1544,8 +1544,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B2. Household sanitation facility',
     'weight' => '29',
     'children' => array(
-      0 => 'field_field_com_num_viv_infnt',
-      1 => 'field_com_num_viv_infta',
+      0 => 'field_com_num_viv_infta',
+      1 => 'field_field_com_num_viv_infnt',
       2 => 'field_com_num_viv_inftb',
     ),
     'format_type' => 'fieldset',
@@ -1605,8 +1605,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C3. School: Water Supply System',
     'weight' => '1',
     'children' => array(
-      0 => 'field_com_fic_cesa_pa',
-      1 => 'field_com_fic_cesa_pd',
+      0 => 'field_com_fic_cesa_pd',
+      1 => 'field_com_fic_cesa_pa',
       2 => 'field_system_ref',
     ),
     'format_type' => 'fieldset',
@@ -1636,10 +1636,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C4. Schools: Sanitation and hygiene',
     'weight' => '2',
     'children' => array(
-      0 => 'group_c4_grid_2',
-      1 => 'group_c4_grid_3',
-      2 => 'group_c4_grid_1',
-      3 => 'group_c4_grid_4',
+      0 => 'group_c4_grid_1',
+      1 => 'group_c4_grid_4',
+      2 => 'group_c4_grid_2',
+      3 => 'group_c4_grid_3',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1826,8 +1826,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '33',
     'children' => array(
       0 => 'field_com_hig_num_vivtodos',
-      1 => 'field_com_hig_num_vivbasica',
-      2 => 'field_com_hig_num_vivagua',
+      1 => 'field_com_hig_num_vivagua',
+      2 => 'field_com_hig_num_vivbasica',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1856,9 +1856,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'E1. Interventions scheduled or in progress ',
     'weight' => '43',
     'children' => array(
-      0 => 'field_com_fc_systypimprove',
-      1 => 'field_com_fc_systypunimprove',
-      2 => 'field_com_fc_impsystem',
+      0 => 'field_com_fc_systypunimprove',
+      1 => 'field_com_fc_impsystem',
+      2 => 'field_com_fc_systypimprove',
       3 => 'field_com_fc_newwatsystem',
     ),
     'format_type' => 'fieldset',
@@ -2001,9 +2001,9 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '28',
     'children' => array(
       0 => 'field_com_num_viv_muestra',
-      1 => 'field_com_lev_general',
-      2 => 'field_com_lev_muestral',
-      3 => 'field_com_lev_utilform',
+      1 => 'field_com_lev_muestral',
+      2 => 'field_com_lev_utilform',
+      3 => 'field_com_lev_general',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2033,8 +2033,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '34',
     'children' => array(
       0 => 'field_com_recotrata_prac',
-      1 => 'field_com_recontrata_numvivc',
-      2 => 'field_com_recotrata_disp',
+      1 => 'field_com_recotrata_disp',
+      2 => 'field_com_recontrata_numvivc',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2064,11 +2064,11 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'group_com_exist_infestr',
-      1 => 'group_com_higiene',
+      1 => 'group_com_uso_inf',
       2 => 'group_com_no_uso',
       3 => 'group_com_proc_empleado',
-      4 => 'group_com_recotrata',
-      5 => 'group_com_uso_inf',
+      4 => 'group_com_higiene',
+      5 => 'group_com_recotrata',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2095,11 +2095,11 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A7. Public services',
     'weight' => '77',
     'children' => array(
-      0 => 'field_com_srv_telm_existe',
-      1 => 'field_com_srv_telf_existe',
-      2 => 'field_com_srv_existe',
-      3 => 'field_com_srv_inte_existe',
-      4 => 'field_com_srv_caracteristicas',
+      0 => 'field_com_srv_existe',
+      1 => 'field_com_srv_inte_existe',
+      2 => 'field_com_srv_caracteristicas',
+      3 => 'field_com_srv_telm_existe',
+      4 => 'field_com_srv_telf_existe',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3354,16 +3354,16 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. General information',
     'weight' => '0',
     'children' => array(
-      0 => 'field_pais',
-      1 => 'field_user_reference',
-      2 => 'field_fecha_encuesta',
-      3 => 'group_co_poblacion',
-      4 => 'group_com_cantidad_viv',
-      5 => 'group_com_dist_viviendas',
+      0 => 'field_user_reference',
+      1 => 'field_fecha_encuesta',
+      2 => 'field_pais',
+      3 => 'group_otras_divisiones',
+      4 => 'group_com_dist_viviendas',
+      5 => 'group_com_viviendas_sin_sistema',
       6 => 'group_com_srv',
-      7 => 'group_com_viviendas_sin_sistema',
-      8 => 'group_info_general',
-      9 => 'group_otras_divisiones',
+      7 => 'group_co_poblacion',
+      8 => 'group_com_cantidad_viv',
+      9 => 'group_info_general',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -3390,11 +3390,11 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A1.',
     'weight' => '71',
     'children' => array(
-      0 => 'field_entity_name',
-      1 => 'field_entidad_local',
-      2 => 'field_com_georef',
-      3 => 'field_com_codigo_comunidad',
-      4 => 'field_imagenc',
+      0 => 'field_entidad_local',
+      1 => 'field_entity_name',
+      2 => 'field_com_codigo_comunidad',
+      3 => 'field_imagenc',
+      4 => 'field_com_georef',
       5 => 'field_com_altitud',
     ),
     'format_type' => 'fieldset',
@@ -3877,8 +3877,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '72',
     'children' => array(
       0 => 'field_otras_divisiones',
-      1 => 'field_area_planificacion',
-      2 => 'field_cuenca_hidrografica',
+      1 => 'field_cuenca_hidrografica',
+      2 => 'field_area_planificacion',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -4023,7 +4023,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Personal docente y administrativo',
+    'label' => '﻿﻿﻿Teaching and Administrative Staff',
     'weight' => '3',
     'children' => array(
       0 => 'field_com_fic_ce_fdocf',
@@ -4031,7 +4031,7 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Personal docente y administrativo',
+      'label' => '﻿﻿﻿Teaching and Administrative Staff',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -4081,7 +4081,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Población estudiantil',
+    'label' => 'Student Body',
     'weight' => '4',
     'children' => array(
       0 => 'field_com_fic_ce_festm',
@@ -4089,7 +4089,7 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Población estudiantil',
+      'label' => 'Student Body',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -4721,14 +4721,14 @@ function feature_siasar_field_bases_field_group_info() {
   t('I1.');
   t('Less than 10m');
   t('OCCASIONAL USE');
-  t('Personal docente y administrativo');
-  t('Población estudiantil');
   t('Shared');
   t('Staff');
+  t('Student Body');
   t('Students');
   t('Type I');
   t('Type II');
   t('Unimproved');
+  t('﻿﻿﻿Teaching and Administrative Staff');
 
   return $field_groups;
 }

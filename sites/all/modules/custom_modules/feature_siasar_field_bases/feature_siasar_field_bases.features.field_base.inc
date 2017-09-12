@@ -4259,7 +4259,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
         3 => 'Tirada',
         4 => 'Tirada en un cuerpo de agua',
         5 => 'Basurero',
-        6 => 'Outro',
+        6 => 'Otro',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
@@ -9063,7 +9063,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'entity_translation_sync' => FALSE,
       'max_length' => 60,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'text',
   );
 
