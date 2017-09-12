@@ -157,7 +157,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_general_comunidad';
   $field_group->data = array(
-    'label' => 'A5. Household distribution by system ',
+    'label' => 'A5. Distribution of households with access to a water supply system',
     'weight' => '80',
     'children' => array(
       0 => 'field_com_viv_con_sistema',
@@ -189,7 +189,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_com_saneamiento';
   $field_group->data = array(
-    'label' => 'B2. Sanitation. Existing household infrastructure',
+    'label' => 'B2. Household sanitation facility',
     'weight' => '16',
     'children' => array(
       0 => 'field_com_num_viv_inftb',
@@ -356,7 +356,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_com_saneamiento';
   $field_group->data = array(
-    'label' => 'B4. Un-improved sanitation. Use of infrastructure ',
+    'label' => 'B4. Use of unimproved sanitation',
     'weight' => '18',
     'children' => array(
       0 => 'field_com_no_uso_vivnumuso',
@@ -453,7 +453,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_com_saneamiento';
   $field_group->data = array(
-    'label' => 'B1. Process used to complete this form',
+    'label' => 'B1. Data collection method',
     'weight' => '15',
     'children' => array(
       0 => 'field_com_lev_utilform',
@@ -559,7 +559,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_general_comunidad';
   $field_group->data = array(
-    'label' => 'A7. Electricity and communications',
+    'label' => 'A7. Public services',
     'weight' => '82',
     'children' => array(
       0 => 'field_com_srv_existe',
@@ -595,7 +595,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_com_saneamiento';
   $field_group->data = array(
-    'label' => 'B3. Sanitation. Use of IMPROVED infrastructure type 1 or type 2',
+    'label' => 'B3. Use of improved sanitation (Type 1 or Type 2)',
     'weight' => '17',
     'children' => array(
       0 => 'field_com_num_viv_usoinfb2',
@@ -634,7 +634,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_general_comunidad';
   $field_group->data = array(
-    'label' => 'A6. Households without system',
+    'label' => 'A6. No. of households without access to a water system',
     'weight' => '81',
     'children' => array(
       0 => 'field_com_viv_sin_sistema',
@@ -809,7 +809,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_info_general_comunidad';
   $field_group->data = array(
-    'label' => 'A2. Other divisions',
+    'label' => 'A2. Other Administrative and/or Geographical Divisions',
     'weight' => '77',
     'children' => array(
       0 => 'field_area_planificacion',
@@ -837,17 +837,17 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   // Included for use with string extractors like potx.
   t('A. General information');
   t('A1.');
-  t('A2. Other divisions');
+  t('A2. Other Administrative and/or Geographical Divisions');
   t('A3.');
   t('A4.');
-  t('A5. Household distribution by system ');
-  t('A6. Households without system');
-  t('A7. Electricity and communications');
+  t('A5. Distribution of households with access to a water supply system');
+  t('A6. No. of households without access to a water system');
+  t('A7. Public services');
   t('B. Sanitation and hygiene');
-  t('B1. Process used to complete this form');
-  t('B2. Sanitation. Existing household infrastructure');
-  t('B3. Sanitation. Use of IMPROVED infrastructure type 1 or type 2');
-  t('B4. Un-improved sanitation. Use of infrastructure ');
+  t('B1. Data collection method');
+  t('B2. Household sanitation facility');
+  t('B3. Use of improved sanitation (Type 1 or Type 2)');
+  t('B4. Use of unimproved sanitation');
   t('B5. Household hygiene');
   t('B6. Solid waste collection and disposal');
   t('C. Schools');

@@ -20,7 +20,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A6. Is there sufficient water in the source(s) to meet demand?',
+    'label' => 'A6. Are there adequate water resources (at the source) to meet demand?',
     'weight' => '10',
     'children' => array(
       0 => 'field_agua_en_invierno',
@@ -52,7 +52,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A7. Water supply system sketch',
+    'label' => 'A7. Water Supply System Design',
     'weight' => '11',
     'children' => array(
       0 => 'field_a6_croquis',
@@ -83,7 +83,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'A. General Information and System Schema',
+    'label' => 'A. General information and design',
     'weight' => '0',
     'children' => array(
       0 => 'field_pais',
@@ -187,7 +187,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'C. Pipeline',
+    'label' => 'C. Transmission line(s)',
     'weight' => '2',
     'children' => array(
       0 => 'group_c1',
@@ -345,7 +345,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A3. Initial construction financing sources ',
+    'label' => 'A3. Initial Source(s) of Construction Financing',
     'weight' => '7',
     'children' => array(
       0 => 'field_a_fuentes_de_financiamient',
@@ -376,7 +376,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'B. Water source and catchment',
+    'label' => 'B. Water source and/or water intake works',
     'weight' => '1',
     'children' => array(
       0 => 'group_b1',
@@ -408,7 +408,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'F. Water distribution',
+    'label' => 'F1. Water Distribution Network',
     'weight' => '5',
     'children' => array(
       0 => 'group_f1',
@@ -440,7 +440,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_g';
   $field_group->data = array(
-    'label' => 'G1. Present system flow',
+    'label' => 'G1. System Flow Rate',
     'weight' => '7',
     'children' => array(
       0 => 'field_caudal_actual_del_sistema',
@@ -471,7 +471,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_g';
   $field_group->data = array(
-    'label' => 'G2. Disinfection using chlorine',
+    'label' => 'G2. Chlorine Disinfection',
     'weight' => '8',
     'children' => array(
       0 => 'field_g2_1',
@@ -502,7 +502,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_g';
   $field_group->data = array(
-    'label' => 'G3. Household filtration',
+    'label' => 'G3. Household Water Treatment',
     'weight' => '9',
     'children' => array(
       0 => 'field_g3_1',
@@ -533,7 +533,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_g';
   $field_group->data = array(
-    'label' => 'G4. Water quality',
+    'label' => 'G4. Drinking Water Quality',
     'weight' => '10',
     'children' => array(
       0 => 'field_g4_4',
@@ -701,7 +701,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A2. Other divisions',
+    'label' => 'A2. Other Administrative and/or Geographical Divisions',
     'weight' => '6',
     'children' => array(
       0 => 'field_area_planificacion',
@@ -734,7 +734,7 @@ function feature_siasar_entityform_sistema_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
-    'label' => 'A4. System refurbishments and/or expansions',
+    'label' => 'A4. Refurbishment(s) and/or Expansion(s)',
     'weight' => '8',
     'children' => array(
       0 => 'field_rehabilitaciones_y_o_ampli',
@@ -789,28 +789,28 @@ function feature_siasar_entityform_sistema_field_group_info() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('A. General Information and System Schema');
+  t('A. General information and design');
   t('A1');
-  t('A2. Other divisions');
-  t('A3. Initial construction financing sources ');
-  t('A4. System refurbishments and/or expansions');
+  t('A2. Other Administrative and/or Geographical Divisions');
+  t('A3. Initial Source(s) of Construction Financing');
+  t('A4. Refurbishment(s) and/or Expansion(s)');
   t('A5. Type of water supply system');
-  t('A6. Is there sufficient water in the source(s) to meet demand?');
-  t('A7. Water supply system sketch');
-  t('B. Water source and catchment');
+  t('A6. Are there adequate water resources (at the source) to meet demand?');
+  t('A7. Water Supply System Design');
+  t('B. Water source and/or water intake works');
   t('B1');
-  t('C. Pipeline');
+  t('C. Transmission line(s)');
   t('C1');
   t('D. Water treatment infrastructure');
   t('E. Water storage infrastructure');
   t('E1');
-  t('F. Water distribution');
   t('F1');
+  t('F1. Water Distribution Network');
   t('G. Drinking water quantity and quality');
-  t('G1. Present system flow');
-  t('G2. Disinfection using chlorine');
-  t('G3. Household filtration');
-  t('G4. Water quality');
+  t('G1. System Flow Rate');
+  t('G2. Chlorine Disinfection');
+  t('G3. Household Water Treatment');
+  t('G4. Drinking Water Quality');
   t('H. Comments');
   t('H1.');
 

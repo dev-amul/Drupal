@@ -22,7 +22,7 @@ function feature_siasar_theme_settings_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Questionnaires';
+  $handler->display->display_options['title'] = 'Cuestionarios';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'más';
   $handler->display->display_options['access']['type'] = 'role';
@@ -51,14 +51,14 @@ function feature_siasar_theme_settings_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['style_options']['wrapper_class'] = '';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Entityform Type: Machine-readable name */
+  /* Campo: Entityform Type: Nombre de sistema */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'entityform_type';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
   $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
-  /* Field: Entityform Type: Label */
+  /* Campo: Entityform Type: Etiqueta */
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'entityform_type';
   $handler->display->display_options['fields']['label']['field'] = 'label';
@@ -69,7 +69,7 @@ function feature_siasar_theme_settings_views_default_views() {
   $handler->display->display_options['fields']['label']['element_type'] = '0';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['label']['element_wrapper_type'] = '0';
-  /* Sort criterion: Entityform Type: Label */
+  /* Criterio de ordenación: Entityform Type: Etiqueta */
   $handler->display->display_options['sorts']['label']['id'] = 'label';
   $handler->display->display_options['sorts']['label']['table'] = 'entityform_type';
   $handler->display->display_options['sorts']['label']['field'] = 'label';
