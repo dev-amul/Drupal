@@ -178,5 +178,7 @@ function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
  * Preprocesses translatable field.
  */
 function feature_siasar_views_reports_preprocess_field_translatable(&$variables) {
-  $variables['output'] = t($variables['output']);
+  $original = $variables['row']['entityform_type_label'];
+  $translated = t($original);
+  $variables['output'] = str_replace($original, $translated, $variables['output']);
 }
