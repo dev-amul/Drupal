@@ -12,7 +12,7 @@ function feature_siasar_entityform_drafts_views_default_views() {
 
   $view = new view();
   $view->name = 'draft_entityforms';
-  $view->description = 'A list of all entityforms submissions to be as an admin report';
+  $view->description = 'A list of all entityform drafts for current user';
   $view->tag = 'entityforms';
   $view->base_table = 'entityform';
   $view->human_name = 'Draft Entityforms';
