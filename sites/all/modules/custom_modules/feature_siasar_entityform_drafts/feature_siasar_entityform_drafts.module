@@ -32,6 +32,18 @@ function feature_siasar_entityform_drafts_form_alter(&$form, &$form_state, $form
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ * Translate entityform labels.
+ */
+function feature_siasar_entityform_drafts_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_state['view']->name !== 'draft_entityforms') return;
+
+  module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+
+  $form['type'] = _siasar_entityform_alter_create_entityforms_select_field('All');
+}
+
+/**
  * Removes all validation errors that could happen when saving a draft
  *
  * @param $form

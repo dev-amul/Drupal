@@ -54,3 +54,30 @@ function _siasar_entityform_alter_date(&$items){
                         $date = $date.'-01-01T00:00';
         }
     }
+
+
+/**
+ * Creates a select box with all entity type bundles as options
+ *
+ * @return array
+ */
+function _siasar_entityform_alter_create_entityforms_select_field($empty_value = null) {
+  $form_types = entity_get_info('entityform')['bundles'];
+  $options = array();
+
+  foreach ($form_types as $machine => $type) {
+    $options[$machine] = t($type['label']);
+  }
+  $form_type_selector = array(
+    '#type' => 'select',
+    '#options' => $options,
+    '#required' => false,
+    '#empty_option' => t('- All -'),
+  );
+
+  if ($empty_value) {
+    $form_type_selector['#empty_value'] = $empty_value;
+  }
+
+  return $form_type_selector;
+}

@@ -65,35 +65,9 @@ function feature_siasar_views_reports_form_views_exposed_form_alter(&$form, &$fo
 
   load_exposed_form_country_location_widget($form, $form_state, $field_entidad_local);
 
-  $form['type'] = _feature_siasar_views_reports_create_entityforms_select_field();
+  module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+  $form['type'] = _siasar_entityform_alter_create_entityforms_select_field();
 
-}
-
-/**
- * Creates a select box with all entity type bundles as options
- *
- * @return array
- */
-function _feature_siasar_views_reports_create_entityforms_select_field() {
-  $form_types = entity_get_info('entityform')['bundles'];
-  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
-  $options = array();
-
-  foreach ($form_types as $machine => $type) {
-    $options[$machine] = t($type['label']);
-  }
-  $form_type_selector = array(
-    '#type' => 'select',
-    '#options' => $options,
-    '#required' => false,
-    '#empty_option' => t('- All -'),
-  );
-
-  $form_type_selector['#default_value'] = _feature_siasar_views_reports_is_valid_country($form_type_selector, $user_country_iso2)
-    ? $user_country_iso2
-    : '';
-
-  return $form_type_selector;
 }
 
 /**
@@ -105,6 +79,7 @@ function _feature_siasar_views_reports_create_country_selector() {
   $countries = countries_get_countries('name');
   $members = _siasar_entityform_alter_get_member_countries();
   $first_option = array('' => t('- None -'));
+  $user_country_iso2 = _feature_siasar_views_reports_get_user_country();
   $options = _siasar_entityform_alter_filter_out_countries_from_options($countries, $members);
 
   $field = array(
@@ -112,6 +87,10 @@ function _feature_siasar_views_reports_create_country_selector() {
     '#default_value' => _feature_siasar_views_reports_get_user_country(),
     '#options' => $first_option + $options,
   );
+
+  $field['#default_value'] = _feature_siasar_views_reports_is_valid_country($field, $user_country_iso2)
+    ? $user_country_iso2
+    : '';
 
   return $field;
 }
