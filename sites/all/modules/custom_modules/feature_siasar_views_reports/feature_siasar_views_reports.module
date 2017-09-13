@@ -132,7 +132,7 @@ function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
     'preprocess functions' => array(
       'template_preprocess',
       'template_preprocess_views_view_field',
-      'feature_siasar_views_reports_preprocess_field_translatable',
+      'feature_siasar_views_reports_preprocess_field_status',
     ),
     'variables' => array('view' => NULL, 'field' => NULL, 'row' => NULL, 'output'),
     'template' => 'views-view-field--field-status',
@@ -143,7 +143,7 @@ function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
     'preprocess functions' => array(
       'template_preprocess',
       'template_preprocess_views_view_field',
-      'feature_siasar_views_reports_preprocess_field_translatable',
+      'feature_siasar_views_reports_preprocess_field_label',
     ),
     'variables' => array('view' => NULL, 'field' => NULL, 'row' => NULL, 'output'),
     'template' => 'views-view-field--label',
@@ -154,10 +154,21 @@ function feature_siasar_views_reports_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Preprocesses translatable field.
+ * Preprocesses status field.
  */
-function feature_siasar_views_reports_preprocess_field_translatable(&$variables) {
-  $original = $variables['row']->entityform_type_label;
-  $translated = t($original);
-  $variables['output'] = str_replace($original, $translated, $variables['output']);
+function feature_siasar_views_reports_preprocess_field_status(&$variables) {
+  $variables['output'] = t($variables['output']);
+}
+
+/**
+ * Preprocesses label field.
+ */
+ function feature_siasar_views_reports_preprocess_field_label(&$variables) {
+  $row = &$variables['row'];
+  $original = $row->entityform_type_label;
+
+  $label_location = 'entityform:entityform_type:' . $row->entityform_type . ':label';
+  $translated_label = i18n_string_translate($label_location, $original);
+
+  $variables['output'] = str_replace($original, $translated_label, $variables['output']);
 }

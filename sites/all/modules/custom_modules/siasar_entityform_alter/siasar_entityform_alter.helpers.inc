@@ -67,8 +67,8 @@ function _siasar_entityform_alter_create_entityforms_select_field($empty_value =
   $options = array();
 
   foreach ($form_types as $machine => $type) {
-    $label_name = 'entityform:entityform_type:' . $machine . ':label';
-    $translated_label = i18n_string_translate($label_name, $form_types[$machine]['label']);
+    $label_location = 'entityform:entityform_type:' . $machine . ':label';
+    $translated_label = i18n_string_translate($label_location, $form_types[$machine]['label']);
     $options[$machine] = $translated_label;
   }
   $form_type_selector = array(
