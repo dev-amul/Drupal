@@ -12,6 +12,7 @@ function getHostNameFromEnv() {
       break;
     case 'dev':
       api = 'dev.siasar.org';
+      break;
     default:
       api = 'staging.siasar.org';
   }

@@ -5,6 +5,7 @@
   "main": "test.js",
   "scripts": {
     "test": "NODE_ENV=production jest",
+    "dev": "NODE_ENV=dev jest",
     "local": "NODE_ENV=local jest"
   },
   "keywords": [
