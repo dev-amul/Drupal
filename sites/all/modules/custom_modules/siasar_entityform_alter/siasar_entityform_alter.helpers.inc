@@ -62,11 +62,14 @@ function _siasar_entityform_alter_date(&$items){
  * @return array
  */
 function _siasar_entityform_alter_create_entityforms_select_field($empty_value = null) {
-  $form_types = entity_get_info('entityform')['bundles'];
+  $entity_info = entity_get_info('entityform');
+  $form_types = $entity_info['bundles'];
   $options = array();
 
   foreach ($form_types as $machine => $type) {
-    $options[$machine] = t($type['label']);
+    $label_name = 'entityform:entityform_type:' . $machine . ':label';
+    $translated_label = i18n_string_translate($label_name, $form_types[$machine]['label']);
+    $options[$machine] = $translated_label;
   }
   $form_type_selector = array(
     '#type' => 'select',
