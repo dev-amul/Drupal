@@ -452,6 +452,16 @@ span.form-required {
   }
 }
 
+.form-type-mvf-widget > label {
+  position: static !important;
+  clip: none;
+  overflow: visible;
+  height: auto;
+}
+.form-type-mvf-widget > .input-field > label {
+  display: none;
+}
+
 .view-reports-entityforms {
   padding: 20px;
 }
