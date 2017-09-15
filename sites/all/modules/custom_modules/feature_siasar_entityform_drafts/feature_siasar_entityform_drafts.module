@@ -29,6 +29,22 @@ function feature_siasar_entityform_drafts_form_alter(&$form, &$form_state, $form
   if (isset($form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT])) {
     $form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT]['#validate'][] = 'feature_siasar_entityform_drafts_validate';
   }
+
+  //For all the field collections, clear the errors. That allow field collection module to attach field forms for draft submissions too.
+  $instances = field_info_instances();
+  foreach ($instances as $entity_type => $type_bundles) {
+    foreach ($type_bundles as $bundle => $bundle_instances) {
+      foreach ($bundle_instances as $field_name => $instance) {
+        $field = field_info_field($field_name);
+        if ($field['type'] == 'field_collection' && isset($form[$field_name])) {
+          //TODO some fields are translatable. We have to clarify what happen with these fields
+          global $language;
+          array_unshift($form[$field_name][$language->language][0]['#element_validate'], 'feature_siasar_entityform_drafts_validate');
+        }
+      }
+    }
+  }
+
 }
 
 /**
