@@ -15,6 +15,6 @@ deploy to development:
     - sudo chown -R apache:apache $DRUPAL_PATH
     - sudo su apache -c "drush updb -y --root=$DRUPAL_PATH"
     - sudo su apache -c "drush cc all --root=$DRUPAL_PATH"
-    - npm run test-dev --prefix ./tests/api
+    - npm run --prefix /var/www/drupal_development/tests/api test-dev
   only:
     - develop
