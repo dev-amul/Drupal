@@ -28,7 +28,7 @@ var config = {
 }
 
 // Set a higher timeout for all tests
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 12000;
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 25000;
 
 console.log('\x1b[43m\x1b[30m Testing %s ', config.host);
 
