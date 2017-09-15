@@ -4,9 +4,9 @@
   "description": "SIASAR API testing suite",
   "main": "test.js",
   "scripts": {
-    "test": "NODE_ENV=production jest",
-    "dev": "NODE_ENV=dev jest",
-    "local": "NODE_ENV=local jest"
+    "test-prod": "NODE_ENV=prod jest",
+    "test-dev": "NODE_ENV=dev jest",
+    "test-local": "NODE_ENV=local jest"
   },
   "keywords": [
     "siasar",
