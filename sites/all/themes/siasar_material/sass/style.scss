@@ -24,11 +24,15 @@
 @import 'partials/layout/_blocks';
 @import 'partials/layout/_menus';
 @import 'partials/layout/_forms';
+@import 'partials/layout/_views_reports';
+@import 'partials/layout/_views_bulk_operations';
 
 @import 'partials/pages/_frontpage';
 @import 'partials/pages/_system';
 @import 'partials/pages/_results';
+@import 'partials/pages/_my_drafts';
 @import 'partials/pages/_maintenance_page';
+@import 'partials/pages/_questionnaires';
 
 @import 'partials/pages/_entityform';
 @import 'partials/pages/_entityform_form';

@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Issue 557. English issue.
+ * Front page menu
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/557
+ *
+ * @param $sandbox
+ */
+function feature_siasar_theme_settings_update_7100() {
+  features_revert_module('feature_siasar_theme_settings');
+}
+/**
+ * Issue 557. English issue.
+ * Front page menu to spanish, then translate.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/557
+ */
+function feature_siasar_theme_settings_update_7101() {
+  features_revert_module('feature_siasar_theme_settings');
+}

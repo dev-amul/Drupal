@@ -1,0 +1,129 @@
+.view-reports-entityforms {
+  padding: $vertical-tabs-padding;
+
+  .views-exposed-form {
+    background-color: $siasar-almost-white;
+    margin: -20px;
+    padding: 20px;
+
+    #edit-field-entidad-local-siasar-hierarchical-select-wrapper + div,
+    .views-submit-button {
+      clear: left;
+    }
+
+    #edit-uid-wrapper input {
+      width: 12em;
+    }
+  }
+
+  form {
+    margin-bottom: $vertical-tabs-padding * 2;
+
+    .views-exposed-widget {
+      padding-right: 1.5rem;
+    }
+
+    label {
+      font-size: 1rem;
+    }
+    .form-text,
+    .form-select {
+      width: 100%;
+      padding-left: 5px;
+
+      @include breakpoint($break-small) {
+        width: auto;
+      }
+    }
+    .form-item .description {
+      font-size: 0.8rem;
+    }
+
+    @include breakpoint($break-small) {
+      .form-autocomplete {
+        width: 16em;
+      }
+    }
+  }
+
+  table.sticky-header {
+    background: white;
+    z-index: 1;
+  }
+
+  table.views-table {
+    position: relative;
+    width: calc(100% + 40px);
+    margin: 0 (-$vertical-tabs-padding);
+
+    tbody tr {
+
+      &:hover {
+        background-color: $siasar-light-yellow;
+      }
+
+      td {
+        padding: ($vertical-tabs-padding / 2) ($vertical-tabs-padding / 4);
+
+        &.views-field-draft,
+        &.views-field-field-cuestionario-validado {
+          text-align: center;
+        }
+        &.views-field-created,
+        &.views-field-nothing {
+          white-space: nowrap;
+        }
+      }
+    }
+
+    td,
+    th {
+      &:first-child {
+        padding-left: $vertical-tabs-padding;
+      }
+      &:last-child {
+        padding-right: $vertical-tabs-padding;
+      }
+    }
+  }
+
+  .feed-icon {
+    margin-top: $vertical-tabs-padding;
+    clear: both;
+  }
+
+  .views-field-views-bulk-operations {
+    input[type="checkbox"]:checked,
+    input[type="checkbox"]:not(:checked) {
+      opacity: 1;
+      left: initial;
+      position: initial;
+    }
+  }
+
+  .siasar-hierarchy {
+    li {
+      text-transform: capitalize;
+      float: left;
+      font-size: 0.7em;
+
+      + li {
+        &:before {
+          content: '-';
+          display: inline-block;
+          margin-left: 3px;
+          margin-right: 3px;
+        }
+      }
+    }
+
+    li.selected {
+      &:before {
+        display: none;
+      }
+      clear: left;
+      display: block;
+      font-size: 1em;
+    }
+  }
+}

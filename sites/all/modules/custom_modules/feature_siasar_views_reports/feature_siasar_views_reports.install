@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Hotfix - Changing all labels to english
+ */
+function feature_siasar_views_reports_update_7100($sandbox) {
+  features_revert_module('feature_siasar_views_results');
+}
+
+/**
+ * Hotfix - Delete operation is not working
+ */
+ function feature_siasar_views_reports_update_7101($sandbox) {
+  features_revert_module('feature_siasar_views_results');
+}
+
+/**
+ * Hotfix - Some data missing. Relationship "user - country" can't be mandatory,
+ * or some data will be excluded.
+ */
+ function feature_siasar_views_reports_update_7102($sandbox) {
+  features_revert_module('feature_siasar_views_results');
+}

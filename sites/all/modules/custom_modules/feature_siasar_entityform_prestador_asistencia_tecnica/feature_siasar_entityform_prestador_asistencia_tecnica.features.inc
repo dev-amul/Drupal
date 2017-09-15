@@ -23,7 +23,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_default_entityfo
   $items = array();
   $items['prestador_de_asistencia_t_cnica'] = entity_import('entityform_type', '{
     "type" : "prestador_de_asistencia_t_cnica",
-    "label" : "Prestador de Asistencia T\\u00e9cnica",
+    "label" : "Technical Assistant Provider",
     "data" : {
       "draftable" : 0,
       "draft_redirect_path" : "",

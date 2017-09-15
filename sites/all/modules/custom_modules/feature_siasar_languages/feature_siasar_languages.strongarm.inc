@@ -15,19 +15,19 @@ function feature_siasar_languages_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'language_default';
   $strongarm->value = (object) array(
-    'language' => 'en',
-    'name' => 'English',
-    'native' => 'English',
+    'language' => 'es',
+    'name' => 'Spanish',
+    'native' => 'Español',
     'direction' => '0',
     'enabled' => 1,
-    'plurals' => '0',
-    'formula' => '',
+    'plurals' => '2',
+    'formula' => '($n!=1)',
     'domain' => '',
-    'prefix' => 'en',
-    'weight' => '-10',
-    'javascript' => '',
+    'prefix' => 'es',
+    'weight' => '-9',
+    'javascript' => 'ZMDdaVIOMsS00DsHzFL0GoPN5oUzmgoYKOOAuovH6uw',
     'fallback' => '',
-    'parent' => NULL,
+    'parent' => '',
   );
   $export['language_default'] = $strongarm;
 

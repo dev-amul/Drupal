@@ -2467,7 +2467,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'number_integer',
   );
 
@@ -4259,7 +4259,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
         3 => 'Tirada',
         4 => 'Tirada en un cuerpo de agua',
         5 => 'Basurero',
-        6 => 'Outro',
+        6 => 'Otro',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
@@ -5652,7 +5652,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'entity_translation_sync' => FALSE,
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'taxonomy_term_reference',
   );
 
@@ -6543,7 +6543,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'todate' => '',
       'tz_handling' => 'none',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'datetime',
   );
 
@@ -8232,7 +8232,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
   // Exported field_base: 'field_mecanismo_pago_tarifa'.
   $field_bases['field_mecanismo_pago_tarifa'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_mecanismo_pago_tarifa',
@@ -9063,7 +9063,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'entity_translation_sync' => FALSE,
       'max_length' => 60,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'text',
   );
 
@@ -11202,28 +11202,6 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'name_field'.
-  $field_bases['name_field'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'name_field',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max_length' => 255,
-    ),
-    'translatable' => 1,
-    'type' => 'text',
   );
 
   return $field_bases;

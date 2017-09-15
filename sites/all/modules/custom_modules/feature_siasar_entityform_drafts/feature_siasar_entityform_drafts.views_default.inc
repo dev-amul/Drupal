@@ -12,7 +12,7 @@ function feature_siasar_entityform_drafts_views_default_views() {
 
   $view = new view();
   $view->name = 'draft_entityforms';
-  $view->description = 'A list of all entityforms submissions to be as an admin report';
+  $view->description = 'A list of all entityform drafts for current user';
   $view->tag = 'entityforms';
   $view->base_table = 'entityform';
   $view->human_name = 'Draft Entityforms';
@@ -23,6 +23,7 @@ function feature_siasar_entityform_drafts_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Lista de dados a serem enviados';
+  $handler->display->display_options['css_class'] = 'view-reports-entityforms';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -31,11 +32,11 @@ function feature_siasar_entityform_drafts_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Ascendente';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Decrescente';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Ascending order';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Descending order';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -70,13 +71,39 @@ function feature_siasar_entityform_drafts_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'entityform';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: User: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'users';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
-  $handler->display->display_options['fields']['name']['label'] = 'Submitter';
-  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  /* Field: Entityform Submission: Nombre */
+  $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
+  $handler->display->display_options['fields']['field_entity_name']['label'] = 'Name';
+  $handler->display->display_options['fields']['field_entity_name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_entity_name']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['field_entity_name']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
+  /* Field: Field: Localidad */
+  $handler->display->display_options['fields']['field_entidad_local']['id'] = 'field_entidad_local';
+  $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['fields']['field_entidad_local']['field'] = 'field_entidad_local';
+  $handler->display->display_options['fields']['field_entidad_local']['label'] = 'Administrative division';
+  $handler->display->display_options['fields']['field_entidad_local']['element_label_colon'] = FALSE;
+  /* Field: Entityform Type: Label */
+  $handler->display->display_options['fields']['label_1']['id'] = 'label_1';
+  $handler->display->display_options['fields']['label_1']['table'] = 'entityform_type';
+  $handler->display->display_options['fields']['label_1']['field'] = 'label';
+  $handler->display->display_options['fields']['label_1']['label'] = 'Survey type';
+  /* Field: Entityform Submission: Date submitted */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'entityform';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'medium';
+  /* Field: Entityform Submission: Date changed */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'entityform';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['hide_alter_empty'] = FALSE;
   /* Field: Entityform Submission: Link */
   $handler->display->display_options['fields']['link_entityform']['id'] = 'link_entityform';
   $handler->display->display_options['fields']['link_entityform']['table'] = 'entityform';
@@ -88,38 +115,23 @@ function feature_siasar_entityform_drafts_views_default_views() {
   $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
   $handler->display->display_options['fields']['edit_entityform']['field'] = 'edit_entityform';
   $handler->display->display_options['fields']['edit_entityform']['label'] = '';
+  $handler->display->display_options['fields']['edit_entityform']['exclude'] = TRUE;
   $handler->display->display_options['fields']['edit_entityform']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_entityform']['text'] = 'edit';
   /* Field: Entityform Submission: Delete Link */
   $handler->display->display_options['fields']['delete_entityform']['id'] = 'delete_entityform';
   $handler->display->display_options['fields']['delete_entityform']['table'] = 'entityform';
   $handler->display->display_options['fields']['delete_entityform']['field'] = 'delete_entityform';
   $handler->display->display_options['fields']['delete_entityform']['label'] = 'Delete';
+  $handler->display->display_options['fields']['delete_entityform']['exclude'] = TRUE;
   $handler->display->display_options['fields']['delete_entityform']['hide_alter_empty'] = FALSE;
-  /* Field: Entityform Type: Label */
-  $handler->display->display_options['fields']['label_1']['id'] = 'label_1';
-  $handler->display->display_options['fields']['label_1']['table'] = 'entityform_type';
-  $handler->display->display_options['fields']['label_1']['field'] = 'label';
-  $handler->display->display_options['fields']['label_1']['label'] = 'Form Type';
-  /* Field: Entityform Submission: Date submitted */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'entityform';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['date_format'] = 'medium';
-  /* Field: Entityform Submission: Date changed */
-  $handler->display->display_options['fields']['changed']['id'] = 'changed';
-  $handler->display->display_options['fields']['changed']['table'] = 'entityform';
-  $handler->display->display_options['fields']['changed']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed']['hide_alter_empty'] = FALSE;
-  /* Field: Entityform Submission: Nombre */
-  $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
-  $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
-  $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
-  /* Field: User: Name */
-  $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
-  $handler->display->display_options['fields']['name_1']['table'] = 'users';
-  $handler->display->display_options['fields']['name_1']['field'] = 'name';
-  $handler->display->display_options['fields']['name_1']['relationship'] = 'uid';
-  $handler->display->display_options['fields']['name_1']['label'] = 'Nome';
+  $handler->display->display_options['fields']['delete_entityform']['text'] = 'delete';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Actions';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[link_entityform] | [edit_entityform] | [delete_entityform]';
   /* Sort criterion: Entityform Submission: Date submitted */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'entityform';
@@ -131,18 +143,18 @@ function feature_siasar_entityform_drafts_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
   $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['label'] = 'Tipo de Entidad';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Questionnaire type';
   $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
   $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
   $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    6 => 0,
     7 => 0,
     8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
   );
   /* Filter criterion: User: Current */
   $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
@@ -159,7 +171,7 @@ function feature_siasar_entityform_drafts_views_default_views() {
   /* Display: Enviados */
   $handler = $view->new_display('page', 'Enviados', 'entityforms_admin_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Mis formularios en borrador';
+  $handler->display->display_options['title'] = 'My drafts';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -167,7 +179,7 @@ function feature_siasar_entityform_drafts_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Empty ';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'En este momento no tienes borradores. Todos tus formularios han sido publicados para los validadores.';
+  $handler->display->display_options['empty']['area']['content'] = 'You have no drafts at this moment. At this moment, all your surveys are either finished or validated.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['path'] = 'drafts';
   $handler->display->display_options['menu']['type'] = 'normal';

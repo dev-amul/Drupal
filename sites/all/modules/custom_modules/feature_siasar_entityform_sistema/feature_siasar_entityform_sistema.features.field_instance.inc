@@ -307,7 +307,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'label' => 'Año de construcción',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -319,7 +319,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'date',
       'settings' => array(
         'increment' => 15,
-        'input_format' => 'site-wide',
+        'input_format' => 'custom',
         'input_format_custom' => 'Y',
         'label_position' => 'none',
         'no_fieldset' => 0,
