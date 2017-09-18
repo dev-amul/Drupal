@@ -894,3 +894,23 @@ function siasar_updates_update_7152() {
   siasar_updates_rewrite_translations_from_csv('../files/translation_rewrite_source_3.csv');
 }
 
+/**
+ * Remap some units that escaped from hook_update 7141
+ */
+function siasar_updates_update_7155() {
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
+
+  $fields = field_info_instances('entityform', 'waq');
+
+  $mids = array(
+    681 => 735,
+    683 => 737
+  );
+  foreach ($fields as $f_name => $f_info) {
+    if ($f_info['widget']['module'] != 'mvf') continue;
+
+    foreach ($mids as $origin => $target) {
+      drush_siasar_remap_unit($f_name, $origin, $target);
+    }
+  }
+}
