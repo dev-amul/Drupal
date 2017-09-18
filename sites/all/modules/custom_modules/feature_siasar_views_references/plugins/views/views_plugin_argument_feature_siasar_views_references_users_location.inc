@@ -22,15 +22,16 @@ class views_plugin_argument_feature_siasar_views_references_users_location exten
 
     if (isset($wrapper->field_entidad_local)) {
       $user_location = $wrapper->field_entidad_local->value();
-      $user_location = $user_location ? $user_location->tid : null; // Putting those two in one line throws a Notice
 
       if ($user_location) {
 
-        $tree = taxonomy_get_tree($wrapper->field_entidad_local->value()->vid, $user_location);
+        $tree = taxonomy_get_tree($user_location->vid, $user_location->tid);
 
         $terms = array_map(function($term) {
           return $term->tid;
         }, $tree);
+
+        $terms[] = $user_location->tid;
 
         $children = implode('+', $terms);
         return $children;

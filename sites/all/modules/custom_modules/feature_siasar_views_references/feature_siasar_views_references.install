@@ -7,3 +7,11 @@
 function feature_siasar_views_references_update_7100($sandbox) {
   features_revert_module('feature_siasar_views_references');
 }
+
+/**
+ * Issue 565: No se muestra el listado completo de encuestadores para un Validador
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/565
+ */
+ function feature_siasar_views_references_update_7101($sandbox) {
+  features_revert_module('feature_siasar_views_references');
+}
