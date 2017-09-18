@@ -109,3 +109,17 @@ span.form-required {
     width: $fields-alignment;
   }
 }
+
+// Fix for the clunky default HTML generated for MVF, that looks like made by by a monkey with hat
+.form-type-mvf-widget {
+  > label {
+    position: static !important;
+    clip: none;
+    overflow: visible;
+    height: auto;
+  }
+
+  > .input-field > label {
+    display: none;
+  }
+}
