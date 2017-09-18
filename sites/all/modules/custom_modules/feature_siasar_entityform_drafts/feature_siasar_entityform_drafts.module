@@ -26,9 +26,9 @@ function feature_siasar_entityform_drafts_form_alter(&$form, &$form_state, $form
 
   if (!in_array($form_id_clean, $possible_entityforms)) return;
 
-  if (isset($form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT])) {
-    $form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_DRAFT]['#validate'][] = 'feature_siasar_entityform_drafts_validate';
-  }
+  //Attach after_build function for removing field requirements
+  $form['#after_build'][] = 'feature_siasar_entityform_drafts_remove_requirements';
+
 }
 
 /**
@@ -44,25 +44,15 @@ function feature_siasar_entityform_drafts_form_views_exposed_form_alter(&$form, 
 }
 
 /**
- * Removes all validation errors that could happen when saving a draft
- *
+ * Remove requirements for entityform fields in case of workflow draft
  * @param $form
  * @param $form_state
+ *
+ * @return mixed
  */
-function feature_siasar_entityform_drafts_validate($form, &$form_state) {
-  $errors = form_get_errors();
-
-  if (!empty($errors)) {
-    $messages = drupal_get_messages('error', TRUE);
-
-    // Remove error messages originated during the form validation
-    foreach ($messages['error'] as $error) {
-      if (!in_array($error, $errors)) {
-        drupal_set_message('error', $error);
-      }
-    }
-
-    // Remove all form errors
-    form_clear_error();
+function feature_siasar_entityform_drafts_remove_requirements(&$form, &$form_state) {
+  if (!empty($form_state['triggering_element']['#workflow_sid'] && $form_state['triggering_element']['#workflow_sid'] == SIASAR_ENTITYFORM_STATE_DRAFT)) {
+    _entityform_set_all_nested_props($form, array('#required' => FALSE));
   }
+  return $form;
 }
