@@ -5,11 +5,9 @@
   border-radius: $siasar-border-radius;
 
   &.form-submit {
-    background-image: url('../img/tick.svg');
-    background-position: 10px center;
-    background-repeat: no-repeat;
+    background-image: none;
     background-size: 25px;
-    padding-left: 55px;
+    padding-left: 25px;
     padding-right: 25px;
   }
 }

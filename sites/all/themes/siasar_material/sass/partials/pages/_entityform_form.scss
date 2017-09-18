@@ -12,6 +12,13 @@ body.page-entityform-edit {
 form.entityform {
   position: relative;
 
+  .btn.form-submit {
+    background-image: url('../img/tick.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 55px;
+  }
+
   .vertical-tabs {
     border: none;
     margin: 0 0 20px 0;
