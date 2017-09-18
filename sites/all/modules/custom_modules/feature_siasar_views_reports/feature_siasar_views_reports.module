@@ -166,8 +166,11 @@ function feature_siasar_views_reports_preprocess_field_status(&$variables) {
  function feature_siasar_views_reports_preprocess_field_label(&$variables) {
   $row = &$variables['row'];
   $original = $row->entityform_type_label;
+  $type = isset($row->entityform_type_type)
+    ? $row->entityform_type_type
+    : $row->entityform_type;
 
-  $label_location = 'entityform:entityform_type:' . $row->entityform_type . ':label';
+  $label_location = 'entityform:entityform_type:' . $type . ':label';
   $translated_label = i18n_string_translate($label_location, $original);
 
   $variables['output'] = str_replace($original, $translated_label, $variables['output']);
