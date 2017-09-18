@@ -23,7 +23,7 @@ function feature_siasar_entityform_sistema_default_entityform_type() {
   $items = array();
   $items['sistema'] = entity_import('entityform_type', '{
     "type" : "sistema",
-    "label" : "Water Supply System",
+    "label" : "Sistema",
     "data" : {
       "draftable" : 0,
       "draft_redirect_path" : "",

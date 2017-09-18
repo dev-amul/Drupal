@@ -342,30 +342,6 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
   );
-  // Exported menu link: menu-front-page-menu_system:eform/submit/sistema.
-  $menu_links['menu-front-page-menu_system:eform/submit/sistema'] = array(
-    'menu_name' => 'menu-front-page-menu',
-    'link_path' => 'eform/submit/sistema',
-    'router_path' => 'eform/submit/%',
-    'link_title' => 'System',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-front-page-menu_system:eform/submit/sistema',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
-    'language' => 'en',
-    'menu_links_customized' => 1,
-    'parent_identifier' => 'menu-front-page-menu_fill-survey:<nolink>',
-  );
   // Exported menu link: menu-front-page-menu_technical-assistance-provider:eform/submit/prestador_de_asistencia_t_cnica.
   $menu_links['menu-front-page-menu_technical-assistance-provider:eform/submit/prestador_de_asistencia_t_cnica'] = array(
     'menu_name' => 'menu-front-page-menu',
@@ -503,7 +479,6 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
   t('Rellenar cuestionarios');
   t('Service provider');
   t('Sistema');
-  t('System');
   t('Technical assistance provider');
   t('Testing form');
   t('Validación');

@@ -20,7 +20,7 @@ function feature_siasar_entityform_water_quality_default_entityform_type() {
   $items = array();
   $items['waq'] = entity_import('entityform_type', '{
     "type" : "waq",
-    "label" : "Water Quality",
+    "label" : "Calidad de agua",
     "data" : {
       "draftable" : 0,
       "draft_redirect_path" : "",

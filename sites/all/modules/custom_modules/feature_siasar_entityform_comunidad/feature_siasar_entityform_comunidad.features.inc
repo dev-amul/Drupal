@@ -23,7 +23,7 @@ function feature_siasar_entityform_comunidad_default_entityform_type() {
   $items = array();
   $items['comunidad'] = entity_import('entityform_type', '{
     "type" : "comunidad",
-    "label" : "Community",
+    "label" : "Comunidad",
     "data" : {
       "draftable" : 0,
       "draft_redirect_path" : "",

@@ -1,8 +1,8 @@
 name = SIASAR Views Reports
-description = Vista que genera los listados de resultados
+description = View showing results lists
 core = 7.x
 package = SIASAR
-version = 7.x-1.11
+version = 7.x-1.12
 dependencies[] = countries
 dependencies[] = views
 dependencies[] = views_autocomplete_filters

@@ -7534,7 +7534,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'entity_translation_sync' => FALSE,
       'max_length' => 20,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'text',
   );
 

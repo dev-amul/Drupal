@@ -23,7 +23,7 @@ function feature_siasar_entityform_prestador_servicio_default_entityform_type() 
   $items = array();
   $items['prestador_de_servicio'] = entity_import('entityform_type', '{
     "type" : "prestador_de_servicio",
-    "label" : "Service Provider",
+    "label" : "Prestador de servicio",
     "data" : {
       "draftable" : 0,
       "draft_redirect_path" : "",

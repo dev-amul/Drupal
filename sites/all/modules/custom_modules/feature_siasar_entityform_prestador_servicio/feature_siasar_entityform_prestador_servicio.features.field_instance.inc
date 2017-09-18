@@ -570,7 +570,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => 'm',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2339,7 +2339,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'bundle' => 'prestador_de_servicio',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Promedio mensual de los últimos 12 meses, en la moneda especificada en la C2.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2363,7 +2363,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_ingresos_reales',
-    'label' => 'Billing Income',
+    'label' => 'Ingresos por facturación',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2386,6 +2386,12 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
             'en' => -1,
             'enable' => 0,
             'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
             'pt-br' => -1,
             'weight' => 0,
           ),
@@ -5847,7 +5853,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Agua facturada (promedio mensual, en metros cúbicos)');
   t('Agua producida (promedio mensual, en metros cúbicos)');
   t('Altitud');
-  t('Billing Income');
   t('Calificación (SIASAR 1)');
   t('Cargo');
   t('Clase de prestador');
@@ -5872,6 +5877,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Georeferenciación');
   t('Género');
   t('Imagen');
+  t('Ingresos por facturación');
   t('La altitud se mide en metros sobre el nivel del mar (msnm).');
   t('Localidad');
   t('Monitoreo de la higiene comunitaria: ¿El prestador promueve saneamiento ambiental?');
@@ -5893,6 +5899,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Pasivos Corrientes ');
   t('Pasivos No Corrientes');
   t('País');
+  t('Promedio mensual de los últimos 12 meses, en la moneda especificada en la C2.');
   t('Promoción de no descargas de aguas residuales');
   t('Promoción del no uso de plaguicidas en la zona cercana a la fuente o toma de agua del sistema');
   t('Protección de la flora y fauna de la zona cercana a la fuente o toma de agua del sistema');

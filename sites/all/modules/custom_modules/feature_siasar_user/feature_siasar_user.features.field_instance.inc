@@ -27,7 +27,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_entidad_local',
-    'label' => 'Administrative division',
+    'label' => 'División administrativa',
     'options_limit' => 0,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(
@@ -76,7 +76,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_identificacion',
-    'label' => 'ID number',
+    'label' => 'Número de identificación',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -111,7 +111,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_institucion',
-    'label' => 'Institution',
+    'label' => 'Institución',
     'options_limit' => 1,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(
@@ -155,7 +155,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_nombre_completo',
-    'label' => 'Full name',
+    'label' => 'Nombre completo',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -190,7 +190,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_pais',
-    'label' => 'Country',
+    'label' => 'País',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -222,7 +222,7 @@ function feature_siasar_user_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_telefono',
-    'label' => 'Phone',
+    'label' => 'Teléfono',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -241,12 +241,12 @@ function feature_siasar_user_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Administrative division');
-  t('Country');
-  t('Full name');
-  t('ID number');
-  t('Institution');
-  t('Phone');
+  t('División administrativa');
+  t('Institución');
+  t('Nombre completo');
+  t('Número de identificación');
+  t('País');
+  t('Teléfono');
 
   return $field_instances;
 }

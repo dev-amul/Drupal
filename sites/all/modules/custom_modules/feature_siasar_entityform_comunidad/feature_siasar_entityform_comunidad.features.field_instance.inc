@@ -146,7 +146,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'max' => '',
       'min' => '0.00',
       'prefix' => '',
-      'suffix' => 'm',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(

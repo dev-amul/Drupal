@@ -1,7 +1,7 @@
 name = SIASAR EntityForm Water Quality
 core = 7.x
 package = SIASAR
-version = 7.x-1.3
+version = 7.x-1.4
 dependencies[] = countries
 dependencies[] = ctools
 dependencies[] = currency
@@ -102,4 +102,5 @@ features[field_instance][] = entityform-waq-field_user_reference
 features[field_instance][] = entityform-waq-field_water_source_code
 features[field_instance][] = entityform-waq-field_water_source_name
 features[field_instance][] = entityform-waq-field_water_source_type
+features_exclude[dependencies][feature_siasar_testing_form_workflow] = feature_siasar_testing_form_workflow
 project path = sites/all/modules/custom_modules
