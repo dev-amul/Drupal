@@ -25,8 +25,10 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['title'] = 'Survey Results';
   $handler->display->display_options['css_class'] = 'view-reports-entityforms';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'view any entityform';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    2 => '2',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_tags'] = array(
@@ -391,7 +393,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_entidad_local']['id'] = 'field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['field'] = 'field_entidad_local';
-  $handler->display->display_options['fields']['field_entidad_local']['label'] = 'Administrative division';
+  $handler->display->display_options['fields']['field_entidad_local']['label'] = 'División administrativa';
   $handler->display->display_options['fields']['field_entidad_local']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_entidad_local']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_entidad_local']['settings'] = array(
@@ -423,7 +425,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_nombre_completo_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo_1']['field'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo_1']['relationship'] = 'field_user_reference_target_id';
-  $handler->display->display_options['fields']['field_nombre_completo_1']['label'] = 'Surveyor';
+  $handler->display->display_options['fields']['field_nombre_completo_1']['label'] = 'Encuestador/a';
   $handler->display->display_options['fields']['field_nombre_completo_1']['type'] = 'title_linked';
   $handler->display->display_options['fields']['field_nombre_completo_1']['settings'] = array(
     'title_style' => '_none',
@@ -434,7 +436,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'entityform_type';
   $handler->display->display_options['fields']['label']['field'] = 'label';
-  $handler->display->display_options['fields']['label']['label'] = 'Survey type';
+  $handler->display->display_options['fields']['label']['label'] = 'Tipo de encuesta';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
   /* Field: Entityform Submission: Edit Link */
   $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
@@ -550,7 +552,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_entity_name_value']['group'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['operator_id'] = 'field_entity_name_value_op';
-  $handler->display->display_options['filters']['field_entity_name_value']['expose']['label'] = 'Survey name';
+  $handler->display->display_options['filters']['field_entity_name_value']['expose']['label'] = 'Nombre de la encuesta';
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['operator'] = 'field_entity_name_value_op';
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['identifier'] = 'field_entity_name_value';
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['remember_roles'] = array(
@@ -578,7 +580,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value']['group'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['operator_id'] = 'field_nombre_completo_value_op';
-  $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['label'] = 'Data entry clerk';
+  $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['label'] = 'Digitador/a';
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['operator'] = 'field_nombre_completo_value_op';
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['identifier'] = 'field_nombre_completo_value';
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['remember_roles'] = array(
@@ -592,7 +594,7 @@ function feature_siasar_views_reports_views_default_views() {
     10 => 0,
   );
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_items'] = '10';
-  $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_min_chars'] = '3';
+  $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_min_chars'] = '0';
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_field'] = 'field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_dropdown'] = 1;
@@ -606,7 +608,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['group'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['operator_id'] = 'field_nombre_completo_value_1_op';
-  $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['label'] = 'Surveyor';
+  $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['label'] = 'Encuestador/a';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['operator'] = 'field_nombre_completo_value_1_op';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['identifier'] = 'field_nombre_completo_value_1';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['remember_roles'] = array(
@@ -636,7 +638,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_status_value']['expose']['operator'] = 'field_status_value_op';
   $handler->display->display_options['filters']['field_status_value']['expose']['identifier'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['field_status_value']['group_info']['label'] = 'Status';
+  $handler->display->display_options['filters']['field_status_value']['group_info']['label'] = 'Estado';
   $handler->display->display_options['filters']['field_status_value']['group_info']['identifier'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['group_info']['group_items'] = array(
     1 => array(

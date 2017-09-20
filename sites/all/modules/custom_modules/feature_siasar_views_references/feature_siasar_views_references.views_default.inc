@@ -11,6 +11,185 @@ function feature_siasar_views_references_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'cargos_de_representantes';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'Cargos de representantes';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementos por página';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Todo -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Desplazamiento';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relación: Campo: País (field_pais) */
+  $handler->display->display_options['relationships']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['relationships']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['relationships']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Campo: Término de taxonomía: Name (translated) */
+  $handler->display->display_options['fields']['name_i18n']['id'] = 'name_i18n';
+  $handler->display->display_options['fields']['name_i18n']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name_i18n']['field'] = 'name_i18n';
+  $handler->display->display_options['fields']['name_i18n']['label'] = '';
+  $handler->display->display_options['fields']['name_i18n']['element_label_colon'] = FALSE;
+  /* Criterio de ordenación: Término de taxonomía: Nombre */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  /* Filtro contextual: Campo: País (field_pais) */
+  $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_pais_iso2']['exception']['title'] = 'Todo';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_argument_type'] = 'siasar_user_country';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
+  /* Criterio de filtrado: Vocabulario de taxonomía: Nombre de sistema */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'cargo_representante' => 'cargo_representante',
+  );
+  $handler->display->display_options['filters']['machine_name']['group'] = 1;
+
+  /* Display: Referencia a entidades */
+  $handler = $view->new_display('entityreference', 'Referencia a entidades', 'entityreference_fuentes_de_financiacion');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'name' => 'name',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $export['cargos_de_representantes'] = $view;
+
+  $view = new view();
+  $view->name = 'cargos_tecnicos';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'Cargos técnicos';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'más';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Aplicar';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordenar por';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementos por página';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Todo -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Desplazamiento';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relación: Campo: País (field_pais) */
+  $handler->display->display_options['relationships']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['relationships']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['relationships']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Campo: Término de taxonomía: Name (translated) */
+  $handler->display->display_options['fields']['name_i18n']['id'] = 'name_i18n';
+  $handler->display->display_options['fields']['name_i18n']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name_i18n']['field'] = 'name_i18n';
+  $handler->display->display_options['fields']['name_i18n']['label'] = '';
+  $handler->display->display_options['fields']['name_i18n']['element_label_colon'] = FALSE;
+  /* Criterio de ordenación: Término de taxonomía: Nombre */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  /* Filtro contextual: Campo: País (field_pais) */
+  $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_pais_iso2']['exception']['title'] = 'Todo';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_argument_type'] = 'siasar_user_country';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
+  /* Criterio de filtrado: Vocabulario de taxonomía: Nombre de sistema */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'cargo_tecnico' => 'cargo_tecnico',
+  );
+
+  /* Display: Referencia a entidades */
+  $handler = $view->new_display('entityreference', 'Referencia a entidades', 'entityreference_fuentes_de_financiacion');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'name' => 'name',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $export['cargos_tecnicos'] = $view;
+
+  $view = new view();
   $view->name = 'division_politica_administrativa';
   $view->description = '';
   $view->tag = 'default';
@@ -449,6 +628,14 @@ return $user_full->field_pais[\'und\'][0][\'iso2\'];';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relación: Campo: País (field_pais) */
+  $handler->display->display_options['relationships']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['relationships']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['relationships']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  /* Relación: Campo: Localidad (field_entidad_local) */
+  $handler->display->display_options['relationships']['field_entidad_local_tid']['id'] = 'field_entidad_local_tid';
+  $handler->display->display_options['relationships']['field_entidad_local_tid']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['relationships']['field_entidad_local_tid']['field'] = 'field_entidad_local_tid';
   /* Campo: Usuario: Nombre */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -493,6 +680,8 @@ return $user_full->field_pais[\'und\'][0][\'iso2\'];';
   $handler = $view->new_display('entityreference', 'Entity Reference', 'entityreference_user');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'entityreference_style';
   $handler->display->display_options['style_options']['search_fields'] = array(

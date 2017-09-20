@@ -21,3 +21,9 @@ function feature_siasar_views_reports_update_7100($sandbox) {
  function feature_siasar_views_reports_update_7102($sandbox) {
   features_revert_module('feature_siasar_views_results');
 }
+/**
+ * Hotfix - Exposed filter translation was missing
+ */
+ function feature_siasar_views_reports_update_7103($sandbox) {
+  features_revert_module('feature_siasar_views_results');
+}
