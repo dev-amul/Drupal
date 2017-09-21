@@ -352,6 +352,8 @@ ul.responsive-menu li {
 .btn.form-submit {
   background-image: none;
   background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
   padding-left: 25px;
   padding-right: 25px;
 }
