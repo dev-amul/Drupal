@@ -2983,7 +2983,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'bundle' => 'field_f_red_de_distribucion',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '(Pozos  o sistemas por gravedad / bombeo. No aplica en sistemas con abastecimiento domiciliar. Al contestar este bloque se entiende que la distribución es parcial o totalmente mediante puntos de toma de agua públicos)',
+    'description' => 'Pozos o sistemas por gravedad / bombeo. No aplica en sistemas con abastecimiento domiciliar. Al contestar este bloque se entiende que la distribución es parcial o totalmente mediante puntos de toma de agua públicos.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4539,7 +4539,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t(' Fuente y/o captación');
-  t('(Pozos  o sistemas por gravedad / bombeo. No aplica en sistemas con abastecimiento domiciliar. Al contestar este bloque se entiende que la distribución es parcial o totalmente mediante puntos de toma de agua públicos)');
   t('Altitud');
   t('Año');
   t('Año de construcción');
@@ -4604,6 +4603,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Origen de los datos');
   t('Otras divisiones');
   t('País');
+  t('Pozos o sistemas por gravedad / bombeo. No aplica en sistemas con abastecimiento domiciliar. Al contestar este bloque se entiende que la distribución es parcial o totalmente mediante puntos de toma de agua públicos.');
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
   t('Red de distribución');

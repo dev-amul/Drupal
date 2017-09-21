@@ -565,12 +565,13 @@ function feature_siasar_views_reports_views_default_views() {
     6 => 0,
     10 => 0,
   );
+  $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_filter'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_items'] = '10';
-  $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_min_chars'] = '3';
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_field'] = 'field_entity_name';
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_dropdown'] = 1;
-  $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_dependent'] = 0;
+  $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_dependent'] = 1;
   /* Filter criterion: User: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value']['id'] = 'field_nombre_completo_value';
   $handler->display->display_options['filters']['field_nombre_completo_value']['table'] = 'field_data_field_nombre_completo';
@@ -593,12 +594,13 @@ function feature_siasar_views_reports_views_default_views() {
     6 => 0,
     10 => 0,
   );
+  $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_filter'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_items'] = '10';
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_min_chars'] = '0';
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_field'] = 'field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_dropdown'] = 1;
-  $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_dependent'] = 0;
+  $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_dependent'] = 1;
   /* Filter criterion: User: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['id'] = 'field_nombre_completo_value_1';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['table'] = 'field_data_field_nombre_completo';
@@ -621,12 +623,13 @@ function feature_siasar_views_reports_views_default_views() {
     6 => 0,
     10 => 0,
   );
+  $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_filter'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_items'] = '10';
-  $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_min_chars'] = '3';
+  $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_min_chars'] = '0';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_field'] = 'field_nombre_completo_1';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_raw_dropdown'] = 1;
-  $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_dependent'] = 0;
+  $handler->display->display_options['filters']['field_nombre_completo_value_1']['expose']['autocomplete_dependent'] = 1;
   /* Filter criterion: Entityform Submission: Status (field_status) */
   $handler->display->display_options['filters']['field_status_value']['id'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['table'] = 'field_data_field_status';

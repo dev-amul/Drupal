@@ -1139,7 +1139,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'bundle' => 'prestador_de_servicio',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Promedio mensual de los últimos 12 meses, en la moneda especificada en la C2.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1163,7 +1163,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_facturacion_promedio',
-    'label' => 'Facturación (promedio mensual de los últimos 12 meses, en la moneda especificada en la C2)',
+    'label' => 'Facturación',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -1186,6 +1186,12 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
             'en' => -1,
             'enable' => 0,
             'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
             'pt-br' => -1,
             'weight' => 0,
           ),
@@ -5862,7 +5868,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('El prestador, ¿tiene cuenta bancaria?');
   t('Encuestador');
   t('Estado legal del prestador ');
-  t('Facturación (promedio mensual de los últimos 12 meses, en la moneda especificada en la C2)');
+  t('Facturación');
   t('Fecha de Aplicación');
   t('Fecha de creación');
   t('Fecha de última elección de los miembros de Junta');
