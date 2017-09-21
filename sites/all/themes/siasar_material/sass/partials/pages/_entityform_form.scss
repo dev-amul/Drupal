@@ -272,7 +272,7 @@ form.entityform {
 
         > h3,
         > .description {
-          width: 120px;
+          width: 150px;
           float: left;
           box-sizing: border-box;
           margin: 0;
@@ -293,13 +293,13 @@ form.entityform {
 
         > .form-wrapper,
         > .group-grid {
-          margin: 0 0 0 120px;
+          margin: 0 0 0 150px;
           padding: $vertical-tabs-padding;
           background: white;
           border-left: solid $siasar-dark-cyan 12px;
           display: table;
           border-collapse: separate;
-          width: calc(100% - 120px);
+          width: calc(100% - 150px);
 
           &:nth-child(odd) {
             background: $siasar-almost-white;
