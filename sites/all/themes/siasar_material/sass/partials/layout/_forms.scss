@@ -7,6 +7,8 @@
   &.form-submit {
     background-image: none;
     background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
     padding-left: 25px;
     padding-right: 25px;
   }
@@ -105,6 +107,14 @@ span.form-required {
 
   @include breakpoint($break-medium) {
     width: $fields-alignment;
+  }
+}
+.field-items {
+  @include breakpoint($break-small) {
+    margin-left: 200px;
+  }
+  @include breakpoint($break-medium) {
+    margin-left: $fields-alignment;
   }
 }
 

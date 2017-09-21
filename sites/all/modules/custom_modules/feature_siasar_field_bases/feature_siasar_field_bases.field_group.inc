@@ -760,9 +760,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Staff',
     'weight' => '81',
     'children' => array(
-      0 => 'field_com_fic_cesh_pi',
-      1 => 'field_com_fic_cesh_pa',
-      2 => 'field_com_fic_cesh_pe',
+      0 => 'field_com_fic_cesh_pa',
+      1 => 'field_com_fic_cesh_pe',
+      2 => 'field_com_fic_cesh_pi',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -795,9 +795,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '82',
     'children' => array(
-      0 => 'field_com_fic_cesh_pu',
-      1 => 'field_com_fic_cesh_pm',
-      2 => 'field_com_fic_cesh_pq',
+      0 => 'field_com_fic_cesh_pm',
+      1 => 'field_com_fic_cesh_pq',
+      2 => 'field_com_fic_cesh_pu',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -830,9 +830,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Shared',
     'weight' => '83',
     'children' => array(
-      0 => 'field_com_fic_cesh_paa',
-      1 => 'field_com_fic_cesh_pba',
-      2 => 'field_com_fic_cesh_pca',
+      0 => 'field_com_fic_cesh_pca',
+      1 => 'field_com_fic_cesh_paa',
+      2 => 'field_com_fic_cesh_pba',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -901,8 +901,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '89',
     'children' => array(
       0 => 'field_com_fic_cesh_pf',
-      1 => 'field_com_fic_cesh_pb',
-      2 => 'field_com_fic_cesh_pj',
+      1 => 'field_com_fic_cesh_pj',
+      2 => 'field_com_fic_cesh_pb',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -935,9 +935,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '90',
     'children' => array(
-      0 => 'field_com_fic_cesh_pr',
+      0 => 'field_com_fic_cesh_pv',
       1 => 'field_com_fic_cesh_pn',
-      2 => 'field_com_fic_cesh_pv',
+      2 => 'field_com_fic_cesh_pr',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -970,9 +970,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Shared',
     'weight' => '91',
     'children' => array(
-      0 => 'field_com_fic_cesh_pab',
-      1 => 'field_com_fic_cesh_pcb',
-      2 => 'field_com_fic_cesh_pbb',
+      0 => 'field_com_fic_cesh_pcb',
+      1 => 'field_com_fic_cesh_pbb',
+      2 => 'field_com_fic_cesh_pab',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1041,8 +1041,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '97',
     'children' => array(
       0 => 'field_com_fic_cesh_pk',
-      1 => 'field_com_fic_cesh_pg',
-      2 => 'field_com_fic_cesh_pc',
+      1 => 'field_com_fic_cesh_pc',
+      2 => 'field_com_fic_cesh_pg',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1110,8 +1110,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Shared',
     'weight' => '99',
     'children' => array(
-      0 => 'field_com_fic_cesh_pcc',
-      1 => 'field_com_fic_cesh_pbc',
+      0 => 'field_com_fic_cesh_pbc',
+      1 => 'field_com_fic_cesh_pcc',
       2 => 'field_com_fic_cesh_pac',
     ),
     'format_type' => 'div',
@@ -1181,8 +1181,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '46',
     'children' => array(
       0 => 'field_com_fic_cesh_ph',
-      1 => 'field_com_fic_cesh_pl',
-      2 => 'field_com_fic_cesh_pd',
+      1 => 'field_com_fic_cesh_pd',
+      2 => 'field_com_fic_cesh_pl',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1215,9 +1215,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '47',
     'children' => array(
-      0 => 'field_com_fic_cesh_pp',
-      1 => 'field_com_fic_cesh_pt',
-      2 => 'field_com_fic_cesh_px',
+      0 => 'field_com_fic_cesh_px',
+      1 => 'field_com_fic_cesh_pp',
+      2 => 'field_com_fic_cesh_pt',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1286,8 +1286,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '45',
     'children' => array(
       0 => 'group_c4_grid_4_1',
-      1 => 'group_c4_grid_4_3',
-      2 => 'group_c4_grid_4_2',
+      1 => 'group_c4_grid_4_2',
+      2 => 'group_c4_grid_4_3',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1603,11 +1603,11 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'C3. School: Water Supply System',
-    'weight' => '1',
+    'weight' => '3',
     'children' => array(
-      0 => 'field_com_fic_cesa_pd',
-      1 => 'field_com_fic_cesa_pa',
-      2 => 'field_system_ref',
+      0 => 'field_system_ref',
+      1 => 'field_com_fic_cesa_pd',
+      2 => 'field_com_fic_cesa_pa',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1634,12 +1634,12 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'C4. Schools: Sanitation and hygiene',
-    'weight' => '2',
+    'weight' => '4',
     'children' => array(
       0 => 'group_c4_grid_1',
-      1 => 'group_c4_grid_4',
-      2 => 'group_c4_grid_2',
-      3 => 'group_c4_grid_3',
+      1 => 'group_c4_grid_2',
+      2 => 'group_c4_grid_3',
+      3 => 'group_c4_grid_4',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -4025,7 +4025,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => '﻿﻿﻿Teaching and Administrative Staff',
-    'weight' => '3',
+    'weight' => '1',
     'children' => array(
       0 => 'field_com_fic_ce_fdocf',
       1 => 'field_com_fic_ce_fdocm',
@@ -4083,7 +4083,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Student Body',
-    'weight' => '4',
+    'weight' => '2',
     'children' => array(
       0 => 'field_com_fic_ce_festm',
       1 => 'field_com_fic_ce_festf',
