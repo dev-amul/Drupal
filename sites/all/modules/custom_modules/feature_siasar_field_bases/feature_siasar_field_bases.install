@@ -7,3 +7,10 @@
  function feature_siasar_field_bases_update_7100() {
   features_revert_module('feature_siasar_field_bases');
 }
+
+/**
+ * 570 - Comunidad C2 sorting fields.
+ */
+ function feature_siasar_field_bases_update_7101() {
+  features_revert_module('feature_siasar_field_bases');
+}
