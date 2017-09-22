@@ -131,3 +131,10 @@ span.form-required {
     display: none;
   }
 }
+
+// Disabled fields
+.field-disabled {
+  label {
+    opacity: 0.5;
+  }
+}
