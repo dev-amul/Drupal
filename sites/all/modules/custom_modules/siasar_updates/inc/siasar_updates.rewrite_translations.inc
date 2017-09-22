@@ -3,6 +3,7 @@
 // Rewrite translations from CSV
 
 function siasar_updates_rewrite_translations_from_csv($source) {
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.helpers');
   $entries = siasar_updates_open_parse_csv($source);
   $groups = field_group_info_groups();
 
@@ -12,7 +13,7 @@ function siasar_updates_rewrite_translations_from_csv($source) {
   }
 }
 
-function siasar_updates_open_parse_csv($source) {
+/*function siasar_updates_open_parse_csv($source) {
   $path = dirname(__FILE__);
   $file = fopen($path . '/' . $source, 'r');
   $entries = array();
@@ -27,7 +28,7 @@ function siasar_updates_open_parse_csv($source) {
   }
 
   return $entries;
-}
+}*/
 
 function siasar_updates_update_source_of_translation($source_string, $destination_string) {
   $source_string = strtolower($source_string);
