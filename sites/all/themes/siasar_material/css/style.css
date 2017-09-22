@@ -473,6 +473,44 @@ span.form-required {
   display: none;
 }
 
+.field-disabled label {
+  opacity: 0.5;
+}
+
+@media (min-width: 600px) {
+  body.page-eform-submit .parallel-widgets #edit-field-cantidad-equipos-transport,
+  body.page-eform-submit .parallel-widgets #edit-field-cantidad-medicion-agua,
+  body.page-eform-submit .parallel-widgets #edit-field-cantidad-equipos-inform,
+  body.page-entityform-edit .parallel-widgets #edit-field-cantidad-equipos-transport,
+  body.page-entityform-edit .parallel-widgets #edit-field-cantidad-medicion-agua,
+  body.page-entityform-edit .parallel-widgets #edit-field-cantidad-equipos-inform {
+    float: left;
+    width: calc(40% - 20px);
+    min-width: 240px;
+    margin-right: 20px;
+    clear: left;
+  }
+  body.page-eform-submit .parallel-widgets #edit-field-estado-equipos-transporte,
+  body.page-eform-submit .parallel-widgets #edit-field-estado-medicion-agua,
+  body.page-eform-submit .parallel-widgets #edit-field-estado-equipos-informatico,
+  body.page-entityform-edit .parallel-widgets #edit-field-estado-equipos-transporte,
+  body.page-entityform-edit .parallel-widgets #edit-field-estado-medicion-agua,
+  body.page-entityform-edit .parallel-widgets #edit-field-estado-equipos-informatico {
+    float: left;
+    width: 40%;
+    min-width: 240px;
+  }
+  body.page-eform-submit .parallel-widgets #edit-field-estado-equipos-transporte,
+  body.page-entityform-edit .parallel-widgets #edit-field-estado-equipos-transporte {
+    margin-top: 0;
+  }
+  body.page-eform-submit .parallel-widgets #edit-field-dispone-fondos-viaticos,
+  body.page-entityform-edit .parallel-widgets #edit-field-dispone-fondos-viaticos {
+    clear: left;
+    padding-top: 40px;
+  }
+}
+
 .view-reports-entityforms {
   padding: 20px;
 }
@@ -893,8 +931,6 @@ form.entityform {
 }
 form.entityform .btn.form-submit {
   background-image: url("../img/tick.svg");
-  background-position: 10px center;
-  background-repeat: no-repeat;
   padding-left: 55px;
 }
 form.entityform .vertical-tabs {

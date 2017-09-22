@@ -1,0 +1,33 @@
+// CSS specifics for fields that need to beshow in parallel in edit form.
+
+body.page-eform-submit,
+body.page-entityform-edit {
+  .parallel-widgets {
+    @include breakpoint($break-small) {
+      #edit-field-cantidad-equipos-transport,
+      #edit-field-cantidad-medicion-agua,
+      #edit-field-cantidad-equipos-inform {
+        float: left;
+        width: calc(40% - 20px);
+        min-width: 240px;
+        margin-right: 20px;
+        clear: left;
+      }
+      #edit-field-estado-equipos-transporte,
+      #edit-field-estado-medicion-agua,
+      #edit-field-estado-equipos-informatico {
+        float: left;
+        width: 40%;
+        min-width: 240px;
+      }
+      #edit-field-estado-equipos-transporte {
+        margin-top: 0;
+      }
+
+      #edit-field-dispone-fondos-viaticos {
+        clear: left;
+        padding-top: 40px;
+      }
+    }
+  }
+}
