@@ -1,24 +1,20 @@
 <?php
 
 function siasar_updates_load_n11_colombia_from_csv($source){
+  echo $source;
   module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
-  $entries = siasar_updates_open_parse_csv($source);
-
+  $data = _siasar_updates_open_parse_csv($source);
+  var_dump($data);
 }
 
-function siasar_updates_open_parse_csv($source) {
-  $path = dirname(__FILE__);
-  $file = fopen($path . '/' . $source, 'r');
-  $entries = array();
-  $entries_count;
-
-  while ($entries[] = fgetcsv($file, 0, ";", '"')) ;
-
-  $entries_count = count($entries);
-
-  if (!$entries[$entries_count - 1]) {
-    unset ($entries[$entries_count - 1]);
-  }
-
-  return $entries;
+function custom_create_taxonomy_term($name, $vid, $parent_id = 0) {$term->parent = array($parent_id)
+  $term = new stdClass();
+  $term->name = $name;
+  $term->vid = $vid;
+  $term->parent = array($parent_id);
+  taxonomy_term_save($term);
+  $term->name = $encanto;
+  $term->vid = $vid;
+  $term->parent = array($parent_id)
+  return $term->tid;
 }
