@@ -76,20 +76,30 @@ function siasar_drush_migrate_create_entityforms($path) {
   $communities_file           = $path . '/communities.json';
   $systems_file               = $path . '/systems.json';
   $providers_file             = $path . '/providers.json';
+
   $community_collections_file = $path . '/community_collections.json';
   $system_collections_file    = $path . '/system_collections.json';
   $provider_collections_file  = $path . '/provider_collections.json';
 
-  $entities = array (
-    'systems' => json_decode(file_get_contents($systems_file), true),
-    'providers' => json_decode(file_get_contents($providers_file), true),
-    'communities' => json_decode(file_get_contents($communities_file), true)
-  );
-  $collections = array (
-    'systems' => json_decode(file_get_contents($system_collections_file), true),
-    'providers' => json_decode(file_get_contents($provider_collections_file), true),
-    'communities' => json_decode(file_get_contents($community_collections_file), true)
-  );
+  $loader = function(&$array, $key, $file) {
+    $content = @file_get_contents($file);
+
+    if ($content) {
+      $array[$key] = json_decode($content, true);
+    }
+  };
+
+  $entities = array();
+
+  $loader($entities, 'systems', $systems_file);
+  $loader($entities, 'providers', $providers_file);
+  $loader($entities, 'communities', $communities_file);
+
+  $collections = array();
+
+  $loader($collections, 'systems', $system_collections_file);
+  $loader($collections, 'providers', $provider_collections_file);
+  $loader($collections, 'communities', $community_collections_file);
 
   $result = array (
     'summary' => array (
@@ -234,8 +244,18 @@ function _siasar_drush_migrate_save_entityform_from_json($entityform, $controlle
     $entityform['field_pais'] = country_load($entityform['field_pais']);
   }
 
-  $args = array('entityform', $entityform);
-  $result = call_user_func_array(array($controller, 'create'), $args);
+  if (isset($entityform['id_siasar2'])) {
+    $entityform_id = $entityform['id_siasar2'];
+    unset($entityform['id_siasar2']);
+    $args = array('entityform', $entityform_id, $entityform);
+    $operation = 'update';
+
+  } else {
+    $args = array('entityform', $entityform);
+    $operation = 'create';
+  }
+
+  $result = call_user_func_array(array($controller, $operation), $args);
 
   return $result['entityform_id'];
 }
@@ -244,8 +264,19 @@ function _siasar_drush_migrate_save_entityform_from_json($entityform, $controlle
  * Helper function to save one field collection item using JSON as source
  */
 function _siasar_drush_migrate_save_field_collection_item_from_json($field_collection_item, $controller) {
-  $args = array('field_collection_item', $field_collection_item);
-  $result = call_user_func_array(array($controller, 'create'), $args);
+
+  if (isset($field_collection_item['id_siasar2'])) {
+    $field_collection_item_id = $field_collection_item['id_siasar2'];
+    unset($field_collection_item['id_siasar2']);
+    $args = array('field_collection_item', $field_collection_item_id, $field_collection_item);
+    $operation = 'update';
+
+  } else {
+    $args = array('field_collection_item', $field_collection_item, $field_collection_item);
+    $operation = 'create';
+  }
+
+  $result = call_user_func_array(array($controller, $operation), $args);
 
   return $result['item_id'];
 }
