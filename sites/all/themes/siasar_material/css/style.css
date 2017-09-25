@@ -352,6 +352,8 @@ ul.responsive-menu li {
 .btn.form-submit {
   background-image: none;
   background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
   padding-left: 25px;
   padding-right: 25px;
 }
@@ -450,6 +452,17 @@ span.form-required {
   }
 }
 
+@media (min-width: 600px) {
+  .field-items {
+    margin-left: 200px;
+  }
+}
+@media (min-width: 992px) {
+  .field-items {
+    margin-left: 325px;
+  }
+}
+
 .form-type-mvf-widget > label {
   position: static !important;
   clip: none;
@@ -458,6 +471,44 @@ span.form-required {
 }
 .form-type-mvf-widget > .input-field > label {
   display: none;
+}
+
+.field-disabled label {
+  opacity: 0.5;
+}
+
+@media (min-width: 600px) {
+  body.page-eform-submit .parallel-widgets #edit-field-cantidad-equipos-transport,
+  body.page-eform-submit .parallel-widgets #edit-field-cantidad-medicion-agua,
+  body.page-eform-submit .parallel-widgets #edit-field-cantidad-equipos-inform,
+  body.page-entityform-edit .parallel-widgets #edit-field-cantidad-equipos-transport,
+  body.page-entityform-edit .parallel-widgets #edit-field-cantidad-medicion-agua,
+  body.page-entityform-edit .parallel-widgets #edit-field-cantidad-equipos-inform {
+    float: left;
+    width: calc(40% - 20px);
+    min-width: 240px;
+    margin-right: 20px;
+    clear: left;
+  }
+  body.page-eform-submit .parallel-widgets #edit-field-estado-equipos-transporte,
+  body.page-eform-submit .parallel-widgets #edit-field-estado-medicion-agua,
+  body.page-eform-submit .parallel-widgets #edit-field-estado-equipos-informatico,
+  body.page-entityform-edit .parallel-widgets #edit-field-estado-equipos-transporte,
+  body.page-entityform-edit .parallel-widgets #edit-field-estado-medicion-agua,
+  body.page-entityform-edit .parallel-widgets #edit-field-estado-equipos-informatico {
+    float: left;
+    width: 40%;
+    min-width: 240px;
+  }
+  body.page-eform-submit .parallel-widgets #edit-field-estado-equipos-transporte,
+  body.page-entityform-edit .parallel-widgets #edit-field-estado-equipos-transporte {
+    margin-top: 0;
+  }
+  body.page-eform-submit .parallel-widgets #edit-field-dispone-fondos-viaticos,
+  body.page-entityform-edit .parallel-widgets #edit-field-dispone-fondos-viaticos {
+    clear: left;
+    padding-top: 40px;
+  }
 }
 
 .view-reports-entityforms {
@@ -880,8 +931,6 @@ form.entityform {
 }
 form.entityform .btn.form-submit {
   background-image: url("../img/tick.svg");
-  background-position: 10px center;
-  background-repeat: no-repeat;
   padding-left: 55px;
 }
 form.entityform .vertical-tabs {
@@ -1128,7 +1177,7 @@ form.entityform .vertical-tabs-panes fieldset .group-grid:last-child {
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > h3,
 form.entityform .vertical-tabs-panes fieldset .group-grid > .description {
-  width: 120px;
+  width: 150px;
   float: left;
   box-sizing: border-box;
   margin: 0;
@@ -1146,13 +1195,13 @@ form.entityform .vertical-tabs-panes fieldset .group-grid > .description {
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper,
 form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid {
-  margin: 0 0 0 120px;
+  margin: 0 0 0 150px;
   padding: 20px;
   background: white;
   border-left: solid #00829e 12px;
   display: table;
   border-collapse: separate;
-  width: calc(100% - 120px);
+  width: calc(100% - 150px);
 }
 form.entityform .vertical-tabs-panes fieldset .group-grid > .form-wrapper:nth-child(odd),
 form.entityform .vertical-tabs-panes fieldset .group-grid > .group-grid:nth-child(odd) {

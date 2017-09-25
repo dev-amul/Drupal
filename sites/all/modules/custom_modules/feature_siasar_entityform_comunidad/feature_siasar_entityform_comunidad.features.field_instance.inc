@@ -1597,7 +1597,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_com_obs_obscomre',
-    'label' => 'Redacción',
+    'label' => 'Observaciones y comentarios',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -7537,6 +7537,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Número total de trabajadores y docentes masculinos');
   t('Observaciones ');
   t('Observaciones sobre el grupo de población');
+  t('Observaciones y comentarios');
   t('Origen de los datos');
   t('Otras características de la comunidad');
   t('Otras divisiones');
@@ -7544,7 +7545,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Personal de salud y administrativo. Femenino');
   t('Personal de salud y administrativo. Masculino');
   t('Población total');
-  t('Redacción');
   t('Se posee de servicios de conexión a Internet (3G o 4G)');
   t('Se posee de servicios de energía eléctrica');
   t('Se posee de servicios de telefonía celular');
