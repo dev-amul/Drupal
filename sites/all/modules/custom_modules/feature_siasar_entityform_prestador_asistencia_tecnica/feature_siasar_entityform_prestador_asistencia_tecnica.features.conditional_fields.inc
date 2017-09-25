@@ -281,6 +281,396 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_conditional_fiel
   $items["entityform:prestador_de_asistencia_t_cnica:2"] = array(
     'entity' => 'entityform',
     'bundle' => 'prestador_de_asistencia_t_cnica',
+    'dependent' => 'field_estado_fondos_combustible',
+    'dependee' => 'field_dispone_fondos_combistible',
+    'options' => array(
+      'state' => 'visible',
+      'condition' => 'value',
+      'grouping' => 'AND',
+      'effect' => 'fade',
+      'effect_options' => array(
+        'speed' => 400,
+      ),
+      'element_view' => array(
+        1 => 1,
+        2 => 2,
+        5 => 0,
+        3 => 0,
+        4 => 0,
+      ),
+      'element_view_per_role' => 0,
+      'element_view_roles' => array(
+        1 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+      ),
+      'element_edit' => array(
+        1 => 1,
+        3 => 0,
+      ),
+      'element_edit_per_role' => 0,
+      'element_edit_roles' => array(
+        1 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          3 => 0,
+        ),
+      ),
+      'selector' => '',
+      'values_set' => 1,
+      'value_form' => 1,
+      'value' => array(
+        0 => array(
+          'value' => 1,
+        ),
+      ),
+      'values' => array(),
+    ),
+  );
+
+  $items["entityform:prestador_de_asistencia_t_cnica:3"] = array(
+    'entity' => 'entityform',
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'dependent' => 'field_estado_fondos_viaticos',
+    'dependee' => 'field_dispone_fondos_viaticos',
+    'options' => array(
+      'state' => 'visible',
+      'condition' => 'value',
+      'grouping' => 'AND',
+      'effect' => 'fade',
+      'effect_options' => array(
+        'speed' => 400,
+      ),
+      'element_view' => array(
+        1 => 1,
+        2 => 2,
+        5 => 0,
+        3 => 0,
+        4 => 0,
+      ),
+      'element_view_per_role' => 0,
+      'element_view_roles' => array(
+        1 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+      ),
+      'element_edit' => array(
+        1 => 1,
+        3 => 0,
+      ),
+      'element_edit_per_role' => 0,
+      'element_edit_roles' => array(
+        1 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          3 => 0,
+        ),
+      ),
+      'selector' => '',
+      'values_set' => 1,
+      'value_form' => 1,
+      'value' => array(
+        0 => array(
+          'value' => 1,
+        ),
+      ),
+      'values' => array(),
+    ),
+  );
+
+  $items["entityform:prestador_de_asistencia_t_cnica:4"] = array(
+    'entity' => 'entityform',
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'dependent' => 'field_estado_material_didactico',
+    'dependee' => 'field_dispone_material_didactico',
+    'options' => array(
+      'state' => 'visible',
+      'condition' => 'value',
+      'grouping' => 'AND',
+      'effect' => 'fade',
+      'effect_options' => array(
+        'speed' => 400,
+      ),
+      'element_view' => array(
+        1 => 1,
+        2 => 2,
+        5 => 0,
+        3 => 0,
+        4 => 0,
+      ),
+      'element_view_per_role' => 0,
+      'element_view_roles' => array(
+        1 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+      ),
+      'element_edit' => array(
+        1 => 1,
+        3 => 0,
+      ),
+      'element_edit_per_role' => 0,
+      'element_edit_roles' => array(
+        1 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          3 => 0,
+        ),
+      ),
+      'selector' => '',
+      'values_set' => 1,
+      'value_form' => 1,
+      'value' => array(
+        0 => array(
+          'value' => 1,
+        ),
+      ),
+      'values' => array(),
+    ),
+  );
+
+  $items["entityform:prestador_de_asistencia_t_cnica:5"] = array(
+    'entity' => 'entityform',
+    'bundle' => 'prestador_de_asistencia_t_cnica',
     'dependent' => 'field_estado_medicion_agua',
     'dependee' => 'field_cantidad_medicion_agua',
     'options' => array(
@@ -412,7 +802,137 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_conditional_fiel
     ),
   );
 
-  $items["entityform:prestador_de_asistencia_t_cnica:3"] = array(
+  $items["entityform:prestador_de_asistencia_t_cnica:6"] = array(
+    'entity' => 'entityform',
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'dependent' => 'field_estado_servicios_internet',
+    'dependee' => 'field_dispone_servicios_internet',
+    'options' => array(
+      'state' => 'visible',
+      'condition' => 'value',
+      'grouping' => 'AND',
+      'effect' => 'fade',
+      'effect_options' => array(
+        'speed' => 400,
+      ),
+      'element_view' => array(
+        1 => 1,
+        2 => 2,
+        5 => 0,
+        3 => 0,
+        4 => 0,
+      ),
+      'element_view_per_role' => 0,
+      'element_view_roles' => array(
+        1 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
+      ),
+      'element_edit' => array(
+        1 => 1,
+        3 => 0,
+      ),
+      'element_edit_per_role' => 0,
+      'element_edit_roles' => array(
+        1 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        2 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        7 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        8 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        5 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        9 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        6 => array(
+          1 => 1,
+          3 => 0,
+        ),
+        10 => array(
+          1 => 1,
+          3 => 0,
+        ),
+      ),
+      'selector' => '',
+      'values_set' => 1,
+      'value_form' => 1,
+      'value' => array(
+        0 => array(
+          'value' => 1,
+        ),
+      ),
+      'values' => array(),
+    ),
+  );
+
+  $items["entityform:prestador_de_asistencia_t_cnica:7"] = array(
     'entity' => 'entityform',
     'bundle' => 'prestador_de_asistencia_t_cnica',
     'dependent' => 'field_monto',
@@ -540,7 +1060,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_conditional_fiel
     ),
   );
 
-  $items["entityform:prestador_de_asistencia_t_cnica:4"] = array(
+  $items["entityform:prestador_de_asistencia_t_cnica:8"] = array(
     'entity' => 'entityform',
     'bundle' => 'prestador_de_asistencia_t_cnica',
     'dependent' => 'field_otras_numero_comunidade',
@@ -609,7 +1129,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_conditional_fiel
     ),
   );
 
-  $items["entityform:prestador_de_asistencia_t_cnica:5"] = array(
+  $items["entityform:prestador_de_asistencia_t_cnica:9"] = array(
     'entity' => 'entityform',
     'bundle' => 'prestador_de_asistencia_t_cnica',
     'dependent' => 'field_otras_numero_comunidade',
