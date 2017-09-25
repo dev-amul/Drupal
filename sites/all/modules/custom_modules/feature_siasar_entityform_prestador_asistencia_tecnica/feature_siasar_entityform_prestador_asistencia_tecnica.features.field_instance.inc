@@ -857,7 +857,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 22,
+      'weight' => 23,
     ),
   );
 
@@ -943,7 +943,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 24,
+      'weight' => 27,
     ),
   );
 
@@ -986,7 +986,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 23,
+      'weight' => 25,
     ),
   );
 
@@ -1186,6 +1186,153 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_estado_fondos_combustible'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_estado_fondos_combustible'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 48,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_estado_fondos_combustible',
+    'label' => 'Estado de los fondos para combustible',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 24,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_estado_fondos_viaticos'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_estado_fondos_viaticos'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 47,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_estado_fondos_viaticos',
+    'label' => 'Estado de los fondos para viáticos',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 22,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_estado_material_didactico'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_estado_material_didactico'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 50,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_estado_material_didactico',
+    'label' => 'Estado del material didáctico',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 28,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_estado_medicion_agua'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_estado_medicion_agua'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -1231,6 +1378,55 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_estado_servicios_internet'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_estado_servicios_internet'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 49,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_estado_servicios_internet',
+    'label' => 'Estado de los servicios Internet',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 26,
     ),
   );
 
@@ -1866,7 +2062,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'name_as_title' => 1,
       ),
       'type' => 'workflow_default',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -2092,6 +2288,10 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Estado de los equipos de transporte ');
   t('Estado de los equipos informáticos (computadora/impresora)');
   t('Estado de los equipos para la medición de la calidad del agua');
+  t('Estado de los fondos para combustible');
+  t('Estado de los fondos para viáticos');
+  t('Estado de los servicios Internet');
+  t('Estado del material didáctico');
   t('Fecha de Aplicación');
   t('Fecha en la que se cubre la encuesta');
   t('Imagen');
