@@ -3,15 +3,6 @@
 const config = require('../includes/config');
 const request = require('../includes/request');
 
-/*
-
-rating_s1: {
-    uri: "http://staging.siasar.org/rest/entity_taxonomy_term/426715",
-    resource: "taxonomy_term",
-    name: "B",
-    tid: "426715"
-    },
-    */
 
 it('API is delivering SIASAR 1 migrated data properly', async () => {
   expect.hasAssertions();
