@@ -5,7 +5,7 @@ function _siasar_updates_open_parse_csv($source) {
   $entries = array();
   $entries_count;
 
-  while ($entries[] = fgetcsv($file, 0, ";", '"'));
+  while ($entries[] = fgetcsv($file, 0, ",", '"'));
 
   $entries_count = count($entries);
 
