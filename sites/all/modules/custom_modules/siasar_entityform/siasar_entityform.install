@@ -76,37 +76,7 @@ function siasar_entityform_schema() {
       ),
     ),
   );
-  $schema['entityform_computable_devel'] = array(
-    'description' => 'Devel information for entityforms .',
-    'fields' => array(
-      'entityform_id' => array(
-        'type' => 'int',
-        'unsigned' => TRUE,
-        'not null' => TRUE,
-        'default' => 0,
-        'description' => 'Entityform id (entity id).',
-      ),
-      'counter' => array(
-        'description' => 'The times that an entityform has been try to be processed.',
-        'type' => 'int',
-        'unsigned' => TRUE,
-        'not null' => TRUE,
-        'default' => 0,
-      ),
-    ),
-    'primary key' => array('entityform_id'),
-    'indexes' => array(
-      'entityform_id' => array('entityform_id'),
-      'counter' => array('counter'),
-      'entityform_counter' => array('entityform_id', 'counter'),
-    ),
-    'foreign keys' => array(
-      'versioned_entityform' => array(
-        'table' => 'entityform',
-        'columns' => array('entityform_id' => 'entityform_id'),
-      ),
-    ),
-  );
+
   return $schema;
 }
 
