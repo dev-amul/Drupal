@@ -7,6 +7,8 @@
   &.form-submit {
     background-image: none;
     background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
     padding-left: 25px;
     padding-right: 25px;
   }
@@ -107,6 +109,14 @@ span.form-required {
     width: $fields-alignment;
   }
 }
+.field-items {
+  @include breakpoint($break-small) {
+    margin-left: 200px;
+  }
+  @include breakpoint($break-medium) {
+    margin-left: $fields-alignment;
+  }
+}
 
 // Fix for the clunky default HTML generated for MVF, that looks like made by by a monkey with hat
 .form-type-mvf-widget {
@@ -119,5 +129,12 @@ span.form-required {
 
   > .input-field > label {
     display: none;
+  }
+}
+
+// Disabled fields
+.field-disabled {
+  label {
+    opacity: 0.5;
   }
 }
