@@ -1,0 +1,21 @@
+.views-field-entityform-revision {
+  span.not-computable {
+    width: 15px;
+    height: 15px;
+    background: red;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    display: inline-block;
+  }
+
+  span.computable {
+    width: 15px;
+    height: 15px;
+    background: green;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    display: inline-block;
+  }
+}
