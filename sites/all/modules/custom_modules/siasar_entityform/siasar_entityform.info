@@ -1,0 +1,12 @@
+name = SIASAR Entityform
+description = Manage information about the computable revisions for sending through the API
+version = 7.x-1.0
+core = 7.x
+package = siasar
+dependences[] = entityform
+dependences[] = entityform_revisions
+
+files[] = SiasarEntityformRevisionsController.inc
+; Views Handlers
+files[] = views/siasar_entityform_computable_handler.inc
+files[] = views/siasar_entityform_revision_handler.inc

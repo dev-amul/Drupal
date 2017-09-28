@@ -438,6 +438,15 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['label']['field'] = 'label';
   $handler->display->display_options['fields']['label']['label'] = 'Tipo de encuesta';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
+  /* Field: Entityform Submission: Status */
+  $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
+  $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
+  $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
+  /* Field: Entityform Computable states: Processable */
+  $handler->display->display_options['fields']['entityform_revision']['id'] = 'entityform_revision';
+  $handler->display->display_options['fields']['entityform_revision']['table'] = 'entityform_computable_states';
+  $handler->display->display_options['fields']['entityform_revision']['field'] = 'entityform_revision';
+  $handler->display->display_options['fields']['entityform_revision']['label'] = 'BI';
   /* Field: Entityform Submission: Edit Link */
   $handler->display->display_options['fields']['edit_entityform']['id'] = 'edit_entityform';
   $handler->display->display_options['fields']['edit_entityform']['table'] = 'entityform';
@@ -451,10 +460,6 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['link_entityform']['field'] = 'link_entityform';
   $handler->display->display_options['fields']['link_entityform']['label'] = 'View';
   $handler->display->display_options['fields']['link_entityform']['exclude'] = TRUE;
-  /* Field: Entityform Submission: Status */
-  $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
-  $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
-  $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';

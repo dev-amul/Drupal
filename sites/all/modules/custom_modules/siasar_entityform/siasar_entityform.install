@@ -1,0 +1,122 @@
+<?php
+
+
+/**
+ * Implements hook_schema().
+ */
+function siasar_entityform_schema() {
+  $schema['entityform_computable_states']     = array(
+    'description'  => 'Keeps track of entityform submission states.',
+    'fields'       => array(
+      'entityform_id'       => array(
+        'type'        => 'int',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+        'default'     => 0,
+        'description' => 'Entityform id (entity id).',
+      ),
+      'computable'          => array(
+        'description' => 'If the entityform_id has a computable version.',
+        'type'        => 'int',
+        'not null'    => TRUE,
+        'size'        => 'tiny',
+        'default'     => 0,
+      ),
+      'entityform_revision' => array(
+        'description' => 'The computable revision.',
+        'type'        => 'int',
+        'unsigned'    => TRUE,
+        'not null'    => FALSE,
+        'default'     => NULL,
+      ),
+    ),
+    'primary key'  => array('entityform_id'),
+    'indexes'      => array(
+      'entityform_id'                  => array('entityform_id'),
+      'entityform_revision'            => array('entityform_revision'),
+      'computable'                     => array('computable'),
+      'entityform_computable'          => array('entityform_id', 'computable'),
+      'entityform_computable_revision' => array(
+        'entityform_id',
+        'computable',
+        'entityform_revision'
+      ),
+    ),
+    'foreign keys' => array(
+      'versioned_entityform' => array(
+        'table'   => 'entityform',
+        'columns' => array('entityform_id' => 'entityform_id'),
+      ),
+    ),
+  );
+  $schema['entityform_computable_processing'] = array(
+    'description'  => 'Keeps track for entityforms processing states.',
+    'fields'       => array(
+      'entityform_id' => array(
+        'type'        => 'int',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+        'default'     => 0,
+        'description' => 'Entityform id (entity id).',
+      ),
+      'processed'     => array(
+        'description' => 'If the entityform_id has been processed by the system.',
+        'type'        => 'int',
+        'not null'    => TRUE,
+        'size'        => 'tiny',
+        'default'     => 0,
+      ),
+    ),
+    'primary key'  => array('entityform_id'),
+    'indexes'      => array(
+      'entityform_id'        => array('entityform_id'),
+      'processed'            => array('processed'),
+      'entityform_processed' => array('entityform_id', 'processed'),
+    ),
+    'foreign keys' => array(
+      'versioned_entityform' => array(
+        'table'   => 'entityform',
+        'columns' => array('entityform_id' => 'entityform_id'),
+      ),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * Set initial values for the state table and the processing one when the
+ * module has been enabled.
+ */
+function siasar_entityform_enable() {
+
+  $entityform_ids = db_select('entityform', 'ef')
+    ->fields('ef', array('entityform_id'))
+    ->orderBy('entityform_id', 'ASC')
+    ->execute();
+
+  $entity_forms = $entityform_ids->fetchAllAssoc('entityform_id');
+  foreach ($entity_forms as $entityform) {
+    db_merge('entityform_computable_states')
+      ->key(array(
+        'entityform_id' => $entityform->entityform_id,
+      ))
+      ->insertFields(array(
+        'entityform_id'       => $entityform->entityform_id,
+        'computable'          => 0,
+        'entityform_revision' => NULL,
+      ))
+      ->execute();
+    db_merge('entityform_computable_processing')
+      ->key(array(
+        'entityform_id' => $entityform->entityform_id,
+      ))
+      ->insertFields(array(
+        'entityform_id' => $entityform->entityform_id,
+        'processed'     => 0,
+      ))
+      ->execute();
+  }
+}

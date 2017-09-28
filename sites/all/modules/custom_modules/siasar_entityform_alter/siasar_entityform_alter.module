@@ -22,6 +22,7 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   _siasar_entityform_alter_set_default_location_from_user($form);
   _siasar_entityform_alter_process_country_field($form);
   _siasar_entityform_alter_revisions($form, $form_state, $form_id);
+  _siasar_entityform_alter_validated_save($form, $form_state, $form_id);
   _siasar_entityform_alter_redirect($form, $form_state, $form_id);
 }
 
@@ -132,6 +133,44 @@ function siasar_entityform_alter_date_select_process_alter(&$element, &$form_sta
   $array = $first + $array;
 
   $element['year']['#options'] = $array;
+}
+
+/**
+ * For a validated submission add a new validation to force user to create a new draft version.
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function _siasar_entityform_alter_validated_save(&$form, &$form_state, $form_id) {
+  if (!empty($form['#entity']) && $form['#entity'] instanceof Entityform) {
+
+    $entityform = $form['#entity'];
+
+    if (!empty($entityform->field_status[LANGUAGE_NONE][0]['value'])) {
+      $status = $entityform->field_status[LANGUAGE_NONE][0]['value'];
+
+      if ($status == SIASAR_ENTITYFORM_STATE_VALIDATED) {
+        $form['#after_build'][] = 'siasar_entityform_validated_after_build';
+      }
+    }
+
+  }
+}
+
+/**
+ * Disable actions for validated revisions
+ *
+ * A validated entity cannot be changed without moving to a different state.
+ *
+ * @param $form
+ * @param $form_state
+ *
+ * @return mixed
+ */
+function siasar_entityform_validated_after_build($form, &$form_state) {
+  $form['actions']['workflow_' . SIASAR_ENTITYFORM_STATE_VALIDATED]['#access'] = FALSE;
+  return $form;
 }
 
 /**
