@@ -34,26 +34,33 @@ function siasar_drush_migrate_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
 
+  $items['siasar-delete-field-collections'] = array(
+    'description' => 'It deletes field collections attached to an specified entity',
+    'aliases' => array('siasar-dfc'),
+    'callback' => 'siasar_drush_migrate_delete_field_collections',
+    'arguments' => array(
+      'entity_type' => 'Entity type machine name',
+      'field' => 'Machine name of the field containing reference to field collections',
+      'entity_id' => 'Entity ID'
+    ),
+    'required-arguments' => true,
+    'examples' => array(
+      'drush siasar-dfc entityform field_banana 140' => 'Deletes all "field_banana" field collections from entityform ID 140',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
+  );
+
   return $items;
 }
 
-
 /**
- * The function that actually makes the magic in our new Drush command
+ * The function deletes entityforms provided by a static JSON file.
  */
-/*
-It can be run from Devel PHP console using this:
-
-module_load_include('inc', 'siasar_drush_migrate', 'siasar_drush_migrate.drush');
-siasar_drush_migrate_create_entityforms();
-*/
-
 function siasar_drush_delete_entityforms($path) {
   $entityforms_ids = json_decode(file_get_contents($path), true);
 
   set_time_limit(0);
   module_load_include('inc', 'services', '/includes/services.runtime');
-
 
   _print_log('Deleting entities...');
   _print_log('Forms to be deleted: '.count($entityforms_ids));
@@ -62,7 +69,12 @@ function siasar_drush_delete_entityforms($path) {
 
 }
 
+/**
+ * This function creates entityforms from JSON file provided as a text file.
+ */
 function siasar_drush_migrate_create_entityforms($path) {
+  module_load_include('inc', 'siasar_drush_migrate', 'inc/siasar_drush_migrate.helpers');
+
   $start = new DateTime('now');
 
   set_time_limit(0);
@@ -236,52 +248,26 @@ function siasar_drush_migrate_create_entityforms($path) {
   file_put_contents($path . '/log_collections.json', json_encode($result['collections']));
 }
 
-/**
- *  Helper function to save one entityform using JSON as source
- */
-function _siasar_drush_migrate_save_entityform_from_json($entityform, $controller) {
-  if (isset($entityform['field_pais'])) {
-    $entityform['field_pais'] = country_load($entityform['field_pais']);
+
+function siasar_drush_migrate_delete_field_collections($entity_name, $entity_field, $entity_id) {
+  $entityform = entity_load_single($entity_name, $entity_id);
+  $wrapper = entity_metadata_wrapper($entity_name, $entityform);
+
+  $field_collections = $wrapper->${entity_field}->value();
+
+  if (!$field_collections) {
+    drupal_set_message('Nothing to do, aborting');
+    return;
   }
 
-  if (isset($entityform['id_siasar2'])) {
-    $entityform_id = $entityform['id_siasar2'];
-    unset($entityform['id_siasar2']);
-    $args = array('entityform', $entityform_id, $entityform);
-    $operation = 'update';
+  foreach($field_collections as $target) {
+    if(get_class($target) != 'FieldCollectionItemEntity') continue;
 
-  } else {
-    $args = array('entityform', $entityform);
-    $operation = 'create';
+    $target->delete();
   }
 
-  $result = call_user_func_array(array($controller, $operation), $args);
+  $wrapper->${entity_field}->set(null);
+  $wrapper->save();
 
-  return $result['entityform_id'];
+  drupal_set_message('Removed ' . count($field_collections). ' items from field ' . $entity_field . ' for entity ' . $entity_name . ' ID: ' . $entity_id);
 }
-
-/**
- * Helper function to save one field collection item using JSON as source
- */
-function _siasar_drush_migrate_save_field_collection_item_from_json($field_collection_item, $controller) {
-
-  if (isset($field_collection_item['id_siasar2'])) {
-    $field_collection_item_id = $field_collection_item['id_siasar2'];
-    unset($field_collection_item['id_siasar2']);
-    $args = array('field_collection_item', $field_collection_item_id, $field_collection_item);
-    $operation = 'update';
-
-  } else {
-    $args = array('field_collection_item', $field_collection_item, $field_collection_item);
-    $operation = 'create';
-  }
-
-  $result = call_user_func_array(array($controller, $operation), $args);
-
-  return $result['item_id'];
-}
-
-function _print_log($text) {
-  printf('%s: %s'.PHP_EOL, (new DateTime('now'))->format("Y-m-d H:i:s"), $text);
-}
-
