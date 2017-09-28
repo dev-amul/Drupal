@@ -1,8 +1,7 @@
 <?php
 
 /**.
- * Drush command declaration function
- *
+ * Drush command declaration function.
  * @return mixed
  */
 function siasar_entityform_drush_command() {
