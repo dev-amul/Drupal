@@ -5,7 +5,7 @@
  */
 function siasar_entityform_views_api() {
   return array(
-    'api' => 3,
+    'api'  => 3,
     'path' => drupal_get_path('module', 'siasar_entityform') . '/views',
   );
 }
@@ -25,7 +25,7 @@ function siasar_entityform_entity_info_alter(&$entity_info) {
  * @return bool
  */
 function _query_computable_revision($entityform_id) {
-  $query_result = db_select('entityform_computable_states', 'efcp')
+  $query_result     = db_select('entityform_computable_states', 'efcp')
     ->fields('efcp', ['entityform_id', 'computable'])
     ->condition('entityform_id', $entityform_id, '=')
     ->execute();
@@ -45,8 +45,8 @@ function _reset_computable_entityform($entityform_id) {
       'entityform_id' => $entityform_id,
     ))
     ->insertFields(array(
-      'entityform_id' => $entityform_id,
-      'computable' => 0,
+      'entityform_id'       => $entityform_id,
+      'computable'          => 0,
       'entityform_revision' => NULL,
     ))
     ->execute();
@@ -59,7 +59,6 @@ function _reset_computable_entityform($entityform_id) {
  * @param $entityform_id integer The Entityform ID
  *
  * @return mixed The revision or NULL
- *
  */
 function _computable_revision($entityform_id) {
 
@@ -121,30 +120,16 @@ function _computable_revision($entityform_id) {
               case 'sistema':
                 // Get all entities that were related in any revision to this entityform
                 // getting that information from table: field_revision_field_system_ref
-                $query = "SELECT DISTINCT(eform_sistema.entity_id)
-FROM {field_revision_field_system_ref} as target
-  INNER JOIN {field_collection_item} as field_collection ON target.revision_id = field_collection.revision_id
-  INNER JOIN {field_revision_field_com_viv_con_sistema} as eform_sistema ON eform_sistema.field_com_viv_con_sistema_revision_id = field_collection.revision_id
-  LEFT OUTER JOIN {entityform_computable_processing} as compute ON eform_sistema.entity_id = compute.entityform_id
-WHERE target.field_system_ref_target_id = :target_id
-    AND compute.entityform_id IS NULL";
 
-                _process_query_results($entityform_id, $query, $entityform);
+                flag_entityform_dependencies_for_processing($entityform_id, $entityform, 'field_revision_field_system_ref', 'field_system_ref_target_id');
 
 
                 break;
               case 'prestador_de_servicio':
                 // Get all entities that were related in any revision to this entityform
                 // getting that information from table: field_prestador_servicio
-                $query = "SELECT DISTINCT(eform_sistema.entity_id)
-FROM {field_revision_field_prestador_servicio} as target
-  INNER JOIN {field_collection_item} as field_collection ON target.revision_id = field_collection.revision_id
-  INNER JOIN {field_revision_field_com_viv_con_sistema} as eform_sistema ON eform_sistema.field_com_viv_con_sistema_revision_id = field_collection.revision_id
-  LEFT OUTER JOIN {entityform_computable_processing} as compute ON eform_sistema.entity_id = compute.entityform_id
-WHERE target.field_prestador_servicio_target_id = :target_id
-    AND compute.entityform_id IS NULL";
 
-                _process_query_results($entityform_id, $query, $entityform);
+                flag_entityform_dependencies_for_processing($entityform_id, $entityform, 'field_revision_field_prestador_servicio', 'field_prestador_servicio_target_id');
 
                 break;
               default:
@@ -175,17 +160,24 @@ WHERE target.field_prestador_servicio_target_id = :target_id
  * Process dependecies from the current entiform revision validation.
  *
  * @param $entityform_id integer The Entityform ID
- * @param $query string The SQL query
  * @param $entityform \Entityform The EntityForm
  *
  * @return array
  */
-function _process_query_results($entityform_id, $query, $entityform) {
-  $result = db_query($query, [':target_id' => $entityform_id]);
+function flag_entityform_dependencies_for_processing($entityform_id, $entityform, $table, $target_field) {
+  $query = "SELECT DISTINCT(eform_sistema.entity_id)
+FROM {" . $table . "} as target
+  INNER JOIN {field_collection_item} as field_collection ON target.revision_id = field_collection.revision_id
+  INNER JOIN {field_revision_field_com_viv_con_sistema} as eform_sistema ON eform_sistema.field_com_viv_con_sistema_revision_id = field_collection.revision_id
+  LEFT OUTER JOIN {entityform_computable_processing} as compute ON eform_sistema.entity_id = compute.entityform_id
+WHERE target." . $target_field . " = :target_id
+    AND compute.entityform_id IS NULL";
+
+  $result      = db_query($query, [':target_id' => $entityform_id]);
   $process_ids = array_keys($result->fetchAllAssoc('entity_id'));
 
   foreach ($process_ids as $id) {
-    $forms = db_select('entityform_computable_processing', 'efcp')
+    $forms     = db_select('entityform_computable_processing', 'efcp')
       ->fields('efcp', ['entityform_id'])
       ->condition('entityform_id', $id, '=')
       ->execute();
@@ -193,18 +185,16 @@ function _process_query_results($entityform_id, $query, $entityform) {
     if (!$insert_id) {
       //Insert $id in entityform_computable_processing
       db_merge('entityform_computable_processing')
-        ->key([
+        ->key(array(
           'entityform_id' => $entityform->entityform_id,
-        ])
-        ->insertFields([
+        ))
+        ->insertFields(array(
           'entityform_id' => $entityform->entityform_id,
-          'processed'     => 0,
-        ])
+        ))
         ->execute();
     }
   }
 }
-
 
 /**
  * Implements hook_cron().
@@ -242,6 +232,9 @@ function siasar_process_pending_computable_entityforms($items = 30) {
 
 /**
  * Implements hook_query_TAG_alter().
+ *
+ * Alter the query for retrieving only the computable entityforms.
+ *
  */
 function siasar_entityform_query_services_index_entityform_alter(QueryAlterableInterface $query) {
   if ($query instanceof SelectQueryInterface) {

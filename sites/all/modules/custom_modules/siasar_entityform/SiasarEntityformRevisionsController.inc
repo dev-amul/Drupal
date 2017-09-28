@@ -1,13 +1,14 @@
 <?php
 
 /**
- * Controller class for EntityformRevisions. Extends EntityformRevisionController
- * Class SiasarEntityformRevisionsController
+ * Controller class for EntityformRevisions. Extends
+ * EntityformRevisionController Class SiasarEntityformRevisionsController
  */
 class SiasarEntityformRevisionsController extends EntityformRevisionsController {
 
   /**
-   * Overrides method. Add fields for computable and entityform_revision to the entity.
+   * Overrides method. Add fields for computable and entityform_revision to the
+   * entity.
    *
    * @param $ids
    * @param array $conditions
@@ -36,24 +37,25 @@ class SiasarEntityformRevisionsController extends EntityformRevisionsController 
    */
   public function save($entity, DatabaseTransaction $transaction = NULL) {
     parent::save($entity, $transaction);
-    if ($this->_entityform_id_is_new($entity->{$this->idKey})) {
+    if ($this->entityFormIsNew($entity->{$this->idKey})) {
       db_merge('entityform_computable_states')
-        ->key([
+        ->key(array(
           'entityform_id' => $entity->{$this->idKey},
-        ])
-        ->insertFields([
+        ))
+        ->insertFields(array(
           'entityform_id'       => $entity->{$this->idKey},
           'computable'          => 0,
           'entityform_revision' => NULL,
-        ])
+        ))
         ->execute();
+
       db_merge('entityform_computable_processing')
-        ->key([
+        ->key(array(
           'entityform_id' => $entity->{$this->idKey},
-        ])
-        ->insertFields([
+        ))
+        ->insertFields(array(
           'entityform_id' => $entity->{$this->idKey},
-        ])
+        ))
         ->execute();
     }
 
@@ -63,14 +65,14 @@ class SiasarEntityformRevisionsController extends EntityformRevisionsController 
   }
 
   /**
-   * Helper function for checking if the entityform is new or not. In our case, the form is new
-   * if it is not present in the computable_entityform_states.
+   * Helper function for checking if the entityform is new or not. In our case,
+   * the form is new if it is not present in the computable_entityform_states.
    *
    * @param $id Integer the Entityform ID
    *
    * @return bool TRUE/FALSE
    */
-  private function _entityform_id_is_new($id) {
+  private function entityFormIsNew($id) {
     return _query_computable_revision($id);
   }
 }

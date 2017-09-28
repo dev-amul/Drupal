@@ -136,7 +136,7 @@ function siasar_entityform_alter_date_select_process_alter(&$element, &$form_sta
 }
 
 /**
- * @todo
+ * For a validated submission add a new validation to force user to create a new draft version.
  *
  * @param $form
  * @param $form_state
