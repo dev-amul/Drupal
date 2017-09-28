@@ -33,7 +33,7 @@ function _query_computable_revision($entityform_id) {
   if ($entityform_state) {
     return $entityform_state->computable;
   }
-  return FALSE;
+  return TRUE;
 }
 
 /**
