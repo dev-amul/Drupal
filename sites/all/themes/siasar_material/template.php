@@ -213,3 +213,20 @@ function siasar_material_workflow_history_table($variables) {
   return $output;
 }
 
+/**
+ * @see theme_views_data_export_feed_icon().
+ */
+function siasar_material_views_data_export_feed_icon($variables) {
+  extract($variables, EXTR_SKIP);
+  $url_options = array('html' => TRUE);
+  if ($query) {
+    $url_options['query'] = $query;
+  }
+
+  if (drupal_match_path($variables['url'],'resultados/com-ps-sys-pat')) {
+    $variables['image_path'] = drupal_get_path('theme', 'siasar_material') . '/img/nodes.svg';
+  }
+  $image = theme('image', array('path' => $image_path, 'alt' => $text, 'title' => $text));
+
+  return l($image, $url, $url_options);
+}
