@@ -44,6 +44,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['style_options']['columns'] = array(
+    'views_bulk_operations' => 'views_bulk_operations',
     'entityform_id' => 'entityform_id',
     'field_entity_name' => 'field_entity_name',
     'field_entidad_local' => 'field_entidad_local',
@@ -51,14 +52,19 @@ function feature_siasar_views_reports_views_default_views() {
     'field_nombre_completo' => 'field_nombre_completo',
     'field_nombre_completo_1' => 'field_nombre_completo_1',
     'label' => 'label',
-    'draft' => 'draft',
-    'field_cuestionario_validado' => 'field_cuestionario_validado',
+    'field_status' => 'field_status',
+    'entityform_revision' => 'entityform_revision',
     'edit_entityform' => 'edit_entityform',
     'link_entityform' => 'link_entityform',
     'nothing' => 'nothing',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'views_bulk_operations' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'entityform_id' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
@@ -108,16 +114,16 @@ function feature_siasar_views_reports_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'draft' => array(
+    'field_status' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_cuestionario_validado' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
+    'entityform_revision' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -676,6 +682,24 @@ function feature_siasar_views_reports_views_default_views() {
         'max' => '',
       ),
     ),
+  );
+  /* Filter criterion: Entityform Computable states: Processable */
+  $handler->display->display_options['filters']['entityform_revision']['id'] = 'entityform_revision';
+  $handler->display->display_options['filters']['entityform_revision']['table'] = 'entityform_computable_states';
+  $handler->display->display_options['filters']['entityform_revision']['field'] = 'entityform_revision';
+  $handler->display->display_options['filters']['entityform_revision']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['entityform_revision']['expose']['operator_id'] = '';
+  $handler->display->display_options['filters']['entityform_revision']['expose']['operator'] = 'entityform_revision_op';
+  $handler->display->display_options['filters']['entityform_revision']['expose']['identifier'] = 'entityform_revision';
+  $handler->display->display_options['filters']['entityform_revision']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    8 => 0,
+    5 => 0,
+    9 => 0,
+    6 => 0,
+    10 => 0,
   );
   $handler->display->display_options['path'] = 'resultados';
   $handler->display->display_options['menu']['type'] = 'tab';

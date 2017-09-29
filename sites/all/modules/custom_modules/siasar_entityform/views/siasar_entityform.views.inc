@@ -43,7 +43,7 @@ function siasar_entityform_views_data() {
     'title' => 'Computable entityform',
     'help' => 'Computable entityform',
     'filter' => array(
-      'handler' => 'siasar_entityform_computable_handler',
+      'handler' => 'views_handler_filter',
     ),
     'field' => array(
       'handler' => 'siasar_entityform_computable_handler',
@@ -58,7 +58,7 @@ function siasar_entityform_views_data() {
     'title' => 'Processable',
     'help' => 'This survey can be processed by the BI',
     'filter' => array(
-      'handler' => 'siasar_entityform_revision_handler',
+      'handler' => 'siasar_entityform_revision_filter_handler',
     ),
     'field' => array(
       'handler' => 'siasar_entityform_revision_handler',
