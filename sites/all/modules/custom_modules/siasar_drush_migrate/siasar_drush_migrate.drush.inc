@@ -177,7 +177,7 @@ function siasar_drush_migrate_create_entityforms($path) {
           if (!$parent_id) {
             throw new Exception('System parent ID not found: ' . $parent_id);
           }
-          $collection['field_system_ref'] = $result['entitites']['systems'][$parent_id];
+          $collection['field_system_ref'] = $result['entities']['systems']['success'][$parent_id];
         }
 
         // Find new provider parent id
@@ -186,7 +186,7 @@ function siasar_drush_migrate_create_entityforms($path) {
           if (!$parent_id) {
             throw new Exception('Provider parent ID not found: ' . $parent_id);
           }
-          $collection['field_prestador_servicio'] = $result['entitites']['systems'][$parent_id];
+          $collection['field_prestador_servicio'] = $result['entities']['providers']['success'][$parent_id];
         }
 
         // Insert collection
