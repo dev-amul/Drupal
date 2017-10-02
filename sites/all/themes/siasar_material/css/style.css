@@ -615,18 +615,6 @@ span.form-required {
 .view-reports-entityforms .siasar-hierarchy li.selected:before {
   display: none;
 }
-.view-reports-entityforms .feed-icon > a:last-child {
-  display: inline-block;
-  background-image: url("../img/nodes.svg");
-  background-size: 12px;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 20px;
-  height: 14px;
-}
-.view-reports-entityforms .feed-icon > a:last-child img {
-  display: none;
-}
 
 .vbo-views-form #edit-select {
   border: none;

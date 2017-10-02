@@ -223,10 +223,12 @@ function siasar_material_views_data_export_feed_icon($variables) {
     $url_options['query'] = $query;
   }
 
+  $image = theme('image', array('path' => $image_path, 'alt' => $text, 'title' => $text));
+  //In case of the new export data, change the default icon
   if (drupal_match_path($variables['url'],'resultados/com-ps-sys-pat')) {
     $variables['image_path'] = drupal_get_path('theme', 'siasar_material') . '/img/nodes.svg';
+    $image = theme('image', array('path' => $variables['image_path'], 'alt' => $text, 'title' => $text, 'width' => '20px', 'height' => '14px'));
   }
-  $image = theme('image', array('path' => $image_path, 'alt' => $text, 'title' => $text));
 
   return l($image, $url, $url_options);
 }
