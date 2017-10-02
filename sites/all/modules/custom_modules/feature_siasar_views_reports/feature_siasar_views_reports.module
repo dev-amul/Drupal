@@ -175,3 +175,12 @@ function feature_siasar_views_reports_preprocess_field_status(&$variables) {
 
   $variables['output'] = str_replace($original, $translated_label, $variables['output']);
 }
+
+/**
+ * Implements hook_views_plugins_alter().
+ */
+function feature_siasar_views_reports_views_plugins_alter(&$plugins) {
+  $plugins['style']['views_data_export_csv_siasar'] = $plugins['style']['views_data_export_csv'];
+  $plugins['style']['views_data_export_csv_siasar']['title'] = t('CSV file for SIASAR');
+  $plugins['style']['views_data_export_csv_siasar']['export feed icon'] = drupal_get_path('module', 'feature_siasar_views_reports') . '/img/nodes12x12.png';
+}

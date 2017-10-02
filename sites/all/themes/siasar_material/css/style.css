@@ -615,6 +615,9 @@ span.form-required {
 .view-reports-entityforms .siasar-hierarchy li.selected:before {
   display: none;
 }
+.view-reports-entityforms .feed-icon > a {
+  padding: 2px;
+}
 
 .vbo-views-form #edit-select {
   border: none;
