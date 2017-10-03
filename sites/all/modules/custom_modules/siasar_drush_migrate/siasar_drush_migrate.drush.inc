@@ -291,7 +291,9 @@ function siasar_drush_migrate_delete_field_collections($entity_name, $entity_fie
 }
 
 /**
- * Read a file and decode it. Foreach form_id try to delete all its field collections associated to a certain field.
+ * Read a file and decode it. Foreach form_id try to delete all its field
+ * collections associated to a certain field.
+ *
  * @param $directory
  */
 function siasar_drush_migrate_delete_field_collections_json($directory) {
@@ -304,8 +306,8 @@ function siasar_drush_migrate_delete_field_collections_json($directory) {
   if ($content) {
     $arry_json = json_decode($content, TRUE);
     foreach ($arry_json as $id => $element) {
-      $deletion = siasar_drush_migrate_delete_field_collections('entityform', $element, $id);
-      $response_json[$id] =  $deletion ? 'ok': 'Error';
+      $deletion           = siasar_drush_migrate_delete_field_collections('entityform', $element, $id);
+      $response_json[$id] = $deletion ? 'ok' : 'Error';
     }
   }
 
