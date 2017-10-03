@@ -1034,6 +1034,8 @@ function feature_siasar_views_reports_views_default_views() {
   /* Display: Data export 3 */
   $handler = $view->new_display('views_data_export', 'Data export 3', 'views_data_export_3');
   $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv_siasar';
   $handler->display->display_options['style_options']['provide_file'] = 0;
   $handler->display->display_options['style_options']['parent_sort'] = 0;
