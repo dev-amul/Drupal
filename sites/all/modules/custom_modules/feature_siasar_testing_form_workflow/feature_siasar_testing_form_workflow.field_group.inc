@@ -23,9 +23,9 @@ function feature_siasar_testing_form_workflow_field_group_info() {
     'label' => 'Sección A',
     'weight' => '1',
     'children' => array(
-      0 => 'field_cantidad_comunidades_apoya',
-      1 => 'field_com_srv_telf_existe',
-      2 => 'field_a_fuentes_de_financiamient',
+      0 => 'field_a_fuentes_de_financiamient',
+      1 => 'field_cantidad_comunidades_apoya',
+      2 => 'field_com_srv_telf_existe',
       3 => 'field_edo_fisico_linea_conducion',
     ),
     'format_type' => 'tab',
@@ -84,9 +84,10 @@ function feature_siasar_testing_form_workflow_field_group_info() {
     'children' => array(
       0 => 'field_pais',
       1 => 'field_b1_7',
-      2 => 'field_entity_name',
-      3 => 'field_entidad_local',
-      4 => 'field_image',
+      2 => 'field_entidad_local',
+      3 => 'field_image',
+      4 => 'field_entity_name',
+      5 => 'field_user_reference',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
