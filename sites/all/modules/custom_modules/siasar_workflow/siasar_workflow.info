@@ -1,0 +1,7 @@
+name = SIASAR Workflow
+description = SIASAR Workflow module with all the functionalities for the custom definitions.
+version = 7.x-1.0
+core = 7.x
+package = siasar
+dependences[] = entityform
+dependences[] = entityform_revisions

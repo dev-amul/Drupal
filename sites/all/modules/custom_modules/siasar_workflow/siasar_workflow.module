@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+/**
+ * Implements hook_entity_update().
+ */
+function siasar_workflow_entity_update($entity, $type) {
+  $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
+
+  if (!in_array($entity->type, $possible_entityforms)) {
+    return;
+  }
+
+  //Check the revisions for validated versions. If no one is found, complete delete the form
+  if ($entity->field_status[LANGUAGE_NONE][0]['value'] == SIASAR_ENTITYFORM_STATE_REMOVED) {
+    //Check the for the last valid revision
+    $revisions = entityform_revision_list($entity);
+
+    $delete_entity = TRUE;
+    foreach ($revisions as $revision) {
+      $entityform_revision = entityform_get_revision($entity, $revision->vid);
+      if ($entityform_revision->field_status[LANGUAGE_NONE][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
+        $delete_entity = FALSE;
+        break;
+      }
+    }
+
+    if ($delete_entity) {
+      entity_delete('entityform', $entity->entityform_id);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function siasar_workflow_form_alter(&$form, &$form_state, $form_id) {
+  $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
+  $form_id_clean        = str_replace('_entityform_edit_form', '', $form_id);
+
+  if (!in_array($form_id_clean, $possible_entityforms)) {
+    return;
+  }
+
+  //Do not allow save operation over a entityform in removed state
+  if ($form_state['entityform']->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_REMOVED) {
+    $form['actions']['save']['#access'] = FALSE;
+  }
+}
