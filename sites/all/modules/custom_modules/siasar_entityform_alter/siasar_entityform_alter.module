@@ -186,6 +186,7 @@ function siasar_entityform_validated_after_build($form, &$form_state) {
 function _siasar_entityform_alter_revisions(&$form, &$form_state, $form_id) {
   if (!empty($form['#entity']) && $form['#entity'] instanceof Entityform) {
     $form['revision_fieldset']['#access'] = FALSE;
+    //Now, all the changes should create a new revision. Change this configuration
     $form['revision_fieldset']['revision']['#default_value'] = ENTITY_REVISION_CREATE_AND_USE;
   }
 }
