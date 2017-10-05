@@ -337,16 +337,13 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
-    'action::views_bulk_operations_delete_item' => array(
+    'action::siasar_remove_questionnaire_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
-      'skip_permission_check' => 0,
+      'skip_permission_check' => 1,
       'override_label' => 0,
       'label' => '',
-      'settings' => array(
-        'log' => 0,
-      ),
     ),
     'action::siasar_draft_questionnaire_action' => array(
       'selected' => 1,
@@ -674,6 +671,15 @@ function feature_siasar_views_reports_views_default_views() {
       'operator' => '=',
       'value' => array(
         'value' => '4',
+        'min' => '',
+        'max' => '',
+      ),
+    ),
+    4 => array(
+      'title' => 'Removed',
+      'operator' => '=',
+      'value' => array(
+        'value' => '5',
         'min' => '',
         'max' => '',
       ),

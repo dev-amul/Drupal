@@ -42,5 +42,6 @@ features[field_instance][] = entityform-testingpurposes-field_image
 features[field_instance][] = entityform-testingpurposes-field_pais
 features[field_instance][] = entityform-testingpurposes-field_status
 features[field_instance][] = entityform-testingpurposes-field_tipo_de_sistema_de_absto
+features[field_instance][] = entityform-testingpurposes-field_user_reference
 features[user_permission][] = participate in workflow
 project path = sites/all/modules/custom_modules
