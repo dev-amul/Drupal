@@ -103,6 +103,9 @@ function _computable_revision($entityform_id) {
             }
           }
         }
+        else {
+          $computable_revision = NULL;
+        }
 
         //Update records
         if ($computable_revision) {
