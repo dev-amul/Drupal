@@ -113,19 +113,16 @@ function custom_create_taxonomy_term($name, $vid, $parent_id = 0, $key) {
   $term->description = $key;
   $term->parent = array($parent_id);
   taxonomy_term_save($term);
-  /*$entity_term = entity_metadata_wrapper('taxonomy_term', taxonomy_term_load($term->tid));
-  $country = $entity_term->field_pais->value();
-  print_r("************ ".$country."\n");
+  
 
   if (empty($term->field_pais)) {
-    drupal_set_message('Country missing in term id : '.$term->tid . ', name: ' . $term->name);
+    $country = country_load('CO');
+    drupal_set_message('Country missing in term id : '.$term->tid . ', name: ' . $term->name. '+++++'.$key);
     $wrapper = entity_metadata_wrapper('taxonomy_term', $term);
-    $wrapper->field_pais->set('CO');
+    $wrapper->field_pais->set($country);
+    $wrapper->field_codigo_division_admin->set($key);
     $wrapper->save();
   }
-  /*$wrapper = entity_metadata_wrapper('taxonomy_term', $term);
-  $wrapper->field_pais->set($country);
-  $wrapper->field_codigo_division_admin->set($key);
-  $wrapper->save();*/
+
   return $term;
 }
