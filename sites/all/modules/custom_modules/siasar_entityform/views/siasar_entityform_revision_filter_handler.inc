@@ -27,6 +27,7 @@ class siasar_entityform_revision_filter_handler extends  views_handler_filter {
           1 => t('Computable'),
           2 => t('All'),
         ),
+        '#default_value' => 2,
       );
     }
     return $form;
@@ -38,7 +39,7 @@ class siasar_entityform_revision_filter_handler extends  views_handler_filter {
   function query() {
     $value = reset($this->value);
     //Do not add where clause for option "All"
-    if ($value !== '2') {
+    if ($value !== 2) {
       $this->ensure_my_table();
       $field = "$this->table_alias.$this->real_field";
 
