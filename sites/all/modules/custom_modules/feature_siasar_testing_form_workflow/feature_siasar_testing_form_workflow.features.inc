@@ -73,7 +73,7 @@ function feature_siasar_testing_form_workflow_default_entityform_type() {
     "type" : "testingpurposes",
     "label" : "Testing form",
     "data" : {
-      "draftable" : 1,
+      "draftable" : 0,
       "draft_redirect_path" : "",
       "draft_button_text" : "",
       "draft_save_text" : { "value" : "", "format" : "filtered_html" },
@@ -102,7 +102,7 @@ function feature_siasar_testing_form_workflow_default_entityform_type() {
         "1" : 0
       },
       "resubmit_action" : "new",
-      "redirect_path" : "testing",
+      "redirect_path" : "resultados",
       "instruction_pre" : { "value" : "", "format" : "filtered_html" }
     },
     "weight" : "0",
