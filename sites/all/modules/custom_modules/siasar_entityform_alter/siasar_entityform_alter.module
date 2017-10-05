@@ -24,7 +24,8 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   _siasar_entityform_alter_process_country_field($form);
   _siasar_entityform_alter_revisions($form, $form_state, $form_id);
   _siasar_entityform_alter_validated_save($form, $form_state, $form_id);
-  _siasar_entityform_alter_redirect($form, $form_state, $form_id);
+  _siasar_entityform_alter_redirect($form, $form_state);
+  _siasar_entityform_alter_hide_save_action($form, $form_state);
 }
 
 /**
@@ -299,9 +300,9 @@ function siasar_entityform_validated_revisions($entityform) {
 
   $query = 'SELECT r.vid, r.log, r.uid, ef.vid AS current_vid, r.changed, u.name
     FROM {entityform_revision} r
-    LEFT JOIN {entityform} ef ON ef.vid = r.vid
+    LEFT JOIN {entityform} ef ON ef.vid = r.vid AND ef.entityform_id = r.entityform_id
     LEFT JOIN {field_revision_field_status} fs ON r.entityform_id = fs.entity_id AND r.vid = fs.revision_id
-    INNER JOIN {users} u ON u.uid = r.uid
+    LEFT JOIN {users} u ON u.uid = r.uid
     WHERE r.entityform_id = :entityform_id AND fs.field_status_value = :status
     ORDER BY r.vid DESC';
 
@@ -338,5 +339,18 @@ function siasar_entityform_alter_entityform_access_alter(&$access, $op, $context
     if (!empty($revisions)) {
       $access = FALSE;
     }
+  }
+}
+
+/**
+ * Hide save action for entity forms.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _siasar_entityform_alter_hide_save_action(&$form, &$form_state) {
+  //Do not allow save operation over a entityform in removed state
+  if ($form_state['entityform']->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_REMOVED) {
+    $form['actions']['save']['#access'] = FALSE;
   }
 }
