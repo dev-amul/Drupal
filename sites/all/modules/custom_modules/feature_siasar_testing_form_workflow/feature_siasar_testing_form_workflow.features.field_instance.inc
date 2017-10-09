@@ -93,7 +93,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'html5_geolocation' => 0,
       ),
       'type' => 'geofield_latlon',
-      'weight' => 25,
+      'weight' => 26,
     ),
   );
 
@@ -331,7 +331,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         ),
       ),
       'type' => 'siasar_hierarchical_select',
-      'weight' => 24,
+      'weight' => 25,
     ),
   );
 
@@ -559,9 +559,60 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-testingpurposes-field_user_reference'.
+  $field_instances['entityform-testingpurposes-field_user_reference'] = array(
+    'bundle' => 'testingpurposes',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 26,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_user_reference',
+    'label' => 'Encuestador',
+    'options_limit' => 0,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(
+      'field_entidad_local' => 0,
+      'field_pais' => 0,
+    ),
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 24,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Cantidad de comunidades apoyadas en los últimos 12 meses');
+  t('Encuestador');
   t('Fuentes de financiamiento');
   t('Georreferenciación');
   t('Image');

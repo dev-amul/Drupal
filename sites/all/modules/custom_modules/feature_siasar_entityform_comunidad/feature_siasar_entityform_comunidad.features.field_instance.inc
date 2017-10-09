@@ -7385,7 +7385,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_system_ref'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_system_ref'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(

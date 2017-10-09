@@ -1,0 +1,248 @@
+<?php
+
+/**
+ * Implements hook_views_api().
+ */
+function siasar_entityform_views_api() {
+  return array(
+    'api'  => 3,
+    'path' => drupal_get_path('module', 'siasar_entityform') . '/views',
+  );
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function siasar_entityform_entity_info_alter(&$entity_info) {
+  $entity_info['entityform']['controller class'] = 'SiasarEntityformRevisionsController';
+}
+
+/**
+ * Check if the given entityform ID has a record and a valid state.
+ *
+ * @param $entityform_id
+ *
+ * @return bool
+ */
+function _query_computable_revision($entityform_id) {
+  $query_result     = db_select('entityform_computable_states', 'efcp')
+    ->fields('efcp', ['entityform_id', 'computable'])
+    ->condition('entityform_id', $entityform_id, '=')
+    ->execute();
+  $entityform_state = reset($query_result->fetchAllAssoc('computable'));
+  if ($entityform_state) {
+    return $entityform_state->computable;
+  }
+  return TRUE;
+}
+
+/**
+ * Reset the state for a given entityform ID.
+ */
+function _reset_computable_entityform($entityform_id) {
+  db_merge('entityform_computable_states')
+    ->key(array(
+      'entityform_id' => $entityform_id,
+    ))
+    ->insertFields(array(
+      'entityform_id'       => $entityform_id,
+      'computable'          => 0,
+      'entityform_revision' => NULL,
+    ))
+    ->execute();
+}
+
+/**
+ * Function for check if the entityform has a valid revision and return the
+ * revision if it is computable.
+ *
+ * @param $entityform_id integer The Entityform ID
+ *
+ * @return mixed The revision or NULL
+ */
+function _computable_revision($entityform_id) {
+
+  $computable_revision = NULL;
+
+  //Load the entity
+  $entityform = entity_load_single('entityform', $entityform_id);
+
+  if ($entityform) {
+
+    //Reset the entityform state
+    _reset_computable_entityform($entityform_id);
+
+    //Check the for the last valid revision
+    $revisions = entityform_revision_list($entityform);
+
+    foreach ($revisions as $revision) {
+      $entityform_revision = entityform_get_revision($entityform, $revision->vid);
+
+      if ($entityform_revision->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
+        $computable_revision = $revision->vid;
+
+        // Recursively check if the related form has valid versions
+        if (isset($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE])) {
+          // This is a community survey
+          $computable_revision = !empty($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE]) ? $computable_revision : NULL;
+
+          foreach ($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE] as $fieldcollection_item) {
+            $fc = entity_load_single('field_collection_item', $fieldcollection_item['value']);
+            if ($fc) {
+
+              $valid_not_system_provider = empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+
+              $valid_system_provider = !empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && !empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+              $valid_system_provider &= _query_computable_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
+              $valid_system_provider &= _query_computable_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+
+              if (!$valid_not_system_provider && !$valid_system_provider) {
+                $computable_revision = NULL;
+                break;
+              }
+            }
+          }
+        }
+        else {
+          $computable_revision = NULL;
+        }
+
+        //Update records
+        if ($computable_revision) {
+          if ($entityform->computable_revision !== $computable_revision) {
+            db_update('entityform_computable_states')
+              ->fields([
+                'computable'          => TRUE,
+                'entityform_revision' => $computable_revision,
+              ])
+              ->condition('entityform_id', $entityform_id, '=')
+              ->execute();
+
+            // Trigger update
+            switch ($entityform->bundle()) {
+              case 'sistema':
+                // Get all entities that were related in any revision to this entityform
+                // getting that information from table: field_revision_field_system_ref
+
+                flag_entityform_dependencies_for_processing($entityform_id, $entityform, 'field_revision_field_system_ref', 'field_system_ref_target_id');
+
+
+                break;
+              case 'prestador_de_servicio':
+                // Get all entities that were related in any revision to this entityform
+                // getting that information from table: field_prestador_servicio
+
+                flag_entityform_dependencies_for_processing($entityform_id, $entityform, 'field_revision_field_prestador_servicio', 'field_prestador_servicio_target_id');
+
+                break;
+              default:
+                // nobody to update
+                // This is for comunidad, PAT, water quality, or testing
+                break;
+            }
+          }
+
+          // Detected last entityform revision computable, so stop here
+          break;
+        }
+      }
+
+    }
+
+  }
+
+  db_delete('entityform_computable_processing')
+    ->condition('entityform_id', $entityform_id, '=')
+    ->execute();
+
+  //Return the revision or NULL
+  return $computable_revision;
+}
+
+/**
+ * Process dependecies from the current entiform revision validation.
+ *
+ * @param $entityform_id integer The Entityform ID
+ * @param $entityform \Entityform The EntityForm
+ *
+ * @return array
+ */
+function flag_entityform_dependencies_for_processing($entityform_id, $entityform, $table, $target_field) {
+  $query = "SELECT DISTINCT(eform_sistema.entity_id)
+FROM {" . $table . "} as target
+  INNER JOIN {field_collection_item} as field_collection ON target.revision_id = field_collection.revision_id
+  INNER JOIN {field_revision_field_com_viv_con_sistema} as eform_sistema ON eform_sistema.field_com_viv_con_sistema_revision_id = field_collection.revision_id
+  LEFT OUTER JOIN {entityform_computable_processing} as compute ON eform_sistema.entity_id = compute.entityform_id
+WHERE target." . $target_field . " = :target_id
+    AND compute.entityform_id IS NULL";
+
+  $result      = db_query($query, [':target_id' => $entityform_id]);
+  $process_ids = array_keys($result->fetchAllAssoc('entity_id'));
+
+  foreach ($process_ids as $id) {
+    $forms     = db_select('entityform_computable_processing', 'efcp')
+      ->fields('efcp', ['entityform_id'])
+      ->condition('entityform_id', $id, '=')
+      ->execute();
+    $insert_id = $forms->fetchAllAssoc('entityform_id');
+    if (!$insert_id) {
+      //Insert $id in entityform_computable_processing
+      db_merge('entityform_computable_processing')
+        ->key(array(
+          'entityform_id' => $entityform->entityform_id,
+        ))
+        ->insertFields(array(
+          'entityform_id' => $entityform->entityform_id,
+        ))
+        ->execute();
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function siasar_entityform_cron() {
+  $processing_items_amount = variable_get('siasar_entityform_processing_items_amount', 30);
+  siasar_process_pending_computable_entityforms($processing_items_amount);
+}
+
+/**
+ * @param $items integer Number of elements for the query limit
+ *
+ * @return int Elements processed
+ */
+function siasar_process_pending_computable_entityforms($items = 30) {
+  $count = 0;
+
+  if (lock_acquire('siasar_entityform_computable_process')) {
+
+    $entityforms = db_select('entityform_computable_processing', 'efcp')
+      ->fields('efcp', ['entityform_id'])
+      ->range(0, $items)
+      ->execute();
+
+    foreach (array_keys($entityforms->fetchAllAssoc('entityform_id')) as $item) {
+      _computable_revision($item);
+      $count++;
+    }
+
+    lock_release('siasar_entityform_computable_process');
+  }
+
+  return $count;
+}
+
+/**
+ * Implements hook_query_TAG_alter().
+ *
+ * Alter the query for retrieving only the computable entityforms.
+ *
+ */
+function siasar_entityform_query_services_index_entityform_alter(QueryAlterableInterface $query) {
+  if ($query instanceof SelectQueryInterface) {
+    $query
+      ->innerJoin('entityform_computable_states', 'efcs', 'efcs.entityform_id = entityform.entityform_id');
+    $query->where('efcs.computable = 1 and entityform.vid = efcs.entityform_revision');
+  }
+}
