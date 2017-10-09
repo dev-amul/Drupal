@@ -22,11 +22,13 @@ function siasar_updates_load_n11_colombia_from_csv($source, $test = true) {
 
 }
 
-function _siasar_updates_save_depto($array,$vid){
+function _siasar_updates_save_depto($array, $vid) {
   $parent_id_array = array();
-  foreach ($array as $key => $val){
-    foreach ($val as $key => $value) {
-      $parent_id_array[] = array(custom_create_taxonomy_term($value, $vid, 0,$key));
+  foreach ($array as $values) {
+    foreach ($values as $key => $value) {
+      $parent_id_array[] = array(
+        custom_create_taxonomy_term($value, $vid, 0, $key)
+      );
     }
   }
   return $parent_id_array;
@@ -79,7 +81,7 @@ function _siasar_updates_load_geographical_codes($data, $num){
       case 2:
       case 3:
         if ($key[$num] != null && $key[$num] != '') {
-          $codes[] = array($key[$num], $key[$num - 1], $key[$num + 2]);
+          $codes[] = array($key[$num], $key[$num - 1], $key[$num + 3]);
         }
         break;
     }
