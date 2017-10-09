@@ -2,11 +2,13 @@
 
 // This function is to be used ONLY for N11 Colombia.
 
-function siasar_updates_load_n11_colombia_from_csv($source){
-
-
+function siasar_updates_load_n11_colombia_from_csv($source, $test = true) {
   module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
-  $vid = taxonomy_vocabulary_machine_name_load('division_administrativa')->vid;
+
+  $vid = $test
+    ? taxonomy_vocabulary_machine_name_load('prueba')->vid
+    : taxonomy_vocabulary_machine_name_load('division_administrativa')->vid;
+
   $data = _siasar_updates_open_parse_csv($source);
   $codes_depto = load_geographical_codes($data, 1);
   $codes_depto_unique = super_unique($codes_depto);
@@ -107,7 +109,7 @@ function custom_create_taxonomy_term($name, $vid, $parent_id = 0, $key) {
   $term->description = $key;
   $term->parent = array($parent_id);
   taxonomy_term_save($term);
-  
+
 
   if (empty($term->field_pais)) {
     $country = country_load('CO');
