@@ -6,21 +6,17 @@ function siasar_updates_load_n11_colombia_from_csv($source){
 
 
   module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
-
   $vid = taxonomy_vocabulary_machine_name_load('division_administrativa')->vid;
   $data = _siasar_updates_open_parse_csv($source);
   $codes_depto = load_geographical_codes($data, 1);
   $codes_depto_unique = super_unique($codes_depto);
   $codes_mun = load_geographical_codes($data, 2);
   $codes_mun_unique = super_unique($codes_mun);
-  //$codes_ver = load_geographical_codes($data, 3);
+  $codes_ver = load_geographical_codes($data, 3);
+  $codes_ver_unique = super_unique($codes_ver);
   $deptos_parents = save_depto($codes_depto_unique,$vid);
-  //print_r(sizeof($deptos_parents)."\n");
-  //dpm($deptos_parents);
-  //dpm($codes_mun_unique);
-  //dpm($deptos_parents);
-  save_municipio($codes_mun_unique,$deptos_parents);
-  //
+  $municipio_parents = save_municipio($codes_mun_unique,$deptos_parents,$vid);
+  $veredas_parents = save_veredas($codes_ver_unique,$municipio_parents,$vid);
 
 }
 
@@ -34,21 +30,35 @@ function save_depto($array,$vid){
   return $parent_id_array;
 }
 
-  function save_municipio($codes_mun_unique,$deptos_parents){
-    dpm($codes_mun_unique);
-    dpm($deptos_parents);
-
-    foreach ($deptos_parents  as $key){
-      print_r($key[0]->tid);
-      foreach ($codes_mun_unique as $key){
-            print_r("Resumen de la jornada " . $key[1]."\n");
-
-
-          }
+  function save_municipio($codes_mun_unique,$deptos_parents,$vid){
+    $parent_id_municipios = array();
+    foreach ($deptos_parents  as $term){
+      $count = 0;
+      foreach ($codes_mun_unique as $municipio){
+        if($term[$count]->description == $municipio[1]){
+            $parent_id_municipios[] =
+            array(custom_create_taxonomy_term($municipio[2],$vid,$term[$count]->tid,$municipio[0]));
+        }
       }
-      //print_r($key[0]->tid."\n");
-
+      $count++;
     }
+    return $parent_id_municipios;
+  }
+
+  function save_veredas($codes_ver_unique, $municipio_parents, $vid){
+    $parent_id_veredas = array();
+    foreach ($municipio_parents  as $term){
+      $count = 0;
+      foreach ($codes_ver_unique as $veredas){
+        if($term[$count]->description == $veredas[1]){
+            $parent_id_veredas[] =
+            array(custom_create_taxonomy_term($veredas[2],$vid,$term[$count]->tid,$veredas[0]));
+        }
+      }
+      $count++;
+    }
+    return $parent_id_veredas;
+  }
 
 
 /*$parent_id_mpio =custom_create_taxonomy_term($key[2], $vid, $parent_id_depto);
@@ -74,6 +84,12 @@ function load_geographical_codes($data,  $num){
       }
       //}
     }
+    if($num == 3){
+      if($key[3] != null && $key[3] != ''){
+        $codes[] = array($key[3],$key[2],$key[6]);
+      }
+      //}
+    }
   }
   return $codes;
 }
@@ -84,15 +100,23 @@ function super_unique($array){
 }
 
 function custom_create_taxonomy_term($name, $vid, $parent_id = 0, $key) {
+  //print_r("Key$$$$$$ ". $key."\n");
   $term = new stdClass();
   $term->name = $name;
   $term->vid = $vid;
   $term->description = $key;
   $term->parent = array($parent_id);
   taxonomy_term_save($term);
-  /*$wrapper = entity_metadata_wrapper('taxonomy_term', $term);
-  $wrapper->field_pais->set($country);
-  $wrapper->field_codigo_division_admin->set($key);
-  $wrapper->save();*/
+  
+
+  if (empty($term->field_pais)) {
+    $country = country_load('CO');
+    drupal_set_message('Country missing in term id : '.$term->tid . ', name: ' . $term->name. '+++++'.$key);
+    $wrapper = entity_metadata_wrapper('taxonomy_term', $term);
+    $wrapper->field_pais->set($country);
+    $wrapper->field_codigo_division_admin->set($key);
+    $wrapper->save();
+  }
+
   return $term;
 }
