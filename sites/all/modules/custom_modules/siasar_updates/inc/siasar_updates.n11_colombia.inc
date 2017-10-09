@@ -1,5 +1,7 @@
 <?php
 
+// This function is to be used ONLY for N11 Colombia.
+
 function siasar_updates_load_n11_colombia_from_csv($source){
 
 
@@ -80,14 +82,6 @@ function super_unique($array){
   $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
   return $result;
 }
-
-/*function set_data_wraper($term, $country, $key){
-  $wrapper = entity_metadata_wrapper('taxonomy_term', $entity);
-  $wrapper->field_pais->set($country);
-  $wrapper->field_codigo_division_admin->set($key);
-  $wrapper->save();
-}*/
-
 
 function custom_create_taxonomy_term($name, $vid, $parent_id = 0, $key) {
   $term = new stdClass();
