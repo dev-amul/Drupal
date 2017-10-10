@@ -44,7 +44,7 @@ function _siasar_updates_save_municipio($codes_mun_unique,$deptos_parents,$vid) 
   foreach ($deptos_parents as $term) {
     $count = 0;
     foreach ($codes_mun_unique as $municipio) {
-      if ($term[$count]->description == $municipio[1]) {
+      if ($term[$count]->field_codigo_division_admin[LANGUAGE_NONE]['0']['value'] == $municipio[1]) {
         $parent_id_municipios[] = array(
           custom_create_taxonomy_term($municipio[2], $vid, $term[$count]->tid, $municipio[0])
         );
@@ -60,7 +60,7 @@ function _siasar_updates_save_veredas($codes_ver_unique, $municipio_parents, $vi
   foreach ($municipio_parents as $term) {
     $count = 0;
     foreach ($codes_ver_unique as $veredas) {
-      if ($term[$count]->description == $veredas[1]) {
+      if ($term[$count]->field_codigo_division_admin[LANGUAGE_NONE]['0']['value'] == $veredas[1]) {
         $parent_id_veredas[] = array(
           custom_create_taxonomy_term($veredas[2], $vid, $term[$count]->tid, $veredas[0])
         );
@@ -109,15 +109,10 @@ function custom_create_taxonomy_term($name, $vid, $parent_id = 0, $key) {
     $term = new stdClass();
     $term->name = $name;
     $term->vid = $vid;
-    $term->description = $key;
     $term->parent = array($parent_id);
+    $term->field_pais[LANGUAGE_NONE]['0']['value'] = $country;
+    $term->field_codigo_division_admin[LANGUAGE_NONE]['0']['value'] = $key;
     taxonomy_term_save($term);
-
-    $wrapper = entity_metadata_wrapper('taxonomy_term', $term);
-    $wrapper->field_pais->set($country);
-
-    $wrapper->field_codigo_division_admin->set($key);
-    $wrapper->save();
 
     return $term;
   }
