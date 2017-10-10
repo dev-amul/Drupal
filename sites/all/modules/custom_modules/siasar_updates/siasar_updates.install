@@ -984,5 +984,5 @@ function siasar_updates_update_7160() {
   module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.n11_colombia');
 
   drush_siasar_remove_n11_countries('CO');
-  siasar_updates_load_n11_colombia_from_csv('../files/load_capa_veredal.csv', true);
+  siasar_updates_load_n11_colombia_from_csv('../files/n11_colombia_veredas.csv', true);
 }

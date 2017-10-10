@@ -31,7 +31,7 @@ function _siasar_updates_save_depto($array, $vid) {
   foreach ($array as $values) {
     foreach ($values as $key => $value) {
       $parent_id_array[] = array(
-        custom_create_taxonomy_term($value, $vid, 0, $key)
+        _siasar_updates_create_n11_colombia_term($value, $vid, 0, $key)
       );
     }
   }
@@ -46,7 +46,7 @@ function _siasar_updates_save_municipio($codes_mun_unique,$deptos_parents,$vid) 
     foreach ($codes_mun_unique as $municipio) {
       if ($term[$count]->field_codigo_division_admin[LANGUAGE_NONE]['0']['value'] == $municipio[1]) {
         $parent_id_municipios[] = array(
-          custom_create_taxonomy_term($municipio[2], $vid, $term[$count]->tid, $municipio[0])
+          _siasar_updates_create_n11_colombia_term($municipio[2], $vid, $term[$count]->tid, $municipio[0])
         );
       }
     }
@@ -62,7 +62,7 @@ function _siasar_updates_save_veredas($codes_ver_unique, $municipio_parents, $vi
     foreach ($codes_ver_unique as $veredas) {
       if ($term[$count]->field_codigo_division_admin[LANGUAGE_NONE]['0']['value'] == $veredas[1]) {
         $parent_id_veredas[] = array(
-          custom_create_taxonomy_term($veredas[2], $vid, $term[$count]->tid, $veredas[0])
+          _siasar_updates_create_n11_colombia_term($veredas[2], $vid, $term[$count]->tid, $veredas[0])
         );
       }
     }
@@ -98,7 +98,7 @@ function _siasar_updates_super_unique($array){
   return $result;
 }
 
-function custom_create_taxonomy_term($name, $vid, $parent_id = 0, $key) {
+function _siasar_updates_create_n11_colombia_term($name, $vid, $parent_id = 0, $key) {
 
     static $country = null;
 
