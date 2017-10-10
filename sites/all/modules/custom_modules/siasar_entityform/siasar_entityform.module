@@ -37,6 +37,23 @@ function _query_computable_revision($entityform_id) {
 }
 
 /**
+ * Check if an entityform id has a validated revision
+ *
+ * @param $entityform_id int The entityform ID.
+ *
+ * @return boolean TRUE|FALSE
+ */
+function _query_validated_revision($entityform_id) {
+  $entityform = entity_load_single('entityform', $entityform_id);
+  $revisions  = siasar_entityform_validated_revisions($entityform);
+  $valid      = FALSE;
+  if ($revisions) {
+    $valid = TRUE;
+  }
+  return $valid;
+}
+
+/**
  * Reset the state for a given entityform ID.
  */
 function _reset_computable_entityform($entityform_id) {
@@ -81,30 +98,55 @@ function _computable_revision($entityform_id) {
       if ($entityform_revision->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
         $computable_revision = $revision->vid;
 
-        // Recursively check if the related form has valid versions
-        if (isset($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE])) {
-          // This is a community survey
-          $computable_revision = !empty($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE]) ? $computable_revision : NULL;
+        switch ($entityform_revision->bundle()) {
+          case 'comunidad':
+            // Check if the related form has valid versions
+            if (isset($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE])) {
+              // This is a community survey
+              $computable_revision = !empty($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE]) ? $computable_revision : NULL;
 
-          foreach ($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE] as $fieldcollection_item) {
-            $fc = entity_load_single('field_collection_item', $fieldcollection_item['value']);
-            if ($fc) {
+              foreach ($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE] as $fieldcollection_item) {
+                $fc = entity_load_single('field_collection_item', $fieldcollection_item['value']);
+                if ($fc) {
 
-              $valid_not_system_provider = empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+                  $valid_not_system_provider = empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
 
-              $valid_system_provider = !empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && !empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
-              $valid_system_provider &= _query_computable_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
-              $valid_system_provider &= _query_computable_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+                  $valid_system_provider = !empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && !empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+                  $valid_system_provider &= _query_computable_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
+                  $valid_system_provider &= _query_computable_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
 
-              if (!$valid_not_system_provider && !$valid_system_provider) {
-                $computable_revision = NULL;
-                break;
+                  if (!$valid_not_system_provider && !$valid_system_provider) {
+                    $computable_revision = NULL;
+                    //Trigger for fc items update.
+                    flag_fieldcollection_dependencies_for_processing($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
+                    flag_fieldcollection_dependencies_for_processing($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+                    break;
+                  }
+                }
               }
             }
-          }
-        }
-        else {
-          $computable_revision = NULL;
+            else {
+              $computable_revision = NULL;
+            }
+
+
+            break;
+          case 'prestador_de_servicio':
+            if (find_validated_community_for_id($entityform_id, $entityform_revision->bundle() )) {
+              $computable_revision = $revision->vid;
+            }
+            else {
+              $computable_revision = NULL;
+            }
+            break;
+          case 'sistema':
+            if (find_validated_community_for_id($entityform_id, $entityform_revision->bundle() )) {
+              $computable_revision = $revision->vid;
+            }
+            else {
+              $computable_revision = NULL;
+            }
+            break;
         }
 
         //Update records
@@ -151,9 +193,11 @@ function _computable_revision($entityform_id) {
 
   }
 
-  db_delete('entityform_computable_processing')
-    ->condition('entityform_id', $entityform_id, '=')
-    ->execute();
+  if ($computable_revision) {
+    db_delete('entityform_computable_processing')
+      ->condition('entityform_id', $entityform_id, '=')
+      ->execute();
+  }
 
   //Return the revision or NULL
   return $computable_revision;
@@ -245,4 +289,62 @@ function siasar_entityform_query_services_index_entityform_alter(QueryAlterableI
       ->innerJoin('entityform_computable_states', 'efcs', 'efcs.entityform_id = entityform.entityform_id');
     $query->where('efcs.computable = 1 and entityform.vid = efcs.entityform_revision');
   }
+}
+
+/**
+ * Find a validated community for a given revision id of an entityform.
+ *
+ * @param $entityform_id . integer Revision id.
+ *
+ * @param $bundle. String The type of the form
+ *
+ * @return bool TRUE|FALSE
+ */
+function find_validated_community_for_id($entityform_id, $bundle) {
+
+  $query = "SELECT community.entityform_id
+FROM {entityform} as community
+  INNER JOIN {field_data_field_com_viv_con_sistema} AS fc_field ON fc_field.revision_id = community.vid
+  INNER JOIN {field_collection_item} AS fc ON fc_field.field_com_viv_con_sistema_revision_id = fc.revision_id";
+           if ($bundle == 'prestador_de_servicio') {
+             $query .= " inner JOIN {field_revision_field_prestador_servicio} AS fci on fci.revision_id = fc.revision_id";
+             $column = "field_prestador_servicio_target_id";
+           }
+           elseif ($bundle == 'sistema') {
+             $query .= " inner JOIN {field_revision_field_system_ref} AS fci on fci.revision_id = fc.revision_id";
+             $column = "field_system_ref_target_id";
+           }
+           else {
+             return FALSE;
+           }
+
+  $query .= " inner join {entityform_computable_states} as computable on computable.entityform_id = community.entityform_id
+where
+  fci.". $column ." = :id";
+
+  $result = db_query($query, [':id' => $entityform_id]);
+  $form_id = reset($result->fetchAllAssoc('entityform_id'));
+
+  if ($form_id) {
+    return _query_validated_revision($form_id->entityform_id);
+  }
+
+  return FALSE;
+}
+
+/**
+ * Flag an entityform ID to be proccesed to check if it is computable.
+ *
+ * @param $entityform_id integer The entityform ID.
+ */
+function flag_fieldcollection_dependencies_for_processing($entityform_id) {
+  db_merge('entityform_computable_processing')
+    ->key(array(
+      'entityform_id' => $entityform_id,
+    ))
+    ->insertFields(array(
+      'entityform_id' => $entityform_id,
+      'processed'     => 0,
+    ))
+    ->execute();
 }
