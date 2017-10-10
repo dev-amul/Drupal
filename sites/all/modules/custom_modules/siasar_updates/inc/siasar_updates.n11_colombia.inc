@@ -16,9 +16,13 @@ function siasar_updates_load_n11_colombia_from_csv($source, $test = true) {
   $codes_mun_unique = _siasar_updates_super_unique($codes_mun);
   $codes_ver = _siasar_updates_load_geographical_codes($data, 3);
   $codes_ver_unique = _siasar_updates_super_unique($codes_ver);
+
   $deptos_parents = _siasar_updates_save_depto($codes_depto_unique,$vid);
   $municipio_parents = _siasar_updates_save_municipio($codes_mun_unique,$deptos_parents,$vid);
   $veredas_parents = _siasar_updates_save_veredas($codes_ver_unique,$municipio_parents,$vid);
+
+  $total_terms = count($deptos_parents) + count($municipio_parents) + count($veredas_parents);
+  drupal_set_message($total_terms . ' terms saved.');
 
 }
 
@@ -97,7 +101,6 @@ function _siasar_updates_super_unique($array){
 function custom_create_taxonomy_term($name, $vid, $parent_id = 0, $key) {
 
     static $country = null;
-    static $num_updated = 0;
 
     $country = $country
       ? $country
@@ -115,8 +118,6 @@ function custom_create_taxonomy_term($name, $vid, $parent_id = 0, $key) {
 
     $wrapper->field_codigo_division_admin->set($key);
     $wrapper->save();
-
-    drupal_set_message(++$num_updated . ' terms updated');
 
     return $term;
   }
