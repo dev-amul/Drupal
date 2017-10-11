@@ -36,6 +36,18 @@ function siasar_entityform_drush_command() {
     ),
   );
 
+  $items['siasar-forms-reset-states'] = array(
+    'description' => 'Reset the states of all the surveys and queue them for processing.',
+    'aliases'     => array('sfrs'),
+    'callback'    => 'siasar_forms_reset_states',
+  );
+
+  $items['siasar-forms-last-execution-time'] = array(
+    'description' => 'Get the last time execution of elements in the queue.',
+    'aliases'     => array('sflet'),
+    'callback'    => 'siasar_forms_get_last_execution_time',
+  );
+
 
   return $items;
 }
@@ -75,6 +87,12 @@ function siasar_forms_process_pending() {
   drush_print('Pending elements: ' . $items->count);
 }
 
+/**
+ * Get if an specified survey has a computable version
+ * @param $id int The entityform ID.
+ *
+ * @return string
+ */
 function siasar_forms_process_validate_survey($id) {
   if ($id) {
     $computable = _computable_revision($id);
@@ -83,4 +101,19 @@ function siasar_forms_process_validate_survey($id) {
     }
   }
   drush_print('No computable revision');
+}
+
+/**
+ * Get the last execution time of elements in the queue.
+ */
+function siasar_forms_get_last_execution_time() {
+  drush_print(variable_get('siasar_form_last_execution_time', 'No elements has been processed yet.'));
+}
+
+/**
+ * Reset states and the processing queue.
+ */
+function siasar_forms_reset_states() {
+  //Completely reset the states and the processing queue.
+  reset_entityform_states();
 }

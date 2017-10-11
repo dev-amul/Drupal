@@ -63,7 +63,7 @@ function siasar_entityform_schema() {
         'description' => 'If the entityform_id has been processed by the system.',
         'type'        => 'int',
         'not null'    => TRUE,
-        'size'        => 'tiny',
+        'size'        => 'normal',
         'default'     => 0,
       ),
     ),
@@ -91,35 +91,11 @@ function siasar_entityform_schema() {
  * module has been enabled.
  */
 function siasar_entityform_enable() {
-
-  $entityform_ids = db_select('entityform', 'ef')
-    ->fields('ef', array('entityform_id'))
-    ->orderBy('entityform_id', 'ASC')
-    ->execute();
-
-  $entity_forms = $entityform_ids->fetchAllAssoc('entityform_id');
-  foreach ($entity_forms as $entityform) {
-    db_merge('entityform_computable_states')
-      ->key(array(
-        'entityform_id' => $entityform->entityform_id,
-      ))
-      ->insertFields(array(
-        'entityform_id'       => $entityform->entityform_id,
-        'computable'          => 0,
-        'entityform_revision' => NULL,
-      ))
-      ->execute();
-    db_merge('entityform_computable_processing')
-      ->key(array(
-        'entityform_id' => $entityform->entityform_id,
-      ))
-      ->insertFields(array(
-        'entityform_id' => $entityform->entityform_id,
-        'processed'     => 0,
-      ))
-      ->execute();
-  }
+  //Reset all the entityforms. Their states and the complete queue.
+  reset_entityform_states();
 }
+
+
 
 /**
  * Change process column to big size to store timestamps.
@@ -130,7 +106,7 @@ function siasar_entityform_update_7101() {
     'description' => 'Timestamp of inserting the item in the queue.',
     'type'        => 'int',
     'not null'    => TRUE,
-    'size'        => 'big',
+    'size'        => 'normal',
     'default'     => 0,
-  )); // old and new col are same
+  ));
 }
