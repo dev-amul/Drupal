@@ -120,3 +120,17 @@ function siasar_entityform_enable() {
       ->execute();
   }
 }
+
+/**
+ * Change process column to big size to store timestamps.
+ */
+function siasar_entityform_update_7101() {
+
+  db_change_field('entityform_computable_processing', 'processed', 'processed', array(
+    'description' => 'Timestamp of inserting the item in the queue.',
+    'type'        => 'int',
+    'not null'    => TRUE,
+    'size'        => 'big',
+    'default'     => 0,
+  )); // old and new col are same
+}

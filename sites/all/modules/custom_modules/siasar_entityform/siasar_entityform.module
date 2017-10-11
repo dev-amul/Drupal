@@ -25,8 +25,8 @@ function siasar_entityform_entity_info_alter(&$entity_info) {
  * @return bool
  */
 function _query_computable_revision($entityform_id) {
-  $query_result     = db_select('entityform_computable_states', 'efcp')
-    ->fields('efcp', ['entityform_id', 'computable'])
+  $query_result     = db_select('entityform_computable_states', 'efcs')
+    ->fields('efcs', ['entityform_id', 'computable'])
     ->condition('entityform_id', $entityform_id, '=')
     ->execute();
   $entityform_state = reset($query_result->fetchAllAssoc('computable'));
@@ -34,6 +34,22 @@ function _query_computable_revision($entityform_id) {
     return $entityform_state->computable;
   }
   return TRUE;
+}
+
+/**
+ * Check if the given entityform ID has a record in the processing queue.
+ *
+ * @param $entityform_id int The entityform ID.
+ *
+ * @return bool
+ */
+function _query_form_in_queue($entityform_id) {
+  $query_result     = db_select('entityform_computable_processing', 'efcp')
+    ->fields('efcp', ['entityform_id', 'processed'])
+    ->condition('entityform_id', $entityform_id, '=')
+    ->execute();
+  $state = reset($query_result->fetchAllAssoc('entityform_id'));
+  return $state;
 }
 
 /**
@@ -231,14 +247,7 @@ WHERE target." . $target_field . " = :target_id
     $insert_id = $forms->fetchAllAssoc('entityform_id');
     if (!$insert_id) {
       //Insert $id in entityform_computable_processing
-      db_merge('entityform_computable_processing')
-        ->key(array(
-          'entityform_id' => $entityform->entityform_id,
-        ))
-        ->insertFields(array(
-          'entityform_id' => $entityform->entityform_id,
-        ))
-        ->execute();
+      _update_processing_queue_element($entityform->entityform_id);
     }
   }
 }
@@ -338,13 +347,19 @@ where
  * @param $entityform_id integer The entityform ID.
  */
 function flag_fieldcollection_dependencies_for_processing($entityform_id) {
-  db_merge('entityform_computable_processing')
-    ->key(array(
-      'entityform_id' => $entityform_id,
-    ))
-    ->insertFields(array(
-      'entityform_id' => $entityform_id,
-      'processed'     => 0,
-    ))
-    ->execute();
+  _update_processing_queue_element($entityform_id);
+}
+
+function _update_processing_queue_element($entityform_id) {
+  if (!_query_form_in_queue($entityform_id)) {
+    db_merge('entityform_computable_processing')
+      ->key(array(
+        'entityform_id' => $entityform_id,
+      ))
+      ->insertFields(array(
+        'entityform_id' => $entityform_id,
+        'processed'     => date(time()),
+      ))
+      ->execute();
+  }
 }

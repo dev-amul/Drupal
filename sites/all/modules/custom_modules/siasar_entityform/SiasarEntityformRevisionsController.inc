@@ -49,15 +49,8 @@ class SiasarEntityformRevisionsController extends EntityformRevisionsController 
         ))
         ->execute();
 
-      db_merge('entityform_computable_processing')
-        ->key(array(
-          'entityform_id' => $entity->{$this->idKey},
-        ))
-        ->insertFields(array(
-          'entityform_id' => $entity->{$this->idKey},
-        ))
-        ->execute();
     }
+    _update_processing_queue_element($entity->{$this->idKey});
 
     if ($entity->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
       _computable_revision($entity->{$this->idKey});
