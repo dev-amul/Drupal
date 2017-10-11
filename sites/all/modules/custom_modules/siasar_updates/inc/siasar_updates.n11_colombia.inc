@@ -104,13 +104,13 @@ function _siasar_updates_create_n11_colombia_term($name, $vid, $parent_id = 0, $
 
     $country = $country
       ? $country
-      : country_load('CO');
+      : 'CO';
 
     $term = new stdClass();
     $term->name = $name;
     $term->vid = $vid;
     $term->parent = array($parent_id);
-    $term->field_pais[LANGUAGE_NONE]['0']['value'] = $country;
+    $term->field_pais[LANGUAGE_NONE]['0']['iso2'] = $country;
     $term->field_codigo_division_admin[LANGUAGE_NONE]['0']['value'] = $key;
     taxonomy_term_save($term);
 
