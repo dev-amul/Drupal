@@ -260,7 +260,7 @@ function siasar_process_pending_computable_entityforms($items = 30) {
     $entityforms = db_select('entityform_computable_processing', 'efcp')
       ->fields('efcp', ['entityform_id', 'processed'])
       ->range(0, $items)
-      ->orderBy('processed', 'DESC')
+      ->orderBy('processed', 'ASC')
       ->execute();
 
     foreach (array_keys($entityforms->fetchAllAssoc('entityform_id')) as $item) {
