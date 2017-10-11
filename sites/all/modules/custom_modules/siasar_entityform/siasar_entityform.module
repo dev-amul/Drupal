@@ -196,11 +196,9 @@ function _computable_revision($entityform_id) {
 
   }
 
-  if ($computable_revision) {
-    db_delete('entityform_computable_processing')
-      ->condition('entityform_id', $entityform_id, '=')
-      ->execute();
-  }
+  db_delete('entityform_computable_processing')
+    ->condition('entityform_id', $entityform_id, '=')
+    ->execute();
 
   //Return the revision or NULL
   return $computable_revision;
@@ -260,8 +258,9 @@ function siasar_process_pending_computable_entityforms($items = 30) {
     variable_set('siasar_form_last_execution_time', format_date(time()));
 
     $entityforms = db_select('entityform_computable_processing', 'efcp')
-      ->fields('efcp', ['entityform_id'])
+      ->fields('efcp', ['entityform_id', 'processed'])
       ->range(0, $items)
+      ->orderBy('processed', 'DESC')
       ->execute();
 
     foreach (array_keys($entityforms->fetchAllAssoc('entityform_id')) as $item) {
@@ -294,7 +293,7 @@ function siasar_entityform_query_services_index_entityform_alter(QueryAlterableI
  *
  * @param $entityform_id . integer Revision id.
  *
- * @param $bundle. String The type of the form
+ * @param $bundle . String The type of the form
  *
  * @return bool TRUE|FALSE
  */
@@ -354,7 +353,7 @@ function flag_fieldcollection_dependencies_for_processing($entityform, $revision
  * @param $entityform_id int The entityform ID.
  */
 function _update_processing_queue_element($entityform_id) {
-  if (!_query_form_in_queue($entityform_id)) {
+  if ($entityform_id != NULL && !_query_form_in_queue($entityform_id)) {
     db_merge('entityform_computable_processing')
       ->key(array(
         'entityform_id' => $entityform_id,
