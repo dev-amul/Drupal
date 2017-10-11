@@ -2012,7 +2012,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
       'hide_initial_item' => FALSE,
       'path' => '',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'field_collection',
   );
 
@@ -5016,7 +5016,7 @@ function feature_siasar_field_bases_field_default_field_bases() {
       'hide_initial_item' => FALSE,
       'path' => '',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'field_collection',
   );
 
@@ -5683,7 +5683,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'entity_translation_sync' => FALSE,
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'taxonomy_term_reference',
   );
 
@@ -5835,7 +5835,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'entity_translation_sync' => FALSE,
       'options_list_callback' => 'i18n_taxonomy_allowed_values',
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'taxonomy_term_reference',
   );
 
@@ -5934,7 +5934,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'list_text',
   );
 
@@ -10861,7 +10861,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 1,
+    'translatable' => 0,
     'type' => 'telephone',
   );
 
