@@ -373,6 +373,7 @@ function reset_entityform_states() {
   //Truncate tables.
   $truncate = db_truncate('entityform_computable_states')->execute();
   $truncate = db_truncate('entityform_computable_processing')->execute();
+  variable_del('siasar_form_last_execution_time');
 
   $entityform_ids = db_select('entityform', 'ef')
     ->fields('ef', array('entityform_id'))
