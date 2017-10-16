@@ -942,10 +942,6 @@ form.entityform .btn.form-submit {
   background-image: url("../img/tick.svg");
   padding-left: 55px;
 }
-form.entityform .btn.form-submit {
-  background-image: url("../img/cross.svg");
-  padding-left: 55px;
-}
 form.entityform .vertical-tabs {
   border: none;
   margin: 0 0 20px 0;
@@ -1292,6 +1288,11 @@ form.entityform input.field-add-more-submit {
   background-size: 20px;
   padding-left: 50px;
   margin-top: 20px;
+}
+form.entityform input.workflow-button-removed.btn.form-submit {
+  background-image: url("../img/cross.svg");
+  background-color: #d81d40;
+  padding-left: 55px;
 }
 form.entityform .image-widget input[type=submit] {
   background-image: url("../img/arrow_up.svg");
