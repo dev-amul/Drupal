@@ -1289,6 +1289,11 @@ form.entityform input.field-add-more-submit {
   padding-left: 50px;
   margin-top: 20px;
 }
+form.entityform input.workflow-button-removed.btn.form-submit {
+  background-image: url("../img/cross.svg");
+  background-color: #d81d40;
+  padding-left: 55px;
+}
 form.entityform .image-widget input[type=submit] {
   background-image: url("../img/arrow_up.svg");
   background-color: #de861b;

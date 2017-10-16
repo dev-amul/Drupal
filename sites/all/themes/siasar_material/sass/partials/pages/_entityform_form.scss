@@ -386,6 +386,12 @@ form.entityform {
     margin-top: 20px;
   }
 
+  input.workflow-button-removed.btn.form-submit {
+    background-image: url('../img/cross.svg');
+    background-color: $siasar-red;
+    padding-left: 55px;
+  }
+
   .image-widget input[type=submit] {
     background-image: url('../img/arrow_up.svg');
     background-color: $siasar-orange;
