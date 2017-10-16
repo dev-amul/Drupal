@@ -17,11 +17,6 @@ form.entityform {
     padding-left: 55px;
   }
 
-  .btn.form-submit {
-    background-image: url('../img/cross.svg');
-    padding-left: 55px;
-  }
-
   .vertical-tabs {
     border: none;
     margin: 0 0 20px 0;
@@ -389,6 +384,12 @@ form.entityform {
     background-size: 20px;
     padding-left: 50px;
     margin-top: 20px;
+  }
+
+  input.workflow-button-removed.btn.form-submit {
+    background-image: url('../img/cross.svg');
+    background-color: $siasar-red;
+    padding-left: 55px;
   }
 
   .image-widget input[type=submit] {
