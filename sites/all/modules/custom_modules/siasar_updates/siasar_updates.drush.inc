@@ -36,6 +36,20 @@ function siasar_updates_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
   );
 
+  $items['siasar-remove-n11-country'] = array(
+    'description' => 'Removes all N11 data (taxonomy División Administrativa) for a country.',
+    'aliases' => array('siasar-rn11c'),
+    'arguments' => array(
+      'country_iso2' => 'Country ISO2 code',
+    ),
+    'required-arguments' => true,
+    'callback' => 'drush_siasar_remove_n11_countries',
+    'examples' => array(
+      'drush siasar-rn11c co' => 'Remove all N11 terms for Colombia (ISO2 CO).',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
+  );
+
   return $items;
 }
 
@@ -110,4 +124,30 @@ function _siasar_updates_set_country_on_entity($entity_type, $entity, $country) 
   $wrapper = entity_metadata_wrapper('taxonomy_term', $entity);
   $wrapper->field_pais->set($country);
   $wrapper->save();
+}
+
+
+function drush_siasar_remove_n11_countries($country_code = null) {
+  $country = country_load(strtoupper($country_code));
+  if (!is_object($country)) {
+    drupal_set_message('No country specified, aborting.');
+    return;
+  }
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'taxonomy_term')
+  ->entityCondition('bundle', 'division_administrativa')
+  ->fieldCondition('field_pais', 'iso2', $country->iso2);
+
+  $result = $query->execute();
+
+  if (!isset($result['taxonomy_term']) || count($result['taxonomy_term']) == 0) {
+    drupal_set_message('No terms found, nothing to do, aborting.');
+    return;
+  }
+
+  foreach($result['taxonomy_term'] as $k => $t) {
+    taxonomy_term_delete($k);
+  }
+
 }
