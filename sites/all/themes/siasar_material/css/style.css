@@ -942,6 +942,10 @@ form.entityform .btn.form-submit {
   background-image: url("../img/tick.svg");
   padding-left: 55px;
 }
+form.entityform .btn.form-submit {
+  background-image: url("../img/cross.svg");
+  padding-left: 55px;
+}
 form.entityform .vertical-tabs {
   border: none;
   margin: 0 0 20px 0;
