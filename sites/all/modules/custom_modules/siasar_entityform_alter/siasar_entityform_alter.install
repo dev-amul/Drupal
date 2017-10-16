@@ -115,3 +115,11 @@ function siasar_entityform_alter_update_7104(&$sandbox) {
     user_role_revoke_permissions($role->rid, $permissions);
   }
 }
+
+/**
+ * Removes permission "can delete validated entityforms" to administrators
+ */
+function siasar_entityform_alter_update_7105(&$sandbox) {
+  //Call again the previous update. It has not been executed.
+  siasar_entityform_alter_update_7104($sandbox);
+}
