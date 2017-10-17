@@ -112,11 +112,9 @@ function _computable_revision($entityform_id) {
 
         switch ($entityform_revision->bundle()) {
           case 'comunidad':
-            // Check if the related form has valid versions
+            // Check if the related form has system, service provider and household information
             if (isset($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE])) {
-              // This is a community survey
-              $computable_revision = !empty($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE]) ? $computable_revision : NULL;
-
+              // Check all fieldcollections
               foreach ($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE] as $fieldcollection_item) {
                 $fc = entity_load_single('field_collection_item', $fieldcollection_item['value']);
                 if ($fc) {
@@ -133,9 +131,6 @@ function _computable_revision($entityform_id) {
                   }
                 }
               }
-            }
-            else {
-              $computable_revision = NULL;
             }
 
 
@@ -337,12 +332,14 @@ where
 function flag_fieldcollection_dependencies_for_processing($entityform, $revisions) {
   foreach ($revisions as $revision) {
     $entityform_revision = entityform_get_revision($entityform, $revision->vid);
-    foreach ($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE] as $fieldcollection_item) {
-      $fc = entity_load_single('field_collection_item', $fieldcollection_item['value']);
-      if ($fc) {
-        //Trigger system and service providers for update.
-        _update_processing_queue_element($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
-        _update_processing_queue_element($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+    if (isset($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE])) {
+      foreach ($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE] as $fieldcollection_item) {
+        $fc = entity_load_single('field_collection_item', $fieldcollection_item['value']);
+        if ($fc) {
+          //Trigger system and service providers for update.
+          _update_processing_queue_element($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
+          _update_processing_queue_element($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+        }
       }
     }
   }

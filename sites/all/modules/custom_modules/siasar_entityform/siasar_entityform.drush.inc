@@ -48,6 +48,12 @@ function siasar_entityform_drush_command() {
     'callback'    => 'siasar_forms_get_last_execution_time',
   );
 
+  $items['siasar-forms-requeue-elements'] = array(
+    'description' => 'Re-insert in the queue all the elementes with a null revision.',
+    'aliases'     => array('sfre'),
+    'callback'    => 'siasar_forms_requeue_elements',
+  );
+
 
   return $items;
 }
@@ -116,4 +122,18 @@ function siasar_forms_get_last_execution_time() {
 function siasar_forms_reset_states() {
   //Completely reset the states and the processing queue.
   reset_entityform_states();
+}
+
+/**
+ * Insert again in the queue all the elements without revision
+ */
+function siasar_forms_requeue_elements(){
+  $entityforms = db_select('entityform_computable_states', 'efcs')
+    ->fields('efcs', ['entityform_id'])
+    ->isNull('entityform_revision')
+    ->execute();
+
+  foreach ($entityforms->fetchAll() as $survey){
+    _update_processing_queue_element($survey->entityform_id);
+  }
 }
