@@ -6,6 +6,8 @@
  */
 class SiasarEntityformRevisionsController extends EntityformRevisionsController {
 
+
+
   /**
    * Overrides method. Add fields for computable and entityform_revision to the
    * entity.
@@ -67,5 +69,29 @@ class SiasarEntityformRevisionsController extends EntityformRevisionsController 
    */
   private function entityFormIsNew($id) {
     return _query_computable_revision($id);
+  }
+
+  /**
+   * Loads the entityforms by IDs
+   *
+   * @param array $ids
+   * @param array $conditions
+   *
+   * @return array
+   */
+  public function load($ids = array(), $conditions = array()) {
+
+    // Workflow creates a LOCAL_TASK menu link for each entityform which can be
+    // displayed as an administration URL. It doesn't provide an ID to be loaded
+    // therefore it breaks the SQL and returns an error.
+    // We're handling this error at this point as the Workflow module doesn't
+    // seem to have this issue reported yet.
+    // The error can be reproduced by going to the /admin/structure URL.
+
+    if (count($ids) === 1 && reset($ids) === '') {
+      return array();
+    }
+
+    return parent::load($ids, $conditions);
   }
 }
