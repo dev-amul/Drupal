@@ -114,9 +114,7 @@ function _computable_revision($entityform_id) {
           case 'comunidad':
             // Check if the related form has system, service provider and household information
             if (isset($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE])) {
-              // This is a community survey
-              $computable_revision = !empty($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE]) ? $computable_revision : NULL;
-
+              // Check all fieldcollections
               foreach ($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE] as $fieldcollection_item) {
                 $fc = entity_load_single('field_collection_item', $fieldcollection_item['value']);
                 if ($fc) {
