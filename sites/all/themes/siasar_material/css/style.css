@@ -587,7 +587,7 @@ span.form-required {
   padding-right: 20px;
 }
 .view-reports-entityforms .feed-icon {
-  margin-top: 20px;
+  margin-top: 15px;
   clear: both;
 }
 .view-reports-entityforms .views-field-views-bulk-operations input[type="checkbox"]:checked,
@@ -617,6 +617,13 @@ span.form-required {
 }
 .view-reports-entityforms .feed-icon > a {
   padding: 2px;
+}
+.view-reports-entityforms .feed-icon-header {
+  padding-top: 20px;
+}
+.view-reports-entityforms .feed-icon-header span {
+  color: #096396;
+  font-size: 25px;
 }
 
 .vbo-views-form #edit-select {
