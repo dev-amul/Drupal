@@ -88,7 +88,7 @@
   }
 
   .feed-icon {
-    margin-top: $vertical-tabs-padding;
+    margin-top: 15px;
     clear: both;
   }
 
@@ -129,5 +129,13 @@
 
   .feed-icon > a {
     padding: 2px;
+  }
+
+  .feed-icon-header {
+    padding-top: $vertical-tabs-padding ;
+    span {
+      color: $siasar-blue;
+      font-size: 25px;
+    }
   }
 }
