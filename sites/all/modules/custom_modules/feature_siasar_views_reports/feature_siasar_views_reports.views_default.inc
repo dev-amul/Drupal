@@ -1431,6 +1431,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv_siasar';
+  $handler->display->display_options['style_options']['attach_text'] = 'Encuestas vinculadas';
   $handler->display->display_options['style_options']['provide_file'] = 1;
   $handler->display->display_options['style_options']['filename'] = 'com-ps-sys-pat.csv';
   $handler->display->display_options['style_options']['parent_sort'] = 1;
