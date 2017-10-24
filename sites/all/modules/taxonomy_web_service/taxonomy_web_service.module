@@ -31,8 +31,11 @@ function taxonomy_web_service_services_resources() {
 }
 
 function _taxonomy_vocab_service_index($vocab_name) {
-  $country_iso2 = get_country_code();
+  global $user;
+
+  $country_iso2 = user_load($user->uid)->field_pais['und'][0]['iso2'];
   $settings = array();
+
   if ($vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name)) {
 
     $terms = _taxonomy_web_service_get_location_terms_data($vocabulary, $country_iso2);

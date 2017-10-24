@@ -34,7 +34,7 @@ function entityform_structure_web_service_help($path, $arg) {
 		else {
 			$output = '<pre>' . ($readme) . '</pre>';
 		}
-		
+
 		return $output;
 	}
 }
@@ -48,7 +48,7 @@ function entityform_structure_web_service_get_fields($entity_type, $type) {
 	$user_full = user_load($user->uid);
 	$country_code = $user_full->field_pais['und'][0]['iso2'];
 	$currlang = $user_full->language;
-	
+
 
 	$info = entity_get_property_info($entity_type);
 	$allowed_items = array('label', 'required', 'widget', 'options');
@@ -69,7 +69,7 @@ function entityform_structure_web_service_get_fields($entity_type, $type) {
 			foreach ($bundle as $fields) {
 				foreach ($fields as $field_key => $items) {
 					$instance = field_info_instance($entity_type, $field_key, $type);
-					
+
 					// print translated field labels using i18n_field.module
 					// For performance reasons, we translate the whole instance once, which is cached.
   				//$instance = i18n_string_object_translate('field_instance', $instance, array('langcode' => $currlang));
@@ -88,7 +88,7 @@ function entityform_structure_web_service_get_fields($entity_type, $type) {
 					if (!empty($instance['settings']['allowed_values']) && !isset($settings['allowed_values'][0]['vocabulary'])) {
 						// i18n_string_translate(array('field', $field['field_name'], '#allowed_values'), $field['settings']['allowed_values'], array('langcode' => $langcode, 'sanitize' => FALSE));
 						$func = function($val) { return t($val); };
-						$instance['settings']['allowed_values'] = module_exists('i18n_field') ? i18n_field_translate_allowed_values($instance, $currlang) 
+						$instance['settings']['allowed_values'] = module_exists('i18n_field') ? i18n_field_translate_allowed_values($instance, $currlang)
 								: array_map($func, $instance['settings']['allowed_values']);
 					}
 
@@ -108,12 +108,12 @@ function entityform_structure_web_service_get_fields($entity_type, $type) {
 			}
 		}
 	}
-	
+
 	return $form_fields;
 }
 
 function settings_mapping_vocab(&$settings, $currlang, $country_code){
-	if (isset($settings['allowed_values']) && !empty($settings['allowed_values']) 
+	if (isset($settings['allowed_values']) && !empty($settings['allowed_values'])
       && isset($settings['allowed_values'][0]['vocabulary'])) {
 
 		// // HACK to deal with big locality taxonomy far appart
@@ -141,10 +141,10 @@ function settings_mapping_vocab(&$settings, $currlang, $country_code){
 		// 		}
 
 		// 		$hierarchy = array();				;
-		// 		if(read_children($vocabulary, $options, $hierarchy)){					
+		// 		if(read_children($vocabulary, $options, $hierarchy)){
 		// 			$settings['hierarchy'] = $hierarchy;
 		// 		}
-		// 	}			
+		// 	}
 		// }
 		// $settings['allowed_values'] = $options;
     $settings['resource'] = 'taxonomy_term';
@@ -164,7 +164,7 @@ function read_children($vocabulary, &$options, &$hierarchy, $offset = 0){
 		if($terms = taxonomy_get_tree($vocabulary->vid, $tid, 1)){
 				foreach ($terms as $term) {
 					$options[$term->tid] = $term->name;									//multi-level taxonomies, are naturally localized						//l($term->name, taxonomy_term_path($term));
-					$hierarchy[$term->tid] = $tid; 											//assume is not a multi-parent hier						
+					$hierarchy[$term->tid] = $tid; 											//assume is not a multi-parent hier
 				}
 			}
 	}
@@ -176,15 +176,15 @@ function read_children($vocabulary, &$options, &$hierarchy, $offset = 0){
 }
 
 function settings_mapping_view(&$settings, $currlang = NULL, $label_func = NULL){
-	if (isset($settings['handler']) && !empty($settings['handler']) 
+	if (isset($settings['handler']) && !empty($settings['handler'])
       && isset($settings['handler_settings']['view'])) {
 
-	
+
 		$display_name = $settings['handler_settings']['view']['display_name'];
     $args = $settings['handler_settings']['view']['args'];
 		$target_type = $settings['target_type'];
 		if(!$label_func){
-			$label_func = function($entity) use ($target_type) { 
+			$label_func = function($entity) use ($target_type) {
 				return entity_label($target_type, $entity); //
 			};
 		}
@@ -194,10 +194,10 @@ function settings_mapping_view(&$settings, $currlang = NULL, $label_func = NULL)
     }
 
 		$options = array();
-	
+
     if ($result) {
       $entities = entity_load($target_type, array_keys($result));
-      foreach($entities as $entity) {				
+      foreach($entities as $entity) {
         list($id,, $bundle) = entity_extract_ids($target_type, $entity);
         $options[$id] =  $label_func($entity);//entity_label($target_type, $entity); //isset($entity->name) ? $entity->name : $entity->label;	//TODO: use here the $currlang parameter to translate
       }
@@ -214,36 +214,36 @@ function settings_mapping_mvf(&$settings, $currlang = NULL){
 		//assert(isset(settings['unit']['target_type']));
 
 		unset($settings['mvf']['unit_suggesters_settings']); // hack
-		
+
 		$settings = array_merge($settings, $settings['mvf']);
 
 		$target_type = $settings['unit']['target_type'];
 
-		$label_func = function($unit){ 
-				return $unit->symbol; 
+		$label_func = function($unit){
+				return $unit->symbol;
 			};
 
 		if(settings_mapping_view($settings['unit'], $currlang, $label_func)){
 			$options = $settings['unit']['allowed_values'];
 		}
-		else{			
+		else{
 			//$measure = mvf_measure_extract($settings['unit']['target_type']);
 			$measure = units_measure_machine_name_load(reset($settings['unit']['handler_settings']['target_bundles']));
 			$options = array();
 			foreach (units_unit_by_measure_load_multiple($measure) as $unit) {
 				$umid = entity_extract_ids($target_type, $unit);
 				$umid = reset($umid);
-				$options[$umid] = $label_func($unit); 
+				$options[$umid] = $label_func($unit);
 			}
 		}
-		$settings['resource'] = $target_type; 
+		$settings['resource'] = $target_type;
 		$settings['allowed_values'] = $options;
 		return true;
 	}
   return false;
 }
 
-function init_view($settings) 
+function init_view($settings)
 {
 	// default handler parameters
 	$match = NULL; $match_operator = 'CONTAINS'; $limit = 0; $ids = NULL;
@@ -251,7 +251,7 @@ function init_view($settings)
 	$view_name = $settings['handler_settings']['view']['view_name'];
 	$display_name = $settings['handler_settings']['view']['display_name'];
 	$args = $settings['handler_settings']['view']['args'];
-	
+
 	// Check that the view is valid and the display still exists.
 	$view = views_get_view($view_name);
 	if (!$view || !isset($view->display[$display_name]) || !$view->access($display_name)) {
@@ -271,24 +271,17 @@ function init_view($settings)
 		'ids' => $ids,
 	);
 	$view->display_handler->set_option('entityreference_options', $entityreference_options);
-	return $view; 
+	return $view;
 }
 
-
-function get_country_code(){
-  global $user;
-	$user_full = user_load($user->uid);	
-  return $user_full->field_pais['und'][0]['iso2'];
-}
-	
 function is_valid_term($term, $country_code){
 		if ($term) {
 			$term_full = taxonomy_term_load($term->tid);
-      return !isset($term_full->field_pais) 
-        || $term_full->field_pais['und'][0]['iso2'] == $country_code;			
+      return !isset($term_full->field_pais)
+        || $term_full->field_pais['und'][0]['iso2'] == $country_code;
 		}
 	}
-	
+
 	/**
 	* Implements hook_services_resources().
 	 */
@@ -349,4 +342,4 @@ function is_valid_term($term, $country_code){
 		    ),
 		  );
 	}
-	
+
