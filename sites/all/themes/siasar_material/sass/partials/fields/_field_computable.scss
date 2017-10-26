@@ -2,7 +2,7 @@
   span.not-computable {
     width: 15px;
     height: 15px;
-    background: red;
+    background: $siasar-red;
     border-radius: 50px;
     display: inline-block;
   }
@@ -10,7 +10,7 @@
   span.computable {
     width: 15px;
     height: 15px;
-    background: green;
+    background: $siasar-green;
     border-radius: 50px;
     display: inline-block;
   }
