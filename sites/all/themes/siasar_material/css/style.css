@@ -1717,14 +1717,14 @@ body.page-entityform-workflow #block-system-main .content .workflow-transition-e
 .views-field-entityform-revision span.not-computable {
   width: 15px;
   height: 15px;
-  background: red;
+  background: #d81d40;
   border-radius: 50px;
   display: inline-block;
 }
 .views-field-entityform-revision span.computable {
   width: 15px;
   height: 15px;
-  background: green;
+  background: #26c726;
   border-radius: 50px;
   display: inline-block;
 }
