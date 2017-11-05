@@ -93,26 +93,22 @@ function _siasar_updates_load_geographical_codes($data, $num){
   return $codes;
 }
 
-function _siasar_updates_super_unique($array){
+function _siasar_updates_super_unique($array) {
   $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
   return $result;
 }
 
 function _siasar_updates_create_n11_colombia_term($name, $vid, $parent_id = 0, $key) {
 
-    static $country = null;
+  $country = 'AD'; // We're loading the country temporarily as "Andorra" instead of "Colombia.
 
-    $country = $country
-      ? $country
-      : 'CO';
+  $term = new stdClass();
+  $term->name = $name;
+  $term->vid = $vid;
+  $term->parent = array($parent_id);
+  $term->field_pais[LANGUAGE_NONE]['0']['iso2'] = $country;
+  $term->field_codigo_division_admin[LANGUAGE_NONE]['0']['value'] = $key;
+  taxonomy_term_save($term);
 
-    $term = new stdClass();
-    $term->name = $name;
-    $term->vid = $vid;
-    $term->parent = array($parent_id);
-    $term->field_pais[LANGUAGE_NONE]['0']['iso2'] = $country;
-    $term->field_codigo_division_admin[LANGUAGE_NONE]['0']['value'] = $key;
-    taxonomy_term_save($term);
-
-    return $term;
+  return $term;
   }

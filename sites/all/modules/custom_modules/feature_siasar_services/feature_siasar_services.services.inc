@@ -168,6 +168,30 @@ function feature_siasar_services_default_services_endpoint() {
         ),
       ),
     ),
+    'entity_file' => array(
+      'operations' => array(
+        'create' => array(
+          'enabled' => '1',
+        ),
+        'retrieve' => array(
+          'enabled' => '1',
+        ),
+        'update' => array(
+          'enabled' => '1',
+        ),
+        'delete' => array(
+          'enabled' => '1',
+        ),
+        'index' => array(
+          'enabled' => '1',
+        ),
+      ),
+      'actions' => array(
+        'create_raw' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
     'entity_i18n_translation' => array(
       'operations' => array(
         'retrieve' => array(
