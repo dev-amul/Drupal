@@ -37,20 +37,20 @@ class siasar_entityform_revision_filter_handler extends  views_handler_filter {
    * Override query().
    */
   function query() {
-    $value = reset($this->value);
+    $value = (int) reset($this->value);
     //Do not add where clause for option "All"
-    if ($value !== 2) {
-      $this->ensure_my_table();
-      $field = "$this->table_alias.$this->real_field";
+    if ($value == 2) return;
 
-      if ($value === '0') {
-        $op = 'IS NULL';
-      } else {
-        $op = 'IS NOT NULL';
-      }
-      $this->query->add_where($this->options['group'], $field, NULL, $op);
+    $this->ensure_my_table();
+    $field = "$this->table_alias.$this->real_field";
 
+    if ($value === 0) {
+      $op = 'IS NULL';
+    } else {
+      $op = 'IS NOT NULL';
     }
+    $this->query->add_where($this->options['group'], $field, NULL, $op);
+
   }
 
 }
