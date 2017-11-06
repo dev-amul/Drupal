@@ -23,7 +23,7 @@ class siasar_entityform_revision_filter_handler extends  views_handler_filter {
         '#type'    => 'select',
         '#title'   => t('Computable'),
         '#options' => array(
-          0 => t('No computable'),
+          0 => t('Not computable'),
           1 => t('Computable'),
           2 => t('All'),
         ),
