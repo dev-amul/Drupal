@@ -12,19 +12,25 @@
  */
 function _siasar_entityform_alter_action_info() {
   return array(
-    'siasar_finish_questionnaire_action' => array(
-      'type' => 'entityform',
-      'label' => t('Survey to Finished'),
+    'siasar_finish_questionnaire_action'   => array(
+      'type'     => 'entityform',
+      'label'    => t('Survey to Finished'),
       'triggers' => array('any'),
     ),
     'siasar_validate_questionnaire_action' => array(
-      'type' => 'entityform',
-      'label' => t('Survey to Validated'),
+      'type'     => 'entityform',
+      'label'    => t('Survey to Validated'),
       'triggers' => array('any'),
     ),
-    'siasar_draft_questionnaire_action' => array(
-      'type' => 'entityform',
-      'label' => t('Survey to Draft'),
+    'siasar_draft_questionnaire_action'    => array(
+      'type'     => 'entityform',
+      'label'    => t('Survey to Draft'),
+      'triggers' => array('any'),
+    ),
+    'siasar_remove_questionnaire_action'   => array(
+      'type'     => 'entityform',
+      'label'    => t('Delete Survey'),
+      'behavior' => array('deletes_property'),
       'triggers' => array('any'),
     ),
   );
@@ -39,15 +45,15 @@ function _siasar_entityform_alter_action_info() {
  * @return bool|int
  */
 function _siasar_set_workflow_state($entity, $new_state_name) {
-  $return = FALSE;
-  $field_name = 'field_status';
+  $return      = FALSE;
+  $field_name  = 'field_status';
   $entity_type = $entity->entityType();
 
   $wrapper = entity_metadata_wrapper($entity_type, $entity);
 
   if (isset($wrapper->$field_name)) {
     $old_sid = workflow_node_current_state($entity, $entity_type, $field_name);
-    $states = workflow_state_load_multiple();
+    $states  = workflow_state_load_multiple();
 
     $new_state = FALSE;
     foreach ($states as $sid => $state) {
@@ -69,7 +75,7 @@ function _siasar_set_workflow_state($entity, $new_state_name) {
       // Do a separate update to update the field (Workflow Field API)
       // This will call hook_field_update() and WorkflowFieldDefaultWidget::submit().
       $entity->{$field_name}[$langcode][0]['transition'] = $transition;
-      $entity->{$field_name}[$langcode][0]['value'] = $transition->new_sid;
+      $entity->{$field_name}[$langcode][0]['value']      = $transition->new_sid;
     }
   }
 
@@ -104,4 +110,22 @@ function siasar_validate_questionnaire_action($entity, array $context) {
  */
 function siasar_draft_questionnaire_action($entity, array $context) {
   _siasar_set_workflow_state($entity, 'draft');
+}
+
+/**
+ * Remove a survey if it has not a valid revision. In other case, set the survey as removed
+ *
+ * @param $entity
+ * @param array $context
+ */
+function siasar_remove_questionnaire_action($entity, array $context) {
+  if ($context['entity_type'] == 'entityform' && empty(siasar_entityform_validated_revisions($entity))) {
+    if (entity_access('delete', 'entityform', $entity)) {
+      entity_delete('entityform', $entity->entityform_id);
+    }
+  }
+  else {
+    _siasar_set_workflow_state($entity, 'removed');
+    entity_save('entityform', $entity);
+  }
 }

@@ -85,3 +85,33 @@ function siasar_entityform_alter_update_7102(&$sandbox) {
     user_role_grant_permissions($role->rid, $permissions);
   }
 }
+
+/**
+ * Add permission "Execute Delete Survey" to administrators
+ */
+function siasar_entityform_alter_update_7103(&$sandbox) {
+
+  $permissions = array(
+    'execute siasar_remove_questionnaire_action',
+  );
+
+  foreach(array('Administrador Local', 'Administrador Regional', 'administrator') as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    user_role_grant_permissions($role->rid, $permissions);
+  }
+}
+
+/**
+ * Removes permission "can delete validated entityforms" to administrators
+ */
+function siasar_entityform_alter_update_7104(&$sandbox) {
+
+  $permissions = array(
+    'can delete validated entityforms',
+  );
+
+  foreach(array('Administrador Local', 'Administrador Regional', 'administrator') as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    user_role_revoke_permissions($role->rid, $permissions);
+  }
+}

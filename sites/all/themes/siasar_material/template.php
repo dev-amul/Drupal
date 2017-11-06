@@ -212,4 +212,3 @@ function siasar_material_workflow_history_table($variables) {
   }
   return $output;
 }
-

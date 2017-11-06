@@ -14,8 +14,6 @@ form.entityform {
 
   .btn.form-submit {
     background-image: url('../img/tick.svg');
-    background-position: 10px center;
-    background-repeat: no-repeat;
     padding-left: 55px;
   }
 
@@ -272,7 +270,7 @@ form.entityform {
 
         > h3,
         > .description {
-          width: 120px;
+          width: 150px;
           float: left;
           box-sizing: border-box;
           margin: 0;
@@ -293,13 +291,13 @@ form.entityform {
 
         > .form-wrapper,
         > .group-grid {
-          margin: 0 0 0 120px;
+          margin: 0 0 0 150px;
           padding: $vertical-tabs-padding;
           background: white;
           border-left: solid $siasar-dark-cyan 12px;
           display: table;
           border-collapse: separate;
-          width: calc(100% - 120px);
+          width: calc(100% - 150px);
 
           &:nth-child(odd) {
             background: $siasar-almost-white;
@@ -386,6 +384,12 @@ form.entityform {
     background-size: 20px;
     padding-left: 50px;
     margin-top: 20px;
+  }
+
+  input.workflow-button-removed.btn.form-submit {
+    background-image: url('../img/cross.svg');
+    background-color: $siasar-red;
+    padding-left: 55px;
   }
 
   .image-widget input[type=submit] {

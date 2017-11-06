@@ -914,3 +914,127 @@ function siasar_updates_update_7155() {
     }
   }
 }
+/**
+ * Issue 563. Translations.
+ * Removing term that should not exist. No need to translate it.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/563
+ */
+ function siasar_updates_update_7156(&$sandbox) {
+  $status = taxonomy_term_delete(202417);
+
+  if($status == SAVED_DELETED) drupal_set_message('Term 202417 deleted properly.');
+}
+
+/**
+ * Issue 543. Autocomplete
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/543
+ */
+ function siasar_updates_update_7157(&$sandbox) {
+   features_revert_module('feature_siasar_views_reports');
+}
+/**
+ * Issue 467. [PAT] En el bloque C4, ocultar campos de estado cuando los valores son 0 (ceros).
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/467
+ *
+ * @param $sandbox
+ */
+ function siasar_updates_update_7158() {
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_entityform_prestador_asistencia_tecnica');
+}
+
+/**
+ * Issue 573. Computable entityforms
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/573
+ */
+function siasar_updates_update_7159(&$sandbox) {
+  $modules = array(
+    'siasar_entityform',
+  );
+
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+
+  features_revert_module('feature_siasar_views_reports');
+}
+
+/**
+ * Issue 597. Remove entityforms. Update the state or delete if possible.
+ * Allow bulk operation in views
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/597
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7160() {
+  features_revert_module('feature_siasar_testing_form_workflow');
+  features_revert_module('feature_siasar_views_reports');
+}
+
+
+/**
+ * Issue 549. Reloading N11 Colombia (veredas)
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/549
+ *
+ * @param $sandbox
+ */
+ function siasar_updates_update_7161() {
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.n11_colombia');
+
+  //drush_siasar_remove_n11_countries('CO');
+  siasar_updates_load_n11_colombia_from_csv('../files/n11_colombia_veredas.csv', false);
+}
+/**
+ * Issue 522. Traducción. Campos visibles en algunos idiomas y en otros no.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/522
+ *
+ * @param $sandbox
+ */
+ function siasar_updates_update_7162(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.normalize_detranslated_fields');
+
+  features_revert_module('feature_siasar_field_bases');
+
+  $count = 0;
+  $count += siasar_updates_normalize_field_language('field_com_fc_impsystem', 'field_collection_item');
+  $count += siasar_updates_normalize_field_language('field_d_infraestructura', 'field_collection_item');
+  $count += siasar_updates_normalize_field_language('field_estado_equipos_transporte', 'field');
+  $count += siasar_updates_normalize_field_language('field_estado_medicion_agua', 'field');
+  $count += siasar_updates_normalize_field_language('field_existe_macro_medicion', 'field');
+  $count += siasar_updates_normalize_field_language('field_telefono', 'field');
+
+  return ($count . ' elements normalized');
+}
+
+/**
+ * Hotfix: reparar el daño estrutural causado por Taxonomy Manager
+ * cuando mueves un término de una taxonomía a otra.
+ * Los campos de los términos se modifican correctamente,
+ * pero los hijos conservan el "bundle original".
+ *
+ */
+function siasar_updates_update_7163() {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'taxonomy_term')
+  ->entityCondition('bundle', 'division_administrativa')
+  ->fieldCondition('field_pais', 'iso2', 'DO', '=');
+
+  $result = $query->execute();
+
+  if($result['taxonomy_term']) {
+    foreach($result['taxonomy_term'] as $tid => $data) {
+      $term = taxonomy_term_load($tid);
+      taxonomy_term_save($term);
+    }
+  }
+}
+
+/**
+ * Several Feature reverts
+ */
+function siasar_updates_update_7164() {
+  features_revert_module('feature_siasar_menus');
+  features_revert_module('feature_siasar_services');
+}
