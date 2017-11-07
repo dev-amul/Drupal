@@ -1055,6 +1055,7 @@ function siasar_updates_update_7165() {
     'feature_siasar_entityform_prestador_servicio',
     'feature_siasar_entityform_prestador_asistencia_tecnica',
     'feature_siasar_entityform_water_quality',
+    'feature_siasar_testing_form_workflow',
     'feature_siasar_field_bases',
   );
 
