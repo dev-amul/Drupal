@@ -1426,9 +1426,6 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
   padding: 0;
   margin: 0;
 }
-body.page-entityform-view .entity-entityform .field-name-field-entidad-local .field-items {
-  float: left;
-}
 
 body.page-user .page {
   max-width: 720px;
@@ -1602,17 +1599,22 @@ body.page-user-edit form#user-profile-form fieldset .form-type-select {
 }
 @media (min-width: 992px) {
   body.page-entityform-view .field-name-field-status .field-label {
-    width: 352px;
+    width: 325px;
   }
 }
 body.page-entityform-view .field-name-field-status .field-items {
   background-size: contain;
-  background-position: 200px center;
+  background-position: 0 center;
   background-repeat: no-repeat;
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .field-name-field-status .field-items {
+    padding-left: 25px;
+  }
 }
 @media (min-width: 992px) {
   body.page-entityform-view .field-name-field-status .field-items {
-    background-position-x: 325px;
+    padding-left: 30px;
   }
 }
 @media (min-width: 600px) {
