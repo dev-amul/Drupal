@@ -51,8 +51,7 @@ function feature_siasar_entityform_comunidad_default_entityform_type() {
         "6" : "6",
         "10" : "10",
         "1" : 0,
-        "2" : 0,
-        "11" : 0
+        "2" : 0
       },
       "resubmit_action" : "new",
       "redirect_path" : "resultados",
