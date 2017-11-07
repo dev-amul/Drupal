@@ -185,51 +185,6 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'entityform-testingpurposes-field_cuestionario_validado'.
-  $field_instances['entityform-testingpurposes-field_cuestionario_validado'] = array(
-    'bundle' => 'testingpurposes',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 25,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 0,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance:
   // 'entityform-testingpurposes-field_edo_fisico_linea_conducion'.
   $field_instances['entityform-testingpurposes-field_edo_fisico_linea_conducion'] = array(
     'bundle' => 'testingpurposes',
@@ -622,7 +577,6 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
   t('Se posee de servicios de telefonía fija');
   t('Status');
   t('Tipo de sistema de abastecimiento de agua');
-  t('Validado');
   t('¿Cuál es el estado físico de la línea de conducción de agua?');
 
   return $field_instances;
