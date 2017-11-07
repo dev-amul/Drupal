@@ -893,51 +893,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_servicio-field_cuestionario_validado'.
-  $field_instances['entityform-prestador_de_servicio-field_cuestionario_validado'] = array(
-    'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 11,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 45,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 9,
-    ),
-  );
-
-  // Exported field_instance:
   // 'entityform-prestador_de_servicio-field_data_source'.
   $field_instances['entityform-prestador_de_servicio-field_data_source'] = array(
     'bundle' => 'prestador_de_servicio',
@@ -5929,7 +5884,6 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Tiene definido un tipo de tarifa?');
   t('Tipo de tarifa');
   t('Técnicos');
-  t('Validado');
   t('Vigilancia de la zona cercana a la fuente o toma de agua del sistema');
   t('¿Cuenta con fondos disponibles?');
   t('¿Cuentan con personal técnico, operador o fontanero para la operación y mantenimiento?');
