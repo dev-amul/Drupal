@@ -656,50 +656,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_cuestionario_validado'.
-  $field_instances['entityform-sistema-field_cuestionario_validado'] = array(
-    'bundle' => 'sistema',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 11,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 22,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 8,
-    ),
-  );
-
   // Exported field_instance: 'entityform-sistema-field_d_infraestructura'.
   $field_instances['entityform-sistema-field_d_infraestructura'] = array(
     'bundle' => 'sistema',
@@ -4614,7 +4570,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Tipo de rehabilitación o de ampliación');
   t('Tipo de sistema de abastecimiento de agua');
   t('Tipo de tratamiento');
-  t('Validado');
   t('Year the system was built');
   t('¿Con qué frecuencia se realiza la limpieza?');
   t('¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)');

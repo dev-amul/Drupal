@@ -1,7 +1,7 @@
 name = SIASAR EntityForm Water Quality
 core = 7.x
 package = SIASAR
-version = 7.x-1.4
+version = 7.x-1.5
 dependencies[] = countries
 dependencies[] = ctools
 dependencies[] = currency
@@ -73,7 +73,6 @@ features[field_instance][] = entityform-waq-field_carbonates
 features[field_instance][] = entityform-waq-field_chlorides
 features[field_instance][] = entityform-waq-field_color
 features[field_instance][] = entityform-waq-field_conductivity
-features[field_instance][] = entityform-waq-field_cuestionario_validado
 features[field_instance][] = entityform-waq-field_data_source
 features[field_instance][] = entityform-waq-field_entidad_local
 features[field_instance][] = entityform-waq-field_fecal_coliforms

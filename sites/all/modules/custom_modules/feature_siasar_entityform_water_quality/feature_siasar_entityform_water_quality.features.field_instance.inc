@@ -840,50 +840,6 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'entityform-waq-field_cuestionario_validado'.
-  $field_instances['entityform-waq-field_cuestionario_validado'] = array(
-    'bundle' => 'waq',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 36,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 0,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 6,
-    ),
-  );
-
   // Exported field_instance: 'entityform-waq-field_data_source'.
   $field_instances['entityform-waq-field_data_source'] = array(
     'bundle' => 'waq',
@@ -3022,7 +2978,6 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   t('Temperature');
   t('Total Coliforms');
   t('Turbidity');
-  t('Validado');
   t('Water Source Code');
   t('Water Source Name');
   t('Water Source Type');
