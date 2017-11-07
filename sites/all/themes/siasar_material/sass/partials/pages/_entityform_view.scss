@@ -42,6 +42,10 @@ body.page-entityform-view {
       height: auto;
     }
 
+    //
+    // Specific field types.
+    //
+
     .field-type-field-collection {
       > .field-label {
         float: none;
@@ -71,10 +75,6 @@ body.page-entityform-view {
             left: -7px;
             z-index: 1;
           }
-
-          .field-type-entityreference .field-items {
-            display: inline-block;
-          }
         }
 
         .field-collection-view {
@@ -84,8 +84,16 @@ body.page-entityform-view {
       }
     }
 
-    .field-name-field-entidad-local .field-items {
-      float: left;
+    .field-type-entityreference {
+      .field-items {
+        .field {
+          clear: none;
+        }
+
+        .field-items {
+          margin-left: 0;
+        }
+      }
     }
   }
 }
