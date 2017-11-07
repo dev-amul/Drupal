@@ -79,5 +79,17 @@ body.page-entityform-view {
         }
       }
     }
+
+    .field-type-entityreference {
+      .field-items {
+        .field {
+          clear: none;
+        }
+
+        .field-items {
+          margin-left: 0;
+        }
+      }
+    }
   }
 }
