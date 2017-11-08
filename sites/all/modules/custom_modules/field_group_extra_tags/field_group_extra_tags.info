@@ -1,0 +1,6 @@
+name = Field group extra tags
+description = Provides some extra tags for field group titles, as Field Group only provides H2 and H3 by default.
+package = Fields
+version = 7.x-1.0
+core = 7.x
+dependencies[] = "field_group"

@@ -1078,3 +1078,17 @@ function siasar_updates_update_7166() {
 
   module_disable($modules);
 }
+
+/**
+ * Issue 612: Revisar diseños de vistas de encuestas completadas.
+ * Extends Field Group to be able to render other than h2 and h3 in Div titles.
+ */
+function siasar_updates_update_7167(&$sandbox) {
+  $modules = array(
+    'field_group_extra_tags',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}

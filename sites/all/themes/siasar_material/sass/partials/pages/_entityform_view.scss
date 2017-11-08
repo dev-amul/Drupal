@@ -27,19 +27,56 @@ body.page-entityform-view {
       margin-bottom: $vertical-tabs-padding * 1.5;
     }
 
-    h2 {
-      margin-bottom: 0.5em;
+    h2, h3, h4, h5 {
+      text-align: left;
+      margin: 0 0 0.5em;
     }
-
+    h3, h4, h5 {
+      color: $siasar-dark-cyan;
+    }
     h3 {
       font-size: 1.5rem;
-      color: $siasar-dark-cyan;
-      margin: 0 0 0.5em;
+    }
+    h4 {
+      font-size: 1.2rem;
+    }
+    h5 {
+      font-size: 1.2rem;
+      color: $siasar-dark-grey;
     }
 
     img {
       max-width: 100%;
       height: auto;
+    }
+
+    //
+    // Group grid
+    //
+    .group-grid {
+      .group-grid {
+        h5 {
+          float: left;
+          width: 140px;
+          padding: 0 20px 0 0;
+          border-bottom: dotted $siasar-light-grey 1px;
+        }
+        div.field {
+          margin:  0 0 0 140px;
+          padding: 0 0 20px 20px;
+          clear: none;
+          border: none;
+          border-left: dotted 1px $siasar-light-grey;
+
+          &:last-child {
+            padding-bottom: 0;
+            margin-bottom: 20px;
+          }
+          .field-label {
+            font-weight: normal;
+          }
+        }
+      }
     }
 
     //
