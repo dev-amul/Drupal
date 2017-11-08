@@ -54,7 +54,7 @@
  *       // required, Array of available formatter options.
  *       'format_types' => array('open', 'collapsible', 'collapsed'),
  *       // required, String with default value of the style.
-        'default_formatter' => 'collapsible',
+ *       'default_formatter' => 'collapsible',
  *       // optional, Array with key => default_value pairs.
  *       'instance_settings' => array('key' => 'value'),
  *     ),
@@ -68,7 +68,7 @@
  *       // required, Array of available formatter options.
  *       'format_types' => array('open', 'collapsible', 'collapsed'),
  *       // required, String with default value of the style.
-        'default_formatter' => 'collapsible',
+ *      'default_formatter' => 'collapsible',
  *       // optional, Array with key => default_value pairs.
  *       'instance_settings' => array('key' => 'value'),
  *     ),

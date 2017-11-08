@@ -1379,17 +1379,46 @@ body.page-entityform-view .entity-entityform fieldset {
 body.page-entityform-view .entity-entityform .field-group {
   margin-bottom: 30px;
 }
-body.page-entityform-view .entity-entityform h2 {
-  margin-bottom: 0.5em;
+body.page-entityform-view .entity-entityform h2, body.page-entityform-view .entity-entityform h3, body.page-entityform-view .entity-entityform h4, body.page-entityform-view .entity-entityform h5 {
+  text-align: left;
+  margin: 0 0 0.5em;
+}
+body.page-entityform-view .entity-entityform h3, body.page-entityform-view .entity-entityform h4, body.page-entityform-view .entity-entityform h5 {
+  color: #00829e;
 }
 body.page-entityform-view .entity-entityform h3 {
   font-size: 1.5rem;
-  color: #00829e;
-  margin: 0 0 0.5em;
+}
+body.page-entityform-view .entity-entityform h4 {
+  font-size: 1.2rem;
+}
+body.page-entityform-view .entity-entityform h5 {
+  font-size: 1.2rem;
+  color: #666;
 }
 body.page-entityform-view .entity-entityform img {
   max-width: 100%;
   height: auto;
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid h5 {
+  float: left;
+  width: 140px;
+  padding: 0 20px 0 0;
+  border-bottom: dotted #ddd 1px;
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
+  margin: 0 0 0 140px;
+  padding: 0 0 20px 20px;
+  clear: none;
+  border: none;
+  border-left: dotted 1px #ddd;
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid div.field .field-label {
+  font-weight: normal;
 }
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-label {
   float: none;
