@@ -362,7 +362,52 @@ function _siasar_entityform_alter_hide_save_action(&$form, &$form_state) {
 function siasar_entityform_alter_form_entityform_delete_form_alter(&$form, &$form_state, $form_id) {
   $form['#submit'][] = '_siasar_entityform_alter_form_delete_redirect';
 }
-
+// Helper function for siasar_entityform_alter_form_entityform_delete_form_alter
 function _siasar_entityform_alter_form_delete_redirect($form, &$form_state) {
   $form_state['redirect'] = 'resultados';
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ * Make sure the selected option saved in DB is showing on EDIT form,
+ * even if editing user belongs to a different country / location,
+ * as entity reference fields quite often have their options filtered by country and location.
+ */
+function siasar_entityform_alter_field_widget_options_select_form_alter(&$element, &$form_state, $context) {
+  if(!$element['#entity'] || isset($element['#entity']->is_new)) return; // Entity is new or it does not exist? Out.
+
+  $entity_type = isset($element['#entity_type'])
+    ? $element['#entity_type']
+    : null;
+  if ($entity_type != 'entityform') return; // Not an entityform? Out.
+
+  $field = &$context['field'];
+  $is_entity_reference = ($field['type'] == 'entityreference');
+  $is_managed_by_views = ($field['settings']['handler'] == 'views');
+
+  if(!($is_entity_reference && $is_managed_by_views)) return; // Not an entityreference or not managed by views? This one is not being filtered. Out.
+
+  $entityform_wrapper = entity_metadata_wrapper($entity_type, $element['#entity']);
+  $field_name = &$element['#field_name'];
+  $default_value = (int) $entityform_wrapper->${field_name}->raw();
+
+  if(isset($element['#options'][$default_value])) return; // Default value is already there in $options. Out.
+
+  $reference_type = $field['settings']['target_type'];
+  $target_entity = entity_load_single($reference_type, $default_value);
+  $reference_wrapper = entity_metadata_wrapper($reference_type, $target_entity);
+  $value_to_insert = array(
+    $default_value => $reference_wrapper->label()
+  );
+
+  $options = $element['#options'];
+  if($element['#required']) {
+    $element['#options'] = array_merge($value_to_insert, $options);
+  } else {
+    $element['#options'] = array_merge(
+      array_slice($options, 0, 1, true),
+      $value_to_insert,
+      array_slice($options, 1, NULL, true)
+    );
+  }
 }
