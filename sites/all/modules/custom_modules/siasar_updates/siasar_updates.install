@@ -1070,8 +1070,6 @@ function siasar_updates_update_7165() {
  * @param $sandbox
  */
 function siasar_updates_update_7166() {
-  features_revert_module('feature_siasar_field_bases');
-
   $modules = array(
     'siasar_drush_workflow',
   );
