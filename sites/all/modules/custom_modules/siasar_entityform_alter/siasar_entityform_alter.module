@@ -355,3 +355,14 @@ function _siasar_entityform_alter_hide_save_action(&$form, &$form_state) {
     $form['actions']['save']['#access'] = FALSE;
   }
 }
+/**
+ * Implementation of hook_form_FORM_ID_alter()
+ * Makes sure it redirects to results on Delete.
+ */
+function siasar_entityform_alter_form_entityform_delete_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = '_siasar_entityform_alter_form_delete_redirect';
+}
+
+function _siasar_entityform_alter_form_delete_redirect($form, &$form_state) {
+  $form_state['redirect'] = 'resultados';
+}
