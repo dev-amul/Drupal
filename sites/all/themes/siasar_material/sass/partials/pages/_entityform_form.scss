@@ -415,29 +415,6 @@ form.entityform {
     }
   }
 
-  // Form validate elements
-  //.form-actions input.form-validate {
-  //  padding-left: 55px;
-  //  background-position: 10px center;
-  //  background-repeat: no-repeat;
-  //  background-size: 25px;
-  //
-  //  &[status='not-validated'] {
-  //    background-color: $siasar-orange;
-  //    background-image: url(../img/hollow-circle.svg);
-  //    background-size: 20px;
-  //    padding-left: 50px;
-  //  }
-  //  &[status='validated'] {
-  //    background-color: $siasar-green;
-  //    background-image: url(../img/tick.svg);
-  //  }
-  //}
-  // @todo this should be removed when the field_cuestionario_validado is removed also from the DB
-  .form-item-field-cuestionario-validado-und {
-    display: none;
-  }
-
   #edit-revision-fieldset {
     background: #FFF;
   }

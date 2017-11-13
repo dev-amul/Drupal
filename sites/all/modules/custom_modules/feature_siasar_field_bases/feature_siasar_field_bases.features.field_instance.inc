@@ -1726,44 +1726,6 @@ function feature_siasar_field_bases_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'entityform-comunidad-field_cuestionario_validado'.
-  $field_instances['entityform-comunidad-field_cuestionario_validado'] = array(
-    'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 52,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 8,
-    ),
-  );
 
   // Exported field_instance: 'entityform-comunidad-field_entidad_local'.
   $field_instances['entityform-comunidad-field_entidad_local'] = array(
@@ -2798,45 +2760,6 @@ function feature_siasar_field_bases_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 23,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_cuestionario_validado'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cuestionario_validado'] = array(
-    'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 36,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 33,
     ),
   );
 
@@ -4607,45 +4530,6 @@ function feature_siasar_field_bases_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 31,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'entityform-prestador_de_servicio-field_cuestionario_validado'.
-  $field_instances['entityform-prestador_de_servicio-field_cuestionario_validado'] = array(
-    'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 84,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 9,
     ),
   );
 
@@ -9157,44 +9041,6 @@ function feature_siasar_field_bases_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 30,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-sistema-field_cuestionario_validado'.
-  $field_instances['entityform-sistema-field_cuestionario_validado'] = array(
-    'bundle' => 'sistema',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 29,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 8,
     ),
   );
 

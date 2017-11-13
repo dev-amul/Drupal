@@ -104,8 +104,7 @@ input,
 select,
 textarea,
 fieldset {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .page {
@@ -212,8 +211,7 @@ ul.pagination li.active {
     font-size: 1rem;
     background-color: #00add2;
     border-radius: 50%;
-    -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
     width: 100px;
     height: 100px;
     top: 10px;
@@ -381,8 +379,7 @@ ul.responsive-menu li {
 .input-field input.form-text,
 .input-field select.form-select,
 .input-field textarea {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding-left: 10px;
   background-color: white;
   border: solid #ddd 2px;
@@ -769,8 +766,7 @@ body.maintenance-page #header {
   height: 90px;
   padding: 10px 20px;
   background-color: #00829e;
-  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 600px) {
   body.maintenance-page #header {
@@ -780,8 +776,7 @@ body.maintenance-page #header {
 body.maintenance-page #header #logo {
   display: block;
   float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   width: 75px;
   height: 75px;
   padding: 5px;
@@ -793,8 +788,7 @@ body.maintenance-page #header #logo {
     padding: 20px;
     border-radius: 50%;
     background-color: #00829e;
-    -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.14), 0 1px 0 0 rgba(0, 0, 0, 0.12), 0 4px 4px -3px rgba(0, 0, 0, 0.2);
   }
 }
 body.maintenance-page #header #name-and-slogan {
@@ -987,8 +981,7 @@ form.entityform .vertical-tabs-list li.vertical-tab-button {
   border-radius: 5px 0 0 5px;
   margin-bottom: 3px;
   background: #de861b;
-  -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
-          box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.4);
   border-right: #cd750a solid 2px;
 }
 form.entityform .vertical-tabs-list li.vertical-tab-button:hover {
@@ -1041,8 +1034,7 @@ form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane > legend {
   background: url("../img/triangle_white_open.svg") 5px 8px no-repeat #de861b;
   background-size: 15px 15px;
   padding-left: 30px;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   font-size: 1.5rem;
 }
@@ -1074,8 +1066,7 @@ form.entityform .vertical-tabs-panes fieldset.vertical-tabs-pane.closed > legend
 }
 form.entityform .vertical-tabs-panes fieldset {
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 0;
   margin: 0;
 }
@@ -1198,8 +1189,7 @@ form.entityform .vertical-tabs-panes fieldset .group-grid > h3,
 form.entityform .vertical-tabs-panes fieldset .group-grid > .description {
   width: 150px;
   float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 20px 20px 0;
 }
@@ -1321,9 +1311,6 @@ form.entityform .form-actions input {
     margin-bottom: 20px;
   }
 }
-form.entityform .form-item-field-cuestionario-validado-und {
-  display: none;
-}
 form.entityform #edit-revision-fieldset {
   background: #FFF;
 }
@@ -1392,17 +1379,46 @@ body.page-entityform-view .entity-entityform fieldset {
 body.page-entityform-view .entity-entityform .field-group {
   margin-bottom: 30px;
 }
-body.page-entityform-view .entity-entityform h2 {
-  margin-bottom: 0.5em;
+body.page-entityform-view .entity-entityform h2, body.page-entityform-view .entity-entityform h3, body.page-entityform-view .entity-entityform h4, body.page-entityform-view .entity-entityform h5 {
+  text-align: left;
+  margin: 0 0 0.5em;
+}
+body.page-entityform-view .entity-entityform h3, body.page-entityform-view .entity-entityform h4, body.page-entityform-view .entity-entityform h5 {
+  color: #00829e;
 }
 body.page-entityform-view .entity-entityform h3 {
   font-size: 1.5rem;
-  color: #00829e;
-  margin: 0 0 0.5em;
+}
+body.page-entityform-view .entity-entityform h4 {
+  font-size: 1.2rem;
+}
+body.page-entityform-view .entity-entityform h5 {
+  font-size: 1.2rem;
+  color: #666;
 }
 body.page-entityform-view .entity-entityform img {
   max-width: 100%;
   height: auto;
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid h5 {
+  float: left;
+  width: 140px;
+  padding: 0 20px 0 0;
+  border-bottom: dotted #ddd 1px;
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
+  margin: 0 0 0 140px;
+  padding: 0 0 20px 20px;
+  clear: none;
+  border: none;
+  border-left: dotted 1px #ddd;
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child {
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid div.field .field-label {
+  font-weight: normal;
 }
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-label {
   float: none;
@@ -1432,15 +1448,15 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
   left: -7px;
   z-index: 1;
 }
-body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items li .field-type-entityreference .field-items {
-  display: inline-block;
-}
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items .field-collection-view {
   padding: 0;
   margin: 0;
 }
-body.page-entityform-view .entity-entityform .field-name-field-entidad-local .field-items {
-  float: left;
+body.page-entityform-view .entity-entityform .field-type-entityreference .field-items .field {
+  clear: none;
+}
+body.page-entityform-view .entity-entityform .field-type-entityreference .field-items .field-items {
+  margin-left: 0;
 }
 
 body.page-user .page {
@@ -1591,8 +1607,7 @@ body.page-user-edit form#user-profile-form fieldset {
   margin-left: 0;
   margin-right: 0;
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 body.page-user-edit form#user-profile-form fieldset legend {
   display: none;
@@ -1616,17 +1631,22 @@ body.page-user-edit form#user-profile-form fieldset .form-type-select {
 }
 @media (min-width: 992px) {
   body.page-entityform-view .field-name-field-status .field-label {
-    width: 352px;
+    width: 325px;
   }
 }
 body.page-entityform-view .field-name-field-status .field-items {
   background-size: contain;
-  background-position: 200px center;
+  background-position: 0 center;
   background-repeat: no-repeat;
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .field-name-field-status .field-items {
+    padding-left: 25px;
+  }
 }
 @media (min-width: 992px) {
   body.page-entityform-view .field-name-field-status .field-items {
-    background-position-x: 325px;
+    padding-left: 30px;
   }
 }
 @media (min-width: 600px) {

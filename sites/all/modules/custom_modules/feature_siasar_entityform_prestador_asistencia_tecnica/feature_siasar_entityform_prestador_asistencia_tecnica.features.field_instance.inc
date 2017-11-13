@@ -730,51 +730,6 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_cuestionario_validado'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cuestionario_validado'] = array(
-    'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 8,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_data_source'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_data_source'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -2303,7 +2258,6 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Status');
   t('Tipo de PAT');
   t('Total de comunidades en la zona de atención');
-  t('Validado');
   t('Zona de Atención');
 
   return $field_instances;

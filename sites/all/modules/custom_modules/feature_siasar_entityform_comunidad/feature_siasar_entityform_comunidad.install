@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * 612 - Revisar diseños de vistas de encuestas completadas
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/612
+ */
+ function feature_siasar_entityform_comunidad_update_7100($sandbox) {
+  features_revert_module('feature_siasar_entityform_comunidad');
+}
