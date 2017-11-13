@@ -490,10 +490,6 @@ span.form-required {
     margin-right: 20px;
     clear: left;
   }
-  body.page-eform-submit .parallel-widgets .field-widget-options-select,
-  body.page-entityform-edit .parallel-widgets .field-widget-options-select {
-    width: calc(40% - 20px);
-  }
   body.page-eform-submit .parallel-widgets #edit-field-estado-equipos-transporte,
   body.page-eform-submit .parallel-widgets #edit-field-estado-medicion-agua,
   body.page-eform-submit .parallel-widgets #edit-field-estado-equipos-informatico,
@@ -501,6 +497,7 @@ span.form-required {
   body.page-entityform-edit .parallel-widgets #edit-field-estado-medicion-agua,
   body.page-entityform-edit .parallel-widgets #edit-field-estado-equipos-informatico {
     float: left;
+    width: 40%;
     min-width: 240px;
   }
   body.page-eform-submit .parallel-widgets #edit-field-estado-equipos-transporte,
@@ -511,21 +508,6 @@ span.form-required {
   body.page-entityform-edit .parallel-widgets #edit-field-dispone-fondos-viaticos {
     clear: left;
     padding-top: 40px;
-  }
-}
-@media (min-width: 992px) {
-  body.page-eform-submit .parallel-widgets #edit-field-cantidad-equipos-transport,
-  body.page-eform-submit .parallel-widgets #edit-field-cantidad-medicion-agua,
-  body.page-eform-submit .parallel-widgets #edit-field-cantidad-equipos-inform,
-  body.page-entityform-edit .parallel-widgets #edit-field-cantidad-equipos-transport,
-  body.page-entityform-edit .parallel-widgets #edit-field-cantidad-medicion-agua,
-  body.page-entityform-edit .parallel-widgets #edit-field-cantidad-equipos-inform {
-    width: calc(45% - 40px);
-    margin-right: 40px;
-  }
-  body.page-eform-submit .parallel-widgets .field-widget-options-select,
-  body.page-entityform-edit .parallel-widgets .field-widget-options-select {
-    width: calc(45% - 40px);
   }
 }
 
