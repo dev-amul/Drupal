@@ -13,11 +13,13 @@ body.page-entityform-edit {
         margin-right: 20px;
         clear: left;
       }
+      .field-widget-options-select {
+        width: calc(40% - 20px);
+      }
       #edit-field-estado-equipos-transporte,
       #edit-field-estado-medicion-agua,
       #edit-field-estado-equipos-informatico {
         float: left;
-        width: 40%;
         min-width: 240px;
       }
       #edit-field-estado-equipos-transporte {
@@ -27,6 +29,17 @@ body.page-entityform-edit {
       #edit-field-dispone-fondos-viaticos {
         clear: left;
         padding-top: 40px;
+      }
+    }
+    @include breakpoint($break-medium) {
+      #edit-field-cantidad-equipos-transport,
+      #edit-field-cantidad-medicion-agua,
+      #edit-field-cantidad-equipos-inform {
+        width: calc(45% - 40px);
+        margin-right: 40px;
+      }
+      .field-widget-options-select {
+        width: calc(45% - 40px);
       }
     }
   }
