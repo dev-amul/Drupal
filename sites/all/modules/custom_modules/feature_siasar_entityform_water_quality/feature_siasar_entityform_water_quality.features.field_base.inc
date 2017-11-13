@@ -164,6 +164,26 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
     'type' => 'mvf_number_decimal_entityreference',
   );
 
+  // Exported field_base: 'field_bacteriological_total'.
+  $field_bases['field_bacteriological_total'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_bacteriological_total',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
   // Exported field_base: 'field_bicarbonates'.
   $field_bases['field_bicarbonates'] = array(
     'active' => 1,
@@ -363,6 +383,26 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'mvf_number_decimal_entityreference',
+  );
+
+  // Exported field_base: 'field_chemical_total'.
+  $field_bases['field_chemical_total'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_chemical_total',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_chlorides'.
@@ -1247,6 +1287,26 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
     'type' => 'mvf_number_decimal_entityreference',
   );
 
+  // Exported field_base: 'field_organochlorine_total'.
+  $field_bases['field_organochlorine_total'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_organochlorine_total',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
   // Exported field_base: 'field_ph'.
   $field_bases['field_ph'] = array(
     'active' => 1,
@@ -1268,6 +1328,26 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'number_decimal',
+  );
+
+  // Exported field_base: 'field_physical_total'.
+  $field_bases['field_physical_total'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_physical_total',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_potassium'.

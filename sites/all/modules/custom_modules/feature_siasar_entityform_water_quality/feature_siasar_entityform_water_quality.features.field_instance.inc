@@ -254,6 +254,53 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
   );
 
+  // Exported field_instance: 'entityform-waq-field_bacteriological_total'.
+  $field_instances['entityform-waq-field_bacteriological_total'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Total of bacteriological parameters exceeding the allowed values',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 45,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_bacteriological_total',
+    'label' => 'Bacteriological Total',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'elements_numberfield',
+      'settings' => array(),
+      'type' => 'elements_numberfield',
+      'weight' => 56,
+    ),
+  );
+
   // Exported field_instance: 'entityform-waq-field_bicarbonates'.
   $field_instances['entityform-waq-field_bicarbonates'] = array(
     'bundle' => 'waq',
@@ -551,6 +598,53 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
   );
 
+  // Exported field_instance: 'entityform-waq-field_chemical_total'.
+  $field_instances['entityform-waq-field_chemical_total'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Total of chemical parameters exceeding the allowed values',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 43,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_chemical_total',
+    'label' => 'Chemical Total',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'elements_numberfield',
+      'settings' => array(),
+      'type' => 'elements_numberfield',
+      'weight' => 38,
+    ),
+  );
+
   // Exported field_instance: 'entityform-waq-field_chlorides'.
   $field_instances['entityform-waq-field_chlorides'] = array(
     'bundle' => 'waq',
@@ -786,7 +880,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 14,
+      'weight' => 13,
     ),
   );
 
@@ -1081,7 +1175,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 48,
+      'weight' => 54,
     ),
   );
 
@@ -2001,6 +2095,53 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
   );
 
+  // Exported field_instance: 'entityform-waq-field_organochlorine_total'.
+  $field_instances['entityform-waq-field_organochlorine_total'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Total of organochlorine parameters exceeding the allowed values',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 44,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_organochlorine_total',
+    'label' => 'Organochlorine Total',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'elements_numberfield',
+      'settings' => array(),
+      'type' => 'elements_numberfield',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'entityform-waq-field_pais'.
   $field_instances['entityform-waq-field_pais'] = array(
     'bundle' => 'waq',
@@ -2042,7 +2183,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   // Exported field_instance: 'entityform-waq-field_ph'.
   $field_instances['entityform-waq-field_ph'] = array(
     'bundle' => 'waq',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2079,10 +2220,57 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'number',
+      'module' => 'elements_numberfield',
       'settings' => array(),
-      'type' => 'number',
+      'type' => 'elements_numberfield',
       'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-waq-field_physical_total'.
+  $field_instances['entityform-waq-field_physical_total'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Total of physical parameters exceeding the allowed values',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 42,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_physical_total',
+    'label' => 'Physical Total',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'elements_numberfield',
+      'settings' => array(),
+      'type' => 'elements_numberfield',
+      'weight' => 14,
     ),
   );
 
@@ -2822,7 +3010,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 49,
+      'weight' => 55,
     ),
   );
 
@@ -2979,9 +3167,11 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   t('Alkalinity');
   t('Altitude');
   t('Arsenic');
+  t('Bacteriological Total');
   t('Bicarbonates');
   t('Calcium');
   t('Carbonates');
+  t('Chemical Total');
   t('Chlorides');
   t('Color');
   t('Conductivity');
@@ -3000,6 +3190,8 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   t('Nitrites');
   t('Observations');
   t('Organochlorine Pesticides');
+  t('Organochlorine Total');
+  t('Physical Total');
   t('Potassium');
   t('Residual Chlorine');
   t('Sodium');
@@ -3008,6 +3200,10 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   t('Survey Date');
   t('Temperature');
   t('Total Coliforms');
+  t('Total of bacteriological parameters exceeding the allowed values');
+  t('Total of chemical parameters exceeding the allowed values');
+  t('Total of organochlorine parameters exceeding the allowed values');
+  t('Total of physical parameters exceeding the allowed values');
   t('Turbidity');
   t('Water Source Code');
   t('Water Source Name');
