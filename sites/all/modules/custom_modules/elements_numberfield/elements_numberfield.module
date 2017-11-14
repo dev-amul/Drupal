@@ -24,6 +24,7 @@ function elements_numberfield_field_widget_form(&$form, &$form_state, $field, $i
     '#type'=> 'numberfield',
     '#size' => 20,
     '#default_value'=> isset($items[$delta]['number']) ? $items[$delta]['number'] : '',
+    '#element_validate' => array(),
   );
   return $element;
 }
