@@ -20,7 +20,6 @@ function elements_numberfield_field_widget_info() {
  */
 function elements_numberfield_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
   $field_name = $field['field_name'];
-  $decimals = 1 * pow(10, 0 - $field['settings']['scale']);
   $element += array(
     '#type'=> 'numberfield',
     '#size' => 20,
@@ -28,7 +27,7 @@ function elements_numberfield_field_widget_form(&$form, &$form_state, $field, $i
     '#element_validate' => isset($element['#element_validate']) ? $element['#element_validate'] : array(),
     '#min' => $instance['settings']['min'],
     '#max' => $instance['settings']['max'],
-    '#step' => $decimals,
+    '#step' => 1 * pow(10, 0 - $field['settings']['scale']),
   );
   return $element;
 }
