@@ -108,7 +108,5 @@ features[field_instance][] = entityform-waq-field_tipo_de_fuente
 features[field_instance][] = entityform-waq-field_total_coliforms
 features[field_instance][] = entityform-waq-field_turbidity
 features[field_instance][] = entityform-waq-field_user_reference
-features[units_measure][] = color
-features[units_unit][] = platinum_cobalt_scale
 features_exclude[dependencies][feature_siasar_testing_form_workflow] = feature_siasar_testing_form_workflow
 project path = sites/all/modules/custom_modules

@@ -60,35 +60,3 @@ function feature_siasar_entityform_water_quality_default_entityform_type() {
   }');
   return $items;
 }
-
-/**
- * Implements hook_default_units_measure().
- */
-function feature_siasar_entityform_water_quality_default_units_measure() {
-  $items = array();
-  $items['color'] = entity_import('units_measure', '{
-    "measure" : "color",
-    "label" : "Color",
-    "description" : "",
-    "converter" : "linear",
-    "rdf_mapping" : []
-  }');
-  return $items;
-}
-
-/**
- * Implements hook_default_units_unit().
- */
-function feature_siasar_entityform_water_quality_default_units_unit() {
-  $items = array();
-  $items['platinum_cobalt_scale'] = entity_import('units_unit', '{
-    "measure" : "color",
-    "machine_name" : "platinum_cobalt_scale",
-    "label" : "Platinum-Cobalt Scale",
-    "symbol" : "Pt-Co",
-    "description" : "",
-    "factor" : "1",
-    "rdf_mapping" : []
-  }');
-  return $items;
-}
