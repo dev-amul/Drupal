@@ -1108,3 +1108,10 @@ function siasar_updates_update_7168(&$sandbox) {
 
   return t('@num modules have been removed from the system table.', array('@num' => $num));
 }
+/**
+ * 566 - New units for Water Quality
+ */
+function siasar_updates_update_7169() {
+  features_revert_module('feature_siasar_measures');
+  features_revert_module('feature_siasar_entityform_water_quality');
+}
