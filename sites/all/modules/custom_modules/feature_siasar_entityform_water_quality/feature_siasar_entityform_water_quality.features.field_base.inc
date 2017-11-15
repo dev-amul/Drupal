@@ -70,7 +70,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -84,6 +84,9 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_altitude',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -157,7 +160,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -244,7 +247,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -311,7 +314,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -378,7 +381,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -465,7 +468,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -733,7 +736,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -854,7 +857,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -921,7 +924,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -988,7 +991,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -1055,7 +1058,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -1122,7 +1125,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -1189,7 +1192,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -1410,7 +1413,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -1477,7 +1480,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -1544,7 +1547,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
@@ -1611,7 +1614,7 @@ function feature_siasar_entityform_water_quality_field_default_field_bases() {
       'value' => array(
         'decimal_separator' => '.',
         'precision' => 10,
-        'scale' => 2,
+        'scale' => 4,
       ),
     ),
     'translatable' => 0,
