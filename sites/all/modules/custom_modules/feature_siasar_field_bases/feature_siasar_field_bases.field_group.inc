@@ -760,9 +760,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Staff',
     'weight' => '81',
     'children' => array(
-      0 => 'field_com_fic_cesh_pa',
-      1 => 'field_com_fic_cesh_pe',
-      2 => 'field_com_fic_cesh_pi',
+      0 => 'field_com_fic_cesh_pi',
+      1 => 'field_com_fic_cesh_pa',
+      2 => 'field_com_fic_cesh_pe',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -795,9 +795,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '82',
     'children' => array(
-      0 => 'field_com_fic_cesh_pm',
-      1 => 'field_com_fic_cesh_pq',
-      2 => 'field_com_fic_cesh_pu',
+      0 => 'field_com_fic_cesh_pu',
+      1 => 'field_com_fic_cesh_pm',
+      2 => 'field_com_fic_cesh_pq',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -830,9 +830,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Shared',
     'weight' => '83',
     'children' => array(
-      0 => 'field_com_fic_cesh_pca',
-      1 => 'field_com_fic_cesh_paa',
-      2 => 'field_com_fic_cesh_pba',
+      0 => 'field_com_fic_cesh_paa',
+      1 => 'field_com_fic_cesh_pba',
+      2 => 'field_com_fic_cesh_pca',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -900,9 +900,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Staff',
     'weight' => '89',
     'children' => array(
-      0 => 'field_com_fic_cesh_pf',
+      0 => 'field_com_fic_cesh_pb',
       1 => 'field_com_fic_cesh_pj',
-      2 => 'field_com_fic_cesh_pb',
+      2 => 'field_com_fic_cesh_pf',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -935,9 +935,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '90',
     'children' => array(
-      0 => 'field_com_fic_cesh_pv',
+      0 => 'field_com_fic_cesh_pr',
       1 => 'field_com_fic_cesh_pn',
-      2 => 'field_com_fic_cesh_pr',
+      2 => 'field_com_fic_cesh_pv',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -970,9 +970,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Shared',
     'weight' => '91',
     'children' => array(
-      0 => 'field_com_fic_cesh_pcb',
-      1 => 'field_com_fic_cesh_pbb',
-      2 => 'field_com_fic_cesh_pab',
+      0 => 'field_com_fic_cesh_pab',
+      1 => 'field_com_fic_cesh_pcb',
+      2 => 'field_com_fic_cesh_pbb',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1041,8 +1041,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '97',
     'children' => array(
       0 => 'field_com_fic_cesh_pk',
-      1 => 'field_com_fic_cesh_pc',
-      2 => 'field_com_fic_cesh_pg',
+      1 => 'field_com_fic_cesh_pg',
+      2 => 'field_com_fic_cesh_pc',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1110,8 +1110,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Shared',
     'weight' => '99',
     'children' => array(
-      0 => 'field_com_fic_cesh_pbc',
-      1 => 'field_com_fic_cesh_pcc',
+      0 => 'field_com_fic_cesh_pcc',
+      1 => 'field_com_fic_cesh_pbc',
       2 => 'field_com_fic_cesh_pac',
     ),
     'format_type' => 'div',
@@ -1180,9 +1180,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Staff',
     'weight' => '46',
     'children' => array(
-      0 => 'field_com_fic_cesh_ph',
-      1 => 'field_com_fic_cesh_pd',
-      2 => 'field_com_fic_cesh_pl',
+      0 => 'field_com_fic_cesh_pl',
+      1 => 'field_com_fic_cesh_ph',
+      2 => 'field_com_fic_cesh_pd',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1215,9 +1215,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '47',
     'children' => array(
-      0 => 'field_com_fic_cesh_px',
-      1 => 'field_com_fic_cesh_pp',
-      2 => 'field_com_fic_cesh_pt',
+      0 => 'field_com_fic_cesh_pp',
+      1 => 'field_com_fic_cesh_pt',
+      2 => 'field_com_fic_cesh_px',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1587,7 +1587,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-com-fic-cecg field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_com_fic_cecg|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
@@ -1605,20 +1605,20 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C3. School: Water Supply System',
     'weight' => '3',
     'children' => array(
-      0 => 'field_system_ref',
-      1 => 'field_com_fic_cesa_pd',
-      2 => 'field_com_fic_cesa_pa',
+      0 => 'field_com_fic_cesa_pa',
+      1 => 'field_system_ref',
+      2 => 'field_com_fic_cesa_pd',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'C3. School: Water system',
+      'label' => 'C3. School: Water Supply System',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-com-fic-cesa field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_com_fic_cesa|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
@@ -1696,12 +1696,12 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D2. Healthcare center: General characteristics',
     'weight' => '0',
     'children' => array(
-      0 => 'field_com_fic_cssgcodigo',
-      1 => 'field_group_com_fic_cscgnom',
-      2 => 'field_com_fic_cscgperf',
-      3 => 'field_com_fic_cscgusuf',
-      4 => 'field_com_fic_cscgperm',
-      5 => 'field_com_fic_cscgusum',
+      0 => 'field_group_com_fic_cscgnom',
+      1 => 'field_com_fic_cscgperf',
+      2 => 'field_com_fic_cscgperm',
+      3 => 'field_com_fic_cscgusum',
+      4 => 'field_com_fic_cscgusuf',
+      5 => 'field_com_fic_cssgcodigo',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1730,9 +1730,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D3.  Healthcare center: Water system',
     'weight' => '1',
     'children' => array(
-      0 => 'field_com_fic_cssa_pd',
-      1 => 'field_com_fic_cssa_pa',
-      2 => 'field_system_ref',
+      0 => 'field_system_ref',
+      1 => 'field_com_fic_cssa_pd',
+      2 => 'field_com_fic_cssa_pa',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1761,42 +1761,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D4.  Healthcare center: Sanitation and hygiene',
     'weight' => '2',
     'children' => array(
-      0 => 'field_com_fic_cssh_paa',
-      1 => 'field_com_fic_cssh_pad',
-      2 => 'field_com_fic_cssh_pab',
-      3 => 'field_com_fic_cssh_pac',
-      4 => 'field_com_fic_cssh_pbc',
-      5 => 'field_com_fic_cssh_pt',
-      6 => 'field_com_fic_cssh_pw',
-      7 => 'field_com_fic_cssh_pr',
-      8 => 'field_com_fic_cssh_pcc',
-      9 => 'field_com_fic_cssh_pv',
-      10 => 'field_com_fic_cssh_pm',
-      11 => 'field_com_fic_cssh_pb',
-      12 => 'field_com_fic_cssh_ph',
-      13 => 'field_com_fic_cssh_pu',
-      14 => 'field_com_fic_cssh_pcd',
-      15 => 'field_com_fic_cssh_pf',
-      16 => 'field_com_fic_cssh_pe',
-      17 => 'field_com_fic_cssh_pc',
-      18 => 'field_com_fic_cssh_pca',
-      19 => 'field_com_fic_cssh_pcb',
-      20 => 'field_com_fic_cssh_pi',
-      21 => 'field_com_fic_cssh_pd',
-      22 => 'field_com_fic_cssh_px',
-      23 => 'field_com_fic_cssh_ps',
-      24 => 'field_com_fic_cssh_pn',
-      25 => 'field_com_fic_cssh_pl',
-      26 => 'field_com_fic_cssh_pp',
-      27 => 'field_com_fic_cssh_pg',
-      28 => 'field_com_fic_cssh_pk',
-      29 => 'field_com_fic_cssh_pba',
-      30 => 'field_com_fic_cssh_pj',
-      31 => 'field_com_fic_cssh_po',
-      32 => 'field_com_fic_cssh_pbb',
-      33 => 'field_com_fic_cssh_pbd',
-      34 => 'field_com_fic_cssh_pa',
-      35 => 'field_com_fic_cssh_pq',
+      0 => 'group_d4_grid_1',
+      1 => 'group_d4_grid_2',
+      2 => 'group_d4_grid_3',
+      3 => 'group_d4_grid_4',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

@@ -13,6 +13,204 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_1_1|entityform|comunidad|default';
+  $field_group->group_name = 'group_b3_grid_1_1';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_b3_grid_1';
+  $field_group->data = array(
+    'label' => 'OCCASIONAL USE',
+    'weight' => '79',
+    'children' => array(
+      0 => 'field_com_num_viv_usoinfa',
+      1 => 'field_com_num_viv_usohab',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'OCCASIONAL USE',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_1_1|entityform|comunidad|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_1_2|entityform|comunidad|default';
+  $field_group->group_name = 'group_b3_grid_1_2';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_b3_grid_1';
+  $field_group->data = array(
+    'label' => 'FULL-TIME use',
+    'weight' => '80',
+    'children' => array(
+      0 => 'field_com_num_viv_usoinfb',
+      1 => 'field_com_num_viv_usotodos',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'FULL-TIME use',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_1_2|entityform|comunidad|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_1|entityform|comunidad|default';
+  $field_group->group_name = 'group_b3_grid_1';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_com_uso_inf';
+  $field_group->data = array(
+    'label' => 'Type I',
+    'weight' => '8',
+    'children' => array(
+      0 => 'group_b3_grid_1_2',
+      1 => 'group_b3_grid_1_1',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Type I',
+      'instance_settings' => array(
+        'label_element' => 'h4',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_1|entityform|comunidad|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_2_1|entityform|comunidad|default';
+  $field_group->group_name = 'group_b3_grid_2_1';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_b3_grid_2';
+  $field_group->data = array(
+    'label' => 'OCCASIONAL USE',
+    'weight' => '10',
+    'children' => array(
+      0 => 'field_com_num_viv_usohab2',
+      1 => 'field_com_num_viv_usoinfa2',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'OCCASIONAL USE',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_2_1|entityform|comunidad|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_2_2|entityform|comunidad|default';
+  $field_group->group_name = 'group_b3_grid_2_2';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_b3_grid_2';
+  $field_group->data = array(
+    'label' => 'FULL-TIME use',
+    'weight' => '12',
+    'children' => array(
+      0 => 'field_com_num_viv_usoinfb2',
+      1 => 'field_com_num_viv_usotodos2',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'FULL-TIME use',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_2_2|entityform|comunidad|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_b3_grid_2|entityform|comunidad|default';
+  $field_group->group_name = 'group_b3_grid_2';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'comunidad';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_com_uso_inf';
+  $field_group->data = array(
+    'label' => 'Type II',
+    'weight' => '9',
+    'children' => array(
+      0 => 'group_b3_grid_2_1',
+      1 => 'group_b3_grid_2_2',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Type II',
+      'instance_settings' => array(
+        'label_element' => 'h4',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_b3_grid_2|entityform|comunidad|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_c4_grid_1_1|field_collection_item|field_con_fic_ce_ficha|default';
   $field_group->group_name = 'group_c4_grid_1_1';
   $field_group->entity_type = 'field_collection_item';
@@ -635,9 +833,9 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'field_com_ce_existe',
-      1 => 'field_con_fic_ce_ficha',
+      1 => 'field_ce_location',
       2 => 'field_com_ce_nombre',
-      3 => 'field_ce_location',
+      3 => 'field_con_fic_ce_ficha',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -670,8 +868,8 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'weight' => '5',
     'children' => array(
       0 => 'field_com_fic_cs_ficha',
-      1 => 'field_com_cs_nombre',
-      2 => 'field_com_cs_existe',
+      1 => 'field_com_cs_existe',
+      2 => 'field_com_cs_nombre',
       3 => 'field_cs_location',
     ),
     'format_type' => 'div',
@@ -861,6 +1059,112 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_com_fic_cscg|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_com_fic_cscg';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'D2. Healthcare center: General characteristics',
+    'weight' => '0',
+    'children' => array(
+      0 => 'field_group_com_fic_cscgnom',
+      1 => 'field_com_fic_cscgperf',
+      2 => 'field_com_fic_cscgperm',
+      3 => 'field_com_fic_cscgusum',
+      4 => 'field_com_fic_cscgusuf',
+      5 => 'field_com_fic_cssgcodigo',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'D2. Healthcare center: General characteristics',
+      'instance_settings' => array(
+        'label_element' => 'h3',
+        'id' => '',
+        'classes' => '',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_com_fic_cscg|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_com_fic_cssa|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_com_fic_cssa';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'D3.  Healthcare center: Water system',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_system_ref',
+      1 => 'field_com_fic_cssa_pd',
+      2 => 'field_com_fic_cssa_pa',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'D3.  Healthcare center: Water system',
+      'instance_settings' => array(
+        'label_element' => 'h3',
+        'id' => '',
+        'classes' => '',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_com_fic_cssa|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_com_fic_cssh|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_com_fic_cssh';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'D4.  Healthcare center: Sanitation and hygiene',
+    'weight' => '2',
+    'children' => array(
+      0 => 'group_d4_grid_2',
+      1 => 'group_d4_grid_4',
+      2 => 'group_d4_grid_1',
+      3 => 'group_d4_grid_3',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'D4.  Healthcare center: Sanitation and hygiene',
+      'instance_settings' => array(
+        'label_element' => 'h3',
+        'id' => '',
+        'classes' => '',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_com_fic_cssh|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_com_higiene|entityform|comunidad|default';
   $field_group->group_name = 'group_com_higiene';
   $field_group->entity_type = 'entityform';
@@ -871,9 +1175,9 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'B5. Household hygiene',
     'weight' => '19',
     'children' => array(
-      0 => 'field_com_hig_num_vivagua',
+      0 => 'field_com_hig_num_vivtodos',
       1 => 'field_com_hig_num_vivbasica',
-      2 => 'field_com_hig_num_vivtodos',
+      2 => 'field_com_hig_num_vivagua',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -905,9 +1209,9 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'E1. Interventions scheduled or in progress ',
     'weight' => '8',
     'children' => array(
-      0 => 'field_com_fc_systypimprove',
-      1 => 'field_com_fc_newwatsystem',
-      2 => 'field_com_fc_impsystem',
+      0 => 'field_com_fc_impsystem',
+      1 => 'field_com_fc_systypimprove',
+      2 => 'field_com_fc_newwatsystem',
       3 => 'field_com_fc_systypunimprove',
     ),
     'format_type' => 'div',
@@ -1069,10 +1373,10 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'B1. Data collection method',
     'weight' => '15',
     'children' => array(
-      0 => 'field_com_num_viv_muestra',
-      1 => 'field_com_lev_general',
+      0 => 'field_com_lev_general',
+      1 => 'field_com_lev_utilform',
       2 => 'field_com_lev_muestral',
-      3 => 'field_com_lev_utilform',
+      3 => 'field_com_num_viv_muestra',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1104,9 +1408,9 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'B6. Solid waste collection and disposal',
     'weight' => '20',
     'children' => array(
-      0 => 'field_com_recotrata_prac',
+      0 => 'field_com_recontrata_numvivc',
       1 => 'field_com_recotrata_disp',
-      2 => 'field_com_recontrata_numvivc',
+      2 => 'field_com_recotrata_prac',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1138,12 +1442,12 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'B. Sanitation and hygiene',
     'weight' => '1',
     'children' => array(
-      0 => 'group_com_exist_infestr',
+      0 => 'group_com_uso_inf',
       1 => 'group_com_higiene',
-      2 => 'group_com_proc_empleado',
-      3 => 'group_com_recotrata',
-      4 => 'group_com_no_uso',
-      5 => 'group_com_uso_inf',
+      2 => 'group_com_no_uso',
+      3 => 'group_com_proc_empleado',
+      4 => 'group_com_recotrata',
+      5 => 'group_com_exist_infestr',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1178,8 +1482,8 @@ function feature_siasar_entityform_comunidad_field_group_info() {
       0 => 'field_com_srv_existe',
       1 => 'field_com_srv_inte_existe',
       2 => 'field_com_srv_telm_existe',
-      3 => 'field_com_srv_caracteristicas',
-      4 => 'field_com_srv_telf_existe',
+      3 => 'field_com_srv_telf_existe',
+      4 => 'field_com_srv_caracteristicas',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1211,14 +1515,8 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'B3. Use of improved sanitation (Type 1 or Type 2)',
     'weight' => '17',
     'children' => array(
-      0 => 'field_com_num_viv_usoinfa',
-      1 => 'field_com_num_viv_usotodos2',
-      2 => 'field_com_num_viv_usoinfa2',
-      3 => 'field_com_num_viv_usohab2',
-      4 => 'field_com_num_viv_usoinfb',
-      5 => 'field_com_num_viv_usoinfb2',
-      6 => 'field_com_num_viv_usohab',
-      7 => 'field_com_num_viv_usotodos',
+      0 => 'group_b3_grid_1',
+      1 => 'group_b3_grid_2',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1304,6 +1602,40 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_1_1|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_1_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_1';
+  $field_group->data = array(
+    'label' => 'Staff',
+    'weight' => '25',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pi',
+      1 => 'field_com_fic_cssh_pe',
+      2 => 'field_com_fic_cssh_pa',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Staff',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_1_1|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_d4_grid_1_1|field_collection_item|field_com_fic_cs_ficha|form';
   $field_group->group_name = 'group_d4_grid_1_1';
   $field_group->entity_type = 'field_collection_item';
@@ -1320,20 +1652,55 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Staff',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-1-1 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_1_1|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_1_2|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_1_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_1';
+  $field_group->data = array(
+    'label' => 'Patients',
+    'weight' => '26',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pu',
+      1 => 'field_com_fic_cssh_pm',
+      2 => 'field_com_fic_cssh_pq',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Patients',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_1_2|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1356,12 +1723,12 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'format_settings' => array(
       'label' => 'Patients',
       'instance_settings' => array(
+        'label_element' => 'h3',
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-d4-grid-1-2 field-group-div',
+        'classes' => 'group-grid',
         'description' => '',
         'show_label' => '1',
-        'label_element' => 'h3',
         'effect' => 'none',
         'speed' => 'fast',
       ),
@@ -1369,6 +1736,40 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     ),
   );
   $field_groups['group_d4_grid_1_2|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_1_3|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_1_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_1';
+  $field_group->data = array(
+    'label' => 'Shared',
+    'weight' => '28',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pca',
+      1 => 'field_com_fic_cssh_paa',
+      2 => 'field_com_fic_cssh_pba',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Shared',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_1_3|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1381,7 +1782,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->parent_name = 'group_d4_grid_1';
   $field_group->data = array(
     'label' => 'Shared',
-    'weight' => '25',
+    'weight' => '26',
     'children' => array(
       0 => 'field_com_fic_cssh_pca',
       1 => 'field_com_fic_cssh_paa',
@@ -1389,20 +1790,55 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Shared',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => '',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_1_3|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_1|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_com_fic_cssh';
+  $field_group->data = array(
+    'label' => 'Type I',
+    'weight' => '3',
+    'children' => array(
+      0 => 'group_d4_grid_1_1',
+      1 => 'group_d4_grid_1_2',
+      2 => 'group_d4_grid_1_3',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Type I',
+      'instance_settings' => array(
+        'label_element' => 'h4',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_1|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1412,31 +1848,66 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->entity_type = 'field_collection_item';
   $field_group->bundle = 'field_com_fic_cs_ficha';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_saneamiento';
+  $field_group->parent_name = 'group_com_fic_cssh';
   $field_group->data = array(
     'label' => 'Type I',
-    'weight' => '49',
+    'weight' => '12',
     'children' => array(
-      0 => 'group_d4_grid_1_2',
-      1 => 'group_d4_grid_1_3',
-      2 => 'group_d4_grid_1_1',
+      0 => 'group_d4_grid_1_3',
+      1 => 'group_d4_grid_1_1',
+      2 => 'group_d4_grid_1_2',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Type I',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-1 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_1|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_2_1|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_2_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_2';
+  $field_group->data = array(
+    'label' => 'Staff',
+    'weight' => '40',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pj',
+      1 => 'field_com_fic_cssh_pb',
+      2 => 'field_com_fic_cssh_pf',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Staff',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_2_1|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1451,26 +1922,61 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'Staff',
     'weight' => '34',
     'children' => array(
-      0 => 'field_com_fic_cssh_pb',
-      1 => 'field_com_fic_cssh_pf',
-      2 => 'field_com_fic_cssh_pj',
+      0 => 'field_com_fic_cssh_pj',
+      1 => 'field_com_fic_cssh_pb',
+      2 => 'field_com_fic_cssh_pf',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Staff',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-2-1 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_2_1|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_2_2|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_2_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_2';
+  $field_group->data = array(
+    'label' => 'Patients',
+    'weight' => '42',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pr',
+      1 => 'field_com_fic_cssh_pv',
+      2 => 'field_com_fic_cssh_pab',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Patients',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_2_2|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1493,12 +1999,12 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'format_settings' => array(
       'label' => 'Patients',
       'instance_settings' => array(
+        'label_element' => 'h3',
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-d4-grid-2-2 field-group-div',
+        'classes' => 'group-grid',
         'description' => '',
         'show_label' => '1',
-        'label_element' => 'h3',
         'effect' => 'none',
         'speed' => 'fast',
       ),
@@ -1506,6 +2012,40 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     ),
   );
   $field_groups['group_d4_grid_2_2|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_2_3|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_2_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_2';
+  $field_group->data = array(
+    'label' => 'Shared',
+    'weight' => '43',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pcb',
+      1 => 'field_com_fic_cssh_pn',
+      2 => 'field_com_fic_cssh_pbb',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Shared',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_2_3|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1518,7 +2058,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->parent_name = 'group_d4_grid_2';
   $field_group->data = array(
     'label' => 'Shared',
-    'weight' => '36',
+    'weight' => '37',
     'children' => array(
       0 => 'field_com_fic_cssh_pcb',
       1 => 'field_com_fic_cssh_pbb',
@@ -1526,20 +2066,55 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Shared',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-2-3 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_2_3|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_2|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_com_fic_cssh';
+  $field_group->data = array(
+    'label' => 'Type II',
+    'weight' => '4',
+    'children' => array(
+      0 => 'group_d4_grid_2_2',
+      1 => 'group_d4_grid_2_3',
+      2 => 'group_d4_grid_2_1',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Type II',
+      'instance_settings' => array(
+        'label_element' => 'h4',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_2|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1549,31 +2124,66 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->entity_type = 'field_collection_item';
   $field_group->bundle = 'field_com_fic_cs_ficha';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_saneamiento';
+  $field_group->parent_name = 'group_com_fic_cssh';
   $field_group->data = array(
     'label' => 'Type II',
-    'weight' => '50',
+    'weight' => '13',
     'children' => array(
-      0 => 'group_d4_grid_2_2',
-      1 => 'group_d4_grid_2_1',
+      0 => 'group_d4_grid_2_1',
+      1 => 'group_d4_grid_2_2',
       2 => 'group_d4_grid_2_3',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Type II',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-2 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_2|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_3_1|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_3_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_3';
+  $field_group->data = array(
+    'label' => 'Staff',
+    'weight' => '30',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pk',
+      1 => 'field_com_fic_cssh_pg',
+      2 => 'field_com_fic_cssh_pc',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Staff',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_3_1|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1588,26 +2198,61 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'Staff',
     'weight' => '36',
     'children' => array(
-      0 => 'field_com_fic_cssh_pc',
-      1 => 'field_com_fic_cssh_pk',
-      2 => 'field_com_fic_cssh_pg',
+      0 => 'field_com_fic_cssh_pk',
+      1 => 'field_com_fic_cssh_pg',
+      2 => 'field_com_fic_cssh_pc',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Staff',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-3-1 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_3_1|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_3_2|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_3_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_3';
+  $field_group->data = array(
+    'label' => 'Patients',
+    'weight' => '31',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pw',
+      1 => 'field_com_fic_cssh_ps',
+      2 => 'field_com_fic_cssh_po',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Patients',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_3_2|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1622,26 +2267,61 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'Patients',
     'weight' => '37',
     'children' => array(
-      0 => 'field_com_fic_cssh_pac',
-      1 => 'field_com_fic_cssh_po',
-      2 => 'field_com_fic_cssh_ps',
+      0 => 'field_com_fic_cssh_pw',
+      1 => 'field_com_fic_cssh_ps',
+      2 => 'field_com_fic_cssh_po',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Patients',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-3-2 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_3_2|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_3_3|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_3_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_3';
+  $field_group->data = array(
+    'label' => 'Shared',
+    'weight' => '32',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pac',
+      1 => 'field_com_fic_cssh_pbc',
+      2 => 'field_com_fic_cssh_pcc',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Shared',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_3_3|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1654,28 +2334,63 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->parent_name = 'group_d4_grid_3';
   $field_group->data = array(
     'label' => 'Shared',
-    'weight' => '38',
+    'weight' => '39',
     'children' => array(
-      0 => 'field_com_fic_cssh_pw',
+      0 => 'field_com_fic_cssh_pac',
       1 => 'field_com_fic_cssh_pbc',
       2 => 'field_com_fic_cssh_pcc',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Shared',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-3-3 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_3_3|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_3|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_com_fic_cssh';
+  $field_group->data = array(
+    'label' => 'Unimproved',
+    'weight' => '5',
+    'children' => array(
+      0 => 'group_d4_grid_3_1',
+      1 => 'group_d4_grid_3_3',
+      2 => 'group_d4_grid_3_2',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Unimproved',
+      'instance_settings' => array(
+        'label_element' => 'h4',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_3|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1685,31 +2400,66 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->entity_type = 'field_collection_item';
   $field_group->bundle = 'field_com_fic_cs_ficha';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_saneamiento';
+  $field_group->parent_name = 'group_com_fic_cssh';
   $field_group->data = array(
     'label' => 'Unimproved',
-    'weight' => '51',
+    'weight' => '14',
     'children' => array(
-      0 => 'group_d4_grid_3_3',
-      1 => 'group_d4_grid_3_1',
-      2 => 'group_d4_grid_3_2',
+      0 => 'group_d4_grid_3_1',
+      1 => 'group_d4_grid_3_2',
+      2 => 'group_d4_grid_3_3',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Unimproved',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-3 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_3|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_4_1|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_4_1';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_4';
+  $field_group->data = array(
+    'label' => 'Staff',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pd',
+      1 => 'field_com_fic_cssh_pl',
+      2 => 'field_com_fic_cssh_ph',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Staff',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_4_1|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1724,26 +2474,61 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'Staff',
     'weight' => '5',
     'children' => array(
-      0 => 'field_com_fic_cssh_ph',
+      0 => 'field_com_fic_cssh_pd',
       1 => 'field_com_fic_cssh_pl',
-      2 => 'field_com_fic_cssh_pd',
+      2 => 'field_com_fic_cssh_ph',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Staff',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-4-1 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_4_1|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_4_2|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_4_2';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_4';
+  $field_group->data = array(
+    'label' => 'Patients',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_com_fic_cssh_px',
+      1 => 'field_com_fic_cssh_pp',
+      2 => 'field_com_fic_cssh_pt',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Patients',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_4_2|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1759,25 +2544,60 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'weight' => '6',
     'children' => array(
       0 => 'field_com_fic_cssh_px',
-      1 => 'field_com_fic_cssh_pt',
-      2 => 'field_com_fic_cssh_pp',
+      1 => 'field_com_fic_cssh_pp',
+      2 => 'field_com_fic_cssh_pt',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Patients',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-4-2 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_4_2|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_4_3|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_4_3';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d4_grid_4';
+  $field_group->data = array(
+    'label' => 'Shared',
+    'weight' => '7',
+    'children' => array(
+      0 => 'field_com_fic_cssh_pbd',
+      1 => 'field_com_fic_cssh_pcd',
+      2 => 'field_com_fic_cssh_pad',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Shared',
+      'instance_settings' => array(
+        'label_element' => 'h5',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_4_3|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1790,7 +2610,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->parent_name = 'group_d4_grid_4';
   $field_group->data = array(
     'label' => 'Shared',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'field_com_fic_cssh_pbd',
       1 => 'field_com_fic_cssh_pcd',
@@ -1798,20 +2618,55 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Shared',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-4-3 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_4_3|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d4_grid_4|field_collection_item|field_com_fic_cs_ficha|default';
+  $field_group->group_name = 'group_d4_grid_4';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_com_fic_cs_ficha';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_com_fic_cssh';
+  $field_group->data = array(
+    'label' => 'Less than 10m',
+    'weight' => '6',
+    'children' => array(
+      0 => 'group_d4_grid_4_1',
+      1 => 'group_d4_grid_4_3',
+      2 => 'group_d4_grid_4_2',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Less than 10m',
+      'instance_settings' => array(
+        'label_element' => 'h4',
+        'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d4_grid_4|field_collection_item|field_com_fic_cs_ficha|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1821,28 +2676,29 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   $field_group->entity_type = 'field_collection_item';
   $field_group->bundle = 'field_com_fic_cs_ficha';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_h';
+  $field_group->parent_name = 'group_com_fic_cssh';
   $field_group->data = array(
     'label' => 'Less than 10m',
-    'weight' => '4',
+    'weight' => '15',
     'children' => array(
       0 => 'group_d4_grid_4_1',
-      1 => 'group_d4_grid_4_2',
-      2 => 'group_d4_grid_4_3',
+      1 => 'group_d4_grid_4_3',
+      2 => 'group_d4_grid_4_2',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'open',
+      'label' => 'Less than 10m',
       'instance_settings' => array(
-        'description' => '',
-        'show_label' => 1,
         'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-        'classes' => 'group-d4-grid-4 field-group-div',
         'required_fields' => 1,
         'id' => '',
+        'classes' => 'group-grid',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_d4_grid_4|field_collection_item|field_com_fic_cs_ficha|form'] = $field_group;
@@ -1860,14 +2716,14 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'A. General information',
     'weight' => '0',
     'children' => array(
-      0 => 'group_co_poblacion',
-      1 => 'group_com_cantidad_viv',
-      2 => 'group_com_dist_viviendas',
-      3 => 'group_com_srv',
-      4 => 'group_com_viviendas_sin_sistema',
-      5 => 'group_info_general',
-      6 => 'group_init',
-      7 => 'group_otras_divisiones',
+      0 => 'group_com_cantidad_viv',
+      1 => 'group_com_dist_viviendas',
+      2 => 'group_info_general',
+      3 => 'group_init',
+      4 => 'group_otras_divisiones',
+      5 => 'group_co_poblacion',
+      6 => 'group_com_srv',
+      7 => 'group_com_viviendas_sin_sistema',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1899,12 +2755,12 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'A1.',
     'weight' => '76',
     'children' => array(
-      0 => 'field_com_georef',
-      1 => 'field_entidad_local',
+      0 => 'field_entidad_local',
+      1 => 'field_com_georef',
       2 => 'field_entity_name',
       3 => 'field_imagenc',
-      4 => 'field_com_codigo_comunidad',
-      5 => 'field_com_altitud',
+      4 => 'field_com_altitud',
+      5 => 'field_com_codigo_comunidad',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1937,9 +2793,9 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'weight' => '72',
     'children' => array(
       0 => 'field_fecha_encuesta',
-      1 => 'field_status',
-      2 => 'field_pais',
-      3 => 'field_user_reference',
+      1 => 'field_user_reference',
+      2 => 'field_status',
+      3 => 'field_pais',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1972,8 +2828,8 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'weight' => '77',
     'children' => array(
       0 => 'field_area_planificacion',
-      1 => 'field_cuenca_hidrografica',
-      2 => 'field_otras_divisiones',
+      1 => 'field_otras_divisiones',
+      2 => 'field_cuenca_hidrografica',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -2081,11 +2937,16 @@ function feature_siasar_entityform_comunidad_field_group_info() {
   t('C3. School: Water Supply System');
   t('D. Health center');
   t('D1. Health centers');
+  t('D2. Healthcare center: General characteristics');
+  t('D3.  Healthcare center: Water system');
+  t('D4.  Healthcare center: Sanitation and hygiene');
   t('E. Interventions');
   t('E1. Interventions scheduled or in progress ');
   t('F. Comments');
   t('F1. Comments and observations');
+  t('FULL-TIME use');
   t('Less than 10m');
+  t('OCCASIONAL USE');
   t('Patients');
   t('Shared');
   t('Staff');

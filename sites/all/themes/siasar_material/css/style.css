@@ -1390,35 +1390,73 @@ body.page-entityform-view .entity-entityform h3 {
   font-size: 1.5rem;
 }
 body.page-entityform-view .entity-entityform h4 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 }
 body.page-entityform-view .entity-entityform h5 {
   font-size: 1.2rem;
+  font-weight: 500;
   color: #666;
 }
 body.page-entityform-view .entity-entityform img {
   max-width: 100%;
   height: auto;
 }
-body.page-entityform-view .entity-entityform .group-grid .group-grid h5 {
-  float: left;
-  width: 140px;
-  padding: 0 20px 0 0;
-  border-bottom: dotted #ddd 1px;
+@media (min-width: 600px) {
+  body.page-entityform-view .entity-entityform .group-grid h4 {
+    float: left;
+    width: 125px;
+    padding-right: 10px;
+  }
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid {
+  margin-left: 15px;
+  padding-left: 15px;
+  border-left: solid #00829e 2px;
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid {
+    margin-left: 125px;
+    padding-left: 20px;
+  }
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid h5 {
+    float: left;
+    width: 140px;
+    padding: 0 20px 0 0;
+    border-bottom: dotted #ddd 1px;
+  }
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
-  margin: 0 0 0 140px;
-  padding: 0 0 20px 20px;
+  margin: 0 0 0 15px;
+  padding: 0 0 15px;
   clear: none;
   border: none;
-  border-left: dotted 1px #ddd;
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
+    margin-left: 140px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    border-left: dotted 1px #ddd;
+  }
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child {
-  padding-bottom: 0;
-  margin-bottom: 20px;
+  padding-bottom: 40px;
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid div.field .field-label {
-  font-weight: normal;
+  font-weight: 500;
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid:last-child {
+  margin-bottom: 20px;
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid:last-child {
+    margin-bottom: 0;
+  }
+}
+body.page-entityform-view .entity-entityform .group-grid .group-grid:last-child div.field:last-child {
+  padding-bottom: 0;
 }
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-label {
   float: none;
@@ -1426,12 +1464,17 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
 }
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items {
   margin-top: 10px;
-  margin-left: 40px;
+  margin-left: 20px;
   padding-left: 20px;
   border-left: dotted #ddd 1px;
   list-style-type: none;
   position: relative;
   counter-reset: item;
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items {
+    margin-left: 40px;
+  }
 }
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items li {
   counter-increment: item;
