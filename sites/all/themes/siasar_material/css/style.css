@@ -1406,6 +1406,7 @@ body.page-entityform-view .entity-entityform img {
     float: left;
     width: 125px;
     padding-right: 10px;
+    border-bottom: solid #00829e 2px;
   }
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid {
@@ -1442,7 +1443,7 @@ body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
   }
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child {
-  padding-bottom: 40px;
+  padding-bottom: 65px;
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid div.field .field-label {
   font-weight: 500;
@@ -1455,7 +1456,10 @@ body.page-entityform-view .entity-entityform .group-grid .group-grid:last-child 
     margin-bottom: 0;
   }
 }
-body.page-entityform-view .entity-entityform .group-grid .group-grid:last-child div.field:last-child {
+body.page-entityform-view .entity-entityform .group-grid:last-child .group-grid:last-child {
+  margin-bottom: 0;
+}
+body.page-entityform-view .entity-entityform .group-grid:last-child .group-grid:last-child div.field:last-child {
   padding-bottom: 0;
 }
 body.page-entityform-view .entity-entityform .field-type-field-collection > .field-label {
