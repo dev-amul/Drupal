@@ -1443,7 +1443,12 @@ body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
   }
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child {
-  padding-bottom: 65px;
+  padding-bottom: 40px;
+}
+@media (min-width: 600px) {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child {
+    padding-bottom: 65px;
+  }
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid div.field .field-label {
   font-weight: 500;
