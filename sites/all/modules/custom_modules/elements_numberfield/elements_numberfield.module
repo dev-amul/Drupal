@@ -24,6 +24,10 @@ function elements_numberfield_field_widget_form(&$form, &$form_state, $field, $i
     '#type'=> 'numberfield',
     '#size' => 20,
     '#default_value'=> isset($items[$delta]['number']) ? $items[$delta]['number'] : '',
+    '#element_validate' => isset($element['#element_validate']) ? $element['#element_validate'] : array(),
+    '#min' => $instance['settings']['min'],
+    '#max' => $instance['settings']['max'],
+    '#step' => 1 * pow(10, 0 - $field['settings']['scale']),
   );
   return $element;
 }

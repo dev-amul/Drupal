@@ -1070,8 +1070,6 @@ function siasar_updates_update_7165() {
  * @param $sandbox
  */
 function siasar_updates_update_7166() {
-  features_revert_module('feature_siasar_field_bases');
-
   $modules = array(
     'siasar_drush_workflow',
   );
@@ -1091,4 +1089,29 @@ function siasar_updates_update_7167(&$sandbox) {
   if (!$modules_enabled) {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
+}
+/**
+ * Hotfix: Removes the records for modules that are not there: views_data_export_phpexcel
+ *
+ * @param $sandbox
+ *
+ * @return null|string
+ */
+function siasar_updates_update_7168(&$sandbox) {
+  $modules = array(
+    'views_data_export_phpexcel',
+  );
+
+  $num = db_delete('system')
+          ->condition('name', $modules)
+          ->execute();
+
+  return t('@num modules have been removed from the system table.', array('@num' => $num));
+}
+/**
+ * 566 - New units for Water Quality
+ */
+function siasar_updates_update_7169() {
+  features_revert_module('feature_siasar_measures');
+  features_revert_module('feature_siasar_entityform_water_quality');
 }
