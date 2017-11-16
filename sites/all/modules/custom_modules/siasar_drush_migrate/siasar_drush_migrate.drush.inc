@@ -34,6 +34,21 @@ function siasar_drush_migrate_drush_command() {
     'bootstrap'          => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
 
+  $items['siasar-create-field-collections'] = array(
+    'description'        => 'It creates field collections attached to a JSON file',
+    'aliases'            => array('siasar-cfc'),
+    'callback'           => 'siasar_drush_create_delete_field_collections',
+    'arguments'          => array(
+      '$path' => 'Path to read source files and store log files'
+    ),
+    'required-arguments' => TRUE,
+    'examples'           => array(
+      'drush siasar-cfc field_collections' => 'Takes all field collections found in source as JSON and creates new ones',
+    ),
+    'bootstrap'          => DRUSH_BOOTSTRAP_DRUPAL_FULL,
+  );
+
+
   $items['siasar-delete-field-collections'] = array(
     'description'        => 'It deletes field collections attached to an specified entity',
     'aliases'            => array('siasar-dfc'),
@@ -263,6 +278,94 @@ function siasar_drush_migrate_create_entityforms($path) {
 }
 
 
+/**
+ * This function creates entityforms from JSON file provided as a text file.
+ */
+function siasar_drush_create_delete_field_collections($path) {
+  module_load_include('inc', 'siasar_drush_migrate', 'inc/siasar_drush_migrate.helpers');
+
+  $start = new DateTime('now');
+
+  set_time_limit(0);
+  module_load_include('inc', 'services', '/includes/services.runtime');
+
+  $controller_field_collection_item = _services_entity_get_controller('field_collection_item');
+
+  _print_log('Reading files...');
+
+  $collections_file = $path . '/collections.json';
+
+  $loader = function (&$array, $key, $file) {
+    $content = @file_get_contents($file);
+
+    if ($content) {
+      $array[$key] = json_decode($content, TRUE);
+    }
+  };
+
+  $collections = array();
+
+  $loader($collections, 'communities', $collections_file);
+
+  $result = array(
+    'summary'     => array(
+      'start' => $start->format("Y-m-d H:i:s")
+    ),
+    'collections' => array(
+      'collections' => [],
+    )
+  );
+
+  _print_log('Processing collections...');
+
+  foreach ($collections as $entity_type => $items) {
+
+    _print_log('Processing ' . $entity_type . ' collections...');
+    foreach ($items as $key => $collection) {
+      $entity_id = $collection['host_entity']['id'];
+      $collection_name = $collection['name'];
+      if (!isset($result['collections'][$entity_type][$collection_name])) {
+        $result['collections'][$entity_type][$collection_name] = array(
+          'success' => [],
+          'errors'  => []
+        );
+      }
+
+
+        // Insert collection
+        $collection_id = _siasar_drush_migrate_save_field_collection_item_from_json(
+          $collection, $controller_field_collection_item);
+
+        // Log result
+        $result['collections'][$entity_type][$collection_name]['success'][$collection_id] = $entity_id;
+      if ($key !== 0 && $key % 100 === 0) {
+        _print_log($key . ' ' . $entity_type . ' collections proccesed.');
+      }
+    }
+    _print_log($key . ' ' . $entity_type . ' collections proccesed.');
+  }
+
+  _print_log('Writing logs...');
+
+  $end = new DateTime('now');
+
+  $result['summary']['end']  = $end->format('Y-m-d H:i:s');
+  $result['summary']['time'] = $start->diff($end)->format('%H:%I:%S');
+
+  foreach ($result['collections'] as $entity_type => $entity_collections) {
+    foreach ($entity_collections as $collection_name => $items) {
+      $result['summary']['collections'][$entity_type][$collection_name] = array(
+        'success' => count($items['success']),
+        'errors'  => count($items['errors'])
+      );
+    }
+  }
+
+  file_put_contents($path . '/log_summary.json', json_encode($result['summary']));
+  file_put_contents($path . '/log_collections.json', json_encode($result['collections']));
+}
+
+
 function siasar_drush_migrate_delete_field_collections($entity_name, $entity_field, $entity_id) {
   $entityform = entity_load_single($entity_name, $entity_id);
   $wrapper    = entity_metadata_wrapper($entity_name, $entityform);
@@ -302,12 +405,16 @@ function siasar_drush_migrate_delete_field_collections_json($directory) {
   $content       = @file_get_contents($file);
 
   $response_json = array();
-
   if ($content) {
     $arry_json = json_decode($content, TRUE);
     foreach ($arry_json as $id => $element) {
-      $deletion           = siasar_drush_migrate_delete_field_collections('entityform', $element, $id);
+    try{
+	$deletion           = siasar_drush_migrate_delete_field_collections('entityform', $element, $id);
       $response_json[$id] = $deletion ? 'ok' : 'Error';
+	echo "Processed " . $id . "\n";
+    } catch (Exception $e) {
+	echo "Error " . $id . "\n";
+    }
     }
   }
 
