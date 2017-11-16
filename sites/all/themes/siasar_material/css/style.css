@@ -1425,7 +1425,7 @@ body.page-entityform-view .entity-entityform .group-grid .group-grid {
     float: left;
     width: 140px;
     padding: 0 20px 0 0;
-    border-bottom: dotted #ddd 1px;
+    border-bottom: dotted #aaa 1px;
   }
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
@@ -1439,7 +1439,7 @@ body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
     margin-left: 140px;
     padding-left: 20px;
     padding-bottom: 20px;
-    border-left: dotted 1px #ddd;
+    border-left: dotted 1px #aaa;
   }
 }
 body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child {
