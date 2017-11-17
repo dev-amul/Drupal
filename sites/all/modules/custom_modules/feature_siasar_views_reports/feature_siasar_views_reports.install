@@ -1,29 +1,8 @@
 <?php
 
 /**
- * Hotfix - Changing all labels to english
+ * 633 - CSV and Excel exports don't include questionnaires statuses
  */
-function feature_siasar_views_reports_update_7100($sandbox) {
-  features_revert_module('feature_siasar_views_reports');
-}
-
-/**
- * Hotfix - Delete operation is not working
- */
- function feature_siasar_views_reports_update_7101($sandbox) {
-  features_revert_module('feature_siasar_views_reports');
-}
-
-/**
- * Hotfix - Some data missing. Relationship "user - country" can't be mandatory,
- * or some data will be excluded.
- */
- function feature_siasar_views_reports_update_7102($sandbox) {
-  features_revert_module('feature_siasar_views_reports');
-}
-/**
- * Hotfix - Exposed filter translation was missing
- */
- function feature_siasar_views_reports_update_7103($sandbox) {
+function feature_siasar_views_reports_update_7104($sandbox) {
   features_revert_module('feature_siasar_views_reports');
 }
