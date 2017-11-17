@@ -1157,5 +1157,6 @@ function siasar_updates_update_7171() {
     $saved_terms[$term_to_save->tid] = $term_to_save;
   }
 
-
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_entityform_comunidad');
 }
