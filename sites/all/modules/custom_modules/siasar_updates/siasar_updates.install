@@ -1140,10 +1140,9 @@ function siasar_updates_update_7171() {
   $output = $migrateB1->migrateB1Data();
 
   drupal_set_message($output . ' questionnaires migrated.');
-/*
+
   field_delete_field('field_com_lev_general');
   field_delete_field('field_com_lev_utilform');
   field_delete_field('field_com_lev_muestral');
   field_purge_batch(100);
-  */
 }
