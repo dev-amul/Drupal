@@ -899,6 +899,10 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_nombre_completo_1']['field'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo_1']['relationship'] = 'field_user_reference_target_id';
   $handler->display->display_options['fields']['field_nombre_completo_1']['label'] = 'Encuestador';
+  /* Field: Entityform Submission: Status */
+  $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
+  $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
+  $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Field: País (field_pais) */
@@ -1190,6 +1194,10 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_nombre_completo_1']['field'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo_1']['relationship'] = 'field_user_reference_target_id';
   $handler->display->display_options['fields']['field_nombre_completo_1']['label'] = 'Encuestador';
+  /* Field: Entityform Submission: Status */
+  $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
+  $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
+  $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Field: País (field_pais) */
