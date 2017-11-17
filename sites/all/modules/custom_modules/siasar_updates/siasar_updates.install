@@ -1128,35 +1128,22 @@ function siasar_updates_update_7170() {
  * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/319
  */
 function siasar_updates_update_7171() {
-  return;
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.migrate_com_b1');
 
-
-
-  $new_voc = new stdClass();
-  $new_voc->name = 'Data collection method';
-  $new_voc->machine_name = 'data_collection_method';
-  $new_voc->language = LANGUAGE_NONE;
-  $new_voc->i18n_mode = '1';
-
-  taxonomy_vocabulary_save($new_voc);
-
-  $vid = $new_voc->vid;
-  $saved_terms = array();
-  $terms = array(
-    'Levantamiento general aproximado (entrevistas, control parcial de las viviendas)',
-    'Levantamiento utilizando el formulario auxiliar',
-    'Levantamiento muestral'
-  );
-
-  foreach ($terms as $term) {
-    $term_to_save = (object) array(
-      'name' => $term,
-      'vid' => $vid,
-    );
-    taxonomy_term_save($term_to_save);
-    $saved_terms[$term_to_save->tid] = $term_to_save;
-  }
+  $migrateB1 = new SiasarUpdatesMigrateComB1();
+  $migrateB1->createNewB1Taxonomy();
+  $migrateB1->createNewB1TaxonomyTerms();
 
   features_revert_module('feature_siasar_field_bases');
   features_revert_module('feature_siasar_entityform_comunidad');
+
+  $output = $migrateB1->migrateB1Data();
+
+  drupal_set_message($output . ' questionnaires migrated.');
+/*
+  field_delete_field('field_com_lev_general');
+  field_delete_field('field_com_lev_utilform');
+  field_delete_field('field_com_lev_muestral');
+  field_purge_batch(100);
+  */
 }

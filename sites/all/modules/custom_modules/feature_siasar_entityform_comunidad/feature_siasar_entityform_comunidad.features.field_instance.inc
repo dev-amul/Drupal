@@ -1138,7 +1138,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 20,
+        'weight' => 21,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2286,7 +2286,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 77,
+        'weight' => 20,
       ),
       'entity_reference' => array(
         'label' => 'above',
