@@ -1128,6 +1128,10 @@ function siasar_updates_update_7170() {
  * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/319
  */
 function siasar_updates_update_7171() {
+  return;
+
+
+
   $new_voc = new stdClass();
   $new_voc->name = 'Data collection method';
   $new_voc->machine_name = 'data_collection_method';
@@ -1152,8 +1156,6 @@ function siasar_updates_update_7171() {
     taxonomy_term_save($term_to_save);
     $saved_terms[$term_to_save->tid] = $term_to_save;
   }
-
-  var_dump($saved_terms);
 
 
 }
