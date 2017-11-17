@@ -286,7 +286,6 @@ function siasar_drush_create_delete_field_collections($path) {
 
   $start = new DateTime('now');
 
-  set_time_limit(0);
   module_load_include('inc', 'services', '/includes/services.runtime');
 
   $controller_field_collection_item = _services_entity_get_controller('field_collection_item');
@@ -295,17 +294,12 @@ function siasar_drush_create_delete_field_collections($path) {
 
   $collections_file = $path . '/collections.json';
 
-  $loader = function (&$array, $key, $file) {
-    $content = @file_get_contents($file);
-
-    if ($content) {
-      $array[$key] = json_decode($content, TRUE);
-    }
-  };
-
   $collections = array();
 
-  $loader($collections, 'communities', $collections_file);
+  $content = @file_get_contents($collections_file);
+  if ($content) {
+    $collections['communities'] = json_decode($content, TRUE);
+  }
 
   $result = array(
     'summary'     => array(
