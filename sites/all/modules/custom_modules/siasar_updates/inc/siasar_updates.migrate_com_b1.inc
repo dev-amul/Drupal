@@ -36,7 +36,7 @@ class SiasarUpdatesMigrateComB1 {
         'vid' => $this->vid,
       );
       taxonomy_term_save($term_to_save);
-      $saved_terms[] = $term_to_save;
+      $this->saved_terms[] = $term_to_save;
     }
   }
 
@@ -56,7 +56,7 @@ class SiasarUpdatesMigrateComB1 {
    *  Provided one entityform ID, migrates B1 data.
    */
   function migrateB1dataOneEntityform($entityform_id) {
-    $entity = entity_load_single('entityform', $entityform_id);
+    $entity = entity_load('entityform', array($entityform_id), array(), true)[$entityform_id];
     $wrapper = entity_metadata_wrapper('entityform', $entity);
 
     $old_values = array(
@@ -67,6 +67,7 @@ class SiasarUpdatesMigrateComB1 {
     $new_values = array();
     foreach($old_values as $i => $v) {
       if(!$old_values[$i]) continue;
+
       $new_values[] = $this->saved_terms[$i];
     }
     $wrapper->field_data_collection_method->set($new_values);
@@ -84,6 +85,5 @@ class SiasarUpdatesMigrateComB1 {
     $result = $query->execute();
 
     return $result['entityform'];
-
   }
 }
