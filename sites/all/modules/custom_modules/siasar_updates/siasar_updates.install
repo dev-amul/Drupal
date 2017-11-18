@@ -1112,7 +1112,6 @@ function siasar_updates_update_7168(&$sandbox) {
  */
 function siasar_updates_update_7169() {
   features_revert_module('feature_siasar_measures');
-  features_revert_module('feature_siasar_entityform_water_quality');
 }
 /**
  * 541 - Visualización incompleta en los campos dentro de grupos anidados.
