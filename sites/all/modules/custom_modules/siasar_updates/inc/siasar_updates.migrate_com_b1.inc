@@ -30,10 +30,11 @@ class SiasarUpdatesMigrateComB1 {
       'Levantamiento muestral'
     );
 
-    foreach ($terms as $term) {
+    foreach ($terms as $i => $term) {
       $term_to_save = (object) array(
         'name' => $term,
         'vid' => $this->vid,
+        'weight' => $i,
       );
       taxonomy_term_save($term_to_save);
       $this->saved_terms[] = $term_to_save;
