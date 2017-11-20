@@ -440,8 +440,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'OCCASIONAL USE',
     'weight' => '92',
     'children' => array(
-      0 => 'field_com_num_viv_usoinfa2',
-      1 => 'field_com_num_viv_usohab2',
+      0 => 'field_com_num_viv_usohab2',
+      1 => 'field_com_num_viv_usoinfa2',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1824,10 +1824,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'E1. Interventions scheduled or in progress ',
     'weight' => '43',
     'children' => array(
-      0 => 'field_com_fc_systypunimprove',
-      1 => 'field_com_fc_impsystem',
-      2 => 'field_com_fc_systypimprove',
-      3 => 'field_com_fc_newwatsystem',
+      0 => 'field_com_fc_impsystem',
+      1 => 'field_com_fc_systypimprove',
+      2 => 'field_com_fc_newwatsystem',
+      3 => 'field_com_fc_systypunimprove',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1968,21 +1968,22 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B1. Data collection method',
     'weight' => '28',
     'children' => array(
-      0 => 'field_com_num_viv_muestra',
-      1 => 'field_com_lev_muestral',
+      0 => 'field_com_lev_general',
+      1 => 'field_com_num_viv_muestra',
       2 => 'field_com_lev_utilform',
-      3 => 'field_com_lev_general',
+      3 => 'field_com_lev_muestral',
+      4 => 'field_data_collection_method',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'B1. Process used to complete this form',
+      'label' => 'B1. Data collection method',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-com-proc-empleado field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_com_proc_empleado|entityform|comunidad|form'] = $field_group;
@@ -2000,9 +2001,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B6. Solid waste collection and disposal',
     'weight' => '34',
     'children' => array(
-      0 => 'field_com_recotrata_prac',
+      0 => 'field_com_recotrata_disp',
       1 => 'field_com_recontrata_numvivc',
-      2 => 'field_com_recotrata_disp',
+      2 => 'field_com_recotrata_prac',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2031,12 +2032,12 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B. Sanitation and hygiene',
     'weight' => '1',
     'children' => array(
-      0 => 'group_com_uso_inf',
-      1 => 'group_com_exist_infestr',
+      0 => 'group_com_exist_infestr',
+      1 => 'group_com_higiene',
       2 => 'group_com_no_uso',
-      3 => 'group_com_higiene',
+      3 => 'group_com_proc_empleado',
       4 => 'group_com_recotrata',
-      5 => 'group_com_proc_empleado',
+      5 => 'group_com_uso_inf',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2065,9 +2066,9 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_com_srv_existe',
       1 => 'field_com_srv_inte_existe',
-      2 => 'field_com_srv_caracteristicas',
-      3 => 'field_com_srv_telm_existe',
-      4 => 'field_com_srv_telf_existe',
+      2 => 'field_com_srv_telm_existe',
+      3 => 'field_com_srv_telf_existe',
+      4 => 'field_com_srv_caracteristicas',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2096,8 +2097,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B3. Use of improved sanitation (Type 1 or Type 2)',
     'weight' => '30',
     'children' => array(
-      0 => 'group_b3_grid_2',
-      1 => 'group_b3_grid_1',
+      0 => 'group_b3_grid_1',
+      1 => 'group_b3_grid_2',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3323,16 +3324,16 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. General information',
     'weight' => '0',
     'children' => array(
-      0 => 'field_user_reference',
-      1 => 'field_fecha_encuesta',
+      0 => 'field_fecha_encuesta',
+      1 => 'field_user_reference',
       2 => 'field_pais',
-      3 => 'group_otras_divisiones',
-      4 => 'group_com_viviendas_sin_sistema',
-      5 => 'group_com_srv',
-      6 => 'group_com_dist_viviendas',
-      7 => 'group_co_poblacion',
-      8 => 'group_com_cantidad_viv',
-      9 => 'group_info_general',
+      3 => 'group_co_poblacion',
+      4 => 'group_com_cantidad_viv',
+      5 => 'group_com_dist_viviendas',
+      6 => 'group_com_srv',
+      7 => 'group_com_viviendas_sin_sistema',
+      8 => 'group_info_general',
+      9 => 'group_otras_divisiones',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -3360,11 +3361,11 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '71',
     'children' => array(
       0 => 'field_entidad_local',
-      1 => 'field_entity_name',
-      2 => 'field_com_codigo_comunidad',
+      1 => 'field_com_georef',
+      2 => 'field_entity_name',
       3 => 'field_imagenc',
-      4 => 'field_com_georef',
-      5 => 'field_com_altitud',
+      4 => 'field_com_altitud',
+      5 => 'field_com_codigo_comunidad',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3845,9 +3846,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A2. Other Administrative and/or Geographical Divisions',
     'weight' => '72',
     'children' => array(
-      0 => 'field_otras_divisiones',
-      1 => 'field_cuenca_hidrografica',
-      2 => 'field_area_planificacion',
+      0 => 'field_area_planificacion',
+      1 => 'field_otras_divisiones',
+      2 => 'field_cuenca_hidrografica',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

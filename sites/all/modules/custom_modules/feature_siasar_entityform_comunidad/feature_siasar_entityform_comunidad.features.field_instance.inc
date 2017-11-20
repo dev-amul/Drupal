@@ -1138,7 +1138,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 20,
+        'weight' => 21,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2268,6 +2268,54 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'entityform-comunidad-field_data_collection_method'.
+  $field_instances['entityform-comunidad-field_data_collection_method'] = array(
+    'bundle' => 'comunidad',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 20,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_data_collection_method',
+    'label' => 'Proceso empleado para rellenar el formulario',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 27,
     ),
   );
 
@@ -7506,6 +7554,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Personal de salud y administrativo. Femenino');
   t('Personal de salud y administrativo. Masculino');
   t('Población total');
+  t('Proceso empleado para rellenar el formulario');
   t('Se posee de servicios de conexión a Internet (3G o 4G)');
   t('Se posee de servicios de energía eléctrica');
   t('Se posee de servicios de telefonía celular');

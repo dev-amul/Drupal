@@ -834,8 +834,8 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'children' => array(
       0 => 'field_com_ce_existe',
       1 => 'field_ce_location',
-      2 => 'field_com_ce_nombre',
-      3 => 'field_con_fic_ce_ficha',
+      2 => 'field_con_fic_ce_ficha',
+      3 => 'field_com_ce_nombre',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1176,8 +1176,8 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'weight' => '19',
     'children' => array(
       0 => 'field_com_hig_num_vivtodos',
-      1 => 'field_com_hig_num_vivbasica',
-      2 => 'field_com_hig_num_vivagua',
+      1 => 'field_com_hig_num_vivagua',
+      2 => 'field_com_hig_num_vivbasica',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1373,10 +1373,11 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'label' => 'B1. Data collection method',
     'weight' => '15',
     'children' => array(
-      0 => 'field_com_lev_general',
-      1 => 'field_com_lev_utilform',
-      2 => 'field_com_lev_muestral',
-      3 => 'field_com_num_viv_muestra',
+      0 => 'field_data_collection_method',
+      1 => 'field_com_lev_general',
+      2 => 'field_com_num_viv_muestra',
+      3 => 'field_com_lev_utilform',
+      4 => 'field_com_lev_muestral',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1443,10 +1444,10 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'group_com_uso_inf',
-      1 => 'group_com_higiene',
-      2 => 'group_com_no_uso',
-      3 => 'group_com_proc_empleado',
-      4 => 'group_com_recotrata',
+      1 => 'group_com_no_uso',
+      2 => 'group_com_proc_empleado',
+      3 => 'group_com_recotrata',
+      4 => 'group_com_higiene',
       5 => 'group_com_exist_infestr',
     ),
     'format_type' => 'div',
@@ -2718,12 +2719,12 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'children' => array(
       0 => 'group_com_cantidad_viv',
       1 => 'group_com_dist_viviendas',
-      2 => 'group_info_general',
-      3 => 'group_init',
-      4 => 'group_otras_divisiones',
-      5 => 'group_co_poblacion',
-      6 => 'group_com_srv',
-      7 => 'group_com_viviendas_sin_sistema',
+      2 => 'group_otras_divisiones',
+      3 => 'group_co_poblacion',
+      4 => 'group_com_srv',
+      5 => 'group_com_viviendas_sin_sistema',
+      6 => 'group_info_general',
+      7 => 'group_init',
     ),
     'format_type' => 'div',
     'format_settings' => array(

@@ -233,6 +233,7 @@ features[field_base][] = field_d1_4
 features[field_base][] = field_d1_5
 features[field_base][] = field_d2_2
 features[field_base][] = field_d_infraestructura
+features[field_base][] = field_data_collection_method
 features[field_base][] = field_data_source
 features[field_base][] = field_diametro_medio_de_tuberia
 features[field_base][] = field_direccion
