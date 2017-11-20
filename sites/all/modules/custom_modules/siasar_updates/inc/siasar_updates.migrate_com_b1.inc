@@ -2,13 +2,13 @@
 
 class SiasarUpdatesMigrateComB1 {
 
-  public $vid = null;
-  public $saved_terms = array();
+  protected $vid = null;
+  protected $saved_terms = array();
 
   /**
    *  Creates new taxonomy for new field field_data_collection_method
    */
-  function createNewB1Taxonomy() {
+  public function createNewB1Taxonomy() {
     $new_voc = new stdClass();
     $new_voc->name = 'Data collection method';
     $new_voc->machine_name = 'data_collection_method';
@@ -23,7 +23,7 @@ class SiasarUpdatesMigrateComB1 {
   /**
    *  Creates terms for this new Taxonomy
    */
-  function createNewB1TaxonomyTerms() {
+  public function createNewB1TaxonomyTerms() {
     $terms = array(
       'Levantamiento general aproximado (entrevistas, control parcial de las viviendas)',
       'Levantamiento utilizando el formulario auxiliar',
@@ -44,7 +44,7 @@ class SiasarUpdatesMigrateComB1 {
   /**
    *  Migrates the data from old fields to the new field.
    */
-  function migrateB1data() {
+  public function migrateB1data() {
     $communities_list = $this->requestListCommunitiesEntityforms();
 
     foreach($communities_list as $entityform_id => $entityform) {
@@ -56,7 +56,7 @@ class SiasarUpdatesMigrateComB1 {
   /**
    *  Provided one entityform ID, migrates B1 data.
    */
-  function migrateB1dataOneEntityform($entityform_id) {
+  protected function migrateB1dataOneEntityform($entityform_id) {
     $entity = entity_load('entityform', array($entityform_id), array(), true)[$entityform_id];
     $wrapper = entity_metadata_wrapper('entityform', $entity);
 
@@ -78,7 +78,7 @@ class SiasarUpdatesMigrateComB1 {
   /**
    *  Gets a list of saved Communities
    */
-  function requestListCommunitiesEntityforms() {
+  protected function requestListCommunitiesEntityforms() {
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'entityform')
     ->entityCondition('bundle', 'comunidad');
