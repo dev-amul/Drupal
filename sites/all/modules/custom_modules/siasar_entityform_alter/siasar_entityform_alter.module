@@ -402,12 +402,9 @@ function siasar_entityform_alter_field_widget_options_select_form_alter(&$elemen
 
   $options = $element['#options'];
   if($element['#required']) {
-    $element['#options'] = array_merge($value_to_insert, $options);
+    unset($options['_none']);
+    $element['#options'] = $value_to_insert + $options;
   } else {
-    $element['#options'] = array_merge(
-      array_slice($options, 0, 1, true),
-      $value_to_insert,
-      array_slice($options, 1, NULL, true)
-    );
+    $element['#options'] = array_slice($options, 0, 1, true) + $value_to_insert + array_slice($options, 1, NULL, true);
   }
 }
