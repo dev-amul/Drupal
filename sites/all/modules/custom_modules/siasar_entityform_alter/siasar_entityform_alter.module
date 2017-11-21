@@ -52,22 +52,6 @@ function siasar_entityform_alter_form_submit(&$form, &$form_state) {
 }
 
 /**
- * Implements hook_permission().
- */
-function siasar_entityform_alter_permission() {
-  return array(
-    'validate entityforms' => array(
-      'title' => t('Validate entityforms'),
-      'description' => t('User can validate entityforms and browse results for more info on validated/not validated forms.'),
-    ),
-    'can delete validated entityforms' => array(
-      'title' => t('Deletes validated entityforms'),
-      'description' => t('User can delete validated entityforms.'),
-    )
-  );
-}
-
-/**
  * Helper function to set default country value from user if needed.
  */
 function _siasar_entityform_alter_set_default_country_from_user(&$form) {
