@@ -21,9 +21,7 @@ function elements_numberfield_field_widget_info() {
 function elements_numberfield_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
   $field_name = $field['field_name'];
   $column = &$element['#columns'][0];
-  $value = isset($form_state['input'][$field_name][$langcode][$delta])
-    ? $form_state['input'][$field_name][$langcode][$delta]
-    : null;
+
   $element += array(
     '#type'=> 'numberfield',
     '#size' => 20,
@@ -32,10 +30,11 @@ function elements_numberfield_field_widget_form(&$form, &$form_state, $field, $i
     '#min' => $instance['settings']['min'],
     '#max' => $instance['settings']['max'],
     '#step' => 1 * pow(10, 0 - $field['settings']['scale']),
-    '#value' => array(
-      $column => $value
-    ),
   );
+
+  if(isset($form_state['input'][$field_name][$langcode][$delta])) {
+    $element['#value'][$column] = $form_state['input'][$field_name][$langcode][$delta];
+  }
 
   return $element;
 }
