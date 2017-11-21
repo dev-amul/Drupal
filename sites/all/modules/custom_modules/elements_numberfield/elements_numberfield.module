@@ -32,10 +32,10 @@ function elements_numberfield_field_widget_form(&$form, &$form_state, $field, $i
     '#min' => $instance['settings']['min'],
     '#max' => $instance['settings']['max'],
     '#step' => 1 * pow(10, 0 - $field['settings']['scale']),
+    '#value' => array(
+      $column => $value
+    ),
   );
 
-  if($value) {
-    $element['#value'][$column] = $form_state['input'][$field_name][$langcode][$delta];
-  }
   return $element;
 }
