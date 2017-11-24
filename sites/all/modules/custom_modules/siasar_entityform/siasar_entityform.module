@@ -101,7 +101,7 @@ function _computable_revision($entityform_id) {
     //Reset the entityform state
     _reset_computable_entityform($entityform_id);
 
-    //Check the for the last valid revision
+    //Check the entityform for the last valid revision
     $revisions = entityform_revision_list($entityform);
 
     foreach ($revisions as $revision) {
