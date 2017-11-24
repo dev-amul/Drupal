@@ -78,6 +78,18 @@ span.form-required {
     width: auto;
     display: inline-block;
   }
+
+  .form-type-numberfield {
+    display: inline-block;
+
+    input[type=number] {
+      width: 140px;
+
+      @include breakpoint($break-medium) {
+        width: 160px;
+      }
+    }
+  }
 }
 
 .field {
