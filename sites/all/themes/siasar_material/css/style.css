@@ -420,6 +420,17 @@ span.form-required {
   width: auto;
   display: inline-block;
 }
+.field-widget-mvf-widget-default .form-type-mvf-widget .form-type-numberfield {
+  display: inline-block;
+}
+.field-widget-mvf-widget-default .form-type-mvf-widget .form-type-numberfield input[type=number] {
+  width: 140px;
+}
+@media (min-width: 992px) {
+  .field-widget-mvf-widget-default .form-type-mvf-widget .form-type-numberfield input[type=number] {
+    width: 160px;
+  }
+}
 
 .field {
   clear: left;

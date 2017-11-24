@@ -829,13 +829,13 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 767,
+            'enable' => 1,
+            'unit' => 766,
             'weight' => 0,
           ),
           'locale' => array(
             'en' => -1,
-            'enable' => 1,
+            'enable' => 0,
             'es' => -1,
             'es-BO' => -1,
             'es-CO' => -1,
@@ -928,13 +928,13 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
+            'enable' => 1,
             'unit' => 692,
-            'weight' => 0,
+            'weight' => -8,
           ),
           'locale' => array(
             'en' => -1,
-            'enable' => 1,
+            'enable' => 0,
             'es' => -1,
             'es-BO' => -1,
             'es-CO' => -1,
@@ -943,15 +943,15 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
             'es-PY' => -1,
             'gn-PY' => -1,
             'pt-br' => -1,
-            'weight' => 0,
+            'weight' => -7,
           ),
           'original' => array(
             'enable' => 0,
-            'weight' => 0,
+            'weight' => -9,
           ),
           'per_user' => array(
             'enable' => 0,
-            'weight' => 0,
+            'weight' => -10,
           ),
         ),
       ),
@@ -1124,13 +1124,13 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 690,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
             'en' => -1,
-            'enable' => 1,
+            'enable' => 0,
             'es' => -1,
             'es-BO' => -1,
             'es-CO' => -1,
@@ -2040,13 +2040,13 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 690,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
             'en' => -1,
-            'enable' => 1,
+            'enable' => 0,
             'es' => -1,
             'es-BO' => -1,
             'es-CO' => -1,
@@ -2183,7 +2183,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   // Exported field_instance: 'entityform-waq-field_ph'.
   $field_instances['entityform-waq-field_ph'] = array(
     'bundle' => 'waq',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2812,13 +2812,13 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
+            'enable' => 1,
             'unit' => 689,
-            'weight' => 0,
+            'weight' => -8,
           ),
           'locale' => array(
             'en' => -1,
-            'enable' => 1,
+            'enable' => 0,
             'es' => -1,
             'es-BO' => -1,
             'es-CO' => -1,
@@ -2827,15 +2827,15 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
             'es-PY' => -1,
             'gn-PY' => -1,
             'pt-br' => -1,
-            'weight' => 0,
+            'weight' => -7,
           ),
           'original' => array(
             'enable' => 0,
-            'weight' => 0,
+            'weight' => -9,
           ),
           'per_user' => array(
             'enable' => 0,
-            'weight' => 0,
+            'weight' => -10,
           ),
         ),
       ),
@@ -2959,13 +2959,13 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 690,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
             'en' => -1,
-            'enable' => 1,
+            'enable' => 0,
             'es' => -1,
             'es-BO' => -1,
             'es-CO' => -1,
@@ -3058,13 +3058,13 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
+            'enable' => 1,
             'unit' => 693,
             'weight' => 0,
           ),
           'locale' => array(
             'en' => -1,
-            'enable' => 1,
+            'enable' => 0,
             'es' => -1,
             'es-BO' => -1,
             'es-CO' => -1,
