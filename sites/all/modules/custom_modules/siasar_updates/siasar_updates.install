@@ -1229,4 +1229,6 @@ function siasar_updates_update_7174(&$sandbox) {
     $role = user_role_load_by_name($role_name);
     user_role_grant_permissions($role->rid, $permissions);
   }
+
+  features_revert_module('feature_siasar_views_reports');
 }
