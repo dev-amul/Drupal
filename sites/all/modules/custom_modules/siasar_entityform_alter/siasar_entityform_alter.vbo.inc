@@ -33,6 +33,11 @@ function _siasar_entityform_alter_action_info() {
       'behavior' => array('deletes_property'),
       'triggers' => array('any'),
     ),
+    'siasar_check_computability'           => array(
+      'type'     => 'entityform',
+      'label'    => t('Check Survey is Computable'),
+      'triggers' => array('any'),
+    ),
   );
 }
 
@@ -128,4 +133,15 @@ function siasar_remove_questionnaire_action($entity, array $context) {
     _siasar_set_workflow_state($entity, 'removed');
     entity_save('entityform', $entity);
   }
+}
+
+/**
+ * Recalculates computability of an entityform.
+ *
+ * @param $entity
+ * @param array $context
+ */
+function siasar_check_computability($entity, array $context) {
+  $id = $entity->entityform_id;
+  _computable_revision($id);
 }
