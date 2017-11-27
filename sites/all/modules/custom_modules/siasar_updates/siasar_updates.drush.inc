@@ -50,6 +50,18 @@ function siasar_updates_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
   );
 
+  $items['siasar_update_rerun'] = array(
+    'description' => 'Manually rerun an update hook for a module',
+    'aliases' => array('siasar-urr'),
+    'arguments' => array(
+      'module' => 'Module',
+      'version' => 'Update hook number',
+    ),
+    'callback' => 'drush_siasar_update_rerun',
+    'required-arguments' => TRUE,
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
+  );
+
   return $items;
 }
 
@@ -150,4 +162,22 @@ function drush_siasar_remove_n11_countries($country_code = null) {
     taxonomy_term_delete($k);
   }
 
+}
+
+/**
+ * Manually run hook_update_n
+ * Example: drush siasar-urr siasar_updates 7101
+ */
+function drush_siasar_update_rerun($module, $version) {
+  if (!module_load_install($module)) {
+    drush_log('Unable to load ' . $module .'.install', 'error');
+    return;
+  }
+  $update_hooks = drupal_get_schema_versions($module);
+  if (empty($update_hooks) || !in_array($version, $update_hooks)) {
+    drush_log('Update hook unavailable', 'error');
+    return;
+  }
+  $function = $module . '_update_' . $version;
+  $function();
 }
