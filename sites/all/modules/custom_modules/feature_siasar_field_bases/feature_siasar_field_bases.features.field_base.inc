@@ -3845,84 +3845,6 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_com_lev_general'.
-  $field_bases['field_com_lev_general'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_com_lev_general',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 'No',
-        1 => 'Si',
-      ),
-      'allowed_values_function' => '',
-      'entity_translation_sync' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_com_lev_muestral'.
-  $field_bases['field_com_lev_muestral'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_com_lev_muestral',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 'No',
-        1 => 'Si',
-      ),
-      'allowed_values_function' => '',
-      'entity_translation_sync' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_com_lev_utilform'.
-  $field_bases['field_com_lev_utilform'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_com_lev_utilform',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 'No',
-        1 => 'Si',
-      ),
-      'allowed_values_function' => '',
-      'entity_translation_sync' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
   // Exported field_base: 'field_com_no_uso_vivnumtodos'.
   $field_bases['field_com_no_uso_vivnumtodos'] = array(
     'active' => 1,
@@ -10414,6 +10336,59 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     ),
     'translatable' => 0,
     'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_status'.
+  $field_bases['field_status'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_status',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'workflowfield',
+    'settings' => array(
+      'allowed_values_function' => 'workflowfield_allowed_values',
+      'allowed_values_string' => '1 | (creation)
+2 | Borrador
+3 | Terminado
+4 | Validado
+5 | Removed',
+      'entity_translation_sync' => FALSE,
+      'history' => array(
+        'history_tab_show' => 1,
+        'roles' => array(
+          -1 => -1,
+          5 => 5,
+          6 => 6,
+          7 => 0,
+          8 => 0,
+          9 => 9,
+          10 => 10,
+        ),
+      ),
+      'watchdog_log' => 1,
+      'wid' => 1,
+      'widget' => array(
+        'comment' => 0,
+        'fieldset' => 0,
+        'hide' => 0,
+        'name_as_title' => 1,
+        'options' => 'buttons',
+        'schedule' => 0,
+        'schedule_timezone' => 0,
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'workflow',
   );
 
   // Exported field_base: 'field_sumatoria_gastos_reales'.
