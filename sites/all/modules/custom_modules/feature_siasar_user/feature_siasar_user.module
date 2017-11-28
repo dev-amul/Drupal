@@ -14,3 +14,11 @@ function feature_siasar_user_form_alter(&$form, &$form_state, $form_id) {
 
   $country_options = _siasar_entityform_alter_filter_out_countries_from_options($country_options, $members);
 }
+
+
+/**
+ * Implementation of hook_user_presave()
+ */
+function feature_siasar_user_user_presave(&$edit, &$account, $category) {
+  if(trim($account->pass) == '') unset($account->pass);
+}
