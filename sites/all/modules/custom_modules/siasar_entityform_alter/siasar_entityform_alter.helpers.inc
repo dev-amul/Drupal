@@ -127,7 +127,7 @@ function _siasar_entityform_alter_select_add_default_value_back(&$element, $cont
 }
 
 /**
- * Pass all option labels thorugh i18n translation function
+ * Pass all entityreference to taxonomy terms option labels thorugh i18n translation function
  */
 function _siasar_entityform_alter_pass_entity_references_through_translator(&$element, $context) {
   $field = &$context['field'];
