@@ -351,7 +351,7 @@ function _siasar_entityform_alter_form_delete_redirect($form, &$form_state) {
 }
 
 /**
- * Implements hook_field_widget_form_alter().
+ * Implements hook_field_widget_OPTIONS_SELECT_form_alter().
  */
 function siasar_entityform_alter_field_widget_options_select_form_alter(&$element, &$form_state, $context) {
   module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
@@ -360,7 +360,7 @@ function siasar_entityform_alter_field_widget_options_select_form_alter(&$elemen
 }
 
 /**
- * Implements hook_field_widget_form_alter().
+ * Implements hook_field_widget_OPTIONS_BUTTONS_form_alter().
  */
 function siasar_entityform_alter_field_widget_options_buttons_form_alter(&$element, &$form_state, $context) {
   module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
