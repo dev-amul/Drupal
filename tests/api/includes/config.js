@@ -30,6 +30,6 @@ var config = {
 // Set a higher timeout for all tests
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 25000;
 
-console.log('\x1b[43m\x1b[30m Testing %s ', config.host);
+console.log('\x1b[43m\x1b[30m Testing %s \x1b[40m\x1b[37m', config.host);
 
 module.exports = config;
