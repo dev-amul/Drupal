@@ -905,7 +905,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_f_red_de_distribucion',
-    'label' => 'Red de distribución',
+    'label' => 'Distribución de agua',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -4512,6 +4512,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Código de la infraestructura');
   t('Código de la línea');
   t('Desinfección con cloro');
+  t('Distribución de agua');
   t('Diámetro medio o sección (interior) de la tubería principal');
   t('Encuestador');
   t('Estado físico de la infraestructura de captación de agua');
@@ -4562,7 +4563,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Pozos o sistemas por gravedad / bombeo. No aplica en sistemas con abastecimiento domiciliar. Al contestar este bloque se entiende que la distribución es parcial o totalmente mediante puntos de toma de agua públicos.');
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
-  t('Red de distribución');
   t('Rehabilitaciones y/o ampliaciones');
   t('Señalar a qué distancia aproximada se encuentran instalados los puntos de toma de agua públicos a las casas de los usuarios.');
   t('Status');
