@@ -1143,7 +1143,9 @@ form.entityform .vertical-tabs-panes fieldset .field-type-field-collection th.fi
   width: auto;
 }
 form.entityform .vertical-tabs-panes fieldset .field-type-field-collection th.field-label label {
-  display: none;
+  font-size: 1.25rem;
+  font-weight: normal;
+  color: #00829e;
 }
 form.entityform .vertical-tabs-panes fieldset .field-type-field-collection fieldset.field-group-fieldset {
   margin-left: 0;
