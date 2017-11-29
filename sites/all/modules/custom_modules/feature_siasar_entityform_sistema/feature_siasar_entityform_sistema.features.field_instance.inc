@@ -670,7 +670,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_fields',
-        'weight' => 4,
+        'weight' => 40,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -692,7 +692,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 72,
+      'weight' => 116,
     ),
   );
 

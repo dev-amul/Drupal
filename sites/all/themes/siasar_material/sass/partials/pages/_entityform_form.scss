@@ -194,6 +194,13 @@ form.entityform {
             }
           }
         }
+        &.embeds-field-collection {
+          th.field-label label {
+            display: none;
+          }
+        }
+
+
       }
 
       .field-type-field-collection {

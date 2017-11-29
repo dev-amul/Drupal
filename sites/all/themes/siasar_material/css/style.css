@@ -1132,6 +1132,9 @@ form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.for
 form.entityform .vertical-tabs-panes fieldset .field-group-fieldset fieldset.form-wrapper > .fieldset-wrapper .form-item:not(:last-child) {
   margin-bottom: 15px;
 }
+form.entityform .vertical-tabs-panes fieldset .field-group-fieldset.embeds-field-collection th.field-label label {
+  display: none;
+}
 @media (min-width: 600px) {
   form.entityform .vertical-tabs-panes fieldset .field-type-field-collection table.sticky-header {
     z-index: 1;
