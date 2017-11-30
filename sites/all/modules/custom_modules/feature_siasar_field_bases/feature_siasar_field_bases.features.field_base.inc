@@ -4648,20 +4648,17 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'module' => 'entityreference',
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'handler' => 'base',
+      'handler' => 'views',
       'handler_settings' => array(
         'behaviors' => array(
           'views-select-list' => array(
             'status' => 0,
           ),
         ),
-        'sort' => array(
-          'direction' => 'ASC',
-          'property' => 'name',
-          'type' => 'property',
-        ),
-        'target_bundles' => array(
-          'cuenca_hidrografica' => 'cuenca_hidrografica',
+        'view' => array(
+          'args' => array(),
+          'display_name' => 'catchment_area',
+          'view_name' => 'taxonomy_reference',
         ),
       ),
       'target_type' => 'taxonomy_term',
