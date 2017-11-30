@@ -1247,9 +1247,9 @@ function siasar_updates_update_7175() {
  * 406 - Cuencas hidrográficas
  */
 function siasar_updates_update_7176(&$sandbox) {
-  //features_revert_module('feature_siasar_taxonomies');
-  //features_revert_module('feature_siasar_views_reports');
-  //features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_taxonomies');
+  features_revert_module('feature_siasar_views_reports');
+  features_revert_module('feature_siasar_field_bases');
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('cuenca_hidrografica');
   $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
