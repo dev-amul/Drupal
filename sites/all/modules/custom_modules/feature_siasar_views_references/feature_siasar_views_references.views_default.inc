@@ -41,28 +41,28 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relación: Campo: País (field_pais) */
+  /* Relationship: Field: País (field_pais) */
   $handler->display->display_options['relationships']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['relationships']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['relationships']['field_pais_iso2']['field'] = 'field_pais_iso2';
-  /* Campo: Término de taxonomía: Nombre */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Campo: Término de taxonomía: Name (translated) */
+  /* Field: Taxonomy term: Name (translated) */
   $handler->display->display_options['fields']['name_i18n']['id'] = 'name_i18n';
   $handler->display->display_options['fields']['name_i18n']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name_i18n']['field'] = 'name_i18n';
   $handler->display->display_options['fields']['name_i18n']['label'] = '';
   $handler->display->display_options['fields']['name_i18n']['element_label_colon'] = FALSE;
-  /* Criterio de ordenación: Término de taxonomía: Nombre */
+  /* Sort criterion: Taxonomy term: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Filtro contextual: Campo: País (field_pais) */
+  /* Contextual filter: Field: País (field_pais) */
   $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
@@ -73,7 +73,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
-  /* Criterio de filtrado: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -131,11 +131,11 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relación: Campo: País (field_pais) */
+  /* Relationship: Field: País (field_pais) */
   $handler->display->display_options['relationships']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['relationships']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['relationships']['field_pais_iso2']['field'] = 'field_pais_iso2';
-  /* Campo: Término de taxonomía: Nombre */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -144,17 +144,17 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Campo: Término de taxonomía: Name (translated) */
+  /* Field: Taxonomy term: Name (translated) */
   $handler->display->display_options['fields']['name_i18n']['id'] = 'name_i18n';
   $handler->display->display_options['fields']['name_i18n']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name_i18n']['field'] = 'name_i18n';
   $handler->display->display_options['fields']['name_i18n']['label'] = '';
   $handler->display->display_options['fields']['name_i18n']['element_label_colon'] = FALSE;
-  /* Criterio de ordenación: Término de taxonomía: Nombre */
+  /* Sort criterion: Taxonomy term: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Filtro contextual: Campo: País (field_pais) */
+  /* Contextual filter: Field: País (field_pais) */
   $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
@@ -165,7 +165,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
-  /* Criterio de filtrado: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -220,7 +220,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Campo: Término de taxonomía: Nombre */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -228,16 +228,16 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Campo: Término de taxonomía: Código división administrativa */
+  /* Field: Taxonomy term: Código división administrativa */
   $handler->display->display_options['fields']['field_codigo_division_admin']['id'] = 'field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['table'] = 'field_data_field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['field'] = 'field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['hide_empty'] = TRUE;
-  /* Criterio de ordenación: Término de taxonomía: Nombre */
+  /* Sort criterion: Taxonomy term: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Criterio de filtrado: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -259,7 +259,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'term_reference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Término de taxonomía: Nombre */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -269,14 +269,14 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Criterio de filtrado: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'division_administrativa' => 'division_administrativa',
   );
-  /* Criterio de filtrado: Término de taxonomía: Nombre */
+  /* Filter criterion: Taxonomy term: Name */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name']['field'] = 'name';
@@ -298,7 +298,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'term_reference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Término de taxonomía: Nombre */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -306,18 +306,18 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Campo: Término de taxonomía: Código división administrativa */
+  /* Field: Taxonomy term: Código división administrativa */
   $handler->display->display_options['fields']['field_codigo_division_admin']['id'] = 'field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['table'] = 'field_data_field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['field'] = 'field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Criterio de ordenación: Término de taxonomía: Nombre */
+  /* Sort criterion: Taxonomy term: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Filtro contextual: Término de taxonomía: Término padre */
+  /* Contextual filter: Taxonomy term: Parent term */
   $handler->display->display_options['arguments']['parent']['id'] = 'parent';
   $handler->display->display_options['arguments']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['arguments']['parent']['field'] = 'parent';
@@ -328,7 +328,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['arguments']['parent']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['parent']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['parent']['summary_options']['items_per_page'] = '25';
-  /* Filtro contextual: Campo: País (field_pais) */
+  /* Contextual filter: Field: País (field_pais) */
   $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
@@ -340,7 +340,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Criterio de filtrado: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -383,7 +383,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Campo: Entityform Submission: Nombre */
+  /* Field: Entityform Submission: Nombre */
   $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
@@ -391,11 +391,11 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['field_entity_name']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_entity_name']['alter']['text'] = '[field_entity_name]';
   $handler->display->display_options['fields']['field_entity_name']['element_label_colon'] = FALSE;
-  /* Campo: Entityform Submission: Fecha de envío */
+  /* Field: Entityform Submission: Date submitted */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'entityform';
   $handler->display->display_options['fields']['created']['field'] = 'created';
-  /* Filtro contextual: Campo: País (field_pais) */
+  /* Contextual filter: Field: País (field_pais) */
   $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
@@ -406,7 +406,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
-  /* Filtro contextual: Campo: Localidad (field_entidad_local) */
+  /* Contextual filter: Field: Localidad (field_entidad_local) */
   $handler->display->display_options['arguments']['field_entidad_local_tid']['id'] = 'field_entidad_local_tid';
   $handler->display->display_options['arguments']['field_entidad_local_tid']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['arguments']['field_entidad_local_tid']['field'] = 'field_entidad_local_tid';
@@ -416,14 +416,14 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['arguments']['field_entidad_local_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_entidad_local_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_entidad_local_tid']['summary_options']['items_per_page'] = '25';
-  /* Criterio de filtrado: Entityform Submission: Entityform Type */
+  /* Filter criterion: Entityform Submission: Entityform Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'entityform';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'sistema' => 'sistema',
   );
-  /* Criterio de filtrado: Campo: Localidad (field_entidad_local) */
+  /* Filter criterion: Field: Localidad (field_entidad_local) */
   $handler->display->display_options['filters']['field_entidad_local_tid']['id'] = 'field_entidad_local_tid';
   $handler->display->display_options['filters']['field_entidad_local_tid']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['filters']['field_entidad_local_tid']['field'] = 'field_entidad_local_tid';
@@ -448,7 +448,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Entityform Submission: Nombre */
+  /* Field: Entityform Submission: Nombre */
   $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
@@ -458,7 +458,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['field_entity_name']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Criterio de filtrado: Entityform Submission: Entityform Type */
+  /* Filter criterion: Entityform Submission: Entityform Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'entityform';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -480,7 +480,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Entityform Submission: Nombre */
+  /* Field: Entityform Submission: Nombre */
   $handler->display->display_options['fields']['field_entity_name']['id'] = 'field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['table'] = 'field_data_field_entity_name';
   $handler->display->display_options['fields']['field_entity_name']['field'] = 'field_entity_name';
@@ -490,7 +490,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['field_entity_name']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Criterio de filtrado: Entityform Submission: Entityform Type */
+  /* Filter criterion: Entityform Submission: Entityform Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'entityform';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -498,6 +498,70 @@ function feature_siasar_views_references_views_default_views() {
     'prestador_de_servicio' => 'prestador_de_servicio',
   );
   $export['entityform_reference'] = $view;
+
+  $view = new view();
+  $view->name = 'taxonomy_reference';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'Taxonomy reference';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Contextual filter: Field: País (field_pais) */
+  $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
+  $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
+  $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_pais_iso2']['default_argument_type'] = 'siasar_user_country';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
+
+  /* Display: Catchment area */
+  $handler = $view->new_display('entityreference', 'Catchment area', 'catchment_area');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'name' => 'name',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'cuenca_hidrografica' => 'cuenca_hidrografica',
+  );
+  $export['taxonomy_reference'] = $view;
 
   $view = new view();
   $view->name = 'tipos_de_moneda';
@@ -530,19 +594,19 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Campo: Unit measurement: Symbol */
+  /* Field: Unit measurement: Symbol */
   $handler->display->display_options['fields']['symbol']['id'] = 'symbol';
   $handler->display->display_options['fields']['symbol']['table'] = 'units_unit';
   $handler->display->display_options['fields']['symbol']['field'] = 'symbol';
   $handler->display->display_options['fields']['symbol']['label'] = '';
   $handler->display->display_options['fields']['symbol']['element_label_colon'] = FALSE;
-  /* Campo: Unit measurement: Etiqueta */
+  /* Field: Unit measurement: Label */
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'units_unit';
   $handler->display->display_options['fields']['label']['field'] = 'label';
   $handler->display->display_options['fields']['label']['label'] = '';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
-  /* Campo: Campo: País */
+  /* Field: Field: País */
   $handler->display->display_options['fields']['field_pais']['id'] = 'field_pais';
   $handler->display->display_options['fields']['field_pais']['table'] = 'field_data_field_pais';
   $handler->display->display_options['fields']['field_pais']['field'] = 'field_pais';
@@ -550,7 +614,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['field_pais']['label'] = '';
   $handler->display->display_options['fields']['field_pais']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_pais']['element_label_colon'] = FALSE;
-  /* Criterio de filtrado: Unit measurement: Measure */
+  /* Filter criterion: Unit measurement: Measure */
   $handler->display->display_options['filters']['measure']['id'] = 'measure';
   $handler->display->display_options['filters']['measure']['table'] = 'units_unit';
   $handler->display->display_options['filters']['measure']['field'] = 'measure';
@@ -573,12 +637,12 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relación: Referencia a entidades: Referenciando entidad */
+  /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['id'] = 'reverse_field_country_currency_taxonomy_term';
   $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['table'] = 'units_unit';
   $handler->display->display_options['relationships']['reverse_field_country_currency_taxonomy_term']['field'] = 'reverse_field_country_currency_taxonomy_term';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Filtro contextual: Campo: País (field_pais) */
+  /* Contextual filter: Field: País (field_pais) */
   $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
@@ -628,26 +692,26 @@ return $user_full->field_pais[\'und\'][0][\'iso2\'];';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relación: Campo: País (field_pais) */
+  /* Relationship: Field: País (field_pais) */
   $handler->display->display_options['relationships']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['relationships']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['relationships']['field_pais_iso2']['field'] = 'field_pais_iso2';
-  /* Relación: Campo: Localidad (field_entidad_local) */
+  /* Relationship: Field: Localidad (field_entidad_local) */
   $handler->display->display_options['relationships']['field_entidad_local_tid']['id'] = 'field_entidad_local_tid';
   $handler->display->display_options['relationships']['field_entidad_local_tid']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['relationships']['field_entidad_local_tid']['field'] = 'field_entidad_local_tid';
-  /* Campo: Usuario: Nombre */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-  /* Criterio de ordenación: Usuario: Nombre */
+  /* Sort criterion: User: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'users';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Filtro contextual: Campo: País (field_pais) */
+  /* Contextual filter: Field: País (field_pais) */
   $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
@@ -661,14 +725,14 @@ return $user_full->field_pais[\'und\'][0][\'iso2\'];';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
-  /* Criterio de filtrado: Usuario: Aprobado */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Criterio de filtrado: Usuario: Roles */
+  /* Filter criterion: User: Roles */
   $handler->display->display_options['filters']['rid']['id'] = 'rid';
   $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
   $handler->display->display_options['filters']['rid']['field'] = 'rid';
@@ -692,7 +756,7 @@ return $user_full->field_pais[\'und\'][0][\'iso2\'];';
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Filtro contextual: Campo: País (field_pais) */
+  /* Contextual filter: Field: País (field_pais) */
   $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
   $handler->display->display_options['arguments']['field_pais_iso2']['field'] = 'field_pais_iso2';
@@ -703,7 +767,7 @@ return $user_full->field_pais[\'und\'][0][\'iso2\'];';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_pais_iso2']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_pais_iso2']['limit'] = '0';
-  /* Filtro contextual: Campo: Localidad (field_entidad_local) */
+  /* Contextual filter: Field: Localidad (field_entidad_local) */
   $handler->display->display_options['arguments']['field_entidad_local_tid']['id'] = 'field_entidad_local_tid';
   $handler->display->display_options['arguments']['field_entidad_local_tid']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['arguments']['field_entidad_local_tid']['field'] = 'field_entidad_local_tid';

@@ -73,6 +73,38 @@ function feature_siasar_taxonomies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-cuenca_hidrografica-field_pais'.
+  $field_instances['taxonomy_term-cuenca_hidrografica-field_pais'] = array(
+    'bundle' => 'cuenca_hidrografica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_pais',
+    'label' => 'País',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance:
   // 'taxonomy_term-division_administrativa-field_codigo_division_admin'.
   $field_instances['taxonomy_term-division_administrativa-field_codigo_division_admin'] = array(
