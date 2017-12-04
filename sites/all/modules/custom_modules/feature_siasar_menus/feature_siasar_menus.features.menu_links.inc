@@ -10,6 +10,75 @@
 function feature_siasar_menus_menu_default_menu_links() {
   $menu_links = array();
 
+  // Exported menu link: main-menu_:<front>.
+  $menu_links['main-menu_:<front>'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => '<front>',
+    'router_path' => '',
+    'link_title' => 'Главная',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'main-menu_:<front>',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: main-menu_:questionnaires.
+  $menu_links['main-menu_:questionnaires'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'questionnaires',
+    'router_path' => 'questionnaires',
+    'link_title' => 'опросники',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'main-menu_:questionnaires',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: main-menu_:resultados.
+  $menu_links['main-menu_:resultados'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'resultados',
+    'router_path' => 'resultados',
+    'link_title' => 'Проверка',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'main-menu_:resultados',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+  );
   // Exported menu link: main-menu_cuestionarios:questionnaires.
   $menu_links['main-menu_cuestionarios:questionnaires'] = array(
     'menu_name' => 'main-menu',
@@ -388,6 +457,9 @@ function feature_siasar_menus_menu_default_menu_links() {
   t('Validación');
   t('Validation');
   t('Validação');
+  t('Главная');
+  t('Проверка');
+  t('опросники');
 
   return $menu_links;
 }
