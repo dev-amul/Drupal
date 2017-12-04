@@ -1261,3 +1261,13 @@ function siasar_updates_update_7176(&$sandbox) {
     $wrapper->save();
   }
 }
+/**
+ * Hotfix - Activate translation on API for taxonomy terms on "vocab" endpoints
+ * Example endpoint: /rest/vocab/tipo_de_sistema_de_abastecimiento_de_agua
+ */
+function siasar_updates_update_7177() {
+  $modules = array(
+    'siasar_services_taxonomies_alter',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+}

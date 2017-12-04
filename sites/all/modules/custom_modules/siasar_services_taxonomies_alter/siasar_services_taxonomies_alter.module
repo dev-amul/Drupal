@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * Alter results on the Taxonomies and Term list services call. Example URL:
+ * /rest/vocab/tipo_de_sistema_de_abastecimiento_de_agua
+ *
+ * @param $controller
+ *   Controller definition
+ * @param array $args
+ *   Arguments passed to services callback
+ * @param array $result
+ *   Array of results that can be altered
+ *
+ * @see services_controller_execute()
+ * @see services.runtime.inc
+ */
+function siasar_services_taxonomies_alter_services_request_postprocess_alter($controller, $args, &$result) {
+  if (arg(1) !== 'vocab') return;
+
+  if (arg(2) !== null && isset($result['allowed_values'])) {
+    foreach ($result['allowed_values'] as $tid => &$name) {
+      _siasar_services_taxonomies_alter_get_translated_term_names($tid, $name);
+    }
+  }
+}
+
+/**
+ * Helper function pases taxonomy term names thru i18n translator function.
+ */
+function _siasar_services_taxonomies_alter_get_translated_term_names($tid, &$name) {
+  $label_location = 'taxonomy:term:' . $tid . ':name';
+  $name = i18n_string_translate($label_location, $name);
+}
