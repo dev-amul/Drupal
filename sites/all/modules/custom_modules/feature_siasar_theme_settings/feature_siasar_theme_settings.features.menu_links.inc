@@ -10,6 +10,102 @@
 function feature_siasar_theme_settings_menu_default_menu_links() {
   $menu_links = array();
 
+  // Exported menu link: menu-front-page-menu_--:eform/submit/prestador_de_asistencia_t_cnica.
+  $menu_links['menu-front-page-menu_--:eform/submit/prestador_de_asistencia_t_cnica'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'eform/submit/prestador_de_asistencia_t_cnica',
+    'router_path' => 'eform/submit/%',
+    'link_title' => 'Поставщик технической помощи',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_--:eform/submit/prestador_de_asistencia_t_cnica',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_-:<nolink>',
+  );
+  // Exported menu link: menu-front-page-menu_-:eform/submit/prestador_de_servicio.
+  $menu_links['menu-front-page-menu_-:eform/submit/prestador_de_servicio'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'eform/submit/prestador_de_servicio',
+    'router_path' => 'eform/submit/%',
+    'link_title' => 'Поставщик услуг',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_-:eform/submit/prestador_de_servicio',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_-:<nolink>',
+  );
+  // Exported menu link: menu-front-page-menu_:eform/submit/comunidad.
+  $menu_links['menu-front-page-menu_:eform/submit/comunidad'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'eform/submit/comunidad',
+    'router_path' => 'eform/submit/%',
+    'link_title' => 'сообщество',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_:eform/submit/comunidad',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_-:<nolink>',
+  );
+  // Exported menu link: menu-front-page-menu_:resultados.
+  $menu_links['menu-front-page-menu_:resultados'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'resultados',
+    'router_path' => 'resultados',
+    'link_title' => 'Проверка',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_:resultados',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_-:<nolink>',
+  );
   // Exported menu link: menu-front-page-menu_calidad-de-agua:eform/submit/waq.
   $menu_links['menu-front-page-menu_calidad-de-agua:eform/submit/waq'] = array(
     'menu_name' => 'menu-front-page-menu',
@@ -247,6 +343,30 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
   );
+  // Exported menu link: menu-front-page-menu_prestador-de-assistncia-tcnica:eform/submit/prestador_de_asistencia_t_cnica.
+  $menu_links['menu-front-page-menu_prestador-de-assistncia-tcnica:eform/submit/prestador_de_asistencia_t_cnica'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'eform/submit/prestador_de_asistencia_t_cnica',
+    'router_path' => 'eform/submit/%',
+    'link_title' => 'Prestador de assistência técnica',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_prestador-de-assistncia-tcnica:eform/submit/prestador_de_asistencia_t_cnica',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+    'language' => 'pt-br',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_preencha-questionrios:<nolink>',
+  );
   // Exported menu link: menu-front-page-menu_prestador-de-servicio:eform/submit/prestador_de_servicio.
   $menu_links['menu-front-page-menu_prestador-de-servicio:eform/submit/prestador_de_servicio'] = array(
     'menu_name' => 'menu-front-page-menu',
@@ -270,6 +390,30 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'language' => 'es',
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
+  );
+  // Exported menu link: menu-front-page-menu_prestador-de-servio:eform/submit/prestador_de_servicio.
+  $menu_links['menu-front-page-menu_prestador-de-servio:eform/submit/prestador_de_servicio'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'eform/submit/prestador_de_servicio',
+    'router_path' => 'eform/submit/%',
+    'link_title' => 'Prestador de serviço',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_prestador-de-servio:eform/submit/prestador_de_servicio',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+    'language' => 'pt-br',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_preencha-questionrios:<nolink>',
   );
   // Exported menu link: menu-front-page-menu_rellenar-cuestionarios:<nolink>.
   $menu_links['menu-front-page-menu_rellenar-cuestionarios:<nolink>'] = array(
@@ -462,6 +606,30 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_fill-survey:<nolink>',
   );
+  // Exported menu link: menu-front-page-menu_water-supply-system:eform/submit/sistema.
+  $menu_links['menu-front-page-menu_water-supply-system:eform/submit/sistema'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'eform/submit/sistema',
+    'router_path' => 'eform/submit/%',
+    'link_title' => 'Water Supply System',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_water-supply-system:eform/submit/sistema',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+    'language' => 'en',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_fill-survey:<nolink>',
+  );
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -476,6 +644,8 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
   t('My drafts');
   t('Prestador de Asistencia Técnica');
   t('Prestador de Servicio');
+  t('Prestador de assistência técnica');
+  t('Prestador de serviço');
   t('Rellenar cuestionarios');
   t('Service provider');
   t('Sistema');
@@ -483,7 +653,12 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
   t('Testing form');
   t('Validación');
   t('Validation');
+  t('Water Supply System');
   t('Water quality');
+  t('Поставщик технической помощи');
+  t('Поставщик услуг');
+  t('Проверка');
+  t('сообщество');
 
   return $menu_links;
 }
