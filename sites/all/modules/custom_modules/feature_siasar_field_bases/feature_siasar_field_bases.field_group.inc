@@ -23,8 +23,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A6. Are there adequate water resources (at the source) to meet demand?',
     'weight' => '120',
     'children' => array(
-      0 => 'field_agua_en_invierno',
-      1 => 'field_agua_en_verano',
+      0 => 'field_agua_en_verano',
+      1 => 'field_agua_en_invierno',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -82,16 +82,16 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. General information and design',
     'weight' => '0',
     'children' => array(
-      0 => 'field_user_reference',
-      1 => 'field_fecha_de_aplicaci_n',
-      2 => 'field_pais',
-      3 => 'group_a6_croquis_del_sistema',
-      4 => 'group_a5',
+      0 => 'field_pais',
+      1 => 'field_user_reference',
+      2 => 'field_fecha_de_aplicaci_n',
+      3 => 'group_a5',
+      4 => 'group_a6_croquis_del_sistema',
       5 => 'group_financiamiento_inicial',
       6 => 'group_info_general',
-      7 => 'group_tpo_sist_abastecimeinto',
-      8 => 'group_otras_divisiones',
-      9 => 'group_rehabilitaciones_sistema',
+      7 => 'group_otras_divisiones',
+      8 => 'group_rehabilitaciones_sistema',
+      9 => 'group_tpo_sist_abastecimeinto',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2297,7 +2297,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_d';
   $field_group->data = array(
     'label' => 'D1',
-    'weight' => '115',
+    'weight' => '4',
     'children' => array(
       0 => 'field_d_infraestructura',
     ),
@@ -2537,7 +2537,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'E. Water storage infrastructure',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
       0 => 'group_e1',
     ),
@@ -2838,7 +2838,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'F. Water Distribution Network',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
       0 => 'group_f1',
     ),
@@ -2956,11 +2956,11 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '71',
     'children' => array(
       0 => 'field_g4_4',
-      1 => 'field_cantidad_de_cloro_residual',
-      2 => 'field_fecha_analisis_fq',
-      3 => 'field_fecha_analisis_coliformes',
-      4 => 'field_fecha_analisiscalidad_agua',
-      5 => 'field_g4_3',
+      1 => 'field_fecha_analisiscalidad_agua',
+      2 => 'field_fecha_analisis_coliformes',
+      3 => 'field_g4_3',
+      4 => 'field_cantidad_de_cloro_residual',
+      5 => 'field_fecha_analisis_fq',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3024,7 +3024,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'G. Drinking water quantity and quality',
-    'weight' => '6',
+    'weight' => '7',
     'children' => array(
       0 => 'group_g1',
       1 => 'group_g2',
@@ -3111,7 +3111,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'H. Comments',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'group_h1',
     ),
@@ -3518,13 +3518,13 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A1',
     'weight' => '115',
     'children' => array(
-      0 => 'field_anno_construccion',
-      1 => 'field_entidad_local',
-      2 => 'field_latitud',
-      3 => 'field_alto',
-      4 => 'field_entity_name',
-      5 => 'field_codigo_de_sistema',
-      6 => 'field_imagen',
+      0 => 'field_entidad_local',
+      1 => 'field_alto',
+      2 => 'field_entity_name',
+      3 => 'field_codigo_de_sistema',
+      4 => 'field_latitud',
+      5 => 'field_imagen',
+      6 => 'field_anno_construccion',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3938,9 +3938,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A2. Other Administrative and/or Geographical Divisions',
     'weight' => '116',
     'children' => array(
-      0 => 'field_otras_divisiones',
-      1 => 'field_area_planificacion',
-      2 => 'field_cuenca_hidrografica',
+      0 => 'field_cuenca_hidrografica',
+      1 => 'field_otras_divisiones',
+      2 => 'field_area_planificacion',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
