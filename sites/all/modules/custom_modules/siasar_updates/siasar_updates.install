@@ -1271,3 +1271,21 @@ function siasar_updates_update_7177() {
   );
   $modules_enabled = module_enable($modules, TRUE);
 }
+/**
+ * Hotfix: Removes the records for modules that are not there: entityform_prepopulate
+ *
+ * @param $sandbox
+ *
+ * @return null|string
+ */
+function siasar_updates_update_7178(&$sandbox) {
+  $modules = array(
+    'entityform_prepopulate',
+  );
+
+  $num = db_delete('system')
+          ->condition('name', $modules)
+          ->execute();
+
+  return t('@num modules have been removed from the system table.', array('@num' => $num));
+}

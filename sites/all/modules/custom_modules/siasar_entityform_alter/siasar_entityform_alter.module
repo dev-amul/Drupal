@@ -58,7 +58,7 @@ function _siasar_entityform_alter_set_default_country_from_user(&$form) {
   $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
   $entity = $form_item_pais['#entity'];
 
-  if ($entity->is_new) {
+  if (isset($entity->is_new) && $entity->is_new) {
     $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
 
     if ($user_country_iso2) {
