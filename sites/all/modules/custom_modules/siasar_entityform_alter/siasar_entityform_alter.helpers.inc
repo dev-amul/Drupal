@@ -108,9 +108,13 @@ function _siasar_entityform_alter_select_add_default_value_back(&$element, $cont
   $default_value = (int) $entityform_wrapper->${field_name}->raw();
 
   if(isset($element['#options'][$default_value])) return; // Default value is already there in $options. Out.
+  if($default_value == 0) return; // A default value of 0 means no reference. Nothing to do here. Out.
 
   $reference_type = $field['settings']['target_type'];
   $target_entity = entity_load_single($reference_type, $default_value);
+
+  if(!$target_entity) return; // No reference, out
+
   $reference_wrapper = entity_metadata_wrapper($reference_type, $target_entity);
   $value_to_insert = array(
     $default_value => $reference_wrapper->label()
