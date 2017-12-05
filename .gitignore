@@ -14,7 +14,7 @@ sites/all/translations
 *.dump
 
 # Ignore Firefox partial downloads
-*.part
+*.dump.part
 
 # Ignore SASS cache
 .sass-cache
