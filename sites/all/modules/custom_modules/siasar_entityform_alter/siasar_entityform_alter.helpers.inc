@@ -99,10 +99,9 @@ function _siasar_entityform_alter_select_add_default_value_back(&$element, $cont
   if ($entity_type != 'entityform') return; // Not an entityform? Out.
 
   $field = &$context['field'];
-  $is_entity_reference = ($field['type'] == 'entityreference');
-  $is_managed_by_views = ($field['settings']['handler'] == 'views');
 
-  if(!($is_entity_reference && $is_managed_by_views)) return; // Not an entityreference or not managed by views? This one is not being filtered. Out.
+  if ($field['type'] !== 'entityreference') return; // Not an entityreference? out
+  if ($field['settings']['handler'] !== 'views') return; // Not managed by views? This one is not being filtered. Out.
 
   $entityform_wrapper = entity_metadata_wrapper($entity_type, $element['#entity']);
   $field_name = &$element['#field_name'];
@@ -131,10 +130,9 @@ function _siasar_entityform_alter_select_add_default_value_back(&$element, $cont
  */
 function _siasar_entityform_alter_pass_entity_references_through_translator(&$element, $context) {
   $field = &$context['field'];
-  $is_entity_reference = ($field['type'] == 'entityreference');
-  $is_taxonomy_term = ($field['settings']['target_type'] == 'taxonomy_term');
 
-  if(!($is_entity_reference && $is_taxonomy_term)) return;
+  if ($field['type'] !== 'entityreference') return; // Not an entityreference? out
+  if ($field['settings']['target_type'] !== 'taxonomy_term') return; // Not a taxonomy term? out
 
   $options = $element['#options'];
 
