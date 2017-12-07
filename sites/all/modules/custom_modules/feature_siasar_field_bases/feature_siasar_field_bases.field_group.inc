@@ -1968,11 +1968,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B1. Data collection method',
     'weight' => '28',
     'children' => array(
-      0 => 'field_com_lev_general',
-      1 => 'field_com_num_viv_muestra',
-      2 => 'field_com_lev_utilform',
-      3 => 'field_com_lev_muestral',
-      4 => 'field_data_collection_method',
+      0 => 'field_com_num_viv_muestra',
+      1 => 'field_data_collection_method',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

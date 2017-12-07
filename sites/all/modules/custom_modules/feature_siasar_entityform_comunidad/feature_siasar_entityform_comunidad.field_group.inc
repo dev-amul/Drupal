@@ -1374,10 +1374,7 @@ function feature_siasar_entityform_comunidad_field_group_info() {
     'weight' => '15',
     'children' => array(
       0 => 'field_data_collection_method',
-      1 => 'field_com_lev_general',
-      2 => 'field_com_num_viv_muestra',
-      3 => 'field_com_lev_utilform',
-      4 => 'field_com_lev_muestral',
+      1 => 'field_com_num_viv_muestra',
     ),
     'format_type' => 'div',
     'format_settings' => array(
