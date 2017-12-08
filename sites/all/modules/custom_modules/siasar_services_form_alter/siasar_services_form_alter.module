@@ -41,6 +41,7 @@ function _siasar_services_form_alter_process_form(&$form) {
   if (isset($form['field_pais'])) {
     $form['field_pais']['settings']['allowed_values'] = _siasar_services_form_alter_reduce_country_options_to_members();
   }
+  _siasar_services_form_alter_fix_empty_field_settings($form);
 }
 
 /**
@@ -103,6 +104,36 @@ function _siasar_services_form_alter_translate_form_group_labels($result) {
     }
   }
   return $result;
+}
+
+/**
+ * Helper function to fix empty settings for some fields in API
+ * @return array
+ */
+function _siasar_services_form_alter_fix_empty_field_settings(&$form) {
+  foreach($form as $field_name => &$field_info) {
+    if (!empty($field_info['settings'])) continue;
+
+    $field_settings = field_info_field($field_name);
+
+    $type = $field_settings['type'];
+
+    switch ($type) {
+      case 'entityreference':
+        $field_info['settings']['resource'] = $field_settings['settings']['target_type'];
+
+        if($field_settings['settings']['handler'] == 'base') {
+          $field_info['settings']['allowed_values'] = array(
+            0 => array(
+              'vocabulary' => array_shift($field_settings['settings']['handler_settings']['target_bundles']),
+            )
+          );
+        }
+
+        break;
+    }
+
+  }
 }
 
 
