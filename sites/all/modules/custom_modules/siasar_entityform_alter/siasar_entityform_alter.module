@@ -337,7 +337,8 @@ function siasar_entityform_alter_entityform_access_alter(&$access, $op, $context
  */
 function _siasar_entityform_alter_hide_save_action(&$form, &$form_state) {
   //Do not allow save operation over a entityform in removed state
-  if ($form_state['entityform']->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_REMOVED) {
+  $status = &$form_state['entityform']->field_status;
+  if (isset($status) && $status[LANGUAGE_NONE][0]['value'] == SIASAR_ENTITYFORM_STATE_REMOVED) {
     $form['actions']['save']['#access'] = FALSE;
   }
 }
