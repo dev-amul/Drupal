@@ -1001,6 +1001,7 @@ form.entityform .vertical-tabs-list li.vertical-tab-button:hover {
 form.entityform .vertical-tabs-list li.vertical-tab-button a {
   color: white;
   text-decoration: none;
+  outline: none;
   padding: 0.4em;
 }
 form.entityform .vertical-tabs-list li.vertical-tab-button a:hover, form.entityform .vertical-tabs-list li.vertical-tab-button a:hover strong, form.entityform .vertical-tabs-list li.vertical-tab-button a:focus strong {
