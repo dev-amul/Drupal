@@ -80,7 +80,7 @@ function siasar_field_location_field_widget_info() {
   return array(
     'siasar_hierarchical_select' => array(
       'label' => t('SIASAR Hierarchical Select'),
-      'field_name types' => array('taxonomy_term_reference'),
+      'field types' => array('taxonomy_term_reference'),
       'settings' => array(
         'siasar_hierarchical_select' => array(
           'force_deepest' => FALSE,
@@ -129,7 +129,7 @@ function siasar_field_location_field_widget_form(&$form, &$form_state, $field, $
  *
  * @return array of restrictions
  */
-function siassar_field_location_get_visibility_restrictions($instance) {
+function siasar_field_location_get_visibility_restrictions($instance) {
   global $user;
 
   // Having $instance means that this is acting as field widget, not form api
@@ -174,7 +174,7 @@ function siassar_field_location_get_visibility_restrictions($instance) {
  */
 function siasar_field_location_field_widget_skeleton($field_name, $instance, $default_value = null, $force_deepest = false, $country_field_name = false) {
 
-  $restrictions = siassar_field_location_get_visibility_restrictions($instance);
+  $restrictions = siasar_field_location_get_visibility_restrictions($instance);
 
   $module_path = drupal_get_path('module', 'siasar_field_location');
 
