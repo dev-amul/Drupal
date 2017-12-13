@@ -10,6 +10,28 @@
  * Controller that handles empty endpoints without retrieving a 404
  */
 class SIASARServicesEntityResourceController extends ServicesEntityResourceControllerClean {
+  /**
+   * Implements resourceInfo
+   *
+   * @see ServicesResourceControllerInterface::resourceInfo()
+   */
+  public function resourceInfo($entity_type) {
+    $info = parent::resourceInfo($entity_type);
+
+    if ($entity_type == 'entityform') {
+
+      $info['index']['args'][] = array(
+        'name' => 'computable',
+        'optional' => TRUE,
+        'type' => 'string',
+        'description' => 'Whether to deliver only computable entities (1), not computable (0), or both (all). Applies only to entityforms.',
+        'default value' => '1',
+        'source' => array('param' => 'computable'),
+      );
+    }
+
+    return $info;
+  }
 
   /**
    * Implements ServicesResourceControllerInterface::index().
@@ -48,7 +70,9 @@ class SIASARServicesEntityResourceController extends ServicesEntityResourceContr
   public function indexEntityform($entity_type, $fields, $parameters, $page, $pagesize, $sort, $direction) {
     $property_info = entity_get_all_property_info($entity_type);
     $parameters = $this->transform_values($entity_type, $property_info, $parameters);
-    $sort = (isset($property_info['field_' . $sort]))?'field_' . $sort:$sort;
+    $sort = (isset($property_info['field_' . $sort]))
+      ? 'field_' . $sort
+      : $sort;
 
     // Call the parent method, which takes care of access control.
     $entities = $this->servicesEntityFormControllerIndex($entity_type, '*', $parameters, $page, $pagesize, $sort, $direction);

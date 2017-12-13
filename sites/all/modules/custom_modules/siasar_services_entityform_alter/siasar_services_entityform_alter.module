@@ -1,6 +1,7 @@
 <?php
 /**
  * Alters incoming request to take care of "field_pais" country fields.
+ * Alters incoming request to pass "computable" as parameter
  *
  * @param array $data
  *   The parsed request data.
@@ -10,8 +11,10 @@
  * @see RESTServer->getControllerArguments()
  */
 function siasar_services_entityform_alter_rest_server_request_parsed_alter(&$data, $controller) {
+  if ($controller['callback'] != '_services_entity_resource_callback') return;
+
   $allowed_operations = array('create', 'update');
-  if (!empty($data['field_pais']) && $controller['callback'] == '_services_entity_resource_callback' && in_array($controller['access arguments'][0], $allowed_operations)) {
+  if (!empty($data['field_pais']) && in_array($controller['access arguments'][0], $allowed_operations)) {
     $data['field_pais'] = country_load($data['field_pais']);
   }
 }
