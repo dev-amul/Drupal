@@ -1296,7 +1296,7 @@ function siasar_updates_update_7178(&$sandbox) {
  */
 function siasar_updates_update_7179(&$sandbox) {
   $modules = array(
-    'entity_connect',
+    'entityconnect',
   );
   $result = module_disable($modules, TRUE);
   $result = drupal_uninstall_modules($modules, TRUE);
