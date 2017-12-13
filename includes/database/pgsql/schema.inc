@@ -23,54 +23,6 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
    */
   protected $tableInformation = array();
 
-
-  /**
-   * The maximum allowed length for index, primary key and constraint names.
-   *
-   * Value will usually be set to a 63 chars limit but PostgreSQL allows
-   * to higher this value before compiling, so we need to check for that.
-   *
-   * @var int
-   */
-  protected $maxIdentifierLength;
-
-  /**
-   * Make sure to limit identifiers according to PostgreSQL compiled in length.
-   *
-   * PostgreSQL allows in standard configuration no longer identifiers than 63
-   * chars for table/relation names, indexes, primary keys, and constraints.
-   * So we map all to long identifiers to drupal_base64hash_tag, where tag is
-   * one of:
-   *   - idx for indexes
-   *   - key for constraints
-   *   - pkey for primary keys
-   *
-   * @param $identifiers
-   *   The arguments to build the identifier string.
-   *
-   * @return string
-   *   The index/constraint/pkey identifier.
-   */
-  protected function ensureIdentifiersLength($identifier) {
-    $args = func_get_args();
-    $info = $this->getPrefixInfo($identifier);
-    $args[0] = $info['table'];
-    $identifierName = implode('__', $args);
-
-    // Retrieve the max identifier length which is usually 63 characters
-    // but can be altered before PostreSQL is compiled so we need to check.
-    $this->maxIdentifierLength = $this->connection->query("SHOW max_identifier_length")->fetchField();
-
-    if (strlen($identifierName) > $this->maxIdentifierLength) {
-      $saveIdentifier = 'drupal_' . $this->hashBase64($identifierName) . '_' . $args[2];
-    }
-    else {
-      $saveIdentifier = $identifierName;
-    }
-
-    return $saveIdentifier;
-  }
-
   /**
    * Fetch the list of blobs and sequences used on a table.
    *
@@ -176,7 +128,7 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
     }
     if (isset($table['unique keys']) && is_array($table['unique keys'])) {
       foreach ($table['unique keys'] as $key_name => $key) {
-        $sql_keys[] = 'CONSTRAINT ' . $this->ensureIdentifiersLength($name, $key_name, 'key') . ' UNIQUE (' . implode(', ', $key) . ')';
+        $sql_keys[] = 'CONSTRAINT ' . $this->prefixNonTable($name, $key_name, 'key') . ' UNIQUE (' . implode(', ', $key) . ')';
       }
     }
 
@@ -378,7 +330,7 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
     foreach ($indexes as $index) {
       if (preg_match('/^' . preg_quote($old_full_name) . '_(.*)$/', $index->indexname, $matches)) {
         $index_name = $matches[1];
-        $this->connection->query('ALTER INDEX ' . $index->indexname . ' RENAME TO ' . $this->ensureIdentifiersLength($new_name, $index_name, 'idx'));
+        $this->connection->query('ALTER INDEX ' . $index->indexname . ' RENAME TO {' . $new_name . '}_' . $index_name);
       }
     }
 
@@ -464,7 +416,7 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
 
   public function indexExists($table, $name) {
     // Details http://www.postgresql.org/docs/8.3/interactive/view-pg-indexes.html
-    $index_name = $this->ensureIdentifiersLength($table, $name, 'idx');
+    $index_name = '{' . $table . '}_' . $name . '_idx';
     return (bool) $this->connection->query("SELECT 1 FROM pg_indexes WHERE indexname = '$index_name'")->fetchField();
   }
 
@@ -477,7 +429,7 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
    *   The name of the constraint (typically 'pkey' or '[constraint]_key').
    */
   protected function constraintExists($table, $name) {
-    $constraint_name = $this->ensureIdentifiersLength($table, $name);
+    $constraint_name = '{' . $table . '}_' . $name;
     return (bool) $this->connection->query("SELECT 1 FROM pg_constraint WHERE conname = '$constraint_name'")->fetchField();
   }
 
@@ -497,7 +449,7 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
       return FALSE;
     }
 
-    $this->connection->query('ALTER TABLE {' . $table . '} DROP CONSTRAINT ' . $this->ensureIdentifiersLength($table, 'pkey'));
+    $this->connection->query('ALTER TABLE {' . $table . '} DROP CONSTRAINT ' . $this->prefixNonTable($table, 'pkey'));
     return TRUE;
   }
 
@@ -509,7 +461,7 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
       throw new DatabaseSchemaObjectExistsException(t("Cannot add unique key @name to table @table: unique key already exists.", array('@table' => $table, '@name' => $name)));
     }
 
-    $this->connection->query('ALTER TABLE {' . $table . '} ADD CONSTRAINT "' . $this->ensureIdentifiersLength($table, $name, 'key') . '" UNIQUE (' . implode(',', $fields) . ')');
+    $this->connection->query('ALTER TABLE {' . $table . '} ADD CONSTRAINT "' . $this->prefixNonTable($table, $name, 'key') . '" UNIQUE (' . implode(',', $fields) . ')');
   }
 
   public function dropUniqueKey($table, $name) {
@@ -517,7 +469,7 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
       return FALSE;
     }
 
-    $this->connection->query('ALTER TABLE {' . $table . '} DROP CONSTRAINT "' . $this->ensureIdentifiersLength($table, $name, 'key') . '"');
+    $this->connection->query('ALTER TABLE {' . $table . '} DROP CONSTRAINT "' . $this->prefixNonTable($table, $name, 'key') . '"');
     return TRUE;
   }
 
@@ -537,7 +489,7 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
       return FALSE;
     }
 
-    $this->connection->query('DROP INDEX ' . $this->ensureIdentifiersLength($table, $name, 'idx'));
+    $this->connection->query('DROP INDEX ' . $this->prefixNonTable($table, $name, 'idx'));
     return TRUE;
   }
 
@@ -628,7 +580,7 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
   }
 
   protected function _createIndexSql($table, $name, $fields) {
-    $query = 'CREATE INDEX "' . $this->ensureIdentifiersLength($table, $name, 'idx') . '" ON {' . $table . '} (';
+    $query = 'CREATE INDEX "' . $this->prefixNonTable($table, $name, 'idx') . '" ON {' . $table . '} (';
     $query .= $this->_createKeySql($fields) . ')';
     return $query;
   }
@@ -662,23 +614,4 @@ class DatabaseSchema_pgsql extends DatabaseSchema {
       return $this->connection->query('SELECT obj_description(oid, ?) FROM pg_class WHERE relname = ?', array('pg_class', $info['table']))->fetchField();
     }
   }
-
-  /**
-   * Calculates a base-64 encoded, PostgreSQL-safe sha-256 hash.
-   *
-   * Per PostgreSQL documentation: 4.1. Lexical Structure.
-   *
-   * @param string $data
-   *   String to be hashed.
-   *
-   * @return string
-   *   A base-64 encoded sha-256 hash, with + and / replaced with _ and any =
-   *   padding characters removed.
-   */
-  protected function hashBase64($data) {
-    $hash = base64_encode(hash('sha256', $data, TRUE));
-    // Modify the hash so it's safe to use in PostgreSQL identifiers.
-    return strtr($hash, array('+' => '_', '/' => '_', '=' => ''));
-  }
-
 }
