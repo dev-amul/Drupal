@@ -1,4 +1,8 @@
-#units-unit-overview-form .factor {
+#units-unit-overview-form th.factor {
+  width: 0;
+}
+
+#units-unit-overview-form td.factor {
   text-align: right;
   padding-right: 20px;
 }

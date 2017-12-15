@@ -12,7 +12,10 @@ function units_ui_show_factors_form_units_unit_overview_form_alter(&$form, $form
   $form['#attached']['css'][] = drupal_get_path('module', 'units_ui_show_factors') . '/units_ui_show_factors.css';
 
   // Insert table header column title
-  $title_tag = t('Factor');
+  $title_tag = array(
+    'data' => t('Factor'),
+    'class' => array('factor')
+  );
   $header = _units_ui_show_factors_inject_value_at_position_1($header, $title_tag);
 
   // Insert rows data
