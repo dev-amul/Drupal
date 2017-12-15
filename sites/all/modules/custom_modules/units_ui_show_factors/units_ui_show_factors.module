@@ -1,0 +1,70 @@
+<?php
+
+
+/**
+ * Implementation of hook_form_alter()
+ */
+function units_ui_show_factors_form_units_unit_overview_form_alter(&$form, $form_state, $form_id) {
+  $header = &$form['table']['#header'];
+  $rows = &$form['table']['#rows'];
+
+  // Insert our custom CSS
+  $form['#attached']['css'][] = drupal_get_path('module', 'units_ui_show_factors') . '/units_ui_show_factors.css';
+
+  // Insert table header column title
+  $title_tag = t('Factor');
+  $header = _units_ui_show_factors_inject_value_at_position_1($header, $title_tag);
+
+  // Insert rows data
+  foreach ($rows as &$row) {
+    $row = _units_ui_show_factors_inject_factor($row);
+  }
+}
+
+/**
+ * Helper function injects unit conversion ratio at a fixed position in $row array
+ */
+function _units_ui_show_factors_inject_factor($row) {
+  $unit_machine_name = $row[0]['data']['#name'];
+  $unit = units_unit_machine_name_load($unit_machine_name);
+  $cell = array(
+    'data' => $unit->factor,
+    'class' => array('factor'),
+  );
+
+  $row = _units_ui_show_factors_inject_value_at_position_1($row, $cell);
+
+  if($unit->factor == 1) {
+    $row[0] = _units_ui_show_factors_make_canonical($row[0]);
+    $row[1] = _units_ui_show_factors_make_canonical($row[1]);
+  }
+
+  return $row;
+}
+
+/**
+ * Helper function injects value at position one of the array.
+ */
+function _units_ui_show_factors_inject_value_at_position_1($arr, $value) {
+  array_unshift($arr, '');
+  $arr[0] = $arr[1];
+  $arr[1] = $value;
+
+  return $arr;
+}
+
+/**
+ * Helper function adds 'canonical' class to row or cell.
+ */
+function _units_ui_show_factors_make_canonical($element) {
+  if(is_string($element)) {
+    $element = array(
+      'data' => $element,
+      'class' => array('canonical')
+    );
+  } else {
+    $element['class'][] = 'canonical';
+  }
+
+  return $element;
+}

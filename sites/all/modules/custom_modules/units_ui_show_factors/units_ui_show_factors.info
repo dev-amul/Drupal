@@ -1,0 +1,8 @@
+name = Units UI show factors
+description = Shows conversion factors in units list page, so you can check all factors at once.
+version = 7.x-1.0
+core = 7.x
+package = siasar
+
+dependencies[] = units
+dependencies[] = units_ui
