@@ -1307,3 +1307,18 @@ function siasar_updates_update_7180() {
   );
   $modules_enabled = module_enable($modules, TRUE);
 }
+
+/**
+ * Hotfix - Dropping tables related to fields that don't exist anymore and were removed long, long ago.
+ */
+function siasar_updates_update_7181(&$sandbox = null) {
+  $tables = array(
+    'field_data_field_testing_collection',
+    'field_revision_field_testing_collection',
+    'field_data_field_testing_text',
+    'field_revision_field_testing_text',
+  );
+  foreach($tables as $t) {
+    db_drop_table($t);
+  }
+}
