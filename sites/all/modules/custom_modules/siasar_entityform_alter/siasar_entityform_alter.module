@@ -36,9 +36,8 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
  */
 function _siasar_entityform_alter_redirect(&$form, &$form_state) {
   if (isset($form['actions']['submit'])) {
-    $form['actions']['submit']['#submit'][]= 'siasar_entityform_alter_form_submit';
-  }
-  if (isset($form['actions']['save'])) {
+    $form['actions']['submit']['#submit'][] = 'siasar_entityform_alter_form_submit';
+  } elseif (isset($form['actions']['save'])) {
     $form['actions']['save']['#submit'][] = 'siasar_entityform_alter_form_submit';
   }
 }
@@ -52,22 +51,6 @@ function siasar_entityform_alter_form_submit(&$form, &$form_state) {
 }
 
 /**
- * Implements hook_permission().
- */
-function siasar_entityform_alter_permission() {
-  return array(
-    'validate entityforms' => array(
-      'title' => t('Validate entityforms'),
-      'description' => t('User can validate entityforms and browse results for more info on validated/not validated forms.'),
-    ),
-    'can delete validated entityforms' => array(
-      'title' => t('Deletes validated entityforms'),
-      'description' => t('User can delete validated entityforms.'),
-    )
-  );
-}
-
-/**
  * Helper function to set default country value from user if needed.
  */
 function _siasar_entityform_alter_set_default_country_from_user(&$form) {
@@ -75,7 +58,7 @@ function _siasar_entityform_alter_set_default_country_from_user(&$form) {
   $form_item_pais = &$form['field_pais'][LANGUAGE_NONE];
   $entity = $form_item_pais['#entity'];
 
-  if ($entity->is_new) {
+  if (isset($entity->is_new) && $entity->is_new) {
     $user_country_iso2 = user_load($user->uid)->field_pais[LANGUAGE_NONE][0]['iso2'];
 
     if ($user_country_iso2) {
@@ -96,7 +79,10 @@ function _siasar_entityform_alter_set_default_location_from_user(&$form) {
     : false;
 
   if ($is_new) {
-    $user_entidad_local = user_load($user->uid)->field_entidad_local[LANGUAGE_NONE][0];
+    $user_full = user_load($user->uid);
+    $user_entidad_local = isset($user_full->field_entidad_local[LANGUAGE_NONE][0])
+      ? $user_full->field_entidad_local[LANGUAGE_NONE][0]
+      : null;
 
     if ($user_entidad_local && isset($form['field_entidad_local'])) {
       $form['field_entidad_local'][LANGUAGE_NONE][0]['#default_value'] = $user_entidad_local;
@@ -351,7 +337,38 @@ function siasar_entityform_alter_entityform_access_alter(&$access, $op, $context
  */
 function _siasar_entityform_alter_hide_save_action(&$form, &$form_state) {
   //Do not allow save operation over a entityform in removed state
-  if ($form_state['entityform']->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_REMOVED) {
+  $status = &$form_state['entityform']->field_status;
+  if (isset($status) && $status[LANGUAGE_NONE][0]['value'] == SIASAR_ENTITYFORM_STATE_REMOVED) {
     $form['actions']['save']['#access'] = FALSE;
   }
+}
+/**
+ * Implementation of hook_form_FORM_ID_alter()
+ * Makes sure it redirects to results on Delete.
+ */
+function siasar_entityform_alter_form_entityform_delete_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = '_siasar_entityform_alter_form_delete_redirect';
+}
+// Helper function for siasar_entityform_alter_form_entityform_delete_form_alter
+function _siasar_entityform_alter_form_delete_redirect($form, &$form_state) {
+  $form_state['redirect'] = 'resultados';
+}
+
+/**
+ * Implements hook_field_widget_OPTIONS_SELECT_form_alter().
+ */
+function siasar_entityform_alter_field_widget_options_select_form_alter(&$element, &$form_state, $context) {
+  module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+
+  _siasar_entityform_alter_select_add_default_value_back($element, $context);
+}
+
+/**
+ * Implements hook_field_widget_OPTIONS_BUTTONS_form_alter().
+ */
+function siasar_entityform_alter_field_widget_options_buttons_form_alter(&$element, &$form_state, $context) {
+  module_load_include('inc', 'siasar_entityform_alter', 'siasar_entityform_alter.helpers');
+
+  _siasar_entityform_alter_select_add_default_value_back($element, $context);
+  _siasar_entityform_alter_pass_entity_references_through_translator($element, $context);
 }

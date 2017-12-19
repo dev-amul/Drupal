@@ -13,6 +13,9 @@ sites/all/translations
 *.pgsql
 *.dump
 
+# Ignore Firefox partial downloads
+*.part
+
 # Ignore SASS cache
 .sass-cache
 .sass-cache*

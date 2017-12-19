@@ -54,20 +54,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -104,7 +105,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 14,
+      'weight' => 21,
     ),
   );
 
@@ -198,20 +199,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -248,7 +250,54 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 30,
+      'weight' => 37,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-waq-field_bacteriological_total'.
+  $field_instances['entityform-waq-field_bacteriological_total'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Total of bacteriological parameters exceeding the allowed values',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 45,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_bacteriological_total',
+    'label' => 'Bacteriological Total',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'elements_numberfield',
+      'settings' => array(),
+      'type' => 'elements_numberfield',
+      'weight' => 56,
     ),
   );
 
@@ -296,20 +345,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -346,7 +396,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 15,
+      'weight' => 22,
     ),
   );
 
@@ -394,20 +444,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -444,7 +495,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 18,
+      'weight' => 25,
     ),
   );
 
@@ -492,20 +543,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -542,7 +594,54 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 16,
+      'weight' => 23,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-waq-field_chemical_total'.
+  $field_instances['entityform-waq-field_chemical_total'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Total of chemical parameters exceeding the allowed values',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 43,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_chemical_total',
+    'label' => 'Chemical Total',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'elements_numberfield',
+      'settings' => array(),
+      'type' => 'elements_numberfield',
+      'weight' => 38,
     ),
   );
 
@@ -590,20 +689,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -640,7 +740,48 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 19,
+      'weight' => 26,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-waq-field_codigo_de_la_fuente'.
+  $field_instances['entityform-waq-field_codigo_de_la_fuente'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 38,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_codigo_de_la_fuente',
+    'label' => 'Water Source Code',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 42,
     ),
   );
 
@@ -662,7 +803,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 14,
+        'weight' => 41,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -688,20 +829,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 766,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -786,29 +928,30 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 689,
-            'weight' => 0,
+            'enable' => 1,
+            'unit' => 692,
+            'weight' => -8,
           ),
           'locale' => array(
-            'en' => 689,
-            'enable' => 1,
-            'es' => 689,
-            'es-BO' => 689,
-            'es-CO' => 689,
-            'es-HN' => 689,
-            'es-PY' => 689,
-            'gn-PY' => 689,
-            'pt-br' => 689,
-            'weight' => 0,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
+            'weight' => -7,
           ),
           'original' => array(
             'enable' => 0,
-            'weight' => 0,
+            'weight' => -9,
           ),
           'per_user' => array(
             'enable' => 0,
-            'weight' => 0,
+            'weight' => -10,
           ),
         ),
       ),
@@ -840,50 +983,6 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'entityform-waq-field_cuestionario_validado'.
-  $field_instances['entityform-waq-field_cuestionario_validado'] = array(
-    'bundle' => 'waq',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 36,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 0,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 6,
-    ),
-  );
-
   // Exported field_instance: 'entityform-waq-field_data_source'.
   $field_instances['entityform-waq-field_data_source'] = array(
     'bundle' => 'waq',
@@ -907,7 +1006,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_data_source',
-    'label' => 'Origen de los datos',
+    'label' => 'Data Source',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -923,7 +1022,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'formatter_settings' => array(),
       ),
       'type' => 'field_extrawidgets_read_only',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -1025,20 +1124,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 693,
-            'enable' => 1,
-            'es' => 693,
-            'es-BO' => 693,
-            'es-CO' => 693,
-            'es-HN' => 693,
-            'es-PY' => 693,
-            'gn-PY' => 693,
-            'pt-br' => 693,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -1075,7 +1175,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 32,
+      'weight' => 54,
     ),
   );
 
@@ -1123,20 +1223,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -1173,7 +1274,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 25,
+      'weight' => 32,
     ),
   );
 
@@ -1263,20 +1364,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -1313,7 +1415,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 17,
+      'weight' => 24,
     ),
   );
 
@@ -1361,20 +1463,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -1411,7 +1514,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 20,
+      'weight' => 27,
     ),
   );
 
@@ -1459,20 +1562,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -1509,7 +1613,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 29,
+      'weight' => 36,
     ),
   );
 
@@ -1557,20 +1661,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -1607,7 +1712,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 21,
+      'weight' => 28,
     ),
   );
 
@@ -1655,20 +1760,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
+            'en' => -1,
             'enable' => 0,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -1705,7 +1811,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 23,
+      'weight' => 30,
     ),
   );
 
@@ -1753,20 +1859,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -1803,7 +1910,48 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 24,
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-waq-field_nombre_de_la_fuente'.
+  $field_instances['entityform-waq-field_nombre_de_la_fuente'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 39,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_nombre_de_la_fuente',
+    'label' => 'Water Source Name',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 44,
     ),
   );
 
@@ -1844,7 +1992,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 34,
+      'weight' => 52,
     ),
   );
 
@@ -1892,20 +2040,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 694,
-            'enable' => 1,
-            'es' => 694,
-            'es-BO' => 694,
-            'es-CO' => 694,
-            'es-HN' => 694,
-            'es-PY' => 694,
-            'gn-PY' => 694,
-            'pt-br' => 694,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -1942,7 +2091,54 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 31,
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-waq-field_organochlorine_total'.
+  $field_instances['entityform-waq-field_organochlorine_total'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Total of organochlorine parameters exceeding the allowed values',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 44,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_organochlorine_total',
+    'label' => 'Organochlorine Total',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'elements_numberfield',
+      'settings' => array(),
+      'type' => 'elements_numberfield',
+      'weight' => 10,
     ),
   );
 
@@ -2024,10 +2220,57 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'number',
+      'module' => 'elements_numberfield',
       'settings' => array(),
-      'type' => 'number',
+      'type' => 'elements_numberfield',
       'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-waq-field_physical_total'.
+  $field_instances['entityform-waq-field_physical_total'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Total of physical parameters exceeding the allowed values',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 42,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_physical_total',
+    'label' => 'Physical Total',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'elements_numberfield',
+      'settings' => array(),
+      'type' => 'elements_numberfield',
+      'weight' => 14,
     ),
   );
 
@@ -2075,20 +2318,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -2125,7 +2369,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 28,
+      'weight' => 35,
     ),
   );
 
@@ -2173,20 +2417,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -2223,7 +2468,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 26,
+      'weight' => 33,
     ),
   );
 
@@ -2271,20 +2516,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -2321,7 +2567,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 27,
+      'weight' => 34,
     ),
   );
 
@@ -2363,7 +2609,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'name_as_title' => 1,
       ),
       'type' => 'workflow_default',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -2411,20 +2657,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 695,
-            'enable' => 1,
-            'es' => 695,
-            'es-BO' => 695,
-            'es-CO' => 695,
-            'es-HN' => 695,
-            'es-PY' => 695,
-            'gn-PY' => 695,
-            'pt-br' => 695,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -2461,7 +2708,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 22,
+      'weight' => 29,
     ),
   );
 
@@ -2565,29 +2812,30 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 690,
-            'weight' => 0,
+            'enable' => 1,
+            'unit' => 689,
+            'weight' => -8,
           ),
           'locale' => array(
-            'en' => 690,
-            'enable' => 1,
-            'es' => 690,
-            'es-BO' => 690,
-            'es-CO' => 690,
-            'es-HN' => 690,
-            'es-PY' => 690,
-            'gn-PY' => 690,
-            'pt-br' => 690,
-            'weight' => 0,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
+            'weight' => -7,
           ),
           'original' => array(
             'enable' => 0,
-            'weight' => 0,
+            'weight' => -9,
           ),
           'per_user' => array(
             'enable' => 0,
-            'weight' => 0,
+            'weight' => -10,
           ),
         ),
       ),
@@ -2616,6 +2864,54 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
       ),
       'type' => 'mvf_widget_default',
       'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-waq-field_tipo_de_fuente'.
+  $field_instances['entityform-waq-field_tipo_de_fuente'] = array(
+    'bundle' => 'waq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 40,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_tipo_de_fuente',
+    'label' => 'Water Source Type',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 46,
     ),
   );
 
@@ -2663,20 +2959,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 695,
+            'enable' => 1,
+            'unit' => 735,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 693,
-            'enable' => 1,
-            'es' => 693,
-            'es-BO' => 693,
-            'es-CO' => 693,
-            'es-HN' => 693,
-            'es-PY' => 693,
-            'gn-PY' => 693,
-            'pt-br' => 693,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -2713,7 +3010,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
       ),
       'type' => 'mvf_widget_default',
-      'weight' => 33,
+      'weight' => 55,
     ),
   );
 
@@ -2761,20 +3058,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         ),
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 691,
+            'enable' => 1,
+            'unit' => 693,
             'weight' => 0,
           ),
           'locale' => array(
-            'en' => 691,
-            'enable' => 1,
-            'es' => 691,
-            'es-BO' => 691,
-            'es-CO' => 691,
-            'es-HN' => 691,
-            'es-PY' => 691,
-            'gn-PY' => 691,
-            'pt-br' => 691,
+            'en' => -1,
+            'enable' => 0,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-HN' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -2864,141 +3162,21 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'entityform-waq-field_water_source_code'.
-  $field_instances['entityform-waq-field_water_source_code'] = array(
-    'bundle' => 'waq',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 7,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_water_source_code',
-    'label' => 'Water Source Code',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 42,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-waq-field_water_source_name'.
-  $field_instances['entityform-waq-field_water_source_name'] = array(
-    'bundle' => 'waq',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 8,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_water_source_name',
-    'label' => 'Water Source Name',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 43,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-waq-field_water_source_type'.
-  $field_instances['entityform-waq-field_water_source_type'] = array(
-    'bundle' => 'waq',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 9,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_water_source_type',
-    'label' => 'Water Source Type',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 44,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Alkalinity');
   t('Altitude');
   t('Arsenic');
+  t('Bacteriological Total');
   t('Bicarbonates');
   t('Calcium');
   t('Carbonates');
+  t('Chemical Total');
   t('Chlorides');
   t('Color');
   t('Conductivity');
   t('Country');
+  t('Data Source');
   t('Fecal Coliforms');
   t('Fluorine');
   t('Geolocation');
@@ -3012,7 +3190,8 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   t('Nitrites');
   t('Observations');
   t('Organochlorine Pesticides');
-  t('Origen de los datos');
+  t('Organochlorine Total');
+  t('Physical Total');
   t('Potassium');
   t('Residual Chlorine');
   t('Sodium');
@@ -3021,8 +3200,11 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   t('Survey Date');
   t('Temperature');
   t('Total Coliforms');
+  t('Total of bacteriological parameters exceeding the allowed values');
+  t('Total of chemical parameters exceeding the allowed values');
+  t('Total of organochlorine parameters exceeding the allowed values');
+  t('Total of physical parameters exceeding the allowed values');
   t('Turbidity');
-  t('Validado');
   t('Water Source Code');
   t('Water Source Name');
   t('Water Source Type');

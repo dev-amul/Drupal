@@ -83,14 +83,14 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'field_pais',
-      1 => 'field_fecha_de_aplicaci_n',
-      2 => 'field_user_reference',
-      3 => 'group_otras_divisiones',
-      4 => 'group_financiamiento_inicial',
-      5 => 'group_rehabilitaciones_sistema',
-      6 => 'group_a5',
-      7 => 'group_a6_croquis_del_sistema',
-      8 => 'group_info_general',
+      1 => 'field_user_reference',
+      2 => 'field_fecha_de_aplicaci_n',
+      3 => 'group_a5',
+      4 => 'group_a6_croquis_del_sistema',
+      5 => 'group_financiamiento_inicial',
+      6 => 'group_info_general',
+      7 => 'group_otras_divisiones',
+      8 => 'group_rehabilitaciones_sistema',
       9 => 'group_tpo_sist_abastecimeinto',
     ),
     'format_type' => 'tab',
@@ -284,7 +284,7 @@ function feature_siasar_field_bases_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-b1 field-group-fieldset',
+        'classes' => 'group-b1 field-group-fieldset embeds-field-collection',
         'description' => '',
       ),
       'formatter' => 'open',
@@ -440,8 +440,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'OCCASIONAL USE',
     'weight' => '92',
     'children' => array(
-      0 => 'field_com_num_viv_usoinfa2',
-      1 => 'field_com_num_viv_usohab2',
+      0 => 'field_com_num_viv_usohab2',
+      1 => 'field_com_num_viv_usoinfa2',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -677,7 +677,7 @@ function feature_siasar_field_bases_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-c1 field-group-fieldset',
+        'classes' => 'group-c1 field-group-fieldset embeds-field-collection',
         'description' => '',
       ),
       'formatter' => 'open',
@@ -760,9 +760,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Staff',
     'weight' => '81',
     'children' => array(
-      0 => 'field_com_fic_cesh_pa',
-      1 => 'field_com_fic_cesh_pe',
-      2 => 'field_com_fic_cesh_pi',
+      0 => 'field_com_fic_cesh_pi',
+      1 => 'field_com_fic_cesh_pa',
+      2 => 'field_com_fic_cesh_pe',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -795,9 +795,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '82',
     'children' => array(
-      0 => 'field_com_fic_cesh_pm',
-      1 => 'field_com_fic_cesh_pq',
-      2 => 'field_com_fic_cesh_pu',
+      0 => 'field_com_fic_cesh_pu',
+      1 => 'field_com_fic_cesh_pm',
+      2 => 'field_com_fic_cesh_pq',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -830,9 +830,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Shared',
     'weight' => '83',
     'children' => array(
-      0 => 'field_com_fic_cesh_pca',
-      1 => 'field_com_fic_cesh_paa',
-      2 => 'field_com_fic_cesh_pba',
+      0 => 'field_com_fic_cesh_paa',
+      1 => 'field_com_fic_cesh_pba',
+      2 => 'field_com_fic_cesh_pca',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -900,9 +900,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Staff',
     'weight' => '89',
     'children' => array(
-      0 => 'field_com_fic_cesh_pf',
+      0 => 'field_com_fic_cesh_pb',
       1 => 'field_com_fic_cesh_pj',
-      2 => 'field_com_fic_cesh_pb',
+      2 => 'field_com_fic_cesh_pf',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -935,9 +935,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '90',
     'children' => array(
-      0 => 'field_com_fic_cesh_pv',
+      0 => 'field_com_fic_cesh_pr',
       1 => 'field_com_fic_cesh_pn',
-      2 => 'field_com_fic_cesh_pr',
+      2 => 'field_com_fic_cesh_pv',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -970,9 +970,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Shared',
     'weight' => '91',
     'children' => array(
-      0 => 'field_com_fic_cesh_pcb',
-      1 => 'field_com_fic_cesh_pbb',
-      2 => 'field_com_fic_cesh_pab',
+      0 => 'field_com_fic_cesh_pab',
+      1 => 'field_com_fic_cesh_pcb',
+      2 => 'field_com_fic_cesh_pbb',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1041,8 +1041,8 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '97',
     'children' => array(
       0 => 'field_com_fic_cesh_pk',
-      1 => 'field_com_fic_cesh_pc',
-      2 => 'field_com_fic_cesh_pg',
+      1 => 'field_com_fic_cesh_pg',
+      2 => 'field_com_fic_cesh_pc',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1110,8 +1110,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Shared',
     'weight' => '99',
     'children' => array(
-      0 => 'field_com_fic_cesh_pbc',
-      1 => 'field_com_fic_cesh_pcc',
+      0 => 'field_com_fic_cesh_pcc',
+      1 => 'field_com_fic_cesh_pbc',
       2 => 'field_com_fic_cesh_pac',
     ),
     'format_type' => 'div',
@@ -1180,9 +1180,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Staff',
     'weight' => '46',
     'children' => array(
-      0 => 'field_com_fic_cesh_ph',
-      1 => 'field_com_fic_cesh_pd',
-      2 => 'field_com_fic_cesh_pl',
+      0 => 'field_com_fic_cesh_pl',
+      1 => 'field_com_fic_cesh_ph',
+      2 => 'field_com_fic_cesh_pd',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1215,9 +1215,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'Students',
     'weight' => '47',
     'children' => array(
-      0 => 'field_com_fic_cesh_px',
-      1 => 'field_com_fic_cesh_pp',
-      2 => 'field_com_fic_cesh_pt',
+      0 => 'field_com_fic_cesh_pp',
+      1 => 'field_com_fic_cesh_pt',
+      2 => 'field_com_fic_cesh_px',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -1321,19 +1321,19 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '22',
     'children' => array(
       0 => 'field_otras_tipo_apoyo',
-      1 => 'field_asesorar_prestador_aom',
-      2 => 'field_apoyar_juridica_caps',
-      3 => 'field_apoyar_legalizacion_reglam',
-      4 => 'field_apoyar_actualizar_tarifa',
-      5 => 'field_recolectar_muestras_agua',
-      6 => 'field_verificar_apoyar_caps',
-      7 => 'field_siasar_planification_anual',
-      8 => 'field_otras_numero_comunidade',
-      9 => 'field_revisar_actualizar_finanza',
-      10 => 'field_apoyar_caps_planificacion',
+      1 => 'field_apoyar_caps_planificacion',
+      2 => 'field_otras_numero_comunidade',
+      3 => 'field_revisar_actualizar_finanza',
+      4 => 'field_apoyar_caps_conflictos',
+      5 => 'field_apoyar_juridica_caps',
+      6 => 'field_apoyar_legalizacion_reglam',
+      7 => 'field_asesorar_prestador_aom',
+      8 => 'field_actualizar_prov_servicio',
+      9 => 'field_apoyar_actualizar_tarifa',
+      10 => 'field_recolectar_muestras_agua',
       11 => 'field_caps_medicion_pozo_agua',
-      12 => 'field_actualizar_prov_servicio',
-      13 => 'field_apoyar_caps_conflictos',
+      12 => 'field_siasar_planification_anual',
+      13 => 'field_verificar_apoyar_caps',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1587,7 +1587,7 @@ function feature_siasar_field_bases_field_group_info() {
         'classes' => 'group-com-fic-cecg field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_com_fic_cecg|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
@@ -1605,20 +1605,20 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C3. School: Water Supply System',
     'weight' => '3',
     'children' => array(
-      0 => 'field_system_ref',
-      1 => 'field_com_fic_cesa_pd',
-      2 => 'field_com_fic_cesa_pa',
+      0 => 'field_com_fic_cesa_pa',
+      1 => 'field_system_ref',
+      2 => 'field_com_fic_cesa_pd',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'C3. School: Water system',
+      'label' => 'C3. School: Water Supply System',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-com-fic-cesa field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_com_fic_cesa|field_collection_item|field_con_fic_ce_ficha|form'] = $field_group;
@@ -1696,12 +1696,12 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D2. Healthcare center: General characteristics',
     'weight' => '0',
     'children' => array(
-      0 => 'field_com_fic_cssgcodigo',
-      1 => 'field_group_com_fic_cscgnom',
-      2 => 'field_com_fic_cscgperf',
-      3 => 'field_com_fic_cscgusuf',
-      4 => 'field_com_fic_cscgperm',
-      5 => 'field_com_fic_cscgusum',
+      0 => 'field_group_com_fic_cscgnom',
+      1 => 'field_com_fic_cscgperf',
+      2 => 'field_com_fic_cscgperm',
+      3 => 'field_com_fic_cscgusum',
+      4 => 'field_com_fic_cscgusuf',
+      5 => 'field_com_fic_cssgcodigo',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1730,9 +1730,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D3.  Healthcare center: Water system',
     'weight' => '1',
     'children' => array(
-      0 => 'field_com_fic_cssa_pd',
-      1 => 'field_com_fic_cssa_pa',
-      2 => 'field_system_ref',
+      0 => 'field_system_ref',
+      1 => 'field_com_fic_cssa_pd',
+      2 => 'field_com_fic_cssa_pa',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1761,42 +1761,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D4.  Healthcare center: Sanitation and hygiene',
     'weight' => '2',
     'children' => array(
-      0 => 'field_com_fic_cssh_paa',
-      1 => 'field_com_fic_cssh_pad',
-      2 => 'field_com_fic_cssh_pab',
-      3 => 'field_com_fic_cssh_pac',
-      4 => 'field_com_fic_cssh_pbc',
-      5 => 'field_com_fic_cssh_pt',
-      6 => 'field_com_fic_cssh_pw',
-      7 => 'field_com_fic_cssh_pr',
-      8 => 'field_com_fic_cssh_pcc',
-      9 => 'field_com_fic_cssh_pv',
-      10 => 'field_com_fic_cssh_pm',
-      11 => 'field_com_fic_cssh_pb',
-      12 => 'field_com_fic_cssh_ph',
-      13 => 'field_com_fic_cssh_pu',
-      14 => 'field_com_fic_cssh_pcd',
-      15 => 'field_com_fic_cssh_pf',
-      16 => 'field_com_fic_cssh_pe',
-      17 => 'field_com_fic_cssh_pc',
-      18 => 'field_com_fic_cssh_pca',
-      19 => 'field_com_fic_cssh_pcb',
-      20 => 'field_com_fic_cssh_pi',
-      21 => 'field_com_fic_cssh_pd',
-      22 => 'field_com_fic_cssh_px',
-      23 => 'field_com_fic_cssh_ps',
-      24 => 'field_com_fic_cssh_pn',
-      25 => 'field_com_fic_cssh_pl',
-      26 => 'field_com_fic_cssh_pp',
-      27 => 'field_com_fic_cssh_pg',
-      28 => 'field_com_fic_cssh_pk',
-      29 => 'field_com_fic_cssh_pba',
-      30 => 'field_com_fic_cssh_pj',
-      31 => 'field_com_fic_cssh_po',
-      32 => 'field_com_fic_cssh_pbb',
-      33 => 'field_com_fic_cssh_pbd',
-      34 => 'field_com_fic_cssh_pa',
-      35 => 'field_com_fic_cssh_pq',
+      0 => 'group_d4_grid_1',
+      1 => 'group_d4_grid_2',
+      2 => 'group_d4_grid_3',
+      3 => 'group_d4_grid_4',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -1856,10 +1824,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'E1. Interventions scheduled or in progress ',
     'weight' => '43',
     'children' => array(
-      0 => 'field_com_fc_systypunimprove',
-      1 => 'field_com_fc_impsystem',
-      2 => 'field_com_fc_systypimprove',
-      3 => 'field_com_fc_newwatsystem',
+      0 => 'field_com_fc_impsystem',
+      1 => 'field_com_fc_systypimprove',
+      2 => 'field_com_fc_newwatsystem',
+      3 => 'field_com_fc_systypunimprove',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2001,20 +1969,18 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '28',
     'children' => array(
       0 => 'field_com_num_viv_muestra',
-      1 => 'field_com_lev_muestral',
-      2 => 'field_com_lev_utilform',
-      3 => 'field_com_lev_general',
+      1 => 'field_data_collection_method',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'B1. Process used to complete this form',
+      'label' => 'B1. Data collection method',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-com-proc-empleado field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_com_proc_empleado|entityform|comunidad|form'] = $field_group;
@@ -2032,9 +1998,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B6. Solid waste collection and disposal',
     'weight' => '34',
     'children' => array(
-      0 => 'field_com_recotrata_prac',
+      0 => 'field_com_recotrata_disp',
       1 => 'field_com_recontrata_numvivc',
-      2 => 'field_com_recotrata_disp',
+      2 => 'field_com_recotrata_prac',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2063,12 +2029,12 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B. Sanitation and hygiene',
     'weight' => '1',
     'children' => array(
-      0 => 'group_com_uso_inf',
-      1 => 'group_com_exist_infestr',
+      0 => 'group_com_exist_infestr',
+      1 => 'group_com_higiene',
       2 => 'group_com_no_uso',
-      3 => 'group_com_higiene',
+      3 => 'group_com_proc_empleado',
       4 => 'group_com_recotrata',
-      5 => 'group_com_proc_empleado',
+      5 => 'group_com_uso_inf',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2097,9 +2063,9 @@ function feature_siasar_field_bases_field_group_info() {
     'children' => array(
       0 => 'field_com_srv_existe',
       1 => 'field_com_srv_inte_existe',
-      2 => 'field_com_srv_caracteristicas',
-      3 => 'field_com_srv_telm_existe',
-      4 => 'field_com_srv_telf_existe',
+      2 => 'field_com_srv_telm_existe',
+      3 => 'field_com_srv_telf_existe',
+      4 => 'field_com_srv_caracteristicas',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2128,8 +2094,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B3. Use of improved sanitation (Type 1 or Type 2)',
     'weight' => '30',
     'children' => array(
-      0 => 'group_b3_grid_2',
-      1 => 'group_b3_grid_1',
+      0 => 'group_b3_grid_1',
+      1 => 'group_b3_grid_2',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -2288,6 +2254,67 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_d1|entityform|sistema|default';
+  $field_group->group_name = 'group_d1';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'sistema';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_d';
+  $field_group->data = array(
+    'label' => 'D1',
+    'weight' => '39',
+    'children' => array(
+      0 => 'field_d_infraestructura',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'D1',
+      'instance_settings' => array(
+        'label_element' => 'h3',
+        'id' => '',
+        'classes' => 'field-group',
+        'description' => '',
+        'show_label' => '1',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d1|entityform|sistema|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_d1|entityform|sistema|form';
+  $field_group->group_name = 'group_d1';
+  $field_group->entity_type = 'entityform';
+  $field_group->bundle = 'sistema';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_d';
+  $field_group->data = array(
+    'label' => 'D1',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_d_infraestructura',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'D1',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-d1 field-group-fieldset embeds-field-collection',
+        'description' => '',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_d1|entityform|sistema|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_d1|field_collection_item|field_d_infraestructura|form';
   $field_group->group_name = 'group_d1';
   $field_group->entity_type = 'field_collection_item';
@@ -2361,7 +2388,7 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'D. Water treatment infrastructure',
     'weight' => '3',
     'children' => array(
-      0 => 'field_d_infraestructura',
+      0 => 'group_d1',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2425,7 +2452,7 @@ function feature_siasar_field_bases_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-e1 field-group-fieldset',
+        'classes' => 'group-e1 field-group-fieldset embeds-field-collection',
         'description' => '',
       ),
       'formatter' => 'open',
@@ -2507,7 +2534,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'E. Water storage infrastructure',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
       0 => 'group_e1',
     ),
@@ -2544,7 +2571,7 @@ function feature_siasar_field_bases_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-f1 field-group-fieldset',
+        'classes' => 'group-f1 field-group-fieldset embeds-field-collection',
         'description' => '',
       ),
       'formatter' => 'open',
@@ -2808,7 +2835,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'F. Water Distribution Network',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
       0 => 'group_f1',
     ),
@@ -2926,9 +2953,9 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '71',
     'children' => array(
       0 => 'field_g4_4',
-      1 => 'field_g4_3',
+      1 => 'field_fecha_analisiscalidad_agua',
       2 => 'field_fecha_analisis_coliformes',
-      3 => 'field_fecha_analisiscalidad_agua',
+      3 => 'field_g4_3',
       4 => 'field_cantidad_de_cloro_residual',
       5 => 'field_fecha_analisis_fq',
     ),
@@ -2994,11 +3021,11 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'G. Drinking water quantity and quality',
-    'weight' => '6',
+    'weight' => '7',
     'children' => array(
       0 => 'group_g1',
-      1 => 'group_g3',
-      2 => 'group_g2',
+      1 => 'group_g2',
+      2 => 'group_g3',
       3 => 'group_g4',
     ),
     'format_type' => 'tab',
@@ -3081,7 +3108,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'H. Comments',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'group_h1',
     ),
@@ -3355,16 +3382,16 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. General information',
     'weight' => '0',
     'children' => array(
-      0 => 'field_user_reference',
-      1 => 'field_fecha_encuesta',
+      0 => 'field_fecha_encuesta',
+      1 => 'field_user_reference',
       2 => 'field_pais',
-      3 => 'group_otras_divisiones',
-      4 => 'group_com_viviendas_sin_sistema',
-      5 => 'group_com_srv',
-      6 => 'group_com_dist_viviendas',
-      7 => 'group_co_poblacion',
-      8 => 'group_com_cantidad_viv',
-      9 => 'group_info_general',
+      3 => 'group_co_poblacion',
+      4 => 'group_com_cantidad_viv',
+      5 => 'group_com_dist_viviendas',
+      6 => 'group_com_srv',
+      7 => 'group_com_viviendas_sin_sistema',
+      8 => 'group_info_general',
+      9 => 'group_otras_divisiones',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -3392,11 +3419,11 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '71',
     'children' => array(
       0 => 'field_entidad_local',
-      1 => 'field_entity_name',
-      2 => 'field_com_codigo_comunidad',
+      1 => 'field_com_georef',
+      2 => 'field_entity_name',
       3 => 'field_imagenc',
-      4 => 'field_com_georef',
-      5 => 'field_com_altitud',
+      4 => 'field_com_altitud',
+      5 => 'field_com_codigo_comunidad',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3425,8 +3452,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. General information and design',
     'weight' => '0',
     'children' => array(
-      0 => 'field_user_reference',
-      1 => 'field_pais',
+      0 => 'field_pais',
+      1 => 'field_user_reference',
       2 => 'field_fecha_de_aplicacion',
       3 => 'group_pat_a1',
       4 => 'group_pat_a2',
@@ -3488,13 +3515,13 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A1',
     'weight' => '115',
     'children' => array(
-      0 => 'field_entity_name',
-      1 => 'field_anno_construccion',
-      2 => 'field_entidad_local',
+      0 => 'field_entidad_local',
+      1 => 'field_alto',
+      2 => 'field_entity_name',
       3 => 'field_codigo_de_sistema',
       4 => 'field_latitud',
-      5 => 'field_alto',
-      6 => 'field_imagen',
+      5 => 'field_imagen',
+      6 => 'field_anno_construccion',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3554,8 +3581,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'B. Supervision',
     'weight' => '1',
     'children' => array(
-      0 => 'group_intervention_b2',
-      1 => 'group_intervention_b1',
+      0 => 'group_intervention_b1',
+      1 => 'group_intervention_b2',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -3877,9 +3904,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A2. Other Administrative and/or Geographical Divisions',
     'weight' => '72',
     'children' => array(
-      0 => 'field_otras_divisiones',
-      1 => 'field_cuenca_hidrografica',
-      2 => 'field_area_planificacion',
+      0 => 'field_area_planificacion',
+      1 => 'field_otras_divisiones',
+      2 => 'field_cuenca_hidrografica',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3908,9 +3935,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A2. Other Administrative and/or Geographical Divisions',
     'weight' => '116',
     'children' => array(
-      0 => 'field_area_planificacion',
-      1 => 'field_cuenca_hidrografica',
-      2 => 'field_otras_divisiones',
+      0 => 'field_cuenca_hidrografica',
+      1 => 'field_otras_divisiones',
+      2 => 'field_area_planificacion',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3937,10 +3964,12 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A1',
-    'weight' => '45',
+    'weight' => '46',
     'children' => array(
-      0 => 'field_imagenpat',
-      1 => 'field_entity_name',
+      0 => 'field_entity_name',
+      1 => 'field_altitud',
+      2 => 'field_imagenpat',
+      3 => 'field_latitud',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3967,7 +3996,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A2',
-    'weight' => '46',
+    'weight' => '47',
     'children' => array(
       0 => 'field_tipo_de_pat2',
     ),
@@ -3996,7 +4025,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A3',
-    'weight' => '47',
+    'weight' => '48',
     'children' => array(
       0 => 'field_entidad_local',
     ),
@@ -4230,20 +4259,20 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C4. Logistics',
     'weight' => '18',
     'children' => array(
-      0 => 'field_dispone_fondos_combistible',
-      1 => 'field_dispone_servicios_internet',
-      2 => 'field_cantidad_equipos_transport',
-      3 => 'field_estado_equipos_informatico',
-      4 => 'field_dispone_fondos_viaticos',
-      5 => 'field_estado_equipos_transporte',
-      6 => 'field_estado_fondos_viaticos',
-      7 => 'field_cantidad_medicion_agua',
-      8 => 'field_dispone_material_didactico',
-      9 => 'field_cantidad_equipos_inform',
-      10 => 'field_estado_medicion_agua',
-      11 => 'field_estado_fondos_combustible',
-      12 => 'field_estado_servicios_internet',
-      13 => 'field_estado_material_didactico',
+      0 => 'field_dispone_material_didactico',
+      1 => 'field_dispone_fondos_combistible',
+      2 => 'field_dispone_servicios_internet',
+      3 => 'field_cantidad_medicion_agua',
+      4 => 'field_cantidad_equipos_transport',
+      5 => 'field_estado_equipos_informatico',
+      6 => 'field_estado_equipos_transporte',
+      7 => 'field_estado_material_didactico',
+      8 => 'field_dispone_fondos_viaticos',
+      9 => 'field_estado_fondos_viaticos',
+      10 => 'field_estado_servicios_internet',
+      11 => 'field_cantidad_equipos_inform',
+      12 => 'field_estado_fondos_combustible',
+      13 => 'field_estado_medicion_agua',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -4272,10 +4301,10 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'C. Financial, human, and logistical resources',
     'weight' => '2',
     'children' => array(
-      0 => 'group_recursos_financ_hum_log_c3',
-      1 => 'group_recursos_financ_hum_log_c4',
-      2 => 'group_recursos_financ_hum_log_c1',
-      3 => 'group_recursos_financ_hum_log_c2',
+      0 => 'group_recursos_financ_hum_log_c1',
+      1 => 'group_recursos_financ_hum_log_c2',
+      2 => 'group_recursos_financ_hum_log_c3',
+      3 => 'group_recursos_financ_hum_log_c4',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -4393,11 +4422,11 @@ function feature_siasar_field_bases_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'A4. System refurbishments and/or expansions',
+      'label' => 'A4. Refurbishment(s) and/or Expansion(s)',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-rehabilitaciones-sistema field-group-fieldset',
+        'classes' => 'group-rehabilitaciones-sistema field-group-fieldset embeds-field-collection',
         'description' => '',
       ),
       'formatter' => 'open',
@@ -4591,8 +4620,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A5. Type of water supply system',
     'weight' => '119',
     'children' => array(
-      0 => 'field_a4_2',
-      1 => 'field_tipo_de_sistema_de_absto',
+      0 => 'field_tipo_de_sistema_de_absto',
+      1 => 'field_a4_2',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -4674,6 +4703,7 @@ function feature_siasar_field_bases_field_group_info() {
   t('D. Health center');
   t('D. Type of support');
   t('D. Water treatment infrastructure');
+  t('D1');
   t('D1. Additional revenue from operations');
   t('D1. Health centers');
   t('D1. Number of Communities - Technical assistance given to service providers (e.g. water committee, etc.)');

@@ -392,12 +392,6 @@ function field_read_fields($params = array(), $include_additional = array()) {
     $schema = (array) module_invoke($field['module'], 'field_schema', $field);
     $schema += array('columns' => array(), 'indexes' => array());
     $field['columns'] = $schema['columns'];
-    // 'indexes' can be both hardcoded in the field type, and specified in the
-    // incoming $field definition.
-    $field += array(
-      'indexes' => array(),
-    );
-    $field['indexes'] += $schema['indexes'];
 
     $field_name = $field['field_name'];
     if ($include_deleted) {

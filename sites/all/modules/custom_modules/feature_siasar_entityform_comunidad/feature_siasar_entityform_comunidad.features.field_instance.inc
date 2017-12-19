@@ -66,9 +66,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'i18n_taxonomy',
-        'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'module' => 'siasar_field_location',
+        'settings' => array(
+          'style' => 'links',
+        ),
+        'type' => 'siasar_field_location_hierarchy',
         'weight' => 10,
       ),
       'entity_reference' => array(
@@ -793,132 +795,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-comunidad-field_com_lev_general'.
-  $field_instances['entityform-comunidad-field_com_lev_general'] = array(
-    'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 17,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_com_lev_general',
-    'label' => '1. Levantamiento general aproximado (entrevistas, control parcial de las viviendas)',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 24,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-comunidad-field_com_lev_muestral'.
-  $field_instances['entityform-comunidad-field_com_lev_muestral'] = array(
-    'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 1,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 19,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_com_lev_muestral',
-    'label' => '3. Levantamiento muestral',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 26,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-comunidad-field_com_lev_utilform'.
-  $field_instances['entityform-comunidad-field_com_lev_utilform'] = array(
-    'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 18,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_com_lev_utilform',
-    'label' => '2. Levantamiento utilizando el formulario auxiliar',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 25,
-    ),
-  );
-
   // Exported field_instance:
   // 'entityform-comunidad-field_com_no_uso_vivnumtodos'.
   $field_instances['entityform-comunidad-field_com_no_uso_vivnumtodos'] = array(
@@ -1136,7 +1012,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 20,
+        'weight' => 21,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1186,7 +1062,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 27,
+        'weight' => 11,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1237,7 +1113,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 31,
+        'weight' => 12,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1288,7 +1164,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 25,
+        'weight' => 10,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1339,7 +1215,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 28,
+        'weight' => 11,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1390,7 +1266,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 26,
+        'weight' => 11,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1441,7 +1317,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 30,
+        'weight' => 15,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1492,7 +1368,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 29,
+        'weight' => 12,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1544,7 +1420,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 32,
+        'weight' => 16,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2175,9 +2051,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'i18n_taxonomy',
-        'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'module' => 'siasar_field_location',
+        'settings' => array(
+          'style' => 'links',
+        ),
+        'type' => 'siasar_field_location_hierarchy',
         'weight' => 6,
       ),
       'entity_reference' => array(
@@ -2268,23 +2146,21 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'entityform-comunidad-field_cuestionario_validado'.
-  $field_instances['entityform-comunidad-field_cuestionario_validado'] = array(
+  // 'entityform-comunidad-field_data_collection_method'.
+  $field_instances['entityform-comunidad-field_data_collection_method'] = array(
     'bundle' => 'comunidad',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 8,
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 20,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2294,8 +2170,15 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
+    'entityconnect_show_add_icon' => 0,
+    'entityconnect_show_edit_icon' => 0,
+    'entityconnect_unload_add' => 1,
+    'entityconnect_unload_edit' => 1,
+    'field_name' => 'field_data_collection_method',
+    'label' => 'Proceso empleado para rellenar el formulario',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -2304,11 +2187,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 6,
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 27,
     ),
   );
 
@@ -2324,7 +2205,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 77,
+        'weight' => 7,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2365,9 +2246,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'i18n_taxonomy',
-        'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'module' => 'siasar_field_location',
+        'settings' => array(
+          'style' => 'links',
+        ),
+        'type' => 'siasar_field_location_hierarchy',
         'weight' => 3,
       ),
       'entity_reference' => array(
@@ -2830,7 +2713,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 76,
+        'weight' => 6,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -3262,7 +3145,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 3,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3308,7 +3191,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3354,7 +3237,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 5,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3400,7 +3283,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 4,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3437,7 +3320,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 7,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3470,7 +3353,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 9,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3506,7 +3389,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3551,7 +3434,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 10,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3571,7 +3454,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 11,
+      'weight' => 13,
     ),
   );
 
@@ -3597,7 +3480,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 33,
+        'weight' => 27,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3617,7 +3500,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 35,
+      'weight' => 13,
     ),
   );
 
@@ -3643,7 +3526,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 34,
+        'weight' => 28,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3663,7 +3546,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 36,
+      'weight' => 14,
     ),
   );
 
@@ -3689,7 +3572,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 35,
+        'weight' => 16,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3709,7 +3592,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 37,
+      'weight' => 27,
     ),
   );
 
@@ -3735,7 +3618,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 36,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3755,7 +3638,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 38,
+      'weight' => 22,
     ),
   );
 
@@ -3781,7 +3664,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 11,
+        'weight' => 41,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3801,7 +3684,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 35,
     ),
   );
 
@@ -3827,7 +3710,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 37,
+        'weight' => 28,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3847,7 +3730,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 39,
+      'weight' => 14,
     ),
   );
 
@@ -3873,7 +3756,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 38,
+        'weight' => 16,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3893,7 +3776,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 40,
+      'weight' => 15,
     ),
   );
 
@@ -3919,7 +3802,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 39,
+        'weight' => 17,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3939,7 +3822,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 41,
+      'weight' => 28,
     ),
   );
 
@@ -3965,7 +3848,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 40,
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -3985,7 +3868,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 42,
+      'weight' => 23,
     ),
   );
 
@@ -4011,7 +3894,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 12,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4031,7 +3914,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 13,
+      'weight' => 37,
     ),
   );
 
@@ -4057,7 +3940,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 41,
+        'weight' => 29,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4077,7 +3960,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 43,
+      'weight' => 15,
     ),
   );
 
@@ -4103,7 +3986,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 42,
+        'weight' => 17,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4123,7 +4006,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 44,
+      'weight' => 16,
     ),
   );
 
@@ -4149,7 +4032,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 43,
+        'weight' => 19,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4169,7 +4052,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 45,
+      'weight' => 29,
     ),
   );
 
@@ -4195,7 +4078,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 44,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4215,7 +4098,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 46,
+      'weight' => 24,
     ),
   );
 
@@ -4241,7 +4124,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 12,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4261,7 +4144,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 14,
+      'weight' => 6,
     ),
   );
 
@@ -4287,7 +4170,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 12,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4307,7 +4190,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 14,
     ),
   );
 
@@ -4333,7 +4216,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 13,
+        'weight' => 42,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4353,7 +4236,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 16,
+      'weight' => 36,
     ),
   );
 
@@ -4379,7 +4262,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 14,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4399,7 +4282,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 17,
+      'weight' => 38,
     ),
   );
 
@@ -4425,7 +4308,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 15,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4445,7 +4328,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 18,
+      'weight' => 7,
     ),
   );
 
@@ -4471,7 +4354,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 16,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4491,7 +4374,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 19,
+      'weight' => 15,
     ),
   );
 
@@ -4517,7 +4400,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 17,
+        'weight' => 43,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4537,7 +4420,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 20,
+      'weight' => 37,
     ),
   );
 
@@ -4563,7 +4446,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 18,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4583,7 +4466,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 21,
+      'weight' => 39,
     ),
   );
 
@@ -4609,7 +4492,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 19,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4629,7 +4512,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 22,
+      'weight' => 8,
     ),
   );
 
@@ -4655,7 +4538,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 20,
+        'weight' => 27,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4675,7 +4558,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 23,
+      'weight' => 25,
     ),
   );
 
@@ -4701,7 +4584,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 21,
+        'weight' => 15,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4721,7 +4604,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 24,
+      'weight' => 37,
     ),
   );
 
@@ -4747,7 +4630,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 22,
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4767,7 +4650,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 25,
+      'weight' => 36,
     ),
   );
 
@@ -4793,7 +4676,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 23,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4813,7 +4696,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 26,
+      'weight' => 7,
     ),
   );
 
@@ -4839,7 +4722,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 24,
+        'weight' => 28,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4859,7 +4742,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 27,
+      'weight' => 26,
     ),
   );
 
@@ -4885,7 +4768,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 25,
+        'weight' => 29,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4905,7 +4788,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 28,
+      'weight' => 38,
     ),
   );
 
@@ -4931,7 +4814,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 26,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4951,7 +4834,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 29,
+      'weight' => 37,
     ),
   );
 
@@ -4977,7 +4860,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 27,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -4997,7 +4880,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 30,
+      'weight' => 8,
     ),
   );
 
@@ -5023,7 +4906,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 28,
+        'weight' => 29,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5043,7 +4926,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 31,
+      'weight' => 27,
     ),
   );
 
@@ -5069,7 +4952,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 31,
+        'weight' => 30,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5089,7 +4972,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 32,
+      'weight' => 39,
     ),
   );
 
@@ -5115,7 +4998,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 30,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5135,7 +5018,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 33,
+      'weight' => 38,
     ),
   );
 
@@ -5161,7 +5044,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 29,
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5181,7 +5064,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 34,
+      'weight' => 9,
     ),
   );
 
@@ -5198,7 +5081,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5236,7 +5119,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 32,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5413,7 +5296,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5458,7 +5341,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 5,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5504,7 +5387,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 2,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5550,7 +5433,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 6,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5596,7 +5479,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 4,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5633,7 +5516,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 7,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5666,7 +5549,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5711,7 +5594,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 8,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5757,7 +5640,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 37,
+        'weight' => 22,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5803,7 +5686,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 39,
+        'weight' => 22,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5849,7 +5732,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 40,
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5895,7 +5778,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 41,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5941,7 +5824,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 13,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -5987,7 +5870,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 42,
+        'weight' => 23,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6033,7 +5916,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 43,
+        'weight' => 23,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6079,7 +5962,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 44,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6125,7 +6008,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 45,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6171,7 +6054,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 14,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6217,7 +6100,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 46,
+        'weight' => 24,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6263,7 +6146,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 47,
+        'weight' => 24,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6309,7 +6192,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 48,
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6355,7 +6238,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 49,
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6401,7 +6284,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 15,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6447,7 +6330,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 16,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6493,7 +6376,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 17,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6539,7 +6422,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 18,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6585,7 +6468,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 19,
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6631,7 +6514,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 20,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6677,7 +6560,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 21,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6723,7 +6606,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 22,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6769,7 +6652,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 23,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6815,7 +6698,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 24,
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6861,7 +6744,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 25,
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6907,7 +6790,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 26,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6953,7 +6836,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 27,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -6999,7 +6882,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 28,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7045,7 +6928,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 29,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7091,7 +6974,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 30,
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7137,7 +7020,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 31,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7183,7 +7066,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 32,
+        'weight' => 15,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7229,7 +7112,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 33,
+        'weight' => 15,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7275,7 +7158,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 34,
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7321,7 +7204,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 35,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7358,7 +7241,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7385,7 +7268,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_con_fic_ce_ficha-field_system_ref'.
   $field_instances['field_collection_item-field_con_fic_ce_ficha-field_system_ref'] = array(
     'bundle' => 'field_con_fic_ce_ficha',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -7396,7 +7279,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 36,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -7425,9 +7308,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('1. Levantamiento general aproximado (entrevistas, control parcial de las viviendas)');
-  t('2. Levantamiento utilizando el formulario auxiliar');
-  t('3. Levantamiento muestral');
   t('Altitud');
   t('Calificación (SIASAR 1)');
   t('Cantidad de viviendas en que TODOS sus miembros (incluyendo ancianos/as, hombres, mujeres y niños/as) utilizan la instalación de lavado siempre');
@@ -7545,6 +7425,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Personal de salud y administrativo. Femenino');
   t('Personal de salud y administrativo. Masculino');
   t('Población total');
+  t('Proceso empleado para rellenar el formulario');
   t('Se posee de servicios de conexión a Internet (3G o 4G)');
   t('Se posee de servicios de energía eléctrica');
   t('Se posee de servicios de telefonía celular');
@@ -7556,7 +7437,6 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   t('Uso PARCIAL');
   t('Usuarios promedio del sistema de salud. Femenino');
   t('Usuarios promedio del sistema de salud. Masculino');
-  t('Validado');
   t('Viviendas atendidas');
   t('Viviendas con sistema');
   t('Viviendas sin sistema');

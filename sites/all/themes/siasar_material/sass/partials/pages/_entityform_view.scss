@@ -27,20 +27,114 @@ body.page-entityform-view {
       margin-bottom: $vertical-tabs-padding * 1.5;
     }
 
-    h2 {
-      margin-bottom: 0.5em;
+    h2, h3, h4, h5 {
+      text-align: left;
+      margin: 0 0 0.5em;
     }
-
+    h3, h4, h5 {
+      color: $siasar-dark-cyan;
+    }
     h3 {
       font-size: 1.5rem;
-      color: $siasar-dark-cyan;
-      margin: 0 0 0.5em;
+    }
+    h4 {
+      font-size: 1.25rem;
+    }
+    h5 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: $siasar-dark-grey;
     }
 
     img {
       max-width: 100%;
       height: auto;
     }
+
+    //
+    // Group grid
+    //
+    .group-grid {
+      h4 {
+        @include breakpoint($break-small) {
+          float: left;
+          width: 125px;
+          padding-right: 10px;
+          border-bottom: solid #00829e 2px;
+        }
+      }
+
+      .group-grid {
+        margin-left: 15px;
+        padding-left: 15px;
+        border-left: solid $siasar-dark-cyan 2px;
+
+        @include breakpoint($break-small) {
+          margin-left: 125px;
+          padding-left: 20px;
+        }
+
+        h5 {
+          @include breakpoint($break-small) {
+            float: left;
+            width: 140px;
+            padding: 0 20px 0 0;
+            border-bottom: dotted $siasar-mid-grey 1px;
+          }
+        }
+        div.field {
+          margin:  0 0 0 15px;
+          padding: 0 0 15px;
+          clear: none;
+          border: none;
+
+          @include breakpoint($break-small) {
+            margin-left: 140px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            border-left: dotted 1px $siasar-mid-grey;
+          }
+
+          &:last-child {
+            padding-bottom: 40px;
+
+            @include breakpoint($break-small) {
+              padding-bottom: 65px;
+            }
+          }
+          .field-label {
+            font-weight: 500;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 20px;
+
+          @include breakpoint($break-small) {
+            margin-bottom: 0;
+          }
+        }
+      }
+      &:last-child {
+        .group-grid:last-child {
+          margin-bottom: 0;
+
+          div.field {
+            &:last-child {
+              padding-bottom: 0;
+            }
+          }
+        }
+      }
+
+
+
+
+    }
+
+    //
+    // Specific field types.
+    //
 
     .field-type-field-collection {
       > .field-label {
@@ -49,12 +143,16 @@ body.page-entityform-view {
       }
       > .field-items {
         margin-top: $vertical-tabs-padding / 2;
-        margin-left: $vertical-tabs-padding * 2;
+        margin-left: $vertical-tabs-padding;
         padding-left: $vertical-tabs-padding;
         border-left: dotted $siasar-light-grey 1px;
         list-style-type: none;
         position: relative;
         counter-reset: item;
+
+        @include breakpoint($break-small) {
+          margin-left: $vertical-tabs-padding * 2;
+        }
 
         li {
           counter-increment: item;
@@ -71,10 +169,6 @@ body.page-entityform-view {
             left: -7px;
             z-index: 1;
           }
-
-          .field-type-entityreference .field-items {
-            display: inline-block;
-          }
         }
 
         .field-collection-view {
@@ -84,8 +178,16 @@ body.page-entityform-view {
       }
     }
 
-    .field-name-field-entidad-local .field-items {
-      float: left;
+    .field-type-entityreference {
+      .field-items {
+        .field {
+          clear: none;
+        }
+
+        .field-items {
+          margin-left: 0;
+        }
+      }
     }
   }
 }

@@ -13,16 +13,19 @@ body.page-entityform-view {
         width: 227px;
       }
       @include breakpoint($break-medium) {
-        width: 352px;
+        width: 325px;
       }
     }
     .field-items {
       background-size: contain;
-      background-position: 200px center;
+      background-position: 0 center;
       background-repeat: no-repeat;
 
+      @include breakpoint($break-small) {
+        padding-left: 25px;
+      }
       @include breakpoint($break-medium) {
-        background-position-x: 325px;
+        padding-left: 30px;
       }
     }
   }

@@ -84,3 +84,66 @@ function _siasar_entityform_alter_create_entityforms_select_field($empty_value =
 
   return $form_type_selector;
 }
+
+/**
+ * Make sure the selected option saved in DB is showing on EDIT form,
+ * even if editing user belongs to a different country / location,
+ * as entity reference fields quite often have their options filtered by country and location.
+ */
+function _siasar_entityform_alter_select_add_default_value_back(&$element, $context) {
+  if(!$element['#entity'] || isset($element['#entity']->is_new)) return; // Entity is new or it does not exist? Out.
+
+  $entity_type = isset($element['#entity_type'])
+    ? $element['#entity_type']
+    : null;
+  if ($entity_type != 'entityform') return; // Not an entityform? Out.
+
+  $field = &$context['field'];
+
+  if ($field['type'] !== 'entityreference') return; // Not an entityreference? out
+  if ($field['settings']['handler'] !== 'views') return; // Not managed by views? This one is not being filtered. Out.
+
+  $entityform_wrapper = entity_metadata_wrapper($entity_type, $element['#entity']);
+  $field_name = &$element['#field_name'];
+  $default_value = (int) $entityform_wrapper->${'field_name'}->raw();
+
+  if(isset($element['#options'][$default_value])) return; // Default value is already there in $options. Out.
+  if($default_value == 0) return; // A default value of 0 means no reference. Nothing to do here. Out.
+
+  $reference_type = $field['settings']['target_type'];
+  $target_entity = entity_load_single($reference_type, $default_value);
+
+  if(!$target_entity) return; // No reference, out
+
+  $reference_wrapper = entity_metadata_wrapper($reference_type, $target_entity);
+  $value_to_insert = array(
+    $default_value => $reference_wrapper->label()
+  );
+
+  $options = $element['#options'];
+  if($element['#required']) {
+    unset($options['_none']);
+    $element['#options'] = $value_to_insert + $options;
+  } else {
+    $element['#options'] = array_slice($options, 0, 1, true) + $value_to_insert + array_slice($options, 1, NULL, true);
+  }
+}
+
+/**
+ * Passes all entityreference to taxonomy terms option labels thorugh i18n translation function
+ */
+function _siasar_entityform_alter_pass_entity_references_through_translator(&$element, $context) {
+  $field = &$context['field'];
+
+  if ($field['type'] !== 'entityreference') return; // Not an entityreference? out
+  if ($field['settings']['target_type'] !== 'taxonomy_term') return; // Not a taxonomy term? out
+
+  $options = $element['#options'];
+
+  if ($options['_none']) unset($options['_none']);
+
+  foreach ($options as $tid => &$name) {
+    $label_location = 'taxonomy:term:' . $tid . ':name';
+    $element['#options'][$tid] = i18n_string_translate($label_location, $name);
+  }
+}

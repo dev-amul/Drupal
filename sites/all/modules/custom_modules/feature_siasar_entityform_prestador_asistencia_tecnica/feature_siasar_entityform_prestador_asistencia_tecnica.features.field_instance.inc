@@ -63,6 +63,54 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_altitud'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_altitud'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 51,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_altitud',
+    'label' => 'Altitud',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => 'm',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_apoyar_actualizar_tarifa'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_apoyar_actualizar_tarifa'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -726,51 +774,6 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 23,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'entityform-prestador_de_asistencia_t_cnica-field_cuestionario_validado'.
-  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cuestionario_validado'] = array(
-    'bundle' => 'prestador_de_asistencia_t_cnica',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 8,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 5,
     ),
   );
 
@@ -1540,6 +1543,49 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_latitud'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_latitud'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'geofield',
+        'settings' => array(
+          'data' => 'full',
+        ),
+        'type' => 'geofield_wkt',
+        'weight' => 52,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_latitud',
+    'label' => 'Georeferenciación',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'geofield',
+      'settings' => array(
+        'html5_geolocation' => 0,
+      ),
+      'type' => 'geofield_latlon',
+      'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_monto'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_monto'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -2273,6 +2319,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('7. Apoyar a los CAPS en el análisis y en la solución de conflictos (ej: uso o abuso del agua de los sistemas)');
   t('8. Recolectar muestras para análisis de calidad de agua de los sistemas y asesorar en su toma, medición e interp. de los datos');
   t('9. Asesorar a los CAPS en la medición de niveles estáticos de pozos y caudales de agua superficiales ');
+  t('Altitud');
   t('Calificación (SIASAR 1)');
   t('Cantidad de comunidades apoyadas en los últimos 12 meses');
   t('Cantidad de equipos de transporte ');
@@ -2294,6 +2341,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Estado del material didáctico');
   t('Fecha de Aplicación');
   t('Fecha en la que se cubre la encuesta');
+  t('Georeferenciación');
   t('Imagen');
   t('Monto');
   t('Nombre del PAT');
@@ -2303,7 +2351,6 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Status');
   t('Tipo de PAT');
   t('Total de comunidades en la zona de atención');
-  t('Validado');
   t('Zona de Atención');
 
   return $field_instances;

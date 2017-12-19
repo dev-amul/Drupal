@@ -656,50 +656,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-sistema-field_cuestionario_validado'.
-  $field_instances['entityform-sistema-field_cuestionario_validado'] = array(
-    'bundle' => 'sistema',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 11,
-      ),
-      'entity_reference' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 22,
-      ),
-    ),
-    'entity_type' => 'entityform',
-    'field_name' => 'field_cuestionario_validado',
-    'label' => 'Validado',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 8,
-    ),
-  );
-
   // Exported field_instance: 'entityform-sistema-field_d_infraestructura'.
   $field_instances['entityform-sistema-field_d_infraestructura'] = array(
     'bundle' => 'sistema',
@@ -714,7 +670,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_fields',
-        'weight' => 4,
+        'weight' => 40,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -736,7 +692,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 72,
+      'weight' => 116,
     ),
   );
 
@@ -949,7 +905,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_f_red_de_distribucion',
-    'label' => 'Red de distribución',
+    'label' => 'Distribución de agua',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -4556,6 +4512,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Código de la infraestructura');
   t('Código de la línea');
   t('Desinfección con cloro');
+  t('Distribución de agua');
   t('Diámetro medio o sección (interior) de la tubería principal');
   t('Encuestador');
   t('Estado físico de la infraestructura de captación de agua');
@@ -4606,7 +4563,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Pozos o sistemas por gravedad / bombeo. No aplica en sistemas con abastecimiento domiciliar. Al contestar este bloque se entiende que la distribución es parcial o totalmente mediante puntos de toma de agua públicos.');
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
-  t('Red de distribución');
   t('Rehabilitaciones y/o ampliaciones');
   t('Señalar a qué distancia aproximada se encuentran instalados los puntos de toma de agua públicos a las casas de los usuarios.');
   t('Status');
@@ -4614,7 +4570,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Tipo de rehabilitación o de ampliación');
   t('Tipo de sistema de abastecimiento de agua');
   t('Tipo de tratamiento');
-  t('Validado');
   t('Year the system was built');
   t('¿Con qué frecuencia se realiza la limpieza?');
   t('¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)');

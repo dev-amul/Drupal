@@ -1,0 +1,40 @@
+<?php
+
+
+
+function field_group_extra_tags_field_group_pre_render_alter(&$element, $group, &$form) {
+  if ($group->format_type !== 'div' || $group->format_settings['formatter'] != 'open') return;
+
+  $class_attribute = !empty($group->classes) ? ' class="' . $group->classes . '"' : '';
+  $label_element = isset($group->format_settings['instance_settings']['label_element']) ? $group->format_settings['instance_settings']['label_element'] : 'h2';
+  $show_label = isset($group->format_settings['instance_settings']['show_label']) ? $group->format_settings['instance_settings']['show_label'] : 0;
+  $id = isset($element['#id']) ? ' id="' . $element['#id'] . '"' : '';
+
+  $element['#prefix'] = '<div' . $id . $class_attribute . '>';
+  $element['#prefix'] .= $show_label
+    ? '<' . $label_element . '>' . check_plain(t($group->label)) . '</' . $label_element . '>'
+    : '<div' . $id . $class_attribute . '>';
+
+  $element['#suffix'] = '</div>';
+}
+
+
+/**
+ * Implements hook_field_group_format_settings().
+ *
+ * @params Object $group The group object.
+ * @return Array $form The form element for the format settings.
+ */
+function field_group_extra_tags_field_group_format_settings($group) {
+  if ($group->format_type != 'div') return;
+
+  // Add optional instance_settings.
+  $form['instance_settings']['label_element'] = array(
+    '#options' => array(
+      'h4' => t('Header 4'),
+      'h5' => t('Header 5'),
+    ),
+  );
+
+  return $form;
+}

@@ -19,7 +19,7 @@ interface ServicesResourceControllerInterface {
    * @return
    *   An info array as would be returned by hook_services_resources().
    *
-   * @see hooK_services_resources().
+   * @see hook_services_resources().
    */
   public function resourceInfo($entity_type);
 

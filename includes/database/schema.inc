@@ -164,6 +164,9 @@ require_once dirname(__FILE__) . '/query.inc';
  * @see drupal_install_schema()
  */
 
+/**
+ * Base class for database schema definitions.
+ */
 abstract class DatabaseSchema implements QueryPlaceholderInterface {
 
   protected $connection;
@@ -252,6 +255,18 @@ abstract class DatabaseSchema implements QueryPlaceholderInterface {
   }
 
   /**
+   * Create names for indexes, primary keys and constraints.
+   *
+   * This prevents using {} around non-table names like indexes and keys.
+   */
+  function prefixNonTable($table) {
+    $args = func_get_args();
+    $info = $this->getPrefixInfo($table);
+    $args[0] = $info['table'];
+    return implode('_', $args);
+  }
+
+  /**
    * Build a condition to match a table name against a standard information_schema.
    *
    * The information_schema is a SQL standard that provides information about the
@@ -279,7 +294,7 @@ abstract class DatabaseSchema implements QueryPlaceholderInterface {
   protected function buildTableNameCondition($table_name, $operator = '=', $add_prefix = TRUE) {
     $info = $this->connection->getConnectionOptions();
 
-    // Retrive the table name and schema
+    // Retrieve the table name and schema
     $table_info = $this->getPrefixInfo($table_name, $add_prefix);
 
     $condition = new DatabaseCondition('AND');

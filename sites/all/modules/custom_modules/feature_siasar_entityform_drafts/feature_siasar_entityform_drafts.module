@@ -51,7 +51,7 @@ function feature_siasar_entityform_drafts_form_views_exposed_form_alter(&$form, 
  * @return mixed
  */
 function feature_siasar_entityform_drafts_remove_requirements(&$form, &$form_state) {
-  if (!empty($form_state['triggering_element']['#workflow_sid'] && $form_state['triggering_element']['#workflow_sid'] == SIASAR_ENTITYFORM_STATE_DRAFT)) {
+  if (!empty($form_state['triggering_element']['#workflow_sid']) && $form_state['triggering_element']['#workflow_sid'] == SIASAR_ENTITYFORM_STATE_DRAFT) {
     _entityform_set_all_nested_props($form, array('#required' => FALSE));
   }
   return $form;

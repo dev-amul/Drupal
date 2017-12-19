@@ -1038,3 +1038,277 @@ function siasar_updates_update_7164() {
   features_revert_module('feature_siasar_menus');
   features_revert_module('feature_siasar_services');
 }
+
+/**
+ * Issue 490. Eliminar el campo "field_cuestionario_validado".
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/490
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7165() {
+  field_delete_field('field_cuestionario_validado');
+  field_purge_batch(100);
+
+  $modules = array(
+    'feature_siasar_entityform_sistema',
+    'feature_siasar_entityform_comunidad',
+    'feature_siasar_entityform_prestador_servicio',
+    'feature_siasar_entityform_prestador_asistencia_tecnica',
+    'feature_siasar_testing_form_workflow',
+  );
+
+  foreach ($modules as $module) {
+    features_revert_module($module);
+  }
+}
+/**
+ * Issue 490. Eliminar el campo "field_cuestionario_validado".
+ * The Migrate to Workflow module is not needed anymore.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/490
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7166() {
+  $modules = array(
+    'siasar_drush_workflow',
+  );
+
+  module_disable($modules);
+}
+
+/**
+ * Issue 612: Revisar diseños de vistas de encuestas completadas.
+ * Extends Field Group to be able to render other than h2 and h3 in Div titles.
+ */
+function siasar_updates_update_7167(&$sandbox) {
+  $modules = array(
+    'field_group_extra_tags',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+  if (!$modules_enabled) {
+    throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
+  }
+}
+/**
+ * Hotfix: Removes the records for modules that are not there: views_data_export_phpexcel
+ *
+ * @param $sandbox
+ *
+ * @return null|string
+ */
+function siasar_updates_update_7168(&$sandbox) {
+  $modules = array(
+    'views_data_export_phpexcel',
+  );
+
+  $num = db_delete('system')
+          ->condition('name', $modules)
+          ->execute();
+
+  return t('@num modules have been removed from the system table.', array('@num' => $num));
+}
+/**
+ * 566 - New units for Water Quality
+ */
+function siasar_updates_update_7169() {
+  features_revert_module('feature_siasar_measures');
+}
+/**
+ * 541 - Visualización incompleta en los campos dentro de grupos anidados.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/541
+ */
+function siasar_updates_update_7170() {
+  features_revert_module('feature_siasar_entityform_comunidad');
+}
+
+/**
+ * Issue 632. Eliminar campos de formulario de Calidad de Agua
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/632
+ */
+function siasar_updates_update_7171() {
+  $fields = array(
+    'field_water_source_code',
+    'field_water_source_name',
+    'field_water_source_type',
+  );
+
+  foreach ($fields as $field) {
+    field_delete_field($field);
+  }
+  field_purge_batch(100);
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'entityform')
+  ->entityCondition('bundle', 'waq');
+  $result = $query->execute();
+  $surveys = array_keys($result['entityform']);
+  entity_delete_multiple('entityform', $surveys);
+
+  $modules = array(
+    'feature_siasar_entityform_water_quality',
+    'feature_siasar_field_bases',
+  );
+
+  foreach ($modules as $module) {
+    features_revert_module($module);
+  }
+}
+
+/**
+ * Issue 566 - Ampliar el número de decimales en campos de parámetros químicos de formulario WAQ
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/566
+ */
+function siasar_updates_update_7172() {
+  $fields = array(
+    'field_alkalinity',
+    'field_bicarbonates',
+    'field_carbonates',
+    'field_hardness',
+    'field_calcium',
+    'field_chlorides',
+    'field_iron',
+    'field_manganese',
+    'field_sulfate',
+    'field_nitrates',
+    'field_nitrites',
+    'field_fluorine',
+    'field_residual_chlorine',
+    'field_sodium',
+    'field_potassium',
+    'field_lead',
+    'field_arsenic',
+  );
+
+  foreach ($fields as $field) {
+    $query = 'ALTER TABLE field_data_' . $field . ' ALTER COLUMN ' . $field . '_value TYPE numeric(10,4)';
+    $alter_output = db_query($query);
+  }
+}
+/**
+ * 319 - Merge Community B1 into one
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/319
+ */
+function siasar_updates_update_7173() {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.migrate_com_b1');
+
+  $migrateB1 = new SiasarUpdatesMigrateComB1();
+  $migrateB1->createNewB1Taxonomy();
+  $migrateB1->createNewB1TaxonomyTerms();
+
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_entityform_comunidad');
+
+  $output = $migrateB1->migrateB1Data();
+
+  drupal_set_message($output . ' questionnaires migrated.');
+
+  field_delete_field('field_com_lev_general');
+  field_delete_field('field_com_lev_utilform');
+  field_delete_field('field_com_lev_muestral');
+  field_purge_batch(100);
+}
+
+/**
+ * Issue 639: Assign VBO permission to users.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/639
+ */
+function siasar_updates_update_7174(&$sandbox) {
+
+  $permissions = array(
+    'execute siasar_check_computability',
+  );
+
+  $roles = array(
+    'Administrador Local',
+    'Administrador Regional',
+    'administrator',
+    'Validator',
+  );
+
+  foreach($roles as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    user_role_grant_permissions($role->rid, $permissions);
+  }
+
+  features_revert_module('feature_siasar_views_reports');
+}
+
+/**
+ * 640 - Eliminar un título de "red de distribución" en cuestionario de sistema
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/640
+ */
+function siasar_updates_update_7175() {
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_entityform_sistema');
+
+}
+
+/**
+ * 406 - Cuencas hidrográficas
+ */
+function siasar_updates_update_7176(&$sandbox) {
+  features_revert_module('feature_siasar_taxonomies');
+  features_revert_module('feature_siasar_views_reports');
+  features_revert_module('feature_siasar_field_bases');
+
+  $vocabulary = taxonomy_vocabulary_machine_name_load('cuenca_hidrografica');
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+
+  $country = country_load('PA');
+  foreach($terms as $term) {
+    $wrapper = entity_metadata_wrapper('taxonomy_term', $term);
+    $wrapper->field_pais->set($country);
+    $wrapper->save();
+  }
+}
+/**
+ * Hotfix - Activate translation on API for taxonomy terms on "vocab" endpoints
+ * Example endpoint: /rest/vocab/tipo_de_sistema_de_abastecimiento_de_agua
+ */
+function siasar_updates_update_7177() {
+  $modules = array(
+    'siasar_services_taxonomies_alter',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+}
+/**
+ * Hotfix: Removes the records for modules that are not there: entityform_prepopulate
+ *
+ * @param $sandbox
+ *
+ * @return null|string
+ */
+function siasar_updates_update_7178(&$sandbox) {
+  $modules = array(
+    'entityform_prepopulate',
+  );
+
+  $num = db_delete('system')
+          ->condition('name', $modules)
+          ->execute();
+
+  return t('@num modules have been removed from the system table.', array('@num' => $num));
+}
+
+/**
+ * Issue 657: Disable Entity Connect.
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/657
+ */
+function siasar_updates_update_7179(&$sandbox) {
+  $modules = array(
+    'entityconnect',
+  );
+  $result = module_disable($modules, TRUE);
+  $result = drupal_uninstall_modules($modules, TRUE);
+}
+/**
+ * 658 - Posible conversión incorrecta de unidades de caudal
+ * Show all units in unit list table
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/658
+ */
+function siasar_updates_update_7180() {
+  $modules = array(
+    'units_ui_show_factors',
+  );
+  $modules_enabled = module_enable($modules, TRUE);
+}
