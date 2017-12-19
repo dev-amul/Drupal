@@ -1090,15 +1090,16 @@ function siasar_updates_update_7167(&$sandbox) {
   }
 }
 /**
- * Hotfix: Removes the records for modules that are not there: views_data_export_phpexcel
+ * Hotfix: Removes the records for modules that are not there: views_data_export_phpexcel, entityform_prepopulate
  *
  * @param $sandbox
  *
  * @return null|string
  */
-function siasar_updates_update_7168(&$sandbox) {
+function siasar_updates_update_7168(&$sandbox = null) {
   $modules = array(
     'views_data_export_phpexcel',
+    'entityform_prepopulate',
   );
 
   $num = db_delete('system')
@@ -1141,8 +1142,10 @@ function siasar_updates_update_7171() {
   $query->entityCondition('entity_type', 'entityform')
   ->entityCondition('bundle', 'waq');
   $result = $query->execute();
-  $surveys = array_keys($result['entityform']);
-  entity_delete_multiple('entityform', $surveys);
+  if (isset($result['entityform'])) {
+    $surveys = array_keys($result['entityform']);
+    entity_delete_multiple('entityform', $surveys);
+  }
 
   $modules = array(
     'feature_siasar_entityform_water_quality',
@@ -1279,15 +1282,7 @@ function siasar_updates_update_7177() {
  * @return null|string
  */
 function siasar_updates_update_7178(&$sandbox) {
-  $modules = array(
-    'entityform_prepopulate',
-  );
-
-  $num = db_delete('system')
-          ->condition('name', $modules)
-          ->execute();
-
-  return t('@num modules have been removed from the system table.', array('@num' => $num));
+  // Moved to 7168
 }
 
 /**
@@ -1311,4 +1306,19 @@ function siasar_updates_update_7180() {
     'units_ui_show_factors',
   );
   $modules_enabled = module_enable($modules, TRUE);
+}
+
+/**
+ * Hotfix - Dropping tables related to fields that don't exist anymore and were removed long, long ago.
+ */
+function siasar_updates_update_7181(&$sandbox = null) {
+  $tables = array(
+    'field_data_field_testing_collection',
+    'field_revision_field_testing_collection',
+    'field_data_field_testing_text',
+    'field_revision_field_testing_text',
+  );
+  foreach($tables as $t) {
+    db_drop_table($t);
+  }
 }
