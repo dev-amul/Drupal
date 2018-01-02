@@ -20,10 +20,9 @@ var request = {
     var full_path = config.api + path;
     return this.make(config.host, full_path).then(output => output);
   },
-  getParsedOutput: function (path) { // returns a Javascript Object
-    var result = this.getRawOutput(path);
-    return Promise.resolve(result)
-      .then(JSON.parse);
+  getParsedOutput: async function (path) { // returns a Javascript Object
+    var result = await this.getRawOutput(path);
+    return JSON.parse(result);
   },
   getOptions: function (host, endpoint) {
     return {
