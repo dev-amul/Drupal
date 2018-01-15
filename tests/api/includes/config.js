@@ -11,6 +11,7 @@ function getHostNameFromEnv() {
       api = 'local.siasar.org';
       break;
     case 'dev':
+    case 'test':
       api = 'dev.siasar.org';
       break;
     default:

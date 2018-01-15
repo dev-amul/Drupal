@@ -14,8 +14,8 @@ it('Measuring units have the expected properties', async () => {
   expect.assertions(unitList.length);
 
   for (var unit of unitList) {
-    let data = await request.getOutput('entity_units_unit/' + unit.umid);
-    data = JSON.parse(data);
+    let data = await request.getParsedOutput('entity_units_unit/' + unit.umid);
+
     data.umid = parseInt(data.umid) || null;
     expect(data).toMatchObject(unit);
   }

@@ -16,6 +16,13 @@ function feature_siasar_measures_default_units_measure() {
     "converter" : "linear",
     "rdf_mapping" : []
   }');
+  $items['color'] = entity_import('units_measure', '{
+    "measure" : "color",
+    "label" : "Color",
+    "description" : "",
+    "converter" : "linear",
+    "rdf_mapping" : []
+  }');
   $items['concentracion'] = entity_import('units_measure', '{
     "measure" : "concentracion",
     "label" : "Concentraci\\u00f3n",
@@ -79,13 +86,6 @@ function feature_siasar_measures_default_units_measure() {
     "converter" : "linear",
     "rdf_mapping" : []
   }');
-  $items['color'] = entity_import('units_measure', '{
-    "measure" : "color",
-    "label" : "Color",
-    "description" : "",
-    "converter" : "linear",
-    "rdf_mapping" : []
-  }');
   return $items;
 }
 
@@ -145,7 +145,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Galones por minuto",
     "symbol" : "gln\\/min",
     "description" : "",
-    "factor" : "0.2271",
+    "factor" : "4.4029",
     "rdf_mapping" : []
   }');
   $items['galones_por_persona_diario'] = entity_import('units_unit', '{
@@ -328,6 +328,15 @@ function feature_siasar_measures_default_units_unit() {
     "factor" : "0.0283179",
     "rdf_mapping" : []
   }');
+  $items['platinum_cobalt_scale'] = entity_import('units_unit', '{
+    "measure" : "color",
+    "machine_name" : "platinum_cobalt_scale",
+    "label" : "Platinum-Cobalt Scale",
+    "symbol" : "Pt-Co",
+    "description" : "",
+    "factor" : "1",
+    "rdf_mapping" : []
+  }');
   $items['pulgada'] = entity_import('units_unit', '{
     "measure" : "diametro",
     "machine_name" : "pulgada",
@@ -353,15 +362,6 @@ function feature_siasar_measures_default_units_unit() {
     "symbol" : "mi",
     "description" : "",
     "factor" : "1609.34",
-    "rdf_mapping" : []
-  }');
-  $items['platinum_cobalt_scale'] = entity_import('units_unit', '{
-    "measure" : "color",
-    "machine_name" : "platinum_cobalt_scale",
-    "label" : "Platinum-Cobalt Scale",
-    "symbol" : "Pt-Co",
-    "description" : "",
-    "factor" : "1",
     "rdf_mapping" : []
   }');
   return $items;
