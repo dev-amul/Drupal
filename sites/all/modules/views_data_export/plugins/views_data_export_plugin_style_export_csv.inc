@@ -56,6 +56,10 @@ class views_data_export_plugin_style_export_csv extends views_data_export_plugin
       'default' => '',
       'translatable' => FALSE,
     );
+    $options['utf8_bom'] = array(
+      'default' => '0',
+      'translatable' => FALSE,
+    );
 
     return $options;
   }
@@ -131,6 +135,12 @@ class views_data_export_plugin_style_export_csv extends views_data_export_plugin
       '#title' => t('Character encoding conversion'),
       '#description' => t('Optionally specify a character conversion that some CSV file readers need. Use "utf8_decode" for ISO-8859-1 via <a href="@utf8_decode">utf8_decode PHP function</a>, other values will be passed <a href="@iconv">iconv</a> (this requires the iconv PHP extension), empty or illegal values will leave the output as UTF-8.',
         array('@iconv' => 'http://www.php.net/manual/en/function.iconv.php', '@utf8_decode' => 'http://www.php.net/manual/en/function.utf8-decode.php')),
+    );
+    $form['utf8_bom'] = array(
+      '#type' => 'checkbox',
+      '#default_value' => !empty($this->options['utf8_bom']),
+      '#title' => t('Include unicode signature (<a href="@bom" target="_blank">BOM</a>).',
+        array('@bom' => 'https://www.w3.org/International/questions/qa-byte-order-mark')),
     );
   }
 }

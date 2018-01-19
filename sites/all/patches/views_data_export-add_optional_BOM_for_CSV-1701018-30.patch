@@ -1,0 +1,102 @@
+diff --git a/plugins/views_data_export_plugin_style_export_csv.inc b/plugins/views_data_export_plugin_style_export_csv.inc
+index 40b9054..9c49b94 100644
+--- a/plugins/views_data_export_plugin_style_export_csv.inc
++++ b/plugins/views_data_export_plugin_style_export_csv.inc
+@@ -56,6 +56,10 @@ class views_data_export_plugin_style_export_csv extends views_data_export_plugin
+       'default' => '',
+       'translatable' => FALSE,
+     );
++    $options['utf8_bom'] = array(
++      'default' => '0',
++      'translatable' => FALSE,
++    );
+ 
+     return $options;
+   }
+@@ -132,5 +136,11 @@ class views_data_export_plugin_style_export_csv extends views_data_export_plugin
+       '#description' => t('Optionally specify a character conversion that some CSV file readers need. Use "utf8_decode" for ISO-8859-1 via <a href="@utf8_decode">utf8_decode PHP function</a>, other values will be passed <a href="@iconv">iconv</a> (this requires the iconv PHP extension), empty or illegal values will leave the output as UTF-8.',
+         array('@iconv' => 'http://www.php.net/manual/en/function.iconv.php', '@utf8_decode' => 'http://www.php.net/manual/en/function.utf8-decode.php')),
+     );
++    $form['utf8_bom'] = array(
++      '#type' => 'checkbox',
++      '#default_value' => !empty($this->options['utf8_bom']),
++      '#title' => t('Include unicode signature (<a href="@bom" target="_blank">BOM</a>).',
++        array('@bom' => 'https://www.w3.org/International/questions/qa-byte-order-mark')),
++    );
+   }
+ }
+diff --git a/tests/csv_export.test b/tests/csv_export.test
+index 148ef8f..285ec0e 100644
+--- a/tests/csv_export.test
++++ b/tests/csv_export.test
+@@ -282,4 +282,37 @@ EOT;
+     $this->executeAndCompareGivenView($view, $expected, $message, $style_options);
+   }
+ 
++  /**
++   * Test to ensure that UTF-8 BOM works.
++   */
++  protected function testUtf8Bom() {
++    $view = $this->getBasicExportView();
++
++    // Test on Korean characters. '大韓民國' means "Republic of Korea"
++    // @see https://en.wikipedia.org/wiki/South_Korea
++    db_update('views_test')
++      ->fields(array('name' => '大韓民國'))
++      ->condition('name', 'John')
++      ->execute();
++
++    $style_options = array(
++      'utf8_bom' => TRUE,
++    );
++
++    // BOM.
++    $expected = "\xEF\xBB\xBF";
++    // Content.
++    $expected .= '"ID","Name","Age"
++"1","大韓民國","25"
++"2","George","27"
++"3","Ringo","28"
++"4","Paul","26"
++"5","Meredith","30"';
++
++    $message = 'Unicode signature (BOM) added correctly.';
++
++    $this->executeAndCompareGivenView($view, $expected, $message, $style_options);
++
++  }
++
+ }
+diff --git a/theme/views-data-export-csv-header.tpl.php b/theme/views-data-export-csv-header.tpl.php
+index e40a1bf..db92b2f 100644
+--- a/theme/views-data-export-csv-header.tpl.php
++++ b/theme/views-data-export-csv-header.tpl.php
+@@ -1,5 +1,8 @@
+ <?php
+ 
++// Begin file with UTF-8 BOM, if needed.
++print $optional_utf8_bom;
++
+ // Print out header row, if option was selected.
+ if ($options['header']) {
+   print implode($separator, $header) . "\r\n";
+diff --git a/theme/views_data_export.theme.inc b/theme/views_data_export.theme.inc
+index 4e31fb0..97ac819 100644
+--- a/theme/views_data_export.theme.inc
++++ b/theme/views_data_export.theme.inc
+@@ -102,6 +102,15 @@ function template_preprocess_views_data_export_csv_header(&$vars) {
+     $wrap = '';
+     $replace_value = '';
+   }
++  // Add UTF-8 BOM character, if needed.
++  if (!empty($vars['options']['utf8_bom']) && empty($vars['options']['encoding'])) {
++    // Assume UTF-8 if no encoding configured.
++    $vars['optional_utf8_bom'] = "\xEF\xBB\xBF";
++  }
++  else {
++    // Do not add UTF-8 BOM if views with character encoding conversion.
++    $vars['optional_utf8_bom'] = '';
++  }
+ 
+   // Format header values.
+   foreach ($vars['header'] as $key => $value) {

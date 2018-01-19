@@ -282,4 +282,37 @@ EOT;
     $this->executeAndCompareGivenView($view, $expected, $message, $style_options);
   }
 
+  /**
+   * Test to ensure that UTF-8 BOM works.
+   */
+  protected function testUtf8Bom() {
+    $view = $this->getBasicExportView();
+
+    // Test on Korean characters. '大韓民國' means "Republic of Korea"
+    // @see https://en.wikipedia.org/wiki/South_Korea
+    db_update('views_test')
+      ->fields(array('name' => '大韓民國'))
+      ->condition('name', 'John')
+      ->execute();
+
+    $style_options = array(
+      'utf8_bom' => TRUE,
+    );
+
+    // BOM.
+    $expected = "\xEF\xBB\xBF";
+    // Content.
+    $expected .= '"ID","Name","Age"
+"1","大韓民國","25"
+"2","George","27"
+"3","Ringo","28"
+"4","Paul","26"
+"5","Meredith","30"';
+
+    $message = 'Unicode signature (BOM) added correctly.';
+
+    $this->executeAndCompareGivenView($view, $expected, $message, $style_options);
+
+  }
+
 }
