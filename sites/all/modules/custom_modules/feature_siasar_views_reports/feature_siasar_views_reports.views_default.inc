@@ -1501,6 +1501,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['entityform_id_3']['field'] = 'entityform_id';
   $handler->display->display_options['fields']['entityform_id_3']['label'] = 'ID comunidad';
   $handler->display->display_options['fields']['entityform_id_3']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['entityform_id_3']['separator'] = '';
   /* Field: Entityform Submission: Date submitted */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'entityform';
