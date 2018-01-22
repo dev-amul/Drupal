@@ -1341,3 +1341,11 @@ function siasar_updates_update_7182(&$sandbox = null) {
     features_revert_module($module);
   }
 }
+
+/**
+ * 560 - Crear csv descargable desde la web realción entre entidades
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/560
+ */
+function siasar_updates_update_7183(&$sandbox = null) {
+    features_revert_module('feature_siasar_views_reports');
+}
