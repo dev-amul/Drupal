@@ -779,7 +779,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_status_value']['expose']['operator'] = 'field_status_value_op';
   $handler->display->display_options['filters']['field_status_value']['expose']['identifier'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['field_status_value']['group_info']['label'] = 'Status (field_status)';
+  $handler->display->display_options['filters']['field_status_value']['group_info']['label'] = 'Estado';
   $handler->display->display_options['filters']['field_status_value']['group_info']['identifier'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['group_info']['group_items'] = array(
     1 => array(
@@ -1079,7 +1079,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_status_value']['expose']['operator'] = 'field_status_value_op';
   $handler->display->display_options['filters']['field_status_value']['expose']['identifier'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['field_status_value']['group_info']['label'] = 'Status (field_status)';
+  $handler->display->display_options['filters']['field_status_value']['group_info']['label'] = 'Encuestador/a';
   $handler->display->display_options['filters']['field_status_value']['group_info']['identifier'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['group_info']['group_items'] = array(
     1 => array(
@@ -1507,7 +1507,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'long';
+  $handler->display->display_options['fields']['created']['date_format'] = 'short';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   /* Field: Entityform Submission: Date submitted */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
