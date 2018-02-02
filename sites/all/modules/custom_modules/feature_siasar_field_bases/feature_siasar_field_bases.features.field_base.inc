@@ -8290,7 +8290,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
   // Exported field_base: 'field_mecanismo_pago_tarifa'.
   $field_bases['field_mecanismo_pago_tarifa'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_mecanismo_pago_tarifa',
