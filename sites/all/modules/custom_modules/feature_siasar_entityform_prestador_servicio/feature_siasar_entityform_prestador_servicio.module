@@ -5,3 +5,27 @@
  */
 
 include_once 'feature_siasar_entityform_prestador_servicio.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function feature_siasar_entityform_prestador_servicio_form_prestador_de_servicio_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
+  // Add validation for c3 field
+  $form['#validate'][] = '_c3_multiple_validation';
+}
+
+/**
+ * Validate function to avoid positive and negative answers at the same time.
+ *
+ */
+function _c3_multiple_validation($form, &$form_state) {
+  if (isset($form_state['values']['field_mecanismo_pago_tarifa'])) {
+    if (count($form_state['values']['field_mecanismo_pago_tarifa'][LANGUAGE_NONE]) > 1) {
+      foreach ($form_state['values']['field_mecanismo_pago_tarifa'][LANGUAGE_NONE] as $term) {
+        if ($term['tid'] == 32021) {
+          form_set_error('feature_siasar_entityform_prestador_servicio',t('You can not select "Yes" with negative answers'));
+        }
+      }
+    }
+  }
+}
