@@ -13,6 +13,10 @@ function feature_siasar_user_form_alter(&$form, &$form_state, $form_id) {
   $members = _siasar_entityform_alter_get_member_countries();
 
   $country_options = _siasar_entityform_alter_filter_out_countries_from_options($country_options, $members);
+
+  $form['#attached']['js'][] = drupal_get_path('module', 'feature_siasar_user') . '/js/wait_ajax_response.js';
+
+  $form['#attached']['css'][] = drupal_get_path('module', 'feature_siasar_user') . '/css/form.css';
 }
 
 
