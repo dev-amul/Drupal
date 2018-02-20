@@ -1358,3 +1358,11 @@ function siasar_updates_update_7184(&$sandbox = null) {
   features_revert_module('feature_siasar_entityform_prestador_servicio');
   features_revert_module('feature_siasar_field_bases');
 }
+
+/**
+ * 616 - Impedir que las reglas de dependencia se apliquen en la visualización
+ * https://gitlab.com/siasar-project/admin/issues/616
+ */
+function siasar_updates_update_7185(&$sandbox = null) {
+  features_revert_module('feature_siasar_entityform_prestador_servicio');
+}
