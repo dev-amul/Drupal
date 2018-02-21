@@ -373,7 +373,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -551,7 +551,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -729,7 +729,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -907,7 +907,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -1085,7 +1085,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -1263,7 +1263,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -1338,7 +1338,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
     'entity' => 'entityform',
     'bundle' => 'prestador_de_servicio',
     'dependent' => 'field_mantenimiento_sistema',
-    'dependee' => 'field_mecanismo_pago_tarifa',
+    'dependee' => 'field_tiene_definido_tipo_tarifa',
     'options' => array(
       'state' => 'visible',
       'condition' => 'value',
@@ -1441,7 +1441,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -1496,16 +1496,10 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'selector' => '',
       'values_set' => 1,
-      'value_form' => array(
-        32024 => 32024,
-        32021 => NULL,
-        32022 => NULL,
-        32023 => NULL,
-        32025 => NULL,
-      ),
+      'value_form' => 0,
       'value' => array(
         0 => array(
-          'tid' => 32024,
+          'value' => 0,
         ),
       ),
       'values' => array(),
@@ -1619,7 +1613,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -1675,15 +1669,15 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       'selector' => '',
       'values_set' => 1,
       'value_form' => array(
-        32025 => 32025,
+        32022 => 32022,
         32021 => NULL,
-        32022 => NULL,
         32023 => NULL,
         32024 => NULL,
+        32025 => NULL,
       ),
       'value' => array(
         0 => array(
-          'tid' => 32025,
+          'tid' => 32022,
         ),
       ),
       'values' => array(),
@@ -1797,7 +1791,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -1853,15 +1847,15 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       'selector' => '',
       'values_set' => 1,
       'value_form' => array(
-        32022 => 32022,
+        32025 => 32025,
         32021 => NULL,
+        32022 => NULL,
         32023 => NULL,
         32024 => NULL,
-        32025 => NULL,
       ),
       'value' => array(
         0 => array(
-          'tid' => 32022,
+          'tid' => 32025,
         ),
       ),
       'values' => array(),
@@ -1872,7 +1866,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
     'entity' => 'entityform',
     'bundle' => 'prestador_de_servicio',
     'dependent' => 'field_mantenimiento_sistema',
-    'dependee' => 'field_tiene_definido_tipo_tarifa',
+    'dependee' => 'field_mecanismo_pago_tarifa',
     'options' => array(
       'state' => 'visible',
       'condition' => 'value',
@@ -1975,7 +1969,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -2030,10 +2024,16 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'selector' => '',
       'values_set' => 1,
-      'value_form' => 0,
+      'value_form' => array(
+        32024 => 32024,
+        32021 => NULL,
+        32022 => NULL,
+        32023 => NULL,
+        32025 => NULL,
+      ),
       'value' => array(
         0 => array(
-          'value' => 0,
+          'tid' => 32024,
         ),
       ),
       'values' => array(),
@@ -2147,7 +2147,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -3928,7 +3928,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -4107,7 +4107,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -5821,7 +5821,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -5993,7 +5993,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -6165,7 +6165,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
@@ -6343,7 +6343,7 @@ function feature_siasar_entityform_prestador_servicio_conditional_fields_default
       ),
       'element_edit' => array(
         1 => 1,
-        3 => 0,
+        3 => 3,
       ),
       'element_edit_per_role' => 0,
       'element_edit_roles' => array(
