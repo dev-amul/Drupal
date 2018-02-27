@@ -110,39 +110,41 @@ function _computable_revision($entityform_id) {
       if ($entityform_revision->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
         $computable_revision = $revision->vid;
 
-        switch ($entityform_revision->bundle()) {
-          case 'comunidad':
-            // Check if the related form has system, service provider and household information
-            if (isset($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE])) {
-              // Check all fieldcollections
-              foreach ($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE] as $fieldcollection_item) {
-                $fc = entity_load_single('field_collection_item', $fieldcollection_item['value']);
-                if ($fc) {
+        if (!_is_migrated_form($entityform_revision)) {
 
-                  $valid_not_system_provider = empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+          switch ($entityform_revision->bundle()) {
+            case 'comunidad':
+              // Check if the related form has system, service provider and household information
+              if (isset($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE])) {
+                // Check all fieldcollections
+                foreach ($entityform_revision->field_com_viv_con_sistema[LANGUAGE_NONE] as $fieldcollection_item) {
+                  $fc = entity_load_single('field_collection_item', $fieldcollection_item['value']);
+                  if ($fc) {
 
-                  $valid_system_provider = !empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && !empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
-                  $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
-                  $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+                    $valid_not_system_provider = empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
 
-                  if (!$valid_not_system_provider && !$valid_system_provider) {
-                    $computable_revision = NULL;
-                    break;
+                    $valid_system_provider = !empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && !empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
+                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+
+                    if (!$valid_not_system_provider && !$valid_system_provider) {
+                      $computable_revision = NULL;
+                      break;
+                    }
                   }
                 }
               }
-            }
 
 
-            break;
-          case 'prestador_de_servicio':
-          case 'sistema':
-            if (!find_validated_community_for_id($entityform_id, $entityform_revision->bundle() )) {
-              $computable_revision = NULL;
-            }
-            break;
+              break;
+            case 'prestador_de_servicio':
+            case 'sistema':
+              if (!find_validated_community_for_id($entityform_id, $entityform_revision->bundle() )) {
+                $computable_revision = NULL;
+              }
+              break;
+          }
         }
-
         //Update records
         if ($computable_revision) {
           if ($entityform->computable_revision !== $computable_revision) {
@@ -409,4 +411,13 @@ function reset_entityform_states() {
       ))
       ->execute();
   }
+}
+
+/**
+ * Check if the revision belongs to migrated data.
+ * @param $entityform_revision
+ */
+//TODO this code should be remove after migration
+function _is_migrated_form($entityform_revision) {
+  return !empty($entityform_revision->field_rating_s1);
 }
