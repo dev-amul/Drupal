@@ -25,6 +25,7 @@ function feature_siasar_entityform_prestador_servicio_form_prestador_de_servicio
       ),
     ),
   );
+  $form['#validate'][] = '_c6_field_dependency_cleanup';
 }
 
 /**
@@ -40,5 +41,22 @@ function _c3_multiple_validation($form, &$form_state) {
         }
       }
     }
+  }
+}
+
+/**
+ * Cleanup form for C6 dependency
+ * @param $form
+ * @param $form_state
+ */
+function _c6_field_dependency_cleanup($form, &$form_state) {
+  $c1 = $form_state['values']['field_tiene_definido_tipo_tarifa'][LANGUAGE_NONE][0]['value'];
+  $c3 = $form_state['values']['field_mecanismo_pago_tarifa'][LANGUAGE_NONE][0]['tid'];
+  $allowed_c3_tids = array(32022, 32023, 32024, 32025);
+
+
+  if ($c1 == '0' || ($c1 != '0' && in_array($c3, $allowed_c3_tids))){
+
+    $form_state['values']['field_mantenimiento_sistema']['und'][0]['tid'] = NULL;
   }
 }
