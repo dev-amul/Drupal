@@ -107,10 +107,12 @@ function _computable_revision($entityform_id) {
     foreach ($revisions as $revision) {
       $entityform_revision = entityform_get_revision($entityform, $revision->vid);
 
-      if ($entityform_revision->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
-        $computable_revision = $revision->vid;
+      $computable_revision = $revision->vid;
+      if (!_is_migrated_form($entityform_revision)) {
+        $computable_revision = NULL;
 
-        if (!_is_migrated_form($entityform_revision)) {
+        if ($entityform_revision->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
+          $computable_revision = $revision->vid;
 
           switch ($entityform_revision->bundle()) {
             case 'comunidad':
