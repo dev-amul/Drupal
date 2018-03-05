@@ -12,6 +12,19 @@ include_once 'feature_siasar_entityform_prestador_servicio.features.inc';
 function feature_siasar_entityform_prestador_servicio_form_prestador_de_servicio_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
   // Add validation for c3 field
   $form['#validate'][] = '_c3_multiple_validation';
+
+  //Conditional fields fails on that dependency so it has been implemented
+  //This requirement comes from issue #616
+  $form['field_mantenimiento_sistema']['#states'] = array(
+    'visible' => array(
+      array(
+        ':input[name="field_tiene_definido_tipo_tarifa[und]"]' => array('value' => 0),
+      ),
+      array(
+        ':input[name="field_mecanismo_pago_tarifa[und][32021]"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
 }
 
 /**
