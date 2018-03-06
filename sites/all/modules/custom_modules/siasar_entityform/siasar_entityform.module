@@ -148,47 +148,47 @@ function _computable_revision($entityform_id) {
           }
         }
         //Update records
-        if ($computable_revision) {
-          if ($entityform->computable_revision !== $computable_revision) {
-            db_update('entityform_computable_states')
-              ->fields([
-                'computable'          => TRUE,
-                'entityform_revision' => $computable_revision,
-              ])
-              ->condition('entityform_id', $entityform_id, '=')
-              ->execute();
+      }
+      if ($computable_revision) {
+        if ($entityform->computable_revision !== $computable_revision) {
+          db_update('entityform_computable_states')
+            ->fields([
+              'computable'          => TRUE,
+              'entityform_revision' => $computable_revision,
+            ])
+            ->condition('entityform_id', $entityform_id, '=')
+            ->execute();
 
-            // Trigger update
-            switch ($entityform->bundle()) {
-              case 'sistema':
-                // Get all entities that were related in any revision to this entityform
-                // getting that information from table: field_revision_field_system_ref
+          // Trigger update
+          switch ($entityform->bundle()) {
+            case 'sistema':
+              // Get all entities that were related in any revision to this entityform
+              // getting that information from table: field_revision_field_system_ref
 
-                flag_entityform_dependencies_for_processing($entityform_id, $entityform, 'field_revision_field_system_ref', 'field_system_ref_target_id');
+              flag_entityform_dependencies_for_processing($entityform_id, $entityform, 'field_revision_field_system_ref', 'field_system_ref_target_id');
 
 
-                break;
-              case 'prestador_de_servicio':
-                // Get all entities that were related in any revision to this entityform
-                // getting that information from table: field_prestador_servicio
+              break;
+            case 'prestador_de_servicio':
+              // Get all entities that were related in any revision to this entityform
+              // getting that information from table: field_prestador_servicio
 
-                flag_entityform_dependencies_for_processing($entityform_id, $entityform, 'field_revision_field_prestador_servicio', 'field_prestador_servicio_target_id');
+              flag_entityform_dependencies_for_processing($entityform_id, $entityform, 'field_revision_field_prestador_servicio', 'field_prestador_servicio_target_id');
 
-                break;
-              case 'comunidad':
-                //Flag all the field collections for all the revisions to be update
-                flag_fieldcollection_dependencies_for_processing($entityform, $revisions);
-                break;
-              default:
-                // nobody to update
-                // This is for PAT, water quality, or testing
-                break;
-            }
+              break;
+            case 'comunidad':
+              //Flag all the field collections for all the revisions to be update
+              flag_fieldcollection_dependencies_for_processing($entityform, $revisions);
+              break;
+            default:
+              // nobody to update
+              // This is for PAT, water quality, or testing
+              break;
           }
-
-          // Detected last entityform revision computable, so stop here
-          break;
         }
+
+        // Detected last entityform revision computable, so stop here
+        break;
       }
 
     }
