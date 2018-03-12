@@ -1366,3 +1366,12 @@ function siasar_updates_update_7184(&$sandbox = null) {
 function siasar_updates_update_7185(&$sandbox = null) {
   features_revert_module('feature_siasar_entityform_prestador_servicio');
 }
+
+/**
+ * 674 - Agregar el campo computable al reporte csv y
+ * al xls de la página de validación
+ * https://gitlab.com/siasar-project/admin/issues/674
+ */
+function siasar_updates_update_7186(&$sandbox = null) {
+  features_revert_module('feature_siasar_views_reports');
+}
