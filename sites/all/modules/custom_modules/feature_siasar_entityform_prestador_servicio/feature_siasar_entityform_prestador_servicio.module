@@ -21,7 +21,16 @@ function feature_siasar_entityform_prestador_servicio_form_prestador_de_servicio
         ':input[name="field_tiene_definido_tipo_tarifa[und]"]' => array('value' => 0),
       ),
       array(
-        ':input[name="field_mecanismo_pago_tarifa[und][32021]"]' => array('checked' => TRUE),
+        ':input[name="field_mecanismo_pago_tarifa[und][32022]"]' => array('checked' => TRUE),
+      ),
+      array(
+        ':input[name="field_mecanismo_pago_tarifa[und][32023]"]' => array('checked' => TRUE),
+      ),
+      array(
+        ':input[name="field_mecanismo_pago_tarifa[und][32024]"]' => array('checked' => TRUE),
+      ),
+      array(
+        ':input[name="field_mecanismo_pago_tarifa[und][32025]"]' => array('checked' => TRUE),
       ),
     ),
   );
