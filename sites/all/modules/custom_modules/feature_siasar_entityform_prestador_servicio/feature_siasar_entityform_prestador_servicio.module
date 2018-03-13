@@ -61,7 +61,7 @@ function _c3_multiple_validation($form, &$form_state) {
 function _c6_field_dependency_cleanup($form, &$form_state) {
   $c1 = $form_state['values']['field_tiene_definido_tipo_tarifa'][LANGUAGE_NONE][0]['value'];
   $c3 = $form_state['values']['field_mecanismo_pago_tarifa'][LANGUAGE_NONE][0]['tid'];
-  $allowed_c3_tids = array(32021);
+  $allowed_c3_tids = array(32022, 32023, 32024, 32025);
   if ($c3 == NULL){
     $c3 = 0;
   }
