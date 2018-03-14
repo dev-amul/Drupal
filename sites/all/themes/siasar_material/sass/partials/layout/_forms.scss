@@ -121,6 +121,7 @@ span.form-required {
     width: $fields-alignment;
   }
 }
+
 .field-items {
   @include breakpoint($break-small) {
     margin-left: 200px;
@@ -149,4 +150,9 @@ span.form-required {
   label {
     opacity: 0.5;
   }
+}
+
+.form-submit[disabled] {
+  opacity: 0.65;
+  cursor: not-allowed;
 }

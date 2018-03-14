@@ -579,6 +579,13 @@ function feature_siasar_entityform_comunidad_conditional_fields_default_fields()
           3 => 0,
           4 => 0,
         ),
+        14 => array(
+          1 => 1,
+          2 => 2,
+          5 => 0,
+          3 => 0,
+          4 => 0,
+        ),
         10 => array(
           1 => 1,
           2 => 2,
@@ -633,6 +640,10 @@ function feature_siasar_entityform_comunidad_conditional_fields_default_fields()
           1 => 1,
           3 => 0,
         ),
+        14 => array(
+          1 => 1,
+          3 => 0,
+        ),
         10 => array(
           1 => 1,
           3 => 0,
@@ -641,13 +652,13 @@ function feature_siasar_entityform_comunidad_conditional_fields_default_fields()
       'selector' => '',
       'values_set' => 1,
       'value_form' => array(
-        742095 => 742095,
-        742093 => NULL,
-        742094 => NULL,
+        742124 => 742124,
+        742122 => NULL,
+        742123 => NULL,
       ),
       'value' => array(
         0 => array(
-          'target_id' => 742095,
+          'target_id' => 742124,
         ),
       ),
       'values' => array(),

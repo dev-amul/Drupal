@@ -102,6 +102,15 @@ function template_preprocess_views_data_export_csv_header(&$vars) {
     $wrap = '';
     $replace_value = '';
   }
+  // Add UTF-8 BOM character, if needed.
+  if (!empty($vars['options']['utf8_bom']) && empty($vars['options']['encoding'])) {
+    // Assume UTF-8 if no encoding configured.
+    $vars['optional_utf8_bom'] = "\xEF\xBB\xBF";
+  }
+  else {
+    // Do not add UTF-8 BOM if views with character encoding conversion.
+    $vars['optional_utf8_bom'] = '';
+  }
 
   // Format header values.
   foreach ($vars['header'] as $key => $value) {

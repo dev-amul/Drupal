@@ -10,6 +10,7 @@ dependencies[] = date
 dependencies[] = entity
 dependencies[] = entityform
 dependencies[] = entityreference
+dependencies[] = feature_siasar_entityform_sistema
 dependencies[] = feature_siasar_taxonomies
 dependencies[] = features
 dependencies[] = field_collection

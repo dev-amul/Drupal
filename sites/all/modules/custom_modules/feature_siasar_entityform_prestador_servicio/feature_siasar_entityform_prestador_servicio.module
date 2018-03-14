@@ -5,3 +5,69 @@
  */
 
 include_once 'feature_siasar_entityform_prestador_servicio.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function feature_siasar_entityform_prestador_servicio_form_prestador_de_servicio_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
+  // Add validation for c3 field
+  $form['#validate'][] = '_c3_multiple_validation';
+
+  //Conditional fields fails on that dependency so it has been implemented
+  //This requirement comes from issue #616
+  $form['field_mantenimiento_sistema']['#states'] = array(
+    'visible' => array(
+      array(
+        ':input[name="field_tiene_definido_tipo_tarifa[und]"]' => array('value' => 0),
+      ),
+      array(
+        ':input[name="field_mecanismo_pago_tarifa[und][32022]"]' => array('checked' => TRUE),
+      ),
+      array(
+        ':input[name="field_mecanismo_pago_tarifa[und][32023]"]' => array('checked' => TRUE),
+      ),
+      array(
+        ':input[name="field_mecanismo_pago_tarifa[und][32024]"]' => array('checked' => TRUE),
+      ),
+      array(
+        ':input[name="field_mecanismo_pago_tarifa[und][32025]"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+  $form['#validate'][] = '_c6_field_dependency_cleanup';
+}
+
+/**
+ * Validate function to avoid positive and negative answers at the same time.
+ *
+ */
+function _c3_multiple_validation($form, &$form_state) {
+  if (isset($form_state['values']['field_mecanismo_pago_tarifa'])) {
+    if (count($form_state['values']['field_mecanismo_pago_tarifa'][LANGUAGE_NONE]) > 1) {
+      foreach ($form_state['values']['field_mecanismo_pago_tarifa'][LANGUAGE_NONE] as $term) {
+        if ($term['tid'] == 32021) {
+          form_set_error('feature_siasar_entityform_prestador_servicio',t('You can not select "Yes" with negative answers'));
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Cleanup form for C6 dependency
+ * @param $form
+ * @param $form_state
+ */
+function _c6_field_dependency_cleanup($form, &$form_state) {
+  $c1 = $form_state['values']['field_tiene_definido_tipo_tarifa'][LANGUAGE_NONE][0]['value'];
+  $c3 = $form_state['values']['field_mecanismo_pago_tarifa'][LANGUAGE_NONE][0]['tid'];
+  $allowed_c3_tids = array(32022, 32023, 32024, 32025);
+  if ($c3 == NULL){
+    $c3 = 0;
+  }
+
+  if ($c1 != '0' && !in_array($c3, $allowed_c3_tids)){
+
+    $form_state['values']['field_mantenimiento_sistema']['und'][0]['tid'] = NULL;
+  }
+}

@@ -2183,7 +2183,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   // Exported field_instance: 'entityform-waq-field_ph'.
   $field_instances['entityform-waq-field_ph'] = array(
     'bundle' => 'waq',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3124,6 +3124,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',

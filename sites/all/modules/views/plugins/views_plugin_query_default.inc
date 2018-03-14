@@ -329,7 +329,8 @@ class views_plugin_query_default extends views_plugin_query {
     elseif (!array_key_exists($link_point, $this->relationships)) {
       return FALSE;
     }
-
+    // Ensure the table alias is no longer than 60 characters long.
+    $alias = (strlen($alias) > 60) ? substr($alias, -60) : $alias;
     // Make sure $alias isn't already used; if it, start adding stuff.
     $alias_base = $alias;
     $count = 1;
@@ -475,6 +476,14 @@ class views_plugin_query_default extends views_plugin_query {
     // the relationship as a primary table for the alias.
     if ($table != $alias) {
       $this->mark_table($alias, $this->base_table, $alias);
+    }
+    // limit base alias to 60 chars, from the right side
+    $alias = (strlen($alias) > 60) ? substr($alias, -60) : $alias;
+    // Make sure $alias isn't already used; if it, start adding stuff.
+    $alias_base = $alias;
+    $count = 1;
+    while (!empty($this->relationships[$alias])) {
+      $alias = $alias_base . '_' . $count++;
     }
 
     // If no join is specified, pull it from the table data.
