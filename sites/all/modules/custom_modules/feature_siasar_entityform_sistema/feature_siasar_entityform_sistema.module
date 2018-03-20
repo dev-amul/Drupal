@@ -5,17 +5,3 @@
  */
 
 include_once 'feature_siasar_entityform_sistema.features.inc';
-
-///**
-// * Implements hook_form_BASE_FORM_ID_alter().
-// */
-//function feature_siasar_entityform_sistema_form_sistema_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
-//  $form['field_fecha_analisiscalidad_agua']['#states'] = array(
-//    'visible' => array(
-//      array(
-//        ':input[name="field_cantidad_de_cloro_residual[und][0][value]"]' => array('filled' => TRUE),
-//      ),
-//    ),
-//  );
-//  $a = 1;
-//}
