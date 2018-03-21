@@ -291,7 +291,8 @@ function siasar_entityform_query_services_index_entityform_alter(QueryAlterableI
     $where = 'efcs.computable = ' . $computable;
 
     if ($computable == 1) {
-      $where .= ' and entityform.vid = efcs.entityform_revision';
+      $query->innerJoin('entityform_revision', 'efr', 'efr.entityform_id = entityform.entityform_id');
+      $where .= ' and efr.vid = efcs.entityform_revision';
     }
     $query->where($where);
   }
