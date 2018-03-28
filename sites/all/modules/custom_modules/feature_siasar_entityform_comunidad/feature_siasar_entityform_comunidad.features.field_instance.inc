@@ -2175,7 +2175,11 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'entityform-comunidad-field_data_collection_method'.
   $field_instances['entityform-comunidad-field_data_collection_method'] = array(
     'bundle' => 'comunidad',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'target_id' => 742123,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5210,7 +5214,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 0,
     ),
   );
 
