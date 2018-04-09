@@ -6,6 +6,8 @@ deploy to development:
   environment:
     name: development
     url: http://dev.siasar.org
+  tags:
+    - develop
   variables:
     DRUPAL_PATH: "/var/www/drupal_development"
     DB_NAME: "drupal_development"
