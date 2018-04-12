@@ -290,10 +290,16 @@ function _siasar_services_entityform_alter_attach_user_info($field) {
  *
  * @param array $data
  *   Array of results that can be altered
+ *
+ * @return array field collection information
  */
 function _siasar_services_entityform_alter_attach_field_collection_info($field) {
-  static $fc_structure;
 
+  // Indicators#5: This is the real way of gathering information as the Services module would
+  $base_field = _services_entity_resource_callback('retrieve', 'field_collection_item', $field['id'], '*', null);
+
+  // This is a custom way of retrieving field_collection_item's information.
+  static $fc_structure;
   $entity = entity_load_single('field_collection_item', $field['id']);
   if (!$entity) return null;
 
@@ -309,7 +315,8 @@ function _siasar_services_entityform_alter_attach_field_collection_info($field) 
     $field[$key] = _siasar_services_entityform_alter_get_value_from_wrapper($entity, $wrapper, $key);
   }
 
-  return $field;
+  // We're merging both ways as the BI is not able to adapt quickly to this change.
+  return array_merge($base_field, $field);
 }
 
 /**

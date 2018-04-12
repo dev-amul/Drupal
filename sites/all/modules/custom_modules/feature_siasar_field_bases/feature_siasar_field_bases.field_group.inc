@@ -23,8 +23,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A6. Are there adequate water resources (at the source) to meet demand?',
     'weight' => '120',
     'children' => array(
-      0 => 'field_agua_en_verano',
-      1 => 'field_agua_en_invierno',
+      0 => 'field_agua_en_invierno',
+      1 => 'field_agua_en_verano',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -82,9 +82,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. General information and design',
     'weight' => '0',
     'children' => array(
-      0 => 'field_pais',
+      0 => 'field_fecha_de_aplicaci_n',
       1 => 'field_user_reference',
-      2 => 'field_fecha_de_aplicaci_n',
+      2 => 'field_pais',
       3 => 'group_a5',
       4 => 'group_a6_croquis_del_sistema',
       5 => 'group_financiamiento_inicial',
@@ -2953,10 +2953,10 @@ function feature_siasar_field_bases_field_group_info() {
     'weight' => '71',
     'children' => array(
       0 => 'field_g4_4',
-      1 => 'field_fecha_analisiscalidad_agua',
-      2 => 'field_fecha_analisis_coliformes',
-      3 => 'field_g4_3',
-      4 => 'field_cantidad_de_cloro_residual',
+      1 => 'field_g4_3',
+      2 => 'field_cantidad_de_cloro_residual',
+      3 => 'field_fecha_analisiscalidad_agua',
+      4 => 'field_fecha_analisis_coliformes',
       5 => 'field_fecha_analisis_fq',
     ),
     'format_type' => 'fieldset',
@@ -3515,13 +3515,13 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A1',
     'weight' => '115',
     'children' => array(
-      0 => 'field_entidad_local',
-      1 => 'field_alto',
-      2 => 'field_entity_name',
+      0 => 'field_imagen',
+      1 => 'field_entidad_local',
+      2 => 'field_anno_construccion',
       3 => 'field_codigo_de_sistema',
-      4 => 'field_latitud',
-      5 => 'field_imagen',
-      6 => 'field_anno_construccion',
+      4 => 'field_alto',
+      5 => 'field_entity_name',
+      6 => 'field_latitud',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3935,9 +3935,9 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A2. Other Administrative and/or Geographical Divisions',
     'weight' => '116',
     'children' => array(
-      0 => 'field_cuenca_hidrografica',
-      1 => 'field_otras_divisiones',
-      2 => 'field_area_planificacion',
+      0 => 'field_area_planificacion',
+      1 => 'field_cuenca_hidrografica',
+      2 => 'field_otras_divisiones',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -4620,8 +4620,8 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A5. Type of water supply system',
     'weight' => '119',
     'children' => array(
-      0 => 'field_tipo_de_sistema_de_absto',
-      1 => 'field_a4_2',
+      0 => 'field_a4_2',
+      1 => 'field_tipo_de_sistema_de_absto',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
