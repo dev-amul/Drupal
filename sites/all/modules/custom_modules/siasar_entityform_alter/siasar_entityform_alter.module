@@ -11,10 +11,9 @@ define('SIASAR_ENTITYFORM_STATE_REMOVED', 5);
  */
 function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
 
-  $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
-  $form_id_clean = str_replace('_entityform_edit_form', '', $form_id);
+  _siasar_entityform_alter_workflow_transition_comment_form($form, $form_state, $form_id);
 
-  if (!in_array($form_id_clean, $possible_entityforms)) return;
+  if (!is_an_entityform_form($form_id)) return;
 
   $module_path = drupal_get_path('module', 'siasar_entityform_alter');
   $form['#attached']['js'][] = $module_path . '/js/siasar_entityform_alter.print_edit.js';
@@ -26,6 +25,23 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
   _siasar_entityform_alter_validated_save($form, $form_state, $form_id);
   _siasar_entityform_alter_redirect($form, $form_state);
   _siasar_entityform_alter_hide_save_action($form, $form_state);
+}
+
+/**
+ * Determines if the $form_id corresponds to an entityform edition form
+ *
+ * @param $form_id
+ *
+ * @return boolean
+ */
+function is_an_entityform_form($form_id) {
+
+  $possible_entityforms = array_keys(entity_get_info('entityform')['bundles']);
+  $form_id_clean = str_replace('_entityform_edit_form', '', $form_id);
+
+  $is_an_entityform_form = in_array($form_id_clean, $possible_entityforms);
+
+  return $is_an_entityform_form;
 }
 
 /**
@@ -371,4 +387,45 @@ function siasar_entityform_alter_field_widget_options_buttons_form_alter(&$eleme
 
   _siasar_entityform_alter_select_add_default_value_back($element, $context);
   _siasar_entityform_alter_pass_entity_references_through_translator($element, $context);
+}
+
+/**
+ * Process entityform and transition workflow forms, to make sure we can add
+ * comments from validated to draft transition.
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function _siasar_entityform_alter_workflow_transition_comment_form(&$form, &$form_state, $form_id) {
+
+  $workflow = FALSE;
+  if (is_an_entityform_form($form_id)) {
+    // this is an entityform form with workflow
+    $workflow = $form['field_status']['und'][0]['workflow'];
+  } elseif (isset($form_state['build_info']['base_form_id']) && $form_state['build_info']['base_form_id'] == 'workflow_transition_form') {
+    // this is a workflow transition form
+    $workflow = $form['workflow'];
+  }
+
+  if ($workflow) {
+    // If the current state is validated, then add the JS for adding a comment when going to draft
+    if ($workflow['workflow_entity']['#value']->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
+      $module_path = drupal_get_path('module', 'siasar_entityform_alter');
+      $theme_path = drupal_get_path('theme', 'siasar_material');
+      $form['#attached']['css'][] = $theme_path . '/js/jquery-colorbox/colorbox.css';
+      $form['#attached']['js'][] = $theme_path . '/js/jquery-colorbox/jquery.colorbox-min.js';
+      $form['#attached']['js'][] = $module_path . '/js/siasar_entityform_alter.workflow_comment.js';
+
+      // Indicates in which button the comment should be displayed.
+      $form['#attached']['js'][] = array(
+        'type' => 'setting',
+        'data' => array('siasar_entityform_alter' =>
+          array('workflowComment' =>
+            array('selectors' => array('#edit-workflow-' . SIASAR_ENTITYFORM_STATE_DRAFT))
+          )
+        )
+      );
+    }
+  }
 }
