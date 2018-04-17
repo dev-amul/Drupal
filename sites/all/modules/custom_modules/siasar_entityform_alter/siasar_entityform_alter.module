@@ -414,7 +414,7 @@ function _siasar_entityform_alter_workflow_transition_comment_form(&$form, &$for
       SIASAR_ENTITYFORM_STATE_VALIDATED
     );
     // If the current state is validated or finished, then add the JS for adding a comment when going to draft
-    if (in_array($workflow['workflow_entity']['#value']->field_status['und'][0]['value'], $from_states) {
+    if (in_array($workflow['workflow_entity']['#value']->field_status['und'][0]['value'], $from_states)) {
       $module_path = drupal_get_path('module', 'siasar_entityform_alter');
       $theme_path = drupal_get_path('theme', 'siasar_material');
       $form['#attached']['css'][] = $theme_path . '/js/jquery-colorbox/colorbox.css';
