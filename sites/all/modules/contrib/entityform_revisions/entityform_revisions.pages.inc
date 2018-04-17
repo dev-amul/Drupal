@@ -180,8 +180,8 @@ function entityform_revision_revert_confirm_submit($form, &$form_state) {
 
   entity_save('entityform', $entityform_revision);
 
-  watchdog('content', '@type: reverted %title revision %revision.', array('@type' => $entityform_revision->bundle, '%revision' => $entityform_revision->vid));
-  drupal_set_message(t('@type has been reverted back to the revision from %revision-date.', array('@type' => $entityform_revision->bundle, '%revision-date' => format_date($entityform_revision->f))));
+  watchdog('content', '@type: reverted %title revision %revision.', array('@type' => $entityform_revision->getTypeName(), '%revision' => $entityform_revision->vid));
+  drupal_set_message(t('@type has been reverted back to the revision from %revision-date.', array('@type' => $entityform_revision->getTypeName(), '%revision-date' => format_date($entityform_revision->changed))));
   $form_state['redirect'] = 'entityform/' . $entityform_revision->identifier() . '/revisions';
 }
 
@@ -215,8 +215,8 @@ function entityform_revision_delete_confirm_submit($form, &$form_state) {
   $id = $entityform_revision->identifier();
   entity_revision_delete('entityform', $entityform_revision->vid);
 
-  watchdog('content', '@type: deleted revision %revision.', array('@type' => $entityform_revision->bundle, '%revision' => $entityform_revision->vid));
-  drupal_set_message(t('Revision from %revision-date of @type has been deleted.', array('%revision-date' => format_date($entityform_revision->changed), '@type' => $entityform_revision->bundle)));
+  watchdog('content', '@type: deleted revision %revision.', array('@type' => $entityform_revision->getTypeName(), '%revision' => $entityform_revision->vid));
+  drupal_set_message(t('Revision from %revision-date of @type has been deleted.', array('%revision-date' => format_date($entityform_revision->changed), '@type' => $entityform_revision->getTypeName())));
 
   $form_state['redirect'] = 'entityform/' . $id;
   if (db_query('SELECT COUNT(vid) FROM {entityform_revision} WHERE entityform_id = :entityform_id', array(':entityform_id' => $entityform_revision->identifier()))->fetchField() > 1) {

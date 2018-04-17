@@ -5,5 +5,12 @@ package = Entityforms
 
 dependencies[] = entityform
 
+files[] = EntityformRevisionsMetadataController.inc
 files[] = EntityformRevisionsController.inc
 files[] = EntityformRevisionsUIController.inc
+
+; Information added by Drupal.org packaging script on 2018-04-17
+version = "7.x-1.0-alpha2"
+core = "7.x"
+project = "entityform_revisions"
+datestamp = "1523962087"
