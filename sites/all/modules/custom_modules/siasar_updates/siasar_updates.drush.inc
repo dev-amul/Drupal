@@ -5,6 +5,36 @@
  */
 function siasar_updates_drush_command() {
 
+  $items['siasar-find-unit'] = array(
+    'description' => 'Detects in which field a unit is being used.',
+    'aliases' => array('siasar-fu'),
+    'callback' => 'drush_siasar_find_unit',
+    'arguments' => array(
+      'unit' => 'Unit ID.',
+      'detailed' => 'Detailed information.',
+    ),
+    'required-arguments' => true,
+    'examples' => array(
+      'drush siasar-fu 56' => 'Looks in all the MVF fields for a unit with ID 56.',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
+  );
+
+  $items['siasar-remap-unit-global'] = array(
+    'description' => 'It remaps entities using old units to new ones, as referenced in `units_unit` table.',
+    'aliases' => array('siasar-rug'),
+    'callback' => 'drush_siasar_remap_unit_global',
+    'arguments' => array(
+      'old' => 'Old Unit ID',
+      'new' => 'New unit ID.',
+    ),
+    'required-arguments' => true,
+    'examples' => array(
+      'drush siasar-rug 42 56' => 'Remaps all occurrences of Unit 42 to unit 56 on all MVF fields, no matter the entity it belongs to.',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
+  );
+
   $items['siasar-remap-unit'] = array(
     'description' => 'It remaps entities using old units to new ones, as referenced in `units_unit` table.',
     'aliases' => array('siasar-ru'),
@@ -65,23 +95,88 @@ function siasar_updates_drush_command() {
   return $items;
 }
 
+function drush_siasar_find_unit($unit, $detailed = FALSE) {
+  $fields = field_info_fields();
+
+  $fields_counter = array();
+  $mvf_fields = array(
+    'mvf_number_integer_entityreference',
+    'mvf_number_decimal_entityreference'
+  );
+
+
+
+  foreach($fields as $name => $field) {
+    if ($field['module'] === 'mvf' && in_array($field['type'], $mvf_fields)) {
+      $fields_counter[] = $name;
+      $sql_find = "SELECT * FROM field_data_{$name} WHERE {$name}_target_id = $unit";
+      $result = db_query($sql_find);
+      $items_data = $result->fetchAll();
+      $items_data_count = count($items_data);
+
+      $sql_find = "SELECT * FROM field_revision_{$name} WHERE {$name}_target_id = $unit";
+      $result = db_query($sql_find);
+      $items_revisions = $result->fetchAll();
+      $items_revisions_count = count($items_revisions);
+
+      $map_function = function($item) use ($name) {
+        return 'entity_id: ' . $item->entity_id . ' - revision_id: ' . $item->revision_id . ' - value: ' . $item->{$name . '_value'};
+      };
+      if ($items_data_count) {
+        drupal_set_message('Unit found at table: field_data_' . $name . ' - Matches: ' . $items_data_count);
+        if ($detailed) {
+          $results = array_map($map_function, $items_data);
+          drupal_set_message(implode("\n", $results));
+        }
+      }
+      if ($items_revisions_count) {
+        drupal_set_message('Unit found at table: field_revision_' . $name . ' - Matches: ' . $items_revisions_count);
+        if ($detailed) {
+          $results = array_map($map_function, $items_revisions);
+          drupal_set_message(implode("\n", $results));
+        }
+      }
+    }
+  }
+
+  drupal_set_message('Reviewed ' . count($fields_counter) . ' fields and revisions.');
+}
+
+function drush_siasar_remap_unit_global($old, $new) {
+  $fields = field_info_fields();
+
+  $mvf_fields = array(
+    'mvf_number_integer_entityreference',
+    'mvf_number_decimal_entityreference'
+  );
+
+  foreach($fields as $name => $field) {
+    if ($field['module'] === 'mvf' && in_array($field['type'], $mvf_fields)) {
+      drush_siasar_remap_unit($name, $old, $new);
+    }
+  }
+}
+
 function drush_siasar_remap_unit($field, $old, $new) {
   drupal_set_message("Field is $field, converting $old -> $new");
 
   $sql_find = "SELECT * FROM field_data_{$field} WHERE {$field}_target_id = $old";
-
   $result = db_query($sql_find);
   $items = $result->fetchAll();
-  $items_count = count($items);
+  $items_data_count = count($items);
 
-  if ($items_count == 0) {
+  $sql_find = "SELECT * FROM field_revision_{$field} WHERE {$field}_target_id = $old";
+  $result = db_query($sql_find);
+  $items = $result->fetchAll();
+  $items_revisions_count = count($items);
+
+  if (!$items_data_count && !$items_revisions_count) {
     drupal_set_message('No items found, nothing to do.');
     return;
   }
 
-
   $proceed = function_exists('drush_confirm')
-    ? drush_confirm('Found ' . $items_count . ' items. Do you want to proceed? There\'s no undo!')
+    ? drush_confirm('Found ' . ($items_data_count + $items_revisions_count) . ' items. Do you want to proceed? There\'s no undo!')
     : true;
 
   if (!$proceed) return;
