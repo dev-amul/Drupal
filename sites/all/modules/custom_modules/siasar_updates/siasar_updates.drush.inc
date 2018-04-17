@@ -5,13 +5,25 @@
  */
 function siasar_updates_drush_command() {
 
+  $items['siasar-find-broken-unit'] = array(
+    'description' => 'Detects all broken units in any MVF field.',
+    'aliases' => array('siasar-bu'),
+    'callback' => 'drush_siasar_find_broken_unit',
+    'arguments' => array(
+    ),
+    'required-arguments' => true,
+    'examples' => array(
+      'drush siasar-bfu' => 'Looks for all broken relationships to MVF fields.',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
+  );
+
   $items['siasar-find-unit'] = array(
     'description' => 'Detects in which field a unit is being used.',
     'aliases' => array('siasar-fu'),
     'callback' => 'drush_siasar_find_unit',
     'arguments' => array(
       'unit' => 'Unit ID.',
-      'detailed' => 'Detailed information.',
     ),
     'required-arguments' => true,
     'examples' => array(
@@ -95,6 +107,34 @@ function siasar_updates_drush_command() {
   return $items;
 }
 
+function drush_siasar_find_broken_unit() {
+  $fields = field_info_fields();
+  $mvf_fields = array(
+    'mvf_number_integer_entityreference',
+    'mvf_number_decimal_entityreference'
+  );
+
+  $query = [];
+
+  foreach ($fields as $name => $field) {
+    if ($field['module'] === 'mvf' && in_array($field['type'], $mvf_fields)) {
+      $query []= "SELECT DISTINCT {$name}_target_id FROM field_data_{$name} a LEFT JOIN units_unit b ON a.{$name}_target_id = b.umid WHERE b.umid is NULL";
+      $query []= "SELECT DISTINCT {$name}_target_id FROM field_revision_{$name} a LEFT JOIN units_unit b ON a.{$name}_target_id = b.umid WHERE b.umid is NULL";
+    }
+  }
+
+  if (!empty($query)) {
+
+    $result = db_query(implode(' UNION ALL ', $query));
+    $items_data = $result->fetchCol();
+
+    $items_data = array_unique($items_data);
+    asort($items_data);
+    drupal_set_message(implode("\n", $items_data));
+  }
+}
+
+
 function drush_siasar_find_unit($unit, $detailed = FALSE) {
   $fields = field_info_fields();
 
@@ -103,8 +143,6 @@ function drush_siasar_find_unit($unit, $detailed = FALSE) {
     'mvf_number_integer_entityreference',
     'mvf_number_decimal_entityreference'
   );
-
-
 
   foreach($fields as $name => $field) {
     if ($field['module'] === 'mvf' && in_array($field['type'], $mvf_fields)) {
@@ -120,7 +158,26 @@ function drush_siasar_find_unit($unit, $detailed = FALSE) {
       $items_revisions_count = count($items_revisions);
 
       $map_function = function($item) use ($name) {
-        return 'entity_id: ' . $item->entity_id . ' - revision_id: ' . $item->revision_id . ' - value: ' . $item->{$name . '_value'};
+        $msg = 'entity_id: ' . $item->entity_id . ' - entity_type: ' . $item->entity_type . ' - revision_id: ' . $item->revision_id . ' - value: ' . $item->{$name . '_value'};
+        if ($item->entity_type === 'field_collection_item') {
+          $sql_find = "SELECT * FROM field_collection_item WHERE item_id = {$item->entity_id} and revision_id = {$item->revision_id}";
+          $result = db_query($sql_find);
+          $field_collection = $result->fetchAll();
+
+          if (!empty($field_collection)) {
+            $field_collection = $field_collection[0];
+            $sql_find = "SELECT * FROM field_revision_{$field_collection->field_name} WHERE {$field_collection->field_name}_value = {$field_collection->item_id} and {$field_collection->field_name}_revision_id = {$field_collection->revision_id}";
+            $result = db_query($sql_find);
+            $entity = $result->fetchAll();
+
+            if (!empty($entity)) {
+              $entity = $entity[0];
+              $msg .= ' - [Host entity data] id: ' . $entity->entity_id . ' - revision: ' . $entity->revision_id . ' - bundle: ' . $entity->bundle;
+            }
+          }
+        }
+
+        return $msg;
       };
       if ($items_data_count) {
         drupal_set_message('Unit found at table: field_data_' . $name . ' - Matches: ' . $items_data_count);
