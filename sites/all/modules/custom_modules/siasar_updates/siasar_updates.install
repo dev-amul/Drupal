@@ -1375,3 +1375,33 @@ function siasar_updates_update_7185(&$sandbox = null) {
 function siasar_updates_update_7186(&$sandbox = null) {
   features_revert_module('feature_siasar_views_reports');
 }
+
+/**
+ * Remap wrong units.
+ * @see https://gitlab.com/siasar-project/admin/issues/703
+ */
+function siasar_updates_update_7187() {
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
+
+  $params = array(
+    664 => 718,
+    665 => 719,
+    666 => 720,
+    667 => 721,
+    669 => 723,
+    670 => 724,
+    671 => 725,
+    673 => 727,
+    674 => 728,
+    676 => 730,
+    678 => 732,
+    680 => 734,
+    682 => 736,
+    685 => 739,
+    686 => 740,
+  );
+
+  foreach ($params as $old => $new) {
+    drush_siasar_remap_unit_global($old, $new);
+  }
+}
