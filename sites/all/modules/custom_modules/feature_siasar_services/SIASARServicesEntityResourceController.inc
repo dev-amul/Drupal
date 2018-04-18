@@ -28,6 +28,22 @@ class SIASARServicesEntityResourceController extends ServicesEntityResourceContr
         'default value' => '1',
         'source' => array('param' => 'computable'),
       );
+      $info['index']['args'][] = array(
+        'name' => 'changed_from',
+        'optional' => TRUE,
+        'type' => 'string',
+        'description' => 'Delivers only entities that were changed from a timestamp. Applies only to entityforms.',
+        'default value' => '',
+        'source' => array('param' => 'changed_from'),
+      );
+      $info['index']['args'][] = array(
+        'name' => 'changed_to',
+        'optional' => TRUE,
+        'type' => 'string',
+        'description' => 'Delivers only entities that were changed until a timestamp. Applies only to entityforms.',
+        'default value' => '',
+        'source' => array('param' => 'changed_to'),
+      );
     }
 
     return $info;
@@ -39,7 +55,8 @@ class SIASARServicesEntityResourceController extends ServicesEntityResourceContr
   public function index($entity_type, $fields, $parameters, $page, $pagesize, $sort, $direction) {
     try {
       if ($entity_type == 'entityform') {
-        $return = $this->indexEntityform($entity_type, $fields, $parameters, $page, $pagesize, $sort, $direction);
+        $args = func_get_args();
+        $return = call_user_func_array(array($this, 'indexEntityform'), $args);
       } else {
         $return = parent::index($entity_type, $fields, $parameters, $page, $pagesize, $sort, $direction);
       }
@@ -64,10 +81,13 @@ class SIASARServicesEntityResourceController extends ServicesEntityResourceContr
    * @param $pagesize
    * @param $sort
    * @param $direction
+   * @param $computable
+   * @param $changed_from
+   * @param $changed_to
    *
    * @return array
    */
-  public function indexEntityform($entity_type, $fields, $parameters, $page, $pagesize, $sort, $direction) {
+  public function indexEntityform($entity_type, $fields, $parameters, $page, $pagesize, $sort, $direction, $computable, $changed_from, $changed_to) {
     $property_info = entity_get_all_property_info($entity_type);
     $parameters = $this->transform_values($entity_type, $property_info, $parameters);
     $sort = (isset($property_info['field_' . $sort]))
@@ -75,7 +95,7 @@ class SIASARServicesEntityResourceController extends ServicesEntityResourceContr
       : $sort;
 
     // Call the parent method, which takes care of access control.
-    $entities = $this->servicesEntityFormControllerIndex($entity_type, '*', $parameters, $page, $pagesize, $sort, $direction);
+    $entities = $this->servicesEntityFormControllerIndex($entity_type, '*', $parameters, $page, $pagesize, $sort, $direction, $computable, $changed_from, $changed_to);
     foreach($entities as $entity) {
       $return[] = $this->get_data(entity_metadata_wrapper($entity_type, $entity), $fields);
     }
@@ -92,10 +112,14 @@ class SIASARServicesEntityResourceController extends ServicesEntityResourceContr
    * @param $pagesize
    * @param $sort
    * @param $direction
+   * @param $computable
+   * @param $changed_from
+   * @param $changed_to
    *
    * @return array|mixed
+   * @throws \ServicesException
    */
-  public function servicesEntityFormControllerIndex($entity_type, $fields, $parameters, $page, $pagesize, $sort, $direction) {
+  public function servicesEntityFormControllerIndex($entity_type, $fields, $parameters, $page, $pagesize, $sort, $direction, $computable, $changed_from, $changed_to) {
     // Make sure the pagesize is not too large.
     $max_pagesize = variable_get('services_entity_max_pagesize', 100);
     $pagesize = ($max_pagesize < $pagesize) ? $max_pagesize : $pagesize;
@@ -105,8 +129,7 @@ class SIASARServicesEntityResourceController extends ServicesEntityResourceContr
     $query
       ->entityCondition('entity_type', $entity_type)
       ->range($page * $pagesize, $pagesize)
-      ->addTag('services_index_' . $entity_type
-      );
+      ->addTag('services_index_' . $entity_type);
 
     if (!empty($parameters)) {
       foreach ($parameters as $field => $value) {
@@ -116,6 +139,13 @@ class SIASARServicesEntityResourceController extends ServicesEntityResourceContr
     if ($sort != '') {
       $direction = ($direction == 'DESC') ? 'DESC' : 'ASC'; // Ensure a valid direction
       $this->propertyQueryOperation($entity_type, $query, 'OrderBy', $sort, $direction);
+    }
+
+    if ($changed_from) {
+      $query->propertyCondition('changed', $changed_from, '>=');
+    }
+    if ($changed_to) {
+      $query->propertyCondition('changed', $changed_to, '<=');
     }
 
     $result = $query->execute();
