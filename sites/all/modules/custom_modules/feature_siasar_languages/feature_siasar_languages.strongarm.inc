@@ -25,7 +25,7 @@ function feature_siasar_languages_strongarm() {
     'domain' => '',
     'prefix' => 'es',
     'weight' => '-9',
-    'javascript' => 'sytPgDIes5_d8yw8IXgbSOH0X-wX6Ier-WSPDHlyvgg',
+    'javascript' => 'oJj88XLs29g3-S1Dldce4qjNkhWaaEO36gtVdxWlEGU',
     'fallback' => '',
     'parent' => '',
   );
