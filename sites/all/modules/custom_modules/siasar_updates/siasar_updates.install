@@ -1424,3 +1424,11 @@ function siasar_updates_update_7189(&$sandbox = null) {
   drush_siasar_fill_taxonomies_missing_countries('otras_divisiones', 'CO');
   drush_siasar_fill_taxonomies_missing_countries('area_planificacion', 'CO');
 }
+
+/**
+ * Fix memory usage when editing a taxonomy term:
+ * @see Issue https://gitlab.com/siasar-project/admin/issues/707
+ */
+function siasar_updates_update_7190() {
+  variable_set('taxonomy_override_selector', TRUE);
+}
