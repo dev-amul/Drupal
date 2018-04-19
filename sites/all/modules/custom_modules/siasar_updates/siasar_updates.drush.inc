@@ -63,6 +63,21 @@ function siasar_updates_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
   );
 
+  $items['siasar-fill-taxonomies-missing-countries'] = array(
+    'description' => 'It adds the missing country on those vocabularies that doesnt have one already set.',
+    'aliases' => array('siasar-fvmc'),
+    'arguments' => array(
+      'vocabulary_machine_name' => 'Vocabulary machine name',
+      'country_code' => 'Country ISO2 code',
+    ),
+    'required-arguments' => true,
+    'callback' => 'drush_siasar_fill_taxonomies_missing_countries',
+    'examples' => array(
+      'drush siasar-fvmc area_planificacion CO' => 'It adds the country Colombia to the terms that have no country, belonging to area_planificacion vocabulary.',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
+  );
+
   $items['siasar-fill-missing-countries'] = array(
     'description' => 'It adds the missing country on those administrative divisions that doesnt have one already set.',
     'aliases' => array('siasar-fmc'),
@@ -253,6 +268,53 @@ function drush_siasar_remap_unit($field, $old, $new) {
     ->execute();
 
     drupal_set_message($num_updated . ' affected rows.');
+}
+
+function drush_siasar_fill_taxonomies_missing_countries($vocabulary_machine_name, $country_code) {
+
+  $vocab = taxonomy_vocabulary_machine_name_load($vocabulary_machine_name);
+  $country_code = is_string($country_code)
+    ? strtoupper($country_code)
+    : null;
+  $num_updated = 0;
+  $country = country_load(strtoupper($country_code));
+
+  if ($vocab && $country) {
+
+    $statement = "SELECT tid 
+      FROM {taxonomy_term_data} t 
+        INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid 
+        LEFT JOIN {field_data_field_pais} f on t.tid = f.entity_id and f.bundle = v.machine_name and f.entity_type = 'taxonomy_term'
+       WHERE f.entity_id IS NULL AND v.machine_name = :vocabulary_name";
+
+    $query = db_query($statement,
+      array(
+        ':vocabulary_name' => $vocabulary_machine_name
+      )
+    );
+
+    $tids = $query->fetchCol();
+
+    foreach($tids as $tid){
+      $loaded_term = taxonomy_term_load($tid);
+      if (empty($loaded_term->field_pais)) {
+        drupal_set_message('Country missing in term id : '.$loaded_term->tid . ', name: ' . $loaded_term->name);
+        _siasar_updates_set_country_on_entity('taxonomy_term', $loaded_term, $country);
+        $num_updated++;
+      }
+    }
+
+
+  } else {
+    if (!$vocab) {
+      drupal_set_message('Vocabulary: ' . $vocabulary_machine_name . ' does not exist.');
+    }
+    if (!$country_code) {
+      drupal_set_message('Country code: ' . $country_code . ' does not exist.');
+    }
+  }
+
+  drupal_set_message($num_updated.' terms updated');
 }
 
 function drush_siasar_fill_missing_countries($country_to_check = null) {
