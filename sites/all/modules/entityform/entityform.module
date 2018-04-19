@@ -655,7 +655,7 @@ function entityform_page_title($entityform, $op = 'view') {
       case 'submit':
         return $entityform_type->label;
       default:
-        return t('Form Submission') . ': ' . $entityform_type->label;
+        return t('Form Submission') . ': ' . $entityform_type->getTranslation('label');
     }
   }
 }
