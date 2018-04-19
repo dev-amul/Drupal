@@ -141,7 +141,7 @@ function feature_siasar_languages_locale_default_languages() {
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'pt-br',
-    'weight' => -2,
+    'weight' => 0,
     'fallback' => '',
     'parent' => '',
   );

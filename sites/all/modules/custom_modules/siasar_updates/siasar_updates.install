@@ -1405,3 +1405,22 @@ function siasar_updates_update_7187() {
     drush_siasar_remap_unit_global($old, $new);
   }
 }
+
+/**
+ * Added field_pais in vocabularies: area_planificacion + otras_divisiones
+ */
+function siasar_updates_update_7188(&$sandbox = null) {
+  features_revert_module('feature_siasar_views_references');
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_languages');
+  features_revert_module('feature_siasar_menus');
+}
+
+/**
+ * Set Colombia to terms from 'otras divisiones' and 'area o zona de planificacion' vocabularies
+ */
+function siasar_updates_update_7189(&$sandbox = null) {
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
+  drush_siasar_fill_taxonomies_missing_countries('otras_divisiones', 'CO');
+  drush_siasar_fill_taxonomies_missing_countries('area_planificacion', 'CO');
+}
