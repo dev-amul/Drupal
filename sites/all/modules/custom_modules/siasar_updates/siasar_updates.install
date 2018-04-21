@@ -1432,3 +1432,25 @@ function siasar_updates_update_7189(&$sandbox = null) {
 function siasar_updates_update_7190() {
   variable_set('taxonomy_override_selector', TRUE);
 }
+
+/**
+ * Remap wrong units.
+ * @see https://gitlab.com/siasar-project/admin/issues/703
+ */
+function siasar_updates_update_7191() {
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
+
+  $params = array(
+    590 => 730,
+    594 => 732,
+    596 => 739,
+    598 => 732,
+    612 => 728,
+    615 => 728,
+    637 => 739,
+  );
+
+  foreach ($params as $old => $new) {
+    drush_siasar_remap_unit_global($old, $new);
+  }
+}
