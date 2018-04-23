@@ -1,0 +1,4 @@
+name = Currency Postgres
+description = Fixes compatibility issues with postgres DBs.
+core = 7.x
+dependencies[] = currency

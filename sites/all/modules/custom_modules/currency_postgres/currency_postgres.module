@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_schema_alter().
+ */
+function currency_postgres_schema_alter(&$schema) {
+  $schema['currency']['export']['object factory'] = 'currency_postgres_mapping';
+}
+
+/**
+ * Adapts fields loaded from Database to respect the camelcase definition
+ * of the schema.
+ *
+ * @see Issue https://gitlab.com/siasar-project/admin/issues/712
+ *
+ * @param $schema
+ * @param $data
+ *
+ * @return \stdClass|string
+ */
+function currency_postgres_mapping($schema, $data) {
+  $data->ISO4217Code = $data->iso4217code;
+  $data->ISO4217Number = $data->iso4217number;
+  return _ctools_export_unpack_object($schema, $data, 'Currency');
+}
