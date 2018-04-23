@@ -14,6 +14,7 @@ function siasar_entityform_views_api() {
  * Implements hook_entity_info_alter().
  */
 function siasar_entityform_entity_info_alter(&$entity_info) {
+
   $entity_info['entityform']['controller class'] = 'SiasarEntityformRevisionsController';
 }
 
@@ -108,10 +109,13 @@ function _computable_revision($entityform_id) {
       $entityform_revision = entityform_get_revision($entityform, $revision->vid);
 
       $computable_revision = $revision->vid;
-      if (!_is_migrated_form($entityform_revision)) {
+      $is_from_migration = _is_migrated_form($entityform_revision);
+      $is_validated = $entityform_revision->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED;
+
+      if (!($is_from_migration && $is_validated)) {
         $computable_revision = NULL;
 
-        if ($entityform_revision->field_status['und'][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
+        if ($is_validated) {
           $computable_revision = $revision->vid;
 
           switch ($entityform_revision->bundle()) {
@@ -149,6 +153,7 @@ function _computable_revision($entityform_id) {
         }
         //Update records
       }
+
       if ($computable_revision) {
         if ($entityform->computable_revision !== $computable_revision) {
           db_update('entityform_computable_states')
@@ -423,4 +428,25 @@ function reset_entityform_states() {
 //TODO this code should be remove after migration
 function _is_migrated_form($entityform_revision) {
   return !empty($entityform_revision->field_rating_s1);
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function siasar_entityform_views_pre_render(&$view) {
+  // entityform_types are not being translated in views, so we need to do it
+  // manually.
+  if ($view->name == 'questionnaires') {
+    foreach ($view->result as &$result) {
+      $entity_type = entityform_type_load($result->entityform_type_type);
+      $result->entityform_type_label = $entity_type->getTranslation('label');
+    }
+  }
+
+  if ($view->name == 'results_entityforms') {
+    foreach ($view->result as &$result) {
+      $entity_type = entityform_type_load($result->entityform_type);
+      $result->entityform_type = $entity_type->getTranslation('label');
+    }
+  }
 }

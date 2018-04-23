@@ -19,8 +19,7 @@ class EntityformRevisionsController extends EntityformController {
     // alias changed to revision_changed and add revision_uid.
     $query = parent::buildQuery($ids, $conditions, $revision_id);
     $fields =& $query->getFields();
-    unset($fields['changed']);
-    $query->addField('revision', 'changed', 'revision_changed');
+    $query->addField('revision', 'changed','revision_changed');
     $fields['uid']['table'] = 'base';
     $query->addField('revision', 'uid', 'revision_uid');
     return $query;

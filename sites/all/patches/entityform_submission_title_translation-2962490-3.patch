@@ -1,0 +1,13 @@
+diff --git a/entityform.module b/entityform.module
+index 27e96f2..47ef625 100644
+--- a/entityform.module
++++ b/entityform.module
+@@ -655,7 +655,7 @@ function entityform_page_title($entityform, $op = 'view') {
+       case 'submit':
+         return $entityform_type->label;
+       default:
+-        return t('Form Submission') . ': ' . $entityform_type->label;
++        return t('Form Submission') . ': ' . $entityform_type->getTranslation('label');
+     }
+   }
+ }

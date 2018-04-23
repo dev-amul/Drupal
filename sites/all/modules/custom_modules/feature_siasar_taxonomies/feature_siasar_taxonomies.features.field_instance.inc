@@ -10,6 +10,38 @@
 function feature_siasar_taxonomies_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'taxonomy_term-area_planificacion-field_pais'.
+  $field_instances['taxonomy_term-area_planificacion-field_pais'] = array(
+    'bundle' => 'area_planificacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_pais',
+    'label' => 'País',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-cargo_representante-field_pais'.
   $field_instances['taxonomy_term-cargo_representante-field_pais'] = array(
     'bundle' => 'cargo_representante',
@@ -727,6 +759,38 @@ function feature_siasar_taxonomies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-otras_divisiones-field_pais'.
+  $field_instances['taxonomy_term-otras_divisiones-field_pais'] = array(
+    'bundle' => 'otras_divisiones',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_pais',
+    'label' => 'País',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-paises-field_country_currency'.
   $field_instances['taxonomy_term-paises-field_country_currency'] = array(
     'bundle' => 'paises',
@@ -738,6 +802,7 @@ function feature_siasar_taxonomies_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',

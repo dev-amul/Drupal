@@ -228,7 +228,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Field: Taxonomy term: Código división administrativa */
+  /* Field: Término de taxonomía: Código división administrativa */
   $handler->display->display_options['fields']['field_codigo_division_admin']['id'] = 'field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['table'] = 'field_data_field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['field'] = 'field_codigo_division_admin';
@@ -306,7 +306,7 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Field: Taxonomy term: Código división administrativa */
+  /* Field: Término de taxonomía: Código división administrativa */
   $handler->display->display_options['fields']['field_codigo_division_admin']['id'] = 'field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['table'] = 'field_data_field_codigo_division_admin';
   $handler->display->display_options['fields']['field_codigo_division_admin']['field'] = 'field_codigo_division_admin';
@@ -527,6 +527,17 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Contextual filter: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['arguments']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['arguments']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['arguments']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['arguments']['machine_name']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['machine_name']['exception']['title'] = 'Todo';
+  $handler->display->display_options['arguments']['machine_name']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['machine_name']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['machine_name']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['machine_name']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['machine_name']['limit'] = '0';
   /* Contextual filter: Field: País (field_pais) */
   $handler->display->display_options['arguments']['field_pais_iso2']['id'] = 'field_pais_iso2';
   $handler->display->display_options['arguments']['field_pais_iso2']['table'] = 'field_data_field_pais';
@@ -554,13 +565,6 @@ function feature_siasar_views_references_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
-  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
-  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'cuenca_hidrografica' => 'cuenca_hidrografica',
-  );
   $export['taxonomy_reference'] = $view;
 
   $view = new view();

@@ -37,6 +37,8 @@ function entityform_revisions_entity_info_alter(&$entity_info) {
   $entity_info['entityform']['controller class'] = 'EntityformRevisionsController';
   $entity_info['entityform']['admin ui']['controller class'] = 'EntityformRevisionsUIController';
 
+  $entity_info['entityform']['metadata controller class'] = 'EntityformRevisionsMetadataController';
+
   // entity_get_info() is only calling this alter, after preparing its structure.
   // Since we're adding a revision table, the information of schema_fields_sql is not complete
   // therefore, we need to manually adjust it repeating the same process:
@@ -333,12 +335,13 @@ function entityform_revisions_update_revisions(&$context) {
     ->fields('ef', array('entityform_id'))
     ->condition('entityform_id', $context['current_entityform_id'], '>')
     ->condition('vid', 0)
-    ->orderBy('entityform_id', 'ASC')
-    ->execute();
+    ->orderBy('entityform_id', 'ASC');
 
   if (!isset($context['drush'])) {
     $entityform_ids->range(0, 100);
   }
+
+  $entityform_ids = $entityform_ids->execute();
 
   foreach ($entityform_ids as $entityform_id) {
     entityform_revisions_update_current_entityforms($entityform_id->entityform_id);

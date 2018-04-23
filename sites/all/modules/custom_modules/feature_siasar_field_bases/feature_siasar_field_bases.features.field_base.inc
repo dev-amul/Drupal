@@ -830,20 +830,19 @@ function feature_siasar_field_bases_field_default_field_bases() {
     'module' => 'entityreference',
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'handler' => 'base',
+      'handler' => 'views',
       'handler_settings' => array(
         'behaviors' => array(
           'views-select-list' => array(
             'status' => 0,
           ),
         ),
-        'sort' => array(
-          'direction' => 'ASC',
-          'property' => 'name',
-          'type' => 'property',
-        ),
-        'target_bundles' => array(
-          'area_planificacion' => 'area_planificacion',
+        'view' => array(
+          'args' => array(
+            0 => 'area_planificacion',
+          ),
+          'display_name' => 'catchment_area',
+          'view_name' => 'taxonomy_reference',
         ),
       ),
       'target_type' => 'taxonomy_term',
@@ -4656,7 +4655,9 @@ function feature_siasar_field_bases_field_default_field_bases() {
           ),
         ),
         'view' => array(
-          'args' => array(),
+          'args' => array(
+            0 => 'cuenca_hidrografica',
+          ),
           'display_name' => 'catchment_area',
           'view_name' => 'taxonomy_reference',
         ),
@@ -9366,20 +9367,19 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'module' => 'entityreference',
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'handler' => 'base',
+      'handler' => 'views',
       'handler_settings' => array(
         'behaviors' => array(
           'views-select-list' => array(
             'status' => 0,
           ),
         ),
-        'sort' => array(
-          'direction' => 'ASC',
-          'property' => 'name',
-          'type' => 'property',
-        ),
-        'target_bundles' => array(
-          'otras_divisiones' => 'otras_divisiones',
+        'view' => array(
+          'args' => array(
+            0 => 'otras_divisiones',
+          ),
+          'display_name' => 'catchment_area',
+          'view_name' => 'taxonomy_reference',
         ),
       ),
       'target_type' => 'taxonomy_term',
@@ -10366,8 +10366,8 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
           -1 => -1,
           5 => 5,
           6 => 6,
-          7 => 0,
-          8 => 0,
+          7 => 7,
+          8 => 8,
           9 => 9,
           10 => 10,
         ),
@@ -10375,7 +10375,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
       'watchdog_log' => 1,
       'wid' => 1,
       'widget' => array(
-        'comment' => 0,
+        'comment' => 1,
         'fieldset' => 0,
         'hide' => 0,
         'name_as_title' => 1,

@@ -1375,3 +1375,82 @@ function siasar_updates_update_7185(&$sandbox = null) {
 function siasar_updates_update_7186(&$sandbox = null) {
   features_revert_module('feature_siasar_views_reports');
 }
+
+/**
+ * Remap wrong units.
+ * @see https://gitlab.com/siasar-project/admin/issues/703
+ */
+function siasar_updates_update_7187() {
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
+
+  $params = array(
+    664 => 718,
+    665 => 719,
+    666 => 720,
+    667 => 721,
+    669 => 723,
+    670 => 724,
+    671 => 725,
+    673 => 727,
+    674 => 728,
+    676 => 730,
+    678 => 732,
+    680 => 734,
+    682 => 736,
+    685 => 739,
+    686 => 740,
+  );
+
+  foreach ($params as $old => $new) {
+    drush_siasar_remap_unit_global($old, $new);
+  }
+}
+
+/**
+ * Added field_pais in vocabularies: area_planificacion + otras_divisiones
+ */
+function siasar_updates_update_7188(&$sandbox = null) {
+  features_revert_module('feature_siasar_views_references');
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_languages');
+  features_revert_module('feature_siasar_menus');
+}
+
+/**
+ * Set Colombia to terms from 'otras divisiones' and 'area o zona de planificacion' vocabularies
+ */
+function siasar_updates_update_7189(&$sandbox = null) {
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
+  drush_siasar_fill_taxonomies_missing_countries('otras_divisiones', 'CO');
+  drush_siasar_fill_taxonomies_missing_countries('area_planificacion', 'CO');
+}
+
+/**
+ * Fix memory usage when editing a taxonomy term:
+ * @see Issue https://gitlab.com/siasar-project/admin/issues/707
+ */
+function siasar_updates_update_7190() {
+  variable_set('taxonomy_override_selector', TRUE);
+}
+
+/**
+ * Remap wrong units.
+ * @see https://gitlab.com/siasar-project/admin/issues/703
+ */
+function siasar_updates_update_7191() {
+  module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
+
+  $params = array(
+    590 => 730,
+    594 => 732,
+    596 => 739,
+    598 => 732,
+    612 => 728,
+    615 => 728,
+    637 => 739,
+  );
+
+  foreach ($params as $old => $new) {
+    drush_siasar_remap_unit_global($old, $new);
+  }
+}
