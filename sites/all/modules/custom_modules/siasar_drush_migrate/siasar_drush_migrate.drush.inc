@@ -17,7 +17,6 @@ function siasar_drush_migrate_drush_command() {
     'examples'           => array(
       'drush siasar-me entityforms field_collections' => 'Takes all entityforms found in source as JSON and creates new entityforms',
     ),
-    'bootstrap'          => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
 
   $items['siasar-delete-entityforms'] = array(
@@ -31,7 +30,6 @@ function siasar_drush_migrate_drush_command() {
     'examples'           => array(
       'drush siasar-de entityforms_ids' => 'Takes all entityform ids found in source as JSON and deletes them',
     ),
-    'bootstrap'          => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
 
   $items['siasar-create-field-collections'] = array(
@@ -45,7 +43,6 @@ function siasar_drush_migrate_drush_command() {
     'examples'           => array(
       'drush siasar-cfc field_collections' => 'Takes all field collections found in source as JSON and creates new ones',
     ),
-    'bootstrap'          => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
 
 
@@ -62,7 +59,6 @@ function siasar_drush_migrate_drush_command() {
     'examples'           => array(
       'drush siasar-dfc entityform field_banana 140' => 'Deletes all "field_banana" field collections from entityform ID 140',
     ),
-    'bootstrap'          => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
 
   $items['siasar-delete-field-collections-json'] = array(
@@ -76,7 +72,6 @@ function siasar_drush_migrate_drush_command() {
     'examples'           => array(
       'drush siasar-dfc /path/to/resources/directory' => 'Deletes all field collections specified in a json file inside "/path/to/resources/directory" called collections_info.json',
     ),
-    'bootstrap'          => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
 
   return $items;
@@ -187,7 +182,8 @@ function siasar_drush_migrate_create_entityforms($path) {
         _print_log($key . ' ' . $entity_type . ' entities proccesed.');
       }
     }
-    _print_log($key . ' ' . $entity_type . ' entities proccesed.');
+    $total = count($items);
+    _print_log($total . ' ' . $entity_type . ' entities proccesed.');
   }
 
   _print_log('Processing collections...');
@@ -246,7 +242,9 @@ function siasar_drush_migrate_create_entityforms($path) {
         _print_log($key . ' ' . $entity_type . ' collections proccesed.');
       }
     }
-    _print_log($key . ' ' . $entity_type . ' collections proccesed.');
+    $total = count($items);
+
+    _print_log($total . ' ' . $entity_type . ' collections proccesed.');
   }
 
   _print_log('Writing logs...');
