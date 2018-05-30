@@ -39,7 +39,6 @@ function _taxonomy_vocab_service_index($vocab_name) {
   if ($vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name)) {
 
     $terms = _taxonomy_web_service_get_location_terms_data($vocabulary, $country_iso2);
-    $is_flat = _taxonomy_web_service_check_taxonomy_is_flat($vocabulary->vid);
 
     $settings['rows'] = count($terms);
 
@@ -50,10 +49,8 @@ function _taxonomy_vocab_service_index($vocab_name) {
         $settings['field_codigo_division_admin'][$k] = $t->field_codigo_division_admin_value;
       }
     }
-    if (!$is_flat) {
-      foreach ($terms as $k => $t) {
-        $settings['hierarchy'][$k] = $t->parent ? (int) $t->parent : 0;
-      }
+    foreach ($terms as $k => $t) {
+      $settings['hierarchy'][$k] = $t->parent ? (int) $t->parent : 0;
     }
   }
 	return $settings;
@@ -92,12 +89,4 @@ function _taxonomy_web_service_get_location_terms_data($vocabulary, $country_iso
   $result = $query->execute()->fetchAllAssoc('tid');
 
   return $result;
-}
-
-
-function _taxonomy_web_service_check_taxonomy_is_flat($vid) {
-  $first_level = taxonomy_get_tree($vid, 0 ,1);
-  $first_and_second_level = taxonomy_get_tree($vid, 0, 2);
-
-  return (count($first_level) == count($first_and_second_level));
 }
