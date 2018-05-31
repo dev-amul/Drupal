@@ -140,6 +140,7 @@ function siasar_updates_drush_command() {
     'arguments' => array(
       'country_code' => 'Country code',
       'vocabulary vocab_machine_name name' => 'Vocabulary machine name',
+      'file_uri' => 'CSV File URI (public://file.csv)',
       'skip' => 'Number of lines to skip',
       'linex' => 'Number of lines to process',
     ),
