@@ -107,6 +107,20 @@ function siasar_updates_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
   );
 
+
+  $items['siasar-remove-n11-orphans'] = array(
+    'description' => 'Removes all N11 data (taxonomy División Administrativa) for a country.',
+    'aliases' => array('siasar-rn11-o'),
+    'arguments' => array(
+    ),
+    'required-arguments' => true,
+    'callback' => 'drush_siasar_remove_orphan_n11_entries',
+    'examples' => array(
+      'drush siasar-rn11-o' => 'Removes all N11 orphan terms from division_administrativa vocabulary.',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
+  );
+
   $items['siasar_update_rerun'] = array(
     'description' => 'Manually rerun an update hook for a module',
     'aliases' => array('siasar-urr'),
@@ -115,6 +129,24 @@ function siasar_updates_drush_command() {
       'version' => 'Update hook number',
     ),
     'callback' => 'drush_siasar_update_rerun',
+    'required-arguments' => TRUE,
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
+  );
+
+
+  $items['siasar_load_n11'] = array(
+    'description' => 'Load N11 manually',
+    'aliases' => array('siasar-ln11'),
+    'arguments' => array(
+      'country_code' => 'Country code',
+      'vocabulary vocab_machine_name name' => 'Vocabulary machine name',
+      'skip' => 'Number of lines to skip',
+      'linex' => 'Number of lines to process',
+    ),
+    'callback' => 'drush_siasar_load_n11',
+    'examples' => array(
+      'drush siasar-ln11 PE division_administrativa public://file.csv 0 1000' => 'Processes the first 1000 lines of the N11 for PERU.',
+    ),
     'required-arguments' => TRUE,
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
   );
@@ -352,6 +384,35 @@ function _siasar_updates_set_country_on_entity($entity_type, $entity, $country) 
   $wrapper->save();
 }
 
+/**
+ * Removes all taxonomies terms from division_administrativa without country.
+ */
+function drush_siasar_remove_orphan_n11_entries() {
+
+  $vocabulary_machine_name = 'division_administrativa';
+
+  $statement = "SELECT tid 
+    FROM {taxonomy_term_data} t 
+      INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid 
+      LEFT JOIN {field_data_field_pais} f on t.tid = f.entity_id and f.bundle = v.machine_name and f.entity_type = 'taxonomy_term'
+     WHERE f.entity_id IS NULL AND v.machine_name = :vocabulary_name";
+
+  $query = db_query($statement,
+    array(
+      ':vocabulary_name' => $vocabulary_machine_name
+    )
+  );
+
+  $tids = $query->fetchCol();
+  $num_updated = 0;
+  foreach($tids as $tid){
+    taxonomy_term_delete($tid);
+    $num_updated++;
+  }
+
+  drupal_set_message('Removed ' . $num_updated . ' orphan taxonomies.');
+
+}
 
 function drush_siasar_remove_n11_countries($country_code = null) {
   $country = country_load(strtoupper($country_code));
@@ -394,4 +455,119 @@ function drush_siasar_update_rerun($module, $version) {
   }
   $function = $module . '_update_' . $version;
   $function();
+}
+
+
+/**
+ * Returns a taxonomy term from a specific country based on its name.
+ *
+ * @param $vocabulary_name
+ * @param $name
+ * @param $country_code
+ *
+ * @return mixed
+ */
+function get_taxonomy_by_name_and_country($vocabulary_name, $name, $country_code) {
+  $vocab = taxonomy_vocabulary_machine_name_load($vocabulary_name);
+
+  $query = new EntityFieldQuery();
+  $query
+    ->entityCondition('entity_type', 'taxonomy_term')
+    ->entityCondition('bundle', $vocabulary_name)
+    ->propertyCondition('vid', $vocab->vid)
+    ->propertyCondition('name', $name)
+    ->fieldCondition('field_pais', 'iso2', $country_code, '=');
+
+  $results = $query->execute();
+  return $results['taxonomy_term'];
+}
+
+/**
+ * This is only for testing
+ */
+function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = 'public://file.csv', $skip = 0, $lines = NULL) {
+  $country = country_load(strtoupper($country_code));
+  $vocab = taxonomy_vocabulary_machine_name_load($vocab_machine_name);
+
+  if (!$country) {
+    drupal_set_message('Country code: [' . $country_code . '] does not exist.', 'error');
+    return;
+  }
+
+  if (!$vocab) {
+    drupal_set_message('Vocabulary with machine name: [' . $vocab_machine_name . '] does not exist.', 'error');
+    return;
+  }
+
+  if (!file_exists($file_uri)) {
+    drupal_set_message('File: ' . $file_uri . ' does not exist.', 'error');
+    return;
+  }
+
+  $csv = array_map('str_getcsv', file('public://file.csv'));
+
+  $terms_processed = array();
+
+  $lines_processed = 0;
+  foreach($csv as $chunk) {
+
+    if ($skip) {
+      $skip--;
+      continue;
+    }
+
+    for($i = 0; $i < count($chunk) -1; $i++) {
+      $term_name = $chunk[$i];
+      if (!isset($terms_processed[$term_name])) {
+
+        $term = get_taxonomy_by_name_and_country($vocab_machine_name, $term_name, $country_code);
+        if (count($term)) {
+          $term = reset($term);
+        }
+
+        if (!$term) {
+          $term = new stdClass();
+
+          $parent_term_id = 0;
+
+          if ($i != 0) {
+            // this is a child
+            $parent_name = $chunk[$i - 1];
+
+            if (!isset($terms_processed[$parent_name])) {
+
+              $parent_term = reset(get_taxonomy_by_name_and_country($vocab_machine_name, $parent_name, $country_code));
+              if (!$parent_term){
+                // odd situation, parent does not exist.
+                throw new Exception('The parent term: ' . $parent_name . ' does not exist. Review the CSV file.');
+              } else {
+                $terms_processed[$parent_term->name] = $parent_term->tid;
+              }
+              $parent_term_id = $parent_term->tid;
+            } else {
+              $parent_term_id = $terms_processed[$parent_name];
+            }
+
+          }
+
+          $term->parent = $parent_term_id;
+          $term->name = $term_name;
+          $term->vid = $vocab->vid;
+          $term->field_pais[LANGUAGE_NONE][0]['iso2'] = $country_code;
+
+          taxonomy_term_save($term);
+        }
+
+        $terms_processed[$term_name] = $term->tid;
+      }
+    }
+
+    $lines_processed++;
+
+    if ($lines && $lines_processed >= $lines) {
+      break;
+    }
+  }
+
+  drupal_set_message('Lines processed: ' . $lines_processed);
 }
