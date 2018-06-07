@@ -371,6 +371,46 @@ function _siasar_entityform_alter_form_delete_redirect($form, &$form_state) {
 }
 
 /**
+ * Change MVF widgets to remove from first option the - None - currency option.
+ *
+ * @param $element
+ * @param $form_state
+ * @param $context
+ */
+function siasar_entityform_alter_field_widget_mvf_widget_default_form_alter(&$element, &$form_state, $context) {
+  if (!empty($form_state['build_info']['base_form_id']) && $form_state['build_info']['base_form_id'] == 'entityform_edit_form') {
+
+    //mvf_number_decimal_entityreference
+    if (!empty($element['#field']['settings']['unit']['handler_settings']['view']['view_name'])) {
+      $view_name = $element['#field']['settings']['unit']['handler_settings']['view']['view_name'];
+      if ($view_name == 'tipos_de_moneda') {
+        $element['#after_build'][] = 'siasar_entityform_alter_mvf_after_build';
+      }
+    }
+  }
+}
+
+/**
+ * Move down the None currency option from all MVF default widgets.
+ *
+ * @see https://gitlab.com/siasar-project/admin/issues/692
+ *
+ * @param $form
+ * @param $form_state
+ *
+ * @return mixed
+ */
+function siasar_entityform_alter_mvf_after_build(&$form, $form_state) {
+
+  if (!$form['#required'] && isset($form['target_id']['#options']['_none'])) {
+    $option = $form['target_id']['#options']['_none'];
+    unset($form['target_id']['#options']['_none']);
+    $form['target_id']['#options']['_none'] = $option;
+  }
+  return $form;
+}
+
+/**
  * Implements hook_field_widget_OPTIONS_SELECT_form_alter().
  */
 function siasar_entityform_alter_field_widget_options_select_form_alter(&$element, &$form_state, $context) {
@@ -414,7 +454,8 @@ function _siasar_entityform_alter_workflow_transition_comment_form(&$form, &$for
       SIASAR_ENTITYFORM_STATE_VALIDATED
     );
     // If the current state is validated or finished, then add the JS for adding a comment when going to draft
-    if (in_array($workflow['workflow_entity']['#value']->field_status['und'][0]['value'], $from_states)) {
+    if (!empty($workflow['workflow_entity']['#value']->field_status['und'][0]['value']) &&
+      in_array($workflow['workflow_entity']['#value']->field_status['und'][0]['value'], $from_states)) {
       $module_path = drupal_get_path('module', 'siasar_entityform_alter');
       $theme_path = drupal_get_path('theme', 'siasar_material');
       $form['#attached']['css'][] = $theme_path . '/js/jquery-colorbox/colorbox.css';
