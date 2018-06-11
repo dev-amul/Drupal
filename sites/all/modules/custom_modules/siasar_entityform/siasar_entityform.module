@@ -436,14 +436,14 @@ function _is_migrated_form($entityform_revision) {
 function siasar_entityform_views_pre_render(&$view) {
   // entityform_types are not being translated in views, so we need to do it
   // manually.
-  if ($view->name == 'questionnaires') {
+  if ($view->name == 'questionnaires' && $view->current_display == 'default') {
     foreach ($view->result as &$result) {
       $entity_type = entityform_type_load($result->entityform_type_type);
       $result->entityform_type_label = $entity_type->getTranslation('label');
     }
   }
 
-  if ($view->name == 'results_entityforms') {
+  if ($view->name == 'results_entityforms' && $view->current_display == 'default') {
     foreach ($view->result as &$result) {
       $entity_type = entityform_type_load($result->entityform_type);
       $result->entityform_type = $entity_type->getTranslation('label');
