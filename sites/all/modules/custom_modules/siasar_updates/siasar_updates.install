@@ -1464,3 +1464,147 @@ function siasar_updates_update_7192() {
   );
   module_enable($modules);
 }
+
+/**
+ * Issue siasar-project/admin#456: Creates a new temporary field for storage.
+ * This is the field to be migrated: field_tasa_anual_de_expansion_pr
+ */
+function siasar_updates_update_7193(&$sandbox) {
+
+  if (!isset($sandbox['progress'])) {
+
+    $field = array(
+      'field_name' => 'field_tasa_anual_temp',
+      'type' => 'number_decimal',
+      'settings' => array(
+        'precision' => 12, 'scale' => 2, 'decimal_separator' => '.',
+      ),
+    );
+
+    $instance = array(
+      'field_name' => $field['field_name'],
+      'label' => 'Tasa anual de expansión promedio',
+      'entity_type' => 'entityform',
+      'bundle' => 'prestador_de_servicio',
+      'settings' => array('min' => '', 'max' => '', 'prefix' => '', 'suffix' => '%'),
+      'widget' => array(
+        'type' => 'number',
+      ),
+      'display' => array(
+        'default' => array(
+          'type' => 'number_decimal',
+        ),
+      ),
+    );
+
+    field_delete_instance($instance);
+    field_delete_field($field['field_name']);
+
+    field_create_field($field);
+    field_create_instance($instance);
+
+    $sandbox['progress'] = 0;
+    $sandbox['current_eform'] = 0;
+
+    $sandbox['max'] = db_query('SELECT COUNT(entity_id) FROM {field_data_field_tasa_anual_de_expansion_pr}')
+        ->fetchField();
+
+  }
+
+  $query = db_query('SELECT entity_id, revision_id FROM {field_data_field_tasa_anual_de_expansion_pr} LIMIT 100 OFFSET ' . $sandbox['progress']);
+
+
+  while($rec = $query->fetchAssoc()) {
+
+    $entity = entity_revision_load('entityform', $rec['revision_id']);
+    $entity->field_tasa_anual_temp[LANGUAGE_NONE][0]['value'] = $entity->field_tasa_anual_de_expansion_pr[LANGUAGE_NONE][0]['value'];
+    entity_save('entityform', $entity);
+    $sandbox['progress']++;
+    $sandbox['current_eform'] = $rec;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : $sandbox['progress'] / $sandbox['max'];
+
+  return t('Migrated field: field_tasa_anual_de_expansion_pr to field_tasa_anual_temp.');
+}
+
+/**
+ * Issue siasar-project/admin#456: Removes the wrong field and re-creates it
+ * migrating values.
+ */
+function siasar_updates_update_7194(&$sandbox) {
+
+  if (!isset($sandbox['progress'])) {
+
+    $field = array(
+      'field_name' => 'field_tasa_anual_de_expansion_pr',
+      'type' => 'number_decimal',
+      'settings' => array(
+        'precision' => 12, 'scale' => 2, 'decimal_separator' => '.',
+      ),
+    );
+
+    $instance = array(
+      'field_name' => $field['field_name'],
+      'label' => 'Tasa anual de expansión promedio',
+      'entity_type' => 'entityform',
+      'bundle' => 'prestador_de_servicio',
+      'settings' => array('min' => '', 'max' => '', 'prefix' => '', 'suffix' => '%'),
+      'widget' => array(
+        'type' => 'number',
+      ),
+      'display' => array(
+        'default' => array(
+          'type' => 'number_decimal',
+        ),
+      ),
+    );
+
+    field_delete_instance($instance);
+    field_delete_field($field['field_name']);
+
+    field_create_field($field);
+    field_create_instance($instance);
+
+    $sandbox['progress'] = 0;
+    $sandbox['current_eform'] = 0;
+
+    $sandbox['max'] = db_query('SELECT COUNT(entity_id) FROM {field_data_field_tasa_anual_temp}')
+      ->fetchField();
+
+  }
+
+  $query = db_query('SELECT entity_id, revision_id FROM {field_data_field_tasa_anual_temp} LIMIT 100 OFFSET ' . $sandbox['progress']);
+
+  while($rec = $query->fetchAssoc()) {
+
+    $entity = entity_revision_load('entityform', $rec['revision_id']);
+    $entity->field_tasa_anual_de_expansion_pr[LANGUAGE_NONE][0]['value'] = $entity->field_tasa_anual_temp[LANGUAGE_NONE][0]['value'];
+    entity_save('entityform', $entity);
+    $sandbox['progress']++;
+    $sandbox['current_eform'] = $rec;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : $sandbox['progress'] / $sandbox['max'];
+
+
+  return t('Migrated field: field_tasa_anual_temp to field_tasa_anual_de_expansion_pr.');
+}
+
+/**
+ * Issue siasar-project/admin#456: removes the temporary field.
+ */
+function siasar_updates_update_7195(&$sandbox) {
+
+  $field = array(
+    'field_name' => 'field_tasa_anual_temp',
+  );
+
+  $instance = array(
+    'field_name' => $field['field_name'],
+    'entity_type' => 'entityform',
+    'bundle' => 'prestador_de_servicio',
+  );
+  field_delete_instance($instance);
+  field_delete_field($field['field_name']);
+}
