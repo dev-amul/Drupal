@@ -1471,7 +1471,7 @@ function siasar_updates_update_7192() {
  *
  * Note: it copies the custom fields column from the data and revision table.
  */
-function siasar_copy_field_data($field_from, $field_to, $field, $instance, $custom_fields) {
+function siasar_copy_field_data($field_from, $field_to, $field, $instance, $custom_fields = array()) {
 
   if (empty($custom_fields)) {
     $custom_fields = array($field_from . '_value' => $field_to . '_value');
