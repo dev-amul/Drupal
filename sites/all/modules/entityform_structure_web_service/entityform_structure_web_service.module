@@ -183,30 +183,56 @@ function settings_mapping_view(&$settings, $currlang = NULL, $label_func = NULL)
 		$display_name = $settings['handler_settings']['view']['display_name'];
     $args = $settings['handler_settings']['view']['args'];
 		$target_type = $settings['target_type'];
-		if(!$label_func){
-			$label_func = function($entity) use ($target_type) {
-				return entity_label($target_type, $entity); //
-			};
-		}
 		$result = array();
     if ($view = init_view($settings)) {
       $result = $view->execute_display($display_name, $args);
     }
 
 		$options = array();
-
     if ($result) {
-      $entities = entity_load($target_type, array_keys($result));
-      foreach($entities as $entity) {
-        list($id,, $bundle) = entity_extract_ids($target_type, $entity);
-        $options[$id] =  $label_func($entity);//entity_label($target_type, $entity); //isset($entity->name) ? $entity->name : $entity->label;	//TODO: use here the $currlang parameter to translate
-      }
+      $options = settings_process_entities($target_type, $view, $result);
     }
+
 		$settings['resource'] = $target_type;
 		$settings['allowed_values'] = $options;
 		return true;
 	}
   return false;
+}
+
+/**
+ * Get possible options from entities.
+ *
+ * @param $target_type
+ * @param $view
+ * @param $entities
+ *
+ * @return array
+ * @throws \EntityMalformedException
+ */
+function settings_process_entities($target_type, $view, $entities) {
+  $targets = array('entityform', 'taxonomy_term');
+  if (in_array($target_type, $targets)) {
+    foreach ($entities as $id => &$value) {
+      $value = trim(strip_tags($value));
+    }
+
+    return $entities;
+  } else {
+
+    $label_func = function($entity) use ($target_type) {
+      return entity_label($target_type, $entity); //
+    };
+
+    $options = array();
+    $entities = entity_load($target_type, array_keys($entities));
+    foreach($entities as $entity) {
+      list($id,, $bundle) = entity_extract_ids($target_type, $entity);
+      $options[$id] =  $label_func($entity);//entity_label($target_type, $entity); //isset($entity->name) ? $entity->name : $entity->label;	//TODO: use here the $currlang parameter to translate
+    }
+
+    return $options;
+  }
 }
 
 function settings_mapping_mvf(&$settings, $currlang = NULL){
