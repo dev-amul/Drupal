@@ -527,7 +527,12 @@ function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = '
 
     $terms_processed_level = &$terms_processed;
     $parent_term_id = 0;
-    for($i = 0; $i < count($chunk) -1; $i++) {
+
+      $real_chunk_length = $zipcode_in_csv
+        ? count($chunk) - 1
+        : count($chunk);
+
+    for($i = 0; $i < $real_chunk_length; $i++) {
       $term_name = $chunk[$i];
 
       if (!isset($terms_processed_level[$term_name])) {
@@ -545,6 +550,9 @@ function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = '
           $term->vid = $vocab->vid;
           $term->field_pais[LANGUAGE_NONE][0]['iso2'] = $country->iso2;
 
+          if ($zipcode_in_csv && $i == ($real_chunk_length - 1))
+            $term->field_codigo_division_admin[LANGUAGE_NONE][0]['value'] = $chunk[$i + 1];
+
           taxonomy_term_save($term);
 
         }
@@ -560,7 +568,10 @@ function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = '
       }
       $terms_processed_level = &$terms_processed_level[$term_name]['children'];
     }
+    if(($line / 25) == floor($line / 25)) {
+      echo ('#');
+    }
   }
-
+  echo("\n");
   drupal_set_message('Lines processed: ' . ($line - $skip));
 }
