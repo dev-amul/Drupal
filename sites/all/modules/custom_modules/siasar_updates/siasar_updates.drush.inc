@@ -508,22 +508,19 @@ function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = '
   if ($error_in_command_line)
     return;
 
-  $zipcode_in_csv = filter_var(drush_get_option('zip', false), FILTER_VALIDATE_BOOLEAN);
+  $country = country_load(strtoupper($country_code));
+  $zipcode_in_csv = function_exists('drush_get_option')
+    ? filter_var(drush_get_option('zip', false), FILTER_VALIDATE_BOOLEAN)
+    : false;
 
-  var_dump($zipcode_in_csv);
   $vocab = taxonomy_vocabulary_machine_name_load($vocab_machine_name);
 
   $parse_csv = function($file) {
     return str_getcsv($file, ';');
   };
-
   $csv = array_map($parse_csv, file($file_uri));
 
-  var_dump($csv);
-
   $terms_processed = array();
-
-die("not now\n");
 
   for($line = $skip; $line < count($csv) && isset($csv[$line]) && $line < ($lines + $skip); $line++) {
     $chunk = &$csv[$line];
@@ -535,7 +532,7 @@ die("not now\n");
 
       if (!isset($terms_processed_level[$term_name])) {
 
-        $term = get_taxonomy_by_name_and_country($vocab_machine_name, $term_name, $parent_term_id, $country_code);
+        $term = get_taxonomy_by_name_and_country($vocab->machine_name, $term_name, $parent_term_id, $country->iso2);
         if (count($term)) {
           $term = reset($term);
         }
@@ -546,7 +543,7 @@ die("not now\n");
           $term->parent = $parent_term_id;
           $term->name = $term_name;
           $term->vid = $vocab->vid;
-          $term->field_pais[LANGUAGE_NONE][0]['iso2'] = $country_code;
+          $term->field_pais[LANGUAGE_NONE][0]['iso2'] = $country->iso2;
 
           taxonomy_term_save($term);
 
@@ -555,7 +552,7 @@ die("not now\n");
         $parent_term_id = $term->tid;
         $terms_processed_level[$term_name] = array(
           'tid' => $term->tid,
-          'children' => array()
+          'children' => array(),
         );
 
       } else {
@@ -565,5 +562,5 @@ die("not now\n");
     }
   }
 
-  drupal_set_message('Lines processed: ' . $line - $skip);
+  drupal_set_message('Lines processed: ' . ($line - $skip));
 }

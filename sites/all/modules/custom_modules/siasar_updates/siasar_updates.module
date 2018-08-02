@@ -6,5 +6,5 @@
 
 function siasar_updates_init() {
   module_load_include('inc', 'siasar_updates', 'siasar_updates.drush');
-  drush_siasar_load_n11('KG', 'division_administrativa', 'public://kg_n11.csv', 0, 200000);
+  //drush_siasar_load_n11('KG', 'division_administrativa', 'public://kg_n11.csv', 0, 200000);
 }
