@@ -499,23 +499,13 @@ function get_taxonomy_by_name_and_country($vocabulary_name, $name, $parent_term_
  * This is only for testing
  */
 function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = 'public://file.csv', $skip = 0, $lines = NULL) {
-  $country = country_load(strtoupper($country_code));
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.load_n11');
+
+  $error_in_command_line = siasar_updates_load_n11_error_check($country_code, $vocab_machine_name, $file_uri);
+  if ($error_in_command_line)
+    return;
+
   $vocab = taxonomy_vocabulary_machine_name_load($vocab_machine_name);
-
-  if (!$country) {
-    drupal_set_message('Country code: [' . $country_code . '] does not exist.', 'error');
-    return;
-  }
-
-  if (!$vocab) {
-    drupal_set_message('Vocabulary with machine name: [' . $vocab_machine_name . '] does not exist.', 'error');
-    return;
-  }
-
-  if (!file_exists($file_uri)) {
-    drupal_set_message('File: ' . $file_uri . ' does not exist.', 'error');
-    return;
-  }
 
   $csv = array_map('str_getcsv', file('public://file.csv'));
 
