@@ -144,9 +144,12 @@ function siasar_updates_drush_command() {
       'skip' => 'Number of lines to skip',
       'linex' => 'Number of lines to process',
     ),
+    'options' => [
+      'zip' => 'Last column of the CSV file is a ZIP code (true/false, defaults to false)',
+    ],
     'callback' => 'drush_siasar_load_n11',
     'examples' => array(
-      'drush siasar-ln11 PE division_administrativa public://file.csv 0 1000' => 'Processes the first 1000 lines of the N11 for PERU.',
+      'drush siasar-ln11 PE division_administrativa public://file.csv 0 1000 --zip=false' => 'Processes the first 1000 lines of the N11 for PERU, ZIP code is not included.',
     ),
     'required-arguments' => TRUE,
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_FULL,
@@ -314,9 +317,9 @@ function drush_siasar_fill_taxonomies_missing_countries($vocabulary_machine_name
 
   if ($vocab && $country) {
 
-    $statement = "SELECT tid 
-      FROM {taxonomy_term_data} t 
-        INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid 
+    $statement = "SELECT tid
+      FROM {taxonomy_term_data} t
+        INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid
         LEFT JOIN {field_data_field_pais} f on t.tid = f.entity_id and f.bundle = v.machine_name and f.entity_type = 'taxonomy_term'
        WHERE f.entity_id IS NULL AND v.machine_name = :vocabulary_name";
 
@@ -392,9 +395,9 @@ function drush_siasar_remove_orphan_n11_entries() {
 
   $vocabulary_machine_name = 'division_administrativa';
 
-  $statement = "SELECT tid 
-    FROM {taxonomy_term_data} t 
-      INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid 
+  $statement = "SELECT tid
+    FROM {taxonomy_term_data} t
+      INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid
       LEFT JOIN {field_data_field_pais} f on t.tid = f.entity_id and f.bundle = v.machine_name and f.entity_type = 'taxonomy_term'
      WHERE f.entity_id IS NULL AND v.machine_name = :vocabulary_name";
 
@@ -469,18 +472,18 @@ function drush_siasar_update_rerun($module, $version) {
  *
  * @return mixed
  */
-function get_taxonomy_by_name_and_country($vocabulary_name, $name, $parent_term_id, $country_code) {
+function get_taxonomy_by_name_and_country($vocabulary_name, $name, $parent_term_id, $country_code, $zip_code = false) {
 
   $query = db_query(
     'SELECT td.tid FROM {taxonomy_term_data} td
             INNER JOIN {taxonomy_vocabulary} tv ON td.vid = tv.vid
             INNER JOIN {taxonomy_term_hierarchy} th ON td.tid = th.tid
-            INNER JOIN {field_data_field_pais} fp ON fp.entity_type = :entity_type AND 
-              fp.bundle = :vocabulary_name AND 
+            INNER JOIN {field_data_field_pais} fp ON fp.entity_type = :entity_type AND
+              fp.bundle = :vocabulary_name AND
               fp.field_pais_iso2 = :country_code AND fp.entity_id = td.tid
-            WHERE 
-              th.parent = :parent_tid AND 
-              tv.machine_name = :vocabulary_name AND 
+            WHERE
+              th.parent = :parent_tid AND
+              tv.machine_name = :vocabulary_name AND
               td.name = :term_name',
     array(
       ':parent_tid' => $parent_term_id,
@@ -498,26 +501,32 @@ function get_taxonomy_by_name_and_country($vocabulary_name, $name, $parent_term_
 /**
  * This is only for testing
  */
-function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = 'public://file.csv', $skip = 0, $lines = NULL) {
+function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = 'public://file.csv', $skip = 0, $lines) {
   module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.load_n11');
 
   $error_in_command_line = siasar_updates_load_n11_error_check($country_code, $vocab_machine_name, $file_uri);
   if ($error_in_command_line)
     return;
 
+  $zipcode_in_csv = filter_var(drush_get_option('zip', false), FILTER_VALIDATE_BOOLEAN);
+
+  var_dump($zipcode_in_csv);
   $vocab = taxonomy_vocabulary_machine_name_load($vocab_machine_name);
 
-  $csv = array_map('str_getcsv', file('public://file.csv'));
+  $parse_csv = function($file) {
+    return str_getcsv($file, ';');
+  };
+
+  $csv = array_map($parse_csv, file($file_uri));
+
+  var_dump($csv);
 
   $terms_processed = array();
 
-  $lines_processed = 0;
-  foreach($csv as $chunk) {
+die("not now\n");
 
-    if ($skip) {
-      $skip--;
-      continue;
-    }
+  for($line = $skip; $line < count($csv) && isset($csv[$line]) && $line < ($lines + $skip); $line++) {
+    $chunk = &$csv[$line];
 
     $terms_processed_level = &$terms_processed;
     $parent_term_id = 0;
@@ -554,13 +563,7 @@ function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = '
       }
       $terms_processed_level = &$terms_processed_level[$term_name]['children'];
     }
-
-    $lines_processed++;
-
-    if ($lines && $lines_processed >= $lines) {
-      break;
-    }
   }
 
-  drupal_set_message('Lines processed: ' . $lines_processed);
+  drupal_set_message('Lines processed: ' . $line - $skip);
 }
