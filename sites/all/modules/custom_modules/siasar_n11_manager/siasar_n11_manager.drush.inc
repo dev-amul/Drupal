@@ -14,6 +14,9 @@ function siasar_n11_manager_drush_command() {
       'skip' => 'Number of lines to skip',
       'linex' => 'Number of lines to process',
     ),
+    'options' => [
+      'zip' => 'Last column of the CSV file is a ZIP code (true/false, defaults to false)',
+    ],
     'callback' => 'drush_siasar_load_n11',
     'examples' => array(
       'drush siasar-ln11 PE division_administrativa public://file.csv 0 1000' => 'Processes the first 1000 lines of the N11 for PERU.',
