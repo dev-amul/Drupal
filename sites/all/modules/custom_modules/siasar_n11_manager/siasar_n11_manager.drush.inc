@@ -36,6 +36,20 @@ function siasar_n11_manager_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
   );
 
+
+  $items['siasar-remove-n11-orphans'] = array(
+    'description' => 'Removes all N11 data (taxonomy División Administrativa) for a country.',
+    'aliases' => array('siasar-rn11-o'),
+    'arguments' => array(
+    ),
+    'required-arguments' => true,
+    'callback' => 'drush_siasar_remove_orphan_n11_entries',
+    'examples' => array(
+      'drush siasar-rn11-o' => 'Removes all N11 orphan terms from division_administrativa vocabulary.',
+    ),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
+  );
+
   return $items;
 }
 
@@ -153,5 +167,35 @@ function drush_siasar_remove_n11_countries($country_code = null) {
   foreach($result['taxonomy_term'] as $k => $t) {
     taxonomy_term_delete($k);
   }
+}
+
+
+/**
+ * Removes all taxonomies terms from division_administrativa without country.
+ */
+function drush_siasar_remove_orphan_n11_entries() {
+
+  $vocabulary_machine_name = 'division_administrativa';
+
+  $statement = "SELECT tid
+    FROM {taxonomy_term_data} t
+      INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid
+      LEFT JOIN {field_data_field_pais} f on t.tid = f.entity_id and f.bundle = v.machine_name and f.entity_type = 'taxonomy_term'
+     WHERE f.entity_id IS NULL AND v.machine_name = :vocabulary_name";
+
+  $query = db_query($statement,
+    array(
+      ':vocabulary_name' => $vocabulary_machine_name
+    )
+  );
+
+  $tids = $query->fetchCol();
+  $num_updated = 0;
+  foreach($tids as $tid){
+    taxonomy_term_delete($tid);
+    $num_updated++;
+  }
+
+  drupal_set_message('Removed ' . $num_updated . ' orphan taxonomies.');
 
 }
