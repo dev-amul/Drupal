@@ -1682,3 +1682,12 @@ function siasar_updates_update_7198(&$sandbox) {
   field_delete_field($field['field_name']);
 }
 
+/**
+ * Enables the siasar_n11_manager module.
+ */
+function siasar_updates_update_7199() {
+  $modules = array(
+    'siasar_n11_manager'
+  );
+  module_enable($modules);
+}

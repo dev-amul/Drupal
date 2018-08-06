@@ -93,21 +93,6 @@ function siasar_updates_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
   );
 
-  $items['siasar-remove-n11-country'] = array(
-    'description' => 'Removes all N11 data (taxonomy División Administrativa) for a country.',
-    'aliases' => array('siasar-rn11c'),
-    'arguments' => array(
-      'country_iso2' => 'Country ISO2 code',
-    ),
-    'required-arguments' => true,
-    'callback' => 'drush_siasar_remove_n11_countries',
-    'examples' => array(
-      'drush siasar-rn11c co' => 'Remove all N11 terms for Colombia (ISO2 CO).',
-    ),
-    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_DATABASE,
-  );
-
-
   $items['siasar-remove-n11-orphans'] = array(
     'description' => 'Removes all N11 data (taxonomy División Administrativa) for a country.',
     'aliases' => array('siasar-rn11-o'),
@@ -295,9 +280,9 @@ function drush_siasar_fill_taxonomies_missing_countries($vocabulary_machine_name
 
   if ($vocab && $country) {
 
-    $statement = "SELECT tid 
-      FROM {taxonomy_term_data} t 
-        INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid 
+    $statement = "SELECT tid
+      FROM {taxonomy_term_data} t
+        INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid
         LEFT JOIN {field_data_field_pais} f on t.tid = f.entity_id and f.bundle = v.machine_name and f.entity_type = 'taxonomy_term'
        WHERE f.entity_id IS NULL AND v.machine_name = :vocabulary_name";
 
@@ -373,9 +358,9 @@ function drush_siasar_remove_orphan_n11_entries() {
 
   $vocabulary_machine_name = 'division_administrativa';
 
-  $statement = "SELECT tid 
-    FROM {taxonomy_term_data} t 
-      INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid 
+  $statement = "SELECT tid
+    FROM {taxonomy_term_data} t
+      INNER JOIN {taxonomy_vocabulary} v ON t.vid = v.vid
       LEFT JOIN {field_data_field_pais} f on t.tid = f.entity_id and f.bundle = v.machine_name and f.entity_type = 'taxonomy_term'
      WHERE f.entity_id IS NULL AND v.machine_name = :vocabulary_name";
 
@@ -396,31 +381,6 @@ function drush_siasar_remove_orphan_n11_entries() {
 
 }
 
-function drush_siasar_remove_n11_countries($country_code = null) {
-  $country = country_load(strtoupper($country_code));
-  if (!is_object($country)) {
-    drupal_set_message('No country specified, aborting.');
-    return;
-  }
-
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'taxonomy_term')
-  ->entityCondition('bundle', 'division_administrativa')
-  ->fieldCondition('field_pais', 'iso2', $country->iso2);
-
-  $result = $query->execute();
-
-  if (!isset($result['taxonomy_term']) || count($result['taxonomy_term']) == 0) {
-    drupal_set_message('No terms found, nothing to do, aborting.');
-    return;
-  }
-
-  foreach($result['taxonomy_term'] as $k => $t) {
-    taxonomy_term_delete($k);
-  }
-
-}
-
 /**
  * Manually run hook_update_n
  * Example: drush siasar-urr siasar_updates 7101
@@ -438,5 +398,3 @@ function drush_siasar_update_rerun($module, $version) {
   $function = $module . '_update_' . $version;
   $function();
 }
-
-
