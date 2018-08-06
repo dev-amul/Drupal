@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Update hook to load latest Kyrgyzstan N11 terms
+ */
+function siasar_n11_manager_update_7100($sandbox) {
+  $file_uri = DRUPAL_ROOT . '/sites/all/modules/custom_modules/siasar_n11_manager/files/kg_n11_up1.csv';
+
+  siasar_n11_manager_load_n11('kg', 'division_administrativa', $file_uri, 0, 200000, true);
+}
