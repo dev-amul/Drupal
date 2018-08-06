@@ -1,0 +1,5 @@
+name = SIASAR N11 Manager
+description = Provides functionality to manage N11 data (locations, towns, cities and regions)
+version = 7.x-1.0
+core = 7.x
+package = siasar
