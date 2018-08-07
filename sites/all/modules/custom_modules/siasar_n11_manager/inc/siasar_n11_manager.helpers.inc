@@ -10,7 +10,7 @@
  * @param string $file_uri
  * @return bool
  */
-function siasar_n11_manager_load_n11_error_check($country_code, $vocab_machine_name, $file_uri) {
+function _siasar_n11_manager_load_n11_error_check($country_code, $vocab_machine_name, $file_uri) {
   $country = country_load(strtoupper($country_code));
   $vocab = taxonomy_vocabulary_machine_name_load($vocab_machine_name);
   $error = false;
@@ -43,7 +43,7 @@ function siasar_n11_manager_load_n11_error_check($country_code, $vocab_machine_n
  *
  * @return mixed
  */
-function siasar_n11_manager_get_taxonomy_by_name_and_country($vocabulary_name, $name, $parent_term_id, $country_code) {
+function _siasar_n11_manager_get_taxonomy_by_name_and_country($vocabulary_name, $name, $parent_term_id, $country_code) {
 
   $query = db_query(
     'SELECT td.tid FROM {taxonomy_term_data} td
@@ -64,7 +64,65 @@ function siasar_n11_manager_get_taxonomy_by_name_and_country($vocabulary_name, $
       ':entity_type' => 'taxonomy_term'
     )
   );
-
   return $query->fetchAllAssoc('tid');
+}
 
+function _siasar_n11_manager_rematch_location_to_new_terms($list) {
+
+}
+
+/**
+ * Returns location field (field_entidad_local) value for a  entitform
+ *
+ * @param int $entityform_id 
+ * @return int field_entidad_local_value
+ */
+function _siasar_n11_manager_fetch_entityform_location_tid($entityform_id) {
+  $query_string = "SELECT * FROM {entityform} as e
+    LEFT JOIN {field_data_field_entidad_local} AS l 
+      ON l.entity_id = e.entityform_id 
+      AND l.entity_type = 'entityform'
+    WHERE e.entityform_id = :id
+    
+    ORDER BY l.revision_id DESC
+    LIMIT 1;";
+
+  $placeholders = array(
+    ':id' => $entityform_id
+  );
+
+  $query = db_query($query_string, $placeholders);
+  $result = $query->fetchAllAssoc('entityform_id');
+
+  return (int) $result[$entityform_id]->field_entidad_local_tid;
+}
+
+/**
+ * Get taxonomy term name from ID
+ *
+ * @param int $tid
+ * @return string
+ */
+function _siasar_n11_manager_get_taxonomy_name_from_tid($tid) {
+  $term = taxonomy_term_load($tid);
+  return $term->name;
+}
+
+/**
+ * Get all entityforms for a country
+ *
+ * @param string $country (iso2)
+ * @return array entity_ids
+ */
+function _siasar_n11_manager_get_all_entityform_ids_for_country($country) {
+  $country = country_load(strtoupper($country));
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'entityform')
+    ->fieldCondition('field_pais', 'iso2', $country->iso2);
+
+  $result = $query->execute();
+  $ret = array_keys($result['entityform']);
+
+  return $ret;
 }
