@@ -164,9 +164,10 @@ function feature_siasar_views_reports_preprocess_field_status(&$variables) {
  * Preprocesses label field.
  */
 function feature_siasar_views_reports_preprocess_field_label(&$variables) {
+  $row = &$variables['row'];
+
   if(!(isset($row->entityform_type) || isset($row->entityform_type_type))) return;
 
-  $row = &$variables['row'];
   $original = $row->entityform_type_label;
   $type = isset($row->entityform_type_type)
     ? $row->entityform_type_type
