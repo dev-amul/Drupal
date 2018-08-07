@@ -1,0 +1,24 @@
+diff --git a/i18n_taxonomy/i18n_taxonomy.module b/i18n_taxonomy/i18n_taxonomy.module
+index 4053348..743b33d 100644
+--- a/i18n_taxonomy/i18n_taxonomy.module
++++ b/i18n_taxonomy/i18n_taxonomy.module
+@@ -152,6 +152,19 @@ function i18n_taxonomy_menu_alter(&$items) {
+ }
+ 
+ /**
++ * Implements hook_entity_load().
++ * @param $entities
++ * @param $type
++ */
++function i18n_taxonomy_entity_load($entities, $type) {
++  if ($type == 'taxonomy_vocabulary')
++    foreach ($entities as $entity) {
++      $entity->name = i18n_taxonomy_vocabulary_name($entity);
++      $entity->description = i18n_taxonomy_vocabulary_description($entity);
++    }
++}
++
++/**
+  * Menu access callback for vocabulary translation tab. Show tab only for full multilingual vocabularies.
+  */
+ function i18n_taxonomy_vocabulary_translation_tab_sets_access($vocabulary) {
