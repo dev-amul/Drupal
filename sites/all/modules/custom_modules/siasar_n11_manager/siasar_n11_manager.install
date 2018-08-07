@@ -14,18 +14,10 @@ function siasar_n11_manager_update_install($sandbox) {
  * Update hook to remove and reload Kyrgyzstan N11
  */
 function siasar_n11_manager_update_7100($sandbox = null) {
-  module_load_include('inc', 'siasar_n11_manager', 'inc/siasar_n11_manager.helpers');
+  module_load_include('inc', 'siasar_n11_manager', 'inc/siasar_n11_manager.rematcher');
 
-  $entityform_list = _siasar_n11_manager_get_all_entityform_ids_for_country('kg');
+  $rematcher = new Rematcher('kg');
 
-  $entifyform_locations = array();
-  foreach ($entityform_list as $el) {
-    $tid = _siasar_n11_manager_fetch_entityform_location_tid($el);
-    $entifyform_locations[$el] = array(
-      'tid' => $tid,
-      'name' => _siasar_n11_manager_get_taxonomy_name_from_tid($tid)
-    );
-  }
   //siasar_n11_manager_remove_n11_countries('kg');
 
   $file_uri = DRUPAL_ROOT . '/sites/all/modules/custom_modules/siasar_n11_manager/files/kg_n11.csv';
