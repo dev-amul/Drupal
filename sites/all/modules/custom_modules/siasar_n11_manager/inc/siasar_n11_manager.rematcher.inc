@@ -41,8 +41,8 @@ class Rematcher {
       $entityform_locations[$el] = new stdClass();
       $entityform_locations[$el]->tid = $this->getEntityformLocationFromTID($el);
       $entityform_locations[$el]->name = $this->getTaxonomyNameFromTID($entityform_locations[$el]->tid);
-      $entityform_locations[$el]->parent = ($entityform_locations[$el]->name !== null)
-        ? $this->getParentFromTID($entityform_locations[$el]->tid)
+      $entityform_locations[$el]->parents = ($entityform_locations[$el]->name !== null)
+        ? $this->getHierarchyLevelFromTID($entityform_locations[$el]->tid)
         : null;
     }
     return $entityform_locations;
@@ -88,21 +88,20 @@ class Rematcher {
   }
 
   /**
-   * Get parent from TID
+   * Get number of parents from TID
+   *
+   * @param int $tid
+   * @return int
    */
-  function getParentFromTID($tid) {
-    $parents = taxonomy_get_parents($tid);
-    return !empty($parents)
-      ? (int) reset($parents)->tid
-      : null;
+  function getHierarchyLevelFromTID($tid) {
+    $parents = taxonomy_get_parents_all($tid);
+    return count($parents);
   }
 
   /**
    * Rematch and save all elements
    */
   function rematchAndSaveAll() {
-    module_load_include('inc', 'siasar_n11_manager', 'inc/siasar_n11_manager.helpers');
-
     $missed_matches = array();
     $broken_references = array();
 
@@ -114,7 +113,7 @@ class Rematcher {
         continue;
       }
 
-      $new_match = _siasar_n11_manager_get_taxonomy_by_name_and_country('division_administrativa', $location->name, $location->parent, $this->country->iso2);
+      $new_match = $this->findRematch($location);
 
       if(empty($new_match)) {
         $missed_matches[] = $entityform_id;
@@ -137,13 +136,48 @@ class Rematcher {
     }
   }
 
+  function findRematch($location) {
+    $query = db_query(
+      'SELECT td.* FROM {taxonomy_term_data} as td
+        INNER JOIN {taxonomy_vocabulary} tv ON td.vid = tv.vid
+        INNER JOIN {field_data_field_pais} fp
+          ON fp.entity_type = :entity_type
+            AND fp.bundle = :vocabulary_name
+            AND fp.field_pais_iso2 = :country_code
+            AND fp.entity_id = td.tid
 
+        WHERE tv.machine_name = :vocabulary_name
+          AND td.name = :term_name'
+      ,
+      array(
+        ':vocabulary_name' => 'division_administrativa',
+        ':term_name' => $location->name,
+        ':country_code' => $this->country->iso2,
+        ':entity_type' => 'taxonomy_term'
+      )
+    );
+    $filter = function($key) use ($location) {
+      $match_parents = count(taxonomy_get_parents_all($key));
+      return ($location->parents === $match_parents);
+    };
+
+    $results = $query->fetchAllAssoc('tid');
+    $filtered_results = array_filter($results, $filter, ARRAY_FILTER_USE_KEY);
+
+    return $filtered_results;
+  }
+
+  /**
+   * Save new match value for term
+   *
+   * @param [type] $entityform_id
+   * @param [type] $new_match
+   * @return void
+   */
   function setRematch($entityform_id, $new_match) {
     $entity = entity_load_single('entityform', $entityform_id);
     $wrapper = entity_metadata_wrapper('entityform', $entity);
-
-    $term = taxonomy_term_load($new_match);
-    $wrapper->field_entidad_local->set($term);
+    $wrapper->field_entidad_local->set($new_match);
     $wrapper->save();
   }
 }
