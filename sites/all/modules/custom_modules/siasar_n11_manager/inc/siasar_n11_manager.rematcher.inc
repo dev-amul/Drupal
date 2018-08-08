@@ -41,8 +41,8 @@ class Rematcher {
       $entityform_locations[$el] = new stdClass();
       $entityform_locations[$el]->tid = $this->getEntityformLocationFromTID($el);
       $entityform_locations[$el]->name = $this->getTaxonomyNameFromTID($entityform_locations[$el]->tid);
-      $entityform_locations[$el]->parents = ($entityform_locations[$el]->name !== null)
-        ? $this->getHierarchyLevelFromTID($entityform_locations[$el]->tid)
+      $entityform_locations[$el]->parent = ($entityform_locations[$el]->name !== null)
+        ? $this->getParentFromTID($entityform_locations[$el]->tid)
         : null;
     }
     return $entityform_locations;
@@ -93,9 +93,9 @@ class Rematcher {
    * @param int $tid
    * @return int
    */
-  function getHierarchyLevelFromTID($tid) {
-    $parents = taxonomy_get_parents_all($tid);
-    return count($parents);
+  function getParentFromTID($tid) {
+    $parent = taxonomy_get_parents($tid);
+    return reset($parent)->name;
   }
 
   /**
@@ -157,8 +157,8 @@ class Rematcher {
       )
     );
     $filter = function($key) use ($location) {
-      $match_parents = count(taxonomy_get_parents_all($key));
-      return ($location->parents === $match_parents);
+      $match_parent = reset(taxonomy_get_parents($key))->name;
+      return ($location->parent === $match_parent);
     };
 
     $results = $query->fetchAllAssoc('tid');
