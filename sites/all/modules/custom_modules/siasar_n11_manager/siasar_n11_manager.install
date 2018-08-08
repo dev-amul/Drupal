@@ -6,10 +6,10 @@ function siasar_n11_manager_install($sandbox = null) {
   $rematcher = new Rematcher('kg');
   $rematcher->getAllEntityformsAndLocations();
 
- // siasar_n11_manager_remove_n11_countries('kg');
+  siasar_n11_manager_remove_n11_countries('kg');
 
   $file_uri = DRUPAL_ROOT . '/sites/all/modules/custom_modules/siasar_n11_manager/files/kg_n11.csv';
-  //siasar_n11_manager_load_n11('kg', 'division_administrativa', $file_uri, 0, 200000, true);
+  siasar_n11_manager_load_n11('kg', 'division_administrativa', $file_uri, 0, 200000, true);
 
   $rematcher->rematchAndSaveAll();
 }
