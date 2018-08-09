@@ -1,6 +1,6 @@
 <?php
 
-function siasar_n11_manager_install($sandbox = null) {
+function siasar_n11_manager_update_7100($sandbox = null) {
   module_load_include('inc', 'siasar_n11_manager', 'inc/siasar_n11_manager.rematcher');
 
   $rematcher = new Rematcher('kg');
