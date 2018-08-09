@@ -10,7 +10,7 @@
  * @param string $file_uri
  * @return bool
  */
-function siasar_n11_manager_load_n11_error_check($country_code, $vocab_machine_name, $file_uri) {
+function _siasar_n11_manager_load_n11_error_check($country_code, $vocab_machine_name, $file_uri) {
   $country = country_load(strtoupper($country_code));
   $vocab = taxonomy_vocabulary_machine_name_load($vocab_machine_name);
   $error = false;
@@ -43,7 +43,7 @@ function siasar_n11_manager_load_n11_error_check($country_code, $vocab_machine_n
  *
  * @return mixed
  */
-function siasar_n11_manager_get_taxonomy_by_name_and_country($vocabulary_name, $name, $parent_term_id, $country_code) {
+function _siasar_n11_manager_get_taxonomy_by_name_and_country($vocabulary_name, $name, $parent_term_id, $country_code) {
 
   $query = db_query(
     'SELECT td.tid FROM {taxonomy_term_data} td
@@ -64,7 +64,5 @@ function siasar_n11_manager_get_taxonomy_by_name_and_country($vocabulary_name, $
       ':entity_type' => 'taxonomy_term'
     )
   );
-
   return $query->fetchAllAssoc('tid');
-
 }
