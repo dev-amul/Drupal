@@ -17,7 +17,7 @@ function feature_siasar_services_default_services_endpoint() {
   $endpoint->server = 'rest_server';
   $endpoint->path = 'rest';
   $endpoint->authentication = array(
-    'services' => 'services',
+    'services_session_token_auth' => 'services_session_token_auth',
   );
   $endpoint->server_settings = array(
     'formatters' => array(
