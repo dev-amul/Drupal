@@ -1,6 +1,11 @@
 body.page-entityform-view {
-  h1 {
-    padding-left: 0;
+  section.main > h1 {
+    display: none;
+  }
+
+  #block-system-main h1 {
+    color: $siasar-blue;
+    float: none;
   }
 
   .entity-entityform {
