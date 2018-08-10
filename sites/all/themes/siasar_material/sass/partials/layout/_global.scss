@@ -124,6 +124,7 @@ ul.pagination {
   background-color: $siasar-light-green;
   border: solid $siasar-green 2px;
   border-radius: $siasar-border-radius;
+  clear: both;
 
   &.error {
     background-color: $siasar-light-yellow;
