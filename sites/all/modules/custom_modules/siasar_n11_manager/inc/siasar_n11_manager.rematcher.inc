@@ -126,11 +126,11 @@ class Rematcher {
     }
 
       if(count($broken_references) > 0) {
-        drupal_set_message('There were ' . count($broken_references) . ' broken references. Those were: ' . implode(', ', $broken_references), 'error');
+        drupal_set_message('There were ' . count($broken_references) . ' broken references. Those were: ' . implode(', ', $broken_references));
       }
 
     if(count($missed_matches) > 0) {
-      drupal_set_message('Missed matching for '. count($missed_matches) . ' terms. Those are: ' . implode(', ', $missed_matches), 'error');
+      drupal_set_message('Missed matching for '. count($missed_matches) . ' terms. Those are: ' . implode(', ', $missed_matches));
     } else {
       drupal_set_message('All terms were rematched');
     }
