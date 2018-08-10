@@ -1691,3 +1691,17 @@ function siasar_updates_update_7199() {
   );
   module_enable($modules);
 }
+/**
+ * 734 - Provide a new login method for the API that does not use cookies
+ * Enables services_session_token_auth module.
+ *
+ * https://gitlab.com/siasar-project/admin/issues/734
+ */
+function siasar_updates_update_7200() {
+  $modules = array(
+    'services_session_token_auth'
+  );
+  module_enable($modules);
+
+  features_revert_module('feature_siasar_services');
+}
