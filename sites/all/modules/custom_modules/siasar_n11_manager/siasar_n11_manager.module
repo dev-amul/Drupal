@@ -1,0 +1,123 @@
+<?php
+
+/**
+ * Loads N11 table from file.
+ * Drush command 'siasar_load_n11' calls this function
+ *
+ * @param string $country_code
+ * @param string $vocab_machine_name
+ * @param string $file_uri
+ * @param integer $skip
+ * @param [type] $lines
+ * @param boolean $zip
+ * @return void
+ */
+function siasar_n11_manager_load_n11($country_code, $vocab_machine_name, $file_uri = 'public://file.csv', $skip = 0, $lines, $zipcode_in_csv = false) {
+  module_load_include('inc', 'siasar_n11_manager', 'inc/siasar_n11_manager.helpers');
+
+  $error_in_command_line = _siasar_n11_manager_load_n11_error_check($country_code, $vocab_machine_name, $file_uri);
+  if ($error_in_command_line)
+    return;
+
+  $is_drush = (drupal_is_cli() && function_exists('drush_main'));
+  $country = country_load(strtoupper($country_code));
+
+  $vocab = taxonomy_vocabulary_machine_name_load($vocab_machine_name);
+
+  $parse_csv = function($file) {
+    return str_getcsv($file, ';');
+  };
+  $csv = array_map($parse_csv, file($file_uri));
+
+  $terms_processed = array();
+  $new_terms = 0;
+
+  for($line = $skip; $line < count($csv) && isset($csv[$line]) && $line < ($lines + $skip); $line++) {
+    $chunk = &$csv[$line];
+
+    $terms_processed_level = &$terms_processed;
+    $parent_term_id = 0;
+
+      $real_chunk_length = $zipcode_in_csv
+        ? count($chunk) - 1
+        : count($chunk);
+
+    for($i = 0; $i < $real_chunk_length; $i++) {
+      $term_name = $chunk[$i];
+
+      if (!isset($terms_processed_level[$term_name])) {
+
+        $term = _siasar_n11_manager_get_taxonomy_by_name_and_country($vocab->machine_name, $term_name, $parent_term_id, $country->iso2);
+        if (count($term)) {
+          $term = reset($term);
+        }
+
+        if (!$term) {
+          $term = new stdClass();
+
+          $term->parent = $parent_term_id;
+          $term->name = $term_name;
+          $term->vid = $vocab->vid;
+          $term->field_pais[LANGUAGE_NONE][0]['iso2'] = $country->iso2;
+
+          if ($zipcode_in_csv && $i == ($real_chunk_length - 1))
+            $term->field_codigo_division_admin[LANGUAGE_NONE][0]['value'] = $chunk[$i + 1];
+
+          taxonomy_term_save($term);
+          $new_terms++;
+        }
+
+        $parent_term_id = $term->tid;
+        $terms_processed_level[$term_name] = array(
+          'tid' => $term->tid,
+          'children' => array(),
+        );
+
+      } else {
+        $parent_term_id = $terms_processed_level[$term_name]['tid'];
+      }
+      $terms_processed_level = &$terms_processed_level[$term_name]['children'];
+    }
+    if($is_drush && ($line / 25) == floor($line / 25)) {
+      echo ('#');
+    }
+  }
+  if ($is_drush)
+    echo("\n");
+
+  drupal_set_message('Lines processed: ' . ($line - $skip). ' Saved ' . $new_terms . ' new locations.');
+}
+
+
+/**
+ * Remove all N11 terms for a specified country
+ *
+ * @param string $country_code (iso2 format)
+ * @return void
+ */
+function siasar_n11_manager_remove_n11_countries($country_code = null) {
+  $country = country_load(strtoupper($country_code));
+  if (!is_object($country)) {
+    drupal_set_message('No country specified or wrong country code, aborting.', 'error');
+    return;
+  }
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'taxonomy_term')
+  ->entityCondition('bundle', 'division_administrativa')
+  ->fieldCondition('field_pais', 'iso2', $country->iso2);
+
+  $result = $query->execute();
+
+  if (!isset($result['taxonomy_term']) || count($result['taxonomy_term']) == 0) {
+    drupal_set_message('No terms found, nothing to do, aborting.');
+    return;
+  }
+
+  foreach($result['taxonomy_term'] as $k => $t) {
+    taxonomy_term_delete($k);
+  }
+  $removed_terms = count($result['taxonomy_term']);
+  drupal_set_message('Removed ' . $removed_terms . ' N11 administrative divisions for country ' . $country->name);
+  return $removed_terms;
+}
