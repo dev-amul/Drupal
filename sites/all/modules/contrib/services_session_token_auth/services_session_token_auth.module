@@ -1,0 +1,105 @@
+<?php
+/**
+ * @file
+ * Module file for services_session_token_auth module.
+ */
+
+/**
+ * Implements hook_services_authentication().
+ */
+function services_session_token_auth_services_authentication_info() {
+  return array(
+    'title'            => t('Session Token authentication only'),
+    'description'      => t('Use only token session to authenticate a user. No cookies.'),
+    'authenticate_call' => '_services_session_token_auth_authenticate_call',
+  );
+}
+
+/**
+ * Authenticates a call using Drupal's built in sessions.
+ *
+ * @return string
+ *   Error message in case error occured.
+ */
+function _services_session_token_auth_authenticate_call($module, $controller) {
+  global $user;
+
+  if ($controller['callback'] != '_user_resource_get_token') {
+    // If no token is sent, load anonymous.
+    if (!isset($_SERVER['HTTP_X_USER_SESSION_TOKEN'])) {
+      $user = drupal_anonymous_user();
+      $user->timestamp = time();
+      session_id(drupal_random_key());
+    }
+    // Else, if session is sent, load user.
+    elseif(isset($_SERVER['HTTP_X_USER_SESSION_TOKEN']) && !empty($_SERVER['HTTP_X_USER_SESSION_TOKEN'])) {
+      // Inspired by session.inc _drupal_session_read() function.
+      $sid = $_SERVER['HTTP_X_USER_SESSION_TOKEN'];
+
+      // Otherwise, if the session is still active, we have a record of the
+      // client's session in the database. If it's HTTPS then we are either have
+      // a HTTPS session or we are about to log in so we check the sessions table
+      // for an anonymous session with the non-HTTPS-only cookie.
+      global $is_https;
+      if ($is_https) {
+        $user = db_query("SELECT u.*, s.* FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid WHERE s.ssid = :ssid", array(':ssid' => $sid))->fetchObject();
+      }
+      else {
+        $user = db_query("SELECT u.*, s.* FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid WHERE s.sid = :sid", array(':sid' => $sid))->fetchObject();
+      }
+
+      // We found the client's session record and they are an authenticated,
+      // active user.
+      if ($user && $user->uid > 0 && $user->status == 1) {
+        // This is done to unserialize the data member of $user.
+        $user->data = unserialize($user->data);
+
+        // Add roles element to $user.
+        $user->roles = array();
+        $user->roles[DRUPAL_AUTHENTICATED_RID] = 'authenticated user';
+        $user->roles += db_query("SELECT r.rid, r.name FROM {role} r INNER JOIN {users_roles} ur ON ur.rid = r.rid WHERE ur.uid = :uid", array(':uid' => $user->uid))->fetchAllKeyed(0, 1);
+
+        // Set session_id with token given by headers.
+        session_id($sid);
+        drupal_session_started($sid);
+
+        // Do not preserve session. If this is true, next POST or PUT will
+        // attribute session to anonymous, so user will be logout in next calls.
+        services_set_server_info('preserve_session', FALSE);
+      }
+      elseif ($user) {
+        // The user is anonymous or blocked. Only preserve two fields from the
+        // {sessions} table.
+        $account = drupal_anonymous_user();
+        $account->session = $user->session;
+        $account->timestamp = $user->timestamp;
+        $user = $account;
+      }
+      else {
+        // The session has expired.
+        $user = drupal_anonymous_user();
+        $user->timestamp = time();
+        $user->session = '';
+        session_id(drupal_random_key());
+      }
+
+      // Store the session that was read for comparison in _drupal_session_write().
+      $last_read = &drupal_static('drupal_session_last_read');
+      $last_read = array(
+        'sid' => $sid,
+        'value' => $user->session,
+      );
+    }
+  }
+
+  // Check CSRF Token
+  $non_safe_method_called = !in_array($_SERVER['REQUEST_METHOD'], array('GET', 'HEAD', 'OPTIONS', 'TRACE')) && (!isset($controller['csrf validation']) || $controller['csrf validation']) ;
+  $csrf_token_invalid = !isset($_SERVER['HTTP_X_CSRF_TOKEN']) || !drupal_valid_token($_SERVER['HTTP_X_CSRF_TOKEN'], 'services');
+  if ($non_safe_method_called && $csrf_token_invalid) {
+    return t('CSRF validation failed');
+  }
+}
+
+function services_session_token_auth_get_tokens() {
+  return array("session_token" => drupal_get_token('services'), 'session_id' => session_id());
+}

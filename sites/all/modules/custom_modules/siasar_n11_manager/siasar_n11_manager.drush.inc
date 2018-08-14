@@ -75,29 +75,14 @@ function drush_siasar_load_n11($country_code, $vocab_machine_name, $file_uri = '
   siasar_n11_manager_load_n11($country_code, $vocab_machine_name, $file_uri, $skip, $lines, $zipcode_in_csv);
 }
 
-
-function drush_siasar_remove_n11_countries($country_code = null) {
-  $country = country_load(strtoupper($country_code));
-  if (!is_object($country)) {
-    drupal_set_message('No country specified, aborting.');
-    return;
-  }
-
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'taxonomy_term')
-  ->entityCondition('bundle', 'division_administrativa')
-  ->fieldCondition('field_pais', 'iso2', $country->iso2);
-
-  $result = $query->execute();
-
-  if (!isset($result['taxonomy_term']) || count($result['taxonomy_term']) == 0) {
-    drupal_set_message('No terms found, nothing to do, aborting.');
-    return;
-  }
-
-  foreach($result['taxonomy_term'] as $k => $t) {
-    taxonomy_term_delete($k);
-  }
+/**
+ * Drush command to remove full N11 table for a specified country
+ *
+ * @param string $country_code (iso2 format)
+ * @return void
+ */
+function drush_siasar_remove_n11_countries($country_code) {
+  siasar_n11_manager_remove_n11_countries($country_code);
 }
 
 
