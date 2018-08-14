@@ -34,6 +34,53 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_-:<nolink>',
   );
+  // Exported menu link: menu-front-page-menu_-:<nolink>.
+  $menu_links['menu-front-page-menu_-:<nolink>'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => '<nolink>',
+    'router_path' => '<nolink>',
+    'link_title' => 'Заполнить анкеты',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_-:<nolink>',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 1,
+    'weight' => -50,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-front-page-menu_-:drafts.
+  $menu_links['menu-front-page-menu_-:drafts'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'drafts',
+    'router_path' => 'drafts',
+    'link_title' => 'Мои проекты',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_-:drafts',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_-:<nolink>',
+  );
   // Exported menu link: menu-front-page-menu_-:eform/submit/prestador_de_servicio.
   $menu_links['menu-front-page-menu_-:eform/submit/prestador_de_servicio'] = array(
     'menu_name' => 'menu-front-page-menu',
@@ -58,12 +105,60 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_-:<nolink>',
   );
+  // Exported menu link: menu-front-page-menu_-:eform/submit/sistema.
+  $menu_links['menu-front-page-menu_-:eform/submit/sistema'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'eform/submit/sistema',
+    'router_path' => 'eform/submit/%',
+    'link_title' => 'Водная система',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_-:eform/submit/sistema',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_-:<nolink>',
+  );
+  // Exported menu link: menu-front-page-menu_-:eform/submit/waq.
+  $menu_links['menu-front-page-menu_-:eform/submit/waq'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'eform/submit/waq',
+    'router_path' => 'eform/submit/%',
+    'link_title' => 'Качество воды',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_-:eform/submit/waq',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -46,
+    'customized' => 1,
+    'language' => 'ru',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_-:<nolink>',
+  );
   // Exported menu link: menu-front-page-menu_:eform/submit/comunidad.
   $menu_links['menu-front-page-menu_:eform/submit/comunidad'] = array(
     'menu_name' => 'menu-front-page-menu',
     'link_path' => 'eform/submit/comunidad',
     'router_path' => 'eform/submit/%',
-    'link_title' => 'сообщество',
+    'link_title' => 'Сообщество',
     'options' => array(
       'attributes' => array(
         'title' => '',
@@ -271,6 +366,30 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_rellenar-cuestionarios:<nolink>',
   );
+  // Exported menu link: menu-front-page-menu_meus-rascunhos:drafts.
+  $menu_links['menu-front-page-menu_meus-rascunhos:drafts'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => 'drafts',
+    'router_path' => 'drafts',
+    'link_title' => 'Meus rascunhos',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_meus-rascunhos:drafts',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+    'language' => 'pt-br',
+    'menu_links_customized' => 1,
+    'parent_identifier' => 'menu-front-page-menu_verificar-resultados:<nolink>',
+  );
   // Exported menu link: menu-front-page-menu_mis-borradores:drafts.
   $menu_links['menu-front-page-menu_mis-borradores:drafts'] = array(
     'menu_name' => 'menu-front-page-menu',
@@ -318,6 +437,29 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'language' => 'en',
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_check-results:<nolink>',
+  );
+  // Exported menu link: menu-front-page-menu_preencha-questionrios:<nolink>.
+  $menu_links['menu-front-page-menu_preencha-questionrios:<nolink>'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => '<nolink>',
+    'router_path' => '<nolink>',
+    'link_title' => 'Preencha questionários',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_preencha-questionrios:<nolink>',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+    'language' => 'pt-br',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: menu-front-page-menu_prestador-de-asistencia-tcnica:eform/submit/prestador_de_asistencia_t_cnica.
   $menu_links['menu-front-page-menu_prestador-de-asistencia-tcnica:eform/submit/prestador_de_asistencia_t_cnica'] = array(
@@ -582,6 +724,29 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
     'menu_links_customized' => 1,
     'parent_identifier' => 'menu-front-page-menu_check-results:<nolink>',
   );
+  // Exported menu link: menu-front-page-menu_verificar-resultados:<nolink>.
+  $menu_links['menu-front-page-menu_verificar-resultados:<nolink>'] = array(
+    'menu_name' => 'menu-front-page-menu',
+    'link_path' => '<nolink>',
+    'router_path' => '<nolink>',
+    'link_title' => 'Verificar resultados',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-front-page-menu_verificar-resultados:<nolink>',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'pt-br',
+    'menu_links_customized' => 1,
+  );
   // Exported menu link: menu-front-page-menu_water-quality:eform/submit/waq.
   $menu_links['menu-front-page-menu_water-quality:eform/submit/waq'] = array(
     'menu_name' => 'menu-front-page-menu',
@@ -640,8 +805,10 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
   t('Consultar los resultados');
   t('Fill survey');
   t('Formulario de Pruebas');
+  t('Meus rascunhos');
   t('Mis borradores');
   t('My drafts');
+  t('Preencha questionários');
   t('Prestador de Asistencia Técnica');
   t('Prestador de Servicio');
   t('Prestador de assistência técnica');
@@ -653,12 +820,17 @@ function feature_siasar_theme_settings_menu_default_menu_links() {
   t('Testing form');
   t('Validación');
   t('Validation');
+  t('Verificar resultados');
   t('Water Supply System');
   t('Water quality');
+  t('Водная система');
+  t('Заполнить анкеты');
+  t('Качество воды');
+  t('Мои проекты');
   t('Поставщик технической помощи');
   t('Поставщик услуг');
   t('Проверка');
-  t('сообщество');
+  t('Сообщество');
 
   return $menu_links;
 }
