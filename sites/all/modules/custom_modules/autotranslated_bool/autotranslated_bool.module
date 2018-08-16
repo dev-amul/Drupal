@@ -1,5 +1,9 @@
 <?php
 
+define(AUTOTRANSLATED_BOOL_ONOFF, 'On / Off');
+define(AUTOTRANSLATED_BOOL_TRUEFALSE, 'True / False');
+define(AUTOTRANSLATED_BOOL_YESNO, 'Yes / No');
+
 /**
  * Implementation of hook_field_formatter_info
  */
@@ -13,6 +17,28 @@ function autotranslated_bool_field_formatter_info() {
       ),
     ),
   );
+}
+
+/**
+ * Implementation of hook_field_info_alter()
+ */
+function autotranslated_bool_field_info_alter(&$info) {
+  $info['list_boolean']['settings']['autotranslated_type'] = 'none';
+}
+
+function autotranslated_bool_form_field_ui_field_edit_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#field']['type'] !== 'list_boolean') return;
+
+  $element['autotranslated_bool'] = array(
+    '#type' => 'select',
+    '#title' => 'Autotranslated string',
+    '#description' => t('Display default text strings for values, and translate them automatically. PLEASE NOTICE: You have to choose Autotranslated Bool as display mode in Field Format (Manage Display section) for that to happen.'),
+    '#options' => _autotranslated_bool_get_options_for_form(true),
+    '#default_value' => $form['#field']['settings']['autotranslated_type'],
+  );
+
+  $form['field']['settings']['autotranslated_type'] = $element;
+  
 }
 
 
@@ -29,11 +55,7 @@ function autotranslated_bool_field_formatter_settings_form($field, $instance, $v
     $element['type'] = array(
       '#type' => 'select',
       '#title' => 'Display type',
-      '#options' => array(
-        'yesno' => t('Yes / No'),
-        'truefalse' => t('True / False'),
-        'onoff' => t('On / Off')
-      ),
+      '#options' => _autotranslated_bool_get_options_for_form(false),
       '#default_value' => $settings['type'],
     );
   }
@@ -111,5 +133,23 @@ function _autotranslated_bool_string_list($type = 'yesno') {
       $options = array('No', 'Yes');
 
   }
+  return $options;
+}
+
+/**
+ * Helper function to get list of options for Autotranslate strings (used by Form API)
+ *
+ * @param boolean $include_none
+ * @return void
+ */
+function _autotranslated_bool_get_options_for_form($include_none = false) {
+  $options = array();
+  if ($include_none) {
+    $options['none'] = t('- None -');
+  }
+  $options['yesno'] = t(AUTOTRANSLATED_BOOL_YESNO);
+  $options['truefalse'] = t(AUTOTRANSLATED_BOOL_TRUEFALSE);
+  $options['onoff'] = t(AUTOTRANSLATED_BOOL_ONOFF);
+
   return $options;
 }
