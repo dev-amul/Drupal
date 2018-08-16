@@ -1,0 +1,5 @@
+name = Autotranslated output for Bool fields
+description = Offers a new display mode for Bool fields so that it outputs translated with the most common strings automatically
+version = 7.x-1.0
+core = 7.x
+package = siasar

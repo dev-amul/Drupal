@@ -1,0 +1,115 @@
+<?php
+
+/**
+ * Implementation of hook_field_formatter_info
+ */
+function autotranslated_bool_field_formatter_info() {
+  return array(
+    'autotranslated_bool' => array(
+      'label' => t('Autotranslated strings'),
+      'field types' => array('list_boolean'),
+      'settings' => array(
+        'type' => 'yesno'
+      ),
+    ),
+  );
+}
+
+
+/**
+ * Implementation of hook_field_formatter_settings_info
+ */
+function autotranslated_bool_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $element = array();
+
+  if ($field['type'] === 'list_boolean' && $display['type'] === 'autotranslated_bool') {
+    $element['type'] = array(
+      '#type' => 'select',
+      '#title' => 'Display type',
+      '#options' => array(
+        'yesno' => t('Yes / No'),
+        'truefalse' => t('True / False'),
+        'onoff' => t('On / Off')
+      ),
+      '#default_value' => $settings['type'],
+    );
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function autotranslated_bool_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  if ($display['type'] !== 'autotranslated_bool')
+    return;
+
+  $settings = $display['settings'];
+
+  $summary = '';
+  switch($settings['type']) {
+    case 'truefalse':
+      $summary = t('Values will be shown as True/False');
+      break;
+    case 'onoff':
+      $summary = t('Values will be shown as On/Off');
+      break;
+    case 'yesno':
+    default:
+      $summary = t('Values will be shown as Yes/No');
+      break;
+  }
+  return $summary;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function autotranslated_bool_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $elements = array();
+  $type = $display['settings']['type'];
+
+  if (empty($items) || $field['type'] !== 'list_boolean' || $display['type'] != 'autotranslated_bool') {
+    return $elements;
+  }
+
+  foreach ($items as $delta => $item) {
+    if (empty($item['value'])) {
+      continue;
+    }
+    $value = (int) $item['value'];
+    $options = _autotranslated_bool_string_list($type);
+    $elements[$delta] = array(
+      '#markup' => $options[$value],
+    );
+  }
+
+  return $elements;
+}
+
+/**
+ * Helper function to return array of option strings from type.
+ *
+ * @param string $type
+ * @return array
+ */
+function _autotranslated_bool_string_list($type = 'yesno') {
+  switch($type) {
+    case 'onoff':
+      $options = array('Off', 'On');
+      break;
+    case 'truefalse':
+      $options = array('False', 'True');
+      break;
+    case 'yesno':
+    default:
+      $options = array('No', 'Yes');
+
+  }
+  return $options;
+}
