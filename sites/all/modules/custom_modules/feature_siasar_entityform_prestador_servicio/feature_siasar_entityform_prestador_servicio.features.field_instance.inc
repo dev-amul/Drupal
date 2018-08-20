@@ -635,9 +635,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 12,
       ),
       'entity_reference' => array(
@@ -727,9 +727,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 16,
       ),
       'entity_reference' => array(
@@ -1049,9 +1049,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 17,
       ),
       'entity_reference' => array(
@@ -2544,9 +2544,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 3,
       ),
       'entity_reference' => array(
@@ -2593,9 +2593,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 3,
       ),
       'entity_reference' => array(
@@ -3378,9 +3378,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 13,
       ),
       'entity_reference' => array(
@@ -3427,9 +3427,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 15,
       ),
       'entity_reference' => array(
@@ -3476,9 +3476,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 12,
       ),
       'entity_reference' => array(
@@ -4020,9 +4020,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 10,
       ),
       'entity_reference' => array(
@@ -4069,9 +4069,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 16,
       ),
       'entity_reference' => array(
@@ -4118,9 +4118,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 8,
       ),
       'entity_reference' => array(
@@ -4306,9 +4306,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 14,
       ),
       'entity_reference' => array(
@@ -4355,9 +4355,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 7,
       ),
       'entity_reference' => array(
@@ -4445,9 +4445,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 14,
       ),
       'entity_reference' => array(
@@ -4494,9 +4494,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 11,
       ),
       'entity_reference' => array(
@@ -4543,9 +4543,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 12,
       ),
       'entity_reference' => array(
@@ -4592,9 +4592,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 13,
       ),
       'entity_reference' => array(
@@ -4641,9 +4641,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 17,
       ),
       'entity_reference' => array(
@@ -4963,9 +4963,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 15,
       ),
       'entity_reference' => array(
@@ -5237,9 +5237,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 3,
       ),
       'entity_reference' => array(
@@ -5431,9 +5431,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 9,
       ),
       'entity_reference' => array(
@@ -5523,9 +5523,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 2,
       ),
     ),
@@ -5664,9 +5664,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 2,
       ),
     ),
