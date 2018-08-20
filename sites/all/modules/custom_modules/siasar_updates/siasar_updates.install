@@ -1726,4 +1726,7 @@ function siasar_updates_update_7202() {
     'autotranslated_bool'
   );
   module_enable($modules);
+
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_entityform_prestador_servicio');
 }
