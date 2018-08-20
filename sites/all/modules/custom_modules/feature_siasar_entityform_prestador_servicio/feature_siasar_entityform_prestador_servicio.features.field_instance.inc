@@ -24,9 +24,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 19,
       ),
       'entity_reference' => array(
@@ -67,9 +67,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 19,
       ),
       'entity_reference' => array(
@@ -110,9 +110,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 26,
       ),
       'entity_reference' => array(
@@ -596,9 +596,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 14,
       ),
       'entity_reference' => array(
@@ -688,9 +688,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 19,
       ),
       'entity_reference' => array(
@@ -863,9 +863,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 25,
       ),
       'entity_reference' => array(
@@ -2128,9 +2128,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 10,
       ),
       'entity_reference' => array(
@@ -2222,9 +2222,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 3,
       ),
       'entity_reference' => array(
@@ -2265,9 +2265,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 19,
       ),
       'entity_reference' => array(
@@ -2505,9 +2505,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 19,
       ),
       'entity_reference' => array(
@@ -2646,9 +2646,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 22,
       ),
       'entity_reference' => array(
@@ -3981,9 +3981,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 14,
       ),
       'entity_reference' => array(
@@ -4171,9 +4171,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 17,
       ),
       'entity_reference' => array(
@@ -4267,9 +4267,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 13,
       ),
       'entity_reference' => array(
@@ -4694,9 +4694,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 25,
       ),
       'entity_reference' => array(
@@ -5111,91 +5111,40 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'mvf',
+        'module' => 'number',
         'settings' => array(
-          'mvf' => array(
-            'unit_suggesters_settings' => array(),
-          ),
-          'unit' => array(),
-          'value' => array(),
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
         ),
-        'type' => 'mvf_formatter_default',
-        'weight' => 19,
+        'type' => 'number_decimal',
+        'weight' => 32,
       ),
       'entity_reference' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 27,
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'entityform',
     'field_name' => 'field_tasa_anual_de_expansion_pr',
     'label' => 'Tasa anual de expansión promedio',
-    'required' => 0,
+    'required' => FALSE,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'mvf' => array(
-        'max' => array(
-          'value' => '',
-        ),
-        'min' => array(
-          'value' => 0,
-        ),
-        'unit_suggesters_settings' => array(
-          'hardcoded' => array(
-            'enable' => 0,
-            'unit' => 467,
-            'weight' => 0,
-          ),
-          'locale' => array(
-            'en' => -1,
-            'enable' => 1,
-            'es' => -1,
-            'es-BO' => -1,
-            'es-CO' => -1,
-            'es-HN' => -1,
-            'es-NI' => -1,
-            'es-PY' => -1,
-            'gn-PY' => -1,
-            'pt-br' => -1,
-            'weight' => 0,
-          ),
-          'original' => array(
-            'enable' => 0,
-            'weight' => 0,
-          ),
-          'per_user' => array(
-            'enable' => 0,
-            'weight' => 0,
-          ),
-        ),
-      ),
-      'unit' => array(),
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
       'user_register_form' => FALSE,
-      'value' => array(
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '%',
-      ),
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'mvf',
-      'settings' => array(
-        'meta_info' => array(
-          'unit' => array(
-            'label_property' => 'symbol',
-            'weight' => -10,
-          ),
-          'value' => array(
-            'weight' => -9,
-          ),
-        ),
-      ),
-      'type' => 'mvf_widget_default',
-      'weight' => 132,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 157,
     ),
   );
 
@@ -5249,9 +5198,9 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 25,
       ),
       'entity_reference' => array(
