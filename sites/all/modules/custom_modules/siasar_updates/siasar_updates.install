@@ -1738,3 +1738,14 @@ function siasar_updates_update_7202() {
 function siasar_updates_update_7203() {
   features_revert_module('feature_siasar_entityform_prestador_servicio');
 }
+
+/**
+ * Disabling Backup and Migrate module
+ */
+function siasar_updates_update_7204(&$sandbox) {
+  $modules = array(
+    'backup_migrate',
+  );
+  $result = module_disable($modules, TRUE);
+  $result = drupal_uninstall_modules($modules, TRUE);
+}
