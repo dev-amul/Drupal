@@ -1749,3 +1749,11 @@ function siasar_updates_update_7204(&$sandbox) {
   $result = module_disable($modules, TRUE);
   $result = drupal_uninstall_modules($modules, TRUE);
 }
+/**
+ * 716 - Bad display config in Community: C3
+ *
+ * https://gitlab.com/siasar-project/admin/issues/716
+ */
+function siasar_updates_update_7205() {
+  features_revert_module('feature_siasar_entityform_comunidad');
+}
