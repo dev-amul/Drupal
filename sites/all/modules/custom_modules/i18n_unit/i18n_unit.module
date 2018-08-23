@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * Implements hook_entity_info_alter().
+ * Enable i18n support via the entity API.
+ *
+ * We use our own class I18nUnitStringController, which extends EntityDefaultI18nStringController
+ */
+function i18n_unit_entity_info_alter(&$info) {
+  $info['units_unit']['i18n controller class'] = 'I18nUnitStringController';
+  $info['units_measure']['i18n controller class'] = 'I18nUnitStringController';
+}
+
+/**
+ * Implements hook_entity_property_info_alter().
+ */
+function i18n_unit_entity_property_info_alter(&$info) {
+  foreach (_i18n_unit_target_entities() as $t) {
+    $info[$t]['properties']['label']['translatable'] = TRUE;
+    $info[$t]['properties']['label']['i18n string'] = TRUE;
+  }
+}
+/**
+ * Implements hook_entity_insert()
+ */
+function i18n_unit_entity_insert($entity, $type) {
+  if(!_i18n_unit_is_unit_entity($type))
+    return;
+
+  i18n_string_object_update($type, $entity);
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function i18n_unit_entity_update($entity, $type) {
+  if(!_i18n_unit_is_unit_entity($type))
+    return;
+
+  // Account for name changes.
+  if ($entity->original->type != $entity->type) {
+    i18n_string_update_context("unit:{$type}:{$entity->original->type}:*", "unit:{$type}:{$entity->type}:*");
+  }
+  i18n_string_object_update($type, $entity);
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function i18n_unit_entity_delete($entity, $type) {
+  if(!_i18n_unit_is_unit_entity($type))
+    return;
+
+  i18n_string_object_remove($type, $entity);
+}
+/**
+ * Helper function providing a list of Unit related entity types
+ */
+function _i18n_unit_target_entities() {
+  return array(
+    'units_unit',
+    'units_measure',
+  );
+}
+/**
+ * Helper function to check if it's a Unit type or Unit of measure entity type
+ *
+ * @param string $type
+ * @return bool
+ */
+function _i18n_unit_is_unit_entity($type) {
+  return in_array($type, _i18n_unit_target_entities());
+}
