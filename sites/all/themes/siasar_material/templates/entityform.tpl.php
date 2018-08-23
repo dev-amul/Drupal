@@ -37,6 +37,8 @@
         <?php print $title; ?>
       <?php endif; ?>
     </h2>
+  <?php else: ?>
+    <h1 class="entityform-id"><?php print $type_id ?></h1>
   <?php endif; ?>
 
   <div class="content"<?php print $content_attributes; ?>>

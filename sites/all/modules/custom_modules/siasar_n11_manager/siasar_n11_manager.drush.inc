@@ -41,7 +41,11 @@ function siasar_n11_manager_drush_command() {
 
 
   $items['siasar-remove-n11-orphans'] = array(
+<<<<<<< HEAD
     'description' => 'Removes all N11 terms (taxonomy División Administrativa) without assigned country.',
+=======
+    'description' => 'Removes all N11 data (taxonomy División Administrativa) for a country.',
+>>>>>>> develop
     'aliases' => array('siasar-rn11-o'),
     'arguments' => array(
     ),

@@ -1464,3 +1464,296 @@ function siasar_updates_update_7192() {
   );
   module_enable($modules);
 }
+
+/**
+ * Issue siasar-project/admin#456: Helper that creates a field base and instance,
+ * and it copies data from and old source to the new field.
+ *
+ * Note: it copies the custom fields column from the data and revision table.
+ */
+function siasar_copy_field_data($field_from, $field_to, $field, $instance, $custom_fields = array()) {
+
+  if (empty($custom_fields)) {
+    $custom_fields = array($field_from . '_value' => $field_to . '_value');
+  }
+
+  field_delete_instance($instance);
+  field_delete_field($field['field_name']);
+
+  field_create_field($field);
+  field_create_instance($instance);
+
+  $fields = array(
+    'entity_type',
+    'bundle',
+    'deleted',
+    'entity_id',
+    'revision_id',
+    'language',
+    'delta',
+  );
+
+  $from_fields = $fields;
+  $to_fields = $fields;
+
+  foreach ($custom_fields as $custom_field_from => $custom_field_to) {
+    $from_fields[] = $custom_field_from;
+    $to_fields[] = $custom_field_to;
+  }
+
+  $tables = array(
+    'field_revision_' . $field_from => 'field_revision_' . $field_to,
+    'field_data_' . $field_from => 'field_data_' . $field_to,
+  );
+
+  foreach($tables as $from_table => $to_table) {
+    $insert = "INSERT INTO $to_table (". implode(',', $to_fields) . ") SELECT ". implode(',', $from_fields) . " FROM " . $from_table;
+    db_query($insert);
+  }
+
+  return "Migrated field: $field_from to $field_to.";
+}
+
+/**
+ * Issue siasar-project/admin#456: Creates a new temporary field for storage.
+ * This is the field to be migrated: field_tasa_anual_de_expansion_pr
+ */
+function siasar_updates_update_7193(&$sandbox) {
+
+  $field = array(
+    'field_name' => 'field_tasa_anual_temp',
+    'type' => 'number_decimal',
+    'settings' => array(
+      'precision' => 12, 'scale' => 2, 'decimal_separator' => '.',
+    ),
+  );
+
+  $instance = array(
+    'field_name' => $field['field_name'],
+    'label' => 'Tasa anual de expansión promedio',
+    'entity_type' => 'entityform',
+    'bundle' => 'prestador_de_servicio',
+    'settings' => array('min' => '', 'max' => '', 'prefix' => '', 'suffix' => ''),
+    'widget' => array(
+      'type' => 'number',
+    ),
+    'display' => array(
+      'default' => array(
+        'type' => 'number_decimal',
+      ),
+    ),
+  );
+
+  return siasar_copy_field_data('field_tasa_anual_de_expansion_pr', 'field_tasa_anual_temp', $field, $instance);
+}
+
+/**
+ * Issue siasar-project/admin#456: Removes the wrong field and re-creates it
+ * migrating values.
+ */
+function siasar_updates_update_7194(&$sandbox) {
+
+  $field = array(
+    'field_name' => 'field_tasa_anual_de_expansion_pr',
+    'type' => 'number_decimal',
+    'settings' => array(
+      'precision' => 12, 'scale' => 2, 'decimal_separator' => '.',
+    ),
+  );
+
+  $instance = array(
+    'field_name' => $field['field_name'],
+    'label' => 'Tasa anual de expansión promedio',
+    'entity_type' => 'entityform',
+    'bundle' => 'prestador_de_servicio',
+    'settings' => array('min' => '', 'max' => '', 'prefix' => '', 'suffix' => ''),
+    'widget' => array(
+      'type' => 'number',
+    ),
+    'display' => array(
+      'default' => array(
+        'type' => 'number_decimal',
+      ),
+    ),
+  );
+
+  return siasar_copy_field_data('field_tasa_anual_temp', 'field_tasa_anual_de_expansion_pr', $field, $instance);
+}
+
+/**
+ * Issue siasar-project/admin#456: removes the temporary field.
+ */
+function siasar_updates_update_7195(&$sandbox) {
+
+  $field = array(
+    'field_name' => 'field_tasa_anual_temp',
+  );
+
+  $instance = array(
+    'field_name' => $field['field_name'],
+    'entity_type' => 'entityform',
+    'bundle' => 'prestador_de_servicio',
+  );
+  field_delete_instance($instance);
+  field_delete_field($field['field_name']);
+}
+
+/**
+ * Issue siasar-project/admin#354: Creates a new temporary field for storage.
+ * This is the field to be migrated: field_com_num_viv_muestra
+ */
+function siasar_updates_update_7196(&$sandbox) {
+
+  $field = array(
+    'field_name' => 'field_com_num_viv_muestra_temp',
+    'type' => 'number_integer',
+    'settings' => array(
+      'min' => 0,
+    ),
+  );
+
+  $instance = array(
+    'field_name' => $field['field_name'],
+    'label' => 'Nº Viviendas de la muestra:',
+    'entity_type' => 'entityform',
+    'bundle' => 'comunidad',
+    'settings' => array('min' => '0', 'max' => '', 'prefix' => '', 'suffix' => ''),
+    'widget' => array(
+      'type' => 'number',
+    ),
+    'display' => array(
+      'default' => array(
+        'type' => 'number_integer',
+      ),
+    ),
+  );
+
+  return siasar_copy_field_data('field_com_num_viv_muestra', 'field_com_num_viv_muestra_temp', $field, $instance, array("TO_NUMBER(field_com_num_viv_muestra_value, '9999999999')" => 'field_com_num_viv_muestra_temp_value'));
+}
+
+/**
+ * Issue siasar-project/admin#354: Removes the wrong field and re-creates it
+ * migrating values.
+ */
+function siasar_updates_update_7197(&$sandbox) {
+
+  $field = array(
+    'field_name' => 'field_com_num_viv_muestra',
+    'type' => 'number_integer',
+    'settings' => array(
+      'min' => 0,
+    ),
+  );
+
+  $instance = array(
+    'field_name' => $field['field_name'],
+    'label' => 'Nº Viviendas de la muestra:',
+    'entity_type' => 'entityform',
+    'bundle' => 'comunidad',
+    'settings' => array('min' => '0', 'max' => '', 'prefix' => '', 'suffix' => ''),
+    'widget' => array(
+      'type' => 'number',
+    ),
+    'display' => array(
+      'default' => array(
+        'type' => 'number_integer',
+      ),
+    ),
+  );
+
+  return siasar_copy_field_data('field_com_num_viv_muestra_temp', 'field_com_num_viv_muestra', $field, $instance);
+}
+
+/**
+ * Issue siasar-project/admin#354: removes the temporary field.
+ */
+function siasar_updates_update_7198(&$sandbox) {
+
+  $field = array(
+    'field_name' => 'field_com_num_viv_muestra_temp',
+  );
+
+  $instance = array(
+    'field_name' => $field['field_name'],
+    'entity_type' => 'entityform',
+    'bundle' => 'comunidad',
+  );
+  field_delete_instance($instance);
+  field_delete_field($field['field_name']);
+}
+
+/**
+ * Enables the siasar_n11_manager module.
+ */
+function siasar_updates_update_7199() {
+  $modules = array(
+    'siasar_n11_manager'
+  );
+  module_enable($modules);
+}
+/**
+ * 734 - Provide a new login method for the API that does not use cookies
+ * Enables services_session_token_auth module.
+ *
+ * https://gitlab.com/siasar-project/admin/issues/734
+ */
+function siasar_updates_update_7200() {
+  $modules = array(
+    'services_session_token_auth'
+  );
+  module_enable($modules);
+
+  features_revert_module('feature_siasar_services');
+}
+
+/**
+ * Menu related Features rebuild
+ *
+ * @return void
+ */
+function siasar_updates_update_7201() {
+  features_revert_module('feature_siasar_menus');
+  features_revert_module('feature_siasar_theme_settings');
+}
+
+/**
+ * 742 - Bool fields output in preview should appear translated automatically, but they do not.
+ *
+ * https://gitlab.com/siasar-project/admin/issues/742
+ */
+function siasar_updates_update_7202() {
+  $modules = array(
+    'autotranslated_bool'
+  );
+  module_enable($modules);
+
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_entityform_prestador_servicio');
+}
+/**
+ * 739 - KG: Translations made but does not appear in the Admin panel
+ *
+ * https://gitlab.com/siasar-project/admin/issues/739
+ */
+function siasar_updates_update_7203() {
+  features_revert_module('feature_siasar_entityform_prestador_servicio');
+}
+
+/**
+ * Disabling Backup and Migrate module
+ */
+function siasar_updates_update_7204(&$sandbox) {
+  $modules = array(
+    'backup_migrate',
+  );
+  $result = module_disable($modules, TRUE);
+  $result = drupal_uninstall_modules($modules, TRUE);
+}
+/**
+ * 716 - Bad display config in Community: C3
+ *
+ * https://gitlab.com/siasar-project/admin/issues/716
+ */
+function siasar_updates_update_7205() {
+  features_revert_module('feature_siasar_entityform_comunidad');
+}
