@@ -1757,3 +1757,14 @@ function siasar_updates_update_7204(&$sandbox) {
 function siasar_updates_update_7205() {
   features_revert_module('feature_siasar_entityform_comunidad');
 }
+/**
+ * 714 - Make Units translatable
+ *
+ * https://gitlab.com/siasar-project/admin/issues/714
+ */
+function siasar_updates_update_7206() {
+  $modules = array(
+    'i18n_unit'
+  );
+  module_enable($modules);
+}

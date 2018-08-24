@@ -1,0 +1,9 @@
+name = Enables multilingual Units of measurement
+description = Integrates Units of measurement with i18n for translation.
+dependencies[] = units
+dependencies[] = mvf
+dependencies[] = i18n_string
+files[] = includes/I18nUnitStringController.inc
+package = Multilingual - Internationalization
+core = 7.x
+version = 7.x-1.0
