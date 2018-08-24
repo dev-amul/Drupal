@@ -39,7 +39,7 @@ function i18n_unit_entity_update($entity, $type) {
 
   // Account for name changes.
   if ($entity->original->type != $entity->type) {
-    i18n_string_update_context("unit:{$type}:{$entity->original->type}:*", "unit:{$type}:{$entity->type}:*");
+    i18n_string_update_context("units:{$type}:{$entity->original->type}:*", "units:{$type}:{$entity->type}:*");
   }
   i18n_string_object_update($type, $entity);
 }
@@ -71,3 +71,22 @@ function _i18n_unit_target_entities() {
 function _i18n_unit_is_unit_entity($type) {
   return in_array($type, _i18n_unit_target_entities());
 }
+
+/**
+ * Implementation of hook_preprocess_field()
+ *
+ * @param array $variables
+ * @return void
+ */
+function i18n_unit_preprocess_field(&$variables) {
+  if ($variables['element']['#formatter'] !== 'mvf_formatter_default')
+    return;
+
+  foreach ($variables['items'] as &$i) {
+    $unit_name = $i['unit'][0]['#item']['entity']->machine_name;
+    $string_location = "units:units_unit:{$unit_name}:label";
+
+    $i['unit'][0]['#label'] = i18n_string_translate($string_location, $i['unit'][0]['#label']);
+  }
+}
+
