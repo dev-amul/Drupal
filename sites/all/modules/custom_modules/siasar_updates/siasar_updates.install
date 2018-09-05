@@ -1768,3 +1768,16 @@ function siasar_updates_update_7206() {
   );
   module_enable($modules);
 }
+/**
+ * 739 - KG: Translations made but does not appear in the Admin panel
+ *
+ * https://gitlab.com/siasar-project/admin/issues/739
+ */
+function siasar_updates_update_7207() {
+  features_revert_module('feature_siasar_entityform_sistema');
+  features_revert_module('feature_siasar_entityform_comunidad');
+  features_revert_module('feature_siasar_entityform_prestador_asistencia_tecnica');
+  features_revert_module('feature_siasar_entityform_prestador_servicio');
+  features_revert_module('feature_siasar_entityform_water_quality');
+  features_revert_module('feature_siasar_user');
+}

@@ -1037,7 +1037,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 2,
       ),
       'entity_reference' => array(
@@ -2878,7 +2878,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 40,
       ),
       'entity_reference' => array(

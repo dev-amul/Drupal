@@ -1005,7 +1005,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 44,
       ),
       'entity_reference' => array(
@@ -1102,7 +1102,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 11,
       ),
       'entity_reference' => array(
@@ -1151,7 +1151,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 7,
       ),
       'entity_reference' => array(
@@ -1200,7 +1200,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 48,
       ),
       'entity_reference' => array(
@@ -1249,7 +1249,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 47,
       ),
       'entity_reference' => array(
@@ -1298,7 +1298,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 50,
       ),
       'entity_reference' => array(
@@ -1347,7 +1347,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 9,
       ),
       'entity_reference' => array(
@@ -1396,7 +1396,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 49,
       ),
       'entity_reference' => array(
@@ -2124,7 +2124,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 4,
       ),
       'entity_reference' => array(
