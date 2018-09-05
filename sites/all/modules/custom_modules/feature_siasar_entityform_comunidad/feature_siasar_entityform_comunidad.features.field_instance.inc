@@ -174,9 +174,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 8,
       ),
       'entity_reference' => array(
@@ -298,9 +298,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 4,
       ),
       'entity_reference' => array(
@@ -1751,9 +1751,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 19,
       ),
       'entity_reference' => array(
@@ -1789,9 +1789,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 22,
       ),
       'entity_reference' => array(
@@ -1827,9 +1827,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 20,
       ),
       'entity_reference' => array(
@@ -1865,9 +1865,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 21,
       ),
       'entity_reference' => array(
@@ -2806,9 +2806,9 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'i18n_field',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'i18n_list_default',
         'weight' => 76,
       ),
       'entity_reference' => array(
