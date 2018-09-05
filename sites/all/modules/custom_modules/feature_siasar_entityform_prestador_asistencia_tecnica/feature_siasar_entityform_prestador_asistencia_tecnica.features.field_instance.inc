@@ -748,9 +748,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 6,
       ),
       'entity_reference' => array(
@@ -835,9 +835,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 13,
       ),
       'entity_reference' => array(
@@ -878,9 +878,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 12,
       ),
       'entity_reference' => array(
@@ -921,9 +921,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 15,
       ),
       'entity_reference' => array(
@@ -964,9 +964,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 14,
       ),
       'entity_reference' => array(
@@ -1871,6 +1871,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -2079,9 +2080,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'i18n_field',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'i18n_list_default',
         'weight' => 41,
       ),
       'entity_reference' => array(
@@ -2215,6 +2216,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',

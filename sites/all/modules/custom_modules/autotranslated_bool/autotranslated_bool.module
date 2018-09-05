@@ -83,9 +83,35 @@ function autotranslated_bool_field_widget_form_alter(&$element, &$form_state, $c
 
   module_load_include('inc', 'autotranslated_bool', 'autotranslated_bool.helpers');
 
-  $current_setting = &$settings['autotranslated_bool'];
-  $options = _autotranslated_bool_string_list($current_setting);
+  $options = _autotranslated_bool_string_list($settings['autotranslated_bool']);
 
   $element['#options'][0] = t($options[0]);
   $element['#options'][1] = t($options[1]);
+}
+
+/**
+ * Implementation of module_implements_alter()
+ *
+ * @param array $implementations
+ * @param string $hook
+ * @return void
+ */
+function autotranslated_bool_module_implements_alter(&$implementations, $hook) {
+  if ($hook !== 'field_widget_form_alter' || !isset($implementations['i18n_field'])) return;
+
+  $new_implementations = array();
+
+  foreach($implementations as $key => $val) {
+    switch($key) {
+      case 'autotranslated_bool':
+        continue;
+      case 'i18n_field':
+        $new_implementations['i18n_field'] = $value;
+        $new_implementations['autotranslated_bool'] = false;
+        continue;
+      default:
+        $new_implementations[$key] = $value;
+    }
+    $implementations = $new_implementations;
+  }
 }
