@@ -1,0 +1,117 @@
+<?php
+
+define('AUTOTRANSLATED_BOOL_ONOFF', 'On / Off');
+define('AUTOTRANSLATED_BOOL_TRUEFALSE', 'True / False');
+define('AUTOTRANSLATED_BOOL_YESNO', 'Yes / No');
+
+/**
+ * Implementation of hook_field_formatter_info
+ */
+function autotranslated_bool_field_formatter_info() {
+  return array(
+    'autotranslated_bool' => array(
+      'label' => t('Autotranslated strings'),
+      'field types' => array('list_boolean'),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_field_info_alter()
+ */
+function autotranslated_bool_field_info_alter(&$info) {
+  $info['list_boolean']['settings']['autotranslated_bool'] = 'none';
+}
+
+/**
+ * Implementation of hook_form_FORM_ID_alter()
+ * @return void
+ */
+function autotranslated_bool_form_field_ui_field_edit_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#field']['type'] !== 'list_boolean') return;
+
+  module_load_include('inc', 'autotranslated_bool', 'autotranslated_bool.helpers');
+
+  $allowed_values_element = $form['field']['settings']['allowed_values'];
+  _autotranslated_bool_adapt_allowed_values_element($allowed_values_element);
+  unset($form['field']['settings']['allowed_values']);
+  $element = array(
+    '#type' => 'select',
+    '#title' => 'Autotranslated string',
+    '#description' => t('Display default text strings for values, and translate them automatically.<br/>PLEASE NOTICE: You have to choose Autotranslated Bool as display mode in Field Format (Manage Display section) for that to happen.'),
+    '#options' => _autotranslated_bool_get_options_for_form(true),
+    '#default_value' => $form['#field']['settings']['autotranslated_bool'],
+  );
+  $form['field']['settings']['autotranslated_bool'] = $element;  
+  $form['field']['settings']['allowed_values'] = $allowed_values_element;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function autotranslated_bool_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $elements = array();
+
+  if (empty($items) || $field['type'] !== 'list_boolean' || $display['type'] != 'autotranslated_bool')
+    return $elements;
+
+  $type = $field['settings']['autotranslated_bool'];
+  module_load_include('inc', 'autotranslated_bool', 'autotranslated_bool.helpers');
+
+  foreach ($items as $delta => $item) {
+    if (empty($item['value'])) {
+      continue;
+    }
+    $value = (int) $item['value'];
+    $options = _autotranslated_bool_string_list($type);
+    $elements[$delta] = array(
+      '#markup' => t($options[$value]),
+    );
+  }
+
+  return $elements;
+}
+
+/**
+ * Implementation of hook_field_widget_form_alter()
+ */
+function autotranslated_bool_field_widget_form_alter(&$element, &$form_state, $context) {
+  $current_field = &$context['field'];
+  $settings = &$current_field['settings'];
+  if ($current_field['type'] !== 'list_boolean' || !isset($settings['autotranslated_bool']) || $settings['autotranslated_bool'] === 'none')
+    return;
+
+  module_load_include('inc', 'autotranslated_bool', 'autotranslated_bool.helpers');
+
+  $options = _autotranslated_bool_string_list($settings['autotranslated_bool']);
+
+  $element['#options'][0] = t($options[0]);
+  $element['#options'][1] = t($options[1]);
+}
+
+/**
+ * Implementation of module_implements_alter()
+ *
+ * @param array $implementations
+ * @param string $hook
+ * @return void
+ */
+function autotranslated_bool_module_implements_alter(&$implementations, $hook) {
+  if ($hook !== 'field_widget_form_alter' || !isset($implementations['i18n_field'])) return;
+
+  $new_implementations = array();
+
+  foreach($implementations as $key => $val) {
+    switch($key) {
+      case 'autotranslated_bool':
+        continue;
+      case 'i18n_field':
+        $new_implementations['i18n_field'] = $value;
+        $new_implementations['autotranslated_bool'] = false;
+        continue;
+      default:
+        $new_implementations[$key] = $value;
+    }
+    $implementations = $new_implementations;
+  }
+}

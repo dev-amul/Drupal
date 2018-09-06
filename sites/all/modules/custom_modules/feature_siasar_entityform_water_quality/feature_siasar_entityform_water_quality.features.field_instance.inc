@@ -1037,7 +1037,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 2,
       ),
       'entity_reference' => array(
@@ -2151,9 +2151,9 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'countries',
+        'module' => 'countries_i18n',
         'settings' => array(),
-        'type' => 'country_default',
+        'type' => 'country_default_i18n',
         'weight' => 0,
       ),
       'entity_reference' => array(
@@ -2580,9 +2580,9 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'i18n_field',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'i18n_list_default',
         'weight' => 4,
       ),
       'entity_reference' => array(
@@ -2878,7 +2878,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 40,
       ),
       'entity_reference' => array(

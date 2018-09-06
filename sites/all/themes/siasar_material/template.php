@@ -57,7 +57,12 @@ function siasar_material_preprocess_field(&$variables) {
   _siasar_material_add_state_class_to_workflow_field($variables);
 }
 
-
+/**
+ * Implementation of theme_field()
+ *
+ * @param array $variables
+ * @return string
+ */
 function siasar_material_field($variables) {
   $output = '';
 

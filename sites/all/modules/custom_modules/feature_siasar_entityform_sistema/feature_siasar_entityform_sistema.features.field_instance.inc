@@ -156,9 +156,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 10,
       ),
       'entity_reference' => array(
@@ -198,9 +198,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 9,
       ),
       'entity_reference' => array(
@@ -1274,9 +1274,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 12,
       ),
       'entity_reference' => array(
@@ -1312,9 +1312,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 14,
       ),
       'entity_reference' => array(
@@ -1752,9 +1752,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'i18n_field',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'i18n_list_default',
         'weight' => 4,
       ),
       'entity_reference' => array(
@@ -1797,7 +1797,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 9,
       ),
       'entity_reference' => array(
@@ -2099,9 +2099,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 2,
       ),
     ),
@@ -2249,7 +2249,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 8,
       ),
     ),
@@ -2292,7 +2292,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 7,
       ),
     ),
@@ -2537,7 +2537,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 7,
       ),
     ),
@@ -2705,7 +2705,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 8,
       ),
     ),
@@ -2950,9 +2950,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'i18n_field',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'i18n_list_default',
         'weight' => 5,
       ),
     ),
@@ -3316,7 +3316,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 22,
       ),
     ),
@@ -3361,9 +3361,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 3,
       ),
     ),
@@ -3394,9 +3394,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'i18n_field',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'i18n_list_default',
         'weight' => 29,
       ),
     ),
@@ -3431,9 +3431,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 13,
       ),
     ),
@@ -3468,9 +3468,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 9,
       ),
     ),
@@ -3505,9 +3505,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 10,
       ),
     ),
@@ -3542,9 +3542,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 12,
       ),
     ),
@@ -3681,9 +3681,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 14,
       ),
     ),
@@ -3794,9 +3794,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 11,
       ),
     ),
@@ -3833,7 +3833,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 21,
       ),
     ),
@@ -3914,9 +3914,9 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'autotranslated_bool',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'autotranslated_bool',
         'weight' => 3,
       ),
     ),
@@ -4079,7 +4079,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 6,
       ),
     ),
@@ -4471,7 +4471,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 1,
       ),
     ),

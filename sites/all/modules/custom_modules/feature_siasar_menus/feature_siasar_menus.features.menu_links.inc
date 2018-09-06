@@ -28,7 +28,7 @@ function feature_siasar_menus_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -48,
     'customized' => 1,
     'language' => 'ru',
     'menu_links_customized' => 1,
@@ -51,7 +51,7 @@ function feature_siasar_menus_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -47,
     'customized' => 1,
     'language' => 'ru',
     'menu_links_customized' => 1,
@@ -74,7 +74,7 @@ function feature_siasar_menus_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -46,
     'customized' => 1,
     'language' => 'ru',
     'menu_links_customized' => 1,
@@ -120,7 +120,7 @@ function feature_siasar_menus_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -50,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -304,7 +304,7 @@ function feature_siasar_menus_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -46,
+    'weight' => -49,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -355,25 +355,6 @@ function feature_siasar_menus_menu_default_menu_links() {
     'language' => 'en',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: user-menu_log-out:user/logout.
-  $menu_links['user-menu_log-out:user/logout'] = array(
-    'menu_name' => 'user-menu',
-    'link_path' => 'user/logout',
-    'router_path' => 'user/logout',
-    'link_title' => 'Log out',
-    'options' => array(
-      'identifier' => 'user-menu_log-out:user/logout',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 10,
-    'customized' => 0,
-    'language' => 'und',
-    'menu_links_customized' => 0,
-  );
   // Exported menu link: user-menu_mis-borradores:drafts.
   $menu_links['user-menu_mis-borradores:drafts'] = array(
     'menu_name' => 'user-menu',
@@ -420,26 +401,6 @@ function feature_siasar_menus_menu_default_menu_links() {
     'language' => 'en',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: user-menu_user-account:user.
-  $menu_links['user-menu_user-account:user'] = array(
-    'menu_name' => 'user-menu',
-    'link_path' => 'user',
-    'router_path' => 'user',
-    'link_title' => 'User account',
-    'options' => array(
-      'alter' => TRUE,
-      'identifier' => 'user-menu_user-account:user',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -10,
-    'customized' => 0,
-    'language' => 'und',
-    'menu_links_customized' => 0,
-  );
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -448,12 +409,10 @@ function feature_siasar_menus_menu_default_menu_links() {
   t('Home');
   t('Inicio');
   t('Início');
-  t('Log out');
   t('Mis borradores');
   t('My drafts');
   t('Questionnaires');
   t('Questionários');
-  t('User account');
   t('Validación');
   t('Validation');
   t('Validação');
