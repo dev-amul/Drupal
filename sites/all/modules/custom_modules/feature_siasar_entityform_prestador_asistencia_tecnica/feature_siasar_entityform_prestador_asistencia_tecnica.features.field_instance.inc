@@ -748,9 +748,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'autotranslated_bool',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'autotranslated_bool',
+        'type' => 'list_default',
         'weight' => 6,
       ),
       'entity_reference' => array(
@@ -835,9 +835,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'autotranslated_bool',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'autotranslated_bool',
+        'type' => 'list_default',
         'weight' => 13,
       ),
       'entity_reference' => array(
@@ -878,9 +878,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'autotranslated_bool',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'autotranslated_bool',
+        'type' => 'list_default',
         'weight' => 12,
       ),
       'entity_reference' => array(
@@ -921,9 +921,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'autotranslated_bool',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'autotranslated_bool',
+        'type' => 'list_default',
         'weight' => 15,
       ),
       'entity_reference' => array(
@@ -964,9 +964,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'autotranslated_bool',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'autotranslated_bool',
+        'type' => 'list_default',
         'weight' => 14,
       ),
       'entity_reference' => array(
@@ -1102,7 +1102,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_plain',
+        'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 11,
       ),
       'entity_reference' => array(
@@ -1200,7 +1200,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_plain',
+        'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 48,
       ),
       'entity_reference' => array(
@@ -1249,7 +1249,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_plain',
+        'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 47,
       ),
       'entity_reference' => array(
@@ -1298,7 +1298,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_plain',
+        'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 50,
       ),
       'entity_reference' => array(
@@ -1396,7 +1396,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_plain',
+        'type' => 'i18n_taxonomy_term_reference_link',
         'weight' => 49,
       ),
       'entity_reference' => array(
@@ -1552,12 +1552,59 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'geofield',
+        'module' => 'leaflet',
         'settings' => array(
-          'data' => 'full',
+          'height' => 400,
+          'icon' => array(
+            'html' => '',
+            'htmlClass' => '',
+            'iconAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'iconImageStyle' => '',
+            'iconSize' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'iconType' => 'marker',
+            'iconUrl' => '',
+            'popupAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'shadowAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'shadowUrl' => '',
+          ),
+          'leaflet_map' => 'OSM Mapnik',
+          'popup' => array(
+            'show' => 0,
+            'text' => '',
+          ),
+          'vector_display' => array(
+            'clickable' => 0,
+            'color' => '',
+            'dashArray' => '',
+            'fill' => 0,
+            'fillColor' => '',
+            'fillOpacity' => '',
+            'opacity' => '',
+            'stroke' => 0,
+            'stroke_override' => 0,
+            'weight' => '',
+          ),
+          'zoom' => array(
+            'initialZoom' => -1,
+            'maxZoom' => -1,
+            'minZoom' => 1,
+            'scrollWheelZoom' => 1,
+          ),
         ),
-        'type' => 'geofield_wkt',
-        'weight' => 52,
+        'type' => 'geofield_leaflet',
+        'weight' => 45,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -2080,9 +2127,9 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'i18n_field',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'i18n_list_default',
+        'type' => 'list_default',
         'weight' => 41,
       ),
       'entity_reference' => array(
