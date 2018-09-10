@@ -47,12 +47,42 @@ function siasar_material_field($variables) {
  * @return void
  */
 function siasar_material_field_widget_form_alter(&$element, &$form_state, $context) {
-  $fieldname = &$element['#field_name'];
-  $entity = &$element['#entity']->type;
+  $fieldname = $context['field']['field_name'];
+  $entity = $context['instance']['bundle'];
   $string = &$element['#title'];
   $string_context = "field:${fieldname}:${entity}:label";
 
-  $element['#title'] = i18n_string_translate($string_context, $string);
+  $translated_string = i18n_string_translate($string_context, $string);
+
+  $targets = _siasar_material_field_widget_populate_label_targets($element);
+
+  foreach($targets as &$t) {
+    $t = $translated_string;
+  }
+}
+
+/**
+ * Helper function to populate the list of places where the field label can be.
+ *
+ * @param array $element
+ * @return array
+ */
+function _siasar_material_field_widget_populate_label_targets(&$element) {
+  $targets = array();
+  if(isset($element['#title'])) {
+    $targets[] = &$element['#title'];
+  }
+  if(isset($element['geom']['#title'])) {
+    $targets[] = &$element['geom']['#title'];
+  }
+  if(isset($element['value']['#title'])) {
+    $targets[] = &$element['value']['#title'];
+  }
+  if(isset($element[0]['#title'])) {
+    $targets[] = &$element[0]['#title'];
+  }
+
+  return $targets;
 }
 
 /**
