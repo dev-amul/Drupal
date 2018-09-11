@@ -52,46 +52,10 @@ function siasar_material_preprocess_entity(&$variables) {
 
 /**
  * Implementation of hook_preprocess_field()
+ * This hook works only for Field render, not for field edit widgets.
  */
 function siasar_material_preprocess_field(&$variables) {
   _siasar_material_add_state_class_to_workflow_field($variables);
-}
-
-/**
- * Implementation of theme_field()
- *
- * @param array $variables
- * @return string
- */
-function siasar_material_field($variables) {
-  $output = '';
-
-  // Render the label, if it's not hidden.
-  if (!$variables['label_hidden']) {
-    $output .= '<div class="field-label"' . $variables['title_attributes'] . '>' . $variables['label'] . ':&nbsp;</div>';
-  }
-
-  $items_tag = ($variables['element']['#field_type'] === 'field_collection')
-    ? 'ol'
-    : 'div';
-
-  // Render the items.
-  $output .= '<' . $items_tag . ' class="field-items"' . $variables['content_attributes'] . '>';
-
-  if (count($variables['items']) > 1) {
-    foreach ($variables['items'] as $delta => $item) {
-      $classes = 'field-item ' . ($delta % 2 ? 'odd' : 'even');
-      $output .= '<div class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</div>';
-    }
-  } else {
-    $output .= drupal_render($variables['items'][0]);
-  }
-  $output .= '</' . $items_tag . '>';
-
-  // Render the top-level DIV.
-  $output = '<div class="' . $variables['classes'] . '"' . $variables['attributes'] . '>' . $output . '</div>';
-
-  return $output;
 }
 
 
