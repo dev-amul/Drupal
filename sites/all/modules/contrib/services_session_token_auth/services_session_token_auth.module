@@ -30,6 +30,7 @@ function _services_session_token_auth_authenticate_call($module, $controller) {
       $user = drupal_anonymous_user();
       $user->timestamp = time();
       session_id(drupal_random_key());
+      return;
     }
     // Else, if session is sent, load user.
     elseif(isset($_SERVER['HTTP_X_USER_SESSION_TOKEN']) && !empty($_SERVER['HTTP_X_USER_SESSION_TOKEN'])) {
@@ -94,7 +95,7 @@ function _services_session_token_auth_authenticate_call($module, $controller) {
 
   // Check CSRF Token
   $non_safe_method_called = !in_array($_SERVER['REQUEST_METHOD'], array('GET', 'HEAD', 'OPTIONS', 'TRACE')) && (!isset($controller['csrf validation']) || $controller['csrf validation']) ;
-  $csrf_token_invalid = !isset($_SERVER['HTTP_X_CSRF_TOKEN']) || !drupal_valid_token($_SERVER['HTTP_X_CSRF_TOKEN'], 'services');
+  $csrf_token_invalid = !isset($_SERVER['HTTP_X_CSRF_TOKEN']) || !drupal_valid_token($_SERVER['HTTP_X_CSRF_TOKEN'], 'services', true);
   if ($non_safe_method_called && $csrf_token_invalid) {
     return t('CSRF validation failed');
   }
