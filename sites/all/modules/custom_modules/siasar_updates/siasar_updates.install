@@ -1781,3 +1781,18 @@ function siasar_updates_update_7207() {
   features_revert_module('feature_siasar_entityform_water_quality');
   features_revert_module('feature_siasar_user');
 }
+/**
+ * 753 - Transliteration for uploaded files
+ *
+ * https://gitlab.com/siasar-project/admin/issues/753
+ */
+function siasar_updates_update_7208() {
+  $modules = array(
+    'transliteration'
+  );
+  module_enable($modules);
+
+  module_load_include('inc', 'transliteration', 'transliteration.admin');
+  $null = null;
+  transliteration_retroactive_submit($null, $null);
+}
