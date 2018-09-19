@@ -196,7 +196,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 12,
       ),
       'entity_reference' => array(
@@ -244,7 +244,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 22,
       ),
       'entity_reference' => array(
@@ -477,7 +477,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 21,
       ),
       'entity_reference' => array(

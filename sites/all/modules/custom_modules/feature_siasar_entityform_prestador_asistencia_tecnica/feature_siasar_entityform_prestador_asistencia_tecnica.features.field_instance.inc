@@ -1005,7 +1005,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 44,
       ),
       'entity_reference' => array(
@@ -1151,7 +1151,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 7,
       ),
       'entity_reference' => array(
@@ -1347,7 +1347,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 9,
       ),
       'entity_reference' => array(
@@ -1552,12 +1552,59 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'geofield',
+        'module' => 'leaflet',
         'settings' => array(
-          'data' => 'full',
+          'height' => 400,
+          'icon' => array(
+            'html' => '',
+            'htmlClass' => '',
+            'iconAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'iconImageStyle' => '',
+            'iconSize' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'iconType' => 'marker',
+            'iconUrl' => '',
+            'popupAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'shadowAnchor' => array(
+              'x' => '',
+              'y' => '',
+            ),
+            'shadowUrl' => '',
+          ),
+          'leaflet_map' => 'OSM Mapnik',
+          'popup' => array(
+            'show' => 0,
+            'text' => '',
+          ),
+          'vector_display' => array(
+            'clickable' => 0,
+            'color' => '',
+            'dashArray' => '',
+            'fill' => 0,
+            'fillColor' => '',
+            'fillOpacity' => '',
+            'opacity' => '',
+            'stroke' => 0,
+            'stroke_override' => 0,
+            'weight' => '',
+          ),
+          'zoom' => array(
+            'initialZoom' => -1,
+            'maxZoom' => -1,
+            'minZoom' => 1,
+            'scrollWheelZoom' => 1,
+          ),
         ),
-        'type' => 'geofield_wkt',
-        'weight' => 52,
+        'type' => 'geofield_leaflet',
+        'weight' => 45,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -1871,6 +1918,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -2124,7 +2172,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 4,
       ),
       'entity_reference' => array(
@@ -2215,6 +2263,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',

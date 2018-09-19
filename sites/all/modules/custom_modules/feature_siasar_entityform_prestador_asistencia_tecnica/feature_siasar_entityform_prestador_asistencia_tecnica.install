@@ -1,9 +1,9 @@
 <?php
 
 /**
- * 627 - [PAT] Añadir campos altura y geolocalización
- * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/627
+ * 749 - [PAT] Añadir mapa y punto GPS e la vista de encuesta de PAT
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/749
  */
-function feature_siasar_entityform_prestador_asistencia_tecnica_update_7100($sandbox) {
+function feature_siasar_entityform_prestador_asistencia_tecnica_update_7101($sandbox) {
   features_revert_module('feature_siasar_entityform_prestador_asistencia_tecnica');
 }
