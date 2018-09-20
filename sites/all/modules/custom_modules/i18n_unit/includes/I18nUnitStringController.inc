@@ -8,7 +8,9 @@ class I18nUnitStringController extends EntityDefaultI18nStringController {
     $path = parent::menuBasePath();
 
     $e = &$this->entityInfo;
-    $bundle = arg($e['translation']['entity_translation']['bundle argument']);
+    $bundle = isset($e['translation']['entity_translation']['bundle argument'])
+      ? arg($e['translation']['entity_translation']['bundle argument'])
+      : null;
     $bundles = array_keys($e['bundles']);
     $wildcard = '%units_measure_machine_name';
 
