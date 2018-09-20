@@ -1812,4 +1812,6 @@ function siasar_updates_update_7209() {
   );
   $result = module_disable($modules, TRUE);
   $result = drupal_uninstall_modules($modules, TRUE);
+
+  features_revert_module('feature_siasar_services');
 }
