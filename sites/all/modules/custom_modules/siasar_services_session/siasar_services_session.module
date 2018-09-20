@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * Module file for services_session_token_auth module.
+ * Module file for siasar_services_session module.
  */
 
 /**
  * Implements hook_services_authentication().
  */
-function services_session_token_auth_services_authentication_info() {
+function siasar_services_session_services_authentication_info() {
   return array(
     'title'            => t('SIASAR Session Token authentication'),
     'description'      => t('If no session cookie is provided, use token to authenticate a user.'),
@@ -34,7 +34,7 @@ function _siasar_services_session_authenticate_call($module, $controller) {
   if ($controller['callback'] != '_user_resource_get_token') {
     // If no token is sent, load anonymous.
     if (!isset($_SERVER['HTTP_X_USER_SESSION_TOKEN'])) {
-      _services_session_token_auth_load_anonymous();
+      _siasar_services_session_load_anonymous();
       return;
     }
     // Else, if session is sent, load user.
@@ -76,11 +76,11 @@ function _siasar_services_session_authenticate_call($module, $controller) {
       elseif ($user) {
         // The user is anonymous or blocked. Only preserve two fields from the
         // {sessions} table.
-        _services_session_token_auth_load_anonymous($user->session);
+        _siasar_services_session_load_anonymous($user->session);
       }
       else {
         // The session has expired.
-        _services_session_token_auth_load_anonymous();
+        _siasar_services_session_load_anonymous();
       }
 
       // Store the session that was read for comparison in _drupal_session_write().
@@ -105,7 +105,7 @@ function _siasar_services_session_authenticate_call($module, $controller) {
  *
  * @return void
  */
-function _services_session_token_auth_load_anonymous($session = '') {
+function _siasar_services_session_load_anonymous($session = '') {
   global $user;
   $user = drupal_anonymous_user();
   $user->timestamp = time();
@@ -113,6 +113,6 @@ function _services_session_token_auth_load_anonymous($session = '') {
   session_id(drupal_random_key());
 }
 
-function services_session_token_auth_get_tokens() {
+function siasar_services_session_get_tokens() {
   return array("session_token" => drupal_get_token('services'), 'session_id' => session_id());
 }
