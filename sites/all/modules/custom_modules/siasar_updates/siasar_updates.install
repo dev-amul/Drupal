@@ -1796,3 +1796,20 @@ function siasar_updates_update_7208() {
   $null = null;
   transliteration_retroactive_submit($null, $null);
 }
+/**
+ * 726 - Transliteration for uploaded files
+ *
+ * https://gitlab.com/siasar-project/admin/issues/726
+ */
+function siasar_updates_update_7209() {
+  $modules = array(
+    'siasar_services_session'
+  );
+  module_enable($modules);
+
+  $modules = array(
+    'services_session_token_auth',
+  );
+  $result = module_disable($modules, TRUE);
+  $result = drupal_uninstall_modules($modules, TRUE);
+}
