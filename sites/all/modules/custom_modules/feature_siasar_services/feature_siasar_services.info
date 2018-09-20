@@ -8,7 +8,6 @@ dependencies[] = ctools
 dependencies[] = currency
 dependencies[] = rest_server
 dependencies[] = services
-dependencies[] = services_session_token_auth
 dependencies[] = siasar_services_session
 dependencies[] = strongarm
 features[ctools][] = services:services:3
