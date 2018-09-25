@@ -15,7 +15,7 @@ function feature_siasar_services_services_entity_resource_info() {
 
   $result['siasar_entity_processor'] = array(
     'title' => 'SIASAR Entity Processor',
-    'description' => 'Acts as a generic wrapper for entities. Data structures are exactly what they are in Drupal.',
+    'description' => 'SIASAR wrapper for entities built on top of Services Clean controller. Data structures are exactly what they are in Drupal.',
     'class' => 'SIASARServicesEntityResourceController',
   );
 

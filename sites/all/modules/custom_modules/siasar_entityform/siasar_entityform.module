@@ -286,11 +286,12 @@ function siasar_process_pending_computable_entityforms($items = 30) {
  */
 function siasar_entityform_query_services_index_entityform_alter(QueryAlterableInterface $query) {
   $computable = isset($_GET['computable'])
-    ? $_GET['computable']
+    ? (int) $_GET['computable']
     : 1;
 
   if ($query instanceof SelectQueryInterface && $computable != 'all') {
-    $computable = (int) $computable;
+    _siasar_entityform_add_entityform_table_to_query_if_needed($query);
+
     $query->innerJoin('entityform_computable_states', 'efcs', 'efcs.entityform_id = entityform.entityform_id');
 
     $where = 'efcs.computable = ' . $computable;
@@ -300,6 +301,20 @@ function siasar_entityform_query_services_index_entityform_alter(QueryAlterableI
       $where .= ' and efr.vid = efcs.entityform_revision';
     }
     $query->where($where);
+  }
+}
+/**
+ * Helper function adds entityform table to query if needed. Required to be able to use parameters in data request.
+ *
+ * @param SelectQueryInterface $query
+ * @return void
+ */
+function _siasar_entityform_add_entityform_table_to_query_if_needed($query) {
+  $tables = $query->getTables();
+  $tablenames = array_keys($tables);
+  if(!in_array('entityform', $tablenames)) {
+    $first_table = $tables[$tablenames[0]]['alias'];
+    $query->innerJoin('entityform', 'entityform', 'entityform.entityform_id = ' . $first_table . '.entity_id AND ' . $first_table . ".entity_type = 'entityform'");
   }
 }
 
