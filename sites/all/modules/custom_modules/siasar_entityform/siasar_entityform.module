@@ -286,10 +286,12 @@ function siasar_process_pending_computable_entityforms($items = 30) {
  */
 function siasar_entityform_query_services_index_entityform_alter(QueryAlterableInterface $query) {
   $computable = isset($_GET['computable'])
-    ? (int) $_GET['computable']
+    ? $_GET['computable']
     : 1;
 
   if ($query instanceof SelectQueryInterface && $computable != 'all') {
+    $computable = (int) $computable;
+
     _siasar_entityform_add_entityform_table_to_query_if_needed($query);
 
     $query->innerJoin('entityform_computable_states', 'efcs', 'efcs.entityform_id = entityform.entityform_id');
