@@ -45,7 +45,11 @@ class UnitsUnitUIController extends UnitsAbstractUIController {
     // parent's method, rather than running our own EntityFieldQuery and then
     // building the overview table.
     $conditions[$this->entityInfo['entity keys']['bundle']] = $this->bundleArgument();
-    return parent::overviewTable($conditions);
+    $render = parent::overviewTable($conditions);
+
+    $render['#attached']['css'][] = drupal_get_path('module', 'units_ui') . '/css/units-overview.css';
+
+    return $render;
   }
 
   /**
@@ -64,6 +68,26 @@ class UnitsUnitUIController extends UnitsAbstractUIController {
     return parent::entityFormSubmitBuildEntity($form, $form_state);
   }
 
+  public function overviewTableHeaders($conditions, $rows, $additional_header = array()) {
+    if ($this->isFactorBased()) {
+      $additional_header[] = array(
+        'data' => t('Factor'),
+        'class' => array('units-overview-factor'),
+      );
+    }
+    return parent::overviewTableHeaders($conditions, $rows, $additional_header);
+  }
+
+  public function overviewTableRow($conditions, $id, $entity, $additional_cols = array()) {
+    if ($this->isFactorBased()) {
+      $additional_cols[] = array(
+        'data' => check_plain($entity->factor),
+        'class' => array('units-overview-factor'),
+      );
+    }
+    return parent::overviewTableRow($conditions, $id, $entity, $additional_cols);
+  }
+
   /**
    * Supportive function.
    *
@@ -73,6 +97,26 @@ class UnitsUnitUIController extends UnitsAbstractUIController {
     // We have defined a custom property 'path bundle argument position' in
     // hook_entity_info(), of which we now take advantage.
     return $this->entityInfo['admin ui']['path bundle argument position'];
+  }
+
+  /**
+   * Retrieve the bundle (measure) entity whose units are being administered.
+   *
+   * @return Entity
+   *   Measure entity whose units are being administered
+   */
+  protected function getBundleEntity() {
+    return units_measure_machine_name_load($this->bundleArgument());
+  }
+
+  /**
+   * Determine whether the currently administered measure is based on factors.
+   *
+   * @return bool
+   *   Whether the currently administered measure is based on factors
+   */
+  protected function isFactorBased() {
+    return $this->getBundleEntity()->converter == 'linear';
   }
 
 }
