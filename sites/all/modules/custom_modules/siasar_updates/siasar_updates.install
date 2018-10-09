@@ -1826,5 +1826,4 @@ function siasar_updates_update_7210() {
   );
   $result = module_disable($modules, TRUE);
   $result = drupal_uninstall_modules($modules, TRUE);
-
 }
