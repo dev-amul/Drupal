@@ -90,3 +90,24 @@ function i18n_unit_preprocess_field(&$variables) {
   }
 }
 
+/**
+ * Implementation of hook_form_alter()
+ * This makes Unit types and unit names appear translated in admin panel
+ */
+function i18n_unit_form_units_unit_overview_form_alter(&$form, $form_state, $form_id) {
+  $header = &$form['table']['#header'];
+  $rows = &$form['table']['#rows'];
+
+  foreach($rows as &$row) {
+    $unit_label = &$row[0]['data']['#label'];
+    $unit_name = &$row[0]['data']['#name'];
+    $string_location = "units:units_unit:{$unit_name}:label";
+
+    $translation = i18n_string_translate($string_location, $label);
+
+    $unit_label = empty($translation)
+      ? $unit_label
+      : $translation;
+  }
+
+}
