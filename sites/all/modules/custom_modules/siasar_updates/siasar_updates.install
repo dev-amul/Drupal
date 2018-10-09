@@ -1815,3 +1815,16 @@ function siasar_updates_update_7209() {
 
   features_revert_module('feature_siasar_services');
 }
+/**
+ * 691 - Eliminar el módulo Units UI Show Factors
+ *
+ * https://gitlab.com/siasar-project/admin/issues/691
+ */
+function siasar_updates_update_7210() {
+  $modules = array(
+    'units_ui_show_factors',
+  );
+  $result = module_disable($modules, TRUE);
+  $result = drupal_uninstall_modules($modules, TRUE);
+
+}
