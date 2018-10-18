@@ -29,7 +29,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 20,
+        'weight' => 7,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -69,7 +69,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
           'data' => 'full',
         ),
         'type' => 'geofield_wkt',
-        'weight' => 16,
+        'weight' => 6,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -115,7 +115,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 13,
+        'weight' => 3,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -146,6 +146,53 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'entityform-testingpurposes-field_closed_revisions'.
+  $field_instances['entityform-testingpurposes-field_closed_revisions'] = array(
+    'bundle' => 'testingpurposes',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number_unformatted',
+        'weight' => 1,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_closed_revisions',
+    'label' => 'Revisiones cerradas',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'number_unformatted',
+        'formatter_settings' => array(),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 28,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-testingpurposes-field_com_srv_telf_existe'.
   $field_instances['entityform-testingpurposes-field_com_srv_telf_existe'] = array(
     'bundle' => 'testingpurposes',
@@ -158,7 +205,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 15,
+        'weight' => 5,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -197,7 +244,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_plain',
-        'weight' => 12,
+        'weight' => 2,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -245,7 +292,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_plain',
-        'weight' => 22,
+        'weight' => 9,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -345,7 +392,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 14,
+        'weight' => 4,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -397,7 +444,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'module' => 'countries',
         'settings' => array(),
         'type' => 'country_default',
-        'weight' => 23,
+        'weight' => 10,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -435,7 +482,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 24,
+        'weight' => 11,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -461,7 +508,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'name_as_title' => 1,
       ),
       'type' => 'workflow_default',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -478,7 +525,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_plain',
-        'weight' => 21,
+        'weight' => 8,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -529,7 +576,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 26,
+        'weight' => 12,
       ),
       'entity_reference' => array(
         'label' => 'above',
@@ -575,6 +622,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
   t('Localidad');
   t('Nombre');
   t('País');
+  t('Revisiones cerradas');
   t('Se posee de servicios de telefonía fija');
   t('Status');
   t('Tipo de sistema de abastecimiento de agua');

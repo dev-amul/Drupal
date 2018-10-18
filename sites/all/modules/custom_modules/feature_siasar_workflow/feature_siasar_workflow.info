@@ -1,0 +1,15 @@
+name = Feature SIASAR Workflow
+description = Workflow configuration for all entityforms
+core = 7.x
+package = SIASAR
+version = 7.x-1.0
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = workflow
+features[features_api][] = api:2
+features[user_permission][] = edit workflow comment
+features[user_permission][] = participate in workflow
+features[user_permission][] = schedule workflow transitions
+features[user_permission][] = show workflow state form
+features_exclude[dependencies][feature_siasar_testing_form_workflow] = feature_siasar_testing_form_workflow
+project path = sites/all/modules/custom_modules

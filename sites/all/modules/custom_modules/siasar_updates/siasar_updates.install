@@ -1839,3 +1839,17 @@ function siasar_updates_update_7211() {
   $result = module_disable($modules, TRUE);
   $result = drupal_uninstall_modules($modules, TRUE);
 }
+/**
+ * 760 - Find a way to label a survey as closed, and any change following it as "update"
+ *
+ * https://gitlab.com/siasar-project/admin/issues/760
+ */
+function siasar_updates_update_7212() {
+  $modules = array(
+    'feature_siasar_workflow',
+  );
+  $result = module_enable($modules, TRUE);
+
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_testing_form_workflow');
+}
