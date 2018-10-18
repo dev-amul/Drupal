@@ -1828,7 +1828,7 @@ function siasar_updates_update_7210() {
   $result = drupal_uninstall_modules($modules, TRUE);
 }
 /**
- * Disable Feeds module .We're not using it.
+ * Disable Feeds module. We're not using it.
  */
 function siasar_updates_update_7211() {
   $modules = array(
