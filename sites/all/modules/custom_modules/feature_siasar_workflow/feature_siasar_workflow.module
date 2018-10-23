@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the Feature SIASAR Workflow feature.
+ * Drupal needs this blank file.
  */
 
 include_once 'feature_siasar_workflow.features.inc';
@@ -10,30 +10,15 @@ include_once 'feature_siasar_workflow.features.inc';
  * Custom logic to deal with the new field, which will store closed versions.
  */
 function feature_siasar_workflow_entityform_presave($entityform) {
+  module_load_include('inc', 'feature_siasar_workflow', 'inc/feature_siasar_workflow.helpers');
+
   $wrapper = $entityform->wrapper();
   $closed = $wrapper->field_closed_revisions->value();
-  $workflow_states = workflow_state_load_multiple(1);
+  $entityform_workflow = workflow_load_multiple_by_name(array('entityforms'))['entityforms'];
+
   $entity_history = _feature_siasar_workflow_get_entityform_revisions_history($entityform->entityform_id);
-}
 
+  $closed_revisions = _feature_siasar_workflow_find_closed_revisions($entity_history, $entityform_workflow);
 
-/**
- * Helper function to retrieve an entityform's history of revisions.
- *
- * @param int $entity_id
- *
- * @return array
- */
-function _feature_siasar_workflow_get_entityform_revisions_history($entity_id) {
-  $info = entity_get_info('entityform');
-
-  $revisions = db_select($info['revision table'], 'r')
-    ->fields('r', array($info['entity keys']['revision']))
-    ->condition($info['entity keys']['id'], $entity_id)
-    ->execute()
-    ->fetchAllAssoc($info['entity keys']['revision']);
-
-  $revisions_vid = array_keys($revisions);
-
-  return array_keys($revisions);
+  $closed = $closed_revisions;
 }
