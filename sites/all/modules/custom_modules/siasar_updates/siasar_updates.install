@@ -1846,7 +1846,7 @@ function siasar_updates_update_7211() {
  */
 function siasar_updates_update_7212() {
   $modules = array(
-    'feature_siasar_workflow',
+    'siasar_workflow',
   );
   $result = module_enable($modules, TRUE);
 
