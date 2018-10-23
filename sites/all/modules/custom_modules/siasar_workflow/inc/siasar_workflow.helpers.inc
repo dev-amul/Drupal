@@ -9,7 +9,7 @@
  *
  * @return array
  */
-function _feature_siasar_workflow_get_entityform_revisions_history($entity_id) {
+function _siasar_workflow_get_entityform_revisions_history($entity_id) {
   $info = entity_get_info('entityform');
 
   $revisions = db_select($info['revision table'], 'r')
@@ -36,9 +36,9 @@ function _feature_siasar_workflow_get_entityform_revisions_history($entity_id) {
  * @param object $workflow
  * @return array
  */
-function _feature_siasar_workflow_find_closed_revisions($history, $workflow) {
-  $validated_sid = _feature_siasar_workflow_find_state_sid($workflow->states, 'validated');
-  $draft_sid = _feature_siasar_workflow_find_state_sid($workflow->states, 'draft');
+function _siasar_workflow_find_closed_revisions($history, $workflow) {
+  $validated_sid = _siasar_workflow_find_state_sid($workflow->states, 'validated');
+  $draft_sid = _siasar_workflow_find_state_sid($workflow->states, 'draft');
 
   $closed_revisions = array();
 
@@ -65,7 +65,7 @@ function _feature_siasar_workflow_find_closed_revisions($history, $workflow) {
  * @param [type] $state
  * @return void
  */
-function _feature_siasar_workflow_find_state_sid($states_list, $state) {
+function _siasar_workflow_find_state_sid($states_list, $state) {
   foreach($states_list as $item) {
     if($item->name == $state)
       return $item->sid;
