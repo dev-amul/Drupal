@@ -4,8 +4,6 @@
  * Drupal needs this blank file.
  */
 
-include_once 'siasar_workflow.features.inc';
-
 /**
  * Custom logic to deal with the new field, which will store closed versions.
  */
