@@ -10,13 +10,15 @@
 function siasar_workflow_entityform_presave($entityform) {
   module_load_include('inc', 'siasar_workflow', 'inc/siasar_workflow.helpers');
 
+  if ($entityform->entityform_id === '' || _siasar_workflow_check_transition($entityform, 'validated', 'closed') === false)
+    return;
+
   $wrapper = $entityform->wrapper();
   $closed = $wrapper->field_closed_revisions->value();
-  $entityform_workflow = workflow_load_multiple_by_name(array('entityforms'))['entityforms'];
 
-  $entity_history = _siasar_workflow_get_entityform_revisions_history($entityform->entityform_id);
+  $closed[] = $entityform->vid;
+  $wrapper->field_closed_revisions->set($closed);
 
-  $closed_revisions = _siasar_workflow_find_closed_revisions($entity_history, $entityform_workflow);
-
-  $closed = $closed_revisions;
+  $entityform->revision = true;
+  $entityform->is_new_revision = true;
 }
