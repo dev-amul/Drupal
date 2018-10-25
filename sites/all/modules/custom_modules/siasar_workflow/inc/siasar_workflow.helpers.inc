@@ -98,3 +98,21 @@ function _siasar_workflow_find_state_sid($states_list, $state) {
   }
   return false;
 }
+
+/**
+ * Helper function to get all revisions' VIDs and timestamps
+ *
+ * @param int $entityform_id
+ * @return array
+ */
+function _siasar_workflow_get_revision_data($entityform_id) {
+  $query = db_select('entityform_revision', 'r')
+    ->fields('r')
+    ->condition('entityform_id', $entityform_id, '=');
+
+  $result = $query
+    ->execute()
+    ->fetchAllAssoc('vid');
+
+  return $result;
+}

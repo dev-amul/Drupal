@@ -1839,6 +1839,15 @@ body.page-entityform-workflow #block-system-main .content .workflow-transition-e
   display: inline-block;
 }
 
+body.page-entityform-view .field-name-field-closed-revisions .field-item {
+  margin-bottom: 0.5em;
+}
+body.page-entityform-view .field-name-field-closed-revisions .date {
+  padding-left: 10px;
+  font-size: 80%;
+  color: #666;
+}
+
 .workflow-transition-container .form-item-workflow-comment,
 .workflow-transition-container .form-item-field-status-und-0-workflow-workflow-comment {
   display: none;

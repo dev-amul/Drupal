@@ -22,3 +22,28 @@ function siasar_workflow_entityform_presave($entityform) {
   $entityform->revision = true;
   $entityform->is_new_revision = true;
 }
+
+/**
+ * Implementation of hook_preprocess_field()
+ */
+function siasar_workflow_preprocess_field(&$vars) {
+  if ($vars['element']['#field_name'] != 'field_closed_revisions')
+    return;
+
+  module_load_include('inc', 'siasar_workflow', 'inc/siasar_workflow.helpers');
+
+  $el = &$vars['element'];
+  $entityform_id = $el['#object']->entityform_id;
+
+  $values = &$vars['items'];
+  $all_revisions = _siasar_workflow_get_revision_data($entityform_id);
+
+  foreach ($values as &$v) {
+    $vid = (int) $v['#markup'];
+    $timestamp = $all_revisions[$vid]->changed;
+    $path = base_path() . 'entityform/'. $entityform_id . '/revisions/' . $vid . '/view';
+
+    $v['#markup'] = l($vid, $path) . ' <span class="date">' . format_date($timestamp, 'short') . '</span>';
+  }
+
+}
