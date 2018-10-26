@@ -11,19 +11,19 @@
  * @return bool
  */
 function _siasar_workflow_check_transition($entityform, $from, $to) {
-  if (!isset($entityform->field_status[LANGUAGE_NONE][0]['workflow']['workflow_sid']))
+  if (!isset($entityform->field_status[LANGUAGE_NONE][0]['workflow']['workflow_sid'])
+    || !isset($entityform->field_status[LANGUAGE_NONE][0]['value']))
     return false;
 
-  $entityform_workflow = workflow_load_multiple_by_name(array('entityforms'))['entityforms'];
   $transition = array(
-    'old' => $entityform->field_status[LANGUAGE_NONE][0]['value'],
-    'new' => $entityform->field_status[LANGUAGE_NONE][0]['workflow']['workflow_sid']
+    'old' => (int) $entityform->field_status[LANGUAGE_NONE][0]['value'],
+    'new' => (int) $entityform->field_status[LANGUAGE_NONE][0]['workflow']['workflow_sid']
   );
 
-  $from_sid = _siasar_workflow_find_state_sid($entityform_workflow->states, $from);
-  $to_sid = _siasar_workflow_find_state_sid($entityform_workflow->states, $to);
+  $from_sid = _siasar_workflow_find_state_sid($from);
+  $to_sid = _siasar_workflow_find_state_sid($to);
 
-  return ($transition['old'] == $from_sid && $transition['new'] == $to_sid)
+  return ($transition['old'] === $from_sid && $transition['new'] == $to_sid)
     ? true
     : false;
 }
@@ -91,9 +91,15 @@ function _siasar_workflow_find_closed_revisions($history, $workflow) {
  * @param [type] $state
  * @return void
  */
-function _siasar_workflow_find_state_sid($states_list, $state) {
+function _siasar_workflow_find_state_sid($state) {
+  static $states_list = null;
+
+  $states_list = is_null($states_list)
+    ? workflow_load_multiple_by_name(array('entityforms'))['entityforms']->states
+    : $states_list;
+
   foreach($states_list as $item) {
-    if($item->name == $state)
+    if ($item->name == $state)
       return (int) $item->sid;
   }
   return false;
