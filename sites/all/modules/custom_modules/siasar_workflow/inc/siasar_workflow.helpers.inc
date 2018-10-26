@@ -11,12 +11,13 @@
  * @return bool
  */
 function _siasar_workflow_check_transition($entityform, $from, $to) {
-  if (!isset($entityform->field_status[LANGUAGE_NONE][0]['workflow']['workflow_sid'])
-    || !isset($entityform->field_status[LANGUAGE_NONE][0]['value']))
+  if (!isset($entityform->field_status[LANGUAGE_NONE][0]['workflow']['workflow_sid']))
     return false;
 
   $transition = array(
-    'old' => (int) $entityform->field_status[LANGUAGE_NONE][0]['value'],
+    'old' => isset($entityform->field_status[LANGUAGE_NONE][0]['value'])
+      ? (int) $entityform->field_status[LANGUAGE_NONE][0]['value']
+      : (int) $entityform->original->field_status['und'][0]['value'],
     'new' => (int) $entityform->field_status[LANGUAGE_NONE][0]['workflow']['workflow_sid']
   );
 
