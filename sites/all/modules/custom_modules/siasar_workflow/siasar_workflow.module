@@ -13,7 +13,9 @@
 function siasar_workflow_entityform_presave($entityform) {
   module_load_include('inc', 'siasar_workflow', 'inc/siasar_workflow.helpers');
 
-  if ($entityform->entityform_id === '' || _siasar_workflow_check_transition($entityform, 'validated', 'closed') === false)
+  if ($entityform->entityform_id === ''
+    || _siasar_workflow_check_transition($entityform, 'validated', 'closed') === false
+    || !isset($entityform->field_closed_revisions))
     return;
 
   $wrapper = $entityform->wrapper();
