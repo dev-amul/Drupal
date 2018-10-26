@@ -1,0 +1,8 @@
+name = SIASAR Workflow
+description = Workflow logic for all entityforms
+core = 7.x
+package = SIASAR
+version = 7.x-1.0
+dependencies[] = entity
+dependencies[] = workflow
+project path = sites/all/modules/custom_modules

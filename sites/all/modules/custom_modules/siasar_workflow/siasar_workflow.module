@@ -1,0 +1,86 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+/**
+ * Implementation of hook_entityform_presave()
+ * Custom logic to deal with the new field, which will store closed versions.
+ *
+ * @param object $entityform
+ */
+function siasar_workflow_entityform_presave($entityform) {
+  module_load_include('inc', 'siasar_workflow', 'inc/siasar_workflow.helpers');
+
+  if ($entityform->entityform_id === ''
+    || _siasar_workflow_check_transition($entityform, 'validated', 'closed') === false
+    || !isset($entityform->field_closed_revisions))
+    return;
+
+  $wrapper = $entityform->wrapper();
+  $closed = $wrapper->field_closed_revisions->value();
+
+  $closed[] = $entityform->vid;
+  $wrapper->field_closed_revisions->set($closed);
+
+  $entityform->revision = true;
+  $entityform->is_new_revision = true;
+}
+
+/**
+ * Implemntation of hook_entityform_update()
+ *
+ * @param object $entityform
+ * @return void
+ */
+function siasar_workflow_entityform_update($entityform) {
+  drupal_register_shutdown_function('_siasar_workflow_transition_closed_to_draft', $entityform);
+}
+
+
+function _siasar_workflow_transition_closed_to_draft($entityform) {
+  global $user;
+
+  module_load_include('inc', 'siasar_workflow', 'inc/siasar_workflow.helpers');
+
+  $closed_sid = _siasar_workflow_find_state_sid('closed');
+
+  if ($entityform->field_status[LANGUAGE_NONE][0]['value'] != $closed_sid)
+    return;
+
+  $draft_sid = _siasar_workflow_find_state_sid('draft');
+
+  $transition = new WorkflowTransition();
+  $transition->setValues('entityform', $entityform, 'field_status', $closed_sid, $draft_sid, $user->uid, REQUEST_TIME, '');
+  $transition->execute(TRUE);
+
+  $entityform->field_status[LANGUAGE_NONE][0]['value'] = $draft_sid;
+  $entityform->save();
+
+
+}
+
+/**
+ * Implementation of hook_preprocess_field()
+ * It adds Timestamp data to the vars[items] array.
+ *
+ * @param array
+ * @return void
+ */
+function siasar_workflow_preprocess_field(&$vars) {
+  if ($vars['element']['#field_name'] != 'field_closed_revisions')
+    return;
+
+  module_load_include('inc', 'siasar_workflow', 'inc/siasar_workflow.helpers');
+
+  $entityform_id = $vars['element']['#object']->entityform_id;
+  $all_revisions = _siasar_workflow_get_revision_data($entityform_id);
+
+  foreach ($vars['items'] as &$v) {
+    $vid = (int) $v['#markup'];
+
+    $v['vid'] = $vid;
+    $v['timestamp'] = $all_revisions[$vid]->changed;
+  }
+}
