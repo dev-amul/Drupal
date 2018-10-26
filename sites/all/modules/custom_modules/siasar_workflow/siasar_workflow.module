@@ -25,6 +25,7 @@ function siasar_workflow_entityform_presave($entityform) {
 
 /**
  * Implementation of hook_preprocess_field()
+ * It adds Timestamp data to the vars[items] array.
  */
 function siasar_workflow_preprocess_field(&$vars) {
   if ($vars['element']['#field_name'] != 'field_closed_revisions')
@@ -32,18 +33,13 @@ function siasar_workflow_preprocess_field(&$vars) {
 
   module_load_include('inc', 'siasar_workflow', 'inc/siasar_workflow.helpers');
 
-  $el = &$vars['element'];
-  $entityform_id = $el['#object']->entityform_id;
-
-  $values = &$vars['items'];
+  $entityform_id = $vars['element']['#object']->entityform_id;
   $all_revisions = _siasar_workflow_get_revision_data($entityform_id);
 
-  foreach ($values as &$v) {
+  foreach ($vars['items'] as &$v) {
     $vid = (int) $v['#markup'];
-    $timestamp = $all_revisions[$vid]->changed;
-    $path = base_path() . 'entityform/'. $entityform_id . '/revisions/' . $vid . '/view';
 
-    $v['#markup'] = l($vid, $path) . ' <span class="date">' . format_date($timestamp, 'short') . '</span>';
+    $v['vid'] = $vid;
+    $v['timestamp'] = $all_revisions[$vid]->changed;
   }
-
 }

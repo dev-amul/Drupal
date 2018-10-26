@@ -49,3 +49,20 @@ function _siasar_material_add_state_class_to_workflow_field(&$variables) {
   $variables['classes_array'][] = 'field-status-' . $current_status->name;
   $variables['items'][0]['#markup'] = t($variables['items'][0]['#markup']);
 }
+
+
+/**
+ * Alters field_closed_revisions render to include link and date.
+ */
+function _siasar_material_field_closed_revisions_render(&$variables) {
+  if ($variables['element']['#field_name'] != 'field_closed_revisions')
+    return;
+
+  $entityform_id = $variables['element']['#object']->entityform_id;
+
+  foreach ($variables['items'] as &$v) {
+    $path = base_path() . 'entityform/'. $entityform_id . '/revisions/' . $v['vid'] . '/view';
+
+    $v['#markup'] = l($v['vid'], $path) . ' <span class="date">' . format_date($v['timestamp'], 'short') . '</span>';
+  }
+}

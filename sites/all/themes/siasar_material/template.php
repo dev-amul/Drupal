@@ -56,6 +56,7 @@ function siasar_material_preprocess_entity(&$variables) {
  */
 function siasar_material_preprocess_field(&$variables) {
   _siasar_material_add_state_class_to_workflow_field($variables);
+  _siasar_material_field_closed_revisions_render($variables);
 }
 
 
