@@ -20,7 +20,7 @@
       this.initialValue = parseInt(this.$locationField.val());
       var noneSelected = {
         tid: '_none',
-        name: Drupal.t('- Ninguno - ')
+        name: Drupal.t('- None -')
       };
 
       var countryFieldName = Drupal.settings.siasarHierarchicalSelect[fieldName].countryFieldName;
@@ -43,7 +43,9 @@
       this.$locationTreeSelectorWrapper = false;
 
       this.getAllTermsInChain = function () {
-        if (this.initialValue === 0) { return; }
+        if (this.initialValue === 0) {
+          return;
+        }
 
         var url = '/ajax/location/' + this.initialValue + '/' + this.country + '/parents';
 
@@ -61,7 +63,9 @@
           }
         }
 
-        if (data[item].length === 0 && this.forceDeepest) { this.addOK(); }
+        if (data[item].length === 0 && this.forceDeepest) {
+          this.addOK();
+        }
 
         this.applyRestrictions();
 
@@ -113,7 +117,8 @@
 
         if (tidCache[term.tid]) {
           this.buildSelectorLevel(term.tid, level + 1);
-        } else if (term.tid !== '_none') {
+        }
+        else if (term.tid !== '_none') {
           this.requestChildrenTerms(term, level + 1);
         }
       };
@@ -121,7 +126,9 @@
       this.setCanonicalValue = function (value) {
         var hasChildren = (typeof (tidCache[value]) === 'object' && tidCache[value].length > 1);
 
-        if (value === 0 || (this.forceDeepest && hasChildren)) { return; }
+        if (value === 0 || (this.forceDeepest && hasChildren)) {
+          return;
+        }
 
         if (value === '_none') {
           var $selects = this.$locationWrapper.find('select');
@@ -186,7 +193,9 @@
         tidCache[term.tid] = mapTermsFromRequestToArray(data);
         this.setCanonicalValue(term.tid);
 
-        if (data.length === 0 && term.tid !== 0) { return; }
+        if (data.length === 0 && term.tid !== 0) {
+          return;
+        }
 
         this.$lastSelectorInChain = this.$locationTreeSelectorWrapper.find('.location-tree-selector').last();
         var levelDoesExist = !isNaN(parseInt(this.$lastSelectorInChain.data('level')));
@@ -266,7 +275,8 @@
 
         if (this.initialValue > 0) {
           this.getAllTermsInChain();
-        } else {
+        }
+        else {
           this.requestChildrenTerms({ tid: 0 }, 0);
         }
       };
