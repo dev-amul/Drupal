@@ -1856,7 +1856,7 @@ function siasar_updates_update_7212() {
 
 /**
  * Issue 769: Ensure closed revisions can't be edited.
- * Fallo edición encuesta bloqueada.
+ * No-one should be able to edit a revision.
  * https://gitlab.com/siasar-project/admin/issues/769
  */
 function siasar_updates_update_7213(&$sandbox) {
