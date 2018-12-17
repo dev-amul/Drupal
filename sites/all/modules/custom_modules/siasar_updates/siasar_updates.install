@@ -1853,3 +1853,16 @@ function siasar_updates_update_7212() {
   features_revert_module('feature_siasar_field_bases');
   features_revert_module('feature_siasar_testing_form_workflow');
 }
+
+/**
+ * Issue 769: Ensure closed revisions can't be edited.
+ * No-one should be able to edit a revision.
+ * https://gitlab.com/siasar-project/admin/issues/769
+ */
+function siasar_updates_update_7213(&$sandbox) {
+  $permission = 'edit entityform revisions';
+  $roles = user_roles(TRUE, $permission);
+  foreach ($roles as $rid => $role) {
+    user_role_revoke_permissions($rid, array($permission));
+  }
+}
