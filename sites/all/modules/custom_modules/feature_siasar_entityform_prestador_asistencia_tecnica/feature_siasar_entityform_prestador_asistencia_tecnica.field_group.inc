@@ -25,18 +25,18 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
     'children' => array(
       0 => 'field_actualizar_prov_servicio',
       1 => 'field_apoyar_actualizar_tarifa',
-      2 => 'field_apoyar_caps_conflictos',
-      3 => 'field_apoyar_juridica_caps',
-      4 => 'field_apoyar_legalizacion_reglam',
-      5 => 'field_asesorar_prestador_aom',
-      6 => 'field_caps_medicion_pozo_agua',
-      7 => 'field_verificar_apoyar_caps',
-      8 => 'field_otras_tipo_apoyo',
-      9 => 'field_otras_numero_comunidade',
-      10 => 'field_revisar_actualizar_finanza',
-      11 => 'field_siasar_planification_anual',
-      12 => 'field_recolectar_muestras_agua',
-      13 => 'field_apoyar_caps_planificacion',
+      2 => 'field_revisar_actualizar_finanza',
+      3 => 'field_apoyar_caps_planificacion',
+      4 => 'field_apoyar_juridica_caps',
+      5 => 'field_apoyar_legalizacion_reglam',
+      6 => 'field_asesorar_prestador_aom',
+      7 => 'field_apoyar_caps_conflictos',
+      8 => 'field_caps_medicion_pozo_agua',
+      9 => 'field_recolectar_muestras_agua',
+      10 => 'field_otras_numero_comunidade',
+      11 => 'field_otras_tipo_apoyo',
+      12 => 'field_siasar_planification_anual',
+      13 => 'field_verificar_apoyar_caps',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -100,13 +100,14 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
     'label' => 'A. General information and design',
     'weight' => '0',
     'children' => array(
-      0 => 'field_pais',
-      1 => 'field_status',
+      0 => 'field_fecha_de_aplicacion',
+      1 => 'field_closed_revisions',
       2 => 'field_user_reference',
-      3 => 'field_fecha_de_aplicacion',
-      4 => 'group_pat_a3',
+      3 => 'field_pais',
+      4 => 'field_status',
       5 => 'group_pat_a1',
       6 => 'group_pat_a2',
+      7 => 'group_pat_a3',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -265,7 +266,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A1',
-    'weight' => '42',
+    'weight' => '43',
     'children' => array(
       0 => 'field_entity_name',
       1 => 'field_imagenpat',
@@ -298,7 +299,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A2',
-    'weight' => '43',
+    'weight' => '44',
     'children' => array(
       0 => 'field_tipo_de_pat2',
     ),
@@ -330,10 +331,10 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A3',
-    'weight' => '44',
+    'weight' => '45',
     'children' => array(
-      0 => 'field_entidad_local',
-      1 => 'field_latitud',
+      0 => 'field_latitud',
+      1 => 'field_entidad_local',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -461,15 +462,15 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_group_info
     'label' => 'C4. Logistics',
     'weight' => '6',
     'children' => array(
-      0 => 'field_cantidad_equipos_inform',
-      1 => 'field_cantidad_equipos_transport',
-      2 => 'field_cantidad_medicion_agua',
-      3 => 'field_dispone_fondos_viaticos',
-      4 => 'field_dispone_material_didactico',
-      5 => 'field_dispone_servicios_internet',
-      6 => 'field_dispone_fondos_combistible',
-      7 => 'field_estado_equipos_transporte',
-      8 => 'field_estado_equipos_informatico',
+      0 => 'field_dispone_fondos_combistible',
+      1 => 'field_dispone_material_didactico',
+      2 => 'field_dispone_fondos_viaticos',
+      3 => 'field_cantidad_equipos_inform',
+      4 => 'field_cantidad_equipos_transport',
+      5 => 'field_cantidad_medicion_agua',
+      6 => 'field_dispone_servicios_internet',
+      7 => 'field_estado_equipos_informatico',
+      8 => 'field_estado_equipos_transporte',
       9 => 'field_estado_medicion_agua',
     ),
     'format_type' => 'div',

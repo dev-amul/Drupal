@@ -735,6 +735,53 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_asistencia_t_cnica-field_closed_revisions'.
+  $field_instances['entityform-prestador_de_asistencia_t_cnica-field_closed_revisions'] = array(
+    'bundle' => 'prestador_de_asistencia_t_cnica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number_unformatted',
+        'weight' => 42,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_closed_revisions',
+    'label' => 'Revisiones cerradas',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'number_unformatted',
+        'formatter_settings' => array(),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 46,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_asistencia_t_cnica-field_cuenta_presupuesto_anual'.
   $field_instances['entityform-prestador_de_asistencia_t_cnica-field_cuenta_presupuesto_anual'] = array(
     'bundle' => 'prestador_de_asistencia_t_cnica',
@@ -2397,6 +2444,7 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
   t('Observaciones y comentarios');
   t('Origen de los datos');
   t('País');
+  t('Revisiones cerradas');
   t('Status');
   t('Tipo de PAT');
   t('Total de comunidades en la zona de atención');

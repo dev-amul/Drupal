@@ -127,6 +127,7 @@ features[field_group][] = group_personal_docente|field_collection_item|field_con
 features[field_group][] = group_poblacion_estudiantil|field_collection_item|field_con_fic_ce_ficha|default
 features[field_instance][] = entityform-comunidad-field_area_planificacion
 features[field_instance][] = entityform-comunidad-field_ce_location
+features[field_instance][] = entityform-comunidad-field_closed_revisions
 features[field_instance][] = entityform-comunidad-field_com_altitud
 features[field_instance][] = entityform-comunidad-field_com_ce_existe
 features[field_instance][] = entityform-comunidad-field_com_ce_nombre

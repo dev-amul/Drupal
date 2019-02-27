@@ -67,6 +67,7 @@ features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_ca
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_cantidad_medicion_agua
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_cantidad_tecnicos_zona
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_caps_medicion_pozo_agua
+features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_closed_revisions
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_cuenta_presupuesto_anual
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_data_source
 features[field_instance][] = entityform-prestador_de_asistencia_t_cnica-field_dispone_fondos_combistible

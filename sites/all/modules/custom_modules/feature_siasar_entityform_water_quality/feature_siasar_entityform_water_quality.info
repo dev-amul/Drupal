@@ -78,6 +78,7 @@ features[field_instance][] = entityform-waq-field_calcium
 features[field_instance][] = entityform-waq-field_carbonates
 features[field_instance][] = entityform-waq-field_chemical_total
 features[field_instance][] = entityform-waq-field_chlorides
+features[field_instance][] = entityform-waq-field_closed_revisions
 features[field_instance][] = entityform-waq-field_codigo_de_la_fuente
 features[field_instance][] = entityform-waq-field_color
 features[field_instance][] = entityform-waq-field_conductivity
