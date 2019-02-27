@@ -1813,7 +1813,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
