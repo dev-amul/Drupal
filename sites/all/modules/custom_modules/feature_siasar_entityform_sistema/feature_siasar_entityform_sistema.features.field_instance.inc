@@ -569,6 +569,52 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-sistema-field_closed_revisions'.
+  $field_instances['entityform-sistema-field_closed_revisions'] = array(
+    'bundle' => 'sistema',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number_unformatted',
+        'weight' => 5,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_closed_revisions',
+    'label' => 'Revisiones cerradas',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'number_unformatted',
+        'formatter_settings' => array(),
+      ),
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 118,
+    ),
+  );
+
   // Exported field_instance: 'entityform-sistema-field_codigo_de_sistema'.
   $field_instances['entityform-sistema-field_codigo_de_sistema'] = array(
     'bundle' => 'sistema',
@@ -1813,7 +1859,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -4574,6 +4620,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Programa específico de donde provienen los fondos');
   t('Protección (delimitación con cerca u otros sistemas) de la fuente / toma de agua');
   t('Rehabilitaciones y/o ampliaciones');
+  t('Revisiones cerradas');
   t('Señalar a qué distancia aproximada se encuentran instalados los puntos de toma de agua públicos a las casas de los usuarios.');
   t('Status');
   t('Tipo de fuente');

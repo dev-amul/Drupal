@@ -1373,130 +1373,164 @@ body.page-entityform-edit fieldset.vertical-tabs-pane:first-child {
   opacity: initial;
 }
 
-body.page-entityform-view section.main > h1 {
+body.page-entityform-view section.main > h1,
+body.page-entityform-revisions-view section.main > h1 {
   display: none;
 }
-body.page-entityform-view #block-system-main h1 {
+body.page-entityform-view #block-system-main h1,
+body.page-entityform-revisions-view #block-system-main h1 {
   color: #096396;
   float: none;
 }
-body.page-entityform-view .entity-entityform {
+body.page-entityform-view .entity-entityform,
+body.page-entityform-revisions-view .entity-entityform {
   position: relative;
   padding: 10px;
 }
 @media (min-width: 600px) {
-  body.page-entityform-view .entity-entityform {
+  body.page-entityform-view .entity-entityform,
+  body.page-entityform-revisions-view .entity-entityform {
     padding: 20px;
   }
 }
 @media (min-width: 992px) {
-  body.page-entityform-view .entity-entityform {
+  body.page-entityform-view .entity-entityform,
+  body.page-entityform-revisions-view .entity-entityform {
     padding: 40px;
   }
 }
-body.page-entityform-view .entity-entityform .submitted {
+body.page-entityform-view .entity-entityform .submitted,
+body.page-entityform-revisions-view .entity-entityform .submitted {
   position: static;
   margin-bottom: 2em;
 }
-body.page-entityform-view .entity-entityform fieldset {
+body.page-entityform-view .entity-entityform fieldset,
+body.page-entityform-revisions-view .entity-entityform fieldset {
   border: none;
 }
-body.page-entityform-view .entity-entityform .field-group {
+body.page-entityform-view .entity-entityform .field-group,
+body.page-entityform-revisions-view .entity-entityform .field-group {
   margin-bottom: 30px;
 }
-body.page-entityform-view .entity-entityform h2, body.page-entityform-view .entity-entityform h3, body.page-entityform-view .entity-entityform h4, body.page-entityform-view .entity-entityform h5 {
+body.page-entityform-view .entity-entityform h2, body.page-entityform-view .entity-entityform h3, body.page-entityform-view .entity-entityform h4, body.page-entityform-view .entity-entityform h5,
+body.page-entityform-revisions-view .entity-entityform h2,
+body.page-entityform-revisions-view .entity-entityform h3,
+body.page-entityform-revisions-view .entity-entityform h4,
+body.page-entityform-revisions-view .entity-entityform h5 {
   text-align: left;
   margin: 0 0 0.5em;
 }
-body.page-entityform-view .entity-entityform h3, body.page-entityform-view .entity-entityform h4, body.page-entityform-view .entity-entityform h5 {
+body.page-entityform-view .entity-entityform h3, body.page-entityform-view .entity-entityform h4, body.page-entityform-view .entity-entityform h5,
+body.page-entityform-revisions-view .entity-entityform h3,
+body.page-entityform-revisions-view .entity-entityform h4,
+body.page-entityform-revisions-view .entity-entityform h5 {
   color: #00829e;
 }
-body.page-entityform-view .entity-entityform h3 {
+body.page-entityform-view .entity-entityform h3,
+body.page-entityform-revisions-view .entity-entityform h3 {
   font-size: 1.5rem;
 }
-body.page-entityform-view .entity-entityform h4 {
+body.page-entityform-view .entity-entityform h4,
+body.page-entityform-revisions-view .entity-entityform h4 {
   font-size: 1.25rem;
 }
-body.page-entityform-view .entity-entityform h5 {
+body.page-entityform-view .entity-entityform h5,
+body.page-entityform-revisions-view .entity-entityform h5 {
   font-size: 1.2rem;
   font-weight: 500;
   color: #666;
 }
-body.page-entityform-view .entity-entityform img {
+body.page-entityform-view .entity-entityform img,
+body.page-entityform-revisions-view .entity-entityform img {
   max-width: 100%;
   height: auto;
 }
 @media (min-width: 600px) {
-  body.page-entityform-view .entity-entityform .group-grid h4 {
+  body.page-entityform-view .entity-entityform .group-grid h4,
+  body.page-entityform-revisions-view .entity-entityform .group-grid h4 {
     float: left;
     width: 125px;
     padding-right: 10px;
     border-bottom: solid #00829e 2px;
   }
 }
-body.page-entityform-view .entity-entityform .group-grid .group-grid {
+body.page-entityform-view .entity-entityform .group-grid .group-grid,
+body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid {
   margin-left: 15px;
   padding-left: 15px;
   border-left: solid #00829e 2px;
 }
 @media (min-width: 600px) {
-  body.page-entityform-view .entity-entityform .group-grid .group-grid {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid,
+  body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid {
     margin-left: 125px;
     padding-left: 20px;
   }
 }
 @media (min-width: 600px) {
-  body.page-entityform-view .entity-entityform .group-grid .group-grid h5 {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid h5,
+  body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid h5 {
     float: left;
     width: 140px;
     padding: 0 20px 0 0;
     border-bottom: dotted #aaa 1px;
   }
 }
-body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
+body.page-entityform-view .entity-entityform .group-grid .group-grid div.field,
+body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid div.field {
   margin: 0 0 0 15px;
   padding: 0 0 15px;
   clear: none;
   border: none;
 }
 @media (min-width: 600px) {
-  body.page-entityform-view .entity-entityform .group-grid .group-grid div.field {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid div.field,
+  body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid div.field {
     margin-left: 140px;
     padding-left: 20px;
     padding-bottom: 20px;
     border-left: dotted 1px #aaa;
   }
 }
-body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child {
+body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child,
+body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid div.field:last-child {
   padding-bottom: 40px;
 }
 @media (min-width: 600px) {
-  body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid div.field:last-child,
+  body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid div.field:last-child {
     padding-bottom: 65px;
   }
 }
-body.page-entityform-view .entity-entityform .group-grid .group-grid div.field .field-label {
+body.page-entityform-view .entity-entityform .group-grid .group-grid div.field .field-label,
+body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid div.field .field-label {
   font-weight: 500;
 }
-body.page-entityform-view .entity-entityform .group-grid .group-grid:last-child {
+body.page-entityform-view .entity-entityform .group-grid .group-grid:last-child,
+body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid:last-child {
   margin-bottom: 20px;
 }
 @media (min-width: 600px) {
-  body.page-entityform-view .entity-entityform .group-grid .group-grid:last-child {
+  body.page-entityform-view .entity-entityform .group-grid .group-grid:last-child,
+  body.page-entityform-revisions-view .entity-entityform .group-grid .group-grid:last-child {
     margin-bottom: 0;
   }
 }
-body.page-entityform-view .entity-entityform .group-grid:last-child .group-grid:last-child {
+body.page-entityform-view .entity-entityform .group-grid:last-child .group-grid:last-child,
+body.page-entityform-revisions-view .entity-entityform .group-grid:last-child .group-grid:last-child {
   margin-bottom: 0;
 }
-body.page-entityform-view .entity-entityform .group-grid:last-child .group-grid:last-child div.field:last-child {
+body.page-entityform-view .entity-entityform .group-grid:last-child .group-grid:last-child div.field:last-child,
+body.page-entityform-revisions-view .entity-entityform .group-grid:last-child .group-grid:last-child div.field:last-child {
   padding-bottom: 0;
 }
-body.page-entityform-view .entity-entityform .field-type-field-collection > .field-label {
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-label,
+body.page-entityform-revisions-view .entity-entityform .field-type-field-collection > .field-label {
   float: none;
   width: auto;
 }
-body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items {
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items,
+body.page-entityform-revisions-view .entity-entityform .field-type-field-collection > .field-items {
   margin-top: 10px;
   margin-left: 20px;
   padding-left: 20px;
@@ -1506,14 +1540,17 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
   counter-reset: item;
 }
 @media (min-width: 600px) {
-  body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items {
+  body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items,
+  body.page-entityform-revisions-view .entity-entityform .field-type-field-collection > .field-items {
     margin-left: 40px;
   }
 }
-body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items li {
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items li,
+body.page-entityform-revisions-view .entity-entityform .field-type-field-collection > .field-items li {
   counter-increment: item;
 }
-body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items li::before {
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items li::before,
+body.page-entityform-revisions-view .entity-entityform .field-type-field-collection > .field-items li::before {
   content: counter(item);
   font-size: 0.8em;
   background-color: #00add2;
@@ -1525,14 +1562,17 @@ body.page-entityform-view .entity-entityform .field-type-field-collection > .fie
   left: -7px;
   z-index: 1;
 }
-body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items .field-collection-view {
+body.page-entityform-view .entity-entityform .field-type-field-collection > .field-items .field-collection-view,
+body.page-entityform-revisions-view .entity-entityform .field-type-field-collection > .field-items .field-collection-view {
   padding: 0;
   margin: 0;
 }
-body.page-entityform-view .entity-entityform .field-type-entityreference .field-items .field {
+body.page-entityform-view .entity-entityform .field-type-entityreference .field-items .field,
+body.page-entityform-revisions-view .entity-entityform .field-type-entityreference .field-items .field {
   clear: none;
 }
-body.page-entityform-view .entity-entityform .field-type-entityreference .field-items .field-items {
+body.page-entityform-view .entity-entityform .field-type-entityreference .field-items .field-items,
+body.page-entityform-revisions-view .entity-entityform .field-type-entityreference .field-items .field-items {
   margin-left: 0;
 }
 

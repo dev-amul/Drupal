@@ -1,0 +1,13 @@
+diff --git a/sites/all/modules/contrib/entityform_revisions/EntityformRevisionsUIController.inc b/sites/all/modules/contrib/entityform_revisions/EntityformRevisionsUIController.inc
+index 0716ab8c..4e2a31c0 100644
+--- a/sites/all/modules/contrib/entityform_revisions/EntityformRevisionsUIController.inc
++++ b/sites/all/modules/contrib/entityform_revisions/EntityformRevisionsUIController.inc
+@@ -46,7 +46,7 @@ class EntityformRevisionsUIController extends EntityformUIController {
+       'title' => 'Edit revision',
+       'page callback' => 'entityform_revision_form_wrapper',
+       'page arguments' => array(1, 3, 'edit'),
+-      'access callback' => 'entityform_access',
++      'access callback' => 'entityform_revisions_access',
+       'access arguments' => array('edit', 1),
+       'weight' => 0,
+       'type' => MENU_LOCAL_TASK,
