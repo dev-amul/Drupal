@@ -4,6 +4,13 @@
  * Drupal needs this blank file.
  */
 
+define('SIASAR_ENTITYFORM_STATE_CREATED', 1);
+define('SIASAR_ENTITYFORM_STATE_DRAFT', 2);
+define('SIASAR_ENTITYFORM_STATE_FINISHED', 3);
+define('SIASAR_ENTITYFORM_STATE_VALIDATED', 4);
+define('SIASAR_ENTITYFORM_STATE_REMOVED', 5);
+define('SIASAR_ENTITYFORM_STATE_CLOSED', 6);
+
 /**
  * Implementation of hook_entityform_presave()
  * Custom logic to deal with the new field, which will store closed versions.
@@ -29,7 +36,7 @@ function siasar_workflow_entityform_presave($entityform) {
 }
 
 /**
- * Implemntation of hook_entityform_update()
+ * Implementation of hook_entityform_update()
  *
  * @param object $entityform
  * @return void
@@ -38,6 +45,13 @@ function siasar_workflow_entityform_update($entityform) {
   drupal_register_shutdown_function('_siasar_workflow_transition_closed_to_draft', $entityform);
 }
 
+/**
+ * Implements hook_action_info().
+ */
+function siasar_workflow_action_info() {
+  module_load_include('inc', 'siasar_workflow', 'siasar_workflow.vbo');
+  return _siasar_workflow_action_info();
+}
 
 function _siasar_workflow_transition_closed_to_draft($entityform) {
   global $user;
@@ -46,7 +60,7 @@ function _siasar_workflow_transition_closed_to_draft($entityform) {
 
   $closed_sid = _siasar_workflow_find_state_sid('closed');
 
-  if ($entityform->field_status[LANGUAGE_NONE][0]['value'] != $closed_sid)
+  if (isset($entityform->field_status) && $entityform->field_status[LANGUAGE_NONE][0]['value'] != $closed_sid)
     return;
 
   $draft_sid = _siasar_workflow_find_state_sid('draft');
@@ -57,8 +71,6 @@ function _siasar_workflow_transition_closed_to_draft($entityform) {
 
   $entityform->field_status[LANGUAGE_NONE][0]['value'] = $draft_sid;
   $entityform->save();
-
-
 }
 
 /**
