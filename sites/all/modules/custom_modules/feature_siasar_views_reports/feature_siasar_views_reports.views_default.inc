@@ -174,7 +174,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'short';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: User: Nombre completo */
+  /* Field: Usuario: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
@@ -299,7 +299,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_dependent'] = 1;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value']['id'] = 'field_nombre_completo_value';
   $handler->display->display_options['filters']['field_nombre_completo_value']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value']['field'] = 'field_nombre_completo_value';
@@ -328,7 +328,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_dependent'] = 0;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['id'] = 'field_nombre_completo_value_1';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['field'] = 'field_nombre_completo_value';
@@ -503,6 +503,14 @@ function feature_siasar_views_reports_views_default_views() {
       'override_label' => 0,
       'label' => '',
     ),
+    'action::siasar_close_and_update_action' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'skip_permission_check' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
   );
   /* Field: Entityform Submission: Entityform submission ID */
   $handler->display->display_options['fields']['entityform_id']['id'] = 'entityform_id';
@@ -540,7 +548,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd F Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: User: Nombre completo */
+  /* Field: Usuario: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
@@ -553,7 +561,7 @@ function feature_siasar_views_reports_views_default_views() {
     'title_link' => 'content',
     'title_class' => '',
   );
-  /* Field: User: Nombre completo */
+  /* Field: Usuario: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo_1']['id'] = 'field_nombre_completo_1';
   $handler->display->display_options['fields']['field_nombre_completo_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo_1']['field'] = 'field_nombre_completo';
@@ -710,7 +718,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_dependent'] = 1;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value']['id'] = 'field_nombre_completo_value';
   $handler->display->display_options['filters']['field_nombre_completo_value']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value']['field'] = 'field_nombre_completo_value';
@@ -739,7 +747,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_dependent'] = 1;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['id'] = 'field_nombre_completo_value_1';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['field'] = 'field_nombre_completo_value';
@@ -893,14 +901,14 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['field'] = 'field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['type'] = 'taxonomy_term_reference_link';
-  /* Field: User: Nombre completo */
+  /* Field: Usuario: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['relationship'] = 'user';
   $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'User';
   $handler->display->display_options['fields']['field_nombre_completo']['element_label_colon'] = FALSE;
-  /* Field: User: Nombre completo */
+  /* Field: Usuario: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo_1']['id'] = 'field_nombre_completo_1';
   $handler->display->display_options['fields']['field_nombre_completo_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo_1']['field'] = 'field_nombre_completo';
@@ -1017,7 +1025,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_dependent'] = 1;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value']['id'] = 'field_nombre_completo_value';
   $handler->display->display_options['filters']['field_nombre_completo_value']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value']['field'] = 'field_nombre_completo_value';
@@ -1045,7 +1053,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_dependent'] = 1;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['id'] = 'field_nombre_completo_value_1';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['field'] = 'field_nombre_completo_value';
@@ -1192,14 +1200,14 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_entidad_local']['table'] = 'field_data_field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['field'] = 'field_entidad_local';
   $handler->display->display_options['fields']['field_entidad_local']['type'] = 'taxonomy_term_reference_link';
-  /* Field: User: Nombre completo */
+  /* Field: Usuario: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['relationship'] = 'user';
   $handler->display->display_options['fields']['field_nombre_completo']['label'] = 'User';
   $handler->display->display_options['fields']['field_nombre_completo']['element_label_colon'] = FALSE;
-  /* Field: User: Nombre completo */
+  /* Field: Usuario: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo_1']['id'] = 'field_nombre_completo_1';
   $handler->display->display_options['fields']['field_nombre_completo_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo_1']['field'] = 'field_nombre_completo';
@@ -1315,7 +1323,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_dependent'] = 1;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value']['id'] = 'field_nombre_completo_value';
   $handler->display->display_options['filters']['field_nombre_completo_value']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value']['field'] = 'field_nombre_completo_value';
@@ -1343,7 +1351,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_dependent'] = 1;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['id'] = 'field_nombre_completo_value_1';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['field'] = 'field_nombre_completo_value';
@@ -1566,7 +1574,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['field_entity_name_2']['field'] = 'field_entity_name';
   $handler->display->display_options['fields']['field_entity_name_2']['relationship'] = 'field_prestador_servicio_target_id';
   $handler->display->display_options['fields']['field_entity_name_2']['label'] = 'Prestador de servicio';
-  /* Field: Field collection item: Viviendas atendidas */
+  /* Field: Elemento de colección de campo: Viviendas atendidas por este sistema/prestador */
   $handler->display->display_options['fields']['field_com_viv_con_sistnva']['id'] = 'field_com_viv_con_sistnva';
   $handler->display->display_options['fields']['field_com_viv_con_sistnva']['table'] = 'field_data_field_com_viv_con_sistnva';
   $handler->display->display_options['fields']['field_com_viv_con_sistnva']['field'] = 'field_com_viv_con_sistnva';
@@ -1577,13 +1585,13 @@ function feature_siasar_views_reports_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Field: User: Nombre completo */
+  /* Field: Usuario: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo_1']['id'] = 'field_nombre_completo_1';
   $handler->display->display_options['fields']['field_nombre_completo_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo_1']['field'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo_1']['relationship'] = 'field_user_reference_target_id';
   $handler->display->display_options['fields']['field_nombre_completo_1']['exclude'] = TRUE;
-  /* Field: User: Nombre completo */
+  /* Field: Usuario: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';
@@ -1685,7 +1693,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_entity_name_value']['expose']['autocomplete_dependent'] = 1;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value']['id'] = 'field_nombre_completo_value';
   $handler->display->display_options['filters']['field_nombre_completo_value']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value']['field'] = 'field_nombre_completo_value';
@@ -1714,7 +1722,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_nombre_completo_value']['expose']['autocomplete_dependent'] = 0;
-  /* Filter criterion: User: Nombre completo (field_nombre_completo) */
+  /* Filter criterion: Usuario: Nombre completo (field_nombre_completo) */
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['id'] = 'field_nombre_completo_value_1';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['filters']['field_nombre_completo_value_1']['field'] = 'field_nombre_completo_value';
