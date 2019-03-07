@@ -1889,3 +1889,49 @@ function siasar_updates_update_7214(&$sandbox) {
     user_role_grant_permissions($role->rid, $permissions);
   }
 }
+
+/**
+ * Issue 658 - Posible conversion erronea de unidades de caudal.
+ * https://gitlab.com/siasar-project/admin/issues/658
+ */
+function siasar_updates_update_7215() {
+  // Update flujo caudal units factors.
+  $units_to_update = array(
+    'galones_por_minuto' => 15.85,
+    'litros_por_dia' => 86400,
+    'litros_por_hora' => 3600,
+    'litros_por_minutos' => 60,
+    'metros_cubicos_por_dia' => 86.4,
+    'metros_cubicos_por_hora' => 3.6,
+    'metros_cubicos_por_minuto' => 0.06,
+    'metros_cubicos_por_segundo' => 0.001,
+    'litros_por_segundo' => 1,
+  );
+
+  // Load all units of type flujo caudal.
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'units_unit');
+  $query->propertyCondition('measure', 'flujo_caudal');
+
+  $results = $query->execute();
+
+  // Load and save each measure with updated factor.
+  foreach ($results['units_unit'] as $unit) {
+    $unit = entity_load_single('units_unit', $unit->umid);
+    $unit->factor = $units_to_update[$unit->machine_name];
+    entity_save('units_unit', $unit);
+  }
+
+  // Modify the converter used on flujo caudal measure.
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'units_measure');
+  $query->propertyCondition('measure', 'flujo_caudal');
+
+  $results = $query->execute();
+
+  foreach ($results['units_measure'] as $measure) {
+    $measure = entity_load_single('units_measure', $measure->mid);
+    $measure->converter = 'volume_converter';
+    entity_save('units_measure', $measure);
+  }
+}
