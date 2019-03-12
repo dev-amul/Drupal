@@ -35,7 +35,6 @@ dependencies[] = workflowfield
 features[ctools][] = field_group:field_group:1
 features[features_api][] = api:2
 features[field_base][] = body
-features[field_base][] = comment_body
 features[field_base][] = field__aportaciones_extras
 features[field_base][] = field__cuenta_con_fondos_disponi
 features[field_base][] = field_a4_2
