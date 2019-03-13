@@ -95,5 +95,5 @@ function _field_collection_structure_service_index($page, $parameters) {
     $form_fields = $cached_data->data;
   }
 
-  return $form_fields;
+  return (array)$form_fields;
 }
