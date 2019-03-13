@@ -46,6 +46,41 @@ function field_group_structure_service_services_resources() {
   return $api;
 }
 
+/**
+ * Callback for index field_group_structure resource.
+ */
 function _field_group_structure_service_index($fn, $entity_name, $bundle_name) {
-	return field_group_info_groups($entity_name, $bundle_name);
+  // Get field group structure.
+	$structure = field_group_info_groups($entity_name, $bundle_name);
+	// Convert all items of the given array in array items.
+	$structure = _array_casting($structure);
+
+  return $structure;
+}
+
+/**
+ * Return all elements of an array converted to array.
+ *
+ * @param $element
+ *   Array to check.
+ *
+ * @return array
+ *   Converted array.
+ */
+function _array_casting($element) {
+  if (is_array($element)) {
+    foreach ($element as $key => $value) {
+      if (is_array($value)) {
+        $element[$key] = _array_casting($value);
+      }
+      else {
+        $element[$key] = (array)$value;
+      }
+    }
+  }
+  else {
+    $element = (array)$element;
+  }
+
+  return $element;
 }

@@ -89,7 +89,7 @@ function _field_collection_structure_service_index($page, $parameters) {
       $form_fields->{$name} = _field_collection_structure_service_retrieve($name)[$name];
     }
 
-    cache_set($cid, $form_fields, 'cache_field_collection_structure_service');
+    cache_set($cid, $form_fields, 'cache_field_collection_structure_service', CACHE_TEMPORARY);
   }
   else {
     $form_fields = $cached_data->data;
