@@ -149,7 +149,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
   // 'entityform-testingpurposes-field_closed_revisions'.
   $field_instances['entityform-testingpurposes-field_closed_revisions'] = array(
     'bundle' => 'testingpurposes',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -187,7 +187,7 @@ function feature_siasar_testing_form_workflow_field_default_field_instances() {
         'formatter' => 'number_unformatted',
         'formatter_settings' => array(),
       ),
-      'type' => 'field_extrawidgets_read_only',
+      'type' => 'field_extrawidgets_hidden',
       'weight' => 28,
     ),
   );
