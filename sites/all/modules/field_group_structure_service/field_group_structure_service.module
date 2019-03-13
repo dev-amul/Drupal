@@ -47,5 +47,5 @@ function field_group_structure_service_services_resources() {
 }
 
 function _field_group_structure_service_index($fn, $entity_name, $bundle_name) {
-	return (object)field_group_info_groups($entity_name, $bundle_name);
+	return field_group_info_groups($entity_name, $bundle_name);
 }
