@@ -747,7 +747,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
   // Exported field_instance: 'entityform-waq-field_closed_revisions'.
   $field_instances['entityform-waq-field_closed_revisions'] = array(
     'bundle' => 'waq',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -785,7 +785,7 @@ function feature_siasar_entityform_water_quality_field_default_field_instances()
         'formatter' => 'number_unformatted',
         'formatter_settings' => array(),
       ),
-      'type' => 'field_extrawidgets_read_only',
+      'type' => 'field_extrawidgets_hidden',
       'weight' => 58,
     ),
   );
