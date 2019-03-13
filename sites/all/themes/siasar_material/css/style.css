@@ -1365,6 +1365,9 @@ body.page-entityform-edit fieldset.vertical-tabs-pane:first-child {
     padding-top: 20px;
   }
 }
+body.page-entityform-edit .field-name-field-status {
+  display: none;
+}
 
 .entityform-revisions .diff-revision [type="radio"]:checked,
 .entityform-revisions .diff-revision [type="radio"]:not(:checked) {
