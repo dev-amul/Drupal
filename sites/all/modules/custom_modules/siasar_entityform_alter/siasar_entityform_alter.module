@@ -22,6 +22,29 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
+ * Implements hook_entityform_presave().
+ */
+function siasar_entityform_alter_entityform_presave($entityform) {
+  $original = $entityform->original;
+
+  if (isset($entityform->field_status) && isset($original->field_status)) {
+    $new = $entityform->wrapper();
+    $original = $original->wrapper();
+
+    // Create new revision only when status change.
+    if ($new->field_status->value() != $original->field_status->value()) {
+      $entityform->default_revision = TRUE;
+      $entityform->is_new_revision = TRUE;
+    }
+    else {
+      $entityform->revision = FALSE;
+      $entityform->default_revision = TRUE;
+      $entityform->is_new_revision = FALSE;
+    }
+  }
+}
+
+/**
  * Determines if the $form_id corresponds to an entityform edition form
  *
  * @param $form_id
@@ -184,9 +207,33 @@ function _siasar_entityform_alter_revisions(&$form, &$form_state, $form_id) {
     $form['revision_fieldset']['#access'] = FALSE;
     //Now, all the changes should create a new revision. Change this configuration
     $form['revision_fieldset']['revision']['#default_value'] = ENTITY_REVISION_CREATE_AND_USE;
+
+    // Add after build function to add entityform revision callback on submits.
+    $form['#after_build'][] = '_siasar_entityform_after_build';
   }
 }
 
+function _siasar_entityform_after_build($form, &$form_state) {
+  // Workflow actions to find.
+  $actions = array(
+    'workflow_1',
+    'workflow_2',
+    'workflow_3',
+    'workflow_4',
+    'workflow_5',
+    'workflow_6',
+  );
+
+  // Find actions without entityform revision callback and add it.
+  foreach ($form['actions'] as $key => $value) {
+    if (in_array($key, $actions)
+      && !in_array('entityform_revision_form_submit', $form['actions'][$key]['#submit'])) {
+      array_unshift($form['actions'][$key]['#submit'], 'entityform_revision_form_submit');
+    }
+  }
+
+  return $form;
+}
 
 /**
  * Implementation of hook_date_field_insert_alter()
