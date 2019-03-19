@@ -223,6 +223,7 @@
       data: {
         callback: 'shs_json_term_add',
         arguments: {
+          token: settings.token,
           vid: term.vid,
           parent: term.parent,
           name: term.name,
@@ -280,6 +281,7 @@
         // Display triggering element.
         $triggering_element.fadeIn(settings.display.animationSpeed);
         $triggering_element.css('display','inline-block');
+        $triggering_element.trigger('change');
       }
     });
   }
