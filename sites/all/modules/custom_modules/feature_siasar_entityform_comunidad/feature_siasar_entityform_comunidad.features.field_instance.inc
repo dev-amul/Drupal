@@ -117,7 +117,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // Exported field_instance: 'entityform-comunidad-field_closed_revisions'.
   $field_instances['entityform-comunidad-field_closed_revisions'] = array(
     'bundle' => 'comunidad',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -155,7 +155,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
         'formatter' => 'number_unformatted',
         'formatter_settings' => array(),
       ),
-      'type' => 'field_extrawidgets_read_only',
+      'type' => 'field_extrawidgets_hidden',
       'weight' => 99,
     ),
   );
