@@ -1935,3 +1935,40 @@ function siasar_updates_update_7215() {
     entity_save('units_measure', $measure);
   }
 }
+
+/**
+ * Issue 777 - Problemas ventana de login en el sistema
+ * https://gitlab.com/siasar-project/admin/issues/777
+ */
+function siasar_updates_update_7216() {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
+
+  $results = _get_orphan_entityforms();
+
+  foreach ($results as $result) {
+    $entity = entity_load_single('entityform', $result->entityform_id);
+
+    if ($entity->type !== 'testingpurposes') {
+      if (!empty($entity->field_user_reference[LANGUAGE_NONE][0]['target_id'])) {
+        $user = user_load($entity->field_user_reference[LANGUAGE_NONE][0]['target_id']);
+
+        if (empty($user)) {
+          $user = user_load_by_name('generic_' . $entity->field_pais['und'][0]['iso2']);
+        }
+      }
+      elseif (!empty($entity->field_pais['und'][0]['iso2'])) {
+        $user = user_load_by_name('generic_' . $entity->field_pais['und'][0]['iso2']);
+      }
+
+      if (!empty($user)) {
+        $entity->uid = $user->uid;
+
+        entity_save('entityform', $entity);
+      }
+    }
+  }
+
+  // Remove view entityform permission for anonymous users
+  $role = user_role_load_by_name('usuario anónimo');
+  user_role_revoke_permissions($role->rid, ['view any entityform']);
+}
