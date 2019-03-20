@@ -20,6 +20,7 @@ function feature_siasar_testing_form_workflow_user_default_permissions() {
       'Encuestador' => 'Encuestador',
       'Validator' => 'Validator',
       'administrator' => 'administrator',
+      'translator' => 'translator',
     ),
     'module' => 'workflow',
   );
