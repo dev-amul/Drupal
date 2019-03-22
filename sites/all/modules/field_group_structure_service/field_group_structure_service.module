@@ -50,10 +50,35 @@ function field_group_structure_service_services_resources() {
  * Callback for index field_group_structure resource.
  */
 function _field_group_structure_service_index($fn, $entity_name, $bundle_name) {
-  // Get field group structure.
-	$structure = field_group_info_groups($entity_name, $bundle_name);
-	// Convert all items of the given array in array items.
-	$structure = _array_casting($structure);
+  global $user;
+
+  // Build CID.
+  $cid = "field_group_structure_{$user->language}";
+
+  if (!empty($entity_name)) {
+    $cid .= '_' . $entity_name;
+  }
+
+  if (!empty($bundle_name)) {
+    $cid .= '_' . $bundle_name;
+  }
+
+  // Get cache based on the built CID.
+  $cache = cache_get($cid, 'cache_field_group_structure_service');
+
+  if (!$cache) {
+    // Get field group structure.
+    $structure = field_group_info_groups($entity_name, $bundle_name);
+    // Convert all items of the given array in array items.
+    $structure = _array_casting($structure);
+    // Get all labels translated.
+    translate_labels($structure, $user->language);
+
+    cache_set($cid, $structure, 'cache_field_group_structure_service', CACHE_TEMPORARY);
+  }
+  else {
+    $structure = $cache->data;
+  }
 
   return $structure;
 }
@@ -83,4 +108,32 @@ function _array_casting($element) {
   }
 
   return $element;
+}
+
+/**
+ * Get translated strings of the groups labels.
+ *
+ * @param $structure
+ *   Field group structure.
+ * @param $langcode
+ *   Langcode of the user language.
+ */
+function translate_labels(&$structure, $langcode) {
+  foreach ($structure as $entity_type_key => $entity_type) {
+    foreach ($entity_type as $bundle_key => $bundle) {
+      foreach ($bundle as $view_key => $view) {
+        foreach ($view as $group_key => $group) {
+          // Since field group use interface translation, retrieve the labels
+          // translated string with t function.
+          if (isset($group['label'])) {
+            $structure[$entity_type_key][$bundle_key][$view_key][$group_key]['label'] = t($group['label'], array(), array('langcode' => $langcode));
+          }
+
+          if (isset($group['format_settings']['label'])) {
+            $structure[$entity_type_key][$bundle_key][$view_key][$group_key]['format_settings']['label'] = t($group['format_settings']['label'], array(), array('langcode' => $langcode));
+          }
+        }
+      }
+    }
+  }
 }
