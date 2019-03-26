@@ -1972,3 +1972,48 @@ function siasar_updates_update_7216() {
   $role = user_role_load_by_name('usuario anónimo');
   user_role_revoke_permissions($role->rid, ['view any entityform']);
 }
+
+
+/**
+ * Issue 787 - Error campo A5 de Comunidad
+ * https://gitlab.com/siasar-project/admin/issues/787
+ */
+function siasar_updates_update_7221(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
+  /*$original_session_state = drupal_save_session();
+  drupal_save_session(FALSE);
+
+  // Set current user as admin for drush comand.
+  $original_user = $GLOBALS['user'];
+  $GLOBALS['user'] = user_load(1);*/
+
+  user_login_finalize(user_load(1));
+
+  if (!isset($sandbox['progress'])) {
+    $entityforms = _get_entities_with_a5_field_wrong();
+    $sandbox['progress'] = 0;
+    $sandbox['max'] = count($entityforms);
+    $sandbox['entities'] = $entityforms;
+  }
+
+  $entityforms = array_slice($sandbox['entities'], $sandbox['progress'], 500);
+
+  foreach ($entityforms as $item) {
+    $entityform = entityform_load($item->entityform_id);
+
+    $transition = new WorkflowTransition();
+    $transition->setValues('entityform', $entityform, 'field_status', 4, 3, $entityform->uid, REQUEST_TIME, '');
+    $transition->execute(TRUE);
+
+    $entityform->field_status[LANGUAGE_NONE][0]['value'] = 3;
+    $entityform->save();
+
+    $sandbox['progress']++;
+  }
+
+  // Restore user.
+  /*$GLOBALS['user'] = $original_user;
+  drupal_save_session($original_session_state);*/
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+}
