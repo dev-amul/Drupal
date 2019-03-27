@@ -1980,14 +1980,11 @@ function siasar_updates_update_7216() {
  */
 function siasar_updates_update_7221(&$sandbox) {
   module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
-  /*$original_session_state = drupal_save_session();
-  drupal_save_session(FALSE);
 
-  // Set current user as admin for drush comand.
-  $original_user = $GLOBALS['user'];
-  $GLOBALS['user'] = user_load(1);*/
-
-  user_login_finalize(user_load(1));
+  // Load superadmin in order to be able to execute the entityform modifications.
+  global $user;
+  $user = user_load(1);
+  drupal_session_regenerate();
 
   if (!isset($sandbox['progress'])) {
     $entityforms = _get_entities_with_a5_field_wrong();
@@ -2011,9 +2008,13 @@ function siasar_updates_update_7221(&$sandbox) {
     $sandbox['progress']++;
   }
 
-  // Restore user.
-  /*$GLOBALS['user'] = $original_user;
-  drupal_save_session($original_session_state);*/
-
-  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+  if (empty($sandbox['max'])) {
+    $sandbox['#finished'] = 1;
+    // Log back as anonymous.
+    $user = user_load(0);
+    drupal_session_regenerate();
+  }
+  else {
+    $sandbox['#finished'] = $sandbox['progress'] / $sandbox['max'];
+  }
 }

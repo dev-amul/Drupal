@@ -80,35 +80,45 @@ function _get_user_orphan_entityforms() {
  * @return mixed
  */
 function _get_a5_wrong_field_collection() {
+
+  // Get values to exclude from the update.
+  $excluded_results = db_query("SELECT field_collection_item.item_id FROM field_collection_item
+                                        LEFT OUTER JOIN field_data_field_com_viv_con_sistnva ON field_collection_item.item_id = field_data_field_com_viv_con_sistnva.entity_id
+                                        LEFT OUTER JOIN field_data_field_system_ref ON field_collection_item.item_id = field_data_field_system_ref.entity_id
+                                        LEFT OUTER JOIN field_data_field_prestador_servicio ON field_collection_item.item_id = field_data_field_prestador_servicio.entity_id
+                                        WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
+                                        AND field_data_field_com_viv_con_sistnva.field_com_viv_con_sistnva_value=0
+                                        AND field_data_field_system_ref.field_system_ref_target_id ISNULL
+                                        AND field_data_field_prestador_servicio.field_prestador_servicio_target_id ISNULL");
+
+  $excluded_results = $excluded_results->fetchAllKeyed(0, 0);
+
+  // Find all values that are invalid for A5 field.
   $queries[] = db_query("SELECT field_collection_item.item_id FROM field_collection_item
                 LEFT OUTER JOIN field_data_field_prestador_servicio ON field_collection_item.item_id = field_data_field_prestador_servicio.entity_id
-WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
-  AND field_data_field_prestador_servicio.entity_id ISNULL");
+                WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
+                AND field_data_field_prestador_servicio.entity_id ISNULL
+                AND field_collection_item.item_id NOT IN (:eforms_excluded)", array(':eforms_excluded' => $excluded_results));
 
   $queries[] = db_query("SELECT field_collection_item.item_id FROM field_collection_item
                 LEFT OUTER JOIN field_data_field_system_ref ON field_collection_item.item_id = field_data_field_system_ref.entity_id
-WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
-  AND field_data_field_system_ref.entity_id ISNULL");
+                WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
+                AND field_data_field_system_ref.entity_id ISNULL
+                AND field_collection_item.item_id NOT IN (:eforms_excluded)", array(':eforms_excluded' => $excluded_results));
 
   $queries[] = db_query("SELECT field_collection_item.item_id FROM field_collection_item
                 LEFT OUTER JOIN field_data_field_com_viv_con_sistnva ON field_collection_item.item_id = field_data_field_com_viv_con_sistnva.entity_id
-WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
-  AND field_data_field_com_viv_con_sistnva.entity_id ISNULL");
+                WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
+                AND field_data_field_com_viv_con_sistnva.entity_id ISNULL
+                AND field_collection_item.item_id NOT IN (:eforms_excluded)", array(':eforms_excluded' => $excluded_results));
 
   $queries[] = db_query("SELECT field_collection_item.item_id FROM field_collection_item
                 LEFT OUTER JOIN field_data_field_com_viv_con_sistnva ON field_collection_item.item_id = field_data_field_com_viv_con_sistnva.entity_id
                 LEFT OUTER JOIN field_data_field_system_ref ON field_collection_item.item_id = field_data_field_system_ref.entity_id
                 LEFT OUTER JOIN field_data_field_prestador_servicio ON field_collection_item.item_id = field_data_field_prestador_servicio.entity_id
-WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
-  AND field_data_field_com_viv_con_sistnva.field_com_viv_con_sistnva_value=0
-  AND field_data_field_com_viv_con_sistnva.entity_id NOT IN (SELECT field_collection_item.item_id FROM field_collection_item
-                                                                                                         LEFT OUTER JOIN field_data_field_com_viv_con_sistnva ON field_collection_item.item_id = field_data_field_com_viv_con_sistnva.entity_id
-                                                                                                         LEFT OUTER JOIN field_data_field_system_ref ON field_collection_item.item_id = field_data_field_system_ref.entity_id
-                                                                                                         LEFT OUTER JOIN field_data_field_prestador_servicio ON field_collection_item.item_id = field_data_field_prestador_servicio.entity_id
-                                                             WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
-                                                               AND field_data_field_com_viv_con_sistnva.field_com_viv_con_sistnva_value=0
-                                                               AND field_data_field_system_ref.field_system_ref_target_id ISNULL
-                                                               AND field_data_field_prestador_servicio.field_prestador_servicio_target_id ISNULL);");
+                WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
+                AND field_data_field_com_viv_con_sistnva.field_com_viv_con_sistnva_value=0
+                AND field_data_field_com_viv_con_sistnva.entity_id NOT IN (:eforms_excluded)", array(':eforms_excluded' => $excluded_results));
 
   $field_collections = [];
 
@@ -120,6 +130,9 @@ WHERE field_collection_item.field_name = 'field_com_viv_con_sistema'
   $field_collections = array_map(function ($o) {
     return $o->item_id;
   }, $field_collections);
+
+  // Remove possible duplicate values.
+  $field_collections = array_unique($field_collections);
 
   return $field_collections;
 }
