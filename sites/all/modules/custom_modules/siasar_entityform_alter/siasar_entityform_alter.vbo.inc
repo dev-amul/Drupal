@@ -69,18 +69,20 @@ function _siasar_set_workflow_state($entity, $new_state_name) {
     }
 
     if ($new_state) {
-      $transition = new WorkflowTransition();
-      $transition->setValues($entity_type, $entity, $field_name, $old_sid, $new_state->value());
+      $entity->{$field_name}[LANGUAGE_NONE][0]['value'] = $new_state->value();
+      entity_save('entityform', $entity);
 
-      $langcode = $transition->language;
+      $transition = new WorkflowTransition();
+      $transition->setValues($entity_type, $entity, $field_name, $old_sid, $new_state->value(), $entity->uid);
+      $transition->execute();
+
 
       // We manually set the new state, as we want the Entity to know that
       // it will be transitioned to a new state
 
       // Do a separate update to update the field (Workflow Field API)
       // This will call hook_field_update() and WorkflowFieldDefaultWidget::submit().
-      $entity->{$field_name}[$langcode][0]['transition'] = $transition;
-      $entity->{$field_name}[$langcode][0]['value']      = $transition->new_sid;
+//      $entity->{$field_name}[$langcode][0]['transition'] = $transition;
     }
   }
 
@@ -131,7 +133,6 @@ function siasar_remove_questionnaire_action($entity, array $context) {
   }
   else {
     _siasar_set_workflow_state($entity, 'removed');
-    entity_save('entityform', $entity);
   }
 }
 
