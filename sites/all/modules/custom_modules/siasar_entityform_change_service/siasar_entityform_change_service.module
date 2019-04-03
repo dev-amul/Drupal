@@ -5,7 +5,7 @@
  */
 function siasar_entityform_change_service_services_resources() {
   $api = [
-    'siasar_entityform_change' => [
+    'entityform_change_state' => [
       'operations' => [
         'index' => [
           'help' => 'Retrieves forms changed for "finished" status or removed',
@@ -16,14 +16,21 @@ function siasar_entityform_change_service_services_resources() {
           'access arguments append' => FALSE,
           'args' => [
             [
-              'name' => 'date_start',
+              'name' => 'type',
+              'type' => 'string',
+              'description' => 'Entityform type',
+              'source' => 'param',
+              'optional' => TRUE,
+            ],
+            [
+              'name' => 'date_from',
               'type' => 'timestamp',
               'description' => 'Start date range for entityform filter',
               'source' => 'param',
               'optional' => TRUE,
             ],
             [
-              'name' => 'date_end',
+              'name' => 'date_to',
               'type' => 'timestamp',
               'description' => 'End date range for entityform filter',
               'source' => 'param',
