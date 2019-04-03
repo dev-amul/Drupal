@@ -122,10 +122,10 @@ function feature_siasar_services_default_services_endpoint() {
         'entityreference_field_user_reference' => array(
           'enabled' => '1',
         ),
-        'entityreference_field_etnia_en_mayoria' => array(
+        'entityreference_field_idioma_predominante' => array(
           'enabled' => '1',
         ),
-        'entityreference_field_idioma_predominante' => array(
+        'entityreference_field_etnia_en_mayoria' => array(
           'enabled' => '1',
         ),
       ),
@@ -298,6 +298,13 @@ function feature_siasar_services_default_services_endpoint() {
       ),
       'relationships' => array(
         'taxonomy_terms_field_country_currency' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
+    'entityform_change_state' => array(
+      'operations' => array(
+        'index' => array(
           'enabled' => '1',
         ),
       ),
