@@ -50,7 +50,6 @@ function _siasar_entityform_alter_action_info() {
  * @return bool|int
  */
 function _siasar_set_workflow_state($entity, $new_state_name) {
-  $return      = FALSE;
   $field_name  = 'field_status';
   $entity_type = $entity->entityType();
 
@@ -75,18 +74,8 @@ function _siasar_set_workflow_state($entity, $new_state_name) {
       $transition = new WorkflowTransition();
       $transition->setValues($entity_type, $entity, $field_name, $old_sid, $new_state->value(), $entity->uid);
       $transition->execute();
-
-
-      // We manually set the new state, as we want the Entity to know that
-      // it will be transitioned to a new state
-
-      // Do a separate update to update the field (Workflow Field API)
-      // This will call hook_field_update() and WorkflowFieldDefaultWidget::submit().
-//      $entity->{$field_name}[$langcode][0]['transition'] = $transition;
     }
   }
-
-  return $return;
 }
 
 /**
