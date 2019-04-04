@@ -20,10 +20,10 @@ function _siasar_entityform_change_service_services_index($page, $parameters) {
          LEFT JOIN field_data_field_status status ON status.entity_id = e.entityform_id
          LEFT JOIN workflow_node_history workflow ON workflow.revision_id = status.revision_id
       WHERE
-        e.type LIKE ('" . $parameters['type'] . "')
-        AND e.changed >= " . $parameters['date_from'] . "
-        AND e.changed <= " . $parameters['date_to'] . "
-        AND ( status.field_status_value = 5 OR workflow.old_sid = 3 )");
+        e.type LIKE (:type)
+        AND e.changed >= (:date_from)
+        AND e.changed <= (:date_to)
+        AND ( status.field_status_value = 5 OR workflow.old_sid = 3 )", array(':type' => $parameters['type'], ':date_from' => $parameters['date_from'], ':date_to' => $parameters['date_to']));
 
   return $query->fetchAllAssoc('entityform_id');
 }

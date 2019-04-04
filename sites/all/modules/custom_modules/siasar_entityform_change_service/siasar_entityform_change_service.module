@@ -4,43 +4,43 @@
  * Implements hook_services_resources().
  */
 function siasar_entityform_change_service_services_resources() {
-  $api = [
-    'entityform_change_state' => [
-      'operations' => [
-        'index' => [
+  $api = array(
+    'entityform_change_state' => array(
+      'operations' => array(
+        'index' => array(
           'help' => 'Retrieves forms changed for "finished" status or removed',
           'callback' => '_siasar_entityform_change_service_services_index',
-          'file' => ['file' => 'services.inc', 'module' => 'siasar_entityform_change_service'],
+          'file' => array('file' => 'services.inc', 'module' => 'siasar_entityform_change_service'),
           'access callback' => 'user_access',
-          'access arguments' => ['access content'],
+          'access arguments' => array('access content'),
           'access arguments append' => FALSE,
-          'args' => [
-            [
+          'args' => array(
+            array(
               'name' => 'type',
               'type' => 'string',
               'description' => 'Entityform type',
               'source' => 'param',
               'optional' => TRUE,
-            ],
-            [
+            ),
+            array(
               'name' => 'date_from',
               'type' => 'timestamp',
               'description' => 'Start date range for entityform filter',
               'source' => 'param',
               'optional' => TRUE,
-            ],
-            [
+            ),
+            array(
               'name' => 'date_to',
               'type' => 'timestamp',
               'description' => 'End date range for entityform filter',
               'source' => 'param',
               'optional' => TRUE,
-            ]
-          ]
-        ]
-      ]
-    ],
-  ];
+            )
+          )
+        )
+      )
+    ),
+  );
 
   return $api;
 }
