@@ -5278,7 +5278,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_viv_con_sistema-field_prestador_servicio'.
   $field_instances['field_collection_item-field_com_viv_con_sistema-field_prestador_servicio'] = array(
     'bundle' => 'field_com_viv_con_sistema',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5304,7 +5304,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -5312,15 +5312,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
+      'settings' => array(),
       'type' => 'options_select',
       'weight' => 2,
     ),
@@ -5330,7 +5322,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
   // 'field_collection_item-field_com_viv_con_sistema-field_system_ref'.
   $field_instances['field_collection_item-field_com_viv_con_sistema-field_system_ref'] = array(
     'bundle' => 'field_com_viv_con_sistema',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5356,7 +5348,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -5364,15 +5356,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
+      'settings' => array(),
       'type' => 'options_select',
       'weight' => 1,
     ),
