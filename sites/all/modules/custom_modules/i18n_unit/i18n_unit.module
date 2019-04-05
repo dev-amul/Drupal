@@ -119,7 +119,7 @@ function _i18n_units_find_translation_for_unit_label_on_row(&$row, $type) {
   $unit_name = &$row[0]['data']['#name'];
   $string_location = "units:{$type}:{$unit_name}:label";
 
-  $translation = i18n_string_translate($string_location, $label);
+  $translation = i18n_string_translate($string_location, $unit_label);
 
   return empty($translation)
     ? $unit_label
