@@ -38,7 +38,7 @@ function i18n_unit_entity_update($entity, $type) {
     return;
 
   // Account for name changes.
-  if ($entity->original->type != $entity->type) {
+  if (isset($entity->type) && $entity->original->type != $entity->type) {
     i18n_string_update_context("units:{$type}:{$entity->original->type}:*", "units:{$type}:{$entity->type}:*");
   }
   i18n_string_object_update($type, $entity);
@@ -90,3 +90,38 @@ function i18n_unit_preprocess_field(&$variables) {
   }
 }
 
+/**
+ * Implementation of hook_form_FORM_ID_alter()
+ * This makes unit names appear translated in unit overview page
+ */
+function i18n_unit_form_units_unit_overview_form_alter(&$form, $form_state, $form_id) {
+  $rows = &$form['table']['#rows'];
+
+  foreach($rows as &$row) {
+    $row[0]['data']['#label'] = _i18n_units_find_translation_for_unit_label_on_row($row, 'units_unit');
+  }
+}
+
+/**
+ * Implementation of hook_form_FORM_ID_alter()
+ * This makes Unit types and unit names appear translated in admin panel
+ */
+function i18n_unit_form_units_measure_overview_form_alter(&$form, $form_state, $form_id) {
+  $rows = &$form['table']['#rows'];
+
+  foreach($rows as &$row) {
+    $row[0]['data']['#label'] = _i18n_units_find_translation_for_unit_label_on_row($row, 'units_measure');
+  }
+}
+
+function _i18n_units_find_translation_for_unit_label_on_row(&$row, $type) {
+  $unit_label = &$row[0]['data']['#label'];
+  $unit_name = &$row[0]['data']['#name'];
+  $string_location = "units:{$type}:{$unit_name}:label";
+
+  $translation = i18n_string_translate($string_location, $unit_label);
+
+  return empty($translation)
+    ? $unit_label
+    : $translation;
+}

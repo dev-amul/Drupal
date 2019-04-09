@@ -172,10 +172,10 @@ function feature_siasar_taxonomies_taxonomy_default_vocabularies() {
       ),
     ),
     'cuenca_hidrografica' => array(
-      'name' => 'Cuenca hidrográfica',
+      'name' => 'Catchment area',
       'machine_name' => 'cuenca_hidrografica',
       'description' => '',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
       'language' => 'und',
@@ -199,7 +199,7 @@ function feature_siasar_taxonomies_taxonomy_default_vocabularies() {
       ),
     ),
     'division_administrativa' => array(
-      'name' => 'Division Administrativa',
+      'name' => 'Administrative Division',
       'machine_name' => 'division_administrativa',
       'description' => '',
       'hierarchy' => 1,
@@ -550,7 +550,7 @@ function feature_siasar_taxonomies_taxonomy_default_vocabularies() {
       ),
     ),
     'otras_divisiones' => array(
-      'name' => 'Otras divisiones',
+      'name' => 'Other ',
       'machine_name' => 'otras_divisiones',
       'description' => '',
       'hierarchy' => 0,
@@ -712,7 +712,7 @@ function feature_siasar_taxonomies_taxonomy_default_vocabularies() {
       ),
     ),
     'tipo_de_fuente_sistema' => array(
-      'name' => 'Tipo de fuente sistema',
+      'name' => 'Type de source system',
       'machine_name' => 'tipo_de_fuente_sistema',
       'description' => '',
       'hierarchy' => 0,
@@ -793,7 +793,7 @@ function feature_siasar_taxonomies_taxonomy_default_vocabularies() {
       ),
     ),
     'tipo_de_sistema_de_abastecimiento_de_agua' => array(
-      'name' => 'Tipo de sistema de abastecimiento de agua',
+      'name' => 'Type of Water Supply System',
       'machine_name' => 'tipo_de_sistema_de_abastecimiento_de_agua',
       'description' => '',
       'hierarchy' => 0,
@@ -847,7 +847,7 @@ function feature_siasar_taxonomies_taxonomy_default_vocabularies() {
       ),
     ),
     'tipo_de_tratamiento' => array(
-      'name' => 'Tipo de tratamiento',
+      'name' => 'Type of Treatment',
       'machine_name' => 'tipo_de_tratamiento',
       'description' => '',
       'hierarchy' => 0,

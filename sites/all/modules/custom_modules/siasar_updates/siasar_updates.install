@@ -1796,3 +1796,234 @@ function siasar_updates_update_7208() {
   $null = null;
   transliteration_retroactive_submit($null, $null);
 }
+/**
+ * 726 - Transliteration for uploaded files
+ *
+ * https://gitlab.com/siasar-project/admin/issues/726
+ */
+function siasar_updates_update_7209() {
+  $modules = array(
+    'siasar_services_session'
+  );
+  module_enable($modules);
+
+  $modules = array(
+    'services_session_token_auth',
+  );
+  $result = module_disable($modules, TRUE);
+  $result = drupal_uninstall_modules($modules, TRUE);
+
+  features_revert_module('feature_siasar_services');
+}
+/**
+ * 691 - Eliminar el módulo Units UI Show Factors
+ *
+ * https://gitlab.com/siasar-project/admin/issues/691
+ */
+function siasar_updates_update_7210() {
+  $modules = array(
+    'units_ui_show_factors',
+  );
+  $result = module_disable($modules, TRUE);
+  $result = drupal_uninstall_modules($modules, TRUE);
+}
+/**
+ * Disable Feeds module. We're not using it.
+ */
+function siasar_updates_update_7211() {
+  $modules = array(
+    'feeds_import',
+    'feeds_ui',
+    'feeds',
+  );
+  $result = module_disable($modules, TRUE);
+  $result = drupal_uninstall_modules($modules, TRUE);
+}
+/**
+ * 760 - Find a way to label a survey as closed, and any change following it as "update"
+ *
+ * https://gitlab.com/siasar-project/admin/issues/760
+ */
+function siasar_updates_update_7212() {
+  $modules = array(
+    'siasar_workflow',
+  );
+  $result = module_enable($modules, TRUE);
+
+  features_revert_module('feature_siasar_field_bases');
+  features_revert_module('feature_siasar_testing_form_workflow');
+}
+
+/**
+ * Issue 769: Ensure closed revisions can't be edited.
+ * No-one should be able to edit a revision.
+ * https://gitlab.com/siasar-project/admin/issues/769
+ */
+function siasar_updates_update_7213(&$sandbox) {
+  $permission = 'edit entityform revisions';
+  $roles = user_roles(TRUE, $permission);
+  foreach ($roles as $rid => $role) {
+    user_role_revoke_permissions($rid, array($permission));
+  }
+}
+
+/**
+ * Issue 766 - Survey update as VBO action
+ * https://gitlab.com/Admin_Siasar/SIASAR-2.0/issues/766
+ */
+function siasar_updates_update_7214(&$sandbox) {
+
+  $permissions = array(
+    'execute siasar_close_and_update_action',
+  );
+
+  $roles = array(
+    'Administrador Local',
+    'Administrador Regional',
+    'Validator',
+    'administrator',
+  );
+
+  foreach($roles as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    user_role_grant_permissions($role->rid, $permissions);
+  }
+}
+
+/**
+ * Issue 658 - Posible conversion erronea de unidades de caudal.
+ * https://gitlab.com/siasar-project/admin/issues/658
+ */
+function siasar_updates_update_7215() {
+  // Update flujo caudal units factors.
+  $units_to_update = array(
+    'galones_por_minuto' => 15.85,
+    'litros_por_dia' => 86400,
+    'litros_por_hora' => 3600,
+    'litros_por_minutos' => 60,
+    'metros_cubicos_por_dia' => 86.4,
+    'metros_cubicos_por_hora' => 3.6,
+    'metros_cubicos_por_minuto' => 0.06,
+    'metros_cubicos_por_segundo' => 0.001,
+    'litros_por_segundo' => 1,
+  );
+
+  // Load all units of type flujo caudal.
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'units_unit');
+  $query->propertyCondition('measure', 'flujo_caudal');
+
+  $results = $query->execute();
+
+  // Load and save each measure with updated factor.
+  foreach ($results['units_unit'] as $unit) {
+    $unit = entity_load_single('units_unit', $unit->umid);
+    $unit->factor = $units_to_update[$unit->machine_name];
+    entity_save('units_unit', $unit);
+  }
+
+  // Modify the converter used on flujo caudal measure.
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'units_measure');
+  $query->propertyCondition('measure', 'flujo_caudal');
+
+  $results = $query->execute();
+
+  foreach ($results['units_measure'] as $measure) {
+    $measure = entity_load_single('units_measure', $measure->mid);
+    $measure->converter = 'volume_converter';
+    entity_save('units_measure', $measure);
+  }
+}
+
+/**
+ * Issue 777 - Problemas ventana de login en el sistema
+ * https://gitlab.com/siasar-project/admin/issues/777
+ */
+function siasar_updates_update_7216() {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
+
+  $results = _get_orphan_entityforms();
+
+  foreach ($results as $result) {
+    $entity = entity_load_single('entityform', $result->entityform_id);
+
+    if ($entity->type !== 'testingpurposes') {
+      if (!empty($entity->field_user_reference[LANGUAGE_NONE][0]['target_id'])) {
+        $user = user_load($entity->field_user_reference[LANGUAGE_NONE][0]['target_id']);
+
+        if (empty($user)) {
+          $user = user_load_by_name('generic_' . $entity->field_pais['und'][0]['iso2']);
+        }
+      }
+      elseif (!empty($entity->field_pais['und'][0]['iso2'])) {
+        $user = user_load_by_name('generic_' . $entity->field_pais['und'][0]['iso2']);
+      }
+
+      if (!empty($user)) {
+        $entity->uid = $user->uid;
+
+        entity_save('entityform', $entity);
+      }
+    }
+  }
+
+  // Remove view entityform permission for anonymous users
+  $role = user_role_load_by_name('usuario anónimo');
+  user_role_revoke_permissions($role->rid, ['view any entityform']);
+}
+
+
+/**
+ * Issue 787 - Error campo A5 de Comunidad
+ * https://gitlab.com/siasar-project/admin/issues/787
+ */
+function siasar_updates_update_7221(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
+
+  // Load superadmin in order to be able to execute the entityform modifications.
+  global $user;
+  $user = user_load(1);
+  drupal_session_regenerate();
+
+  if (!isset($sandbox['progress'])) {
+    $entityforms = _get_entities_with_a5_field_wrong();
+    $sandbox['progress'] = 0;
+    $sandbox['max'] = count($entityforms);
+    $sandbox['entities'] = $entityforms;
+  }
+
+  $entityforms = array_slice($sandbox['entities'], $sandbox['progress'], 500);
+
+  foreach ($entityforms as $item) {
+    $entityform = entityform_load($item->entityform_id);
+
+    $transition = new WorkflowTransition();
+    $transition->setValues('entityform', $entityform, 'field_status', 4, 3, $entityform->uid, REQUEST_TIME, '');
+    $transition->execute(TRUE);
+
+    $entityform->field_status[LANGUAGE_NONE][0]['value'] = 3;
+    $entityform->save();
+
+    $sandbox['progress']++;
+  }
+
+  if (empty($sandbox['max'])) {
+    $sandbox['#finished'] = 1;
+    // Log back as anonymous.
+    $user = user_load(0);
+    drupal_session_regenerate();
+  }
+  else {
+    $sandbox['#finished'] = $sandbox['progress'] / $sandbox['max'];
+  }
+}
+
+/**
+ * Remove access content to anonymous users.
+ */
+function siasar_updates_update_7222(&$sandbox) {
+  // Remove access content permission on anonymous users.
+  $role = user_role_load_by_name('usuario anónimo');
+  user_role_revoke_permissions($role->rid, ['access content']);
+}

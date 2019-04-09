@@ -88,7 +88,7 @@ class SiasarEntityformRevisionsController extends EntityformRevisionsController 
     // seem to have this issue reported yet.
     // The error can be reproduced by going to the /admin/structure URL.
 
-    if (count($ids) === 1 && reset($ids) === '') {
+    if ($ids && count($ids) === 1 && reset($ids) === '') {
       return array();
     }
 

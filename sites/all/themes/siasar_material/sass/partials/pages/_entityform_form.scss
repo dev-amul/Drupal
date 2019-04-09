@@ -14,7 +14,7 @@ form.entityform {
 
   .btn.form-submit {
     background-image: url('../img/tick.svg');
-    padding-left: 55px;
+    padding-left: 45px;
   }
 
   .vertical-tabs {
@@ -458,5 +458,9 @@ body.page-entityform-edit {
         padding-top: 20px;
       }
     }
+  }
+
+  .field-name-field-status {
+    display: none;
   }
 }

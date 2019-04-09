@@ -13,3 +13,11 @@ function feature_siasar_services_update_7100() {
  function feature_siasar_services_update_7101() {
   features_revert_module('feature_siasar_services');
 }
+
+/**
+ * Provide a new login method for the API that does not use cookies
+ * https://gitlab.com/siasar-project/admin/issues/734
+ */
+function feature_siasar_services_update_7102() {
+  features_revert_module('feature_siasar_services');
+}

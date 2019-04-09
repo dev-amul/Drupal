@@ -23,13 +23,19 @@ function services_session_token_auth_services_authentication_info() {
  */
 function _services_session_token_auth_authenticate_call($module, $controller) {
   global $user;
+  $original_user = services_get_server_info('original_user');
+
+  if ($original_user->uid !== 0) {
+    module_load_include('inc', 'services', 'includes/services.runtime');
+    _services_controller_execute_restore_user();
+    return;
+  }
 
   if ($controller['callback'] != '_user_resource_get_token') {
     // If no token is sent, load anonymous.
     if (!isset($_SERVER['HTTP_X_USER_SESSION_TOKEN'])) {
-      $user = drupal_anonymous_user();
-      $user->timestamp = time();
-      session_id(drupal_random_key());
+      _services_session_token_auth_load_anonymous();
+      return;
     }
     // Else, if session is sent, load user.
     elseif(isset($_SERVER['HTTP_X_USER_SESSION_TOKEN']) && !empty($_SERVER['HTTP_X_USER_SESSION_TOKEN'])) {
@@ -70,17 +76,11 @@ function _services_session_token_auth_authenticate_call($module, $controller) {
       elseif ($user) {
         // The user is anonymous or blocked. Only preserve two fields from the
         // {sessions} table.
-        $account = drupal_anonymous_user();
-        $account->session = $user->session;
-        $account->timestamp = $user->timestamp;
-        $user = $account;
+        _services_session_token_auth_load_anonymous($user->session);
       }
       else {
         // The session has expired.
-        $user = drupal_anonymous_user();
-        $user->timestamp = time();
-        $user->session = '';
-        session_id(drupal_random_key());
+        _services_session_token_auth_load_anonymous();
       }
 
       // Store the session that was read for comparison in _drupal_session_write().
@@ -94,10 +94,23 @@ function _services_session_token_auth_authenticate_call($module, $controller) {
 
   // Check CSRF Token
   $non_safe_method_called = !in_array($_SERVER['REQUEST_METHOD'], array('GET', 'HEAD', 'OPTIONS', 'TRACE')) && (!isset($controller['csrf validation']) || $controller['csrf validation']) ;
-  $csrf_token_invalid = !isset($_SERVER['HTTP_X_CSRF_TOKEN']) || !drupal_valid_token($_SERVER['HTTP_X_CSRF_TOKEN'], 'services');
+  $csrf_token_invalid = !isset($_SERVER['HTTP_X_CSRF_TOKEN']) || !drupal_valid_token($_SERVER['HTTP_X_CSRF_TOKEN'], 'services', true);
   if ($non_safe_method_called && $csrf_token_invalid) {
     return t('CSRF validation failed');
   }
+}
+
+/**
+ * Helper function loads anonymous user
+ *
+ * @return void
+ */
+function _services_session_token_auth_load_anonymous($session = '') {
+  global $user;
+  $user = drupal_anonymous_user();
+  $user->timestamp = time();
+  $user->session = $session;
+  session_id(drupal_random_key());
 }
 
 function services_session_token_auth_get_tokens() {

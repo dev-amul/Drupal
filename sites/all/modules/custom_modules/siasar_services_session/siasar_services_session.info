@@ -1,0 +1,7 @@
+name = SIASAR Services session
+description = Services login service extension. If no session cookie is provided, use token to authenticate a user. Forked from Services Session Token Auth.
+core = 7.x
+package = SIASAR
+
+; Dependencies
+dependencies[] = services

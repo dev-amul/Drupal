@@ -46,7 +46,7 @@ class EntityformRevisionsUIController extends EntityformUIController {
       'title' => 'Edit revision',
       'page callback' => 'entityform_revision_form_wrapper',
       'page arguments' => array(1, 3, 'edit'),
-      'access callback' => 'entityform_access',
+      'access callback' => 'entityform_revisions_access',
       'access arguments' => array('edit', 1),
       'weight' => 0,
       'type' => MENU_LOCAL_TASK,

@@ -93,6 +93,7 @@ features[field_instance][] = entityform-prestador_de_servicio-field_apoyo_gob_ot
 features[field_instance][] = entityform-prestador_de_servicio-field_atencion_del_prestador
 features[field_instance][] = entityform-prestador_de_servicio-field_balance_contable
 features[field_instance][] = entityform-prestador_de_servicio-field_clase_de_prestador
+features[field_instance][] = entityform-prestador_de_servicio-field_closed_revisions
 features[field_instance][] = entityform-prestador_de_servicio-field_codigo_de_prestador
 features[field_instance][] = entityform-prestador_de_servicio-field_comentarios
 features[field_instance][] = entityform-prestador_de_servicio-field_cuenta_banco

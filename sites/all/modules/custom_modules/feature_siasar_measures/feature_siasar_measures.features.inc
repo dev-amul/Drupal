@@ -55,7 +55,7 @@ function feature_siasar_measures_default_units_measure() {
     "measure" : "flujo_caudal",
     "label" : "Flujo\\/caudal",
     "description" : "",
-    "converter" : "linear",
+    "converter" : "volume_converter",
     "rdf_mapping" : []
   }');
   $items['puntual_coordenada_'] = entity_import('units_measure', '{
@@ -145,7 +145,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Galones por minuto",
     "symbol" : "gln\\/min",
     "description" : "",
-    "factor" : "4.4029",
+    "factor" : "15.85",
     "rdf_mapping" : []
   }');
   $items['galones_por_persona_diario'] = entity_import('units_unit', '{
@@ -163,7 +163,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Litros por d\\u00eda",
     "symbol" : "l\\/d",
     "description" : "",
-    "factor" : "24000",
+    "factor" : "86400",
     "rdf_mapping" : []
   }');
   $items['litros_por_hora'] = entity_import('units_unit', '{
@@ -172,7 +172,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Litros por hora",
     "symbol" : "l\\/h",
     "description" : "",
-    "factor" : "1000",
+    "factor" : "3600",
     "rdf_mapping" : []
   }');
   $items['litros_por_minutos'] = entity_import('units_unit', '{
@@ -181,7 +181,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Litros por minutos",
     "symbol" : "l\\/min",
     "description" : "",
-    "factor" : "16.67",
+    "factor" : "60",
     "rdf_mapping" : []
   }');
   $items['litros_por_persona_diario'] = entity_import('units_unit', '{
@@ -199,7 +199,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Litros por segundo",
     "symbol" : "l\\/s",
     "description" : "",
-    "factor" : "0.2778",
+    "factor" : "1",
     "rdf_mapping" : []
   }');
   $items['mes'] = entity_import('units_unit', '{
@@ -235,7 +235,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Metros c\\u00fabicos por d\\u00eda",
     "symbol" : "m\\u00b3\\/d",
     "description" : "",
-    "factor" : "24",
+    "factor" : "86.4",
     "rdf_mapping" : []
   }');
   $items['metros_cubicos_por_hora'] = entity_import('units_unit', '{
@@ -244,7 +244,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Metros c\\u00fabicos por hora",
     "symbol" : "m\\u00b3\\/h",
     "description" : "",
-    "factor" : "1",
+    "factor" : "3.6",
     "rdf_mapping" : []
   }');
   $items['metros_cubicos_por_minuto'] = entity_import('units_unit', '{
@@ -253,7 +253,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Metros c\\u00fabicos por minuto",
     "symbol" : "m\\u00b3\\/min",
     "description" : "",
-    "factor" : "0.01667",
+    "factor" : "0.06",
     "rdf_mapping" : []
   }');
   $items['metros_cubicos_por_segundo'] = entity_import('units_unit', '{
@@ -262,7 +262,7 @@ function feature_siasar_measures_default_units_unit() {
     "label" : "Metros c\\u00fabicos por segundo",
     "symbol" : "m\\u00b3\\/s",
     "description" : "",
-    "factor" : "0.0002778",
+    "factor" : "0.001",
     "rdf_mapping" : []
   }');
   $items['micrograms_per_litre'] = entity_import('units_unit', '{
