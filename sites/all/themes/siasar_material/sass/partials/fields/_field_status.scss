@@ -40,6 +40,12 @@ body.page-entityform-view {
     .field-status-validated .field-items  {
       background-image: url(../img/workflow/validated.svg);
     }
+    .field-status-closed .field-items  {
+      background-image: url(../img/workflow/closed.svg);
+    }
+    .field-status-removed .field-items  {
+      background-image: url(../img/workflow/removed.svg);
+    }
   }
 }
 
@@ -67,13 +73,14 @@ body.page-entityform-workflow {
   #edit-workflow-4 {
     background-image: url(../img/workflow/validated-white.svg);
   }
-
-}
-
-body.workflow-status-validated {
-  #edit-workflow-2 {
+  #edit-workflow-5 {
+    background-color: $siasar-red;
+    background-image: url(../img/workflow/removed-white.svg);
+  }
+  #edit-workflow-6 {
     background-image: url(../img/workflow/update-white.svg);
   }
+
 }
 
 body.page-entityform-workflow #block-system-main .content {

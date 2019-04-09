@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the field collection structure service module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function field_collection_structure_service_schema() {
+  $schema['cache_field_collection_structure_service'] = drupal_get_schema_unprocessed('system', 'cache');
+  $schema['cache_field_collection_structure_service']['description'] = 'Cache table for field_collection_structure_service to store service responses.';
+  return $schema;
+}
+
+/**
+ * Create custom cache table.
+ */
+function field_collection_structure_service_update_7101() {
+  drupal_install_schema('field_collection_structure_service');
+}

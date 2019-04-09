@@ -5,3 +5,17 @@
  */
 
 include_once 'feature_siasar_measures.features.inc';
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function feature_siasar_measures_ctools_plugin_directory($owner, $plugin_type) {
+  switch ($owner) {
+    case 'units':
+      switch ($plugin_type) {
+        case 'converters':
+          return 'plugins/' . $plugin_type;
+      }
+      break;
+  }
+}

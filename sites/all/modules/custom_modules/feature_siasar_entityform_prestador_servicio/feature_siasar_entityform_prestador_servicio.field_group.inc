@@ -23,10 +23,10 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'H4. Type of corrective measures',
     'weight' => '11',
     'children' => array(
-      0 => 'field_no_aguas_residuales',
-      1 => 'field_no_uso_plaguicidas',
+      0 => 'field_reforestacion',
+      1 => 'field_no_aguas_residuales',
       2 => 'field_sustitucion_componentes',
-      3 => 'field_reforestacion',
+      3 => 'field_no_uso_plaguicidas',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -58,16 +58,16 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'H5. Type of preventive measures ',
     'weight' => '13',
     'children' => array(
-      0 => 'field_no_tala_y_resforestacion',
-      1 => 'field_revision_estado_obra',
-      2 => 'field_revision_plan_contingencia',
-      3 => 'field_revision_estado_cercano',
-      4 => 'field_vigilancia_zona',
+      0 => 'field_revision_componentes_toma',
+      1 => 'field_revision_estado_cercano',
+      2 => 'field_revision_demarcacion',
+      3 => 'field_no_tala_y_resforestacion',
+      4 => 'field_revision_estado_obra',
       5 => 'field_proteccion_terreno',
       6 => 'field_proteccion_suelos',
-      7 => 'field_revision_componentes_toma',
+      7 => 'field_revision_plan_contingencia',
       8 => 'field_proteccion_flora_fauna',
-      9 => 'field_revision_demarcacion',
+      9 => 'field_vigilancia_zona',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -99,9 +99,9 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'D2. Have there been special contributions not directly related to water service?',
     'weight' => '19',
     'children' => array(
-      0 => 'field_monto_aporte_previsto',
-      1 => 'field__aportaciones_extras',
-      2 => 'field_monto_aporte_finalizado',
+      0 => 'field__aportaciones_extras',
+      1 => 'field_monto_aporte_finalizado',
+      2 => 'field_monto_aporte_previsto',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -133,8 +133,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'H1.',
     'weight' => '8',
     'children' => array(
-      0 => 'field_apoyo_gob_otros',
-      1 => 'field_nombre_entidad_apoya',
+      0 => 'field_nombre_entidad_apoya',
+      1 => 'field_apoyo_gob_otros',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -198,11 +198,11 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'F3. Is there a balance sheet?',
     'weight' => '8',
     'children' => array(
-      0 => 'field_pasivos_corrientes_',
+      0 => 'field_balance_contable',
       1 => 'field_pasivos_no_corrientes',
-      2 => 'field_balance_contable',
-      3 => 'field_activos_corrientes',
-      4 => 'field_activos_no_corrientes',
+      2 => 'field_activos_corrientes',
+      3 => 'field_activos_no_corrientes',
+      4 => 'field_pasivos_corrientes_',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -232,10 +232,10 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A2. Type of Provider',
-    'weight' => '6',
+    'weight' => '7',
     'children' => array(
-      0 => 'field_clase_de_prestador',
-      1 => 'field_otra_clase_de_prestador',
+      0 => 'field_otra_clase_de_prestador',
+      1 => 'field_clase_de_prestador',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -299,10 +299,10 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'C5. Billing, Payment and Revenue',
     'weight' => '8',
     'children' => array(
-      0 => 'field_usuarios_al_dia',
-      1 => 'field_usuarios_deberian_pagan',
-      2 => 'field_facturacion_promedio',
-      3 => 'field_ingresos_reales',
+      0 => 'field_usuarios_deberian_pagan',
+      1 => 'field_ingresos_reales',
+      2 => 'field_usuarios_al_dia',
+      3 => 'field_facturacion_promedio',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -367,16 +367,16 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'E1.',
     'weight' => '5',
     'children' => array(
-      0 => 'field_gasto_real_mantenimiento',
-      1 => 'field_gasto_real_operacion',
-      2 => 'field_gasto_teorico_mantenimient',
-      3 => 'field_gasto_teorico_operacion',
-      4 => 'field_gasto_teorico_ambientales',
-      5 => 'field_gasto_promedio_admin',
-      6 => 'field_gasto_real_ambientales',
-      7 => 'field_sumatoria_gastos_teoricos',
-      8 => 'field_gasto_teorico_admin',
-      9 => 'field_sumatoria_gastos_reales',
+      0 => 'field_gasto_teorico_ambientales',
+      1 => 'field_sumatoria_gastos_teoricos',
+      2 => 'field_gasto_real_mantenimiento',
+      3 => 'field_gasto_teorico_admin',
+      4 => 'field_gasto_teorico_mantenimient',
+      5 => 'field_sumatoria_gastos_reales',
+      6 => 'field_gasto_promedio_admin',
+      7 => 'field_gasto_teorico_operacion',
+      8 => 'field_gasto_real_operacion',
+      9 => 'field_gasto_real_ambientales',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -438,14 +438,14 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
   $field_group->parent_name = 'group_info_general';
   $field_group->data = array(
     'label' => 'A1.',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
-      0 => 'field_altitud',
-      1 => 'field_entidad_local',
-      2 => 'field_entity_name',
-      3 => 'field_imagenps',
-      4 => 'field_latitud',
-      5 => 'field_codigo_de_prestador',
+      0 => 'field_entidad_local',
+      1 => 'field_imagenps',
+      2 => 'field_codigo_de_prestador',
+      3 => 'field_altitud',
+      4 => 'field_entity_name',
+      5 => 'field_latitud',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -577,9 +577,9 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'D1. Additional income from operations',
     'weight' => '18',
     'children' => array(
-      0 => 'field_ingresos_extra',
-      1 => 'field_monto_previsto',
-      2 => 'field_monto_total_finalizado',
+      0 => 'field_monto_total_finalizado',
+      1 => 'field_ingresos_extra',
+      2 => 'field_monto_previsto',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -648,8 +648,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
       0 => 'group_cuenta_banco',
       1 => 'group_junta_directiva',
       2 => 'group_legal',
-      3 => 'group_tecnicos_repesentantes',
-      4 => 'group_rinde_cuentas',
+      3 => 'group_rinde_cuentas',
+      4 => 'group_tecnicos_repesentantes',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -718,12 +718,13 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'A. General Information',
     'weight' => '0',
     'children' => array(
-      0 => 'field_fecha_aplicacion',
-      1 => 'field_pais',
-      2 => 'field_user_reference',
+      0 => 'field_pais',
+      1 => 'field_user_reference',
+      2 => 'field_fecha_aplicacion',
       3 => 'field_status',
-      4 => 'group_clase_prestador',
-      5 => 'group_inf_basica',
+      4 => 'field_closed_revisions',
+      5 => 'group_clase_prestador',
+      6 => 'group_inf_basica',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -756,8 +757,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'weight' => '6',
     'children' => array(
       0 => 'field_libro_ingresos_egresos',
-      1 => 'field_monto_total_de_ingresos',
-      2 => 'field_monto_total_de_egresos',
+      1 => 'field_monto_total_de_egresos',
+      2 => 'field_monto_total_de_ingresos',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -790,8 +791,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'weight' => '18',
     'children' => array(
       0 => 'field_fecha_eleccion',
-      1 => 'field_numero_reuniones',
-      2 => 'field_miembros_nombrados',
+      1 => 'field_miembros_nombrados',
+      2 => 'field_numero_reuniones',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -856,11 +857,11 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'H. Operation and maintenance (O&M)',
     'weight' => '7',
     'children' => array(
-      0 => 'group_apoyo_tecnico',
-      1 => 'group_higiene_comunitaria',
-      2 => 'group_proteccion',
-      3 => 'group_acciones_correctivas',
-      4 => 'group_acciones_preventivas',
+      0 => 'group_acciones_correctivas',
+      1 => 'group_acciones_preventivas',
+      2 => 'group_apoyo_tecnico',
+      3 => 'group_higiene_comunitaria',
+      4 => 'group_proteccion',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -925,8 +926,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'C3. Is the community familiar with the billing system and are bills issued at a regular frequency?',
     'weight' => '6',
     'children' => array(
-      0 => 'field_mecanismo_pago_tarifa',
-      1 => 'field_otros_motivos',
+      0 => 'field_otros_motivos',
+      1 => 'field_mecanismo_pago_tarifa',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -991,8 +992,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'weight' => '6',
     'children' => array(
       0 => 'group_atencion',
-      1 => 'group_recursos',
-      2 => 'group_personal',
+      1 => 'group_personal',
+      2 => 'group_recursos',
       3 => 'group_reglamento',
     ),
     'format_type' => 'div',
@@ -1283,8 +1284,8 @@ function feature_siasar_entityform_prestador_servicio_field_group_info() {
     'label' => 'C2. Rate Type and Amount',
     'weight' => '5',
     'children' => array(
-      0 => 'field_tarifa_media_mensual',
-      1 => 'field_tipo_de_tarifa',
+      0 => 'field_tipo_de_tarifa',
+      1 => 'field_tarifa_media_mensual',
     ),
     'format_type' => 'div',
     'format_settings' => array(

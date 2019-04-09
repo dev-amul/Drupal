@@ -69,13 +69,31 @@ function _field_collection_structure_service_retrieve($bundle) {
 }
 
 function _field_collection_structure_service_index($page, $parameters) {
-  $form_fields = new stdClass();
-  $info = entity_get_property_info('field_collection_item');
+  // Load user input to build the cache cid.
+  global $user;
+  $user_full = user_load($user->uid);
+  $country_code = $user_full->field_pais['und'][0]['iso2'];
+  $currlang = $user_full->language;
 
-  foreach ($info['bundles'] as $name => $bundle) {
-    // Display just the entityform bundle name.
-    $form_fields->{$name} = _field_collection_structure_service_retrieve($name)[$name];
+  // Build cid.
+  $cid = "field_collection_item-{$country_code}-{$currlang}";
+  // Get cached data of the current cid.
+  $cached_data = cache_get($cid, 'cache_field_collection_structure_service');
+
+  if (!$cached_data) {
+    $form_fields = new stdClass();
+    $info = entity_get_property_info('field_collection_item');
+
+    foreach ($info['bundles'] as $name => $bundle) {
+      // Display just the entityform bundle name.
+      $form_fields->{$name} = _field_collection_structure_service_retrieve($name)[$name];
+    }
+
+    cache_set($cid, $form_fields, 'cache_field_collection_structure_service', CACHE_TEMPORARY);
+  }
+  else {
+    $form_fields = $cached_data->data;
   }
 
-  return $form_fields;
+  return (array)$form_fields;
 }

@@ -21,10 +21,10 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
     'label' => 'A6. Are there adequate water resources (at the source) to meet demand?',
-    'weight' => '120',
+    'weight' => '31',
     'children' => array(
-      0 => 'field_agua_en_invierno',
-      1 => 'field_agua_en_verano',
+      0 => 'field_agua_en_verano',
+      1 => 'field_agua_en_invierno',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -51,7 +51,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
     'label' => 'A7. Water Supply System Design',
-    'weight' => '121',
+    'weight' => '32',
     'children' => array(
       0 => 'field_a6_croquis',
     ),
@@ -82,16 +82,17 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'A. General information and design',
     'weight' => '0',
     'children' => array(
-      0 => 'field_fecha_de_aplicaci_n',
-      1 => 'field_user_reference',
-      2 => 'field_pais',
-      3 => 'group_a5',
-      4 => 'group_a6_croquis_del_sistema',
-      5 => 'group_financiamiento_inicial',
-      6 => 'group_info_general',
-      7 => 'group_otras_divisiones',
-      8 => 'group_rehabilitaciones_sistema',
-      9 => 'group_tpo_sist_abastecimeinto',
+      0 => 'field_user_reference',
+      1 => 'field_pais',
+      2 => 'field_status',
+      3 => 'field_fecha_de_aplicaci_n',
+      4 => 'group_a5',
+      5 => 'group_a6_croquis_del_sistema',
+      6 => 'group_financiamiento_inicial',
+      7 => 'group_info_general',
+      8 => 'group_otras_divisiones',
+      9 => 'group_rehabilitaciones_sistema',
+      10 => 'group_tpo_sist_abastecimeinto',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -2711,7 +2712,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
     'label' => 'A3. Initial Source(s) of Construction Financing',
-    'weight' => '117',
+    'weight' => '28',
     'children' => array(
       0 => 'field_a_fuentes_de_financiamient',
     ),
@@ -2952,12 +2953,12 @@ function feature_siasar_field_bases_field_group_info() {
     'label' => 'G4. Drinking Water Quality',
     'weight' => '71',
     'children' => array(
-      0 => 'field_g4_4',
+      0 => 'field_fecha_analisis_fq',
       1 => 'field_g4_3',
-      2 => 'field_cantidad_de_cloro_residual',
-      3 => 'field_fecha_analisiscalidad_agua',
+      2 => 'field_fecha_analisiscalidad_agua',
+      3 => 'field_g4_4',
       4 => 'field_fecha_analisis_coliformes',
-      5 => 'field_fecha_analisis_fq',
+      5 => 'field_cantidad_de_cloro_residual',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3513,15 +3514,15 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
     'label' => 'A1',
-    'weight' => '115',
+    'weight' => '26',
     'children' => array(
       0 => 'field_imagen',
       1 => 'field_entidad_local',
-      2 => 'field_anno_construccion',
-      3 => 'field_codigo_de_sistema',
-      4 => 'field_alto',
-      5 => 'field_entity_name',
-      6 => 'field_latitud',
+      2 => 'field_alto',
+      3 => 'field_entity_name',
+      4 => 'field_codigo_de_sistema',
+      5 => 'field_latitud',
+      6 => 'field_anno_construccion',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -3933,11 +3934,11 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
     'label' => 'A2. Other Administrative and/or Geographical Divisions',
-    'weight' => '116',
+    'weight' => '27',
     'children' => array(
-      0 => 'field_area_planificacion',
-      1 => 'field_cuenca_hidrografica',
-      2 => 'field_otras_divisiones',
+      0 => 'field_otras_divisiones',
+      1 => 'field_area_planificacion',
+      2 => 'field_cuenca_hidrografica',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -4416,7 +4417,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
     'label' => 'A4. Refurbishment(s) and/or Expansion(s)',
-    'weight' => '118',
+    'weight' => '29',
     'children' => array(
       0 => 'field_rehabilitaciones_y_o_ampli',
     ),
@@ -4618,7 +4619,7 @@ function feature_siasar_field_bases_field_group_info() {
   $field_group->parent_name = 'group_a_info_general_sistema';
   $field_group->data = array(
     'label' => 'A5. Type of water supply system',
-    'weight' => '119',
+    'weight' => '30',
     'children' => array(
       0 => 'field_a4_2',
       1 => 'field_tipo_de_sistema_de_absto',

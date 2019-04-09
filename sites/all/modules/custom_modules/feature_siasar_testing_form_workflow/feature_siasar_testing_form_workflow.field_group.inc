@@ -21,7 +21,7 @@ function feature_siasar_testing_form_workflow_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Sección A',
-    'weight' => '1',
+    'weight' => '2',
     'children' => array(
       0 => 'field_a_fuentes_de_financiamient',
       1 => 'field_cantidad_comunidades_apoya',
@@ -52,7 +52,7 @@ function feature_siasar_testing_form_workflow_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Sección B: blablabla',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
       0 => 'field_tipo_de_sistema_de_absto',
     ),
@@ -85,9 +85,10 @@ function feature_siasar_testing_form_workflow_field_group_info() {
       0 => 'field_pais',
       1 => 'field_b1_7',
       2 => 'field_entidad_local',
-      3 => 'field_image',
-      4 => 'field_entity_name',
+      3 => 'field_entity_name',
+      4 => 'field_image',
       5 => 'field_user_reference',
+      6 => 'field_closed_revisions',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

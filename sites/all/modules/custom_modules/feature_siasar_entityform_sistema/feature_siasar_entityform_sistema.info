@@ -77,6 +77,7 @@ features[field_instance][] = entityform-sistema-field_anno_construccion
 features[field_instance][] = entityform-sistema-field_area_planificacion
 features[field_instance][] = entityform-sistema-field_cantidad_de_cloro_residual
 features[field_instance][] = entityform-sistema-field_caudal_actual_del_sistema
+features[field_instance][] = entityform-sistema-field_closed_revisions
 features[field_instance][] = entityform-sistema-field_codigo_de_sistema
 features[field_instance][] = entityform-sistema-field_cuenca_hidrografica
 features[field_instance][] = entityform-sistema-field_d_infraestructura

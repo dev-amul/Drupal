@@ -767,6 +767,53 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   );
 
   // Exported field_instance:
+  // 'entityform-prestador_de_servicio-field_closed_revisions'.
+  $field_instances['entityform-prestador_de_servicio-field_closed_revisions'] = array(
+    'bundle' => 'prestador_de_servicio',
+    'default_value' => array(),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number_unformatted',
+        'weight' => 5,
+      ),
+      'entity_reference' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_closed_revisions',
+    'label' => 'Revisiones cerradas',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => 'number_unformatted',
+        'formatter_settings' => array(),
+      ),
+      'type' => 'field_extrawidgets_hidden',
+      'weight' => 159,
+    ),
+  );
+
+  // Exported field_instance:
   // 'entityform-prestador_de_servicio-field_codigo_de_prestador'.
   $field_instances['entityform-prestador_de_servicio-field_codigo_de_prestador'] = array(
     'bundle' => 'prestador_de_servicio',
@@ -5821,6 +5868,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   t('Realización de acciones que promuevan la NO tala de árboles y la reforestación');
   t('Reforestación');
   t('Representantes');
+  t('Revisiones cerradas');
   t('Revisión del buen estado de la demarcación y señalización de la zona cercana a la fuente o toma de agua del sistema');
   t('Revisión del estado de la obra de toma limpia y/o mejorarlo');
   t('Revisión del estado del cercado de la obra de toma y/o mejorarlo');
