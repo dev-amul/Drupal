@@ -133,5 +133,13 @@ function siasar_remove_questionnaire_action($entity, array $context) {
  */
 function siasar_check_computability($entity, array $context) {
   $id = $entity->entityform_id;
-  _computable_revision($id);
+  $is_computable = _computable_revision($id);
+
+  if (empty($is_computable)) {
+    drupal_set_message(t("@field_entity_name is not computable", array('@field_entity_name' => $entity->field_entity_name['und'][0]['value'])), 'error');
+
+  }
+  else {
+    drupal_set_message(t("@field_entity_name is computable", array('@field_entity_name' => $entity->field_entity_name['und'][0]['value'])), 'status');
+  }
 }
