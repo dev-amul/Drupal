@@ -2027,3 +2027,23 @@ function siasar_updates_update_7222(&$sandbox) {
   $role = user_role_load_by_name('usuario anónimo');
   user_role_revoke_permissions($role->rid, ['access content']);
 }
+
+/**
+ * Enable new services.
+ */
+function siasar_updates_update_7223() {
+  $modules = array(
+    'siasar_entityform_change_service',
+  );
+
+  module_enable($modules);
+}
+
+/**
+ * Remove permissions to anonymous users.
+ */
+function siasar_updates_update_7224(&$sandbox) {
+  // Remove access content permission on anonymous users.
+  $role = user_role_load_by_name('usuario anónimo');
+  user_role_revoke_permissions($role->rid, ['view files']);
+}
