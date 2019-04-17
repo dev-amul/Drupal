@@ -2031,10 +2031,10 @@ function siasar_updates_update_7222(&$sandbox) {
 /**
  * Fix field entity name language.
  */
-function siasar_updates_update_7223(&$sandbox) {
+function siasar_updates_update_7224(&$sandbox) {
   $query = db_update('field_data_field_entity_name');
   $query->fields(array('language' => 'und'));
-  $query->condition('language', 'es', '=');
+  $query->condition('language', array('es', 'ru'), 'IN');
   $query->condition('entity_id', '175410', '>');
 
   $query->execute();
