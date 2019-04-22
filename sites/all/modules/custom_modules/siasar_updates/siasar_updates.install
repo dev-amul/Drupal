@@ -2029,9 +2029,21 @@ function siasar_updates_update_7222(&$sandbox) {
 }
 
 /**
+ * Fix field entity name language.
+ */
+function siasar_updates_update_7226(&$sandbox) {
+  $query = db_update('field_data_field_entity_name');
+  $query->fields(array('language' => 'und'));
+  $query->condition('language', 'und', '!=');
+  $query->condition('entity_id', '175410', '>');
+
+  $query->execute();
+}
+
+/**
  * Enable new services.
  */
-function siasar_updates_update_7223() {
+function siasar_updates_update_7227() {
   $modules = array(
     'siasar_entityform_change_service',
   );
@@ -2042,7 +2054,7 @@ function siasar_updates_update_7223() {
 /**
  * Remove permissions to anonymous users.
  */
-function siasar_updates_update_7224(&$sandbox) {
+function siasar_updates_update_7228(&$sandbox) {
   // Remove access content permission on anonymous users.
   $role = user_role_load_by_name('usuario anónimo');
   user_role_revoke_permissions($role->rid, ['view files']);
