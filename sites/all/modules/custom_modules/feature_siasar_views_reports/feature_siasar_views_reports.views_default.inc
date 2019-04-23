@@ -1458,6 +1458,9 @@ function feature_siasar_views_reports_views_default_views() {
 
   /* Display: Exportación de datos */
   $handler = $view->new_display('views_data_export', 'Exportación de datos', 'views_data_export_3');
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -1493,6 +1496,12 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['relationships']['field_com_viv_con_sistema_value']['table'] = 'field_data_field_com_viv_con_sistema';
   $handler->display->display_options['relationships']['field_com_viv_con_sistema_value']['field'] = 'field_com_viv_con_sistema_value';
   $handler->display->display_options['relationships']['field_com_viv_con_sistema_value']['delta'] = '-1';
+  /* Relationship: Entityform Submission: Viviendas con sistema (field_com_viv_con_sistema) */
+  $handler->display->display_options['relationships']['field_com_viv_con_sistema_value_1']['id'] = 'field_com_viv_con_sistema_value_1';
+  $handler->display->display_options['relationships']['field_com_viv_con_sistema_value_1']['table'] = 'field_data_field_com_viv_con_sistema';
+  $handler->display->display_options['relationships']['field_com_viv_con_sistema_value_1']['field'] = 'field_com_viv_con_sistema_value';
+  $handler->display->display_options['relationships']['field_com_viv_con_sistema_value_1']['label'] = 'field collection item from field_com_viv_con_sistema prestador';
+  $handler->display->display_options['relationships']['field_com_viv_con_sistema_value_1']['delta'] = '-1';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_system_ref_target_id']['id'] = 'field_system_ref_target_id';
   $handler->display->display_options['relationships']['field_system_ref_target_id']['table'] = 'field_data_field_system_ref';
@@ -1503,7 +1512,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['relationships']['field_prestador_servicio_target_id']['id'] = 'field_prestador_servicio_target_id';
   $handler->display->display_options['relationships']['field_prestador_servicio_target_id']['table'] = 'field_data_field_prestador_servicio';
   $handler->display->display_options['relationships']['field_prestador_servicio_target_id']['field'] = 'field_prestador_servicio_target_id';
-  $handler->display->display_options['relationships']['field_prestador_servicio_target_id']['relationship'] = 'field_com_viv_con_sistema_value';
+  $handler->display->display_options['relationships']['field_prestador_servicio_target_id']['relationship'] = 'field_com_viv_con_sistema_value_1';
   $handler->display->display_options['relationships']['field_prestador_servicio_target_id']['label'] = 'sp_ref';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Entityform Submission: Entityform submission ID */
