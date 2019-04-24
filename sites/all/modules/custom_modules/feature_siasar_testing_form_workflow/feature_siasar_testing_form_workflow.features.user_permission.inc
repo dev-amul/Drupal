@@ -14,6 +14,7 @@ function feature_siasar_testing_form_workflow_user_default_permissions() {
   $permissions['participate in workflow'] = array(
     'name' => 'participate in workflow',
     'roles' => array(
+      'Actualizador' => 'Actualizador',
       'Administrador Local' => 'Administrador Local',
       'Administrador Regional' => 'Administrador Regional',
       'Digitador' => 'Digitador',
