@@ -1632,18 +1632,17 @@ function feature_siasar_views_reports_views_default_views() {
     10 => 0,
   );
   /* Filter criterion: Entityform Submission: Location. SIASAR Hierarchical Select */
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['id'] = 'field_entidad_local_siasar_hierarchical_select_1';
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['table'] = 'field_data_field_entidad_local';
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['field'] = 'field_entidad_local_siasar_hierarchical_select';
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['value'] = '';
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['group'] = 1;
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['expose']['operator_id'] = 'field_entidad_local_siasar_hierarchical_select_1_op';
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['expose']['label'] = 'Location. SIASAR Hierarchical Select';
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['expose']['operator'] = 'field_entidad_local_siasar_hierarchical_select_1_op';
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['expose']['identifier'] = 'field_entidad_local_siasar_hierarchical_select_1';
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['expose']['remember'] = TRUE;
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['id'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['table'] = 'field_data_field_entidad_local';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['field'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['value'] = '';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['group'] = 1;
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['operator_id'] = 'field_entidad_local_siasar_hierarchical_select_op';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['label'] = 'Location. SIASAR Hierarchical Select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['operator'] = 'field_entidad_local_siasar_hierarchical_select_op';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['identifier'] = 'field_entidad_local_siasar_hierarchical_select';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     7 => 0,
@@ -1651,9 +1650,14 @@ function feature_siasar_views_reports_views_default_views() {
     5 => 0,
     9 => 0,
     6 => 0,
+    11 => 0,
+    12 => 0,
+    13 => 0,
+    14 => 0,
     10 => 0,
+    15 => 0,
   );
-  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select_1']['vocabulary'] = 'division_administrativa';
+  $handler->display->display_options['filters']['field_entidad_local_siasar_hierarchical_select']['vocabulary'] = 'division_administrativa';
   /* Filter criterion: Entityform Type: Machine-readable name */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'entityform_type';
@@ -1764,6 +1768,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['field_status_value']['id'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['table'] = 'field_data_field_status';
   $handler->display->display_options['filters']['field_status_value']['field'] = 'field_status_value';
+  $handler->display->display_options['filters']['field_status_value']['group'] = 1;
   $handler->display->display_options['filters']['field_status_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_status_value']['expose']['operator_id'] = 'field_status_value_op';
   $handler->display->display_options['filters']['field_status_value']['expose']['label'] = 'Status (field_status)';
@@ -1814,6 +1819,7 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['filters']['entityform_revision']['id'] = 'entityform_revision';
   $handler->display->display_options['filters']['entityform_revision']['table'] = 'entityform_computable_states';
   $handler->display->display_options['filters']['entityform_revision']['field'] = 'entityform_revision';
+  $handler->display->display_options['filters']['entityform_revision']['group'] = 1;
   $handler->display->display_options['filters']['entityform_revision']['exposed'] = TRUE;
   $handler->display->display_options['filters']['entityform_revision']['expose']['operator_id'] = '';
   $handler->display->display_options['filters']['entityform_revision']['expose']['label'] = 'Processable';
