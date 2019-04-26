@@ -41,6 +41,7 @@ function siasar_field_location_services_resources() {
           'help' => 'Retrieves hierarchy of location terms. Arguments:<br/>OPERATION (children/ancestors) = children, TID = 0, COUNTRY (ISO2) = all',
           'callback' => '_siasar_field_location_api_children',
           'file' => array('file' => 'services.inc', 'module' => 'siasar_field_location'),
+          'access callback' => 'siasar_public_access_callback',
           'args' => array(
             array(
               'name' => 'operation',
@@ -66,7 +67,6 @@ function siasar_field_location_services_resources() {
               'optional' => TRUE,
             )
           ),
-          'access arguments' => array('access content'),
         ),
       ),
     ),
