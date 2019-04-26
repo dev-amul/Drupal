@@ -20,6 +20,11 @@ define('SIASAR_ENTITYFORM_STATE_CLOSED', 6);
 function siasar_workflow_entityform_presave($entityform) {
   module_load_include('inc', 'siasar_workflow', 'inc/siasar_workflow.helpers');
 
+  // Since workflow form doesn't update the change date, force it.
+  if ($entityform->changed == $entityform->original->changed) {
+    $entityform->changed = time();
+  }
+
   if ($entityform->is_new
     || _siasar_workflow_check_transition($entityform, 'closed', 'draft') === false
     || !isset($entityform->field_closed_revisions))
