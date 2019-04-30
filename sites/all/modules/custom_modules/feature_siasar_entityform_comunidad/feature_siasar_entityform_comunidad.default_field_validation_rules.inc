@@ -58,7 +58,7 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
   $rule->bundle = 'comunidad';
   $rule->validator = 'field_validation_match_against_form_value';
   $rule->settings = array(
-    'operator' => 'lower',
+    'operator' => 'lower_equal',
     'target_field_machine_name' => 'field_com_hig_num_vivbasica',
     'ignore_rule_if_blank_value' => 0,
     'bypass' => 0,
@@ -75,6 +75,7 @@ function feature_siasar_entityform_comunidad_default_field_validation_rule() {
       13 => 0,
       14 => 0,
       10 => 0,
+      15 => 0,
     ),
     'errors' => 0,
     'condition' => 0,
