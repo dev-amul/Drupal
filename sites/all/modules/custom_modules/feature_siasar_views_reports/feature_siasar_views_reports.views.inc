@@ -7,7 +7,7 @@
  */
 function feature_siasar_views_reports_views_query_alter(&$view, &$query) {
   global $user;
-  if (!in_array('entityform_results_view', $query->options['query_tags'])) return;
+  if (empty($query->options['query_tags']) || !in_array('entityform_results_view', $query->options['query_tags'])) return;
 
   // @todo this is not needed anymore, the filtering is done through the exposed form
   // @nachenko could you double check this?

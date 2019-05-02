@@ -21,3 +21,12 @@ function feature_siasar_services_services_entity_resource_info() {
 
   return $result;
 }
+
+/**
+ * Custom access callback to allow public requests to resources.
+ *
+ * @return bool
+ */
+function siasar_public_access_callback() {
+  return TRUE;
+}

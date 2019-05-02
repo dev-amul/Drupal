@@ -256,7 +256,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_alto',
     'label' => 'Altitud',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -279,7 +279,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'bundle' => 'sistema',
     'default_value' => array(),
     'deleted' => 0,
-    'description' => 'Year the system was built',
+    'description' => 'Año en que fue construido el sistema',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4554,6 +4554,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Altitud');
   t('Año');
   t('Año de construcción');
+  t('Año en que fue construido el sistema');
   t('Calificación (SIASAR 1)');
   t('Cantidad de cloro residual');
   t('Capacidad de almacenamiento (volumen)');
@@ -4627,7 +4628,6 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
   t('Tipo de rehabilitación o de ampliación');
   t('Tipo de sistema de abastecimiento de agua');
   t('Tipo de tratamiento');
-  t('Year the system was built');
   t('¿Con qué frecuencia se realiza la limpieza?');
   t('¿Contiene estructuras especiales la línea? (Tanque rompe presión, válvulas, etc.)');
   t('¿Cuál es el Estado físico de la infraestructura de almacenamiento de agua?');
