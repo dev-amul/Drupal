@@ -519,3 +519,107 @@ function _siasar_entityform_alter_workflow_transition_comment_form(&$form, &$for
     }
   }
 }
+
+/**
+ * Helper to check empty values on required fields.
+ *
+ * @param $dependent_fields
+ *   Array with fields data.
+ * @param $form
+ * @param $form_state
+ */
+function check_required_fields_value($dependent_fields, $form, &$form_state) {
+  foreach ($dependent_fields as $dependent_field) {
+    // By default we assume that there are no errors.
+    $set_error = FALSE;
+    switch ($dependent_field['type']) {
+      // Check entity reference fields.
+      case 'entity_reference':
+        if (empty($form_state['values'][$dependent_field['name']][LANGUAGE_NONE][0]['tid'])) {
+          $set_error = TRUE;
+        }
+        break;
+      // Check measured decimal fields.
+      case 'measured_decimal':
+        if (empty($form_state['values'][$dependent_field['name']][LANGUAGE_NONE][0]['target_id'])
+          || $form_state['values'][$dependent_field['name']][LANGUAGE_NONE][0]['target_id'] == '_none'
+          || empty($form_state['values'][$dependent_field['name']][LANGUAGE_NONE][0]['value'])) {
+          $set_error = TRUE;
+        }
+        break;
+      // Check integer fields.
+      case 'integer':
+        if (empty($form_state['values'][$dependent_field['name']][LANGUAGE_NONE][0]['value'])) {
+          $set_error = TRUE;
+        }
+        break;
+    }
+
+    // Check if the current field has error.
+    if ($set_error) {
+      form_set_error($dependent_field['name'], t('Field @field is required.', array('@field' => $form[$dependent_field['name']][LANGUAGE_NONE]['#title'])));
+    }
+  }
+}
+
+/**
+ * Helper function to check the value of a given field in a form.
+ *
+ * @param $field_name
+ *   Field name in the form.
+ * @param $value
+ *   Field value to check.
+ * @param $type
+ *   Field type.
+ * @param $form_state
+ *
+ * @return bool
+ */
+function check_if_field_has_value($field_name, $value, $type, $form_state) {
+  $result = FALSE;
+
+  switch ($type) {
+    case 'entity_reference':
+      if (isset($form_state['values'][$field_name])
+        && $form_state['values'][$field_name][LANGUAGE_NONE][0]['tid'] == $value) {
+        $result = TRUE;
+      }
+      break;
+    case 'boolean':
+      if (isset($form_state['values'][$field_name])
+        && $form_state['values'][$field_name][LANGUAGE_NONE][0]['value'] === $value) {
+        $result = TRUE;
+      }
+      break;
+  }
+
+  return $result;
+}
+
+/**
+ * @param $field_collection
+ * @param $index
+ * @param $dependent_fields
+ * @param $form
+ * @param $form_state
+ */
+function check_field_collection_required_values($field_collection, $index, $dependent_fields, $form, &$form_state) {
+  $field_collection_values = $form_state['values'][$field_collection][LANGUAGE_NONE][$index];
+
+  foreach ($dependent_fields as $dependent_field) {
+    $set_error = FALSE;
+
+    switch ($dependent_field['type']) {
+      case 'integer':
+      case 'textfield':
+        if (empty($field_collection_values[$dependent_field['name']][LANGUAGE_NONE][0]['value'])) {
+          $set_error = TRUE;
+        }
+        break;
+    }
+
+    if ($set_error) {
+      form_set_error($dependent_field['name'], t('Field @field is required.', array('@field' => $form[$field_collection][LANGUAGE_NONE][0][$dependent_field['name']][LANGUAGE_NONE]['#title'])));
+    }
+  }
+}
