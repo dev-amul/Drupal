@@ -10,8 +10,20 @@ include_once 'feature_siasar_entityform_prestador_servicio.features.inc';
  * Implements hook_form_FORM_ID_alter().
  */
 function feature_siasar_entityform_prestador_servicio_form_prestador_de_servicio_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
-  // Add validation for c3 field
+  // Add validation for b block fields.
+  $form['#validate'][] = '_b_fields_validation';
+  // Add validation for c1-c2 block fields.
+  $form['#validate'][] = '_c_fields_validation';
+  // Add validation for c3 field.
   $form['#validate'][] = '_c3_multiple_validation';
+  // Add validation for c6 field.
+  $form['#validate'][] = '_c6_field_dependency_cleanup';
+  // Add validation for D fields.
+  $form['#validate'][] = '_d_fields_validation';
+  // Add validation for F fields.
+  $form['#validate'][] = '_f_fields_validation';
+  // Add validation for h4 and h5 fields.
+  $form['#validate'][] = '_h4_h5_required_validation';
 
   //Conditional fields fails on that dependency so it has been implemented
   //This requirement comes from issue #616
@@ -34,12 +46,83 @@ function feature_siasar_entityform_prestador_servicio_form_prestador_de_servicio
       ),
     ),
   );
-  $form['#validate'][] = '_c6_field_dependency_cleanup';
+}
+
+/**
+ * Custom validation for B block fields.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _b_fields_validation($form, &$form_state) {
+  if (check_if_field_has_value('field_clase_de_prestador', 32013, 'entity_reference', $form_state)) {
+    $dependents_fields = array(
+      array(
+        'name' => 'field_estado_legal',
+        'type' => 'entity_reference',
+      ),
+      array(
+        'name' => 'field_numero_reuniones',
+        'type' => 'integer',
+      ),
+    );
+
+    check_required_fields_value($dependents_fields, $form, $form_state);
+  }
+}
+
+/**
+ * Custom validation for C block fields.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _c_fields_validation($form, &$form_state) {
+  if (check_if_field_has_value('field_tiene_definido_tipo_tarifa', "1", 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_tipo_de_tarifa',
+        'type' => 'entity_reference',
+      ),
+      array(
+        'name' => 'field_tarifa_media_mensual',
+        'type' => 'measured_decimal',
+      ),
+      array(
+        'name' => 'field_mecanismo_pago_tarifa',
+        'type' => 'entity_reference',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+
+  if (check_if_field_has_value('field_mecanismo_pago_tarifa', 32021, 'entity_reference', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_usuarios_deberian_pagan',
+        'type' => 'integer',
+      ),
+      array(
+        'name' => 'field_facturacion_promedio',
+        'type' => 'measured_decimal',
+      ),
+      array(
+        'name' => 'field_usuarios_al_dia',
+        'type' => 'integer',
+      ),
+      array(
+        'name' => 'field_ingresos_reales',
+        'type' => 'measured_decimal',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
 }
 
 /**
  * Validate function to avoid positive and negative answers at the same time.
- *
  */
 function _c3_multiple_validation($form, &$form_state) {
   if (isset($form_state['values']['field_mecanismo_pago_tarifa'])) {
@@ -69,5 +152,103 @@ function _c6_field_dependency_cleanup($form, &$form_state) {
   if ($c1 != '0' && !in_array($c3, $allowed_c3_tids)){
 
     $form_state['values']['field_mantenimiento_sistema']['und'][0]['tid'] = NULL;
+  }
+}
+
+/**
+ * Custom validation for D block fields.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _d_fields_validation($form, &$form_state) {
+  if (check_if_field_has_value('field_ingresos_extra', "1", 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_monto_total_finalizado',
+        'type' => 'measured_decimal',
+      ),
+      array(
+        'name' => 'field_monto_previsto',
+        'type' => 'measured_decimal',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+
+  if (check_if_field_has_value('field__aportaciones_extras', "1", 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_monto_aporte_finalizado',
+        'type' => 'measured_decimal',
+      ),
+      array(
+        'name' => 'field_monto_aporte_previsto',
+        'type' => 'measured_decimal',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+}
+
+/**
+ * Custom validation for F block fields.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _f_fields_validation($form, &$form_state) {
+  if (check_if_field_has_value('field_libro_ingresos_egresos', "1", 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_monto_total_de_ingresos',
+        'type' => 'measured_decimal',
+      ),
+      array(
+        'name' => 'field_monto_total_de_egresos',
+        'type' => 'measured_decimal',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+}
+
+/**
+ * Validate function for required fields dependent on h3 section.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _h4_h5_required_validation($form, &$form_state) {
+  if (isset($form_state['values']['field_proteccion_zona_fuente'])) {
+    if ($form_state['values']['field_proteccion_zona_fuente'][LANGUAGE_NONE][0]['value'] == "1") {
+      // Fields to check.
+      $dependent_fields = array(
+        'field_no_uso_plaguicidas',
+        'field_no_aguas_residuales',
+        'field_reforestacion',
+        'field_sustitucion_componentes',
+        'field_proteccion_terreno',
+        'field_vigilancia_zona',
+        'field_proteccion_flora_fauna',
+        'field_revision_demarcacion',
+        'field_revision_estado_cercano',
+        'field_revision_estado_obra',
+        'field_revision_componentes_toma',
+        'field_no_tala_y_resforestacion',
+        'field_proteccion_suelos',
+        'field_revision_plan_contingencia',
+      );
+
+      foreach ($dependent_fields as $field) {
+        // Check if the field is empty.
+        if (empty($form_state['values'][$field][LANGUAGE_NONE][0]['tid'])) {
+          form_set_error($field, t('Field @field is required.', array('@field' => $form[$field][LANGUAGE_NONE]['#title'])));
+        }
+      }
+    }
   }
 }

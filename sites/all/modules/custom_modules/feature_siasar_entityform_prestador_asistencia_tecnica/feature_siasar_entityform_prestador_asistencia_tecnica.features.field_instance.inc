@@ -2232,10 +2232,20 @@ function feature_siasar_entityform_prestador_asistencia_tecnica_field_default_fi
     'entity_type' => 'entityform',
     'field_name' => 'field_tipo_de_pat2',
     'label' => 'Tipo de PAT',
-    'required' => 0,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
+    ),
+    'view' => array(
+      'args' => array(),
+      'display_name' => '',
+      'match_operator' => 'CONTAINS',
+      'size' => '',
+      'view_name' => '',
     ),
     'widget' => array(
       'active' => 1,

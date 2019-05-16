@@ -39,7 +39,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'entity_type' => 'entityform',
     'field_name' => 'field__aportaciones_extras',
     'label' => '¿Se han realizado aportaciones extraordinarias no directamente vinculadas al servicio de agua? ',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -564,7 +564,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'entity_type' => 'entityform',
     'field_name' => 'field_altitud',
     'label' => 'Altitud',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -629,7 +629,11 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_atencion_del_prestador'.
   $field_instances['entityform-prestador_de_servicio-field_atencion_del_prestador'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'tid' => 32050,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -653,7 +657,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -745,7 +749,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -4396,7 +4400,11 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_reglamento_servicios'.
   $field_instances['entityform-prestador_de_servicio-field_reglamento_servicios'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'tid' => 32035,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -4420,7 +4428,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -4843,7 +4851,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'entity_type' => 'entityform',
     'field_name' => 'field_sumatoria_gastos_reales',
     'label' => 'Suma de gastos reales ',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'mvf' => array(
@@ -4865,7 +4873,16 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
             'en' => -1,
             'enable' => 0,
             'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-DO' => -1,
+            'es-HN' => -1,
+            'es-MX' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
             'pt-br' => -1,
+            'ru' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -5239,7 +5256,11 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_tiene_definido_tipo_tarifa'.
   $field_instances['entityform-prestador_de_servicio-field_tiene_definido_tipo_tarifa'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5260,7 +5281,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'entity_type' => 'entityform',
     'field_name' => 'field_tiene_definido_tipo_tarifa',
     'label' => 'Tiene definido un tipo de tarifa?',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,

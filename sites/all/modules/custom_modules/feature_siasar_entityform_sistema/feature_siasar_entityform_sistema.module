@@ -5,3 +5,30 @@
  */
 
 include_once 'feature_siasar_entityform_sistema.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function feature_siasar_entityform_sistema_form_sistema_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
+  // Add validation for b block fields.
+  $form['#validate'][] = '_system_b_fields_validation';
+}
+
+/**
+ * Custom validation for B block fields.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _system_b_fields_validation($form, &$form_state) {
+  if (check_if_field_collection_field_has_value('field_fuente_y_o_captacion', 0, 'field_infraestructura_captacion', '1', 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_edo_fisico_infra_cptcion',
+        'type' => 'entity_reference',
+      ),
+    );
+
+    check_field_collection_required_values('field_fuente_y_o_captacion', 0, $dependent_fields, $form, $form_state);
+  }
+}
