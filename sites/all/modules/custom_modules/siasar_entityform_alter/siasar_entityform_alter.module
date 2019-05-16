@@ -549,6 +549,7 @@ function check_required_fields_value($dependent_fields, $form, &$form_state) {
         break;
       // Check integer fields.
       case 'integer':
+      case 'select':
         if (empty($form_state['values'][$dependent_field['name']][LANGUAGE_NONE][0]['value'])) {
           $set_error = TRUE;
         }
@@ -597,9 +598,14 @@ function check_if_field_has_value($field_name, $value, $type, $form_state) {
 }
 
 /**
+ * Helper function to check required fields values on field collections.
+ *
  * @param $field_collection
+ *   Name of the field collection.
  * @param $index
+ *   Index to check.
  * @param $dependent_fields
+ *   Dependent fields info.
  * @param $form
  * @param $form_state
  */
@@ -612,7 +618,13 @@ function check_field_collection_required_values($field_collection, $index, $depe
     switch ($dependent_field['type']) {
       case 'integer':
       case 'textfield':
+      case 'select':
         if (empty($field_collection_values[$dependent_field['name']][LANGUAGE_NONE][0]['value'])) {
+          $set_error = TRUE;
+        }
+        break;
+      case 'entity_reference':
+        if (empty($field_collection_values[$dependent_field['name']][LANGUAGE_NONE][0]['tid'])) {
           $set_error = TRUE;
         }
         break;
@@ -622,4 +634,43 @@ function check_field_collection_required_values($field_collection, $index, $depe
       form_set_error($dependent_field['name'], t('Field @field is required.', array('@field' => $form[$field_collection][LANGUAGE_NONE][0][$dependent_field['name']][LANGUAGE_NONE]['#title'])));
     }
   }
+}
+
+/**
+ * Helper function to check the value of a given field of a field collection in
+ * a form.
+ *
+ * @param $field_collection
+ *   Name of the field collection.
+ * @param $index
+ *   Index to check.
+ * @param $field_name
+ *   Field name in the form.
+ * @param $value
+ *   Field value to check.
+ * @param $type
+ * @param $form_state
+ *
+ * @return bool
+ */
+function check_if_field_collection_field_has_value($field_collection, $index, $field_name, $value, $type, $form_state) {
+  $result = FALSE;
+  $field_collection_values = $form_state['values'][$field_collection][LANGUAGE_NONE][$index];
+
+  switch ($type) {
+    case 'entity_reference':
+      if (isset($field_collection_values[$field_name])
+        && $field_collection_values[$field_name][LANGUAGE_NONE][0]['tid'] == $value) {
+        $result = TRUE;
+      }
+      break;
+    case 'boolean':
+      if (isset($field_collection_values[$field_name])
+        && $field_collection_values[$field_name][LANGUAGE_NONE][0]['value'] === $value) {
+        $result = TRUE;
+      }
+      break;
+  }
+
+  return $result;
 }

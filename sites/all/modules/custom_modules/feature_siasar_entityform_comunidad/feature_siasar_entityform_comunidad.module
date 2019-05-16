@@ -16,6 +16,12 @@ function feature_siasar_entityform_comunidad_form_comunidad_entityform_edit_form
   $form['#validate'][] = '_community_c_fields_validation';
 }
 
+/**
+ * Custom validation for B block fields.
+ *
+ * @param $form
+ * @param $form_state
+ */
 function _community_b_fields_validation($form, &$form_state) {
   if (check_if_field_has_value('field_data_collection_method', 742124, 'entity_reference', $form_state)) {
     $dependent_fields = array(
@@ -40,6 +46,12 @@ function _community_b_fields_validation($form, &$form_state) {
   }
 }
 
+/**
+ * Custom validation for C block fields.
+ *
+ * @param $form
+ * @param $form_state
+ */
 function _community_c_fields_validation($form, &$form_state) {
   if (check_if_field_has_value('field_com_ce_existe', '1', 'boolean', $form_state)) {
     $dependent_fields = array(
@@ -55,8 +67,35 @@ function _community_c_fields_validation($form, &$form_state) {
         'name' => 'field_com_fic_ce_fdocm',
         'type' => 'integer',
       ),
+      array(
+        'name' => 'field_com_fic_ce_festf',
+        'type' => 'integer',
+      ),
+      array(
+        'name' => 'field_com_fic_ce_festm',
+        'type' => 'integer',
+      ),
+      array(
+        'name' => 'field_com_fic_cesa_pa',
+        'type' => 'select',
+      ),
     );
 
     check_field_collection_required_values('field_con_fic_ce_ficha', 0, $dependent_fields, $form, $form_state);
+  }
+
+  if (check_if_field_has_value('field_com_cs_existe', '1', 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_group_com_fic_cscgnom',
+        'type' => 'textfield',
+      ),
+      array(
+        'name' => 'field_com_fic_cssa_pa',
+        'type' => 'select',
+      ),
+    );
+
+    check_field_collection_required_values('field_com_fic_cs_ficha', 0, $dependent_fields, $form, $form_state);
   }
 }
