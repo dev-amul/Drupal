@@ -144,8 +144,9 @@ function _computable_revision($entityform_id) {
                     $valid_not_system_provider = empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
 
                     $valid_system_provider = !empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && !empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
-                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id'], TRUE);
-                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id'], TRUE);
+                    // Check if the system provider is validated and computable.
+                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id'], TRUE) && _computable_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
+                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id'], TRUE) && _computable_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
 
                     if (!$valid_not_system_provider && !$valid_system_provider) {
                       $computable_revision = NULL;
