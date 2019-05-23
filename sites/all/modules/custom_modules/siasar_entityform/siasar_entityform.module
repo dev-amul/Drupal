@@ -57,13 +57,27 @@ function _query_form_in_queue($entityform_id) {
  * Check if an entityform id has a validated revision
  *
  * @param $entityform_id int The entityform ID.
+ *   Entityform ID.
+ * @param bool $check_current
+ *   Check the current status.
  *
  * @return boolean TRUE|FALSE
  */
-function _query_validated_revision($entityform_id) {
+function _query_validated_revision($entityform_id, $check_current = FALSE) {
+  $is_valid = FALSE;
+
   $entityform = entity_load_single('entityform', $entityform_id);
-  $revisions  = $entityform && siasar_entityform_validated_revisions($entityform);
-  return !empty($revisions);
+  if (!$check_current) {
+    $revisions = $entityform && siasar_entityform_validated_revisions($entityform);
+    $is_valid = !empty($revisions);
+  }
+  else {
+    if ($entityform->field_status[LANGUAGE_NONE][0]['value'] == SIASAR_ENTITYFORM_STATE_VALIDATED) {
+      $is_valid = TRUE;
+    }
+  }
+
+  return $is_valid;
 }
 
 /**
@@ -130,8 +144,9 @@ function _computable_revision($entityform_id) {
                     $valid_not_system_provider = empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
 
                     $valid_system_provider = !empty($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']) && !empty($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
-                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
-                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+                    // Check if the system provider is validated and computable.
+                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id'], TRUE) && _computable_revision($fc->field_system_ref[LANGUAGE_NONE][0]['target_id']);
+                    $valid_system_provider = $valid_system_provider && _query_validated_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id'], TRUE) && _computable_revision($fc->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
 
                     if (!$valid_not_system_provider && !$valid_system_provider) {
                       $computable_revision = NULL;
@@ -140,8 +155,6 @@ function _computable_revision($entityform_id) {
                   }
                 }
               }
-
-
               break;
             case 'prestador_de_servicio':
             case 'sistema':
@@ -195,9 +208,19 @@ function _computable_revision($entityform_id) {
         // Detected last entityform revision computable, so stop here
         break;
       }
-
+      else {
+        // Update computable value if the survey is not computable.
+        if (!empty($entityform->computable_revision)) {
+          db_update('entityform_computable_states')
+            ->fields([
+              'computable' => 0,
+              'entityform_revision' => NULL,
+            ])
+            ->condition('entityform_id', $entityform_id, '=')
+            ->execute();
+        }
+      }
     }
-
   }
 
   db_delete('entityform_computable_processing')
@@ -332,9 +355,9 @@ function _siasar_entityform_add_entityform_table_to_query_if_needed($query) {
 function find_validated_community_for_id($entityform_id, $bundle) {
 
   $query = "SELECT community.entityform_id
-FROM {entityform} as community
-  INNER JOIN {field_data_field_com_viv_con_sistema} AS fc_field ON fc_field.revision_id = community.vid
-  INNER JOIN {field_collection_item} AS fc ON fc_field.field_com_viv_con_sistema_revision_id = fc.revision_id";
+            FROM {entityform} as community
+            INNER JOIN {field_data_field_com_viv_con_sistema} AS fc_field ON fc_field.revision_id = community.vid
+            INNER JOIN {field_collection_item} AS fc ON fc_field.field_com_viv_con_sistema_revision_id = fc.revision_id";
            if ($bundle == 'prestador_de_servicio') {
              $query .= " inner JOIN {field_revision_field_prestador_servicio} AS fci on fci.revision_id = fc.revision_id";
              $column = "field_prestador_servicio_target_id";
@@ -351,14 +374,17 @@ FROM {entityform} as community
 where
   fci.". $column ." = :id";
 
-  $result = db_query($query, [':id' => $entityform_id]);
-  $form_id = reset($result->fetchAllAssoc('entityform_id'));
+  $query = db_query($query, [':id' => $entityform_id]);
+  $results = $query->fetchAllAssoc('entityform_id');
 
-  if ($form_id) {
-    return _query_validated_revision($form_id->entityform_id);
+  $is_valid = TRUE;
+  foreach ($results as $result) {
+    if (!_query_validated_revision($result->entityform_id, TRUE)) {
+      $is_valid = FALSE;
+    }
   }
 
-  return FALSE;
+  return $is_valid;
 }
 
 /**
@@ -466,4 +492,48 @@ function siasar_entityform_views_pre_render(&$view) {
       $result->entityform_type = $entity_type->getTranslation('label');
     }
   }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function siasar_entityform_entity_presave($entity, $type) {
+  // Update referenced surveys when adding to a community in order to send the
+  // proper values to ETL/BI.
+  if ($type == 'field_collection_item' && $entity->field_name == 'field_com_viv_con_sistema') {
+    if ($entity->is_new) {
+      if (!empty($entity->field_prestador_servicio[LANGUAGE_NONE][0]['target_id'])) {
+        _siasar_entityform_force_update($entity->field_prestador_servicio[LANGUAGE_NONE][0]['target_id']);
+      }
+
+      if (!empty($entity->field_system_ref[LANGUAGE_NONE][0]['target_id'])) {
+        _siasar_entityform_force_update($entity->field_system_ref[LANGUAGE_NONE][0]['target_id']);
+      }
+    }
+    else {
+      $new_values = $entity->wrapper();
+      $old_values = $entity->original->wrapper();
+
+      if ($new_values->field_prestador_servicio->raw() != $old_values->field_prestador_servicio->raw()) {
+        _siasar_entityform_force_update($new_values->field_prestador_servicio->raw());
+      }
+
+      if ($new_values->field_system_ref->raw() != $old_values->field_system_ref->raw()) {
+        _siasar_entityform_force_update($new_values->field_system_ref->raw());
+      }
+    }
+  }
+}
+
+/**
+ * Force an entityform to change the update date.
+ *
+ * @param $entityform_id
+ * @param string $entity_type
+ */
+function _siasar_entityform_force_update($entityform_id, $entity_type = 'entityform') {
+  $entity = entity_load_single($entity_type, $entityform_id);
+  $entity->changed = time();
+
+  entity_save($entity_type, $entity);
 }
