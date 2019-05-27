@@ -177,6 +177,9 @@ function _computable_revision($entityform_id) {
             ->condition('entityform_id', $entityform_id, '=')
             ->execute();
 
+          // Force update to change modified date.
+          _siasar_entityform_force_update($entityform_id);
+
           // Trigger update
           switch ($entityform->bundle()) {
             case 'sistema':
@@ -218,6 +221,9 @@ function _computable_revision($entityform_id) {
             ])
             ->condition('entityform_id', $entityform_id, '=')
             ->execute();
+
+          // Force update to change modified date.
+          _siasar_entityform_force_update($entityform_id);
         }
       }
     }
