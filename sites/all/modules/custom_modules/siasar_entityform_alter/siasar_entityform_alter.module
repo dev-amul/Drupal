@@ -547,10 +547,15 @@ function check_required_fields_value($dependent_fields, $form, &$form_state) {
           $set_error = TRUE;
         }
         break;
-      // Check integer fields.
-      case 'integer':
+      // Check select fields.
       case 'select':
         if (empty($form_state['values'][$dependent_field['name']][LANGUAGE_NONE][0]['value'])) {
+          $set_error = TRUE;
+        }
+        break;
+      // Check integer fields.
+      case 'integer':
+        if ($form_state['values'][$dependent_field['name']][LANGUAGE_NONE][0]['value'] !== "0" && empty($form_state['values'][$dependent_field['name']][LANGUAGE_NONE][0]['value'])) {
           $set_error = TRUE;
         }
         break;
@@ -616,10 +621,14 @@ function check_field_collection_required_values($field_collection, $index, $depe
     $set_error = FALSE;
 
     switch ($dependent_field['type']) {
-      case 'integer':
       case 'textfield':
       case 'select':
         if (empty($field_collection_values[$dependent_field['name']][LANGUAGE_NONE][0]['value'])) {
+          $set_error = TRUE;
+        }
+        break;
+      case 'integer':
+        if ($field_collection_values[$dependent_field['name']][LANGUAGE_NONE][0]['value'] !== "0" && empty($field_collection_values[$dependent_field['name']][LANGUAGE_NONE][0]['value'])) {
           $set_error = TRUE;
         }
         break;
