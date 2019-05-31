@@ -2059,13 +2059,3 @@ function siasar_updates_update_7228(&$sandbox) {
   $role = user_role_load_by_name('usuario anónimo');
   user_role_revoke_permissions($role->rid, ['view files']);
 }
-
-/**
- * Revert modified features.
- */
-function siasar_updates_update_7229(&$sandbox) {
-  features_revert_module('feature_siasar_entityform_sistema');
-  features_revert_module('feature_siasar_entityform_comunidad');
-  features_revert_module('feature_siasar_entityform_prestador_servicio');
-  features_revert_module('feature_siasar_entityform_prestador_asistencia_tecnica');
-}
