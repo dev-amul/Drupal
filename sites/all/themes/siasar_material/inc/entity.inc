@@ -32,3 +32,20 @@ function _siasar_material_create_title_and_id_string(&$variables) {
 
   return $string;
 }
+
+/**
+ * Add changed date to info variables.
+ *
+ * @param $variables
+ */
+function _siasar_material_add_last_change_date(&$variables) {
+  if (!empty($variables['entityform']->changed)) {
+    // Format changed date.
+    $formatted_changed_date = format_date($variables['entityform']->changed);
+    // Build the translatable string.
+    $changed_string = t("Last change on @date", ["@date" => $formatted_changed_date]);
+
+    // Add data to info.
+    $variables['content']['info']['user']['#markup'] = $variables['content']['info']['user']['#markup'] . ". " . $changed_string;
+  }
+}
