@@ -2,7 +2,9 @@
 
 /**
  * Loads N11 table from file.
- * Drush command 'siasar_load_n11' calls this function
+ * Drush command 'siasar_load_n11' calls this function.
+ *
+ * The row structure follow this pattern: Country;Level1;Level2;Level3;Level4
  *
  * @param string $country_code
  * @param string $vocab_machine_name
@@ -12,7 +14,7 @@
  * @param boolean $zip
  * @return void
  */
-function siasar_n11_manager_load_n11($country_code, $vocab_machine_name, $file_uri = 'public://file.csv', $skip = 0, $lines, $zipcode_in_csv = false) {
+function siasar_n11_manager_load_n11($country_code, $vocab_machine_name, $file_uri = 'public://file.csv', $skip = 0, $lines, $zipcode_in_csv = false, $ignore_first_line = true) {
   module_load_include('inc', 'siasar_n11_manager', 'inc/siasar_n11_manager.helpers');
 
   $error_in_command_line = _siasar_n11_manager_load_n11_error_check($country_code, $vocab_machine_name, $file_uri);
@@ -32,6 +34,11 @@ function siasar_n11_manager_load_n11($country_code, $vocab_machine_name, $file_u
   $terms_processed = array();
   $new_terms = 0;
 
+  // Remove the first line if it proceed.
+  if ($ignore_first_line) {
+    array_shift($csv);
+  }
+
   for($line = $skip; $line < count($csv) && isset($csv[$line]) && $line < ($lines + $skip); $line++) {
     $chunk = &$csv[$line];
 
@@ -42,7 +49,9 @@ function siasar_n11_manager_load_n11($country_code, $vocab_machine_name, $file_u
         ? count($chunk) - 1
         : count($chunk);
 
-    for($i = 0; $i < $real_chunk_length; $i++) {
+    // Ignore the first item that correspond to the country. We have it as an
+    // argument.
+    for($i = 1; $i < $real_chunk_length; $i++) {
       $term_name = $chunk[$i];
 
       if (!isset($terms_processed_level[$term_name])) {
@@ -87,7 +96,6 @@ function siasar_n11_manager_load_n11($country_code, $vocab_machine_name, $file_u
 
   drupal_set_message('Lines processed: ' . ($line - $skip). ' Saved ' . $new_terms . ' new locations.');
 }
-
 
 /**
  * Remove all N11 terms for a specified country
