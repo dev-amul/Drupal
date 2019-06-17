@@ -16,6 +16,7 @@ function siasar_n11_manager_drush_command() {
     ),
     'options' => [
       'zip' => 'Last column of the CSV file is a ZIP code (true/false, defaults to false)',
+      'ignore first line' => 'First line to be ignored. Default to TRUE',
     ],
     'callback' => 'drush_siasar_load_n11',
     'examples' => array(
