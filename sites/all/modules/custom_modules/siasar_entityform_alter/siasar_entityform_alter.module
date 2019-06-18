@@ -11,6 +11,7 @@ function siasar_entityform_alter_form_alter(&$form, &$form_state, $form_id) {
 
   $module_path = drupal_get_path('module', 'siasar_entityform_alter');
   $form['#attached']['js'][] = $module_path . '/js/siasar_entityform_alter.print_edit.js';
+  $form['#attached']['js'][] = $module_path . '/js/siasar_entityform_alter.disable_buttons.js';
 
   _siasar_entityform_alter_set_default_country_from_user($form);
   _siasar_entityform_alter_set_default_location_from_user($form);
