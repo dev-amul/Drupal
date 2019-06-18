@@ -14,8 +14,10 @@
  * @param boolean $zip
  * @return void
  */
-function siasar_n11_manager_load_n11($country_code, $vocab_machine_name, $file_uri = 'public://file.csv', $skip = 0, $lines, $zipcode_in_csv = false, $ignore_first_line = true) {
+function siasar_n11_manager_load_n11($country_code, $vocab_machine_name, $file_uri = 'public://file.csv', $skip = 0, $lines, $zipcode_in_csv = false) {
   module_load_include('inc', 'siasar_n11_manager', 'inc/siasar_n11_manager.helpers');
+
+  $ignore_first_line = drush_get_option('ignore-first-line', true);
 
   $error_in_command_line = _siasar_n11_manager_load_n11_error_check($country_code, $vocab_machine_name, $file_uri);
   if ($error_in_command_line)
