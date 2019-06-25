@@ -384,10 +384,15 @@ where
   $results = $query->fetchAllAssoc('entityform_id');
 
   $is_valid = TRUE;
-  foreach ($results as $result) {
-    if (!_query_validated_revision($result->entityform_id, TRUE)) {
-      $is_valid = FALSE;
+  if (!empty($results)) {
+    foreach ($results as $result) {
+      if (!_query_validated_revision($result->entityform_id, TRUE)) {
+        $is_valid = FALSE;
+      }
     }
+  }
+  else {
+    $is_valid = FALSE;
   }
 
   return $is_valid;
