@@ -65,6 +65,22 @@ function _b_fields_validation($form, &$form_state) {
         'name' => 'field_numero_reuniones',
         'type' => 'integer',
       ),
+      array(
+        'name' => 'field_miembros_nombrados',
+        'type' => 'boolean',
+      ),
+      array(
+        'name' => 'field_cuenta_banco',
+        'type' => 'boolean',
+      ),
+      array(
+        'name' => 'field_rinde_cuentas',
+        'type' => 'boolean',
+      ),
+      array(
+        'name' => 'field_acta_rendicion_cuentas',
+        'type' => 'boolean',
+      ),
     );
 
     check_required_fields_value($dependents_fields, $form, $form_state);
