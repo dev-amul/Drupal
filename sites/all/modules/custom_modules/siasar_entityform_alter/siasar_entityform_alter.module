@@ -560,6 +560,11 @@ function check_required_fields_value($dependent_fields, $form, &$form_state) {
           $set_error = TRUE;
         }
         break;
+      case 'boolean':
+        if ($form_state['input'][$dependent_field['name']][LANGUAGE_NONE] !== "0" && empty($form_state['input'][$dependent_field['name']][LANGUAGE_NONE])) {
+          $set_error = TRUE;
+        }
+        break;
     }
 
     // Check if the current field has error.
