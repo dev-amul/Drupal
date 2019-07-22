@@ -593,7 +593,8 @@ function check_if_field_has_value($field_name, $value, $type, $form_state) {
   switch ($type) {
     case 'entity_reference':
       if (isset($form_state['values'][$field_name])
-        && $form_state['values'][$field_name][LANGUAGE_NONE][0]['tid'] == $value) {
+        && ($form_state['values'][$field_name][LANGUAGE_NONE][0]['tid'] == $value
+          || $form_state['values'][$field_name][LANGUAGE_NONE][0]['target_id'] == $value)) {
         $result = TRUE;
       }
       break;

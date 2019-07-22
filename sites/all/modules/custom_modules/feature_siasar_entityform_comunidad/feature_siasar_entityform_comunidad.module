@@ -23,7 +23,7 @@ function feature_siasar_entityform_comunidad_form_comunidad_entityform_edit_form
  * @param $form_state
  */
 function _community_b_fields_validation($form, &$form_state) {
-  if (check_if_field_has_value('field_data_collection_method', 742124, 'entity_reference', $form_state)) {
+  if (check_if_field_has_value('field_data_collection_method', "742124", 'entity_reference', $form_state)) {
     $dependent_fields = array(
       array(
         'name' => 'field_com_num_viv_muestra',
