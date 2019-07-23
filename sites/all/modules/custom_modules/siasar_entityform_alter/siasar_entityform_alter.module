@@ -604,6 +604,11 @@ function check_if_field_has_value($field_name, $value, $type, $form_state) {
         $result = TRUE;
       }
       break;
+    case 'number_decimal':
+      if (isset($form_state['values'][$field_name]) && $form_state['values'][$field_name][LANGUAGE_NONE][0]['value'] == $value) {
+        $result = TRUE;
+      }
+      break;
   }
 
   return $result;
