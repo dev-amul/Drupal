@@ -5,3 +5,96 @@
  */
 
 include_once 'feature_siasar_entityform_prestador_asistencia_tecnica.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function feature_siasar_entityform_prestador_asistencia_tecnica_form_prestador_de_asistencia_t_cnica_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
+  // Add validation for c block fields.
+  $form['#validate'][] = '_pat_c_fields_validation';
+}
+
+/**
+ * Validate C block fields values.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _pat_c_fields_validation($form, &$form_state) {
+  if (!check_if_field_has_value('field_cantidad_equipos_transport', 0, 'number_decimal', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_estado_equipos_transporte',
+        'type' => 'entity_reference',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+
+  if (!check_if_field_has_value('field_cantidad_medicion_agua', 0, 'number_decimal', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_estado_medicion_agua',
+        'type' => 'entity_reference',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+
+  if (!check_if_field_has_value('field_cantidad_equipos_inform', 0, 'number_decimal', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_estado_equipos_informatico',
+        'type' => 'entity_reference',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+
+  if (check_if_field_has_value('field_dispone_fondos_viaticos', '1', 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_estado_fondos_viaticos',
+        'type' => 'entity_reference',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+
+  if (check_if_field_has_value('field_dispone_fondos_combistible', '1', 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_estado_fondos_combustible',
+        'type' => 'entity_reference',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+
+  if (check_if_field_has_value('field_dispone_servicios_internet', '1', 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_estado_servicios_internet',
+        'type' => 'entity_reference',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+
+  if (check_if_field_has_value('field_dispone_material_didactico', '1', 'boolean', $form_state)) {
+    $dependent_fields = array(
+      array(
+        'name' => 'field_estado_material_didactico',
+        'type' => 'entity_reference',
+      ),
+    );
+
+    check_required_fields_value($dependent_fields, $form, $form_state);
+  }
+}
