@@ -16,6 +16,12 @@ function feature_siasar_user_user_default_roles() {
     'weight' => 12,
   );
 
+  // Exported role: Admin usuarios.
+  $roles['Admin usuarios'] = array(
+    'name' => 'Admin usuarios',
+    'weight' => 13,
+  );
+
   // Exported role: Administrador Local.
   $roles['Administrador Local'] = array(
     'name' => 'Administrador Local',

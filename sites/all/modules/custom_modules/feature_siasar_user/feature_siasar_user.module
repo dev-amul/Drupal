@@ -26,3 +26,31 @@ function feature_siasar_user_form_alter(&$form, &$form_state, $form_id) {
 function feature_siasar_user_user_presave(&$edit, &$account, $category) {
   if(trim($account->pass) == '') unset($account->pass);
 }
+
+/**
+ * Implements hook_menu_alter().
+ */
+function feature_siasar_user_menu_alter(&$items) {
+  $items['admin/structure/entityform_types']['access callback'] = 'feature_siasar_user_entity_access_callback_alter';
+}
+
+/**
+ * Custom access callback for entity types pages.
+ *
+ * @param $op
+ * @param $entity_type
+ * @param null $entity
+ * @param null $account
+ *
+ * @return bool
+ */
+function feature_siasar_user_entity_access_callback_alter($op, $entity_type, $entity = NULL, $account = NULL) {
+  global $user;
+
+  // Check if the user has only the admin usuarios role and deny access.
+  if (in_array('Admin usuarios', $user->roles) && !in_array('administrator', $user->roles)) {
+    return FALSE;
+  }
+
+  return entity_access($op, $entity_type);
+}

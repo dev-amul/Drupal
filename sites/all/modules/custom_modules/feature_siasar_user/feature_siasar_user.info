@@ -21,6 +21,7 @@ features[field_instance][] = user-user-field_nombre_completo
 features[field_instance][] = user-user-field_pais
 features[field_instance][] = user-user-field_telefono
 features[user_role][] = Actualizador
+features[user_role][] = Admin usuarios
 features[user_role][] = Administrador Local
 features[user_role][] = Administrador Regional
 features[user_role][] = Digitador
