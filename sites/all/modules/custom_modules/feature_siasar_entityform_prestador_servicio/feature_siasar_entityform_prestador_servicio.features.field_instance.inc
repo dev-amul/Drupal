@@ -39,7 +39,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'entity_type' => 'entityform',
     'field_name' => 'field__aportaciones_extras',
     'label' => '¿Se han realizado aportaciones extraordinarias no directamente vinculadas al servicio de agua? ',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -100,11 +100,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_acta_rendicion_cuentas'.
   $field_instances['entityform-prestador_de_servicio-field_acta_rendicion_cuentas'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -564,7 +560,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'entity_type' => 'entityform',
     'field_name' => 'field_altitud',
     'label' => 'Altitud',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -629,7 +625,11 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_atencion_del_prestador'.
   $field_instances['entityform-prestador_de_servicio-field_atencion_del_prestador'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'tid' => 32050,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -653,7 +653,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -745,7 +745,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -900,11 +900,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_cuenta_banco'.
   $field_instances['entityform-prestador_de_servicio-field_cuenta_banco'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1327,7 +1323,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'label' => 'Fecha de creación',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -1385,7 +1381,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'label' => 'Fecha de última elección de los miembros de Junta',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -2683,11 +2679,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_miembros_nombrados'.
   $field_instances['entityform-prestador_de_servicio-field_miembros_nombrados'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3608,7 +3600,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_numero_reuniones'.
   $field_instances['entityform-prestador_de_servicio-field_numero_reuniones'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3638,7 +3630,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => 180,
-      'min' => 0,
+      'min' => '',
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
@@ -4396,7 +4388,11 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_reglamento_servicios'.
   $field_instances['entityform-prestador_de_servicio-field_reglamento_servicios'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'tid' => 32035,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -4420,7 +4416,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -4731,11 +4727,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_rinde_cuentas'.
   $field_instances['entityform-prestador_de_servicio-field_rinde_cuentas'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -4843,7 +4835,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'entity_type' => 'entityform',
     'field_name' => 'field_sumatoria_gastos_reales',
     'label' => 'Suma de gastos reales ',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'mvf' => array(
@@ -4865,7 +4857,16 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
             'en' => -1,
             'enable' => 0,
             'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-DO' => -1,
+            'es-HN' => -1,
+            'es-MX' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
             'pt-br' => -1,
+            'ru' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -5239,7 +5240,11 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
   // 'entityform-prestador_de_servicio-field_tiene_definido_tipo_tarifa'.
   $field_instances['entityform-prestador_de_servicio-field_tiene_definido_tipo_tarifa'] = array(
     'bundle' => 'prestador_de_servicio',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -5260,7 +5265,7 @@ function feature_siasar_entityform_prestador_servicio_field_default_field_instan
     'entity_type' => 'entityform',
     'field_name' => 'field_tiene_definido_tipo_tarifa',
     'label' => 'Tiene definido un tipo de tarifa?',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,

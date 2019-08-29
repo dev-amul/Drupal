@@ -45,6 +45,7 @@ function siasar_material_preprocess_page(&$vars) {
  */
 function siasar_material_preprocess_entity(&$variables) {
   _siasar_material_suggest_template_for_entity_reference($variables);
+  _siasar_material_add_last_change_date($variables);
 
   $variables['type_id'] = _siasar_material_create_title_and_id_string($variables);
 }

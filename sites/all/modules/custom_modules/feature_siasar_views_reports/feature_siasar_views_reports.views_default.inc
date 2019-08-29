@@ -434,6 +434,155 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['field_language'] = 'und';
   $handler->display->display_options['field_language_add_to_query'] = 0;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page'] = TRUE;
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elements per page';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options'] = '50, 100, 200';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['columns'] = array(
+    'views_bulk_operations' => 'views_bulk_operations',
+    'entityform_id' => 'entityform_id',
+    'field_entity_name' => 'field_entity_name',
+    'field_entidad_local' => 'field_entidad_local',
+    'created' => 'created',
+    'field_fecha_aplicacion' => 'field_fecha_encuesta',
+    'field_fecha_de_aplicaci_n' => 'field_fecha_encuesta',
+    'field_fecha_de_aplicacion' => 'field_fecha_encuesta',
+    'field_fecha_encuesta' => 'field_fecha_encuesta',
+    'field_nombre_completo' => 'field_nombre_completo',
+    'field_nombre_completo_1' => 'field_nombre_completo_1',
+    'label' => 'label',
+    'field_status' => 'field_status',
+    'entityform_revision' => 'entityform_revision',
+    'edit_entityform' => 'edit_entityform',
+    'link_entityform' => 'link_entityform',
+    'nothing' => 'nothing',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'views_bulk_operations' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'entityform_id' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_entity_name' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_entidad_local' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fecha_aplicacion' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fecha_de_aplicaci_n' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fecha_de_aplicacion' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fecha_encuesta' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_nombre_completo' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_nombre_completo_1' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'label' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_status' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'entityform_revision' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_entityform' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'link_entityform' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['sticky'] = TRUE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
   /* Footer: Global: Result summary */
   $handler->display->display_options['footer']['result']['id'] = 'result';
@@ -548,7 +697,65 @@ function feature_siasar_views_reports_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd F Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Usuario: Nombre completo */
+  /* Field: Entityform Submission: Fecha de Aplicación */
+  $handler->display->display_options['fields']['field_fecha_aplicacion']['id'] = 'field_fecha_aplicacion';
+  $handler->display->display_options['fields']['field_fecha_aplicacion']['table'] = 'field_data_field_fecha_aplicacion';
+  $handler->display->display_options['fields']['field_fecha_aplicacion']['field'] = 'field_fecha_aplicacion';
+  $handler->display->display_options['fields']['field_fecha_aplicacion']['label'] = '';
+  $handler->display->display_options['fields']['field_fecha_aplicacion']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fecha_aplicacion']['settings'] = array(
+    'format_type' => 'custom',
+    'custom_date_format' => 'd F Y',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Entityform Submission: Fecha de Aplicación */
+  $handler->display->display_options['fields']['field_fecha_de_aplicaci_n']['id'] = 'field_fecha_de_aplicaci_n';
+  $handler->display->display_options['fields']['field_fecha_de_aplicaci_n']['table'] = 'field_data_field_fecha_de_aplicaci_n';
+  $handler->display->display_options['fields']['field_fecha_de_aplicaci_n']['field'] = 'field_fecha_de_aplicaci_n';
+  $handler->display->display_options['fields']['field_fecha_de_aplicaci_n']['label'] = '';
+  $handler->display->display_options['fields']['field_fecha_de_aplicaci_n']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fecha_de_aplicaci_n']['settings'] = array(
+    'format_type' => 'custom',
+    'custom_date_format' => 'd F Y',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Entityform Submission: Fecha de Aplicación */
+  $handler->display->display_options['fields']['field_fecha_de_aplicacion']['id'] = 'field_fecha_de_aplicacion';
+  $handler->display->display_options['fields']['field_fecha_de_aplicacion']['table'] = 'field_data_field_fecha_de_aplicacion';
+  $handler->display->display_options['fields']['field_fecha_de_aplicacion']['field'] = 'field_fecha_de_aplicacion';
+  $handler->display->display_options['fields']['field_fecha_de_aplicacion']['label'] = '';
+  $handler->display->display_options['fields']['field_fecha_de_aplicacion']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fecha_de_aplicacion']['settings'] = array(
+    'format_type' => 'custom',
+    'custom_date_format' => 'd F Y',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Entityform Submission: Fecha de aplicación */
+  $handler->display->display_options['fields']['field_fecha_encuesta']['id'] = 'field_fecha_encuesta';
+  $handler->display->display_options['fields']['field_fecha_encuesta']['table'] = 'field_data_field_fecha_encuesta';
+  $handler->display->display_options['fields']['field_fecha_encuesta']['field'] = 'field_fecha_encuesta';
+  $handler->display->display_options['fields']['field_fecha_encuesta']['settings'] = array(
+    'format_type' => 'custom',
+    'custom_date_format' => 'd F Y',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: User: Nombre completo */
   $handler->display->display_options['fields']['field_nombre_completo']['id'] = 'field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['table'] = 'field_data_field_nombre_completo';
   $handler->display->display_options['fields']['field_nombre_completo']['field'] = 'field_nombre_completo';

@@ -2801,7 +2801,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_1',
     'label' => 'Código de la distribución',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'text_processing' => 0,
@@ -2884,7 +2884,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_3',
     'label' => 'Número de micro medidores instalados',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -2926,7 +2926,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_4',
     'label' => 'Número de micro medidores con consumo registrado',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -2968,7 +2968,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f1_5',
     'label' => 'Horas de servicio al día',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => 24,
@@ -3005,7 +3005,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_f2_1',
     'label' => 'Señalar a qué distancia aproximada se encuentran instalados los puntos de toma de agua públicos a las casas de los usuarios.',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -3159,7 +3159,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_caudal_de_la_fuente',
     'label' => 'Caudal de la fuente',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'mvf' => array(
@@ -3174,14 +3174,23 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
         'unit_suggesters_settings' => array(
           'hardcoded' => array(
             'enable' => 0,
-            'unit' => 598,
+            'unit' => 721,
             'weight' => 0,
           ),
           'locale' => array(
             'en' => -1,
             'enable' => 1,
-            'es' => 594,
-            'pt-br' => 625,
+            'es' => -1,
+            'es-BO' => -1,
+            'es-CO' => -1,
+            'es-DO' => -1,
+            'es-HN' => -1,
+            'es-MX' => -1,
+            'es-NI' => -1,
+            'es-PY' => -1,
+            'gn-PY' => -1,
+            'pt-br' => -1,
+            'ru' => -1,
             'weight' => 0,
           ),
           'original' => array(
@@ -3636,7 +3645,7 @@ function feature_siasar_entityform_sistema_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_fecha_toma_caudal_ep_seca',
     'label' => 'Fecha de la toma del caudal de la fuente',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'default_value' => 'now',
       'default_value2' => 'same',

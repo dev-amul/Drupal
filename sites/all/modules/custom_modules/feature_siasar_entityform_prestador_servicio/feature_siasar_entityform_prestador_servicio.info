@@ -183,7 +183,6 @@ features[field_validation_rule][] = paying_users_higher_equal_paid
 features[field_validation_rule][] = ps_fecha_aplicacion_now
 features[field_validation_rule][] = ps_fecha_creacion_now
 features[field_validation_rule][] = ps_fecha_eleccion_now
-features[field_validation_rule][] = real_total_should_match_reals
 features[field_validation_rule][] = theory_total_match_theory_values
 features_exclude[field_base][field_rating_s1] = field_rating_s1
 features_exclude[field_base][field_data_source] = field_data_source

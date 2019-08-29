@@ -189,7 +189,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_com_altitud',
     'label' => 'Altitud',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -1690,7 +1690,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_com_recotrata_disp',
     'label' => '¿Cuál es la disposición final de la basura más habitual en la comunidad? (quema, enterrada, tirada, tirada en un cuerpo de agua, etc.)',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -2261,7 +2261,7 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'options_limit' => FALSE,
     'options_limit_empty_behaviour' => 0,
     'options_limit_fields' => array(),
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -2446,7 +2446,10 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_etnia_en_mayoria',
     'label' => 'Etnia en mayoría',
-    'required' => 1,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -2638,7 +2641,10 @@ function feature_siasar_entityform_comunidad_field_default_field_instances() {
     'entity_type' => 'entityform',
     'field_name' => 'field_idioma_predominante',
     'label' => 'Idioma predominante',
-    'required' => 1,
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
