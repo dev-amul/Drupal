@@ -1,21 +1,29 @@
 <?php
 
-function _siasar_entityform_change_service_services_index($page, $parameters)
-{
-    if (!isset($parameters['type'])) {
-        $parameters['type'] = '%';
-    }
+/**
+ * Index callback for entityform_change_state service.
+ *
+ * @param $page
+ * @param $parameters
+ *
+ * @return mixed
+ * @throws \Exception
+ */
+function _siasar_entityform_change_service_services_index($page, $parameters) {
+  if (!isset($parameters['type'])) {
+    $parameters['type'] = '%';
+  }
 
-    if (!isset($parameters['date_from'])) {
-        $parameters['date_from'] = 0;
-    }
+  if (!isset($parameters['date_from'])) {
+    $parameters['date_from'] = 0;
+  }
 
-    if (!isset($parameters['date_to'])) {
-        $date = new DateTime();
-        $parameters['date_to'] = $date->getTimestamp();
-    }
+  if (!isset($parameters['date_to'])) {
+    $date = new DateTime();
+    $parameters['date_to'] = $date->getTimestamp();
+  }
 
-    $query = db_query("SELECT e.entityform_id,
+  $query = db_query("SELECT e.entityform_id,
            e.type,
            workflow.stamp AS date
         FROM entityform e
@@ -29,7 +37,11 @@ function _siasar_entityform_change_service_services_index($page, $parameters)
                AND e.changed <= (:date_to)
                AND ( status.field_status_value = 5 OR workflow.old_sid = 3 )
                AND status.field_status_value <> 4
-               AND workflow.latest = 1", array(':type' => $parameters['type'], ':date_from' => $parameters['date_from'], ':date_to' => $parameters['date_to']));
+               AND workflow.latest = 1", [
+    ':type' => $parameters['type'],
+    ':date_from' => $parameters['date_from'],
+    ':date_to' => $parameters['date_to'],
+  ]);
 
-    return $query->fetchAllAssoc('entityform_id');
+  return $query->fetchAllAssoc('entityform_id');
 }
