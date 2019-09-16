@@ -6136,6 +6136,7 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
+        0 => 'No aplica',
         1 => 'Menor de 100 metros',
         2 => 'Mayor de 100 metros',
       ),
