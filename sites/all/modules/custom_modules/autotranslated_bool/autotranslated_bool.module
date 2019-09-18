@@ -59,7 +59,7 @@ function autotranslated_bool_field_formatter_view($entity_type, $entity, $field,
   module_load_include('inc', 'autotranslated_bool', 'autotranslated_bool.helpers');
 
   foreach ($items as $delta => $item) {
-    if (empty($item['value'])) {
+    if ($item['value'] !== "0" && empty($item['value'])) {
       continue;
     }
     $value = (int) $item['value'];
