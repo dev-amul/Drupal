@@ -543,8 +543,25 @@ function siasar_entityform_entity_presave($entity, $type) {
  * @param string $entity_type
  */
 function _siasar_entityform_force_update($entityform_id, $entity_type = 'entityform') {
-  $entity = entity_load_single($entity_type, $entityform_id);
-  $entity->changed = time();
+  if ($entity_type == 'entityform') {
+    // Update the entityform itself.
+    db_update('entityform')
+      ->condition('entityform_id', $entityform_id)
+      ->fields(['changed' => time()])
+      ->execute();
 
-  entity_save($entity_type, $entity);
+    $last_revision = db_select('entityform_revision', 'er')
+      ->fields('er', array('vid'))
+      ->condition('entityform_id', $entityform_id)
+      ->orderBy('vid', 'DESC')
+      ->range(0, 1)
+      ->execute()->fetchField();
+
+    // Update the last revision of the given entityform.
+    db_update('entityform_revision')
+      ->condition('entityform_id', $entityform_id)
+      ->condition('vid', $last_revision)
+      ->fields(['changed' => time()])
+      ->execute();
+  }
 }
