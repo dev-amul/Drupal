@@ -1,0 +1,96 @@
+diff --git a/addressfield.module b/addressfield.module
+index 68b45d9..bf0bf70 100644
+--- a/addressfield.module
++++ b/addressfield.module
+@@ -52,6 +52,37 @@ function addressfield_module_implements_alter(&$implementations, $hook) {
+   }
+ }
+
++/**
++ * Returns a list of address fields optionally filtered by entity type.
++ *
++ * @param string $entity_type
++ *   Optional machine-name of an entity type to filter the returned array by.
++ *
++ * @return array
++ *   An array of address field mapping data.
++ */
++function addressfield_get_address_fields($entity_type = '') {
++  $fields = &drupal_static(__FUNCTION__ . '_' . $entity_type);
++
++  if (isset($fields)) {
++    return $fields;
++  }
++
++  // Get mapping data for all address fields.
++  $fields = array_filter(field_info_field_map(), 'addressfield_field_map_filter');
++
++  // Filter the list of fields by entity type if specified.
++  if (!empty($fields) && !empty($entity_type)) {
++    foreach ($fields as $field_name => $field) {
++      if (!isset($field['bundles'][$entity_type])) {
++        unset($fields[$field_name]);
++      }
++    }
++  }
++
++  return $fields;
++}
++
+ /**
+  * Returns TRUE if a field map array value represents an addressfield.
+  *
+diff --git a/addressfield.tokens.inc b/addressfield.tokens.inc
+index d557a1f..5c325f0 100644
+--- a/addressfield.tokens.inc
++++ b/addressfield.tokens.inc
+@@ -89,11 +89,13 @@ function addressfield_token_info() {
+  */
+ function addressfield_token_info_alter(&$data) {
+   // Loop over every address field on the site.
+-  foreach (array_filter(field_info_field_map(), 'addressfield_field_map_filter') as $field_name => $field) {
+-    foreach ($data['tokens'] as $group => $token) {
+-      if (isset($data['tokens'][$group][$field_name]) && is_array($data['tokens'][$group][$field_name])) {
+-        // Set the token type for the field to use the addressfield child tokens.
+-        $data['tokens'][$group][$field_name]['type'] = 'address-field';
++  foreach (addressfield_get_address_fields() as $field_name => $field) {
++    foreach (array($field_name, strtr($field_name, '_', '-')) as $name) {
++      foreach ($data['tokens'] as $group => $token) {
++        if (isset($data['tokens'][$group][$name]) && is_array($data['tokens'][$group][$name])) {
++          // Set the token type for the field to use the addressfield child tokens.
++          $data['tokens'][$group][$name]['type'] = 'address-field';
++        }
+       }
+     }
+   }
+@@ -212,15 +214,21 @@ function addressfield_tokens($type, $tokens, array $data = array(), array $optio
+   // and helps us avoid having to do the entity detection ourselves.
+   if ($type == 'entity') {
+     // Loop over the address fields defined on the site.
+-    foreach (array_filter(field_info_field_map(), 'addressfield_field_map_filter') as $field_name => $field) {
+-      // If there are any address field tokens in the token list...
+-      if ($addressfield_tokens = token_find_with_prefix($tokens, $field_name)) {
+-        // If the current field is on the matching entity type...
+-        if (!empty($field['bundles'][$data['entity_type']])) {
+-          // Extract the format handlers selected in a representative instance
+-          // settings form for use in formatting tokens.
+-          $instance = field_info_instance($data['entity_type'], $field_name, reset($field['bundles'][$data['entity_type']]));
+-          $format_handlers = $instance['widget']['settings']['format_handlers'];
++    foreach (addressfield_get_address_fields($data['entity_type']) as $field_name => $field) {
++      // If the current field is on the matching entity type...
++      if (!empty($field['bundles'][$data['entity_type']])) {
++        // Extract the format handlers selected in a representative instance
++        // settings form for use in formatting tokens.
++        $instance = field_info_instance($data['entity_type'], $field_name, reset($field['bundles'][$data['entity_type']]));
++        $format_handlers = $instance['widget']['settings']['format_handlers'];
++      }
++
++      foreach (array($field_name, strtr($field_name, '_', '-')) as $prefix) {
++        // If there are any address field tokens in the token list...
++        $addressfield_tokens = token_find_with_prefix($tokens, $prefix);
++
++        if (!$addressfield_tokens) {
++          continue;
+         }
+
+         if (property_exists($data['entity'], $field_name)) {
