@@ -2059,3 +2059,16 @@ function siasar_updates_update_7228(&$sandbox) {
   $role = user_role_load_by_name('usuario anónimo');
   user_role_revoke_permissions($role->rid, ['view files']);
 }
+
+/**
+ * Fix issue #821: endpoint results for Honduras.
+ *
+ * @param $sandbox
+ */
+function siasar_updates_update_7231(&$sandbox) {
+  db_query("UPDATE entityform e
+                  SET changed = (SELECT er.changed FROM entityform_revision er WHERE er.entityform_id = e.entityform_id AND er.changed > e.changed order by er.changed desc limit 1)
+                  WHERE entityform_id IN (SELECT entityform_id FROM entityform e
+                                          WHERE changed NOT IN (SELECT er.changed FROM entityform_revision er WHERE er.entityform_id = e.entityform_id)
+                                          AND changed < (SELECT er.changed FROM entityform_revision er WHERE er.entityform_id = e.entityform_id order by er.changed desc limit 1))")->execute();
+}
