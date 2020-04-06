@@ -9724,18 +9724,14 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'module' => 'entityreference',
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'handler' => 'views',
+      'handler' => 'prestardor_de_servicio',
       'handler_settings' => array(
         'behaviors' => array(
           'views-select-list' => array(
             'status' => 0,
           ),
         ),
-        'view' => array(
-          'args' => array(),
-          'display_name' => 'entityreference_service_providers',
-          'view_name' => 'entityform_reference',
-        ),
+        'target_bundles' => array(),
       ),
       'target_type' => 'entityform',
     ),
@@ -10607,18 +10603,14 @@ $entity_field[0][\'value\'] = $indices[$rand_key];',
     'module' => 'entityreference',
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'handler' => 'views',
+      'handler' => 'material',
       'handler_settings' => array(
         'behaviors' => array(
           'views-select-list' => array(
             'status' => 0,
           ),
         ),
-        'view' => array(
-          'args' => array(),
-          'display_name' => 'entityreference_systems',
-          'view_name' => 'entityform_reference',
-        ),
+        'target_bundles' => array(),
       ),
       'target_type' => 'entityform',
     ),
