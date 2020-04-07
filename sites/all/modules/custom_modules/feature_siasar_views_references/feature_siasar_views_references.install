@@ -24,3 +24,20 @@ function feature_siasar_views_references_update_7100($sandbox) {
  function feature_siasar_views_references_update_7102($sandbox) {
   features_revert_module('feature_siasar_views_references');
 }
+
+/**
+ * Remove unused views.
+ */
+function feature_siasar_views_references_update_7103() {
+  $views = [
+    'system_select_view',
+    'ps_select_view',
+  ];
+
+  foreach ($views as $view) {
+    // Check if the view exists.
+    if ($view = views_get_view($view)) {
+      views_delete_view($view);
+    }
+  }
+}
