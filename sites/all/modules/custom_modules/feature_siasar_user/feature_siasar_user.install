@@ -16,6 +16,13 @@ function feature_siasar_user_update_7100(&$sandbox) {
  *
  * @param $sandbox
  */
- function feature_siasar_user_update_7101() {
+function feature_siasar_user_update_7101() {
   features_revert_module('feature_siasar_user');
+}
+
+/**
+ * Uninstall roleassign module.
+ */
+function feature_siasar_user_update_7102() {
+  module_disable(['roleassign']);
 }
