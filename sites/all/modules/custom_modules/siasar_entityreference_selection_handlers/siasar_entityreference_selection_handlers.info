@@ -1,0 +1,8 @@
+name = SIASAR entityreference selection handlers
+description = Adds special selection handlers for entityreference.
+package = Siasar
+core = 7.x
+version = 7.x-1.0
+dependencies[] = entityreference
+files[] = plugins/entityreference/selection/material/MaterialSelectionHandler.class.php
+files[] = plugins/entityreference/selection/prestardor_de_servicio/PrestadorDeServicioSelectionHandler.class.php

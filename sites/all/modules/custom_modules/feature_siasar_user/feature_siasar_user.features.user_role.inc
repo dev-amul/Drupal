@@ -52,6 +52,12 @@ function feature_siasar_user_user_default_roles() {
     'weight' => 2,
   );
 
+  // Exported role: Invitado.
+  $roles['Invitado'] = array(
+    'name' => 'Invitado',
+    'weight' => 7,
+  );
+
   // Exported role: Validador calidad de agua.
   $roles['Validador calidad de agua'] = array(
     'name' => 'Validador calidad de agua',
