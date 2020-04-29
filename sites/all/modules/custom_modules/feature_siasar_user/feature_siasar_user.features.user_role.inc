@@ -52,6 +52,12 @@ function feature_siasar_user_user_default_roles() {
     'weight' => 2,
   );
 
+  // Exported role: Guest.
+  $roles['Guest'] = array(
+    'name' => 'Guest',
+    'weight' => 7,
+  );
+
   // Exported role: Invitado.
   $roles['Invitado'] = array(
     'name' => 'Invitado',
