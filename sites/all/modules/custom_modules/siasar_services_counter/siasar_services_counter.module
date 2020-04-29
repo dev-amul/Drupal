@@ -119,6 +119,10 @@ function _siasar_services_counter_add_parameters_to_query($query, $parameters) {
 
       $query->propertyCondition('entityform_id', $computable_subquery, 'IN');
 
+    } elseif ($k === 'changed_from') {
+      $query->propertyCondition('changed', $p, '>=');
+    } elseif ($k === 'changed_to') {
+      $query->propertyCondition('changed', $p, '<=');
     } else {
       $query->propertyCondition($k, 'value', $p);
     }
