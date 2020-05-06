@@ -207,6 +207,42 @@ function feature_siasar_taxonomies_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'taxonomy_term-division_administrativa-field_transliterated_name'.
+  $field_instances['taxonomy_term-division_administrativa-field_transliterated_name'] = array(
+    'bundle' => 'division_administrativa',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_transliterated_name',
+    'label' => 'Transliterated name',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
   // 'taxonomy_term-division_politico_administrativa-field_pais'.
   $field_instances['taxonomy_term-division_politico_administrativa-field_pais'] = array(
     'bundle' => 'division_politico_administrativa',
@@ -934,6 +970,7 @@ function feature_siasar_taxonomies_field_default_field_instances() {
   t('Teléfono #1');
   t('Teléfono #2');
   t('Tipo de financiación');
+  t('Transliterated name');
 
   return $field_instances;
 }
