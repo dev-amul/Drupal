@@ -96,6 +96,12 @@ function _siasar_services_entityform_alter_get_referenced_entityform_name(&$data
           break;
       }
     }
+    elseif (isset($field['file'])) {
+      $file = file_load($field['file']['id']);
+      if (!empty($file)) {
+        $field['file']['full_url'] = file_create_url($file->uri);
+      }
+    }
   }
 }
 
