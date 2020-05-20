@@ -2072,3 +2072,208 @@ function siasar_updates_update_7231(&$sandbox) {
                                           WHERE changed NOT IN (SELECT er.changed FROM entityform_revision er WHERE er.entityform_id = e.entityform_id)
                                           AND changed < (SELECT er.changed FROM entityform_revision er WHERE er.entityform_id = e.entityform_id order by er.changed desc limit 1))")->execute();
 }
+
+/**
+ * Remove unused divisions from CO.
+ */
+function siasar_updates_update_7232(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
+
+  $terms_to_remove = db_select('taxonomy_term_data', 'term');
+  $terms_to_remove->innerJoin('field_data_field_pais', 'country', 'country.entity_id = term.tid');
+  $terms_to_remove->addField('term', 'tid');
+  $terms_to_remove->condition('term.vid', '2');
+  $terms_to_remove->condition('country.entity_type', 'taxonomy_term');
+  $terms_to_remove->condition('country.field_pais_iso2', ['CO', 'PY'], 'IN');
+
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['loop'] = 1000;
+    $sandbox['error'] = 0;
+    $sandbox['used_terms'] = _get_used_divisions(['CO']);
+  }
+
+  // Ignore terms used in entityforms.
+  $terms_to_remove->condition('term.tid', $sandbox['used_terms'], 'NOT IN');
+
+  // Set total items.
+  if (empty($sandbox['total'])) {
+    $sandbox['total'] = $terms_to_remove->execute()->rowCount();
+  }
+
+  // Limit the query results.
+  $terms_to_remove->range(0, $sandbox['loop']);
+
+  $results = $terms_to_remove->execute()->fetchAll();
+
+  // Remove returned terms.
+  foreach ($results as $tid) {
+    try {
+      taxonomy_term_delete($tid->tid);
+    } catch (Exception $e) {
+      $sandbox['error']++;
+    }
+
+    $sandbox['progress']++;
+  }
+
+  if (empty($results)) {
+    $sandbox['#finished'] = 1;
+    drupal_set_message(t('Processed: @processed; Errors: @error', ['@processed' => $sandbox['progress'], '@error' => $sandbox['error']]));
+  }
+  else {
+    $sandbox['#finished'] = $sandbox['progress'] / $sandbox['total'];
+  }
+}
+
+/**
+ * Transliterate name of CO N11 terms.
+ */
+function siasar_updates_update_7333(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
+
+  if (empty($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['items'] = 1000;
+    $sandbox['total'] = _get_n11_terms('CO', TRUE);
+  }
+
+  $results = _get_n11_terms('CO', FALSE, $sandbox['progress'], $sandbox['items']);
+
+  if (!empty($results)) {
+    foreach ($results['taxonomy_term'] as $result) {
+      $term = taxonomy_term_load($result->tid);
+
+      $name = $term->name;
+      $term->field_transliterated_name[LANGUAGE_NONE][0]['value'] = _sanitize_division_name($name);
+
+      taxonomy_term_save($term);
+      $sandbox['progress']++;
+    }
+  }
+  else {
+    $sandbox['progress'] = $sandbox['total'];
+  }
+
+  if ($sandbox['progress'] == $sandbox['total']) {
+    $sandbox['#finished'] = 1;
+  }
+  else {
+    $sandbox['#finished'] = $sandbox['progress'] / $sandbox['total'];
+  }
+}
+
+/**
+ * Update all CO divisions with its code if exists.
+ */
+function siasar_updates_update_7334(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.n11_colombia');
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
+
+  if (empty($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['items'] = 2000;
+    $sandbox['csv'] = _siasar_updates_open_parse_csv('../files/codigos_dane.csv');
+    $sandbox['preview_row'] = "";
+    $sandbox['total'] = count($sandbox['csv']);
+    $sandbox['errors'] = 0;
+    $sandbox['errors_exist'] = [];
+    $sandbox['errors_duplicated'] = [];
+    $sandbox['errors_duplicated_level'] = [];
+    $sandbox['processed'] = 0;
+  }
+
+  $i = 0;
+  while ($i <= $sandbox['items'] && count($sandbox['csv']) > $sandbox['progress']) {
+    $error = FALSE;
+    $row = $sandbox['csv'][$sandbox['progress']];
+    $imploded_row = implode(",", $row);
+
+    if (count($row) > 3 && $sandbox['preview_row'] !== $imploded_row) {
+      $level1 = _sanitize_division_name($row[1]);
+      $level2 = _sanitize_division_name($row[2]);
+      $level3 = _sanitize_division_name($row[3]);
+
+      $result = _get_n11_item_by_name($level1, $level2, $level3);
+      $result = array_unique($result, SORT_REGULAR);
+
+      // If the query obtains more than one result, we can not update the value.
+      if (!empty($result) && count($result) == 1) {
+        $tid = $result[0]->tid;
+
+        $wrapper = entity_metadata_wrapper('taxonomy_term', $tid);
+        $wrapper->field_codigo_division_admin->set($row[4]);
+        $wrapper->save();
+
+        $sandbox['processed']++;
+      }
+      else {
+        $error = TRUE;
+      }
+    }
+    else {
+      $error = TRUE;
+    }
+
+    if ($error) {
+      if ($sandbox['preview_row'] === $imploded_row) {
+        $sandbox['errors_duplicated'][] = $row;
+      }
+      else {
+        $sandbox['errors_exist'][] = $row;
+      }
+
+      $sandbox['errors']++;
+    }
+
+    $sandbox['preview_row'] = $imploded_row;
+    $i++;
+    $sandbox['progress']++;
+  }
+
+  if ($sandbox['progress'] == $sandbox['total']) {
+    $sandbox['#finished'] = 1;
+    drupal_set_message(t('Processed successfully: @ok; Not processed: @ko', ['@ok' => $sandbox['processed'], '@ko' => $sandbox['errors']]));
+    _write_csv('public://rows_not_processed_duplicated.csv', $sandbox['errors_duplicated']);
+    _write_csv('public://rows_not_processed_duplicated_level.csv', $sandbox['errors_duplicated_level']);
+    _write_csv('public://rows_not_processed_not_exist.csv', $sandbox['errors_exist']);
+  }
+  else {
+    $sandbox['#finished'] =$sandbox['progress'] / $sandbox['total'];
+  }
+}
+
+/**
+ * Add terms that not exists reported by update 7334.
+ */
+function siasar_updates_update_7335(&$sandbox) {
+  module_load_include('inc', 'siasar_updates', 'inc/siasar_updates.helpers');
+
+  if (empty($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['items'] = 2000;
+    $sandbox['data'] = _siasar_updates_open_parse_csv('public://rows_not_processed_not_exist.csv', TRUE);
+    $sandbox['total'] = count($sandbox['data']);
+    $sandbox['created_terms'] = 0;
+  }
+
+  if (count($sandbox['data']) < $sandbox['items']) {
+    $items = count($sandbox['data']);
+    $sandbox['progress'] = $sandbox['progress'] + $items;
+  }
+  else {
+    $items = $sandbox['items'];
+    $sandbox['progress'] = $sandbox['progress'] + $sandbox['items'];
+  }
+
+  $current_data = array_splice($sandbox['data'], 0, $items);
+  $sandbox['created_terms'] = $sandbox['created_terms'] + _insert_n11_divisions($current_data);
+
+  if ($sandbox['total'] === $sandbox['progress']) {
+    $sandbox['#finished'] = 1;
+    drupal_set_message("Number of terms created: {$sandbox['created_terms']}");
+  }
+  else {
+    $sandbox['#finished'] = $sandbox['progress'] / $sandbox['total'];
+  }
+}

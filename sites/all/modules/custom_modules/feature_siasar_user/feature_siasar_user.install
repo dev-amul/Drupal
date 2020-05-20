@@ -26,3 +26,21 @@ function feature_siasar_user_update_7101() {
 function feature_siasar_user_update_7102() {
   module_disable(['roleassign']);
 }
+
+/**
+ * Uninstall adminrole module.
+ * Revoke all permissions to translator role.
+ */
+function feature_siasar_user_update_7103() {
+  if (module_exists('adminrole')) {
+    module_disable(['adminrole']);
+    drupal_uninstall_modules(['adminrole']);
+  }
+
+  // Remove all permissions to translator role.
+  $rid = user_role_load_by_name('translator');
+
+  db_delete('role_permission')
+    ->condition('rid', $rid->rid)
+    ->execute();
+}
